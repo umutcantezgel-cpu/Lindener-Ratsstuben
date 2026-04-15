@@ -1,0 +1,16 @@
+{
+  "contact.name_label": "Nom",
+  "contact.email_label": "E-Mail",
+  "contact.message_label": "Message",
+  "contact.send_free": "Envoyer Gratuitement",
+  "contact.sending": "Envoi...",
+  "reservation.submit": "Demander Réservation",
+  "reservation.success": "Demande envoyée avec succès !",
+  "reservation.success_title": "Merci !",
+  "reservation.error": "Un problème est survenu.",
+  "validation.name_required": "Nom requis",
+  "validation.email_required": "E-mail valide requis",
+  "reservation.date_label": "Date",
+  "reservation.time_label": "Heure",
+  "reservation.guests_label": "Personnes"
+}

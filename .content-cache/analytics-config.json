@@ -1,0 +1,8 @@
+{
+  "provider": "ga4",
+  "measurementId": "G-XXXXXXXXXX",
+  "trackScrollDepth": true,
+  "trackTimeOnPage": true,
+  "trackShareEvents": true,
+  "contentDecayThresholdDays": 180
+}

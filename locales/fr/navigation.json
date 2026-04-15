@@ -1,0 +1,17 @@
+{
+  "nav.home": "Accueil",
+  "nav.menu": "Menu",
+  "nav.reservation": "Réservation",
+  "nav.about": "À Propos",
+  "nav.contact": "Contact",
+  "nav.gallery": "Galerie",
+  "footer.imprint": "Mentions Légales",
+  "footer.privacy": "Politique de Confidentialité",
+  "footer.cookie_policy": "Politique des Cookies",
+  "footer.opening_hours": "Horaires d'Ouverture",
+  "footer.monday": "Lundi",
+  "footer.tuesday_sunday": "Mardi – Dimanche",
+  "footer.closed": "Fermé",
+  "footer.open_hours": "12:00 – 22:00",
+  "breadcrumbs.home": "Accueil"
+}

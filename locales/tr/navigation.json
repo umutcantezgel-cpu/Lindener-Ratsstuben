@@ -1,0 +1,17 @@
+{
+  "nav.home": "Ana Sayfa",
+  "nav.menu": "Menü",
+  "nav.reservation": "Rezervasyon",
+  "nav.about": "Hakkımızda",
+  "nav.contact": "İletişim",
+  "nav.gallery": "Galeri",
+  "footer.imprint": "Yasal Bildirim",
+  "footer.privacy": "Gizlilik Politikası",
+  "footer.cookie_policy": "Çerez Politikası",
+  "footer.opening_hours": "Çalışma Saatleri",
+  "footer.monday": "Pazartesi",
+  "footer.tuesday_sunday": "Salı – Pazar",
+  "footer.closed": "Kapalı",
+  "footer.open_hours": "12:00 – 22:00",
+  "breadcrumbs.home": "Ana Sayfa"
+}

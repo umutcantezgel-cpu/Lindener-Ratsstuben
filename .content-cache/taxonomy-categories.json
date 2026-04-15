@@ -1,0 +1,15 @@
+{
+  "blog": [
+    "test-post"
+  ],
+  "ausflug": [
+    "mathematikum-giessen"
+  ],
+  "freizeit": [
+    "duensberg"
+  ],
+  "region": [
+    "giessen",
+    "wetzlar"
+  ]
+}
