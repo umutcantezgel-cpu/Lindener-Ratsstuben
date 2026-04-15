@@ -4,7 +4,7 @@ import { Testimonial } from '@/data/testimonials';
 
 const StarRating = ({ rating }: { rating: number }) => {
     return (
-        <div className="flex gap-1" aria-label={`Bewertung: ${rating} von 5 Sternen`}>
+        <div role="img" className="flex gap-1" aria-label={`Bewertung: ${rating} von 5 Sternen`}>
             {[...Array(5)].map((_, i) => (
                 <svg 
                     key={i} 

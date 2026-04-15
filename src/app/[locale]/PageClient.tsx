@@ -71,7 +71,7 @@ export const Home = () => {
                     <div className="flex flex-col md:flex-row gap-6 justify-center items-center mt-6">
                         <Link 
                             href="/reservation"
-                            className="interaction-bounce px-8 py-4 bg-accent text-white font-bold rounded-lg hover:bg-accent-hover shadow-warm inline-block uppercase tracking-wider"
+                            className="interaction-bounce px-8 py-4 bg-accent text-neutral-950 font-bold rounded-lg hover:bg-accent-hover shadow-warm inline-block uppercase tracking-wider"
                         >
                             {heroVariant === 'general' ? t('hero.cta_reservation') as string : hero.cta1}
                         </Link>
@@ -95,7 +95,7 @@ export const Home = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <AnimateIn direction="up">
                             <div className="space-y-8">
-                                <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('philosophy.label') as string}</span>
+                                <span className="text-accent-text font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('philosophy.label') as string}</span>
                                 <h2 id="philosophy-title" className="text-4xl md:text-5xl font-display font-bold text-text-primary leading-tight text-balance">
                                     {t('philosophy.title') as string}
                                 </h2>
@@ -128,7 +128,7 @@ export const Home = () => {
                                 </div>
                                 <div className="absolute -bottom-10 -left-10 bg-bg-secondary p-6 rounded-xl shadow-sm max-w-xs hidden md:block">
                                     <p className="font-hand text-2xl text-text-primary mb-2">&quot;{t('philosophy.quote') as string}&quot;</p>
-                                    <p className="text-sm font-bold text-accent">- {t('philosophy.quote_author') as string}</p>
+                                    <p className="text-sm font-bold text-accent-text">- {t('philosophy.quote_author') as string}</p>
                                 </div>
                             </div>
                         </AnimateIn>
@@ -143,7 +143,7 @@ export const Home = () => {
             <section aria-labelledby="highlights-title" className="py-24 md:py-32 lg:py-48 bg-bg-secondary">
                 <div className="container mx-auto px-4 max-w-7xl">
                     <AnimateIn className="text-center mb-20">
-                        <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('highlights.label') as string}</span>
+                        <span className="text-accent-text font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('highlights.label') as string}</span>
                         <h2 id="highlights-title" className="text-4xl md:text-5xl font-display font-bold text-text-primary mt-3 text-balance">{t('highlights.title') as string}</h2>
                     </AnimateIn>
 
@@ -171,7 +171,7 @@ export const Home = () => {
                                         href={companyData.menuLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-accent font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all duration-500 ease-liquid inline-block mt-2"
+                                        className="text-accent-text font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all duration-500 ease-liquid inline-block mt-2"
                                     >
                                         {t('highlights.details') as string} <ArrowRight className="w-4 h-4 inline" />
                                     </a>
@@ -225,7 +225,7 @@ export const Home = () => {
             <section aria-labelledby="testimonials-title" className="py-24 md:py-32 lg:py-48 bg-bg-primary">
                 <div className="container mx-auto px-4 max-w-7xl">
                     <AnimateIn className="text-center mb-20">
-                        <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('testimonials.label') as string}</span>
+                        <span className="text-accent-text font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('testimonials.label') as string}</span>
                         <h2 id="testimonials-title" className="text-4xl md:text-5xl font-display font-bold text-text-primary mt-3 text-balance">{t('testimonials.title') as string}</h2>
                         <div className="flex justify-center items-center gap-2 mt-4">
                             <span className="font-bold text-lg text-text-primary">4.8</span>

@@ -100,7 +100,7 @@ export function FloatingReservationCTA() {
           {/* Floating CTA Button */}
           <motion.a
             href="/reservation"
-            className="pointer-events-auto group relative flex items-center gap-3 px-5 py-3.5 bg-accent text-surface rounded-full shadow-warm hover:bg-accent-hover transition-colors overflow-hidden"
+            className="pointer-events-auto group relative flex items-center gap-3 px-5 py-3.5 bg-accent text-neutral-950 rounded-full shadow-warm hover:bg-accent-hover transition-colors overflow-hidden"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             animate={isPulsing && !shouldReduceMotion ? {
@@ -121,7 +121,7 @@ export function FloatingReservationCTA() {
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-surface/20 to-transparent group-hover:animate-[shine_1.5s_cubic-bezier(0.16,1,0.3,1)]" />
             
             <div className="relative z-10 flex items-center justify-center w-8 h-8 rounded-full bg-surface/20 backdrop-blur-sm">
-              <CalendarDays className="w-4 h-4 text-surface" />
+              <CalendarDays className="w-4 h-4 text-neutral-950" />
             </div>
             
             <span className="relative z-10 font-bold text-sm tracking-wide pr-1">

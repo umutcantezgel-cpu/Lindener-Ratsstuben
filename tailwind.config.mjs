@@ -86,6 +86,8 @@ export default {
           hover: 'var(--color-border-hover)',
         },
         // Legacy support mapping to Rustikale Eleganz
+        surface: 'var(--color-surface)',
+        'accent-text': 'var(--color-accent-text)',
         'flame-red': 'var(--color-primary)',
         'flame-gold': 'var(--color-accent)',
         'flame-orange': 'var(--color-primary-hover)',

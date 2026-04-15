@@ -57,10 +57,10 @@ export function AnimateIn({
     <MotionComponent
       className={className}
       initial={{ 
-        opacity: shouldReduceMotion ? 1 : 0.01, // Prevent harsh fade, rely on motion
+        opacity: 1, // Always full opacity for a11y contrast compliance
         y: initialY, 
         x: initialX,
-        filter: shouldReduceMotion ? 'none' : 'blur(4px)' // Subtler blur
+        filter: shouldReduceMotion ? 'none' : 'blur(6px)' // Blur provides reveal effect without contrast issues
       }}
       whileInView={{ 
         opacity: 1, 

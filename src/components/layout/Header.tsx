@@ -65,7 +65,7 @@ export const Header: React.FC = () => {
         >
             <div className="container mx-auto px-4 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 group relative z-10" aria-label={tCommon('accessibility.back_to_home') as string}>
+                <Link href="/" className="flex items-center gap-2 group relative z-10" aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
                     <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 group-hover:border-primary/40 transition-colors" aria-hidden="true">
                         <Flame className="w-4 h-4 text-primary group-hover:scale-110 transition-transform duration-500 ease-out drop-shadow-[0_0_8px_rgba(var(--color-primary),0.2)]" />
                     </div>
