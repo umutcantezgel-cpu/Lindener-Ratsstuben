@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom utility classes — Tailwind v4 does not auto-generate text-* from flat color entries */
+@layer utilities {
+  .text-surface { color: var(--color-surface) !important; }
+  .text-accent-text { color: var(--color-accent-text) !important; }
+  .hover\:text-surface:hover { color: var(--color-surface) !important; }
+}
+
 @layer base {
   html {
     -webkit-font-smoothing: antialiased;
@@ -68,7 +75,7 @@
   --color-neutral-200: hsl(42, 45%, 86%);
   --color-neutral-300: hsl(42, 45%, 78%);
   --color-neutral-400: hsl(42, 45%, 65%);
-  --color-neutral-500: hsl(42, 45%, 55%);
+  --color-neutral-500: hsl(42, 45%, 34%); /* Darkened for WCAG 4.5:1 contrast on light backgrounds */
   --color-neutral-600: hsl(42, 45%, 45%);
   --color-neutral-700: hsl(42, 45%, 35%);
   --color-neutral-800: hsl(42, 45%, 25%);
@@ -146,6 +153,7 @@
   --color-accent: var(--color-gold-muted);
   --color-accent-hover: var(--color-gold-premium);
   --color-accent-light: var(--color-gold-pale);
+  --color-accent-text: #85651E; /* WCAG AA compliant gold for text on light backgrounds (5.05:1 on neutral-50) */
 
   --color-surface: var(--color-white);
   --color-bg-primary: var(--color-neutral-50);

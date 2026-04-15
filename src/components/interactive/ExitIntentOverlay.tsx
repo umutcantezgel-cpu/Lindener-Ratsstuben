@@ -56,7 +56,7 @@ export const ExitIntentOverlay = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="/reservation"
-                className="px-6 py-3 bg-accent text-surface rounded-full font-medium hover:bg-accent-hover transition-colors shadow-warm"
+                className="px-6 py-3 bg-accent text-neutral-950 rounded-full font-medium hover:bg-accent-hover transition-colors shadow-warm"
               >
                 {t('exit_intent.cta_reserve') as string}
               </a>

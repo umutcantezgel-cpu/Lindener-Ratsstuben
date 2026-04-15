@@ -13,5 +13,6 @@
   "footer.tuesday_sunday": "Dienstag – Sonntag",
   "footer.closed": "Geschlossen",
   "footer.open_hours": "12:00 – 22:00 Uhr",
-  "breadcrumbs.home": "Start"
+  "breadcrumbs.home": "Start",
+  "footer.terms": "AGB"
 }

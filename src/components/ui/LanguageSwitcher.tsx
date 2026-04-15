@@ -108,7 +108,7 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
         )}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
-        aria-label="Change language"
+        aria-label={`${isMobile ? LOCALE_NATIVE_NAMES[currentLocale] : currentLocale.toUpperCase()} – Change language`}
       >
         <span className="flex items-center gap-2">
           <span className="text-lg leading-none">{LOCALE_FLAGS[currentLocale]}</span>

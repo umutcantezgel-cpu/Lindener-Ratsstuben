@@ -19,7 +19,7 @@ export const ClientLogoMarquee = () => {
     return (
         <div className="w-full overflow-hidden bg-bg-secondary py-12 border-y border-border">
             <div className="container mx-auto px-4 mb-8 text-center">
-                <span className="text-xs font-bold uppercase tracking-widest text-text-tertiary">
+                <span className="text-xs font-bold uppercase tracking-widest text-text-secondary">
                     Bekannt aus & Zertifizierungen
                 </span>
             </div>
@@ -46,7 +46,7 @@ export const ClientLogoMarquee = () => {
                                 {logo.name}
                             </span>
                             {logo.label && (
-                                <span className="text-[10px] uppercase font-bold text-text-tertiary tracking-wider mt-1">
+                                <span className="text-[10px] uppercase font-bold text-text-secondary tracking-wider mt-1">
                                     {logo.label}
                                 </span>
                             )}
