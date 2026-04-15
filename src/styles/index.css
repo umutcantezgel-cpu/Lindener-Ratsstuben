@@ -1,0 +1,537 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-feature-settings: "kern" 1, "liga" 1;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-display {
+    text-rendering: optimizeLegibility;
+  }
+
+  /* --- Accessible Focus Ring (Phase 8) --- */
+  *:focus-visible {
+    /* Prevent default browser outline */
+    outline: none;
+    /* Custom double-focus ring that works on light and dark backgrounds */
+    box-shadow: 0 0 0 2px var(--color-bg-primary), 0 0 0 4px var(--color-primary);
+  }
+}
+
+:root {
+  /* =========================================================================
+     3-TIER-FARB-TOKEN-SYSTEM
+     ========================================================================= */
+
+  /* --- Tier 1: Primitive Farben --- */
+  /* FULL SCALES (HSL) für Awwwards Level Design Pipeline */
+  
+  /* Primary HSL(353, 68%, L) - Weinrot */
+  --color-primary-50: hsl(353, 68%, 95%);
+  --color-primary-100: hsl(353, 68%, 90%);
+  --color-primary-200: hsl(353, 68%, 80%);
+  --color-primary-300: hsl(353, 68%, 70%);
+  --color-primary-400: hsl(353, 68%, 50%);
+  --color-primary-500: hsl(353, 68%, 40%);
+  --color-primary-600: hsl(353, 68%, 32%); /* Base = #8C1A27 */
+  --color-primary-700: hsl(353, 68%, 25%);
+  --color-primary-800: hsl(353, 68%, 15%);
+  --color-primary-900: hsl(353, 68%, 10%);
+  --color-primary-950: hsl(353, 68%, 5%);
+
+  /* Accent HSL(47, 83%, L) - Gold */
+  --color-accent-50: hsl(47, 83%, 95%);
+  --color-accent-100: hsl(47, 83%, 90%);
+  --color-accent-200: hsl(47, 83%, 80%);
+  --color-accent-300: hsl(47, 83%, 70%);
+  --color-accent-400: hsl(47, 83%, 60%);
+  --color-accent-500: hsl(47, 83%, 55%); /* Base = #E8B830 */
+  --color-accent-600: hsl(47, 83%, 45%);
+  --color-accent-700: hsl(47, 83%, 35%);
+  --color-accent-800: hsl(47, 83%, 25%);
+  --color-accent-900: hsl(47, 83%, 15%);
+  --color-accent-950: hsl(47, 83%, 5%);
+
+  /* Neutral HSL(42, 45%, L) - Creme Tint */
+  --color-neutral-50: hsl(42, 45%, 96%); /* #FAF7F0 Base Background */
+  --color-neutral-100: hsl(42, 45%, 92%);
+  --color-neutral-200: hsl(42, 45%, 86%);
+  --color-neutral-300: hsl(42, 45%, 78%);
+  --color-neutral-400: hsl(42, 45%, 65%);
+  --color-neutral-500: hsl(42, 45%, 55%);
+  --color-neutral-600: hsl(42, 45%, 45%);
+  --color-neutral-700: hsl(42, 45%, 35%);
+  --color-neutral-800: hsl(42, 45%, 25%);
+  --color-neutral-900: hsl(42, 45%, 15%); /* Text Base #1C1410 */
+  --color-neutral-950: hsl(42, 45%, 8%);
+
+  /* Z-Index Skala (Pipeline 3) */
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-toast: 50;
+  --z-tooltip: 60;
+  
+  /* Font Weights (Pipeline 3) */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Interaction Tokens (Phase 4) */
+  --focus-ring: 0 0 0 3px hsla(353, 68%, 50%, 0.4);
+  --border-width-thin: 1px;
+  --border-width-normal: 2px;
+  --border-width-thick: 4px;
+
+  /* =========================================================================
+     ANIMATION & MOTION TOKENS (Phase 5)
+     ========================================================================= */
+  
+  /* Easing Curves */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-liquid: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Durations - Scaled up for Cinematic Premium Feel */
+  --duration-instant: 150ms;
+  --duration-fast: 300ms;
+  --duration-normal: 500ms;
+  --duration-slow: 700ms;
+  --duration-slower: 1000ms;
+  --duration-slowest: 1400ms;
+
+  /* Stagger Delays */
+  --stagger-fast: 50ms;
+  --stagger-normal: 100ms;
+  --stagger-slow: 150ms;
+
+  /* -- Kinetic Premium Colors (Onyx & Muted Gold) -- */
+  --color-white: #ffffff;
+  --color-onyx-deep: #0a0a0b;
+  --color-onyx-elevated: #121214;
+  --color-onyx-light: #1f1f23;
+  --color-onyx-muted: #3a3a40;
+  
+  --color-gold-muted: #B8905B;
+  --color-gold-premium: #DFBD8C;
+  --color-gold-pale: #F8EEDC;
+
+  /* Semantic Base Colors */
+  --color-green-600: #16A34A; /* Emerald 600 */
+  --color-blue-600:  #2563EB; /* Blue 600 */
+  --color-orange-600: #D97706; /* Amber 600 */
+  --color-red-error: #DC2626; /* Red 600 */
+
+  /* --- Tier 2: Semantische Farben --- */
+  --color-primary: var(--color-primary-700);
+  --color-primary-hover: var(--color-primary-600);
+  --color-primary-active: var(--color-primary-800);
+  
+  --color-accent: var(--color-gold-muted);
+  --color-accent-hover: var(--color-gold-premium);
+  --color-accent-light: var(--color-gold-pale);
+
+  --color-surface: var(--color-white);
+  --color-bg-primary: var(--color-neutral-50);
+  --color-bg-secondary: var(--color-neutral-100);
+
+  --color-text-primary: var(--color-neutral-950);
+  --color-text-secondary: var(--color-neutral-700);
+  --color-text-tertiary: var(--color-neutral-500);
+
+  --color-border: var(--color-neutral-200);
+  --color-border-hover: var(--color-gold-muted);
+
+  --color-success: var(--color-green-600);
+  --color-warning: var(--color-orange-600);
+  --color-error: var(--color-red-error);
+  --color-info: var(--color-blue-600);
+
+  /* --- Tier 3: Komponenten-Farben --- */
+  --color-button-primary-bg: var(--color-primary);
+  --color-button-primary-text: var(--color-white);
+  --color-card-bg: var(--color-surface);
+  --color-header-bg: var(--color-bg-primary);
+
+  /* Typography - Lindener Ratsstuben */
+  --font-family-body: 'EB Garamond', Garamond, Georgia, serif;
+  --font-family-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-family-mono: 'Fira Code', monospace;
+  --font-family-hand: 'Playfair Display', serif; /* Removed messy handwriting font for classic look */
+
+  /* Typography Scale */
+  --text-display: clamp(2rem, 5vw + 0.75rem, 4rem);
+  --text-h1: clamp(1.5rem, 3vw + 0.75rem, 3rem);
+  --text-h2: clamp(1.25rem, 2.5vw + 0.625rem, 2.25rem);
+  --text-h3: clamp(1.125rem, 2vw + 0.5rem, 1.75rem);
+  --text-h4: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+  --text-body: 1rem;
+  --text-lead: 1.125rem;
+  --text-small: 0.875rem;
+  --text-tiny: 0.75rem;
+
+  /* Typography Line Heights */
+  --leading-display: 1.1;
+  --leading-h1: 1.2;
+  --leading-h2: 1.25;
+  --leading-h3: 1.3;
+  --leading-h4: 1.35;
+  --leading-body: 1.6;
+  --leading-lead: 1.5;
+  --leading-small: 1.5;
+  --leading-tiny: 1.4;
+
+  /* Typography Letter Spacing (Tracking) */
+  --tracking-display: -0.02em;
+  --tracking-h1: -0.015em;
+  --tracking-h2: -0.01em;
+  --tracking-h3: -0.005em;
+  --tracking-h4: 0;
+  --tracking-body: 0;
+  --tracking-lead: 0;
+  --tracking-small: 0.01em;
+  --tracking-tiny: 0.02em;
+
+  /* Radius */
+  --radius-sm: 0.125rem;
+  --radius-base: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-pill: 9999px;
+
+  /* Spacing - 14-stufige Skala (Basiseinheit 4px) */
+  --space-0: 0px;
+  --space-1: 0.25rem; /* 4px: Mikro */
+  --space-2: 0.5rem;  /* 8px: Fein */
+  --space-3: 0.75rem; /* 12px: Klein */
+  --space-4: 1rem;    /* 16px: Basis */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem;  /* 24px: Komposition */
+  --space-7: 2rem;    /* 32px: Gruppen */
+  --space-8: 2.5rem;  /* 40px: Abschnitt */
+  --space-9: 3rem;    /* 48px: Sektion-Klein */
+  --space-10: 4rem;   /* 64px: Sektion-Mittel */
+  --space-11: 5rem;   /* 80px: Sektion-Groß */
+  --space-12: 6rem;   /* 96px: Major-Sektionen */
+  --space-13: 8rem;   /* 128px: Maximum */
+
+  /* Fluid Spacing Tokens - Expanded by 30% for Luxury Negative Space */
+  --space-section: clamp(62px, 10.4vw, 124px);
+  --space-container: clamp(20px, 5.2vw, 62px);
+  --space-gap: clamp(20px, 2.6vw, 31px);
+
+  /* Grid System */
+  --grid-columns: 12;
+  --grid-gutter: clamp(20px, 2.6vw, 31px);
+  --grid-margin: clamp(20px, 5.2vw, 62px);
+
+  /* Shadows - Minimalist Soft glow for Lumina/Alba (Weightlessness) */
+  --shadow-warm: 0 10px 40px -10px hsla(353, 68%, 15%, 0.08);
+  --shadow-gold: 0 10px 30px -10px rgba(184, 144, 91, 0.25);
+  
+  --shadow-xs: 0 1px 2px 0 hsla(353, 68%, 15%, 0.05);
+  --shadow-sm: 0 1px 3px 0 hsla(353, 68%, 15%, 0.05), 0 1px 2px -1px hsla(353, 68%, 15%, 0.05);
+  --shadow-md: 0 4px 6px -1px hsla(353, 68%, 15%, 0.05), 0 2px 4px -2px hsla(353, 68%, 15%, 0.05);
+  --shadow-lg: 0 10px 15px -3px hsla(353, 68%, 15%, 0.05), 0 4px 6px -4px hsla(353, 68%, 15%, 0.05);
+  --shadow-xl: 0 20px 25px -5px hsla(353, 68%, 15%, 0.05), 0 8px 10px -6px hsla(353, 68%, 15%, 0.05);
+  --shadow-2xl: 0 25px 50px -12px hsla(353, 68%, 15%, 0.1);
+
+  /* 5-stufiges Elevation-System (Pipeline 3) */
+  --elevation-0: none;
+  --elevation-1: 0 1px 3px hsla(353, 68%, 15%, 0.08), 0 1px 2px hsla(353, 68%, 15%, 0.06);
+  --elevation-2: 0 4px 6px hsla(353, 68%, 15%, 0.07), 0 2px 4px hsla(353, 68%, 15%, 0.06);
+  --elevation-3: 0 10px 15px hsla(353, 68%, 15%, 0.1), 0 4px 6px hsla(353, 68%, 15%, 0.05);
+  --elevation-4: 0 20px 25px hsla(353, 68%, 15%, 0.15), 0 10px 10px hsla(353, 68%, 15%, 0.04);
+  --elevation-5: 0 25px 50px hsla(353, 68%, 15%, 0.2);
+  
+  /* =========================================================================
+     TYPOGRAPHY TOKENS (Pipeline 2)
+     ========================================================================= */
+
+  /* Fluid Type Scale (375px bis 1440px) */
+  --text-xs: clamp(0.694rem, 0.65rem + 0.22vw, 0.8rem);
+  --text-sm: clamp(0.833rem, 0.78rem + 0.27vw, 1rem);
+  --text-base: clamp(1rem, 0.93rem + 0.33vw, 1.2rem);
+  --text-lg: clamp(1.2rem, 1.12rem + 0.4vw, 1.44rem);
+  --text-xl: clamp(1.44rem, 1.34rem + 0.5vw, 1.728rem);
+  --text-2xl: clamp(1.728rem, 1.6rem + 0.63vw, 2.074rem);
+  --text-3xl: clamp(2.074rem, 1.92rem + 0.77vw, 2.488rem);
+  --text-4xl: clamp(2.488rem, 2.3rem + 0.94vw, 2.986rem);
+  --text-5xl: clamp(2.986rem, 2.76rem + 1.13vw, 3.583rem);
+
+  /* Line Heights */
+  --lh-xs: 1.7;
+  --lh-sm: 1.65;
+  --lh-base: 1.6;
+  --lh-lg: 1.5;
+  --lh-xl: 1.4;
+  --lh-2xl: 1.3;
+  --lh-3xl: 1.2;
+  --lh-4xl: 1.15;
+  --lh-5xl: 1.05;
+
+  /* Letter Spacing */
+  --ls-display: -0.025em;
+  --ls-heading: -0.015em;
+  --ls-body: 0em;
+  --ls-small: 0.015em;
+  --ls-uppercase: 0.075em;
+
+  /* =========================================================================
+     LAYOUT & SPACING TOKENS (Pipeline 3)
+     ========================================================================= */
+
+  /* Fluid Section Padding (min, ideal, max) - expanded 30% */
+  --space-section-sm: clamp(3.9rem, 2.6rem + 5.2vw, 7.8rem);
+  --space-section-md: clamp(5.2rem, 3.9rem + 6.5vw, 10.4rem);
+  --space-section-lg: clamp(7.8rem, 5.2rem + 7.8vw, 15.6rem);
+
+  /* Fluid Container Gap (Horizontal Padding) */
+  --space-container-gap: clamp(1rem, 0.5rem + 2vw, 3rem);
+
+  /* Base Spacing Scale (8px Grid Engine) */
+  --space-1: 0.25rem;  /* 4px  */
+  --space-2: 0.5rem;   /* 8px  */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+  --space-20: 5rem;    /* 80px */
+  --space-24: 6rem;    /* 96px */
+  --space-32: 8rem;    /* 128px */
+
+  /* Form and Control Baseline Sizes */
+  /* Easing Curves */
+  --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0.0, 1, 1);
+  --ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  /* Duration Tokens */
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-dramatic: 600ms;
+  --duration-cinematic: 1000ms;
+
+  /* Stagger Tokens (Delay Multipliers) */
+  --stagger-fast: 50ms;
+  --stagger-normal: 80ms;
+  --stagger-slow: 120ms;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body, 'Inter', sans-serif);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: lining-nums;
+    word-break: break-word;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading, 'Lora', serif);
+    font-weight: var(--font-bold, 700);
+    text-rendering: optimizeLegibility;
+    text-wrap: balance;
+    margin-top: calc(8px * 4);
+    margin-bottom: calc(8px * 1);
+  }
+
+  p, .prose-body {
+    text-wrap: pretty;
+    hyphens: auto;
+    max-width: 65ch;
+  }
+  
+  p + p {
+    margin-top: calc(8px * 3);
+  }
+
+  /* --- AAA Accessible Content Links --- */
+  p a, .prose-body a {
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-thickness 0.2s ease, text-underline-offset 0.2s ease;
+  }
+
+  p a:hover, p a:focus-visible, .prose-body a:hover, .prose-body a:focus-visible {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Interactive Buttons & Links */
+  .interaction-bounce {
+    transition: transform var(--duration-slow) var(--ease-liquid),
+                box-shadow var(--duration-slow) var(--ease-liquid),
+                background-color var(--duration-slow) var(--ease-liquid),
+                opacity var(--duration-slow) var(--ease-liquid);
+  }
+  
+  .interaction-bounce:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .interaction-bounce:active {
+    transform: translateY(0px) scale(0.99);
+  }
+
+  /* Interactive Cards */
+  .card-lift {
+    transition: transform var(--duration-slow) var(--ease-liquid),
+                box-shadow var(--duration-slow) var(--ease-liquid);
+    will-change: transform, box-shadow;
+  }
+  
+  .card-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-2xl);
+  }
+
+  .card-lift:active {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* =========================================================================
+   ADAPTIVE UI & NUTZERPRÄFERENZEN (Phase 7)
+   ========================================================================= */
+
+@layer utilities {
+  /* --- Touch vs. Pointer Interaction --- */
+  @media (hover: hover) and (pointer: fine) {
+    .hover-pointer-only:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+
+  /* --- Texture Overlays --- */
+  .bg-paper-texture {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.03;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    .hover-pointer-only:active {
+      transform: scale(0.98);
+    }
+    
+    a, button, input, select {
+      min-height: 48px;
+      min-width: 48px;
+    }
+  }
+
+  /* --- High Contrast Fallbacks --- */
+  @media (prefers-contrast: more) {
+    :root {
+      --color-primary: #5E0F18; 
+      --color-text-body: #000000;
+      --color-text-muted: #111111;
+    }
+    
+    * {
+      border-color: currentColor !important;
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    * {
+      backdrop-filter: none !important;
+      background-color: var(--color-bg-primary) !important;
+    }
+  }
+
+  /* --- Windows High-Contrast Mode --- */
+  @media (forced-colors: active) {
+    .btn, button, a {
+      border: 2px solid ButtonText;
+      outline: 2px solid transparent;
+    }
+  }
+
+  /* --- Print Optimation --- */
+  @media print {
+    header, footer, nav, .skip-nav, .cookie-banner, .sticky-cta {
+      display: none !important;
+    }
+    
+    body, html {
+      background-color: white !important;
+      color: black !important;
+    }
+    
+    a[href]::after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+      color: #444;
+    }
+
+    .print-break-inside-avoid {
+      break-inside: avoid;
+    }
+  }
+}
+
+/* =========================================================================
+   REDUCED MOTION ACCESSIBILITY (Phase 5)
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

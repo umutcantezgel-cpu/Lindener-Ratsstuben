@@ -1,0 +1,16 @@
+{
+  "contact.name_label": "お名前",
+  "contact.email_label": "メール",
+  "contact.message_label": "メッセージ",
+  "contact.send_free": "無料送信",
+  "contact.sending": "送信中...",
+  "reservation.submit": "予約をリクエスト",
+  "reservation.success": "予約リクエストが送信されました！",
+  "reservation.success_title": "ありがとうございます！",
+  "reservation.error": "問題が発生しました。",
+  "validation.name_required": "名前が必要です",
+  "validation.email_required": "有効なメールが必要です",
+  "reservation.date_label": "日付",
+  "reservation.time_label": "時間",
+  "reservation.guests_label": "人数"
+}

@@ -1,0 +1,17 @@
+{
+  "nav.home": "ホーム",
+  "nav.menu": "メニュー",
+  "nav.reservation": "予約",
+  "nav.about": "当店について",
+  "nav.contact": "お問い合わせ",
+  "nav.gallery": "ギャラリー",
+  "footer.imprint": "法的通知",
+  "footer.privacy": "プライバシーポリシー",
+  "footer.cookie_policy": "Cookieポリシー",
+  "footer.opening_hours": "営業時間",
+  "footer.monday": "月曜日",
+  "footer.tuesday_sunday": "火曜〜日曜",
+  "footer.closed": "定休日",
+  "footer.open_hours": "12:00 – 22:00",
+  "breadcrumbs.home": "ホーム"
+}

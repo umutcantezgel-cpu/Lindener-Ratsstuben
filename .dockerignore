@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.github
+*.md
+!README.md
+.content-cache
+.pipeline-master-state.md
+Pipeline Kopie 3
+coverage
+.env*
+*.log

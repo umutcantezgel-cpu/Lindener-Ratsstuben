@@ -1,0 +1,20 @@
+[
+    {
+        "path": "/",
+        "incomingLinks": [],
+        "outgoingLinks": ["/menu", "/contact", "/reservation"],
+        "linkEquityScore": 10
+    },
+    {
+        "path": "/menu",
+        "incomingLinks": ["/"],
+        "outgoingLinks": ["/contact"],
+        "linkEquityScore": 8
+    },
+    {
+        "path": "/contact",
+        "incomingLinks": ["/", "/menu"],
+        "outgoingLinks": [],
+        "linkEquityScore": 7
+    }
+]

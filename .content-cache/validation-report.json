@@ -1,0 +1,25 @@
+{
+  "test-post": {
+    "slug": "test-post",
+    "status": "FAIL",
+    "errors": [
+      {
+        "type": "INSUFFICIENT_WORDS",
+        "message": "Word count 8 is below minimum 200 for blog"
+      }
+    ],
+    "warnings": [],
+    "readabilityScores": {
+      "fleschKincaid": 5,
+      "gunningFog": 3.6,
+      "assessment": "Easy"
+    },
+    "wordCount": 8,
+    "linkCount": {
+      "internal": 0,
+      "external": 0
+    },
+    "imageCount": 0,
+    "generatedAt": "2026-04-12T19:06:09.951Z"
+  }
+}

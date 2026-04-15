@@ -1,0 +1,20 @@
+{
+  "contact.subject_label": "Konu",
+  "contact.subject_placeholder": "Lütfen seçin...",
+  "contact.name_label": "Ad",
+  "contact.name_placeholder": "Adınız",
+  "contact.email_label": "E-Posta",
+  "contact.message_label": "Mesaj",
+  "contact.send_free": "Ücretsiz Mesaj Gönderin",
+  "contact.sending": "Gönderiliyor...",
+  "reservation.title": "Masa Ayırt",
+  "reservation.submit": "Rezervasyon İsteği Gönder",
+  "reservation.success": "Rezervasyon isteği başarıyla gönderildi!",
+  "reservation.success_title": "Teşekkür Ederiz!",
+  "reservation.error": "Bir sorun oluştu. Lütfen daha sonra tekrar deneyin.",
+  "validation.name_required": "Ad gerekli",
+  "validation.email_required": "Geçerli e-posta gerekli",
+  "reservation.date_label": "Tarih",
+  "reservation.time_label": "Saat",
+  "reservation.guests_label": "Kişi"
+}

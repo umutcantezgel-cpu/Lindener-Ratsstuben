@@ -1,0 +1,19 @@
+{
+  "about.title": "À Propos",
+  "about.headline": "Notre Histoire",
+  "about.philosophy_title": "Notre Philosophie",
+  "about.team_title": "Notre Équipe",
+  "gallery.title": "Galerie",
+  "contact.title": "Contact",
+  "contact.write_us": "Écrivez-nous",
+  "reservation.title": "Réserver",
+  "menu.title": "Menu",
+  "menu.subtitle": "Notre Sélection",
+  "menu.filter": "Filtre",
+  "menu.vegetarian": "Végétarien",
+  "menu.spicy": "Épicé",
+  "menu.bestseller": "Best-seller",
+  "menu.no_results": "Aucun plat trouvé.",
+  "menu.reset_filters": "Réinitialiser",
+  "menu.allergens_title": "Allergènes & Additifs"
+}

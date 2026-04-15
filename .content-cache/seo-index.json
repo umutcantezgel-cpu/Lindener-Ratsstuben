@@ -1,0 +1,54 @@
+{
+  "test-post": {
+    "title": "First Test Blog Post",
+    "description": "This is a sample description of at least thirty characters long so it passes zod checking.",
+    "keywords": [
+      "test",
+      "sample"
+    ],
+    "canonical": "https://lindener-ratsstuben.de/blog/test-post",
+    "og": {
+      "title": "First Test Blog Post",
+      "description": "This is a sample description of at least thirty characters long so it passes zod checking.",
+      "image": "https://lindener-ratsstuben.de/og/test-post.png",
+      "url": "https://lindener-ratsstuben.de/blog/test-post",
+      "type": "article",
+      "publishedTime": "2026-04-12T00:00:00.000Z",
+      "author": "Antigravity"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "First Test Blog Post",
+      "description": "This is a sample description of at least thirty characters long so it passes zod checking.",
+      "image": "https://lindener-ratsstuben.de/og/test-post.png"
+    },
+    "jsonLd": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "First Test Blog Post",
+      "description": "This is a sample description of at least thirty characters long so it passes zod checking.",
+      "image": "https://lindener-ratsstuben.de/og/test-post.png",
+      "datePublished": "2026-04-12T00:00:00.000Z",
+      "dateModified": "2026-04-12T00:00:00.000Z",
+      "author": {
+        "@type": "Person",
+        "name": "Antigravity"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lindener Ratsstuben",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://lindener-ratsstuben.de/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://lindener-ratsstuben.de/blog/test-post"
+      },
+      "wordCount": 9,
+      "timeRequired": "PT1M"
+    },
+    "relatedSlugs": []
+  }
+}

@@ -1,0 +1,106 @@
+"use client";
+
+import React from 'react';
+import { PageTransition } from '@/components/effects/PageTransition';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { companyData } from '@/data/company';
+import { ContactForm } from '@/components/forms/ContactForm';
+import { useTranslation } from '@/lib/i18n/use-translation';
+
+export const Contact = () => {
+    const { t } = useTranslation('pages');
+    return (
+        <PageTransition>
+            
+            <div className="pt-24 pb-20 min-h-screen bg-bg-beige">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <h1 className="text-3xl md:text-4xl font-display font-bold text-white bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-4 shadow-warm inline-block w-full max-w-3xl">{t('contact.title') as string}</h1>
+                        <p className="text-text-secondary max-w-2xl mx-auto">
+                            {t('contact.description') as string}
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        {/* Info & Map */}
+                        <div className="space-y-8">
+                            <h2 className="sr-only">{t('contact.info_title') as string}</h2>
+                            {/* Contact Cards */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="bg-bg-secondary p-6 rounded-xl shadow-sm flex flex-col items-center text-center hover:shadow-sm transition-shadow">
+                                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
+                                        <MapPin className="w-6 h-6" />
+                                    </div>
+                                    <h3 className="font-bold text-text-main mb-2">{t('contact.address') as string}</h3>
+                                    <p className="text-text-secondary">{companyData.address.street}<br />{companyData.address.zip} {companyData.address.city}</p>
+                                </div>
+                                <div className="bg-bg-secondary p-6 rounded-xl shadow-sm flex flex-col items-center text-center hover:shadow-sm transition-shadow">
+                                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
+                                        <Phone className="w-6 h-6" />
+                                    </div>
+                                    <h3 className="font-bold text-text-main mb-2">{t('contact.phone') as string}</h3>
+                                    <p className="text-text-secondary">
+                                        <a href={`tel:${companyData.phone}`} className="hover:text-primary transition-colors">{companyData.displayPhone}</a>
+                                    </p>
+                                </div>
+                                <div className="bg-bg-secondary p-6 rounded-xl shadow-sm flex flex-col items-center text-center hover:shadow-sm transition-shadow">
+                                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
+                                        <Mail className="w-6 h-6" />
+                                    </div>
+                                    <h3 className="font-bold text-text-main mb-2">{t('contact.email') as string}</h3>
+                                    <p className="text-text-secondary">
+                                        <a href={`mailto:${companyData.email}`} className="hover:text-primary transition-colors">{companyData.email}</a>
+                                    </p>
+                                </div>
+                                <div className="bg-bg-secondary p-6 rounded-xl shadow-sm flex flex-col items-center text-center hover:shadow-sm transition-shadow">
+                                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
+                                        <Clock className="w-6 h-6" />
+                                    </div>
+                                    <h3 className="font-bold text-text-main mb-2">{t('contact.hours') as string}</h3>
+                                    <p className="text-text-secondary text-sm">
+                                        {companyData.openingHours.ruhetag.tag}: {companyData.openingHours.monday}<br />
+                                        {companyData.openingHours.regulaer.tage}:<br />
+                                        {companyData.openingHours.regulaer.mittags}<br />
+                                        {companyData.openingHours.regulaer.abends}
+                                    </p>
+                                </div>
+                                {/* Facebook */}
+                                <div className="bg-bg-secondary p-6 rounded-xl shadow-sm flex flex-col items-center text-center hover:shadow-sm transition-shadow">
+                                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
+                                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                                    </div>
+                                    <h3 className="font-bold text-text-main mb-2">Facebook</h3>
+                                    <p className="text-text-secondary text-sm">
+                                        <a href={companyData.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{t('contact.visit_us') as string}</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Map */}
+                            <div className="h-[400px] bg-gray-200 rounded-2xl overflow-hidden shadow-sm border-4 border-white">
+                                <iframe
+                                    src={`https://maps.google.com/maps?q=${encodeURIComponent(companyData.address.street + ", " + companyData.address.zip + " " + companyData.address.city)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen={true}
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="Google Maps"
+                                ></iframe>
+                            </div>
+                        </div>
+
+                        {/* Contact Form Component */}
+                        <div className="bg-bg-secondary p-8 md:p-12 rounded-2xl shadow-sm">
+                            <h2 className="text-3xl font-display font-bold text-text-main mb-6">{t('contact.write_us') as string}</h2>
+                            <ContactForm />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </PageTransition>
+    );
+};
+
+export default Contact;

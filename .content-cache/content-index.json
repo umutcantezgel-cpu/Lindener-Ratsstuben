@@ -1,0 +1,133 @@
+[
+  {
+    "title": "First Test Blog Post",
+    "description": "This is a sample description of at least thirty characters long so it passes zod checking.",
+    "author": "Antigravity",
+    "publishedAt": "2026-04-12T00:00:00.000Z",
+    "tags": [
+      "test",
+      "sample"
+    ],
+    "category": "blog",
+    "draft": false,
+    "slug": "test-post",
+    "excerpt": "This is a sample description of at least thirty characters long so it passes zod checking.",
+    "wordCount": 9,
+    "readingTime": 1,
+    "collectionType": "blog"
+  },
+  {
+    "title": "Mathematikum in Gießen: Ein Erlebnis für die Sinne",
+    "description": "Das erste mathematische Mitmach-Museum der Welt. Lassen Sie den Tag nach den Experimenten entspannt bei uns in den Lindener Ratsstuben ausklingen.",
+    "author": "Redaktion",
+    "publishedAt": "2026-04-15T00:00:00.000Z",
+    "tags": [
+      "Gießen",
+      "Museum",
+      "Familie",
+      "Ausflug",
+      "Mathematikum"
+    ],
+    "category": "ausflug",
+    "draft": false,
+    "seo": {
+      "keywords": [
+        "Mathematikum Gießen",
+        "Ausflug Gießen",
+        "Museum für Kinder Gießen",
+        "Essen nach Mathematikum",
+        "Restaurant nähe Mathematikum"
+      ]
+    },
+    "slug": "mathematikum-giessen",
+    "excerpt": "Das erste mathematische Mitmach-Museum der Welt. Lassen Sie den Tag nach den Experimenten entspannt bei uns in den Lindener Ratsstuben ausklingen.",
+    "wordCount": 197,
+    "readingTime": 1,
+    "collectionType": "ausflug"
+  },
+  {
+    "title": "Ausflugsziel Dünsberg: Natur pur in Mittelhessen",
+    "description": "Erklimmen Sie den markanten Dünsberg und belohnen Sie sich im Anschluss mit einem unvergesslichen kulinarischen Erlebnis in den Lindener Ratsstuben.",
+    "author": "Redaktion",
+    "publishedAt": "2026-04-15T00:00:00.000Z",
+    "tags": [
+      "Dünsberg",
+      "Natur",
+      "Wandern",
+      "Freizeit",
+      "Biebertal"
+    ],
+    "category": "freizeit",
+    "draft": false,
+    "seo": {
+      "keywords": [
+        "Dünsberg wandern",
+        "Restaurant nähe Dünsberg",
+        "Essen nach Dünsberg",
+        "Wandern Mittelhessen"
+      ]
+    },
+    "slug": "duensberg",
+    "excerpt": "Erklimmen Sie den markanten Dünsberg und belohnen Sie sich im Anschluss mit einem unvergesslichen kulinarischen Erlebnis in den Lindener Ratsstuben.",
+    "wordCount": 178,
+    "readingTime": 1,
+    "collectionType": "freizeit"
+  },
+  {
+    "title": "Der Gastro-Guide für Gießen: Die Suche nach echter Qualität",
+    "description": "Erfahren Sie, warum Feinschmecker aus Gießen für wirklich exzellente Gastronomie den kurzen Weg in die Lindener Ratsstuben auf sich nehmen.",
+    "author": "Redaktion",
+    "publishedAt": "2026-04-15T00:00:00.000Z",
+    "tags": [
+      "Gießen",
+      "Region",
+      "Essen",
+      "Business",
+      "Fine Dining"
+    ],
+    "category": "region",
+    "draft": false,
+    "seo": {
+      "keywords": [
+        "Restaurant Gießen",
+        "Feines Essen Gießen",
+        "Gute Restaurants Umgebung Gießen",
+        "Business Lunch Gießen",
+        "Dinner Gießen"
+      ]
+    },
+    "slug": "giessen",
+    "excerpt": "Erfahren Sie, warum Feinschmecker aus Gießen für wirklich exzellente Gastronomie den kurzen Weg in die Lindener Ratsstuben auf sich nehmen.",
+    "wordCount": 195,
+    "readingTime": 1,
+    "collectionType": "region"
+  },
+  {
+    "title": "Von der Goethe-Stadt Wetzlar zum kulinarischen Höhepunkt",
+    "description": "Warum sich die kurze Anfahrt aus Wetzlar lohnt, um in den Lindener Ratsstuben unverfälschte Premium-Gastronomie zu erleben.",
+    "author": "Redaktion",
+    "publishedAt": "2026-04-15T00:00:00.000Z",
+    "tags": [
+      "Wetzlar",
+      "Region",
+      "Ausflug",
+      "Kulinarik",
+      "Dinner"
+    ],
+    "category": "region",
+    "draft": false,
+    "seo": {
+      "keywords": [
+        "Restaurant nähe Wetzlar",
+        "Feinschmecker Wetzlar",
+        "Ausflug Wetzlar Essen",
+        "Gute Restaurants Wetzlar Umgebung"
+      ]
+    },
+    "slug": "wetzlar",
+    "excerpt": "Warum sich die kurze Anfahrt aus Wetzlar lohnt, um in den Lindener Ratsstuben unverfälschte Premium-Gastronomie zu erleben.",
+    "wordCount": 191,
+    "readingTime": 1,
+    "collectionType": "region"
+  }
+]

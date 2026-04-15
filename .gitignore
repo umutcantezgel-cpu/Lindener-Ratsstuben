@@ -1,0 +1,50 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# build logs
+build_log.txt
+
+# migration scripts
+fix_exports.js
+fix_paths.js
+fix_ts_errors.js
+migrate.js
+migrate_seo.js
+refactor_styles.js
+replace_images.js
+replace_images.py
+replace_menu_images.js
+
+*storybook.log
+storybook-static

@@ -1,0 +1,17 @@
+{
+  "nav.home": "الرئيسية",
+  "nav.menu": "القائمة",
+  "nav.reservation": "حجز",
+  "nav.about": "من نحن",
+  "nav.contact": "اتصل بنا",
+  "nav.gallery": "المعرض",
+  "footer.imprint": "إشعار قانوني",
+  "footer.privacy": "سياسة الخصوصية",
+  "footer.cookie_policy": "سياسة ملفات تعريف الارتباط",
+  "footer.opening_hours": "ساعات العمل",
+  "footer.monday": "الإثنين",
+  "footer.tuesday_sunday": "الثلاثاء – الأحد",
+  "footer.closed": "مغلق",
+  "footer.open_hours": "12:00 – 22:00",
+  "breadcrumbs.home": "الرئيسية"
+}

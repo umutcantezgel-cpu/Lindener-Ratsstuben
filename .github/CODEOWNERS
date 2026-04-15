@@ -1,0 +1,26 @@
+# Lindener Ratsstuben — Code Ownership
+# Automatische Reviewer-Zuweisung bei Pull Requests
+
+# Global — Default Reviewer
+* @lindener-ratsstuben/maintainers
+
+# Content Pipeline
+src/lib/content/ @lindener-ratsstuben/content-team
+content/ @lindener-ratsstuben/content-team
+scripts/build-*.ts @lindener-ratsstuben/content-team
+
+# Infrastructure & CI/CD
+.github/ @lindener-ratsstuben/devops
+infra/ @lindener-ratsstuben/devops
+
+# Design System & UI
+src/components/ @lindener-ratsstuben/frontend
+src/styles/ @lindener-ratsstuben/frontend
+
+# SEO & Marketing
+src/lib/seo/ @lindener-ratsstuben/seo-team
+
+# Security-sensitive files
+package.json @lindener-ratsstuben/maintainers
+package-lock.json @lindener-ratsstuben/maintainers
+next.config.mjs @lindener-ratsstuben/maintainers

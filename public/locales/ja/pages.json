@@ -1,0 +1,16 @@
+{
+  "about.title": "当店について",
+  "gallery.title": "ギャラリー",
+  "contact.title": "お問い合わせ",
+  "contact.write_us": "お書きください",
+  "reservation.title": "予約",
+  "menu.title": "メニュー",
+  "menu.subtitle": "セレクション",
+  "menu.filter": "フィルター",
+  "menu.vegetarian": "ベジタリアン",
+  "menu.spicy": "辛い",
+  "menu.bestseller": "人気メニュー",
+  "menu.no_results": "条件に合う料理が見つかりません。",
+  "menu.reset_filters": "リセット",
+  "menu.allergens_title": "アレルゲン・添加物"
+}
