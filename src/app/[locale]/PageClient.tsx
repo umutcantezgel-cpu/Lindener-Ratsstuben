@@ -87,12 +87,6 @@ export const Home = () => {
                     </div>
                 </StaggerContainer>
 
-                {/* Scroll Indicator */}
-                <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
-                    <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-                        <div className="w-1 h-2 bg-white/50 rounded-full" />
-                    </div>
-                </div>
             </section>
 
             {/* Welcome / Philosophy Section */}
