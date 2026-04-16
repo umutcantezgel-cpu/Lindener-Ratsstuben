@@ -27,17 +27,56 @@
   box-sizing: border-box;
 }
 
+/* 3D Float Animation for Desktop Preview */
+@keyframes floatPage {
+  0% { transform: translateY(0px); box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 0 40px rgba(197, 168, 128, 0.05); }
+  50% { transform: translateY(-8px); box-shadow: 0 35px 60px rgba(0,0,0,0.2), 0 0 60px rgba(197, 168, 128, 0.1); }
+  100% { transform: translateY(0px); box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 0 40px rgba(197, 168, 128, 0.05); }
+}
+
+@keyframes shimmerGold {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
 .page, .page-cover {
   width: 210mm;
   height: 297mm;
   background-color: var(--paper);
   background-image: 
-      linear-gradient(rgba(253, 251, 247, 0.96), rgba(253, 251, 247, 0.96)),
-      url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0L50 100M0 50L100 50' stroke='%23C5A880' stroke-opacity='0.05' fill='none'/%3E%3C/svg%3E");
-  margin: 0 auto 2rem;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"),
+      linear-gradient(rgba(253, 251, 247, 0.98), rgba(253, 251, 247, 0.98)),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A880' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  margin: 0 auto 3rem auto;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   position: relative;
   overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+@media screen {
+  .page, .page-cover {
+    animation: floatPage 8s ease-in-out infinite;
+  }
+  .page:nth-child(even) {
+    animation-delay: -4s;
+  }
+  
+  .cv-title, .cat-dropcap, .cv-trad {
+    background: linear-gradient(
+      110deg,
+      var(--gold-deep) 0%,
+      var(--gold) 40%,
+      #fffda0 50%,
+      var(--gold) 60%,
+      var(--gold-deep) 100%
+    );
+    background-size: 200% auto;
+    color: transparent !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmerGold 6s infinite linear;
+  }
 }
 
 /* Page content area with padding */
@@ -60,15 +99,14 @@
 /* Decorative frame corners on Cover */
 .cv-corner {
   position: absolute;
-  width: 20mm;
-  height: 20mm;
-  border: 2px solid var(--gold);
+  width: 40mm;
+  height: 40mm;
   z-index: 2;
 }
-.cv-tl { top: 10mm; left: 10mm; border-right: none; border-bottom: none; }
-.cv-tr { top: 10mm; right: 10mm; border-left: none; border-bottom: none; }
-.cv-bl { bottom: 10mm; left: 10mm; border-right: none; border-top: none; }
-.cv-br { bottom: 10mm; right: 10mm; border-left: none; border-top: none; }
+.cv-tl { top: 8mm; left: 8mm; }
+.cv-tr { top: 8mm; right: 8mm; transform: scaleX(-1); }
+.cv-bl { bottom: 8mm; left: 8mm; transform: scaleY(-1); }
+.cv-br { bottom: 8mm; right: 8mm; transform: scale(-1, -1); }
 
 /* Cover content */
 .cv-content {
@@ -107,17 +145,11 @@
   margin: 0;
   text-transform: uppercase;
   margin-bottom: 30px;
-  background: linear-gradient(135deg, var(--ink) 0%, var(--gold-deep) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   padding-left: 12px;
 }
-.cv-line {
-  width: 60px;
-  height: 2px;
-  background-color: var(--gold);
+.cv-divider {
   margin: 0 auto 30px;
+  display: block;
 }
 .cv-sub {
   font-family: var(--font-montserrat), sans-serif;
@@ -188,8 +220,6 @@
   justify-content: center;
   margin-top: 12px;
 }
-.cat-sep span { width: 40px; height: 1px; background: var(--border); }
-.cat-sep i { font-style: normal; margin: 0 10px; color: var(--gold); font-size: 10px; }
 
 /* Category Grid / Two Columns */
 .cat-grid {
@@ -291,24 +321,39 @@
 /* Info Box / Bottom Box */
 .box {
   column-span: all;
-  border: 1px solid var(--border);
-  padding: 12px 15px;
-  margin-top: 15px;
-  background: rgba(197, 168, 128, 0.05);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 15px;
+  margin-top: 20px;
+  background: transparent;
+  position: relative;
 }
+.box::before, .box::after {
+  content: "◆";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gold);
+  font-size: 8px;
+  background: var(--paper);
+  padding: 0 4px;
+}
+.box::before { top: 0; }
+.box::after { top: 100%; }
+
 .box-t {
   text-align: center;
   font-family: var(--font-cinzel), serif;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   margin-bottom: 8px;
 }
 .box-c {
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 8.5px; /* small text */
-  color: var(--ink-soft);
-  line-height: 1.4;
+  font-family: var(--font-cormorant), serif;
+  font-size: 10px;
+  color: var(--ink-faint);
+  line-height: 1.6;
   text-align: center;
 }
 
@@ -316,10 +361,17 @@
 .fn {
   column-span: all;
   text-align: center;
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 9px;
+  font-family: var(--font-cormorant), serif;
+  font-style: italic;
+  font-size: 12px;
   color: var(--ink-faint);
-  margin-top: 10px;
+  margin-top: 20px;
+}
+.fn::before {
+  content: "— ";
+}
+.fn::after {
+  content: " —";
 }
 
 /* Contact Info bottom */
@@ -418,4 +470,34 @@
     page-break-after: always;
     break-after: page;
   }
+}
+
+/* ==========================================================================
+   EDITORIAL TYPOGRAPHIC STANDARDS & GRID (AWWWARDS LEVEL)
+   ========================================================================== */
+
+/* Strict Ligatures and Kerning for authentic Editorial Print */
+body, p, .it-d, .cv-intro, .fn, .box-c {
+  font-feature-settings: "liga" 1, "kern" 1, "onum" 1, "pnum" 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* Baseline Grid Rules 
+   Ensures text lines up perfectly across columns and pages 
+   (Based on a 1.6 baseline multiplier) */
+.page-content {
+  line-height: 1.6;
+}
+
+/* Print Layout Control (Orphans & Widows) */
+p, .it, .cv-intro, .fn, .box-c, .qt {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  orphans: 3;
+  widows: 3;
+}
+
+.it-hdr {
+  page-break-after: avoid;
+  break-after: avoid;
 }

@@ -1,512 +1,253 @@
 import React from 'react';
 import PrintLayoutClient from './PrintLayoutClient';
 import './print.css';
+import MenuCover from './components/MenuCover';
+import PrintPage from './components/PrintPage';
+import DishCategory from './components/DishCategory';
+import DishItem from './components/DishItem';
+import Quote from './components/Quote';
 
 export default function PrintMenuPage() {
   return (
     <div className="print-root">
       <PrintLayoutClient />
       
-      {/* SEITE I: DECKBLATT */}
-      <div className="page-cover">
-        <div className="cv-bg1"></div>
-        <div className="cv-bg2"></div>
-        <div className="cv-bg3"></div>
-        <div className="cv-corner cv-tl"></div>
-        <div className="cv-corner cv-tr"></div>
-        <div className="cv-corner cv-bl"></div>
-        <div className="cv-corner cv-br"></div>
+      <MenuCover />
+
+      <PrintPage pageNum="II">
+        <DishCategory dropcap="A" title="Aperitivi" subtitle="Presto" />
+        <div className="cat-grid">
+          <DishItem id="01" name="MARTINI BIANCO/ROSSO" price="4,50 €" desc="5cl" />
+          <DishItem id="02" name="CAMPARI SODA / ORANGE" price="5,50 €" desc="4cl" />
+          <DishItem id="03" name="PROSECCO VALDOBBIADENE" price="4,50 €" desc="0,1l" />
+          <DishItem id="04" name="APEROL SPRITZ" price="6,50 €" desc="0,2l" />
+          <DishItem id="05" name="HUGO" price="6,50 €" desc="0,2l" />
+        </div>
+
+        <DishCategory dropcap="Z" title="Zuppe" subtitle="Suppen" marginTop="20px" />
+        <div className="cat-grid">
+          <DishItem id="10" name="CREMA DI POMODORO" price="5,50 €" desc="Hausgemachte Tomaten-Basilikum-Suppe" />
+          <DishItem id="11" name="MINESTRONE" price="6,00 €" desc="Italienische Gemüsesuppe der Saison" />
+        </div>
+
+        <DishCategory dropcap="A" title="Antipasti" subtitle="Vorspeisen" marginTop="20px" />
+        <div className="cat-grid">
+          <DishItem id="20" name="BRUSCHETTA" price="5,50 €" desc="Vier geröstete Brotscheiben mit frischen Tomaten, Knoblauch und Basilikum" />
+          <DishItem id="21" name="CAPRESE" price="9,00 €" desc="Mozzarella mit frischen Tomaten und Basilikum" />
+          <DishItem id="22" name="CARPACCIO DI MANZO" price="12,50 €" desc="Hauchdünnes Rinderfilet mit Rucola und Parmesanraspeln" />
+          <DishItem id="23" name="VITELLO TONNATO" price="11,50 €" desc="Dünn aufgeschnittenes Kalbfleisch mit Thunfisch-Kaperncreme" />
+          <DishItem id="24" name="ANTIPASTO MISTO" price="13,50 €" desc="Variation von italienischen Vorspeisen" />
+          <DishItem id="25" name="FETA AL FORNO" price="10,50 €" desc="Gebackener Schafskäse mit Oliven, Peperoni und Knoblauch" />
+          <Quote text="La cucina è un atto d'amore" />
+        </div>
+        <div className="fn">Alle Suppen und Vorspeisen servieren wir mit ofenfrischem Pizzabrot.</div>
+      </PrintPage>
+
+      <PrintPage pageNum="III">
+        <DishCategory dropcap="I" title="Insalate" subtitle="Salate" />
+        <div className="cat-grid">
+          <DishItem id="30" name="INSALATA MISTA (KLEIN)" price="5,50 €" desc="Gemischter Beilagensalat mit Hausdressing" />
+          <DishItem id="31" name="INSALATA POMODORO" price="6,50 €" desc="Tomatensalat mit Zwiebeln und Essig/Öl" />
+          <DishItem id="32" name="INSALATA ITALIA" price="10,50 €" desc="Gemischter Salat mit Schinken, Käse, Ei, Oliven und Peperoni" />
+          <DishItem id="33" name="INSALATA TONNO" price="10,50 €" desc="Gemischter Salat mit Thunfisch, Zwiebeln, Ei und Oliven" />
+          <DishItem id="34" name="INSALATA PECORINO" price="10,50 €" desc="Gemischter Salat mit Feta, milden Peperoni, Oliven und Ei" />
+          <DishItem id="35" name="INSALATA POLLO" price="12,50 €" desc="Großer bunter Salat mit gebratenen Hähnchenbruststreifen" />
+          <DishItem id="36" name="INSALATA RATSSTUBEN" price="14,50 €" desc="Großer bunter Salat mit Lachsstreifen, Rucola und Parmesan" />
+        </div>
+        <div className="fn" style={{marginBottom: "30px"}}>Alle großen Salate servieren wir mit ofenfrischem Pizzabrot und unserem Balsamico-Joghurt Dressing.</div>
         
-        <div className="cv-content">
-          <div className="cv-tag"><span>◆</span>RISTORANTE<span>◆</span></div>
-          <div className="cv-trad">— Tradizione Italiana —</div>
-          <h1 className="cv-title">RATSSTUBEN</h1>
-          <div className="cv-line"></div>
-          <div className="cv-sub">Kulinarische Meisterwerke<br/>mit Leidenschaft kreiert</div>
-          <p className="cv-intro">
-            Unsere Küche ehrt die reiche Tradition Italiens,<br/>
-            wobei nur sorgfältig ausgewählte, frische Zutaten<br/>
-            ihren Weg auf Ihren Teller finden.
+        <div className="box">
+          <div className="box-t">ALLERGEN-KENNZEICHNUNG (EU-VO 1169/2011)</div>
+          <div className="box-c">
+            A) Glutenhaltiges Getreide • B) Krebstiere • C) Eier • D) Fisch • E) Erdnüsse • F) Soja • G) Milch & Laktose<br/>
+            H) Schalenfrüchte / Nüsse • I) Sellerie • J) Senf • K) Sesamsamen • L) Sulfite • M) Lupinen • N) Weichtiere
+          </div>
+          <div className="box-t" style={{marginTop: "8px"}}>ZUSATZSTOFFE</div>
+          <div className="box-c">
+            1) Farbstoff • 2) Konservierungsstoff • 3) Antioxidationsmittel • 4) Geschmacksverstärker<br/>
+            5) Geschwefelt • 6) Geschwärzt • 7) Phosphat • 8) Süßungsmittel
+          </div>
+        </div>
+      </PrintPage>
+
+      <PrintPage pageNum="IV">
+        <DishCategory dropcap="P" title="Pasta" subtitle="Traditionell" />
+        <div className="cat-grid">
+          <DishItem id="40" name="SPAGHETTI NAPOLI" price="8,00 €" desc="mit hausgemachterfruchtiger Tomatensoße" />
+          <DishItem id="41" name="SPAGHETTI BOLOGNESE" price="9,00 €" desc="mit herzhafter Fleischsoße vom Rind" />
+          <DishItem id="42" name="SPAGHETTI AGLIO E OLIO" price="8,50 €" desc="mit nativem Olivenöl, Knoblauch, Peperoni (scharf)" />
+          <DishItem id="43" name="SPAGHETTI CARBONARA" price="9,50 €" desc="mit Speck, Ei, Sahne und Parmesan" />
+          <DishItem id="44" name="PENNE ALL' ARRABBIATA" price="9,00 €" desc="mit Knoblauch, Oliven und Peperoni in Tomatensoße (pikant)" />
+          <DishItem id="45" name="PENNE GORGONZOLA" price="10,50 €" desc="mit herzhafter Gorgonzolakäse-Sahnesoße" />
+          <DishItem id="46" name="TORTELLINI PANNA" price="10,00 €" desc="Fleischteigtaschen mit Hinterschinken und Sahnesoße" />
+          <DishItem id="47" name="TAGLIATELLE SALMONE" price="13,50 €" desc="Bandnudeln mit Lachs in Hummersoße mit Rosa Pfeffer" />
+          <Quote text="Il segreto di una buona cucina..." />
+        </div>
+      </PrintPage>
+
+      <PrintPage pageNum="V">
+        <DishCategory dropcap="A" title="Al Forno" subtitle="Überbackenes" />
+        <div className="cat-grid">
+          <DishItem id="48" name="LASAGNE AL FORNO" price="10,50 €" desc="Geschichtete Nudelblätter mit Fleischsoße (100% Rind) und Käse überbacken" />
+          <DishItem id="49" name="PASTA MISTA FORNO" price="11,00 €" desc="3 Nudelsorten mit Fleischsoße, Béchamel und Käse überbacken" />
+          <DishItem id="62" name="CANNELLONI RICOTTA" price="10,50 €" desc="Teigrollen gefüllt mit Spinat-Ricotta in Tomaten-Sahnesoße überbacken" />
+        </div>
+
+        <DishCategory dropcap="F" title="Fatto In Casa" subtitle="Hausgemacht" marginTop="30px" />
+        <div className="cat-grid">
+          <DishItem id="50" name="GNOCCHI POMODORO" price="10,00 €" desc="Hausgemachte Kartoffelklößchen mit Rucola und Parmesan in Tomatensoße" />
+          <DishItem id="51" name="GNOCCHI AL GORGONZOLA" price="11,00 €" desc="Kartoffelklößchen in fein-würziger Gorgonzolasoße" />
+          <DishItem id="52" name="RAVIOLI BURRO E SALVIA" price="12,50 €" desc="Frische Teigtaschen gefüllt mit Ricotta & Spinat in Buttersoße mit frischem Salbei" />
+          <DishItem id="53" name="RAVIOLI TARTUFO" price="14,50 €" desc="Trüffel-Teigtaschen in leichter Trüffel-Sahnesoße mit Parmesan" />
+          <DishItem id="54" name="PANZEROTTI FUNGHI" price="13,50 €" desc="Halbmond-Teigtaschen gefüllt mit Steinpilzen in Crème Fraîche Soße" />
+          <Quote text="La pasta fatta in casa..." />
+        </div>
+      </PrintPage>
+
+      <PrintPage pageNum="VI">
+        <DishCategory dropcap="S" title="Scaloppine" subtitle="Schnitzel (Schweinerücken)" />
+        <div className="cat-grid">
+          <DishItem id="70" name="SCHNITZEL &quot;WIENER ART&quot;" price="12,50 €" desc="Paniertes Schweineschnitzel mit Zitronenecke" />
+          <DishItem id="71" name="JÄGERSCHNITZEL" price="14,50 €" desc="Paniertes Schweineschnitzel mit aromatischer Pilz-Sahnesoße" />
+          <DishItem id="72" name="ZIGEUNERSCHNITZEL" price="14,50 €" desc="Paniertes Schnitzel mit rauchiger Paprika-Tomatensoße" />
+          <DishItem id="73" name="RAHMSCHNITZEL" price="14,50 €" desc="Paniertes Schweineschnitzel in delikater Sahnesoße" />
+          <DishItem id="74" name="HAWAII SCHNITZEL" price="15,00 €" desc="Paniertes Schnitzel mit Ananas und Käse überbacken" />
+          <DishItem id="75" name="PARMIGIANA SCHNITZEL" price="15,50 €" desc="Schnitzel paniert, Parmaschinken, Ruccola & Parmesanraspeln, Essig & Öl" />
+          <DishItem id="76" name="RATSSTUBEN SCHNITZEL" price="15,50 €" desc="Paniertes Schnitzel in Tomaten-Sahnesoße, Speck, Paprika & Käse überbacken" />
+          <div className="fn">Alle Schnitzelgerichte servieren wir wahlweise mit Pommes Frites, Kroketten oder Nudeln.</div>
+        </div>
+
+        <DishCategory dropcap="B" title="Burger" subtitle="100% Rind (180g)" marginTop="20px" />
+        <div className="cat-grid">
+          <DishItem id="60" name="CLASSIC CHEESEBURGER" price="14,00 €" desc="Cheddar-Käse, Burger-Sauce, Tomate, Gurke, Röstzwiebeln und Salat" />
+          <DishItem id="61" name="BBQ BACON BURGER" price="14,50 €" desc="BBQ-Sauce, knuspriger Bacon, Cheddar-Käse, Röstzwiebeln und Rucola" />
+          <DishItem id="63" name="CHILLI CHEESE BURGER" price="14,50 €" desc="Jalapeños, Cheddar, Nachos, feurige Chili-Cheese-Sauce, Salat" />
+          <DishItem id="64" name="GORGONZOLA BURGER" price="14,50 €" desc="Würziger Gorgonzola-Käse, hausgemachte Joghurtsauce, Rucola" />
+          <div className="fn">Alle Burger servieren wir mit einer Portion Pommes Frites. Details zu den Burgern auf Seite X.</div>
+        </div>
+      </PrintPage>
+
+      <PrintPage pageNum="VII">
+        <DishCategory dropcap="C" title="Carne" subtitle="Fleisch" />
+        <div className="cat-grid">
+          <DishItem id="80" name="BISTECCA ALLA GRIGLIA" price="24,50 €" desc="Gegrilltes Rumpsteak (ca. 250g) mit Kräuterbutter" />
+          <DishItem id="81" name="BISTECCA AL GORGONZOLA" price="26,50 €" desc="Gegrilltes Rumpsteak in würziger Gorgonzolasoße" />
+          <DishItem id="82" name="BISTECCA AL PEPE VERDE" price="26,50 €" desc="Rumpsteak in cremiger Cognac-Grüner-Pfeffer-Soße" />
+          <DishItem id="83" name="MEDAGLIONI FUNGHI" price="17,50 €" desc="Schweinemedaillons in frischer Champignon-Rahmsoße" />
+          <DishItem id="84" name="MEDAGLIONI PEPE VERDE" price="17,50 €" desc="Schweinemedaillons in delikater Pfeffersoße" />
+        </div>
+
+        <DishCategory dropcap="P" title="Pesce" subtitle="Fisch" marginTop="30px" />
+        <div className="cat-grid">
+          <DishItem id="85" name="CALAMARI FRITTI" price="15,50 €" desc="Frittierte Tintenfischringe mit pikanter Remouladensoße" />
+          <DishItem id="86" name="SALMONE ALLA GRIGLIA" price="18,50 €" desc="Lachsfilet vom Grill, verfeinert mit Knoblauch-Kräuter-Marinade" />
+          <DishItem id="87" name="SCAMPI ALLA GRIGLIA" price="23,50 €" desc="Großgarnelen vom Grill mit Knoblauch und feinen Kräutern" />
+          <DishItem id="88" name="SCAMPI LIVORNESE" price="24,50 €" desc="Großgarnelen in feuriger Tomatensoße mit Oliven, Kapern, Knoblauch, Peperoni" />
+          <Quote text="La qualità non è mai un caso." />
+        </div>
+        <div className="fn">Alle Fleisch- und Fischgerichte servieren wir mit Gemüse der Saison und Gourmet-Kartoffeln (Rosmarin-Drillinge) als Beilage. Zu Calamari Fritti reichen wir einen Beilagensalat.</div>
+      </PrintPage>
+
+      <PrintPage pageNum="VIII">
+        <DishCategory dropcap="P" title="Pizza" subtitle="Forno a Legna (∅ 28cm)" />
+        <div className="cat-grid">
+          <DishItem id="90" name="PIZZABROT" price="4,00 €" desc="Knoblauch oder Olivenöl, Origano" />
+          <DishItem id="91" name="PIZZA MARGHERITA" price="7,50 €" desc="Tomatensoße und Käse" />
+          <DishItem id="92" name="PIZZA SALAMI" price="8,50 €" desc="Mailänder Salami" />
+          <DishItem id="93" name="PIZZA PROSCIUTTO" price="8,50 €" desc="Vorderschinken" />
+          <DishItem id="94" name="PIZZA FUNGHI" price="8,50 €" desc="Frische Champignons" />
+          <DishItem id="95" name="PIZZA TONNO" price="9,50 €" desc="Thunfisch und Zwiebeln" />
+          <DishItem id="96" name="PIZZA HAWAII" price="9,50 €" desc="Schinken und Ananas" />
+          <DishItem id="97" name="PIZZA ITALIA" price="9,50 €" desc="Zwiebeln, frischen Tomaten, Peperoni, Mozzarella und Oregano" />
+          <DishItem id="98" name="PIZZA CAPRICCIOSA" price="9,50 €" desc="Salami, Schinken und frische Champignons" />
+          <DishItem id="99" name="PIZZA MILANO" price="9,50 €" desc="Salami, Schinken, Champignons und Peperoni" />
+          <DishItem id="100" name="PIZZA QUATTRO STAGIONI" price="10,00 €" desc="Salami, Schinken, Champignons, Paprika" />
+          <DishItem id="101" name="PIZZA VEGETARIANA" price="10,00 €" desc="Verschiedene frische Gemüsesorten der Saison" />
+          <DishItem id="102" name="PIZZA GYROS" price="10,50 €" desc="Zwiebeln, Tzatziki, Gyros" />
+          <DishItem id="103" name="PIZZA DIAVOLO (scharf!)" price="10,50 €" desc="Peperoniwurst, Paprika, Zwiebeln, Knoblauch, Peperoni" />
+          <DishItem id="104" name="PIZZA PARMA" price="11,50 €" desc="Parmaschinken, Rucola, Parmesan" />
+          <DishItem id="105" name="CALZONE (Gefüllte Pizza)" price="10,00 €" desc="Salami, Schinken, frische Champignons, Paprika" />
+          <DishItem id="106" name="PIZZA SALMONE" price="12,50 €" desc="Frischer Lachs, Spinat, Knoblauch, Mozzarella" />
+        </div>
+        <div className="fn">Alle Pizzen (außer Pizzabrot) werden mit Tomatensoße, Gewürzen & Käse belegt. Jede weitere kleine Zutat berechnen wir mit + 1,00 €. Frischer Lachs, Garnelen, Parmaschinken berechnen wir mit + 2,00 €. Extrawünsche sind bei Calzone leider nicht möglich.</div>
+      </PrintPage>
+
+      <PrintPage pageNum="IX">
+        <DishCategory dropcap="F" title="Famiglia" subtitle="Familienpizza ca. 40×60 cm (ab 4 Pers.)" />
+        <div className="cat-grid">
+          <DishItem id="110" name="FAMILIENPIZZA MARGHERITA" price="20,00 €" desc="Tomatensoße, Käse und Kräuter" />
+          <DishItem id="111" name="MIT EINER ZUTAT" price="23,00 €" desc="Salami oder Schinken oder Champignons oder Peperoniwurst" />
+          <DishItem id="112" name="MIT ZWEI ZUTATEN" price="25,50 €" desc="Zwei Zutaten nach Wahl (Standard)" />
+          <DishItem id="113" name="MIT DREI ZUTATEN" price="28,00 €" desc="Drei Zutaten nach Wahl (Standard)" />
+          <DishItem id="114" name="MIT VIER ZUTATEN" price="30,50 €" desc="Vier Zutaten nach Wahl (Standard)" />
+          <DishItem id="115" name="PIZZA RATSSTUBEN" price="32,50 €" desc="Belag nach Art des Hauses" />
+        </div>
+
+        <DishCategory dropcap="L" title="Limonate" subtitle="Limonate Della Casa (Hausgemacht, 0,4L)" marginTop="15px" />
+        <div className="cat-grid">
+          <DishItem id="L1" name="CLASSIC LEMON MINT" price="5,50 €" desc="Frischer Zitronensaft, Minze, Sprite, Soda" />
+          <DishItem id="L2" name="STRAWBERRY BASIL" price="5,90 €" desc="Erdbeer-Sirup, frischer Basilikum, Limette, Soda" />
+          <DishItem id="L3" name="PASSION FRUIT BREEZE" price="5,90 €" desc="Maracuja, Limettensaft, Minze, Soda" />
+          <DishItem id="L4" name="RASPBERRY PEACH" price="5,90 €" desc="Pfirsich, Himbeere, Limette, Soda" />
+        </div>
+
+        <DishCategory dropcap="B" title="Bambini" subtitle="Kindergerichte" marginTop="15px" />
+        <div className="cat-grid">
+          <DishItem id="120" name="PUMUCKL" price="6,00 €" desc="Spaghetti in Napoli oder Bolognese" />
+          <DishItem id="121" name="DUMBO" price="7,50 €" desc="Kleines Schnitzel &quot;Wiener Art&quot; mit Pommes" />
+          <DishItem id="122" name="NEMO" price="7,50 €" desc="Fischstäbchen (6 Stück) mit Pommes" />
+          <DishItem id="123" name="MICKY MAUS" price="7,00 €" desc="Kleine Pizza Margherita mit Salami" />
+        </div>
+
+        <DishCategory dropcap="D" title="Dolci" subtitle="Desserts" marginTop="15px" />
+        <div className="cat-grid">
+          <DishItem id="130" name="TIRAMISU (HAUSGEMACHT)" price="6,00 €" desc="Klassisches italienisches Dessert mit Mascarpone" />
+          <DishItem id="131" name="PANNA COTTA" price="5,50 €" desc="Sahnedessert mit Erdbeersoße" />
+          <DishItem id="132" name="WARMER APFELSTRUDEL" price="6,50 €" desc="Mit Vanilleeis und Sahne" />
+          <DishItem id="133" name="TARTUFO EIS" price="5,50 €" desc="Italienische Eisspezialität mit Schokoladenkern" />
+          <DishItem id="134" name="GEMISCHTES EIS" price="5,00 €" desc="Drei Kugeln Eis nach Wahl (Schoko, Vanille, Erdbeer)" />
+        </div>
+        
+        <div className="cv-est" style={{position: 'relative', bottom: 'auto', marginTop: '20px'}}>
+          <span style={{fontSize: '24px'}}>GRAZIE ◆ BUON APPETITO</span>
+        </div>
+      </PrintPage>
+
+      <PrintPage pageNum="X">
+        <DishCategory dropcap="B" title="Hamburger" subtitle="Della Casa" marginTop="40px" marginBottom="40px" />
+        <div style={{maxWidth: "80%", margin: "0 auto"}}>
+          <p className="cv-intro" style={{textAlign: "center", marginBottom: "40px", maxWidth: "100%"}}>
+            Unsere Premium Burger werden mit 180g saftigem 100% Rindfleisch zubereitet<br/>und frisch im rustikalen Brioche Bun serviert.<br/>Zu jedem Burger servieren wir knackige Pommes Frites.
           </p>
+          <DishItem id="60" name="CLASSIC CHEESEBURGER" price="14,00 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Der zeitlose Klassiker: Saftiges Rindfleisch-Patty überbacken mit irischem Cheddar-Käse, belegt mit frischen Tomatenscheiben, knackigen Gewürzgurken, Lollo Bionda Salat und gerösteten Zwiebeln. Vollendet mit unserer raffinierten hausgemachten Burger-Sauce." />
+          <DishItem id="61" name="BBQ BACON BURGER" price="14,50 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Für Liebhaber rauchiger Aromen: Herzhaftes 100% Rindfleisch-Patty, knusprig gebratene Bacon-Streifen, geschmolzener Cheddar-Käse, Röstzwiebeln und würziger Rucola-Salat. Kräftig abgerundet mit Original amerikanischer BBQ-Sauce." />
+          <DishItem id="63" name="CHILLI CHEESE BURGER" price="14,50 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Temperamentvoll und scharf: Saftiges Rindfleisch mit feurigen Jalapeños, knusprigen Tortilla-Nachos für den extra Crunch und frischem Salat. Gekrönt von einer reichhaltigen, scharfen Chili-Cheese-Sauce und geschmolzenem Cheddar." />
+          <DishItem id="64" name="GORGONZOLA BURGER" price="14,50 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Italienische Raffinesse trifft auf Burger-Kultur: Unser 180g Rindfleisch-Patty umhüllt von cremig-würzigem Gorgonzola-Blauschimmelkäse dolce. Dazu aromatischer Rucola und eine erfrischende, hausgemachte Joghurt-Mayonnaise." />
+          <Quote text="Tutti i sapori, una sola passione." marginTop="50px" />
         </div>
-        
-        <div className="cv-est">
-          Konrad-Adenauer-Straße 26, 35440 Linden<br />
-          06403 - 64556<br />
-          www.lindener-ratsstuben.de
-        </div>
-      </div>
+      </PrintPage>
 
-      {/* SEITE II: APERITIVI, ZUPPE, ANTIPASTI */}
-      <div className="page">
-        <div className="pg-frame"></div>
-        <div className="page-content">
-          <div className="cat-hdr">
-            <span className="cat-dropcap">A</span>
-            <h2 className="cat-title">Aperitivi</h2>
-            <span className="cat-it">Presto</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">01</span><span className="it-n">MARTINI BIANCO/ROSSO</span><span className="it-dots"></span><span className="it-p">4,50 €</span></div><div className="it-d">5cl</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">02</span><span className="it-n">CAMPARI SODA / ORANGE</span><span className="it-dots"></span><span className="it-p">5,50 €</span></div><div className="it-d">4cl</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">03</span><span className="it-n">PROSECCO VALDOBBIADENE</span><span className="it-dots"></span><span className="it-p">4,50 €</span></div><div className="it-d">0,1l</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">04</span><span className="it-n">APEROL SPRITZ</span><span className="it-dots"></span><span className="it-p">6,50 €</span></div><div className="it-d">0,2l</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">05</span><span className="it-n">HUGO</span><span className="it-dots"></span><span className="it-p">6,50 €</span></div><div className="it-d">0,2l</div></div>
-          </div>
+      <PrintPage pageNum="XI">
+        <DishCategory dropcap="L" title="Limonate" subtitle="Della Casa (0,4L)" marginTop="40px" marginBottom="40px" />
+        <div style={{maxWidth: "80%", margin: "0 auto"}}>
+          <p className="cv-intro" style={{textAlign: "center", marginBottom: "40px", maxWidth: "100%"}}>
+            Erfrischend anders: Entdecken Sie unsere hausgemachten Limonadenkreationen.<br/>Jedes Glas (0,4L) wird à la minute mit frischen Früchten, Kräutern<br/>und ausgewählten Sirup-Spezialitäten für Sie zubereitet. Ohne Alkohol.
+          </p>
+          <DishItem id="L1" name="CLASSIC LEMON MINT" price="5,50 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Die traditionelle, erfrischende Symphonie: Frisch gepresster Zitronensaft, milde Rohrzuckersüße und reichlich frische marokkanische Nanaminze, aufbereitet mit Sprite und serviert auf Eis. Der Inbegriff von Erfrischung." />
+          <DishItem id="L2" name="STRAWBERRY BASIL" price="5,90 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Italienischer Sommer im Glas: Süßer Premium-Erdbeersirup gepaart mit den ätherischen Ölen von frisch gezupftem Basilikum. Abgerundet durch einen Schuss frischer Limette und aufgefüllt mit sprudelndem Sodawasser." />
+          <DishItem id="L3" name="PASSION FRUIT BREEZE" price="5,90 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Tropische Leichtigkeit: Intensiv-fruchtiges Maracuja-Püree umspielt von säuerlichem Limettensaft und kühlender Minze, leicht gesüßt und herrlich prickelnd. Ein exotischer Urlaub für die Sinne." />
+          <DishItem id="L4" name="RASPBERRY PEACH" price="5,90 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Samtig und beerig: Die feine Süße des Weinbergpfirsichs harmoniert perfekt mit kräftigem Himbeersirup. Ausbalanciert mit frisch gepresster Limette und spritzigem Wasser, garniert mit frischer Minze." />
+          <Quote text="La freschezza è un'arte." marginTop="50px" marginBottom="30px" />
 
-          <div className="cat-hdr" style={{marginTop: "20px"}}>
-            <span className="cat-dropcap">Z</span>
-            <h2 className="cat-title">Zuppe</h2>
-            <span className="cat-it">Suppen</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">10</span><span className="it-n">CREMA DI POMODORO</span><span className="it-dots"></span><span className="it-p">5,50 €</span></div><div className="it-d">Hausgemachte Tomaten-Basilikum-Suppe</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">11</span><span className="it-n">MINESTRONE</span><span className="it-dots"></span><span className="it-p">6,00 €</span></div><div className="it-d">Italienische Gemüsesuppe der Saison</div></div>
-          </div>
-
-          <div className="cat-hdr" style={{marginTop: "20px"}}>
-            <span className="cat-dropcap">A</span>
-            <h2 className="cat-title">Antipasti</h2>
-            <span className="cat-it">Vorspeisen</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">20</span><span className="it-n">BRUSCHETTA</span><span className="it-dots"></span><span className="it-p">5,50 €</span></div><div className="it-d">Vier geröstete Brotscheiben mit frischen Tomaten, Knoblauch und Basilikum</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">21</span><span className="it-n">CAPRESE</span><span className="it-dots"></span><span className="it-p">9,00 €</span></div><div className="it-d">Mozzarella mit frischen Tomaten und Basilikum</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">22</span><span className="it-n">CARPACCIO DI MANZO</span><span className="it-dots"></span><span className="it-p">12,50 €</span></div><div className="it-d">Hauchdünnes Rinderfilet mit Rucola und Parmesanraspeln</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">23</span><span className="it-n">VITELLO TONNATO</span><span className="it-dots"></span><span className="it-p">11,50 €</span></div><div className="it-d">Dünn aufgeschnittenes Kalbfleisch mit Thunfisch-Kaperncreme</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">24</span><span className="it-n">ANTIPASTO MISTO</span><span className="it-dots"></span><span className="it-p">13,50 €</span></div><div className="it-d">Variation von italienischen Vorspeisen</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">25</span><span className="it-n">FETA AL FORNO</span><span className="it-dots"></span><span className="it-p">10,50 €</span></div><div className="it-d">Gebackener Schafskäse mit Oliven, Peperoni und Knoblauch</div></div>
-            
-            <div className="qt">
-              <div className="qt-txt">&quot;La cucina è un atto d&apos;amore&quot;</div>
-            </div>
-          </div>
-          
-          <div className="fn">Alle Suppen und Vorspeisen servieren wir mit ofenfrischem Pizzabrot.</div>
-          
-        </div>
-        <div className="pg-num">— II —</div>
-      </div>
-
-      {/* SEITE III: INSALATE + ALLERGEN BOX */}
-      <div className="page">
-        <div className="pg-frame"></div>
-        <div className="page-content">
-          <div className="cat-hdr">
-            <span className="cat-dropcap">I</span>
-            <h2 className="cat-title">Insalate</h2>
-            <span className="cat-it">Salate</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">30</span><span className="it-n">INSALATA MISTA (KLEIN)</span><span className="it-dots"></span><span className="it-p">5,50 €</span></div><div className="it-d">Gemischter Beilagensalat mit Hausdressing</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">31</span><span className="it-n">INSALATA POMODORO</span><span className="it-dots"></span><span className="it-p">6,50 €</span></div><div className="it-d">Tomatensalat mit Zwiebeln und Essig/Öl</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">32</span><span className="it-n">INSALATA ITALIA</span><span className="it-dots"></span><span className="it-p">10,50 €</span></div><div className="it-d">Gemischter Salat mit Schinken, Käse, Ei, Oliven und Peperoni</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">33</span><span className="it-n">INSALATA TONNO</span><span className="it-dots"></span><span className="it-p">10,50 €</span></div><div className="it-d">Gemischter Salat mit Thunfisch, Zwiebeln, Ei und Oliven</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">34</span><span className="it-n">INSALATA PECORINO</span><span className="it-dots"></span><span className="it-p">10,50 €</span></div><div className="it-d">Gemischter Salat mit Feta, milden Peperoni, Oliven und Ei</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">35</span><span className="it-n">INSALATA POLLO</span><span className="it-dots"></span><span className="it-p">12,50 €</span></div><div className="it-d">Großer bunter Salat mit gebratenen Hähnchenbruststreifen</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">36</span><span className="it-n">INSALATA RATSSTUBEN</span><span className="it-dots"></span><span className="it-p">14,50 €</span></div><div className="it-d">Großer bunter Salat mit Lachsstreifen, Rucola und Parmesan</div></div>
-          </div>
-          
-          <div className="fn" style={{marginBottom: "30px"}}>Alle großen Salate servieren wir mit ofenfrischem Pizzabrot und unserem Balsamico-Joghurt Dressing.</div>
-          
-          <div className="box">
-            <div className="box-t">ALLERGEN-KENNZEICHNUNG (EU-VO 1169/2011)</div>
+          <div className="box" style={{marginTop: "40px", backgroundColor: "transparent", border: "none"}}>
+            <div className="box-t">ZUSATZSTOFF-HINWEISE LIMONADEN</div>
             <div className="box-c">
-              A) Glutenhaltiges Getreide • B) Krebstiere • C) Eier • D) Fisch • E) Erdnüsse • F) Soja • G) Milch & Laktose<br/>
-              H) Schalenfrüchte / Nüsse • I) Sellerie • J) Senf • K) Sesamsamen • L) Sulfite • M) Lupinen • N) Weichtiere
-            </div>
-            <div className="box-t" style={{marginTop: "8px"}}>ZUSATZSTOFFE</div>
-            <div className="box-c">
-              1) Farbstoff • 2) Konservierungsstoff • 3) Antioxidationsmittel • 4) Geschmacksverstärker<br/>
-              5) Geschwefelt • 6) Geschwärzt • 7) Phosphat • 8) Süßungsmittel
-            </div>
-          </div>
-          
-        </div>
-        <div className="pg-num">— III —</div>
-      </div>
-
-      {/* SEITE IV: PASTA */}
-      <div className="page">
-        <div className="pg-frame"></div>
-        <div className="page-content">
-          <div className="cat-hdr">
-            <span className="cat-dropcap">P</span>
-            <h2 className="cat-title">Pasta</h2>
-            <span className="cat-it">Traditionell</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">40</span><span className="it-n">SPAGHETTI NAPOLI</span><span className="it-dots"></span><span className="it-p">8,00 €</span></div><div className="it-d">mit hausgemachterfruchtiger Tomatensoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">41</span><span className="it-n">SPAGHETTI BOLOGNESE</span><span className="it-dots"></span><span className="it-p">9,00 €</span></div><div className="it-d">mit herzhafter Fleischsoße vom Rind</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">42</span><span className="it-n">SPAGHETTI AGLIO E OLIO</span><span className="it-dots"></span><span className="it-p">8,50 €</span></div><div className="it-d">mit nativem Olivenöl, Knoblauch, Peperoni (scharf)</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">43</span><span className="it-n">SPAGHETTI CARBONARA</span><span className="it-dots"></span><span className="it-p">9,50 €</span></div><div className="it-d">mit Speck, Ei, Sahne und Parmesan</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">44</span><span className="it-n">PENNE ALL&apos; ARRABBIATA</span><span className="it-dots"></span><span className="it-p">9,00 €</span></div><div className="it-d">mit Knoblauch, Oliven und Peperoni in Tomatensoße (pikant)</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">45</span><span className="it-n">PENNE GORGONZOLA</span><span className="it-dots"></span><span className="it-p">10,50 €</span></div><div className="it-d">mit herzhafter Gorgonzolakäse-Sahnesoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">46</span><span className="it-n">TORTELLINI PANNA</span><span className="it-dots"></span><span className="it-p">10,00 €</span></div><div className="it-d">Fleischteigtaschen mit Hinterschinken und Sahnesoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">47</span><span className="it-n">TAGLIATELLE SALMONE</span><span className="it-dots"></span><span className="it-p">13,50 €</span></div><div className="it-d">Bandnudeln mit Lachs in Hummersoße mit Rosa Pfeffer</div></div>
-            
-            <div className="qt">
-              <div className="qt-txt">&quot;Il segreto di una buona cucina...&quot;</div>
+              L1 enthält: Aroma, Säuerungsmittel. L2 enthält: Farbstoff (Carmin), Säuerungsmittel. <br/>
+              L3 enthält: Antioxidationsmittel, Aroma. L4 enthält: Farbstoff, Antioxidationsmittel, Aroma.
             </div>
           </div>
         </div>
-        <div className="pg-num">— IV —</div>
-      </div>
-
-      {/* SEITE V: PASTA AL FORNO + FATTO IN CASA */}
-      <div className="page">
-        <div className="pg-frame"></div>
-        <div className="page-content">
-          <div className="cat-hdr">
-            <span className="cat-dropcap">A</span>
-            <h2 className="cat-title">Al Forno</h2>
-            <span className="cat-it">Überbackenes</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">48</span><span className="it-n">LASAGNE AL FORNO</span><span className="it-dots"></span><span className="it-p">10,50 €</span></div><div className="it-d">Geschichtete Nudelblätter mit Fleischsoße (100% Rind) und Käse überbacken</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">49</span><span className="it-n">PASTA MISTA FORNO</span><span className="it-dots"></span><span className="it-p">11,00 €</span></div><div className="it-d">3 Nudelsorten mit Fleischsoße, Béchamel und Käse überbacken</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">62</span><span className="it-n">CANNELLONI RICOTTA</span><span className="it-dots"></span><span className="it-p">10,50 €</span></div><div className="it-d">Teigrollen gefüllt mit Spinat-Ricotta in Tomaten-Sahnesoße überbacken</div></div>
-          </div>
-
-          <div className="cat-hdr" style={{marginTop: "30px"}}>
-            <span className="cat-dropcap">F</span>
-            <h2 className="cat-title">Fatto In Casa</h2>
-            <span className="cat-it">Hausgemacht</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">50</span><span className="it-n">GNOCCHI POMODORO</span><span className="it-dots"></span><span className="it-p">10,00 €</span></div><div className="it-d">Hausgemachte Kartoffelklößchen mit Rucola und Parmesan in Tomatensoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">51</span><span className="it-n">GNOCCHI AL GORGONZOLA</span><span className="it-dots"></span><span className="it-p">11,00 €</span></div><div className="it-d">Kartoffelklößchen in fein-würziger Gorgonzolasoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">52</span><span className="it-n">RAVIOLI BURRO E SALVIA</span><span className="it-dots"></span><span className="it-p">12,50 €</span></div><div className="it-d">Frische Teigtaschen gefüllt mit Ricotta & Spinat in Buttersoße mit frischem Salbei</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">53</span><span className="it-n">RAVIOLI TARTUFO</span><span className="it-dots"></span><span className="it-p">14,50 €</span></div><div className="it-d">Trüffel-Teigtaschen in leichter Trüffel-Sahnesoße mit Parmesan</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">54</span><span className="it-n">PANZEROTTI FUNGHI</span><span className="it-dots"></span><span className="it-p">13,50 €</span></div><div className="it-d">Halbmond-Teigtaschen gefüllt mit Steinpilzen in Crème Fraîche Soße</div></div>
-            
-            <div className="qt">
-              <div className="qt-txt">&quot;La pasta fatta in casa...&quot;</div>
-            </div>
-          </div>
-        </div>
-        <div className="pg-num">— V —</div>
-      </div>
-
-      {/* SEITE VI: SCALOPPINE + HAMBURGER */}
-      <div className="page">
-        <div className="pg-frame"></div>
-        <div className="page-content">
-          <div className="cat-hdr">
-            <span className="cat-dropcap">S</span>
-            <h2 className="cat-title">Scaloppine</h2>
-            <span className="cat-it">Schnitzel (Schweinerücken)</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">70</span><span className="it-n">SCHNITZEL &quot;WIENER ART&quot;</span><span className="it-dots"></span><span className="it-p">12,50 €</span></div><div className="it-d">Paniertes Schweineschnitzel mit Zitronenecke</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">71</span><span className="it-n">JÄGERSCHNITZEL</span><span className="it-dots"></span><span className="it-p">14,50 €</span></div><div className="it-d">Paniertes Schweineschnitzel mit aromatischer Pilz-Sahnesoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">72</span><span className="it-n">ZIGEUNERSCHNITZEL</span><span className="it-dots"></span><span className="it-p">14,50 €</span></div><div className="it-d">Paniertes Schnitzel mit rauchiger Paprika-Tomatensoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">73</span><span className="it-n">RAHMSCHNITZEL</span><span className="it-dots"></span><span className="it-p">14,50 €</span></div><div className="it-d">Paniertes Schweineschnitzel in delikater Sahnesoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">74</span><span className="it-n">HAWAII SCHNITZEL</span><span className="it-dots"></span><span className="it-p">15,00 €</span></div><div className="it-d">Paniertes Schnitzel mit Ananas und Käse überbacken</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">75</span><span className="it-n">PARMIGIANA SCHNITZEL</span><span className="it-dots"></span><span className="it-p">15,50 €</span></div><div className="it-d">Schnitzel paniert, Parmaschinken, Ruccola & Parmesanraspeln, Essig & Öl</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">76</span><span className="it-n">RATSSTUBEN SCHNITZEL</span><span className="it-dots"></span><span className="it-p">15,50 €</span></div><div className="it-d">Paniertes Schnitzel in Tomaten-Sahnesoße, Speck, Paprika & Käse überbacken</div></div>
-            
-            <div className="fn">Alle Schnitzelgerichte servieren wir wahlweise mit Pommes Frites, Kroketten oder Nudeln.</div>
-          </div>
-
-          <div className="cat-hdr" style={{marginTop: "20px"}}>
-            <span className="cat-dropcap">B</span>
-            <h2 className="cat-title">Burger</h2>
-            <span className="cat-it">100% Rind (180g)</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">60</span><span className="it-n">CLASSIC CHEESEBURGER</span><span className="it-dots"></span><span className="it-p">14,00 €</span></div><div className="it-d">Cheddar-Käse, Burger-Sauce, Tomate, Gurke, Röstzwiebeln und Salat</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">61</span><span className="it-n">BBQ BACON BURGER</span><span className="it-dots"></span><span className="it-p">14,50 €</span></div><div className="it-d">BBQ-Sauce, knuspriger Bacon, Cheddar-Käse, Röstzwiebeln und Rucola</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">63</span><span className="it-n">CHILLI CHEESE BURGER</span><span className="it-dots"></span><span className="it-p">14,50 €</span></div><div className="it-d">Jalapeños, Cheddar, Nachos, feurige Chili-Cheese-Sauce, Salat</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">64</span><span className="it-n">GORGONZOLA BURGER</span><span className="it-dots"></span><span className="it-p">14,50 €</span></div><div className="it-d">Würziger Gorgonzola-Käse, hausgemachte Joghurtsauce, Rucola</div></div>
-            
-            <div className="fn">Alle Burger servieren wir mit einer Portion Pommes Frites. Details zu den Burgern auf Seite 10.</div>
-          </div>
-        </div>
-        <div className="pg-num">— VI —</div>
-      </div>
-
-      {/* SEITE VII: CARNE E PESCE */}
-      <div className="page">
-        <div className="pg-frame"></div>
-        <div className="page-content">
-          <div className="cat-hdr">
-            <span className="cat-dropcap">C</span>
-            <h2 className="cat-title">Carne</h2>
-            <span className="cat-it">Fleisch</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">80</span><span className="it-n">BISTECCA ALLA GRIGLIA</span><span className="it-dots"></span><span className="it-p">24,50 €</span></div><div className="it-d">Gegrilltes Rumpsteak (ca. 250g) mit Kräuterbutter</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">81</span><span className="it-n">BISTECCA AL GORGONZOLA</span><span className="it-dots"></span><span className="it-p">26,50 €</span></div><div className="it-d">Gegrilltes Rumpsteak in würziger Gorgonzolasoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">82</span><span className="it-n">BISTECCA AL PEPE VERDE</span><span className="it-dots"></span><span className="it-p">26,50 €</span></div><div className="it-d">Rumpsteak in cremiger Cognac-Grüner-Pfeffer-Soße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">83</span><span className="it-n">MEDAGLIONI FUNGHI</span><span className="it-dots"></span><span className="it-p">17,50 €</span></div><div className="it-d">Schweinemedaillons in frischer Champignon-Rahmsoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">84</span><span className="it-n">MEDAGLIONI PEPE VERDE</span><span className="it-dots"></span><span className="it-p">17,50 €</span></div><div className="it-d">Schweinemedaillons in delikater Pfeffersoße</div></div>
-          </div>
-
-          <div className="cat-hdr" style={{marginTop: "30px"}}>
-            <span className="cat-dropcap">P</span>
-            <h2 className="cat-title">Pesce</h2>
-            <span className="cat-it">Fisch</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">85</span><span className="it-n">CALAMARI FRITTI</span><span className="it-dots"></span><span className="it-p">15,50 €</span></div><div className="it-d">Frittierte Tintenfischringe mit pikanter Remouladensoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">86</span><span className="it-n">SALMONE ALLA GRIGLIA</span><span className="it-dots"></span><span className="it-p">18,50 €</span></div><div className="it-d">Lachsfilet vom Grill, verfeinert mit Knoblauch-Kräuter-Marinade</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">87</span><span className="it-n">SCAMPI ALLA GRIGLIA</span><span className="it-dots"></span><span className="it-p">23,50 €</span></div><div className="it-d">Großgarnelen vom Grill mit Knoblauch und feinen Kräutern</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">88</span><span className="it-n">SCAMPI LIVORNESE</span><span className="it-dots"></span><span className="it-p">24,50 €</span></div><div className="it-d">Großgarnelen in feuriger Tomatensoße mit Oliven, Kapern, Knoblauch, Peperoni</div></div>
-            
-            <div className="qt">
-              <div className="qt-txt">&quot;La qualità non è mai un caso.&quot;</div>
-            </div>
-          </div>
-          
-          <div className="fn">Alle Fleisch- und Fischgerichte servieren wir mit Gemüse der Saison und Gourmet-Kartoffeln (Rosmarin-Drillinge) als Beilage. Zu Calamari Fritti reichen wir einen Beilagensalat.</div>
-        </div>
-        <div className="pg-num">— VII —</div>
-      </div>
-
-      {/* SEITE VIII: PIZZA */}
-      <div className="page">
-        <div className="pg-frame"></div>
-        <div className="page-content">
-          <div className="cat-hdr">
-            <span className="cat-dropcap">P</span>
-            <h2 className="cat-title">Pizza</h2>
-            <span className="cat-it">Forno a Legna (∅ 28cm)</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">90</span><span className="it-n">PIZZABROT</span><span className="it-dots"></span><span className="it-p">4,00 €</span></div><div className="it-d">Knoblauch oder Olivenöl, Origano</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">91</span><span className="it-n">PIZZA MARGHERITA</span><span className="it-dots"></span><span className="it-p">7,50 €</span></div><div className="it-d">Tomatensoße und Käse</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">92</span><span className="it-n">PIZZA SALAMI</span><span className="it-dots"></span><span className="it-p">8,50 €</span></div><div className="it-d">Mailänder Salami</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">93</span><span className="it-n">PIZZA PROSCIUTTO</span><span className="it-dots"></span><span className="it-p">8,50 €</span></div><div className="it-d">Vorderschinken</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">94</span><span className="it-n">PIZZA FUNGHI</span><span className="it-dots"></span><span className="it-p">8,50 €</span></div><div className="it-d">Frische Champignons</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">95</span><span className="it-n">PIZZA TONNO</span><span className="it-dots"></span><span className="it-p">9,50 €</span></div><div className="it-d">Thunfisch und Zwiebeln</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">96</span><span className="it-n">PIZZA HAWAII</span><span className="it-dots"></span><span className="it-p">9,50 €</span></div><div className="it-d">Schinken und Ananas</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">97</span><span className="it-n">PIZZA ITALIA</span><span className="it-dots"></span><span className="it-p">9,50 €</span></div><div className="it-d">Zwiebeln, frischen Tomaten, Peperoni, Mozzarella und Oregano</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">98</span><span className="it-n">PIZZA CAPRICCIOSA</span><span className="it-dots"></span><span className="it-p">9,50 €</span></div><div className="it-d">Salami, Schinken und frische Champignons</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">99</span><span className="it-n">PIZZA MILANO</span><span className="it-dots"></span><span className="it-p">9,50 €</span></div><div className="it-d">Salami, Schinken, Champignons und Peperoni</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">100</span><span className="it-n">PIZZA QUATTRO STAGIONI</span><span className="it-dots"></span><span className="it-p">10,00 €</span></div><div className="it-d">Salami, Schinken, Champignons, Paprika</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">101</span><span className="it-n">PIZZA VEGETARIANA</span><span className="it-dots"></span><span className="it-p">10,00 €</span></div><div className="it-d">Verschiedene frische Gemüsesorten der Saison</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">102</span><span className="it-n">PIZZA GYROS</span><span className="it-dots"></span><span className="it-p">10,50 €</span></div><div className="it-d">Zwiebeln, Tzatziki, Gyros</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">103</span><span className="it-n">PIZZA DIAVOLO (scharf!)</span><span className="it-dots"></span><span className="it-p">10,50 €</span></div><div className="it-d">Peperoniwurst, Paprika, Zwiebeln, Knoblauch, Peperoni</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">104</span><span className="it-n">PIZZA PARMA</span><span className="it-dots"></span><span className="it-p">11,50 €</span></div><div className="it-d">Parmaschinken, Rucola, Parmesan</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">105</span><span className="it-n">CALZONE (Gefüllte Pizza)</span><span className="it-dots"></span><span className="it-p">10,00 €</span></div><div className="it-d">Salami, Schinken, frische Champignons, Paprika</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">106</span><span className="it-n">PIZZA SALMONE</span><span className="it-dots"></span><span className="it-p">12,50 €</span></div><div className="it-d">Frischer Lachs, Spinat, Knoblauch, Mozzarella</div></div>
-          </div>
-          
-          <div className="fn">Alle Pizzen (außer Pizzabrot) werden mit Tomatensoße, Gewürzen & Käse belegt. Jede weitere kleine Zutat berechnen wir mit + 1,00 €. Frischer Lachs, Garnelen, Parmaschinken berechnen wir mit + 2,00 €. Extrawünsche sind bei Calzone leider nicht möglich.</div>
-          
-        </div>
-        <div className="pg-num">— VIII —</div>
-      </div>
-
-      {/* SEITE IX: FAMIGLIA, LIMONATE, BAMBINI, DOLCI */}
-      <div className="page">
-        <div className="pg-frame"></div>
-        <div className="page-content">
-          <div className="cat-hdr">
-            <span className="cat-dropcap">F</span>
-            <h2 className="cat-title">Famiglia</h2>
-            <span className="cat-it">Familienpizza ca. 40×60 cm (ab 4 Pers.)</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">110</span><span className="it-n">FAMILIENPIZZA MARGHERITA</span><span className="it-dots"></span><span className="it-p">20,00 €</span></div><div className="it-d">Tomatensoße, Käse und Kräuter</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">111</span><span className="it-n">MIT EINER ZUTAT</span><span className="it-dots"></span><span className="it-p">23,00 €</span></div><div className="it-d">Salami oder Schinken oder Champignons oder Peperoniwurst</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">112</span><span className="it-n">MIT ZWEI ZUTATEN</span><span className="it-dots"></span><span className="it-p">25,50 €</span></div><div className="it-d">Zwei Zutaten nach Wahl (Standard)</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">113</span><span className="it-n">MIT DREI ZUTATEN</span><span className="it-dots"></span><span className="it-p">28,00 €</span></div><div className="it-d">Drei Zutaten nach Wahl (Standard)</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">114</span><span className="it-n">MIT VIER ZUTATEN</span><span className="it-dots"></span><span className="it-p">30,50 €</span></div><div className="it-d">Vier Zutaten nach Wahl (Standard)</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">115</span><span className="it-n">PIZZA RATSSTUBEN</span><span className="it-dots"></span><span className="it-p">32,50 €</span></div><div className="it-d">Belag nach Art des Hauses</div></div>
-          </div>
-
-          <div className="cat-hdr" style={{marginTop: "15px"}}>
-            <span className="cat-dropcap">L</span>
-            <h2 className="cat-title">Limonate</h2>
-            <span className="cat-it">Limonate Della Casa (Hausgemacht, 0,4L)</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">L1</span><span className="it-n">CLASSIC LEMON MINT</span><span className="it-dots"></span><span className="it-p">5,50 €</span></div><div className="it-d">Frischer Zitronensaft, Minze, Sprite, Soda</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">L2</span><span className="it-n">STRAWBERRY BASIL</span><span className="it-dots"></span><span className="it-p">5,90 €</span></div><div className="it-d">Erdbeer-Sirup, frischer Basilikum, Limette, Soda</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">L3</span><span className="it-n">PASSION FRUIT BREEZE</span><span className="it-dots"></span><span className="it-p">5,90 €</span></div><div className="it-d">Maracuja, Limettensaft, Minze, Soda</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">L4</span><span className="it-n">RASPBERRY PEACH</span><span className="it-dots"></span><span className="it-p">5,90 €</span></div><div className="it-d">Pfirsich, Himbeere, Limette, Soda</div></div>
-          </div>
-
-          <div className="cat-hdr" style={{marginTop: "15px"}}>
-            <span className="cat-dropcap">B</span>
-            <h2 className="cat-title">Bambini</h2>
-            <span className="cat-it">Kindergerichte</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">120</span><span className="it-n">PUMUCKL</span><span className="it-dots"></span><span className="it-p">6,00 €</span></div><div className="it-d">Spaghetti in Napoli oder Bolognese</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">121</span><span className="it-n">DUMBO</span><span className="it-dots"></span><span className="it-p">7,50 €</span></div><div className="it-d">Kleines Schnitzel &quot;Wiener Art&quot; mit Pommes</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">122</span><span className="it-n">NEMO</span><span className="it-dots"></span><span className="it-p">7,50 €</span></div><div className="it-d">Fischstäbchen (6 Stück) mit Pommes</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">123</span><span className="it-n">MICKY MAUS</span><span className="it-dots"></span><span className="it-p">7,00 €</span></div><div className="it-d">Kleine Pizza Margherita mit Salami</div></div>
-          </div>
-
-          <div className="cat-hdr" style={{marginTop: "15px"}}>
-            <span className="cat-dropcap">D</span>
-            <h2 className="cat-title">Dolci</h2>
-            <span className="cat-it">Desserts</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div className="cat-grid">
-            <div className="it"><div className="it-hdr"><span className="it-id">130</span><span className="it-n">TIRAMISU (HAUSGEMACHT)</span><span className="it-dots"></span><span className="it-p">6,00 €</span></div><div className="it-d">Klassisches italienisches Dessert mit Mascarpone</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">131</span><span className="it-n">PANNA COTTA</span><span className="it-dots"></span><span className="it-p">5,50 €</span></div><div className="it-d">Sahnedessert mit Erdbeersoße</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">132</span><span className="it-n">WARMER APFELSTRUDEL</span><span className="it-dots"></span><span className="it-p">6,50 €</span></div><div className="it-d">Mit Vanilleeis und Sahne</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">133</span><span className="it-n">TARTUFO EIS</span><span className="it-dots"></span><span className="it-p">5,50 €</span></div><div className="it-d">Italienische Eisspezialität mit Schokoladenkern</div></div>
-            <div className="it"><div className="it-hdr"><span className="it-id">134</span><span className="it-n">GEMISCHTES EIS</span><span className="it-dots"></span><span className="it-p">5,00 €</span></div><div className="it-d">Drei Kugeln Eis nach Wahl (Schoko, Vanille, Erdbeer)</div></div>
-          </div>
-          
-          <div className="cv-est" style={{position: 'relative', bottom: 'auto', marginTop: '20px'}}>
-            <span style={{fontSize: '24px'}}>GRAZIE ◆ BUON APPETITO</span>
-          </div>
-
-        </div>
-        <div className="pg-num">— IX —</div>
-      </div>
-
-      {/* SEITE X: BURGER EXPERT */}
-      <div className="page">
-        <div className="pg-frame"></div>
-        <div className="page-content">
-          <div className="cat-hdr" style={{marginTop: "40px", marginBottom: "40px"}}>
-            <span className="cat-dropcap">B</span>
-            <h2 className="cat-title">Hamburger</h2>
-            <span className="cat-it">Della Casa</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          {/* Extended layout, not two columns for expert pages */}
-          <div style={{maxWidth: "80%", margin: "0 auto"}}>
-            <p className="cv-intro" style={{textAlign: "center", marginBottom: "40px", maxWidth: "100%"}}>
-              Unsere Premium Burger werden mit 180g saftigem 100% Rindfleisch zubereitet<br/>und frisch im rustikalen Brioche Bun serviert.<br/>Zu jedem Burger servieren wir knackige Pommes Frites.
-            </p>
-
-            <div className="it" style={{marginBottom: "30px"}}>
-              <div className="it-hdr"><span className="it-id">60</span><span className="it-n">CLASSIC CHEESEBURGER</span><span className="it-dots"></span><span className="it-p">14,00 €</span></div>
-              <div className="it-d" style={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}}>
-                Der zeitlose Klassiker: Saftiges Rindfleisch-Patty überbacken mit irischem Cheddar-Käse, belegt mit frischen Tomatenscheiben, knackigen Gewürzgurken, Lollo Bionda Salat und gerösteten Zwiebeln. Vollendet mit unserer raffinierten hausgemachten Burger-Sauce.
-              </div>
-            </div>
-
-            <div className="it" style={{marginBottom: "30px"}}>
-              <div className="it-hdr"><span className="it-id">61</span><span className="it-n">BBQ BACON BURGER</span><span className="it-dots"></span><span className="it-p">14,50 €</span></div>
-              <div className="it-d" style={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}}>
-                Für Liebhaber rauchiger Aromen: Herzhaftes 100% Rindfleisch-Patty, knusprig gebratene Bacon-Streifen, geschmolzener Cheddar-Käse, Röstzwiebeln und würziger Rucola-Salat. Kräftig abgerundet mit Original amerikanischer BBQ-Sauce.
-              </div>
-            </div>
-
-            <div className="it" style={{marginBottom: "30px"}}>
-              <div className="it-hdr"><span className="it-id">63</span><span className="it-n">CHILLI CHEESE BURGER</span><span className="it-dots"></span><span className="it-p">14,50 €</span></div>
-              <div className="it-d" style={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}}>
-                Temperamentvoll und scharf: Saftiges Rindfleisch mit feurigen Jalapeños, knusprigen Tortilla-Nachos für den extra Crunch und frischem Salat. Gekrönt von einer reichhaltigen, scharfen Chili-Cheese-Sauce und geschmolzenem Cheddar.
-              </div>
-            </div>
-
-            <div className="it" style={{marginBottom: "30px"}}>
-              <div className="it-hdr"><span className="it-id">64</span><span className="it-n">GORGONZOLA BURGER</span><span className="it-dots"></span><span className="it-p">14,50 €</span></div>
-              <div className="it-d" style={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}}>
-                Italienische Raffinesse trifft auf Burger-Kultur: Unser 180g Rindfleisch-Patty umhüllt von cremig-würzigem Gorgonzola-Blauschimmelkäse dolce. Dazu aromatischer Rucola und eine erfrischende, hausgemachte Joghurt-Mayonnaise.
-              </div>
-            </div>
-
-            <div className="qt" style={{marginTop: "50px"}}>
-              <div className="qt-txt">&quot;Tutti i sapori, una sola passione.&quot;</div>
-            </div>
-          </div>
-        </div>
-        <div className="pg-num">— X —</div>
-      </div>
-
-      {/* SEITE XI: LIMONATE EXPERT */}
-      <div className="page">
-        <div className="pg-frame"></div>
-        <div className="page-content">
-          <div className="cat-hdr" style={{marginTop: "40px", marginBottom: "40px"}}>
-            <span className="cat-dropcap">L</span>
-            <h2 className="cat-title">Limonate</h2>
-            <span className="cat-it">Della Casa (0,4L)</span>
-            <div className="cat-sep"><span></span><i>◆</i><span></span></div>
-          </div>
-          
-          <div style={{maxWidth: "80%", margin: "0 auto"}}>
-            <p className="cv-intro" style={{textAlign: "center", marginBottom: "40px", maxWidth: "100%"}}>
-              Erfrischend anders: Entdecken Sie unsere hausgemachten Limonadenkreationen.<br/>Jedes Glas (0,4L) wird à la minute mit frischen Früchten, Kräutern<br/>und ausgewählten Sirup-Spezialitäten für Sie zubereitet. Ohne Alkohol.
-            </p>
-
-            <div className="it" style={{marginBottom: "30px"}}>
-              <div className="it-hdr"><span className="it-id">L1</span><span className="it-n">CLASSIC LEMON MINT</span><span className="it-dots"></span><span className="it-p">5,50 €</span></div>
-              <div className="it-d" style={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}}>
-                Die traditionelle, erfrischende Symphonie: Frisch gepresster Zitronensaft, milde Rohrzuckersüße und reichlich frische marokkanische Nanaminze, aufbereitet mit Sprite und serviert auf Eis. Der Inbegriff von Erfrischung.
-              </div>
-            </div>
-
-            <div className="it" style={{marginBottom: "30px"}}>
-              <div className="it-hdr"><span className="it-id">L2</span><span className="it-n">STRAWBERRY BASIL</span><span className="it-dots"></span><span className="it-p">5,90 €</span></div>
-              <div className="it-d" style={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}}>
-                Italienischer Sommer im Glas: Süßer Premium-Erdbeersirup gepaart mit den ätherischen Ölen von frisch gezupftem Basilikum. Abgerundet durch einen Schuss frischer Limette und aufgefüllt mit sprudelndem Sodawasser.
-              </div>
-            </div>
-
-            <div className="it" style={{marginBottom: "30px"}}>
-              <div className="it-hdr"><span className="it-id">L3</span><span className="it-n">PASSION FRUIT BREEZE</span><span className="it-dots"></span><span className="it-p">5,90 €</span></div>
-              <div className="it-d" style={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}}>
-                Tropische Leichtigkeit: Intensiv-fruchtiges Maracuja-Püree umspielt von säuerlichem Limettensaft und kühlender Minze, leicht gesüßt und herrlich prickelnd. Ein exotischer Urlaub für die Sinne.
-              </div>
-            </div>
-
-            <div className="it" style={{marginBottom: "30px"}}>
-              <div className="it-hdr"><span className="it-id">L4</span><span className="it-n">RASPBERRY PEACH</span><span className="it-dots"></span><span className="it-p">5,90 €</span></div>
-              <div className="it-d" style={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}}>
-                Samtig und beerig: Die feine Süße des Weinbergpfirsichs harmoniert perfekt mit kräftigem Himbeersirup. Ausbalanciert mit frisch gepresster Limette und spritzigem Wasser, garniert mit frischer Minze.
-              </div>
-            </div>
-
-            <div className="qt" style={{marginTop: "50px", marginBottom: "30px"}}>
-              <div className="qt-txt">&quot;La freschezza è un&apos;arte.&quot;</div>
-            </div>
-
-            <div className="box" style={{marginTop: "40px", backgroundColor: "transparent", border: "none"}}>
-              <div className="box-t">ZUSATZSTOFF-HINWEISE LIMONADEN</div>
-              <div className="box-c">
-                L1 enthält: Aroma, Säuerungsmittel. L2 enthält: Farbstoff (Carmin), Säuerungsmittel. <br/>
-                L3 enthält: Antioxidationsmittel, Aroma. L4 enthält: Farbstoff, Antioxidationsmittel, Aroma.
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div className="pg-num">— XI —</div>
-      </div>
+      </PrintPage>
       
     </div>
   );
