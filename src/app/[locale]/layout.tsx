@@ -95,6 +95,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 import { getSiteSettings } from '@/lib/sanity/fetch';
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
+
 export default async function RootLayout({
   children,
   params,
@@ -168,6 +171,8 @@ export default async function RootLayout({
             </CookieProvider>
           </UserJourneyProvider>
         </DeviceProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

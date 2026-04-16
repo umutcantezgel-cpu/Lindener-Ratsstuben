@@ -31,6 +31,8 @@
     "@radix-ui/react-slot": "^1.2.4",
     "@sanity/icons": "^2.11.8",
     "@types/sharp": "^0.31.1",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "cheerio": "^1.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
