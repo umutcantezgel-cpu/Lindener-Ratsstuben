@@ -2,7 +2,6 @@
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "nodeVersion": "18.x",
   "env": {
     "NEXT_PUBLIC_FORMSPREE_ID": {
       "description": "Formspree Project ID for contact forms"
