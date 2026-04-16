@@ -2,14 +2,6 @@
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "env": {
-    "NEXT_PUBLIC_FORMSPREE_ID": {
-      "description": "Formspree Project ID for contact forms"
-    },
-    "NEXT_PUBLIC_CALENDLY_URL": {
-      "description": "Calendly booking URL"
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
