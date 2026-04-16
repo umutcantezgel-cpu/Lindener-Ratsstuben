@@ -1,21 +1,30 @@
 import { MetadataRoute } from 'next';
-import { ALLOWED_LOCALES } from '@/lib/locales';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://lindener-ratsstuben.de';
-
   return {
     rules: [
       {
         userAgent: '*',
-        allow: [
-          '/',
-          ...ALLOWED_LOCALES.map(locale => `/${locale}/`),
-        ],
-        disallow: ['/admin', '/api/internal', '/.ai-expansion-context.md'],
+        allow: '/',
+        disallow: ['/api/', '/sanity/'],
       },
+      {
+        userAgent: [
+          'GPTBot', 
+          'Google-Extended', 
+          'PerplexityBot', 
+          'ClaudeBot', 
+          'Applebot-Extended', 
+          'OAI-SearchBot', 
+          'anthropic-ai',
+          'CCBot',
+          'Diffbot',
+          'FacebookBot',
+          'ImagesiftBot'
+        ],
+        allow: '/',
+      }
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: 'https://lindener-ratsstuben.de/sitemap.xml',
   };
 }
-

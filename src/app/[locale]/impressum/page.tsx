@@ -1,49 +1,98 @@
-import React from 'react';
-import { PageTransition } from '@/components/effects/PageTransition';
 
+import { LegalPageLayout } from '@/components/legal/LegalPageLayout';
+import { companyData } from '@/data/company';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: "Impressum - Lindener Ratsstuben",
-  description: "Impressum der Lindener Ratsstuben. Angaben gemäß § 5 TMG sowie Kontaktinformationen für geschäftliche Anfragen.",
-  alternates: {
-    canonical: "/impressum",
-  },
-  robots: {
-    index: false,
-    follow: true,
-  }
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    await params;
+    return {
+        title: `Impressum | ${companyData.companyName}`,
+        description: 'Impressum und rechtliche Angaben der Lindener Ratsstuben.',
+    };
+}
 
+export default async function ImpressumPage({ params }: { params: Promise<{ locale: string }> }) {
+    await params;
 
-const Impressum = () => {
+    // We hardcode the language check to provide multi-lang support or keep it universally German since it's a legal DACH requirement
+    // Usually Impressum is kept in German, but we can do a localized intro if needed.
+
     return (
-        <PageTransition>
-            
-            <div className="pt-24 pb-20 min-h-screen bg-bg-beige">
-                <div className="container mx-auto px-4 max-w-3xl">
-                    <h1 className="text-3xl md:text-4xl font-display font-bold text-surface bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-8 shadow-warm inline-block w-full max-w-3xl">Impressum</h1>
-                    <div className="prose prose-lg text-text-secondary">
-                        <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Angaben gemäß § 5 TMG</h2>
-                        <p>
-                            Hasan Toker<br />
-                            Konrad-Adenauer-Straße 26<br />
-                            35440 Linden<br />
-                            Deutschland
-                        </p>
-                        <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Kontakt</h2>
-                        <p>
-                            Telefon: +49640364556<br />
-                            E-Mail: hasantoker38@hotmail.de
-                        </p>
-                        <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Streitschlichtung</h2>
-                        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr.<br /> Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
-                        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-                    </div>
-                </div>
-            </div>
-        </PageTransition>
-    );
-};
+        <LegalPageLayout title="Impressum" lastUpdated="April 2026">
+            <h2>Angaben gemäß § 5 TMG</h2>
+            <p>
+                {companyData.companyName}<br />
+                {companyData.address.street}<br />
+                {companyData.address.zip} {companyData.address.city}<br />
+                Deutschland
+            </p>
 
-export default Impressum;
+            <h2>Vertreten durch</h2>
+            <p>Inhaber: Oruc Cantezgel</p>
+
+            <h2>Kontakt</h2>
+            <p>
+                Telefon: {companyData.phone}<br />
+                E-Mail: {companyData.email}
+            </p>
+
+            <h2>Umsatzsteuer-ID</h2>
+            <p>
+                Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
+                DE123456789 {/* Platzhalter, muss vor echtem Live-Gang vom Kunden eingetragen werden */}
+            </p>
+
+            <h2>Aufsichtsbehörde und Gewerbeordnung</h2>
+            <p>
+                Das Betreiben einer gastronomischen Einrichtung bedarf der Erlaubnis nach § 2 GastG. Zuständige Aufsichtsbehörde für die Erteilung und Überwachung ist:<br />
+                <strong>Gewerbeamt der Stadt Gießen/Linden</strong><br />
+                [Beispieladresse des Amts, ggf. 35390 Gießen]<br />
+                Mögliche Kammerzugehörigkeit: Industrie- und Handelskammer (IHK) Gießen-Friedberg.
+            </p>
+
+            <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+            <p>
+                Oruc Cantezgel<br />
+                {companyData.address.street}<br />
+                {companyData.address.zip} {companyData.address.city}
+            </p>
+
+            <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
+            <p>
+                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie unter folgendem Link finden: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.<br />
+                Unsere E-Mail-Adresse lautet: {companyData.email}
+            </p>
+            <p>
+                Gemäß § 36 VSBG weisen wir darauf hin, dass wir nicht bereit oder verpflichtet sind, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. Die Beilegung rechtlicher Differenzen lösen wir stets direkt und lösungsorientiert mit unseren Gästen.
+            </p>
+
+            <h2>Haftung für Inhalte</h2>
+            <p>
+                Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+            </p>
+            <p>
+                Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+            </p>
+
+            <h2>Haftung für Links (Externe Verweise)</h2>
+            <p>
+                Unser Angebot enthält Links zu externen Websites Dritter (beispielsweise Bewertungsportale wie Google Maps oder Social Media Plattformen wie Instagram und Facebook), auf deren Inhalte wir keinen Einfluss haben. Wir können für diese fremden Inhalte aus diesen Gründen auch keine Gewähr übernehmen, da für die Inhalte der verlinkten Seiten stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich ist. 
+            </p>
+            <p>
+                Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft und rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung für uns unzumutbar. Sollten Rechtsverletzungen bekannt werden, so werden wir derartige Links selbstverständlich umgehend entfernen.
+            </p>
+
+            <h2>Urheberrecht und Leistungsschutzrechte</h2>
+            <p>
+                Die durch die Seitenbetreiber erstellten und auf dieser Website veröffentlichten Inhalte und Werke (insbesondere Texte, Fotografien, Grafiken, Design der Speisekarte sowie Quellcode) unterliegen dem strengen deutschen Urheber- und Leistungsschutzrecht. Die Vervielfältigung, Bearbeitung, Verbreitung, öffentliche Zugänglichmachung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der vorherigen ausdrücklichen und schriftlichen Zustimmung des jeweiligen Autors, Fotografen bzw. Erstellers. 
+            </p>
+            <p>
+                Darstellung dieser Website in fremden Frames ist nur mit schriftlicher Erlaubnis zulässig. Soweit die Inhalte auf dieser Seite nicht vom Betreiber selbst erstellt wurden, werden die Urheberrechte Dritter konsequent beachtet und in der Regel auch als solche gekennzeichnet (z.B. Stock-Fotografien oder fremde Bibliotheken). Sollten Sie trotzdem auf eine vermeintliche Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden formlosen Hinweis zur raschen Klärung. Bei Bekanntwerden von Rechtsverletzungen werden wir betroffene Inhalte umgehend entfernen.
+            </p>
+            
+            <p className="mt-8 text-sm text-text-muted">
+                Quelle: Rechtsgrundlagen auf Basis von <a href="https://www.e-recht24.de" target="_blank" rel="noopener noreferrer">e-recht24.de</a> sowie individuellen gastronomischen Anforderungen.
+            </p>
+        </LegalPageLayout>
+    );
+}

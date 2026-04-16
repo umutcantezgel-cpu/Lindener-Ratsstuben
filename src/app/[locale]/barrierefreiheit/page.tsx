@@ -1,52 +1,159 @@
 import React from 'react';
-import type { Metadata } from 'next';
-import { Container } from '@/components/layout/Container';
+import Link from 'next/link';
+import { PageTransition } from '@/components/effects/PageTransition';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Erklärung zur Barrierefreiheit',
-    description: 'Erfahren Sie mehr über unsere Bemühungen und Maßnahmen zur Barrierefreiheit auf der Website der Lindener Ratsstuben.',
+  title: "Barrierefreiheit – Lindener Ratsstuben",
+  description: "Erklärung zur Barrierefreiheit der Lindener Ratsstuben. Informationen zur digitalen Zugänglichkeit gemäß BITV 2.0 und WCAG 2.1.",
+  alternates: {
+    canonical: "/barrierefreiheit",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  }
 };
 
-export default function Barrierefreiheit() {
+const Barrierefreiheit = () => {
     return (
-        <Container className="py-24">
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-text-primary text-center mb-6">
-                Erklärung zur Barrierefreiheit
-            </h1>
-            <p className="text-xl text-text-secondary text-center max-w-2xl mx-auto mb-16">
-                Unser Engagement für eine inklusive und zugängliche Web-Erfahrung für alle Gäste.
-            </p>
-            <Container className="py-16 md:py-24">
-                <div className="prose prose-lg max-w-3xl mx-auto text-text-primary">
-                    <h2>Unser Anspruch an Inklusion</h2>
-                    <p>
-                        Wir sind stets bemüht, unsere Website für jeden zugänglich zu machen, unabhängig von visuellen, auditiven, motorischen oder kognitiven Einschränkungen. Wir orientieren uns dabei an den Richtlinien für barrierefreie Webinhalte (WCAG) 2.1, Level AA, und erfüllen in zentralen Bereichen bereits Standards der Stufe AAA.
-                    </p>
+        <PageTransition>
+            <article className="pt-24 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
+                <div className="container mx-auto px-4 max-w-3xl">
+                    <h1 className="text-3xl md:text-4xl font-display font-bold text-surface bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-10 shadow-warm inline-block w-full max-w-3xl text-center">
+                        Barrierefreiheit
+                    </h1>
 
-                    <h2>Maßnahmen zur Barrierefreiheit</h2>
-                    <ul>
-                        <li><strong>Kontrastreiche Darstellung:</strong> Alle unsere Texte übertreffen die geforderten Kontrastwerte deutlich, um eine leichte Lesbarkeit zu sichern. Unterstützt wird auch der Windows High-Contrast Mode.</li>
-                        <li><strong>Volle Tastaturbedienbarkeit:</strong> Die gesamte Website lässt sich ohne Maus bedienen. Fokussierte Elemente werden durch einen deutlichen, doppelten Ring hervorgehoben.</li>
-                        <li><strong>Screenreader-Optimierung:</strong> Wir haben uns auf semantisches HTML fokussiert, ARIA-Attribute für dynamische Inhalte gesetzt und unsere Bilder alle (sofern nicht rein dekorativ) mit aussagekräftigen Textalternativen versehen.</li>
-                        <li><strong>Reduzierte Animationen:</strong> Wir respektieren systemweite Einstellungen zur Animationsreduzierung (<code>prefers-reduced-motion</code>).</li>
-                        <li><strong>Tastaturkürzel:</strong> Für Power-User haben wir einfache Shortcuts (z.B. &lsquo;/&rsquo; zum Suchen) etabliert.</li>
-                    </ul>
+                    <div className="prose prose-lg text-text-secondary space-y-8">
+                        {/* Einleitung */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Erklärung zur Barrierefreiheit</h2>
+                            <p>
+                                Die Lindener Ratsstuben sind bestrebt, die Website in Übereinstimmung mit den nationalen und
+                                europäischen Rechtsvorschriften zur Umsetzung der <strong>Richtlinie (EU) 2016/2102</strong> des
+                                Europäischen Parlaments barrierefrei zugänglich zu machen.
+                            </p>
+                            <p>
+                                Diese Erklärung zur Barrierefreiheit gilt für die Website{' '}
+                                <strong>www.lindener-ratsstuben.de</strong>.
+                            </p>
+                        </section>
 
-                    <h2>Feedback und Kontaktangaben</h2>
-                    <p>
-                        Die kontinuierliche Verbesserung der Barrierefreiheit ist ein laufender Prozess. Wenn Sie auf Barrieren stoßen oder Verbesserungsvorschläge für unsere Website haben, freuen wir uns über Ihre Rückmeldung.
-                    </p>
-                    <p>
-                        Bitte kontaktieren Sie uns:<br/>
-                        Telefon: 06403 2345<br/>
-                        E-Mail: kontakt@lindener-ratsstuben.de
-                    </p>
+                        {/* Standards */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Angewandte Standards</h2>
+                            <p>
+                                Diese Website orientiert sich an folgenden Standards:
+                            </p>
+                            <ul className="list-disc list-inside space-y-2">
+                                <li><strong>WCAG 2.1</strong> (Web Content Accessibility Guidelines) – Konformitätsstufe AA</li>
+                                <li><strong>BITV 2.0</strong> (Barrierefreie-Informationstechnik-Verordnung) – Konformität angestrebt</li>
+                                <li><strong>EN 301 549</strong> – Europäische Norm für die Barrierefreiheit von IKT-Produkten</li>
+                            </ul>
+                        </section>
 
-                    <p className="text-sm text-text-muted mt-12">
-                        Diese Erklärung wurde zuletzt aktualisiert am: {new Date().toLocaleDateString('de-DE')}
-                    </p>
+                        {/* Stand der Umsetzung */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Stand der Konformität</h2>
+                            <p>
+                                Diese Website ist <strong>teilweise konform</strong> mit WCAG 2.1 Stufe AA. Die folgenden
+                                Maßnahmen wurden bereits umgesetzt:
+                            </p>
+                            <ul className="list-disc list-inside space-y-2">
+                                <li>Semantische HTML5-Elemente für eine klare Dokumentstruktur</li>
+                                <li>ARIA-Attribute (Landmarks, Labels, Live-Regions) für Screenreader-Kompatibilität</li>
+                                <li>Tastaturnavigation für alle interaktiven Elemente</li>
+                                <li>Kontrastverhältnisse gemäß WCAG 2.1 AA (mindestens 4.5:1 für Text)</li>
+                                <li>Responsive Design für unterschiedliche Bildschirmgrößen und Zoom-Stufen bis 200%</li>
+                                <li>Alternativtexte für alle informativen Bilder</li>
+                                <li>Sprachauszeichnung (<code>lang</code>-Attribut) für die Hauptsprache und mehrsprachige Inhalte</li>
+                                <li>Fokussichtbarkeit (sichtbare Fokusindikatoren für Tastaturbedienung)</li>
+                            </ul>
+                        </section>
+
+                        {/* Bekannte Einschränkungen */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Bekannte Einschränkungen</h2>
+                            <p>
+                                Trotz unserer Bemühungen können derzeit folgende Bereiche Einschränkungen aufweisen:
+                            </p>
+                            <ul className="list-disc list-inside space-y-2">
+                                <li><strong>PDF-Speisekarte:</strong> Die als PDF bereitgestellte Speisekarte ist möglicherweise nicht vollständig barrierefrei. Die vollständige Speisekarte ist alternativ als HTML auf der <Link href="/menu" className="text-primary hover:text-primary-hover underline">Menü-Seite</Link> verfügbar.</li>
+                                <li><strong>Google Maps:</strong> Die eingebettete Karte stammt von einem Drittanbieter und unterliegt dessen Barrierefreiheitsstandards. Alternativ stellen wir die Adresse und den Link zur Kartenansicht als Text bereit.</li>
+                                <li><strong>Animationen:</strong> Die Website nutzt bewegte Elemente. Nutzer können Animationen über die Betriebssystem-Einstellung &quot;Bewegung reduzieren&quot; deaktivieren (<code>prefers-reduced-motion</code>).</li>
+                            </ul>
+                        </section>
+
+                        {/* Physische Barrierefreiheit */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Barrierefreiheit vor Ort</h2>
+                            <p>
+                                Die Lindener Ratsstuben sind auch physisch barrierefrei zugänglich:
+                            </p>
+                            <ul className="list-disc list-inside space-y-2">
+                                <li>Stufenloser Zugang zum Gastraum</li>
+                                <li>Barrierefreie Sanitäreinrichtungen</li>
+                                <li>Ausreichend breite Durchgänge für Rollstühle und Gehhilfen</li>
+                                <li>Parkplätze in unmittelbarer Nähe des Eingangs</li>
+                            </ul>
+                        </section>
+
+                        {/* Feedback & Kontakt */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Feedback und Kontakt</h2>
+                            <p>
+                                Sollten Ihnen Barrieren auf dieser Website auffallen oder haben Sie Fragen zur
+                                Barrierefreiheit, kontaktieren Sie uns bitte:
+                            </p>
+                            <div className="bg-bg-secondary rounded-xl p-6 border border-border mt-4">
+                                <p className="font-bold text-text-main">Lindener Ratsstuben</p>
+                                <p>Inhaber: Hasan Toker</p>
+                                <p>Konrad-Adenauer-Straße 26, 35440 Linden</p>
+                                <p className="mt-2">
+                                    Telefon: <a href="tel:+49640364556" className="text-primary hover:text-primary-hover">06403 – 64556</a><br />
+                                    E-Mail: <a href="mailto:hasantoker38@hotmail.de" className="text-primary hover:text-primary-hover">hasantoker38@hotmail.de</a>
+                                </p>
+                            </div>
+                            <p className="mt-4">
+                                Wir bemühen uns, Ihr Feedback innerhalb von 2 Wochen zu bearbeiten und etwaige Probleme
+                                schnellstmöglich zu beheben.
+                            </p>
+                        </section>
+
+                        {/* Durchsetzungsverfahren */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Durchsetzungsverfahren</h2>
+                            <p>
+                                Sollten Sie trotz Kontaktaufnahme keine zufriedenstellende Lösung erhalten, können Sie sich
+                                an die zuständige Durchsetzungsstelle wenden:
+                            </p>
+                            <div className="bg-bg-secondary rounded-xl p-6 border border-border mt-4">
+                                <p className="font-bold text-text-main">Hessisches Ministerium für Soziales und Integration</p>
+                                <p>Referat für digitale Barrierefreiheit</p>
+                                <p>Sonnenberger Str. 2/2a</p>
+                                <p>65193 Wiesbaden</p>
+                                <p className="mt-2">
+                                    Website:{' '}
+                                    <a
+                                        href="https://soziales.hessen.de"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-primary hover:text-primary-hover underline"
+                                    >
+                                        soziales.hessen.de
+                                    </a>
+                                </p>
+                            </div>
+                        </section>
+
+                        <p className="text-sm text-text-tertiary mt-12 pt-6 border-t border-border">
+                            Stand: April 2026 | Diese Erklärung wurde zuletzt am 16. April 2026 überarbeitet. | <Link href="/impressum" className="text-primary hover:text-primary-hover underline">Impressum</Link>
+                        </p>
+                    </div>
                 </div>
-            </Container>
-        </Container>
+            </article>
+        </PageTransition>
     );
-}
+};
+
+export default Barrierefreiheit;

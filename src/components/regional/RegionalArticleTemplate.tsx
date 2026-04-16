@@ -13,7 +13,7 @@ export function RegionalArticleTemplate({ article, locale }: RegionalArticleTemp
   const company = getCompanyData();
 
   return (
-    <article className="bg-surface min-h-screen pt-24 pb-20">
+    <article className="bg-surface min-h-screen pt-24 pb-20" itemProp="mainContentOfPage">
       {/* Schema.org Injection */}
       <script
         type="application/ld+json"

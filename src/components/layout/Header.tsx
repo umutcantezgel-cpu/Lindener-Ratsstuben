@@ -10,7 +10,11 @@ import { useTranslation } from '@/lib/i18n/use-translation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+    mainMenuPdfUrl?: string;
+}
+
+export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const pathname = usePathname();
@@ -208,7 +212,7 @@ export const Header: React.FC = () => {
                                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                                 >
                                     <a
-                                        href={companyData.menuLink}
+                                        href={mainMenuPdfUrl || companyData.menuLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={() => setIsMobileMenuOpen(false)}

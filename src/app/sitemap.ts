@@ -1,61 +1,74 @@
 import { MetadataRoute } from 'next';
 import { ALLOWED_LOCALES } from '@/lib/locales';
-import { getAllRegionalArticles } from '@/utils/markdown-regional';
-
-type ChangeFreq = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
-
-interface PageEntry {
-  path: string;
-  changeFrequency: ChangeFreq;
-  priority: number;
-}
-
-const PAGES: PageEntry[] = [
-  { path: '', changeFrequency: 'monthly', priority: 1 },
-  { path: '/about', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/menu', changeFrequency: 'weekly', priority: 0.9 },
-  { path: '/gallery', changeFrequency: 'monthly', priority: 0.7 },
-  { path: '/reservation', changeFrequency: 'yearly', priority: 0.8 },
-  { path: '/contact', changeFrequency: 'yearly', priority: 0.8 },
-  { path: '/impressum', changeFrequency: 'yearly', priority: 0.5 },
-  { path: '/datenschutz', changeFrequency: 'yearly', priority: 0.5 },
-  { path: '/cookie-richtlinie', changeFrequency: 'yearly', priority: 0.3 },
-];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://lindener-ratsstuben.de';
-  const entries: MetadataRoute.Sitemap = [];
-
-  for (const locale of ALLOWED_LOCALES) {
-    for (const page of PAGES) {
-      entries.push({
-        url: `${baseUrl}/${locale}${page.path}`,
-        lastModified: new Date(),
-        changeFrequency: page.changeFrequency,
-        priority: page.priority,
-      });
-    }
-
-    // Add regional SEO hub
-    entries.push({
-      url: `${baseUrl}/${locale}/entdecken`,
+  
+  // Base routes to include in sitemap
+  const routes = [
+    {
+      url: '',
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly' as const,
+      priority: 1,
+    },
+    {
+      url: '/menu',
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
       priority: 0.9,
+    },
+    {
+      url: '/reservation',
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: '/about',
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: '/contact',
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.8,
+    },
+  ];
+
+  // Map each route across all supported locales. Add the default route.
+  const sitemapEntries: MetadataRoute.Sitemap = [];
+
+  routes.forEach((route) => {
+    // Add default language HTML route
+    sitemapEntries.push({
+      ...route,
+      url: `${baseUrl}${route.url}`,
     });
     
-    // Add all regional SEO articles
-    const regionalArticles = getAllRegionalArticles();
-    for (const article of regionalArticles) {
-      entries.push({
-        url: `${baseUrl}/${locale}/${article.category}/${article.slug}`,
-        lastModified: article.lastUpdated ? new Date(article.lastUpdated) : new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.7,
+    // Add default language Markdown route for AI crawlers
+    sitemapEntries.push({
+      ...route,
+      url: `${baseUrl}${route.url ? route.url + '.md' : '/index.md'}`,
+    });
+    
+    // Add locale-prefixed routes
+    ALLOWED_LOCALES.forEach((locale) => {
+      // HTML variant
+      sitemapEntries.push({
+        ...route,
+        url: `${baseUrl}/${locale}${route.url}`,
       });
-    }
-  }
+      
+      // Markdown variant for AI crawlers
+      sitemapEntries.push({
+        ...route,
+        url: `${baseUrl}/${locale}${route.url ? route.url + '.md' : '/index.md'}`,
+      });
+    });
+  });
 
-  return entries;
+  return sitemapEntries;
 }
-
