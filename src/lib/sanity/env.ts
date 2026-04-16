@@ -9,7 +9,7 @@ export const dataset = assertValue(
 export const projectId = assertValue(
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID'
-) || 'your_project_id'
+) || 'defaultprojectid' // Must not contain underscores
 
 // Helper function to handle undefined values
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
