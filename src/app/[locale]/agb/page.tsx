@@ -40,7 +40,7 @@ export default async function AGBPage() {
                 <ul>
                     <li>Eine kostenfreie Stornierung der gesamten Reservierung ist bis zu 48 Stunden vor dem vereinbarten Reservierungszeitpunkt möglich.</li>
                     <li>Änderungen der genauen Personenanzahl (Reduzierung) müssen spätestens 24 Stunden vor dem Termin mitgeteilt werden.</li>
-                    <li>Sollte die Gruppe ohne rechtzeitige Absage nicht erscheinen (No-Show) oder mit deutlich weniger Personen als reserviert eintreffen, behält sich das Restaurant das Recht vor, eine pauschale Ausfallgebühr in Höhe von 35,00 EUR pro fehlender Person in Rechnung zu stellen ("No-Show-Gebühr"). Dem Gast bleibt stets der Nachweis gestattet, dass dem Restaurant kein oder ein wesentlich geringerer Schaden als die geforderte Pauschale entstanden ist.</li>
+                    <li>Sollte die Gruppe ohne rechtzeitige Absage nicht erscheinen (No-Show) oder mit deutlich weniger Personen als reserviert eintreffen, behält sich das Restaurant das Recht vor, eine pauschale Ausfallgebühr in Höhe von 35,00 EUR pro fehlender Person in Rechnung zu stellen (&quot;No-Show-Gebühr&quot;). Dem Gast bleibt stets der Nachweis gestattet, dass dem Restaurant kein oder ein wesentlich geringerer Schaden als die geforderte Pauschale entstanden ist.</li>
                 </ul>
             </p>
 
@@ -99,7 +99,7 @@ export default async function AGBPage() {
                 6.1 <strong>Aufklärung und Beratung:</strong> Das Servicepersonal der Lindener Ratsstuben bemüht sich nach besten Kräften, Gäste auf Wunsch hinsichtlich in den Speisen enthaltener deklarationspflichtiger Allergene und Zusatzstoffe zu informieren. Gästen mit schweren Allergien wird dringend geraten, das Personal bereits bei der Reservierung und nochmals bei der Bestellung ausdrücklich auf diese hinzuweisen.
             </p>
             <p>
-                6.2 <strong>Kreuzkontaminationen:</strong> Wir weisen zwingend darauf hin, dass in den Küchenräumen des Restaurants eine Vielzahl unterschiedlichster Lebensmittel (inklusive sämtlicher Hauptallergene wie Nüsse, Sellerie, Gluten, Laktose, Krebstiere etc.) gleichzeitig gelagert und verarbeitet werden. <strong>Obgleich extrem hohe Hygienestandards eingehalten werden, können wir keine 100%ige Abwesenheit von Spuren bestimmter Allergene (Kreuzkontamination) garantieren.</strong> Eine absolute Haftung oder Garantie für absolute allergenfreie Speisen (z.B. "100% spurenfrei glutenfrei") wird daher seitens des Restaurants zum Schutz des eigenen Betriebes ausgeschlossen. Der Verzehr der Speisen erfolgt bei schweren Allergikern auf eigene Verantwortung.
+                6.2 <strong>Kreuzkontaminationen:</strong> Wir weisen zwingend darauf hin, dass in den Küchenräumen des Restaurants eine Vielzahl unterschiedlichster Lebensmittel (inklusive sämtlicher Hauptallergene wie Nüsse, Sellerie, Gluten, Laktose, Krebstiere etc.) gleichzeitig gelagert und verarbeitet werden. <strong>Obgleich extrem hohe Hygienestandards eingehalten werden, können wir keine 100%ige Abwesenheit von Spuren bestimmter Allergene (Kreuzkontamination) garantieren.</strong> Eine absolute Haftung oder Garantie für absolute allergenfreie Speisen (z.B. &quot;100% spurenfrei glutenfrei&quot;) wird daher seitens des Restaurants zum Schutz des eigenen Betriebes ausgeschlossen. Der Verzehr der Speisen erfolgt bei schweren Allergikern auf eigene Verantwortung.
             </p>
 
             <h2>7. Hausordnung und Verhalten an Gästen</h2>

@@ -105,7 +105,7 @@ export default async function DatenschutzPage() {
             
             <h3>Cookies (Consent, TTDSG und DSGVO-Konformität)</h3>
             <p>
-                Unsere Website nutzt ein erweitertes, striktes Consent-Cookie-Verfahren ("Zero-Script Policy", "Opt-In by Default"). Das bedeutet konkret:
+                Unsere Website nutzt ein erweitertes, striktes Consent-Cookie-Verfahren (&quot;Zero-Script Policy&quot;, &quot;Opt-In by Default&quot;). Das bedeutet konkret:
             </p>
             <ul className="list-disc ml-6 space-y-2 my-4">
                 <li><strong>Technische Cookies:</strong> Für die Bereitstellung der Website-Infrastruktur setzen wir (und unser Hoster Vercel) essenzielle Session-Tokens oder Routing-Cookies. Diese enthalten niemals personenbezogene Identifikationsmerkmale und dienen ausschließlich der Sicherheit, der Bot-Erkennung und der Lastenverteilung. Die Rechtsgrundlage hierfür bildet unser überwiegendes berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO in Verbindung mit § 25 Abs. 2 TTDSG.</li>
