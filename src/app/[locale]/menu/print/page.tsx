@@ -2,6 +2,9 @@ import React from 'react';
 import PrintLayoutClient from './PrintLayoutClient';
 import './print.css';
 import MenuCover from './components/MenuCover';
+import ChefsLetter from './components/ChefsLetter';
+import PhilosophyPage from './components/PhilosophyPage';
+import TableOfContents from './components/TableOfContents';
 import PrintPage from './components/PrintPage';
 import DishCategory from './components/DishCategory';
 import DishItem from './components/DishItem';
@@ -13,8 +16,11 @@ export default function PrintMenuPage() {
       <PrintLayoutClient />
       
       <MenuCover />
+      <ChefsLetter />
+      <PhilosophyPage />
+      <TableOfContents />
 
-      <PrintPage pageNum="II">
+      <PrintPage pageNum="IV">
         <DishCategory dropcap="A" title="Aperitivi" subtitle="Presto" />
         <div className="cat-grid">
           <DishItem id="01" name="MARTINI BIANCO/ROSSO" price="4,50 €" desc="5cl" />
@@ -43,7 +49,7 @@ export default function PrintMenuPage() {
         <div className="fn">Alle Suppen und Vorspeisen servieren wir mit ofenfrischem Pizzabrot.</div>
       </PrintPage>
 
-      <PrintPage pageNum="III">
+      <PrintPage pageNum="V">
         <DishCategory dropcap="I" title="Insalate" subtitle="Salate" />
         <div className="cat-grid">
           <DishItem id="30" name="INSALATA MISTA (KLEIN)" price="5,50 €" desc="Gemischter Beilagensalat mit Hausdressing" />
@@ -70,7 +76,7 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="IV">
+      <PrintPage pageNum="VI">
         <DishCategory dropcap="P" title="Pasta" subtitle="Traditionell" />
         <div className="cat-grid">
           <DishItem id="40" name="SPAGHETTI NAPOLI" price="8,00 €" desc="mit hausgemachterfruchtiger Tomatensoße" />
@@ -85,7 +91,7 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="V">
+      <PrintPage pageNum="VII">
         <DishCategory dropcap="A" title="Al Forno" subtitle="Überbackenes" />
         <div className="cat-grid">
           <DishItem id="48" name="LASAGNE AL FORNO" price="10,50 €" desc="Geschichtete Nudelblätter mit Fleischsoße (100% Rind) und Käse überbacken" />
@@ -104,7 +110,7 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="VI">
+      <PrintPage pageNum="VIII">
         <DishCategory dropcap="S" title="Scaloppine" subtitle="Schnitzel (Schweinerücken)" />
         <div className="cat-grid">
           <DishItem id="70" name="SCHNITZEL &quot;WIENER ART&quot;" price="12,50 €" desc="Paniertes Schweineschnitzel mit Zitronenecke" />
@@ -127,7 +133,7 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="VII">
+      <PrintPage pageNum="IX">
         <DishCategory dropcap="C" title="Carne" subtitle="Fleisch" />
         <div className="cat-grid">
           <DishItem id="80" name="BISTECCA ALLA GRIGLIA" price="24,50 €" desc="Gegrilltes Rumpsteak (ca. 250g) mit Kräuterbutter" />
@@ -148,7 +154,7 @@ export default function PrintMenuPage() {
         <div className="fn">Alle Fleisch- und Fischgerichte servieren wir mit Gemüse der Saison und Gourmet-Kartoffeln (Rosmarin-Drillinge) als Beilage. Zu Calamari Fritti reichen wir einen Beilagensalat.</div>
       </PrintPage>
 
-      <PrintPage pageNum="VIII">
+      <PrintPage pageNum="X">
         <DishCategory dropcap="P" title="Pizza" subtitle="Forno a Legna (∅ 28cm)" />
         <div className="cat-grid">
           <DishItem id="90" name="PIZZABROT" price="4,00 €" desc="Knoblauch oder Olivenöl, Origano" />
@@ -172,7 +178,7 @@ export default function PrintMenuPage() {
         <div className="fn">Alle Pizzen (außer Pizzabrot) werden mit Tomatensoße, Gewürzen & Käse belegt. Jede weitere kleine Zutat berechnen wir mit + 1,00 €. Frischer Lachs, Garnelen, Parmaschinken berechnen wir mit + 2,00 €. Extrawünsche sind bei Calzone leider nicht möglich.</div>
       </PrintPage>
 
-      <PrintPage pageNum="IX">
+      <PrintPage pageNum="XI">
         <DishCategory dropcap="F" title="Famiglia" subtitle="Familienpizza ca. 40×60 cm (ab 4 Pers.)" />
         <div className="cat-grid">
           <DishItem id="110" name="FAMILIENPIZZA MARGHERITA" price="20,00 €" desc="Tomatensoße, Käse und Kräuter" />
@@ -213,7 +219,7 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="X">
+      <PrintPage pageNum="XII">
         <DishCategory dropcap="B" title="Hamburger" subtitle="Della Casa" marginTop="40px" marginBottom="40px" />
         <div style={{maxWidth: "80%", margin: "0 auto"}}>
           <p className="cv-intro" style={{textAlign: "center", marginBottom: "40px", maxWidth: "100%"}}>
@@ -227,7 +233,7 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="XI">
+      <PrintPage pageNum="XIII">
         <DishCategory dropcap="L" title="Limonate" subtitle="Della Casa (0,4L)" marginTop="40px" marginBottom="40px" />
         <div style={{maxWidth: "80%", margin: "0 auto"}}>
           <p className="cv-intro" style={{textAlign: "center", marginBottom: "40px", maxWidth: "100%"}}>
