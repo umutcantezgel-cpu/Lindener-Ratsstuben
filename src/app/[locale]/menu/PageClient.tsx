@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { getParam, setParam } from '@/lib/utils/url-params';
-import { allergenLegend, zusatzstoffLegend, allergenHinweis } from '@/data/menu';
+import { allergenLegend, zusatzstoffLegend, legal_disclaimers } from '@/data/menu';
 import { Filter, Leaf, Flame, Info, AlertTriangle, ChevronDown, Download } from 'lucide-react';
 import { clsx } from 'clsx';
 import { StaggerContainer } from '@/components/animations/stagger-container';
@@ -267,9 +267,12 @@ export const Menu = ({ categories, menuItems }: PageClientProps) => {
                                         </dl>
                                     </div>
                                 </div>
-                                <p className="mt-6 text-xs text-text-secondary border-t border-border pt-4">
-                                    {allergenHinweis}
-                                </p>
+                                <div className="mt-6 text-xs text-text-secondary border-t border-border pt-4 space-y-2">
+                                    <p><strong>Allergene:</strong> {legal_disclaimers.allergens}</p>
+                                    <p><strong>Kreuzkontamination:</strong> {legal_disclaimers.cross_contamination}</p>
+                                    <p><strong>Pflanzliche Gerichte:</strong> {legal_disclaimers.vegan_vegetarian}</p>
+                                    <p><strong>Zusatzstoffe:</strong> {legal_disclaimers.additives}</p>
+                                </div>
                             </div>
                         )}
                     </div>

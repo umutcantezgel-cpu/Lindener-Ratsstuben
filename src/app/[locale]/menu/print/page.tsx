@@ -5,10 +5,14 @@ import MenuCover from './components/MenuCover';
 import ChefsLetter from './components/ChefsLetter';
 import PhilosophyPage from './components/PhilosophyPage';
 import TableOfContents from './components/TableOfContents';
+import EditorialSignaturePasta from './components/EditorialSignaturePasta';
+import EditorialWines from './components/EditorialWines';
+import EditorialDolci from './components/EditorialDolci';
 import PrintPage from './components/PrintPage';
 import DishCategory from './components/DishCategory';
 import DishItem from './components/DishItem';
 import Quote from './components/Quote';
+import AllergenLegend from './components/AllergenLegend';
 
 export default function PrintMenuPage() {
   return (
@@ -221,28 +225,28 @@ export default function PrintMenuPage() {
 
       <PrintPage pageNum="XII">
         <DishCategory dropcap="B" title="Hamburger" subtitle="Della Casa" marginTop="40px" marginBottom="40px" />
-        <div style={{maxWidth: "80%", margin: "0 auto"}}>
-          <p className="cv-intro" style={{textAlign: "center", marginBottom: "40px", maxWidth: "100%"}}>
+        <div style={{maxWidth: "90%", margin: "0 auto"}}>
+          <p className="cv-intro" style={{textAlign: "center", marginBottom: "40px", maxWidth: "100%", fontSize: "14px"}}>
             Unsere Premium Burger werden mit 180g saftigem 100% Rindfleisch zubereitet<br/>und frisch im rustikalen Brioche Bun serviert.<br/>Zu jedem Burger servieren wir knackige Pommes Frites.
           </p>
-          <DishItem id="60" name="CLASSIC CHEESEBURGER" price="14,00 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Der zeitlose Klassiker: Saftiges Rindfleisch-Patty überbacken mit irischem Cheddar-Käse, belegt mit frischen Tomatenscheiben, knackigen Gewürzgurken, Lollo Bionda Salat und gerösteten Zwiebeln. Vollendet mit unserer raffinierten hausgemachten Burger-Sauce." />
-          <DishItem id="61" name="BBQ BACON BURGER" price="14,50 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Für Liebhaber rauchiger Aromen: Herzhaftes 100% Rindfleisch-Patty, knusprig gebratene Bacon-Streifen, geschmolzener Cheddar-Käse, Röstzwiebeln und würziger Rucola-Salat. Kräftig abgerundet mit Original amerikanischer BBQ-Sauce." />
-          <DishItem id="63" name="CHILLI CHEESE BURGER" price="14,50 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Temperamentvoll und scharf: Saftiges Rindfleisch mit feurigen Jalapeños, knusprigen Tortilla-Nachos für den extra Crunch und frischem Salat. Gekrönt von einer reichhaltigen, scharfen Chili-Cheese-Sauce und geschmolzenem Cheddar." />
-          <DishItem id="64" name="GORGONZOLA BURGER" price="14,50 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Italienische Raffinesse trifft auf Burger-Kultur: Unser 180g Rindfleisch-Patty umhüllt von cremig-würzigem Gorgonzola-Blauschimmelkäse dolce. Dazu aromatischer Rucola und eine erfrischende, hausgemachte Joghurt-Mayonnaise." />
+          <DishItem id="60" name="CLASSIC CHEESEBURGER" price="14,00 €" marginBottom="24px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "14px", lineHeight: "1.6"}} desc="Der zeitlose Klassiker: Saftiges Rindfleisch-Patty überbacken mit irischem Cheddar-Käse, belegt mit frischen Tomatenscheiben, knackigen Gewürzgurken, Lollo Bionda Salat und gerösteten Zwiebeln. Vollendet mit unserer raffinierten hausgemachten Burger-Sauce." />
+          <DishItem id="61" name="BBQ BACON BURGER" price="14,50 €" marginBottom="24px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "14px", lineHeight: "1.6"}} desc="Für Liebhaber rauchiger Aromen: Herzhaftes 100% Rindfleisch-Patty, knusprig gebratene Bacon-Streifen, geschmolzener Cheddar-Käse, Röstzwiebeln und würziger Rucola-Salat. Kräftig abgerundet mit Original amerikanischer BBQ-Sauce." />
+          <DishItem id="63" name="CHILLI CHEESE BURGER" price="14,50 €" marginBottom="24px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "14px", lineHeight: "1.6"}} desc="Temperamentvoll und scharf: Saftiges Rindfleisch mit feurigen Jalapeños, knusprigen Tortilla-Nachos für den extra Crunch und frischem Salat. Gekrönt von einer reichhaltigen, scharfen Chili-Cheese-Sauce und geschmolzenem Cheddar." />
+          <DishItem id="64" name="GORGONZOLA BURGER" price="14,50 €" marginBottom="24px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "14px", lineHeight: "1.6"}} desc="Italienische Raffinesse trifft auf Burger-Kultur: Unser 180g Rindfleisch-Patty umhüllt von cremig-würzigem Gorgonzola-Blauschimmelkäse dolce. Dazu aromatischer Rucola und eine erfrischende, hausgemachte Joghurt-Mayonnaise." />
           <Quote text="Tutti i sapori, una sola passione." marginTop="50px" />
         </div>
       </PrintPage>
 
       <PrintPage pageNum="XIII">
         <DishCategory dropcap="L" title="Limonate" subtitle="Della Casa (0,4L)" marginTop="40px" marginBottom="40px" />
-        <div style={{maxWidth: "80%", margin: "0 auto"}}>
-          <p className="cv-intro" style={{textAlign: "center", marginBottom: "40px", maxWidth: "100%"}}>
+        <div style={{maxWidth: "90%", margin: "0 auto"}}>
+          <p className="cv-intro" style={{textAlign: "center", marginBottom: "40px", maxWidth: "100%", fontSize: "14px"}}>
             Erfrischend anders: Entdecken Sie unsere hausgemachten Limonadenkreationen.<br/>Jedes Glas (0,4L) wird à la minute mit frischen Früchten, Kräutern<br/>und ausgewählten Sirup-Spezialitäten für Sie zubereitet. Ohne Alkohol.
           </p>
-          <DishItem id="L1" name="CLASSIC LEMON MINT" price="5,50 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Die traditionelle, erfrischende Symphonie: Frisch gepresster Zitronensaft, milde Rohrzuckersüße und reichlich frische marokkanische Nanaminze, aufbereitet mit Sprite und serviert auf Eis. Der Inbegriff von Erfrischung." />
-          <DishItem id="L2" name="STRAWBERRY BASIL" price="5,90 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Italienischer Sommer im Glas: Süßer Premium-Erdbeersirup gepaart mit den ätherischen Ölen von frisch gezupftem Basilikum. Abgerundet durch einen Schuss frischer Limette und aufgefüllt mit sprudelndem Sodawasser." />
-          <DishItem id="L3" name="PASSION FRUIT BREEZE" price="5,90 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Tropische Leichtigkeit: Intensiv-fruchtiges Maracuja-Püree umspielt von säuerlichem Limettensaft und kühlender Minze, leicht gesüßt und herrlich prickelnd. Ein exotischer Urlaub für die Sinne." />
-          <DishItem id="L4" name="RASPBERRY PEACH" price="5,90 €" marginBottom="30px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "15px", lineHeight: "1.6"}} desc="Samtig und beerig: Die feine Süße des Weinbergpfirsichs harmoniert perfekt mit kräftigem Himbeersirup. Ausbalanciert mit frisch gepresster Limette und spritzigem Wasser, garniert mit frischer Minze." />
+          <DishItem id="L1" name="CLASSIC LEMON MINT" price="5,50 €" marginBottom="24px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "14px", lineHeight: "1.6"}} desc="Die traditionelle, erfrischende Symphonie: Frisch gepresster Zitronensaft, milde Rohrzuckersüße und reichlich frische marokkanische Nanaminze, aufbereitet mit Sprite und serviert auf Eis. Der Inbegriff von Erfrischung." />
+          <DishItem id="L2" name="STRAWBERRY BASIL" price="5,90 €" marginBottom="24px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "14px", lineHeight: "1.6"}} desc="Italienischer Sommer im Glas: Süßer Premium-Erdbeersirup gepaart mit den ätherischen Ölen von frisch gezupftem Basilikum. Abgerundet durch einen Schuss frischer Limette und aufgefüllt mit sprudelndem Sodawasser." />
+          <DishItem id="L3" name="PASSION FRUIT BREEZE" price="5,90 €" marginBottom="24px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "14px", lineHeight: "1.6"}} desc="Tropische Leichtigkeit: Intensiv-fruchtiges Maracuja-Püree umspielt von säuerlichem Limettensaft und kühlender Minze, leicht gesüßt und herrlich prickelnd. Ein exotischer Urlaub für die Sinne." />
+          <DishItem id="L4" name="RASPBERRY PEACH" price="5,90 €" marginBottom="24px" descStyle={{marginLeft: "24px", marginRight: "0", fontSize: "14px", lineHeight: "1.6"}} desc="Samtig und beerig: Die feine Süße des Weinbergpfirsichs harmoniert perfekt mit kräftigem Himbeersirup. Ausbalanciert mit frisch gepresster Limette und spritzigem Wasser, garniert mit frischer Minze." />
           <Quote text="La freschezza è un'arte." marginTop="50px" marginBottom="30px" />
 
           <div className="box" style={{marginTop: "40px", backgroundColor: "transparent", border: "none"}}>
@@ -254,7 +258,15 @@ export default function PrintMenuPage() {
           </div>
         </div>
       </PrintPage>
+
+
+      <EditorialSignaturePasta pageNum="XIV" />
+      <EditorialWines pageNum="XV" />
+      <EditorialDolci pageNum="XVI" />
       
+      <PrintPage pageNum="XVII">
+        <AllergenLegend style={{ marginTop: '40px', border: '1px solid var(--gold-primary)' }} />
+      </PrintPage>
     </div>
   );
 }
