@@ -89,6 +89,21 @@ export default function TableOfContents() {
               <span className="toc-dots"></span>
               <span className="toc-page">XIII</span>
             </li>
+            <li className="toc-item">
+              <span className="toc-title" style={{ color: 'var(--gold-deep)' }}>Speciale – Signature Pastas</span>
+              <span className="toc-dots"></span>
+              <span className="toc-page">XIV</span>
+            </li>
+            <li className="toc-item">
+              <span className="toc-title" style={{ color: 'var(--gold-deep)' }}>Speciale – Vini Regionali</span>
+              <span className="toc-dots"></span>
+              <span className="toc-page">XV</span>
+            </li>
+            <li className="toc-item">
+              <span className="toc-title" style={{ color: 'var(--gold-deep)' }}>Speciale – Dolci e Caffè</span>
+              <span className="toc-dots"></span>
+              <span className="toc-page">XVI</span>
+            </li>
           </ul>
         </div>
       </div>

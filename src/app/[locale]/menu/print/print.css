@@ -56,10 +56,30 @@
 
 @media screen {
   .page, .page-cover {
-    animation: floatPage 8s ease-in-out infinite;
+    opacity: 0;
+    transform: translateY(40px);
   }
-  .page:nth-child(even) {
-    animation-delay: -4s;
+  
+  .page.is-visible, .page-cover.is-visible {
+    animation: fadeInUpPage 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards, floatPage 8s ease-in-out infinite 1.2s;
+  }
+  
+  .page.is-visible:nth-child(even) {
+    /* Start floatPage with a negative delay to offset the timing like before, but after the 1.2s entrance */
+    animation: fadeInUpPage 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards, floatPage 8s ease-in-out infinite -2.8s;
+  }
+
+  @keyframes fadeInUpPage {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
   }
   
   .cv-title, .cat-dropcap, .cv-trad {
@@ -81,7 +101,7 @@
 
 /* Page content area with padding */
 .page-content {
-  padding: 18mm 20mm 20mm;
+  padding: 18mm 20mm 25mm;
   height: 100%;
   position: relative;
 }
@@ -224,16 +244,31 @@
 /* Category Grid / Two Columns */
 .cat-grid {
   column-count: 2;
-  column-gap: 15mm;
+  column-gap: 12mm;
 }
 
 /* Item block */
 .it {
   break-inside: avoid;
   page-break-inside: avoid;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   position: relative;
   z-index: 2;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 4px 6px;
+  margin-left: -6px;
+  border-radius: 4px;
+}
+
+@media screen {
+  .it:hover {
+    transform: translateX(4px);
+    background-color: rgba(197, 168, 128, 0.05); /* very light gold */
+  }
+  .it:hover .it-n {
+    color: var(--brand-red);
+    transition: color 0.3s ease;
+  }
 }
 .it-hdr {
   display: flex;
@@ -256,6 +291,10 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   flex: 1;
+  white-space: normal;
+  overflow: visible;
+  line-height: 1.2;
+  padding-right: 4px;
 }
 .it-dots {
   flex-grow: 1;
@@ -438,37 +477,165 @@
   color: var(--gold-deep);
 }
 
-/* Media Print Rules */
+/* ==========================================================================
+   PHASE 3: RESPONSIVE A4 SCALING — Fixed Breakpoint Tiers
+   Replaces unreliable flex-centering with precise top-left origin scaling and calculated margins 
+   to fix mobile WebKit/Blink clipping bugs for elements wider than the viewport.
+   A4 = 210mm (approx. 794px), 297mm (approx. 1123px)
+   ========================================================================== */
+
+/* Shared mobile base */
+@media screen and (max-width: 1024px) {
+  .print-root {
+    display: block; /* Use block to prevent flex from shifting overflowing layout bounding boxes */
+    overflow-x: hidden;
+    padding: 2rem 0;
+    width: 100%;
+  }
+  .page, .page-cover {
+    display: block;
+    position: relative !important;
+    left: 50% !important; /* Place left edge at the center of the screen */
+    transform-origin: top center !important; /* Scale exactly from the visual center */
+    opacity: 1 !important;
+    animation: none !important;
+    margin: 0 0 3rem 0 !important; /* Reset layout margins */
+  }
+}
+
+/* Tier 1: Smartphones (≤ 480px) → scale(0.45) */
+@media screen and (max-width: 480px) {
+  .page, .page-cover {
+    /* TranslateX(-50%) shifts it left by half its width, centering it. Then we scale it! */
+    transform: translateX(-50%) scale(0.44) !important;
+    /* Unscaled height is 297mm. Scaled height is 297 * 0.44 = 130.68mm. Gap is ~166mm */
+    margin-bottom: -166mm !important; 
+  }
+  .print-action-bar {
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 12px 16px;
+    left: 16px !important;
+    right: 16px !important;
+    transform: none !important;
+    width: auto;
+    bottom: 16px;
+    gap: 10px;
+  }
+  .print-action-bar p {
+    text-align: center;
+    font-size: 11px;
+  }
+  .print-action-bar button {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px 20px;
+  }
+}
+
+/* Tier 2: Large phones & small tablets (481px – 768px) → scale(0.65) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .page, .page-cover {
+    transform: translateX(-50%) scale(0.65) !important;
+    margin-bottom: -104mm !important; /* 297mm × (1 - 0.65) ≈ 104mm */
+  }
+  .print-action-bar {
+    padding: 12px 20px;
+    border-radius: 30px;
+  }
+  .print-action-bar button {
+    font-size: 13px;
+    padding: 8px 18px;
+  }
+}
+
+/* Tier 3: Tablets (769px – 1024px) → scale(0.85) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .page, .page-cover {
+    transform: translateX(-50%) scale(0.85) !important;
+    margin-bottom: -45mm !important; /* 297mm × (1 - 0.85) ≈ 45mm */
+  }
+}
+
+/* ==========================================================================
+   PHASE 2: HARDENED @MEDIA PRINT — Nuclear-Level Overrides
+   Guarantees white background, visible pages, no floating elements.
+   ========================================================================== */
+
 @page {
   size: A4;
   margin: 0;
 }
 
 @media print {
-  /* Next.js layout overrides just in case */
-  body, html, #__next, .print-root {
-    margin: 0;
-    padding: 0;
-    width: 210mm;
-    background: white;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  /* Global Reset: Kill all animations and transitions universally */
+  * {
+    animation: none !important;
+    transition: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
-  
-  .print-action-bar {
-    display: none !important;
+
+  /* Force pure white on every level of the DOM tree */
+  html, body, #__next, main, [role="document"] {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 210mm !important;
+    min-height: auto !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    background-image: none !important;
+    color: #000000 !important;
+    overflow: visible !important;
   }
 
   .print-root {
-    background-color: transparent;
-    padding: 0;
+    background-color: #FFFFFF !important;
+    padding: 0 !important;
+    /* True Black for CMYK print fidelity */
+    --ink: #000000 !important;
+    --ink-soft: #333333 !important;
+    --ink-faint: #666666 !important;
   }
 
+  /* Nuclear hide: ALL fixed/floating elements + print UI */
+  .print-action-bar,
+  .it-warn,
+  .print-loader-overlay,
+  header, footer,
+  [class*="fixed"][class*="bottom-"],
+  [class*="fixed"][class*="inset-0"],
+  [class*="z-toast"],
+  [class*="z-50"][class*="fixed"],
+  [class*="z-40"][class*="fixed"],
+  [class*="cookie"],
+  [class*="ScrollProgress"],
+  [class*="bg-paper-texture"],
+  [aria-label="Zum Anfang springen"] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Force every page to be fully visible and correctly sized */
   .page, .page-cover {
-    box-shadow: none;
-    margin: 0;
+    box-shadow: none !important;
+    margin: 0 !important;
     page-break-after: always;
     break-after: page;
+    /* Critical: Override IntersectionObserver-based opacity */
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    /* Remove SVG noise texture for clean CMYK output */
+    background-image: none !important;
+    background-color: var(--paper) !important;
+    overflow: hidden !important;
+  }
+  
+  /* Prevent last page from adding an extra blank page */
+  .page:last-child, .page-cover:last-child {
+    page-break-after: auto;
+    break-after: auto;
   }
 }
 

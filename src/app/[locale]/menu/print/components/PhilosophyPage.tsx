@@ -30,7 +30,7 @@ export default function PhilosophyPage() {
             <rect x="95" y="5" width="10" height="10" transform="rotate(45 95 5)" fill="var(--gold)"/>
           </svg>
 
-          <h4 style={{ fontFamily: 'var(--font-cormorant)', color: 'var(--ink)', fontSize: '32px', fontStyle: 'italic', marginBottom: '20px' }}>"Man schmeckt, was man fühlt."</h4>
+          <h4 style={{ fontFamily: 'var(--font-cormorant)', color: 'var(--ink)', fontSize: '32px', fontStyle: 'italic', marginBottom: '20px' }}>&quot;Man schmeckt, was man fühlt.&quot;</h4>
           <p className="cv-intro" style={{ fontSize: '15px', maxWidth: '80%', margin: '0 auto', lineHeight: '1.8' }}>
             Unser Anspruch ist es nicht bloß, den Hunger zu stillen. Wir möchten Erinnerungen kreieren. 
             Jedes Gericht auf dieser Karte ist das Resultat jahrelanger Perfektionierung, zahlloser Verkostungen 
