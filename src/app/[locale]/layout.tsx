@@ -8,6 +8,7 @@ import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { BackToTop } from '@/components/ui/BackToTop';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { companyData } from '@/data/company';
+import { createGlobalSchemaGraph } from '@/lib/seo/schema-generators';
 import { Inter, Lora } from 'next/font/google';
 import { AppProvider } from '@/lib/context/AppContext';
 import { UIProvider } from '@/lib/context/UIContext';
@@ -23,8 +24,11 @@ import { getDirection } from '@/lib/i18n/rtl';
 import { I18nProvider } from '@/lib/i18n/I18nProvider';
 import { loadTranslations } from '@/lib/i18n/translations';
 import { UserJourneyProvider } from '@/context/UserJourneyContext';
+import { CookieProvider } from '@/lib/context/CookieContext';
 import { FloatingReservationCTA } from '@/components/interactive/FloatingReservationCTA';
 import { ExitIntentOverlay } from '@/components/interactive/ExitIntentOverlay';
+import { AiKnowledgeBase } from '@/components/seo/AiKnowledgeBase';
+import { CookieConsentBanner } from '@/components/legal/CookieConsentBanner';
 
 const interFont = Inter({ 
   subsets: ['latin', 'latin-ext'],
@@ -89,6 +93,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
+import { getSiteSettings } from '@/lib/sanity/fetch';
+
 export default async function RootLayout({
   children,
   params,
@@ -108,77 +114,58 @@ export default async function RootLayout({
   );
   const clientDictionary = dictionaries.reduce((acc, current) => ({ ...acc, ...current }), {});
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Restaurant',
-    name: companyData.companyName,
-    image: 'https://lindener-ratsstuben.de/images/placeholder.svg',
-    '@id': 'https://lindener-ratsstuben.de',
-    url: 'https://lindener-ratsstuben.de',
-    telephone: companyData.phone,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: companyData.address.street,
-      addressLocality: companyData.address.city,
-      postalCode: companyData.address.zip,
-      addressCountry: companyData.address.country,
-    },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '11:30',
-        closes: '22:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Sunday',
-        opens: '11:30',
-        closes: '21:00',
-      },
-    ],
-    menu: companyData.menuLink,
-    servesCuisine: ['Italian', 'Mediterranean', 'Vegetarian'],
-    acceptsReservations: 'True',
-    paymentAccepted: companyData.paymentMethods.join(", "),
-  };
+  const jsonLd = createGlobalSchemaGraph();
+
+  let siteSettings;
+  try {
+    siteSettings = await getSiteSettings();
+  } catch (error) {
+    console.error('Failed to fetch site settings in layout:', error);
+  }
+
+  const mainMenuPdfUrl = siteSettings?.mainMenuPdfUrl;
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning className={`${interFont.variable} ${loraFont.variable}`}>
       <head>
         <JsonLd data={jsonLd} />
+        <link rel="llms" href="/llms.txt" />
       </head>
-      <body suppressHydrationWarning className="font-body text-text-primary bg-bg-primary overflow-x-hidden">
+      <body suppressHydrationWarning className="font-body text-text-primary bg-bg-primary overflow-x-hidden" itemScope itemType="https://schema.org/WebPage">
         <WebVitals />
         <DeviceProvider initialDeviceType={initialDeviceType}>
           <UserJourneyProvider>
-            <AppProvider>
-              <UIProvider>
-                <I18nProvider dictionary={clientDictionary} locale={locale as LocaleType}>
-                  <SkipNav />
-                  <ErrorBoundary>
-                    <div className="antialiased min-h-screen flex flex-col">
-                    <div className="bg-paper-texture" aria-hidden="true" />
-                    <OfflineBanner />
-                    <ClientKeyboardShortcuts />
-                    <RouteChangeIndicator />
-                    <ScrollProgress />
-                    <Header />
-                    <main id="main-content" className="flex-grow">
-                      <Suspense fallback={<div className="min-h-screen bg-bg-primary" />}>
-                        {children}
-                      </Suspense>
-                    </main>
-                    <Footer />
-                    <FloatingReservationCTA />
-                    <ExitIntentOverlay />
-                    <BackToTop />
-                    <ToastContainer />
-                  </div>
-                </ErrorBoundary>
-                </I18nProvider>
-              </UIProvider>
-            </AppProvider>
+            <CookieProvider>
+              <AppProvider>
+                <UIProvider>
+                  <I18nProvider dictionary={clientDictionary} locale={locale as LocaleType}>
+                    <SkipNav />
+                    <ErrorBoundary>
+                      <div className="antialiased min-h-screen flex flex-col" role="document">
+                      <div className="bg-paper-texture" aria-hidden="true" />
+                      <OfflineBanner />
+                      <ClientKeyboardShortcuts />
+                      <RouteChangeIndicator />
+                      <ScrollProgress />
+                      <Header mainMenuPdfUrl={mainMenuPdfUrl} />
+                      <main id="main-content" className="flex-grow">
+                        <Suspense fallback={<div className="min-h-screen bg-bg-primary" />}>
+                          {children}
+                        </Suspense>
+                      </main>
+                      <Footer mainMenuPdfUrl={mainMenuPdfUrl} />
+                      <FloatingReservationCTA />
+                      <ExitIntentOverlay />
+                      <BackToTop />
+                      <ToastContainer />
+                      <CookieConsentBanner />
+                      <AiKnowledgeBase />
+                    </div>
+                  </ErrorBoundary>
+                  </I18nProvider>
+                </UIProvider>
+              </AppProvider>
+            </CookieProvider>
           </UserJourneyProvider>
         </DeviceProvider>
       </body>

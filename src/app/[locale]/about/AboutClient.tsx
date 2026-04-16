@@ -2,12 +2,27 @@
 
 import React from 'react';
 import Image from '@/components/ui/ImagePlaceholder';
+import Link from 'next/link';
 import { PageTransition } from '@/components/effects/PageTransition';
 import { Flame, Heart, Leaf } from 'lucide-react';
 import { companyData } from '@/data/company';
 import { useTranslation } from '@/lib/i18n/use-translation';
 
-const AboutClient = () => {
+import { SnippetAnswer } from '@/components/seo/SnippetAnswer';
+
+interface FAQItem {
+    question: string;
+    shortAnswer: string;
+}
+
+interface AboutClientProps {
+    faqData: {
+        title: string;
+        items: Record<string, FAQItem>;
+    } | null;
+}
+
+const AboutClient = ({ faqData }: AboutClientProps) => {
     const { t } = useTranslation('pages');
 
     const philosophyItems = [
@@ -18,7 +33,7 @@ const AboutClient = () => {
 
     return (
         <PageTransition>
-            <div className="pt-24 pb-20 min-h-screen bg-bg-beige">
+            <article className="pt-24 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
                 {/* Hero / Intro */}
                 <header className="container mx-auto px-4 mb-20">
                     <div className="max-w-4xl mx-auto text-center">
@@ -54,6 +69,11 @@ const AboutClient = () => {
                                         <Flame className="w-6 h-6" />
                                         <span>{t('about.tagline') as string}</span>
                                     </div>
+                                </div>
+                                <div className="pt-8">
+                                    <Link href="/reservation" className="interaction-bounce px-8 py-3 bg-accent text-neutral-950 font-bold rounded-lg hover:bg-accent-hover shadow-warm inline-flex items-center gap-2 uppercase tracking-wider">
+                                        {t('reservation.title') || 'Tisch reservieren'}
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +130,29 @@ const AboutClient = () => {
                         </ul>
                     </div>
                 </section>
-            </div>
+
+                {/* FAQ Section (AI Optimized) */}
+                {faqData && faqData.items && (
+                    <section aria-labelledby="faq-title" className="py-20 bg-bg-secondary mt-20">
+                        <div className="container mx-auto px-4 max-w-4xl">
+                            <div className="text-center mb-16">
+                                <h2 id="faq-title" className="text-3xl md:text-4xl font-display font-bold text-surface bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-4 shadow-warm inline-block">
+                                    {faqData.title}
+                                </h2>
+                            </div>
+                            <div className="space-y-8">
+                                {Object.values(faqData.items).map((item: FAQItem, index: number) => (
+                                    <SnippetAnswer
+                                        key={index}
+                                        question={item.question}
+                                        shortAnswer={item.shortAnswer}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
+            </article>
         </PageTransition>
     );
 };

@@ -3,6 +3,8 @@ import PageClient from './PageClient';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
 import { companyData } from '@/data/company';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { createContactPageSchema } from '@/lib/seo/schema-generators';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -26,5 +28,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default function Page() {
-  return <PageClient />;
+  return (
+    <>
+      <JsonLd data={createContactPageSchema()} />
+      <PageClient />
+    </>
+  );
 }

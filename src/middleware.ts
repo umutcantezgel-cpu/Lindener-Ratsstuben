@@ -29,6 +29,31 @@ function getLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
+  // --- Markdown Mirror Interceptor ---
+  const isMarkdownExtension = pathname.endsWith('.md');
+  const acceptsMarkdown = request.headers.get('accept')?.includes('text/markdown');
+
+  // Prevent rewriting the actual api/markdown route (prevent infinite loop in edge cases)
+  const isInternalRequest = request.headers.get('x-internal-markdown-request') === 'true';
+  if (!pathname.startsWith('/api/') && !isInternalRequest && (isMarkdownExtension || acceptsMarkdown)) {
+      if (isMarkdownExtension && !acceptsMarkdown) {
+          // Strict Fallback: Regular browsers requesting .md get redirected to canonical HTML (301)
+          let htmlPath = pathname.replace(/\.md$/, '');
+          if (htmlPath.endsWith('/index')) htmlPath = htmlPath.replace(/\/index$/, '');
+          return NextResponse.redirect(new URL(htmlPath || '/', request.url), 301);
+      }
+      
+      // Rewrite to dynamic DOM-conversion engine
+      let targetPath = isMarkdownExtension ? pathname.replace(/\.md$/, '') : pathname;
+      if (targetPath.endsWith('/index')) targetPath = targetPath.replace(/\/index$/, '');
+      const newUrl = new URL(`/api/markdown?path=${encodeURIComponent(targetPath || '/')}`, request.url);
+      const response = NextResponse.rewrite(newUrl);
+      
+      // Set Vary header for CDN/Cache safety
+      response.headers.set('Vary', 'Accept');
+      return response;
+  }
+
   // --- Locale Detection & Routing ---
   const pathnameSegments = pathname.split('/').filter(Boolean);
   const firstSegment = pathnameSegments[0];
@@ -122,6 +147,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        '/((?!api|_next/static|_next/image|favicon.ico|images/|icons/|locales/|robots.txt|sitemap.xml).*)',
+        '/((?!api|_next/static|_next/image|favicon.ico|images/|icons/|locales/|robots.txt|sitemap.xml|llms.txt).*)',
     ],
 };

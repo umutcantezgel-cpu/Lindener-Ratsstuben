@@ -7,7 +7,11 @@ import { useTranslation } from '@/lib/i18n/use-translation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+    mainMenuPdfUrl?: string;
+}
+
+export const Footer: React.FC<FooterProps> = ({ mainMenuPdfUrl }) => {
     const { t } = useTranslation('navigation');
     const { t: tCommon } = useTranslation('common');
     const { navCta, variant } = useAdaptiveMessaging();
@@ -63,7 +67,7 @@ export const Footer: React.FC = () => {
                                 </li>
                             ))}
                             <li>
-                                <a href={companyData.menuLink} target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-primary transition-colors flex items-center gap-2 group">
+                                <a href={mainMenuPdfUrl || companyData.menuLink} target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-primary transition-colors flex items-center gap-2 group">
                                     <span className="w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
                                     {t('nav.menu') as string}
                                 </a>
@@ -119,10 +123,20 @@ export const Footer: React.FC = () => {
                     <div className="flex items-center gap-6">
                         <LanguageSwitcher variant="footer" />
                         <nav aria-label="Legal links" className="flex gap-6">
-                            <ul className="flex gap-6 m-0 p-0 list-none">
+                            <ul className="flex flex-wrap gap-x-6 gap-y-2 m-0 p-0 list-none">
                                 <li><Link href="/impressum" className="hover:text-primary transition-colors">{t('footer.imprint') as string}</Link></li>
                                 <li><Link href="/datenschutz" className="hover:text-primary transition-colors">{t('footer.privacy') as string}</Link></li>
                                 <li><Link href="/agb" className="hover:text-primary transition-colors">{t('footer.terms') as string}</Link></li>
+                                <li><Link href="/widerruf" className="hover:text-primary transition-colors">Widerruf</Link></li>
+                                <li><Link href="/cookies" className="hover:text-primary transition-colors">{(t('footer.cookies') || 'Cookie-Richtlinie') as string}</Link></li>
+                                <li>
+                                    <button 
+                                        onClick={() => window.dispatchEvent(new Event('open-cookie-preferences'))}
+                                        className="hover:text-primary transition-colors cursor-pointer"
+                                    >
+                                        Privatsphäre-Einstellungen
+                                    </button>
+                                </li>
                             </ul>
                         </nav>
                     </div>

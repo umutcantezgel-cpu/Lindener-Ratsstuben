@@ -27,7 +27,7 @@ export default function EntdeckenPage({ params }: PageProps) {
   }, {} as Record<string, typeof articles>);
 
   return (
-    <div className="bg-[#fcfbf9] min-h-screen pt-24 pb-20">
+    <article className="bg-[#fcfbf9] min-h-screen pt-24 pb-20" itemProp="mainContentOfPage">
       <div className="max-w-5xl mx-auto px-6">
         <header className="mb-16 text-center">
           <h1 className="font-display text-4xl md:text-5xl text-[#2d1810] mb-6">
@@ -67,6 +67,6 @@ export default function EntdeckenPage({ params }: PageProps) {
         ))}
 
       </div>
-    </div>
+    </article>
   );
 }

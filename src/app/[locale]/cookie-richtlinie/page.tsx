@@ -1,13 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { PageTransition } from '@/components/effects/PageTransition';
-import { companyData } from '@/data/company';
-
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Cookie-Richtlinie',
-  description: `Cookie-Richtlinie der ${companyData.companyName}. Erfahren Sie, wie und warum wir Cookies auf unserer Website einsetzen.`,
+  title: "Cookie-Richtlinie – Lindener Ratsstuben",
+  description: "Cookie-Richtlinie der Lindener Ratsstuben: Informationen zu den eingesetzten Cookies, localStorage-Einträgen und Ihren Kontrollmöglichkeiten.",
   alternates: {
     canonical: "/cookie-richtlinie",
   },
@@ -17,109 +15,159 @@ export const metadata: Metadata = {
   }
 };
 
-export default function CookieRichtlinie() {
-  return (
-    <PageTransition>
-      <div className="pt-24 pb-20 min-h-screen bg-bg-beige">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <header className="mb-12">
-              <h1 className="text-4xl md:text-5xl font-display font-bold text-surface bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest shadow-warm text-center">
-                Cookie-Richtlinie
-              </h1>
-            </header>
+const CookieRichtlinie = () => {
+    return (
+        <PageTransition>
+            <article className="pt-24 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
+                <div className="container mx-auto px-4 max-w-3xl">
+                    <h1 className="text-3xl md:text-4xl font-display font-bold text-surface bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-10 shadow-warm inline-block w-full max-w-3xl text-center">
+                        Cookie-Richtlinie
+                    </h1>
 
-            <article className="prose prose-lg max-w-none text-text-secondary space-y-8">
-              <section>
-                <h2 className="text-2xl font-display font-bold text-text-main mb-4">1. Was sind Cookies?</h2>
-                <p className="leading-relaxed">
-                  Cookies sind kleine Textdateien, die von Websites auf Ihrem Computer oder mobilen Gerät
-                  gespeichert werden, wenn Sie diese besuchen. Sie dienen dazu, Ihre Präferenzen zu speichern
-                  und Ihr Nutzererlebnis zu verbessern. Cookies können von der besuchten Website selbst
-                  (First-Party-Cookies) oder von Drittanbietern (Third-Party-Cookies) gesetzt werden.
-                </p>
-              </section>
+                    <div className="prose prose-lg text-text-secondary space-y-8">
+                        {/* Einleitung */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Was sind Cookies?</h2>
+                            <p>
+                                Cookies sind kleine Textdateien, die von Ihrem Webbrowser auf Ihrem Gerät gespeichert werden,
+                                wenn Sie eine Website besuchen. Sie dienen dazu, bestimmte Einstellungen und Informationen
+                                für spätere Besuche zu speichern.
+                            </p>
+                            <p>
+                                Neben klassischen Cookies verwendet diese Website auch den <strong>localStorage</strong> —
+                                eine moderne Browser-Speichertechnologie, die ähnlich wie Cookies funktioniert, aber Daten
+                                ausschließlich lokal auf Ihrem Gerät speichert und nicht automatisch an Server übertragen wird.
+                            </p>
+                        </section>
 
-              <section>
-                <h2 className="text-2xl font-display font-bold text-text-main mb-4">2. Welche Cookies verwenden wir?</h2>
+                        {/* Eingesetzte Technologien */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Eingesetzte Speichertechnologien</h2>
+                            <p>
+                                Diese Website setzt <strong>ausschließlich technisch notwendige Speichertechnologien</strong> ein.
+                                Wir verwenden <strong>keine</strong> Marketing-, Analyse-, Tracking- oder Werbe-Cookies.
+                            </p>
 
-                <h3 className="text-xl font-display font-bold text-text-main mb-3 mt-6">2.1 Technisch notwendige Cookies</h3>
-                <p className="leading-relaxed">
-                  Diese Cookies sind für den Betrieb unserer Website unerlässlich. Sie ermöglichen
-                  grundlegende Funktionen wie die Navigation auf der Seite und den Zugang zu geschützten
-                  Bereichen. Ohne diese Cookies kann die Website nicht ordnungsgemäß funktionieren.
-                </p>
+                            {/* Tabelle */}
+                            <div className="overflow-x-auto mt-6">
+                                <table className="w-full border-collapse text-sm">
+                                    <thead>
+                                        <tr className="bg-bg-secondary">
+                                            <th className="text-left p-3 border border-border font-bold text-text-main">Name</th>
+                                            <th className="text-left p-3 border border-border font-bold text-text-main">Typ</th>
+                                            <th className="text-left p-3 border border-border font-bold text-text-main">Zweck</th>
+                                            <th className="text-left p-3 border border-border font-bold text-text-main">Dauer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td className="p-3 border border-border font-mono text-xs">i18n-locale</td>
+                                            <td className="p-3 border border-border">localStorage</td>
+                                            <td className="p-3 border border-border">Speichert Ihre gewählte Sprache (de, en, ar, fr)</td>
+                                            <td className="p-3 border border-border">Dauerhaft (bis manuell gelöscht)</td>
+                                        </tr>
+                                        <tr className="bg-bg-secondary/50">
+                                            <td className="p-3 border border-border font-mono text-xs">cookie-consent</td>
+                                            <td className="p-3 border border-border">localStorage</td>
+                                            <td className="p-3 border border-border">Speichert, ob das Cookie-Banner bereits bestätigt wurde</td>
+                                            <td className="p-3 border border-border">Dauerhaft (bis manuell gelöscht)</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="p-3 border border-border font-mono text-xs">theme-preference</td>
+                                            <td className="p-3 border border-border">localStorage</td>
+                                            <td className="p-3 border border-border">Speichert die Farbschema-Präferenz (hell/dunkel), falls zutreffend</td>
+                                            <td className="p-3 border border-border">Dauerhaft (bis manuell gelöscht)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
 
-                <h3 className="text-xl font-display font-bold text-text-main mb-3 mt-6">2.2 Eingebettete Inhalte</h3>
-                <p className="leading-relaxed">
-                  Unsere Website bindet Google Maps ein, um Ihnen unseren Standort anzuzeigen. Google kann
-                  dabei eigene Cookies setzen. Diese werden für die Kartendarstellung und -navigation
-                  benötigt. Weitere Informationen finden Sie in der{' '}
-                  <a
-                    href="https://policies.google.com/privacy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary-hover underline"
-                  >
-                    Datenschutzerklärung von Google
-                  </a>.
-                </p>
-              </section>
+                        {/* Drittanbieter */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Drittanbieter-Cookies</h2>
+                            <p>
+                                Beim Laden von eingebetteten Inhalten Dritter (z.B. Google Maps) können diese Anbieter
+                                eigene Cookies setzen. Dies geschieht außerhalb unserer Kontrolle. Für Details zu den
+                                eingesetzten Drittanbieter-Diensten verweisen wir auf unsere{' '}
+                                <Link href="/datenschutz" className="text-primary hover:text-primary-hover underline">
+                                    Datenschutzerklärung
+                                </Link>.
+                            </p>
+                            <p>
+                                <strong>Hinweis:</strong> Google Maps kann folgende Cookies setzen:
+                            </p>
+                            <div className="overflow-x-auto mt-4">
+                                <table className="w-full border-collapse text-sm">
+                                    <thead>
+                                        <tr className="bg-bg-secondary">
+                                            <th className="text-left p-3 border border-border font-bold text-text-main">Cookie</th>
+                                            <th className="text-left p-3 border border-border font-bold text-text-main">Anbieter</th>
+                                            <th className="text-left p-3 border border-border font-bold text-text-main">Zweck</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td className="p-3 border border-border font-mono text-xs">NID</td>
+                                            <td className="p-3 border border-border">Google</td>
+                                            <td className="p-3 border border-border">Kartendarstellung und Standort-Funktionalität</td>
+                                        </tr>
+                                        <tr className="bg-bg-secondary/50">
+                                            <td className="p-3 border border-border font-mono text-xs">CONSENT</td>
+                                            <td className="p-3 border border-border">Google</td>
+                                            <td className="p-3 border border-border">Speichert Cookie-Einwilligung bei Google-Diensten</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
 
-              <section>
-                <h2 className="text-2xl font-display font-bold text-text-main mb-4">3. Wie können Sie Cookies verwalten?</h2>
-                <p className="leading-relaxed">
-                  Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert
-                  werden und einzeln über die Annahme entscheiden können. Alternativ können Sie die Annahme
-                  von Cookies für bestimmte Fälle oder generell ausschließen. Bei der Nichtannahme von
-                  Cookies kann die Funktionalität unserer Website eingeschränkt sein.
-                </p>
-                <p className="leading-relaxed">
-                  Die meisten Browser akzeptieren Cookies automatisch. Sie können Ihren Browser jedoch so
-                  konfigurieren, dass keine Cookies auf Ihrem Computer gespeichert werden oder dass stets
-                  ein Hinweis erscheint, bevor ein neuer Cookie angelegt wird of ist. Die vollständige
-                  Deaktivierung von Cookies kann dazu führen, dass Sie nicht alle Funktionen unserer
-                  Website nutzen können.
-                </p>
-              </section>
+                        {/* Rechtsgrundlage */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Rechtsgrundlage</h2>
+                            <p>
+                                Die Verwendung technisch notwendiger Cookies erfolgt auf Grundlage von{' '}
+                                <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an der funktionalen
+                                Bereitstellung der Website) sowie <strong>§ 25 Abs. 2 TDDDG</strong> (ehemals TTDSG), wonach
+                                die Einwilligung entfällt, sofern die Speicherung technisch unbedingt erforderlich ist.
+                            </p>
+                        </section>
 
-              <section>
-                <h2 className="text-2xl font-display font-bold text-text-main mb-4">4. Weitere Informationen</h2>
-                <p className="leading-relaxed">
-                  Weitere Informationen zum Umgang mit Ihren personenbezogenen Daten finden Sie in unserer{' '}
-                  <Link href="/datenschutz" className="text-primary hover:text-primary-hover underline">
-                    Datenschutzerklärung
-                  </Link>.
-                </p>
-                <p className="leading-relaxed">
-                  Bei Fragen zu unserer Cookie-Richtlinie können Sie uns jederzeit kontaktieren:
-                </p>
-                <address className="not-italic mt-4 p-6 bg-bg-secondary rounded-xl">
-                  <p className="font-bold text-text-main">{companyData.companyName}</p>
-                  <p>{companyData.address.street}</p>
-                  <p>{companyData.address.zip} {companyData.address.city}</p>
-                  <p className="mt-2">
-                    E-Mail:{' '}
-                    <a href={`mailto:${companyData.email}`} className="text-primary hover:text-primary-hover underline">
-                      {companyData.email}
-                    </a>
-                  </p>
-                  <p>
-                    Telefon:{' '}
-                    <a href={`tel:${companyData.phone}`} className="text-primary hover:text-primary-hover underline">
-                      {companyData.displayPhone}
-                    </a>
-                  </p>
-                </address>
-              </section>
+                        {/* Verwaltung */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Cookies verwalten und löschen</h2>
+                            <p>
+                                Sie können Cookies und localStorage-Einträge jederzeit über die Einstellungen Ihres Browsers
+                                verwalten oder löschen:
+                            </p>
+                            <ul className="list-disc list-inside space-y-2 mt-4">
+                                <li>
+                                    <strong>Google Chrome:</strong> Einstellungen → Datenschutz und Sicherheit → Browserdaten löschen
+                                </li>
+                                <li>
+                                    <strong>Mozilla Firefox:</strong> Einstellungen → Datenschutz & Sicherheit → Cookies und Website-Daten
+                                </li>
+                                <li>
+                                    <strong>Apple Safari:</strong> Einstellungen → Datenschutz → Websitedaten verwalten
+                                </li>
+                                <li>
+                                    <strong>Microsoft Edge:</strong> Einstellungen → Datenschutz, Suche und Dienste → Browserdaten löschen
+                                </li>
+                            </ul>
+                            <p className="mt-4">
+                                <strong>Hinweis:</strong> Wenn Sie technisch notwendige Speicherungen löschen, können bestimmte
+                                Funktionen der Website (z.B. Spracheinstellung) zurückgesetzt werden.
+                            </p>
+                        </section>
 
-              <p className="text-sm text-text-tertiary mt-8">
-                Stand: April 2026
-              </p>
+                        <p className="text-sm text-text-tertiary mt-12 pt-6 border-t border-border">
+                            Stand: April 2026 | <Link href="/datenschutz" className="text-primary hover:text-primary-hover underline">Datenschutz</Link> | <Link href="/impressum" className="text-primary hover:text-primary-hover underline">Impressum</Link>
+                        </p>
+                    </div>
+                </div>
             </article>
-          </div>
-        </div>
-      </div>
-    </PageTransition>
-  );
-}
+        </PageTransition>
+    );
+};
+
+export default CookieRichtlinie;

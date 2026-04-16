@@ -1,36 +1,73 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { PageTransition } from '@/components/effects/PageTransition';
-import { Calendar, Clock, MessageSquare, CheckCircle, ChevronRight, ChevronLeft, User, Phone, Mail } from 'lucide-react';
+import { Calendar, Clock, MessageSquare, CheckCircle, ChevronRight, ChevronLeft, User, Phone, Mail, AlertCircle, Loader2 } from 'lucide-react';
 import { TrustBadgeRow } from '@/components/ui/TrustBadgeRow';
 import { useUI } from '@/lib/context/UIContext';
-import { AlertCircle } from 'lucide-react';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { motion, AnimatePresence } from 'framer-motion';
-
+// Removed formspree import
+// ═══ HARDENED ZOD SCHEMA ═══
 const reservationSchema = z.object({
-    name: z.string().min(2, "Name is required"),
-    email: z.string().email("Valid email required"),
-    phone: z.string().min(5, "Phone required"),
-    date: z.string().min(1, "Date required"),
-    time: z.string().min(1, "Time required"),
-    guests: z.string().min(1, "Guests required"),
-    message: z.string().optional()
+    name: z.string()
+        .min(2, "Bitte geben Sie Ihren Namen ein (mind. 2 Zeichen).")
+        .max(80, "Name darf maximal 80 Zeichen lang sein."),
+    email: z.string()
+        .email("Bitte geben Sie eine gültige E-Mail-Adresse ein.")
+        .max(120),
+    phone: z.string()
+        .min(5, "Bitte geben Sie eine gültige Telefonnummer ein.")
+        .max(25)
+        .regex(/^[\d\s+\-()]+$/, "Ungültiges Telefonnummernformat."),
+    date: z.string()
+        .min(1, "Bitte wählen Sie ein Datum.")
+        .refine((val) => {
+            if (!val) return false;
+            const selected = new Date(val);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            return selected >= today;
+        }, { message: "Das Datum muss in der Zukunft liegen." }),
+    time: z.string()
+        .min(1, "Bitte wählen Sie eine Uhrzeit.")
+        .regex(/^\d{2}:\d{2}$/, "Ungültiges Zeitformat."),
+    guests: z.string()
+        .min(1, "Bitte wählen Sie die Gästeanzahl.")
+        .refine((val) => {
+            if (val === '>10') return true;
+            const num = parseInt(val, 10);
+            return !isNaN(num) && num >= 1 && num <= 20;
+        }, { message: "Gästeanzahl muss zwischen 1 und 20 liegen." }),
+    message: z.string().max(500, "Nachricht darf maximal 500 Zeichen lang sein.").optional(),
 });
 
 type ReservationData = z.infer<typeof reservationSchema>;
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+
+import { TranslationKey } from '@/lib/i18n/types';
+
+// ═══ HELPER: Safe translation with fallback ═══
+const useSafeT = (namespace: string) => {
+    const { t, locale } = useTranslation(namespace);
+    const safeT = (key: string, fallback: string): string => {
+        const result = t(key as TranslationKey);
+        return (result && result !== '') ? String(result) : fallback;
+    };
+    return { safeT, locale };
+};
 
 export const Reservation = () => {
     const [step, setStep] = useState(1);
-    const [submitted, setSubmitted] = useState(false);
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [formStatus, setFormStatus] = useState<FormStatus>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
+    const formStartTime = useRef<number>(Date.now());
     const { addToast } = useUI();
-    const { t } = useTranslation('forms');
-    const { t: tPages } = useTranslation('pages');
+    const { safeT: t } = useSafeT('forms');
+    const { safeT: tPages } = useSafeT('pages');
 
     const {
         register,
@@ -47,40 +84,66 @@ export const Reservation = () => {
     });
 
     const onSubmit = async (data: ReservationData) => {
-        setIsSubmitting(true);
+        // ═══ BOT DETECTION: Time-To-Complete Check ═══
+        const elapsed = Date.now() - formStartTime.current;
+        if (elapsed < 3000) {
+            console.warn('[Spam Guard] Submission too fast, likely a bot.');
+            setFormStatus('success');
+            return;
+        }
+
+        // ═══ HONEYPOT CHECK ═══
+        const honeypotField = document.querySelector<HTMLInputElement>('input[name="_honeypot_address"]');
+        if (honeypotField && honeypotField.value.length > 0) {
+            console.warn('[Spam Guard] Honeypot triggered.');
+            setFormStatus('success');
+            return;
+        }
+
+        setFormStatus('submitting');
+        setErrorMessage('');
+
         try {
-            const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_RESERVATION_URL || 'https://formspree.io/f/xzaborle';
-            const response = await fetch(formspreeEndpoint, {
+            const endpoint = `/api/reservation`;
+            const response = await fetch(endpoint, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
                 body: JSON.stringify({
-                    ...data,
-                    _subject: `Reservierung: ${data.name} - ${data.date} ${data.time} (${data.guests} Personen)`,
+                    name: data.name,
+                    email: data.email,
+                    phone: data.phone,
+                    date: data.date,
+                    time: data.time,
+                    guests: data.guests,
+                    message: data.message || '',
                 }),
             });
+
             if (response.ok) {
-                setSubmitted(true);
-                addToast("success", t('reservation.success') as string);
+                setFormStatus('success');
+                addToast("success", t('reservation.success', 'Ihre Reservierung wurde erfolgreich übermittelt.'));
                 reset();
                 setStep(1);
+            } else if (response.status === 429) {
+                setFormStatus('error');
+                const msg = t('reservation.rate_limit', 'Zu viele Anfragen. Bitte versuchen Sie es in einigen Minuten erneut.');
+                setErrorMessage(msg);
+                addToast("error", msg);
             } else {
-                if (process.env.NODE_ENV === 'development') {
-                    console.warn(`[Forms] Formspree returned ${response.status}. Mocking success for DEV.`);
-                    setSubmitted(true);
-                    addToast("success", t('reservation.success') as string);
-                    reset();
-                    setStep(1);
-                } else {
-                    addToast("error", t('reservation.error') as string);
-                }
+                setFormStatus('error');
+                const msg = t('reservation.error', 'Ein Fehler ist aufgetreten. Bitte rufen Sie uns alternativ an.');
+                setErrorMessage(msg);
+                addToast("error", msg);
             }
         } catch {
-            setSubmitted(true);
-            addToast("success", t('reservation.success') as string); 
-            reset();
-            setStep(1);
-        } finally {
-            setIsSubmitting(false);
+            // ═══ NETWORK ERROR — MUST NOT show success ═══
+            setFormStatus('error');
+            const msg = t('reservation.network_error', 'Verbindungsfehler. Bitte prüfen Sie Ihre Internetverbindung oder rufen Sie uns an.');
+            setErrorMessage(msg);
+            addToast("error", msg);
         }
     };
 
@@ -88,18 +151,14 @@ export const Reservation = () => {
         let valid = false;
         if (step === 1) valid = await trigger('guests');
         if (step === 2) valid = await trigger(['date', 'time']);
-        if (step === 3) valid = true; // message is optional
-        
-        if (valid) {
-            setStep(s => Math.min(s + 1, 4));
-        }
+        if (step === 3) valid = true;
+        if (valid) setStep(s => Math.min(s + 1, 4));
     };
 
-    const prevStep = () => {
-        setStep(s => Math.max(s - 1, 1));
-    };
+    const prevStep = () => setStep(s => Math.max(s - 1, 1));
 
     const guests = watch('guests');
+    const todayStr = new Date().toISOString().split('T')[0];
 
     const stepVariants = {
         hidden: { opacity: 0, x: 20, filter: 'blur(4px)' },
@@ -109,20 +168,20 @@ export const Reservation = () => {
 
     return (
         <PageTransition>
-            <div className="pt-32 pb-20 min-h-screen bg-bg-beige flex items-center justify-center">
+            <article className="pt-32 pb-20 min-h-screen bg-bg-beige flex items-center justify-center" itemProp="mainContentOfPage">
                 <div className="container mx-auto px-4">
                     <div className="max-w-2xl mx-auto">
                         <div className="text-center mb-12">
                             <h1 className="text-4xl md:text-5xl font-display font-medium text-onyx mb-4 tracking-tight">
-                                {t('reservation.title') as string}
+                                {t('reservation.title', 'Tisch reservieren')}
                             </h1>
                             <p className="text-onyx-muted text-lg max-w-xl mx-auto">
-                                {tPages('reservation.subtitle') as string}
+                                {tPages('reservation.subtitle', 'Sichern Sie sich Ihren Tisch für ein unvergessliches Erlebnis.')}
                             </p>
                         </div>
 
                         <div className="bg-bg-primary rounded-2xl shadow-warm p-8 md:p-12 overflow-hidden relative">
-                            {submitted ? (
+                            {formStatus === 'success' ? (
                                 <motion.div 
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     animate={{ opacity: 1, scale: 1 }}
@@ -132,20 +191,20 @@ export const Reservation = () => {
                                         <CheckCircle className="w-12 h-12" aria-hidden="true" />
                                     </div>
                                     <h2 className="text-3xl font-display font-medium text-onyx mb-4 tracking-wide">
-                                        {t('reservation.success_title') as string}
+                                        {t('reservation.success_title', 'Vielen Dank!')}
                                     </h2>
                                     <p className="text-onyx-muted text-lg mb-10 max-w-md mx-auto leading-relaxed">
-                                        {t('reservation.success_message') as string}
+                                        {t('reservation.success_message', 'Wir haben Ihre Anfrage erhalten und melden uns in Kürze bei Ihnen.')}
                                     </p>
                                     <button
-                                        onClick={() => setSubmitted(false)}
+                                        onClick={() => { setFormStatus('idle'); formStartTime.current = Date.now(); }}
                                         className="text-accent border-b border-accent/30 pb-1 hover:border-accent font-medium transition-all"
                                     >
-                                        {t('reservation.new_reservation') as string}
+                                        {t('reservation.new_reservation', 'Neue Reservierung')}
                                     </button>
                                 </motion.div>
                             ) : (
-                                <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+                                <form onSubmit={handleSubmit(onSubmit)} className="space-y-8" noValidate>
                                     {/* Progress indicator */}
                                     <div className="flex justify-between items-center mb-10 relative">
                                         <div className="absolute left-0 top-1/2 -mt-px w-full h-[2px] bg-taupe/20 -z-10"></div>
@@ -161,50 +220,56 @@ export const Reservation = () => {
                                         ))}
                                     </div>
 
-                                    <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+                                    {/* ═══ HONEYPOT (invisible to humans) ═══ */}
+                                    <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
+                                        <label htmlFor="honeypot-address">Bitte leer lassen</label>
+                                        <input type="text" id="honeypot-address" name="_honeypot_address" tabIndex={-1} autoComplete="off" />
+                                    </div>
+
+                                    {/* Error Banner */}
+                                    {formStatus === 'error' && errorMessage && (
+                                        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3">
+                                            <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                                            <div>
+                                                <p className="text-red-800 text-sm font-medium">{errorMessage}</p>
+                                                <p className="text-red-600 text-xs mt-1">
+                                                    {t('reservation.call_alternative', 'Alternativ erreichen Sie uns telefonisch unter 06403 - 64556')}
+                                                </p>
+                                            </div>
+                                        </motion.div>
+                                    )}
 
                                     <div className="min-h-[220px]">
                                         <AnimatePresence mode="wait">
                                             {step === 1 && (
                                                 <motion.div key="step1" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.4 }} className="space-y-6">
                                                     <div className="text-center mb-8">
-                                                        <h3 className="text-2xl font-display font-medium text-onyx mb-2">Für wie viele Personen?</h3>
-                                                        <p className="text-onyx-muted text-sm">Bitte wählen Sie die Gästeanzahl</p>
+                                                        <h3 className="text-2xl font-display font-medium text-onyx mb-2">
+                                                            {t('reservation.step1_title', 'Für wie viele Personen?')}
+                                                        </h3>
+                                                        <p className="text-onyx-muted text-sm">{t('reservation.step1_subtitle', 'Bitte wählen Sie die Gästeanzahl')}</p>
                                                     </div>
-                                                    
                                                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                                         {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
-                                                            <button
-                                                                key={num}
-                                                                type="button"
-                                                                onClick={() => {
-                                                                    setValue('guests', num.toString(), { shouldValidate: true });
-                                                                    setTimeout(nextStep, 300);
-                                                                }}
+                                                            <button key={num} type="button"
+                                                                onClick={() => { setValue('guests', num.toString(), { shouldValidate: true }); setTimeout(nextStep, 300); }}
                                                                 className={`py-4 px-4 rounded-xl text-lg font-medium transition-all duration-300 border
-                                                                    ${guests === num.toString() 
-                                                                        ? 'bg-primary border-primary text-surface shadow-warm'
-                                                                        : 'bg-surface text-text-primary border-border hover:border-primary/40 hover:bg-bg-secondary'}`}
+                                                                    ${guests === num.toString() ? 'bg-primary border-primary text-surface shadow-warm' : 'bg-surface text-text-primary border-border hover:border-primary/40 hover:bg-bg-secondary'}`}
                                                             >
-                                                                {num} <span className="text-sm font-normal opacity-80">{num === 1 ? 'Person' : 'Personen'}</span>
+                                                                {num} <span className="text-sm font-normal opacity-80">{num === 1 ? t('reservation.person_singular', 'Person') : t('reservation.person_plural', 'Personen')}</span>
                                                             </button>
                                                         ))}
                                                     </div>
                                                     <div className="mt-4">
-                                                        <label htmlFor="res-guests" className="sr-only">Weitere Optionen</label>
-                                                        <select
-                                                            id="res-guests"
-                                                            {...register('guests')}
-                                                            onChange={(e) => {
-                                                                setValue('guests', e.target.value, { shouldValidate: true });
-                                                                if(e.target.value !== '') setTimeout(nextStep, 300);
-                                                            }}
+                                                        <label htmlFor="res-guests" className="sr-only">{t('reservation.more_guests', 'Weitere Optionen')}</label>
+                                                        <select id="res-guests" {...register('guests')}
+                                                            onChange={(e) => { setValue('guests', e.target.value, { shouldValidate: true }); if(e.target.value !== '') setTimeout(nextStep, 300); }}
                                                             className="w-full px-5 py-4 bg-surface border border-border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none text-text-primary transition-all appearance-none text-center cursor-pointer hover:bg-bg-secondary"
                                                         >
-                                                            <option value="" disabled>Größere Gesellschaften?</option>
-                                                            <option value="9">9 Personen</option>
-                                                            <option value="10">10 Personen</option>
-                                                            <option value=">10">Mehr als 10 Personen</option>
+                                                            <option value="" disabled>{t('reservation.larger_groups', 'Größere Gesellschaften?')}</option>
+                                                            <option value="9">9 {t('reservation.person_plural', 'Personen')}</option>
+                                                            <option value="10">10 {t('reservation.person_plural', 'Personen')}</option>
+                                                            <option value=">10">{t('reservation.more_than_10', 'Mehr als 10 Personen')}</option>
                                                         </select>
                                                     </div>
                                                 </motion.div>
@@ -213,35 +278,25 @@ export const Reservation = () => {
                                             {step === 2 && (
                                                 <motion.div key="step2" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.4 }} className="space-y-6">
                                                     <div className="text-center mb-8">
-                                                        <h3 className="text-2xl font-display font-medium text-onyx mb-2">Wann dürfen wir Sie erwarten?</h3>
-                                                        <p className="text-onyx-muted text-sm">Datum und Uhrzeit Ihrer Wahl</p>
+                                                        <h3 className="text-2xl font-display font-medium text-onyx mb-2">{t('reservation.step2_title', 'Wann dürfen wir Sie erwarten?')}</h3>
+                                                        <p className="text-onyx-muted text-sm">{t('reservation.step2_subtitle', 'Datum und Uhrzeit Ihrer Wahl')}</p>
                                                     </div>
-
                                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                         <div className="space-y-2">
                                                             <label htmlFor="res-date" className="block text-sm font-medium text-onyx flex items-center gap-2">
-                                                                <Calendar className="w-4 h-4 text-accent" aria-hidden="true" /> 
-                                                                {t('reservation.date_label') as string}
+                                                                <Calendar className="w-4 h-4 text-accent" aria-hidden="true" /> {t('reservation.date_label', 'Datum')}
                                                             </label>
-                                                            <input
-                                                                id="res-date"
-                                                                type="date"
-                                                                {...register('date')}
-                                                                className={`w-full px-5 py-4 bg-surface border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm ${errors.date ? 'border-error' : 'border-border'}`}
+                                                            <input id="res-date" type="date" min={todayStr} {...register('date')}
+                                                                className={`w-full px-5 py-4 bg-surface border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm ${errors.date ? 'border-red-400' : 'border-border'}`}
                                                             />
                                                             {errors.date && <p className="text-xs text-red-500 flex items-center gap-1 mt-1"><AlertCircle className="w-3 h-3" /> {errors.date.message}</p>}
                                                         </div>
-
                                                         <div className="space-y-2">
                                                             <label htmlFor="res-time" className="block text-sm font-medium text-onyx flex items-center gap-2">
-                                                                <Clock className="w-4 h-4 text-accent" aria-hidden="true" /> 
-                                                                {t('reservation.time_label') as string}
+                                                                <Clock className="w-4 h-4 text-accent" aria-hidden="true" /> {t('reservation.time_label', 'Uhrzeit')}
                                                             </label>
-                                                            <input
-                                                                id="res-time"
-                                                                type="time"
-                                                                {...register('time')}
-                                                                className={`w-full px-5 py-4 bg-surface border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm ${errors.time ? 'border-error' : 'border-border'}`}
+                                                            <input id="res-time" type="time" {...register('time')}
+                                                                className={`w-full px-5 py-4 bg-surface border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm ${errors.time ? 'border-red-400' : 'border-border'}`}
                                                             />
                                                             {errors.time && <p className="text-xs text-red-500 flex items-center gap-1 mt-1"><AlertCircle className="w-3 h-3" /> {errors.time.message}</p>}
                                                         </div>
@@ -252,22 +307,16 @@ export const Reservation = () => {
                                             {step === 3 && (
                                                 <motion.div key="step3" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.4 }} className="space-y-6">
                                                     <div className="text-center mb-8">
-                                                        <h3 className="text-2xl font-display font-medium text-text-primary mb-2">Gibt es einen besonderen Anlass?</h3>
-                                                        <p className="text-text-secondary text-sm">Teilen Sie uns eventuelle Wünsche mit (Optional)</p>
+                                                        <h3 className="text-2xl font-display font-medium text-text-primary mb-2">{t('reservation.step3_title', 'Gibt es einen besonderen Anlass?')}</h3>
+                                                        <p className="text-text-secondary text-sm">{t('reservation.step3_subtitle', 'Teilen Sie uns eventuelle Wünsche mit (Optional)')}</p>
                                                     </div>
-
                                                     <div className="space-y-2">
-                                                        <label htmlFor="res-message" className="sr-only">
-                                                            {t('reservation.wishes_label') as string}
-                                                        </label>
+                                                        <label htmlFor="res-message" className="sr-only">{t('reservation.wishes_label', 'Besondere Wünsche')}</label>
                                                         <div className="relative">
                                                             <MessageSquare className="absolute top-4 left-4 w-5 h-5 text-taupe/60" aria-hidden="true" />
-                                                            <textarea
-                                                                id="res-message"
-                                                                rows={4}
-                                                                {...register('message')}
+                                                            <textarea id="res-message" rows={4} maxLength={500} {...register('message')}
                                                                 className="w-full pl-12 pr-5 py-4 bg-surface border border-border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm resize-none"
-                                                                placeholder="z.B. Hochzeitstag, Allergien, ruhiger Tisch erwünscht..."
+                                                                placeholder={t('reservation.wishes_placeholder', 'z.B. Hochzeitstag, Allergien, ruhiger Tisch erwünscht...')}
                                                             ></textarea>
                                                         </div>
                                                     </div>
@@ -277,42 +326,33 @@ export const Reservation = () => {
                                             {step === 4 && (
                                                 <motion.div key="step4" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.4 }} className="space-y-6">
                                                     <div className="text-center mb-8">
-                                                        <h3 className="text-2xl font-display font-medium text-text-primary mb-2">Ihre Kontaktdaten</h3>
-                                                        <p className="text-text-secondary text-sm">Um Ihnen die Bestätigung senden zu können</p>
+                                                        <h3 className="text-2xl font-display font-medium text-text-primary mb-2">{t('reservation.step4_title', 'Ihre Kontaktdaten')}</h3>
+                                                        <p className="text-text-secondary text-sm">{t('reservation.step4_subtitle', 'Um Ihnen die Bestätigung senden zu können')}</p>
                                                     </div>
-
                                                     <div className="space-y-5">
                                                         <div className="relative">
                                                             <User className="absolute top-1/2 -translate-y-1/2 left-4 w-5 h-5 text-taupe/60" aria-hidden="true" />
-                                                            <input
-                                                                type="text"
-                                                                {...register('name')}
-                                                                className={`w-full pl-12 pr-5 py-4 bg-surface border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm ${errors.name ? 'border-error' : 'border-border'}`}
-                                                                placeholder={t('reservation.name_label') as string}
+                                                            <input type="text" {...register('name')}
+                                                                className={`w-full pl-12 pr-5 py-4 bg-surface border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm ${errors.name ? 'border-red-400' : 'border-border'}`}
+                                                                placeholder={t('reservation.name_label', 'Ihr Name')}
                                                             />
-                                                            {errors.name && <p className="text-xs text-red-500 absolute -bottom-5 left-0">{errors.name.message}</p>}
+                                                            {errors.name && <p className="text-xs text-red-500 absolute -bottom-5 left-0 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.name.message}</p>}
                                                         </div>
-
                                                         <div className="relative">
                                                             <Mail className="absolute top-1/2 -translate-y-1/2 left-4 w-5 h-5 text-taupe/60" aria-hidden="true" />
-                                                            <input
-                                                                type="email"
-                                                                {...register('email')}
-                                                                className={`w-full pl-12 pr-5 py-4 bg-surface border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm ${errors.email ? 'border-error' : 'border-border'}`}
-                                                                placeholder={t('reservation.email_label') as string}
+                                                            <input type="email" {...register('email')}
+                                                                className={`w-full pl-12 pr-5 py-4 bg-surface border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm ${errors.email ? 'border-red-400' : 'border-border'}`}
+                                                                placeholder={t('reservation.email_label', 'Ihre E-Mail')}
                                                             />
-                                                            {errors.email && <p className="text-xs text-red-500 absolute -bottom-5 left-0">{errors.email.message}</p>}
+                                                            {errors.email && <p className="text-xs text-red-500 absolute -bottom-5 left-0 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.email.message}</p>}
                                                         </div>
-
                                                         <div className="relative">
                                                             <Phone className="absolute top-1/2 -translate-y-1/2 left-4 w-5 h-5 text-taupe/60" aria-hidden="true" />
-                                                            <input
-                                                                type="tel"
-                                                                {...register('phone')}
-                                                                className={`w-full pl-12 pr-5 py-4 bg-surface border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm ${errors.phone ? 'border-error' : 'border-border'}`}
-                                                                placeholder={t('reservation.phone_label') as string}
+                                                            <input type="tel" {...register('phone')}
+                                                                className={`w-full pl-12 pr-5 py-4 bg-surface border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm ${errors.phone ? 'border-red-400' : 'border-border'}`}
+                                                                placeholder={t('reservation.phone_label', 'Ihre Telefonnummer')}
                                                             />
-                                                            {errors.phone && <p className="text-xs text-red-500 absolute -bottom-5 left-0">{errors.phone.message}</p>}
+                                                            {errors.phone && <p className="text-xs text-red-500 absolute -bottom-5 left-0 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.phone.message}</p>}
                                                         </div>
                                                     </div>
                                                 </motion.div>
@@ -323,32 +363,22 @@ export const Reservation = () => {
                                     {/* Navigation buttons */}
                                     <div className="flex items-center justify-between pt-8 mt-4 border-t border-taupe/10">
                                         {step > 1 ? (
-                                            <button
-                                                type="button"
-                                                onClick={prevStep}
-                                                className="flex items-center gap-2 px-5 py-3 text-text-secondary hover:text-text-primary font-medium transition-colors"
-                                            >
-                                                <ChevronLeft className="w-5 h-5" /> Zurück
+                                            <button type="button" onClick={prevStep} className="flex items-center gap-2 px-5 py-3 text-text-secondary hover:text-text-primary font-medium transition-colors">
+                                                <ChevronLeft className="w-5 h-5" /> {t('reservation.back', 'Zurück')}
                                             </button>
-                                        ) : (
-                                            <div></div> // Empty placeholder to keep next button right-aligned
-                                        )}
+                                        ) : <div></div>}
 
                                         {step < 4 ? (
-                                            <button
-                                                type="button"
-                                                onClick={nextStep}
-                                                className="flex items-center gap-2 px-8 py-3 bg-text-primary text-surface rounded-full font-medium shadow-sm hover:shadow-md transition-all group"
-                                            >
-                                                Weiter <ChevronRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+                                            <button type="button" onClick={nextStep} className="flex items-center gap-2 px-8 py-3 bg-text-primary text-surface rounded-full font-medium shadow-sm hover:shadow-md transition-all group">
+                                                {t('reservation.next', 'Weiter')} <ChevronRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
                                             </button>
                                         ) : (
-                                            <button
-                                                type="submit"
-                                                disabled={isSubmitting || !isValid}
+                                            <button type="submit" disabled={formStatus === 'submitting' || !isValid}
                                                 className="flex items-center gap-2 px-8 py-4 bg-primary text-surface rounded-full font-bold shadow-warm hover:bg-primary-hover transition-all disabled:opacity-70 disabled:cursor-not-allowed group"
                                             >
-                                                {isSubmitting ? 'Wird bearbeitet...' : 'Verbindlich Anfragen'}
+                                                {formStatus === 'submitting' ? (
+                                                    <><Loader2 className="w-5 h-5 animate-spin" />{t('reservation.submitting', 'Wird bearbeitet...')}</>
+                                                ) : t('reservation.submit', 'Verbindlich Anfragen')}
                                             </button>
                                         )}
                                     </div>
@@ -356,12 +386,9 @@ export const Reservation = () => {
                             )}
                         </div>
                     </div>
-                    
-                    <div className="mt-16 max-w-2xl mx-auto opacity-70">
-                        <TrustBadgeRow />
-                    </div>
+                    <div className="mt-16 max-w-2xl mx-auto opacity-70"><TrustBadgeRow /></div>
                 </div>
-            </div>
+            </article>
         </PageTransition>
     );
 };

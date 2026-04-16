@@ -15,7 +15,11 @@ import { CtaBand } from '@/components/layout/CtaBand';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
 
-export const Home = () => {
+export interface HomeProps {
+    mainMenuPdfUrl?: string;
+}
+
+export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
     const { t } = useTranslation('home');
     const { hero, heroVariant } = useAdaptiveMessaging();
 
@@ -27,7 +31,7 @@ export const Home = () => {
     ];
 
     return (
-        <>
+        <article itemProp="mainContentOfPage" itemScope itemType="https://schema.org/AboutPage">
             
 
             {/* Hero Section */}
@@ -77,7 +81,7 @@ export const Home = () => {
                         </Link>
 
                         <a
-                            href={companyData.menuLink}
+                            href={mainMenuPdfUrl || companyData.menuLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group interaction-bounce px-8 py-4 bg-transparent border border-white/30 backdrop-blur-sm text-white font-bold rounded-lg hover:bg-white/10 shadow-warm inline-block"
@@ -114,6 +118,11 @@ export const Home = () => {
                                         <p className="text-sm text-text-secondary">{t('philosophy.fresh_ingredients_desc') as string}</p>
                                     </section>
                                 </div>
+                                <div className="pt-6">
+                                    <Link href="/about" className="text-primary font-bold hover:text-primary-hover flex items-center gap-2 group transition-colors inline-flex">
+                                        {t('philosophy.learn_more') || 'Mehr über die Ratsstuben erfahren'} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                </div>
                             </div>
                         </AnimateIn>
                         <AnimateIn direction="left" delay={200}>
@@ -147,12 +156,16 @@ export const Home = () => {
                         <h2 id="highlights-title" className="text-4xl md:text-5xl font-display font-bold text-text-primary mt-3 text-balance">{t('highlights.title') as string}</h2>
                     </AnimateIn>
 
-                    <StaggerContainer as="div" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <StaggerContainer as="div" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" itemScope itemType="https://schema.org/ItemList">
                         {highlights.slice(0, 4).map((dish, index) => (
                             <div
                                 key={index}
+                                itemProp="itemListElement"
+                                itemScope
+                                itemType="https://schema.org/MenuItem"
                                 className="group card-lift bg-bg-secondary rounded-2xl overflow-hidden shadow-warm"
                             >
+                                <meta itemProp="position" content={(index + 1).toString()} />
                                 <div className="relative h-72 overflow-hidden">
                                     <Image
                                         src={dish.image}
@@ -160,15 +173,16 @@ export const Home = () => {
                                         fill
                                         className="object-cover group-hover:scale-110 transition-transform duration-700 ease-liquid"
                                     />
-                                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-sm font-bold text-primary shadow-sm">
-                                        {dish.price}
+                                    <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-sm font-bold text-primary shadow-sm">
+                                        <span itemProp="price" content={dish.price.replace('€', '').trim()}>{dish.price}</span>
+                                        <meta itemProp="priceCurrency" content="EUR" />
                                     </div>
                                 </div>
                                 <div className="p-8">
-                                    <h3 className="text-xl font-bold text-text-primary mb-2 group-hover:text-primary transition-colors">{dish.name}</h3>
-                                    <p className="text-text-secondary text-sm mb-6 line-clamp-2">{dish.desc}</p>
+                                    <h3 itemProp="name" className="text-xl font-bold text-text-primary mb-2 group-hover:text-primary transition-colors">{dish.name}</h3>
+                                    <p itemProp="description" className="text-text-secondary text-sm mb-6 line-clamp-2">{dish.desc}</p>
                                     <a
-                                        href={companyData.menuLink}
+                                        href={mainMenuPdfUrl || companyData.menuLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-accent-text font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all duration-500 ease-liquid inline-block mt-2"
@@ -182,7 +196,7 @@ export const Home = () => {
 
                     <AnimateIn className="text-center mt-16" delay={300}>
                         <a
-                            href={companyData.menuLink}
+                            href={mainMenuPdfUrl || companyData.menuLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="interaction-bounce inline-block px-10 py-4 border border-text-primary text-text-primary font-bold rounded-lg hover:bg-text-primary hover:text-white uppercase tracking-wider"
@@ -323,7 +337,7 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </article>
     );
 };
 

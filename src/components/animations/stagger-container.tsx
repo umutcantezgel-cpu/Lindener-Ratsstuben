@@ -6,7 +6,7 @@ import { useReducedMotion } from '@/hooks/use-reduced-motion';
 
 type StaggerMode = 'fast' | 'normal' | 'slow';
 
-interface StaggerContainerProps {
+interface StaggerContainerProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   stagger?: StaggerMode;
   delay?: number;
@@ -28,7 +28,8 @@ export function StaggerContainer({
   stagger = 'normal',
   delay = 0,
   className,
-  as = 'div'
+  as = 'div',
+  ...props
 }: StaggerContainerProps) {
   const shouldReduceMotion = useReducedMotion();
   const MotionComponent = motion[as as keyof typeof motion] as React.ElementType;
@@ -63,6 +64,7 @@ export function StaggerContainer({
       whileInView="show"
       viewport={{ once: true, margin: '-10% 0px' }}
       variants={containerVariants}
+      {...props}
     >
       {childArray.map((child, index) => {
         // Only stagger the first 8 items

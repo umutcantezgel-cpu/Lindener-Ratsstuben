@@ -3,13 +3,36 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { getParam, setParam } from '@/lib/utils/url-params';
-import { categories, menuItems, categoryNotes, allergenLegend, zusatzstoffLegend, allergenHinweis } from '@/data/menu';
+import { allergenLegend, zusatzstoffLegend, allergenHinweis } from '@/data/menu';
 import { Filter, Leaf, Flame, Info, AlertTriangle, ChevronDown } from 'lucide-react';
 import { clsx } from 'clsx';
 import { StaggerContainer } from '@/components/animations/stagger-container';
 import { useTranslation } from '@/lib/i18n/use-translation';
 
-export const Menu = () => {
+export interface MenuItem {
+    id: string;
+    nr: string;
+    name: string;
+    description: string;
+    price: number;
+    category: string;
+    categorySlug?: string;
+    allergens: string[];
+    zusatzstoffe: string[];
+    tags: string[];
+    spiceLevel: number;
+    isBestseller: boolean;
+    isVegetarian: boolean;
+    isVegan: boolean;
+    imageUrl?: string;
+}
+
+export interface PageClientProps {
+    categories: { id: string; name: string; label: string; description?: string }[];
+    menuItems: MenuItem[];
+}
+
+export const Menu = ({ categories, menuItems }: PageClientProps) => {
     const { t } = useTranslation('pages');
     const { t: tCommon } = useTranslation('common');
     const searchParams = useSearchParams();
@@ -57,16 +80,15 @@ export const Menu = () => {
             });
         }
         return items;
-    }, [activeCategory, activeFilters]);
+    }, [activeCategory, activeFilters, menuItems]);
 
-
-
-    const currentNote = categoryNotes[activeCategory];
+    const currentCategoryObj = categories.find(c => c.id === activeCategory);
+    const currentNote = currentCategoryObj?.description;
 
     return (
         <>
             
-            <div className="pt-32 pb-20 min-h-screen bg-bg-secondary">
+            <article className="pt-32 pb-20 min-h-screen bg-bg-secondary" itemProp="mainContentOfPage">
                 <div className="container mx-auto px-4">
                     <header className="text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
                         <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('menu.subtitle') as string}</span>
@@ -91,7 +113,7 @@ export const Menu = () => {
                                                 : "bg-bg-secondary border-transparent text-text-secondary hover:border-border hover:bg-surface"
                                         )}
                                     >
-                                        {t(`menu.category_${category.id}`) as string}
+                                        {category.label}
                                     </button>
                                 </li>
                             ))}
@@ -247,8 +269,16 @@ export const Menu = () => {
                             </div>
                         )}
                     </div>
+
+                    {/* Booking CTA */}
+                    <div className="mt-20 text-center">
+                        <p className="text-text-secondary text-lg mb-6">{t('menu.reservation_prompt') || 'Appetit bekommen? Sichern Sie sich jetzt Ihren Tisch.'}</p>
+                        <a href="/reservation" className="interaction-bounce px-10 py-4 bg-accent text-neutral-950 font-bold rounded-lg hover:bg-accent-hover shadow-warm inline-flex items-center gap-2 uppercase tracking-wider">
+                            {t('menu.reservation_cta') || 'Jetzt Tisch reservieren'}
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </article>
         </>
     );
 };
