@@ -26,13 +26,13 @@ export const HeroRoot: React.FC<HeroRootProps> = ({ mainMenuPdfUrl }) => {
         <section 
             ref={containerRef} 
             aria-labelledby="hero-title" 
-            className="relative min-h-[65vh] flex items-center justify-center overflow-hidden bg-[#FAFAFA] pt-32 pb-24"
+            className="relative min-h-[82vh] 2xl:min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#FAFAFA] pt-36 pb-28 md:pt-40 md:pb-32"
         >
             <div className="absolute inset-0 bg-gradient-to-b from-stone-50 to-[#FAFAFA] pointer-events-none z-0" />
             
             <HeroCinematics scrollYProgress={scrollYProgress} imageUrl={hero.imageUrl} />
 
-            <div className="container relative z-10 mx-auto px-6 sm:px-8 max-w-4xl flex flex-col items-center justify-center text-center">
+            <div className="container relative z-10 mx-auto px-6 sm:px-8 max-w-5xl flex flex-col items-center justify-center text-center">
                 <div className="w-full flex flex-col items-center">
                     <HeroMessaging textY={textY} />
                     <HeroInteractionHarness mainMenuPdfUrl={mainMenuPdfUrl} />

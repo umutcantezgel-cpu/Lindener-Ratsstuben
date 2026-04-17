@@ -68,14 +68,14 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                     : "bg-gradient-to-b from-surface/80 via-surface/40 to-transparent py-6 lg:py-8"
             )}
         >
-            <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 lg:px-16 flex items-center justify-between">
+            <div className="w-full max-w-full mx-auto px-4 lg:px-12 xl:px-24 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 group relative z-10" aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
-                    <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 group-hover:border-primary/40 transition-colors" aria-hidden="true">
+                <Link href="/" className="flex items-center gap-3 group relative z-10" aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
+                    <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 group-hover:border-primary/40 transition-colors" aria-hidden="true">
                         <Flame className="w-4 h-4 text-primary group-hover:scale-110 transition-transform duration-500 ease-out drop-shadow-[0_0_8px_rgba(var(--color-primary),0.2)]" />
                     </div>
                     <span className={clsx(
-                        "text-base lg:text-lg font-display font-medium tracking-tight transition-colors duration-300",
+                        "text-lg xl:text-xl font-display font-medium tracking-tight transition-colors duration-300",
                         isScrolled ? "text-text-primary" : "text-text-primary drop-shadow-sm"
                     )}>
                         {companyData.companyName.split(' ')[0]} <span className="font-light">{companyData.companyName.split(' ')[1] || ''}</span>
@@ -83,8 +83,8 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden lg:flex items-center absolute left-1/2 -translate-x-1/2" aria-label={tCommon('accessibility.main_navigation') as string}>
-                    <ul className="flex items-center gap-1 m-0 p-1 bg-surface/50 rounded-full backdrop-blur-md border border-border shadow-inner">
+                <nav className="hidden xl:flex items-center absolute left-1/2 -translate-x-1/2" aria-label={tCommon('accessibility.main_navigation') as string}>
+                    <ul className="flex items-center gap-1.5 m-0 p-1.5 bg-surface/60 rounded-full backdrop-blur-md border border-border shadow-inner">
                         {navLinks.map((link) => {
                             const isActive = pathname === link.path || pathname === `/[locale]${link.path}`;
                             return (
@@ -92,7 +92,7 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                                     <Link href={link.path}
                                         aria-current={isActive ? "page" : undefined}
                                         className={clsx(
-                                            "relative z-10 block px-5 py-2 text-sm font-medium transition-colors duration-300",
+                                            "relative z-10 block px-5 py-2.5 text-[15px] font-medium transition-colors duration-300",
                                             isActive
                                                 ? "text-surface"
                                                 : "text-text-secondary hover:text-text-primary"
@@ -115,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                 </nav>
 
                 {/* Actions */}
-                <div className="hidden lg:flex items-center gap-5 relative z-10">
+                <div className="hidden xl:flex items-center gap-5 relative z-10">
                     <div className={clsx(
                         "transition-opacity duration-300", 
                         isScrolled ? "opacity-100" : "opacity-90 hover:opacity-100"
@@ -135,7 +135,7 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                 {/* Mobile Toggle */}
                 <button
                     className={clsx(
-                        "lg:hidden relative z-50 p-2.5 rounded-full backdrop-blur-md transition-all duration-300",
+                        "xl:hidden relative z-50 p-2.5 rounded-full backdrop-blur-md transition-all duration-300",
                         isMobileMenuOpen 
                             ? "bg-bg-secondary text-text-primary" 
                             : (isScrolled ? "bg-bg-secondary text-text-primary" : "bg-surface/50 text-text-primary")

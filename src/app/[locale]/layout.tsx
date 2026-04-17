@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import '@/styles/index.css';
 import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(() => import('@/components/layout/Footer').then(mod => mod.Footer), { ssr: true });
 import { SkipNav } from '@/components/layout/SkipNav';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { BackToTop } from '@/components/ui/BackToTop';
@@ -25,10 +27,10 @@ import { I18nProvider } from '@/lib/i18n/I18nProvider';
 import { loadTranslations } from '@/lib/i18n/translations';
 import { UserJourneyProvider } from '@/context/UserJourneyContext';
 import { CookieProvider } from '@/lib/context/CookieContext';
-import { FloatingReservationCTA } from '@/components/interactive/FloatingReservationCTA';
-import { ExitIntentOverlay } from '@/components/interactive/ExitIntentOverlay';
-import { AiKnowledgeBase } from '@/components/seo/AiKnowledgeBase';
-import { CookieConsentBanner } from '@/components/legal/CookieConsentBanner';
+const FloatingReservationCTA = dynamic(() => import('@/components/interactive/FloatingReservationCTA').then(mod => mod.FloatingReservationCTA), { ssr: false });
+const ExitIntentOverlay = dynamic(() => import('@/components/interactive/ExitIntentOverlay').then(mod => mod.ExitIntentOverlay), { ssr: false });
+const AiKnowledgeBase = dynamic(() => import('@/components/seo/AiKnowledgeBase').then(mod => mod.AiKnowledgeBase), { ssr: true });
+const CookieConsentBanner = dynamic(() => import('@/components/legal/CookieConsentBanner').then(mod => mod.CookieConsentBanner), { ssr: false });
 
 const interFont = Inter({ 
   subsets: ['latin', 'latin-ext'],

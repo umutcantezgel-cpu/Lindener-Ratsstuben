@@ -43,7 +43,7 @@ export const HeroMessaging: React.FC<HeroMessagingProps> = ({ textY }) => {
             {/* Fluid Typography Clamping for extreme visual impact without overflowing */}
             <motion.h1 
                 id="hero-title" 
-                className="text-[clamp(2.25rem,5vw,4.5rem)] lg:text-[clamp(3rem,6vw,5.5rem)] font-display font-extralight leading-[1.05] tracking-tight rtl:tracking-normal text-onyx mb-6 text-balance drop-shadow-none"
+                className="text-[clamp(2.5rem,6vw,4.5rem)] xl:text-[clamp(3.5rem,7vw,6.5rem)] font-display font-extralight leading-[1.05] tracking-tight rtl:tracking-normal text-onyx mb-8 xl:mb-10 text-balance drop-shadow-none"
             >
                 {heroVariant === 'general' ? (
                     <motion.div
@@ -87,7 +87,7 @@ export const HeroMessaging: React.FC<HeroMessagingProps> = ({ textY }) => {
                 initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 transition={{ duration: 1.4, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="text-lg sm:text-xl md:text-[1.25rem] font-light tracking-wide rtl:tracking-normal text-gray-500 max-w-xl text-pretty leading-[1.8] drop-shadow-none mx-auto"
+                className="text-lg sm:text-xl xl:text-2xl font-light tracking-wide rtl:tracking-normal text-gray-500 max-w-2xl text-pretty leading-[1.8] drop-shadow-none mx-auto"
             >
                 {heroVariant === 'general' ? t('hero.description') : hero.subheadline}
             </motion.p>
