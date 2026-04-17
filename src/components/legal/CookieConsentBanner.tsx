@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 export const CookieConsentBanner = () => {
     const { showBanner, showPreferences, setShowPreferences, acceptAll, declineAll, savePreferences } = useCookieConsent();
-    const { locale } = useTranslation('common');
+    const { t, locale } = useTranslation('common');
 
     const [localPrefs, setLocalPrefs] = useState({
         necessary: true, // Always locked to true
@@ -42,15 +42,27 @@ export const CookieConsentBanner = () => {
                                 <div className="flex items-center gap-3">
                                     <Shield className="w-6 h-6 text-accent" />
                                     <h2 className="text-xl font-display font-semibold text-text-primary">
-                                        Wir respektieren Ihre Privatsphäre
+                                        {t('cookie.title')}
                                     </h2>
                                 </div>
                                 <p className="text-sm text-text-secondary leading-relaxed">
-                                    Wir (Lindener Ratsstuben) verwenden Cookies und ähnliche Technologien, um unsere Website für Sie optimal zu gestalten, kontinuierlich zu verbessern und anonyme Nutzungsstatistiken zu erheben. Durch Klicken auf <strong>&quot;Alle Akzeptieren&quot;</strong> stimmen Sie der Verwendung für <strong>Analytics und Marketing</strong> zu. Unter <strong>&quot;Anpassen&quot;</strong> können Sie eine detaillierte, DSGVO-konforme Auswahl treffen.
+                                    {((t('cookie.description') as string) || '').split('"Alle Akzeptieren"').map((part: string, index: number, array: string[]) => (
+                                      <React.Fragment key={index}>
+                                        {part}
+                                        {index < array.length - 1 && <strong>&quot;{t('cookie.accept')}&quot;</strong>}
+                                      </React.Fragment>
+                                    )).reduce((prev: React.ReactNode[], curr: React.ReactNode) => [prev, curr].flat().flatMap((x, i) => 
+                                      typeof x === 'string' ? x.split('"Anpassen"').map((p, pIndex, pArr) => (
+                                        <React.Fragment key={`${i}-${pIndex}`}>
+                                          {p}
+                                          {pIndex < pArr.length - 1 && <strong>&quot;{t('cookie.customize')}&quot;</strong>}
+                                        </React.Fragment>
+                                      )) : x
+                                    ) as React.ReactNode[], [])}
                                     <br />
                                     <span className="inline-flex gap-4 mt-2">
-                                        <Link href={`/${locale}/datenschutz`} className="text-accent hover:underline decoration-accent/30 underline-offset-4">Datenschutzerklärung</Link>
-                                        <Link href={`/${locale}/impressum`} className="text-accent hover:underline decoration-accent/30 underline-offset-4">Impressum</Link>
+                                        <Link href={`/${locale}/datenschutz`} className="text-accent hover:underline decoration-accent/30 underline-offset-4">{t('cookie.privacy_link')}</Link>
+                                        <Link href={`/${locale}/impressum`} className="text-accent hover:underline decoration-accent/30 underline-offset-4">{t('cookie.imprint_link')}</Link>
                                     </span>
                                 </p>
                             </div>
@@ -59,19 +71,19 @@ export const CookieConsentBanner = () => {
                                     onClick={() => setShowPreferences(true)}
                                     className="px-6 py-3 rounded-xl border border-border text-text-primary hover:bg-bg-secondary transition-colors font-medium text-sm text-center"
                                 >
-                                    Anpassen
+                                    {t('cookie.customize')}
                                 </button>
                                 <button
                                     onClick={declineAll}
                                     className="px-6 py-3 rounded-xl bg-bg-secondary text-text-primary hover:bg-border transition-colors font-medium text-sm text-center"
                                 >
-                                    Nur Notwendige
+                                    {t('cookie.reject')}
                                 </button>
                                 <button
                                     onClick={acceptAll}
                                     className="px-6 py-3 rounded-xl bg-primary text-surface hover:bg-primary-hover shadow-warm transition-all font-medium text-sm text-center whitespace-nowrap"
                                 >
-                                    Alle Akzeptieren
+                                    {t('cookie.accept')}
                                 </button>
                             </div>
                         </>
@@ -79,10 +91,10 @@ export const CookieConsentBanner = () => {
                         <div className="w-full flex flex-col gap-6">
                             <div className="space-y-2">
                                 <h2 className="text-xl font-display font-semibold text-text-primary flex items-center gap-2">
-                                    <Shield className="w-5 h-5 text-accent" /> Cookie Präferenzen
+                                    <Shield className="w-5 h-5 text-accent" /> {t('cookie.preferences_title')}
                                 </h2>
                                 <p className="text-sm text-text-secondary">
-                                    Hier können Sie Ihre persönlichen Datenschutz-Einstellungen verwalten. Notwendige Cookies können nicht deaktiviert werden, da sie für den Betrieb der Seite unerlässlich sind.
+                                    {t('cookie.preferences_desc')}
                                 </p>
                             </div>
 
@@ -91,27 +103,27 @@ export const CookieConsentBanner = () => {
                                 <div className="p-4 rounded-xl border border-border/50 bg-bg-secondary/30 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
                                     <div>
                                         <h3 className="text-base font-semibold text-text-primary flex items-center gap-2">
-                                            Technisch Notwendig <Check className="w-4 h-4 text-green-500" />
+                                            {t('cookie.necessary_title')} <Check className="w-4 h-4 text-green-500" />
                                         </h3>
                                         <p className="text-xs text-text-secondary mt-1 max-w-2xl">
-                                            Diese Cookies sind zwingend erforderlich, um Basisfunktionen der Webseite wie Navigation, Formularübermittlung und das Speichern dieser Cookie-Einstellungen zu gewährleisten. Ohne diese Scripts kann die Website nicht funktionieren.
+                                            {t('cookie.necessary_desc')}
                                         </p>
                                     </div>
                                     <div className="shrink-0">
-                                        <span className="text-xs font-semibold text-text-muted uppercase tracking-wider bg-surface px-3 py-1 rounded-full border border-border">Immer Aktiv</span>
+                                        <span className="text-xs font-semibold text-text-muted uppercase tracking-wider bg-surface px-3 py-1 rounded-full border border-border">{t('cookie.always_active')}</span>
                                     </div>
                                 </div>
 
                                 {/* Analytics */}
                                 <div className="p-4 rounded-xl border border-border flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
                                     <div>
-                                        <h3 className="text-base font-semibold text-text-primary">Analytics & Statistik</h3>
+                                        <h3 className="text-base font-semibold text-text-primary">{t('cookie.analytics_title')}</h3>
                                         <p className="text-xs text-text-secondary mt-1 max-w-2xl">
-                                            Erlaubt uns, anonymisierte Daten über das Nutzerverhalten zu sammeln (z.B. Seitenaufrufe, Verweildauer). Dies hilft uns, die Performance unserer Website kontinuierlich zu verbessern und Engpässe zu erkennen.
+                                            {t('cookie.analytics_desc')}
                                         </p>
                                     </div>
                                     <div className="shrink-0 pt-2 md:pt-0">
-                                        <label className="relative inline-flex items-center cursor-pointer" aria-label="Analytics & Statistik">
+                                        <label className="relative inline-flex items-center cursor-pointer" aria-label={t('cookie.analytics_title') as string}>
                                             <input 
                                                 type="checkbox" 
                                                 className="sr-only peer" 
@@ -126,13 +138,13 @@ export const CookieConsentBanner = () => {
                                 {/* Marketing */}
                                 <div className="p-4 rounded-xl border border-border flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
                                     <div>
-                                        <h3 className="text-base font-semibold text-text-primary">Marketing & Externes</h3>
+                                        <h3 className="text-base font-semibold text-text-primary">{t('cookie.marketing_title')}</h3>
                                         <p className="text-xs text-text-secondary mt-1 max-w-2xl">
-                                            Erlaubt uns, externe Medien (wie Google Maps, soziale Netzwerke) einzubinden und Retargeting-Funktionen bereitzustellen, um Ihnen relevantere Informationen anzeigen zu können.
+                                            {t('cookie.marketing_desc')}
                                         </p>
                                     </div>
                                     <div className="shrink-0 pt-2 md:pt-0">
-                                        <label className="relative inline-flex items-center cursor-pointer" aria-label="Marketing & Externes">
+                                        <label className="relative inline-flex items-center cursor-pointer" aria-label={t('cookie.marketing_title') as string}>
                                             <input 
                                                 type="checkbox" 
                                                 className="sr-only peer" 
@@ -150,13 +162,13 @@ export const CookieConsentBanner = () => {
                                     onClick={() => setShowPreferences(false)}
                                     className="px-6 py-3 rounded-xl border border-border text-text-primary hover:bg-bg-secondary transition-colors font-medium text-sm text-center"
                                 >
-                                    Zurück
+                                    {t('cookie.back')}
                                 </button>
                                 <button
                                     onClick={handleSavePreferences}
                                     className="px-6 py-3 rounded-xl bg-primary text-surface hover:bg-primary-hover shadow-warm transition-all font-medium text-sm flex items-center justify-center gap-2"
                                 >
-                                    Auswahl Speichern <ChevronRight className="w-4 h-4" />
+                                    {t('cookie.save_selection')} <ChevronRight className="w-4 h-4" />
                                 </button>
                             </div>
                         </div>

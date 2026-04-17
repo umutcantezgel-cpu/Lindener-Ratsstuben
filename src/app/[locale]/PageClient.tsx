@@ -10,10 +10,11 @@ import { TestimonialCard } from '@/components/cards/TestimonialCard';
 import { AnimatedCounter } from '@/components/interactive/AnimatedCounter';
 import { AnimateIn } from '@/components/animations/animate-in';
 import { StaggerContainer } from '@/components/animations/stagger-container';
-import { ClientLogoMarquee } from '@/components/ui/ClientLogoMarquee';
+import { ServiceMarquee } from '@/components/ui/ServiceMarquee';
 import { CtaBand } from '@/components/layout/CtaBand';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
+import { HeroRoot } from '@/components/hero/HeroRoot';
 
 export interface HomeProps {
     mainMenuPdfUrl?: string;
@@ -21,77 +22,20 @@ export interface HomeProps {
 
 export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
     const { t } = useTranslation('home');
-    const { hero, heroVariant } = useAdaptiveMessaging();
-
+    const { heroVariant } = useAdaptiveMessaging();
     const highlights = [
-        { name: 'Butter Chicken', price: '€13.90', desc: 'Gegrilltes Tandoori-Hähnchen in cremiger Tomaten-Butter-Sauce', image: 'https://placehold.co/600x400' },
-        { name: 'Lamb Biryani', price: '€15.50', desc: 'Basmati-Reis mit zartem Lammfleisch, Safran und Gewürzen', image: 'https://placehold.co/600x400' },
-        { name: 'Tandoori Mix', price: '€24.90', desc: 'Große Platte mit verschiedenen Tandoori-Spezialitäten', image: 'https://placehold.co/600x400' },
-        { name: 'Palak Paneer', price: '€11.90', desc: 'Hausgemachter Käse in würzigem Spinat', image: 'https://placehold.co/600x400' },
+        { name: 'Lindener Rucksack', price: '€20.90', desc: 'Gefüllt mit Vorderschinken und Käse | Champignon-Rahm-Sauce', image: 'https://placehold.co/600x400' },
+        { name: 'Bistecca alla Griglia', price: '€26.90', desc: 'Argentinisches Rumpsteak vom Grill | Kräuterbutter', image: 'https://placehold.co/600x400' },
+        { name: 'Pizza Ratsstubbe', price: '€11.50', desc: 'Salami | Peperoniwurst | Vorderschinken | Ei | Champignons | Zwiebeln', image: 'https://placehold.co/600x400' },
+        { name: 'Tris di Pasta della Casa', price: '€23.90', desc: '3 verschiedene gefüllte Nudeln | 3 verschiedene Saucen', image: 'https://placehold.co/600x400' },
     ];
 
     return (
         <article itemProp="mainContentOfPage" itemScope itemType="https://schema.org/AboutPage">
             
 
-            {/* Hero Section */}
-            <section aria-labelledby="hero-title" className="relative h-screen flex items-center justify-center overflow-hidden bg-bg-primary">
-                <div className="absolute inset-0 z-0">
-                    <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="w-full h-full object-cover opacity-60"
-                    >
-                        <source src="" type="video/mp4" />
-                        {/* LCP-Element: Hero Image (Fallback for video) */}
-                        <Image 
-                            src={hero.imageUrl}
-                            alt="Hero Background" 
-                            fill 
-                            priority={true}
-                            sizes="100vw"
-                            className="object-cover" 
-                        />
-                    </video>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
-                </div>
-
-                <StaggerContainer as="div" stagger="normal" className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-                    <div className="overflow-hidden mb-2">
-                        <h1 id="hero-title" className="text-hero font-display font-bold leading-tight tracking-tight text-balance">
-                            {heroVariant === 'general' ? t('hero.headline_1') : hero.headline}<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-hover">{heroVariant === 'general' ? t('hero.headline_2') : ''}</span>
-                        </h1>
-                    </div>
-
-                    <div className="overflow-hidden mb-10">
-                        <p className="text-xl md:text-2xl font-light tracking-wide text-gray-200 max-w-2xl mx-auto text-pretty">
-                            {heroVariant === 'general' ? t('hero.description') : hero.subheadline}
-                        </p>
-                    </div>
-
-                    <div className="flex flex-col md:flex-row gap-6 justify-center items-center mt-6">
-                        <Link 
-                            href="/reservation"
-                            className="interaction-bounce px-8 py-4 bg-accent text-neutral-950 font-bold rounded-lg hover:bg-accent-hover shadow-warm inline-block uppercase tracking-wider"
-                        >
-                            {heroVariant === 'general' ? t('hero.cta_reservation') as string : hero.cta1}
-                        </Link>
-
-                        <a
-                            href={mainMenuPdfUrl || companyData.menuLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group interaction-bounce px-8 py-4 bg-transparent border border-white/30 backdrop-blur-sm text-white font-bold rounded-lg hover:bg-white/10 shadow-warm inline-block"
-                        >
-                            {t('hero.cta_menu') as string}
-                        </a>
-                    </div>
-                </StaggerContainer>
-
-            </section>
+            {/* Modular Epic Cinematic Hero Section - 10x Redesign */}
+            <HeroRoot mainMenuPdfUrl={mainMenuPdfUrl} />
 
             {/* Welcome / Philosophy Section */}
             <section aria-labelledby="philosophy-title" className="py-24 md:py-32 lg:py-48 bg-bg-primary">
@@ -145,8 +89,8 @@ export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
                 </div>
             </section>
 
-            {/* Client Logos / Zertifizierungen */}
-            <ClientLogoMarquee />
+            {/* Services */}
+            <ServiceMarquee />
 
             {/* Highlights Grid */}
             <section aria-labelledby="highlights-title" className="py-24 md:py-32 lg:py-48 bg-bg-secondary">

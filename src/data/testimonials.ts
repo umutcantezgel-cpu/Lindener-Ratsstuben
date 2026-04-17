@@ -18,7 +18,7 @@ export const testimonials: Testimonial[] = [
         id: createId("t1"),
         name: "Michael K.",
         rating: 5,
-        quote: "Das Butter Chicken ist ein Traum! Sehr authentisch, große Portionen und unglaublich freundlicher Service. Wir kommen auf jeden Fall wieder.",
+        quote: "Der Lindener Rucksack ist ein Traum! Sehr authentisch, große Portionen und unglaublich freundlicher Service. Wir kommen auf jeden Fall wieder.",
         source: "Google Reviews",
         date: "Vor 2 Wochen",
         segment: 'familie',

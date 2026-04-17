@@ -37,5 +37,17 @@
   "info.lunch_dinner": "Lunch & Dinner",
   "info.lunch": "Lunch",
   "info.dinner": "Dinner",
-  "info.visit_title": "Visitor Information & Directions"
+  "info.visit_title": "Visitor Information & Directions",
+  "services.label": "Onze Diensten",
+  "services.accessibility": "Rolstoeltoegankelijk",
+  "services.buffet": "Buffet",
+  "services.catering": "Catering",
+  "services.outdoor": "Buitenruimte",
+  "services.parking": "Parkeerplaats",
+  "services.private_events": "Privé-evenementen",
+  "services.takeaway": "Afhalen",
+  "services.heated_terrace": "Verwarmd terras",
+  "services.weddings": "Bruiloften",
+  "services.free_wifi": "Gratis WiFi",
+  "services.pets_allowed": "Huisdieren toegestaan"
 }

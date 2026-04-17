@@ -37,5 +37,17 @@
   "info.lunch_dinner": "Lunch & Dinner",
   "info.lunch": "Lunch",
   "info.dinner": "Dinner",
-  "info.visit_title": "Visitor Information & Directions"
+  "info.visit_title": "Visitor Information & Directions",
+  "services.label": "Наши Услуги",
+  "services.accessibility": "Доступно для инвалидов",
+  "services.buffet": "Шведский стол",
+  "services.catering": "Кейтеринг",
+  "services.outdoor": "Зона снаружи",
+  "services.parking": "Парковка",
+  "services.private_events": "Частные мероприятия",
+  "services.takeaway": "Еда навынос",
+  "services.heated_terrace": "Обогреваемая терраса",
+  "services.weddings": "Свадьбы",
+  "services.free_wifi": "Бесплатный WiFi",
+  "services.pets_allowed": "Можно с животными"
 }

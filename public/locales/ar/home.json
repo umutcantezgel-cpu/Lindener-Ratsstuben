@@ -18,5 +18,17 @@
   "info.address_title": "العنوان",
   "info.phone_title": "الهاتف",
   "info.email_title": "البريد الإلكتروني",
-  "info.plan_route": "تخطيط الطريق"
+  "info.plan_route": "تخطيط الطريق",
+  "services.label": "خدماتنا",
+  "services.accessibility": "سهولة الوصول للكراسي المتحركة",
+  "services.buffet": "بوفيه",
+  "services.catering": "تموين الحفلات",
+  "services.outdoor": "منطقة جلوس خارجية",
+  "services.parking": "مواقف للسيارات",
+  "services.private_events": "مناسبات خاصة",
+  "services.takeaway": "طعام سفري",
+  "services.heated_terrace": "تراس مدفأ",
+  "services.weddings": "حفلات زفاف",
+  "services.free_wifi": "واي فاي مجاني",
+  "services.pets_allowed": "يسمح باصطحاب الحيوانات الأليفة"
 }

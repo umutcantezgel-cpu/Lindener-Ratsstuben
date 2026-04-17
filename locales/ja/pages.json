@@ -65,5 +65,12 @@
   "fomo.business": "ご要望に応じてプライベートテーブルをご用意。",
   "fomo.kulinarik": "お早めのご予約をおすすめいたします。",
   "fomo.natur": "一日の締めくくりに最適です。",
-  "fomo.default": "今週末は予約が集中しています。"
+  "fomo.default": "今週末は予約が集中しています。",
+  "kegelbahn.hero.title": "Exclusive Bowling",
+  "kegelbahn.hero.subtitle": "Sporting fun and culinary delight in a private atmosphere.",
+  "kegelbahn.features.lanes.title": "3 Lanes",
+  "kegelbahn.features.lanes.desc": "Modern skittle lanes for groups, clubs and family celebrations.",
+  "kegelbahn.features.dining.title": "3 Dining Areas",
+  "kegelbahn.features.dining.desc": "Integrated dining areas right next to the lanes for undisturbed enjoyment.",
+  "kegelbahn.cta.book": "Reserve a Lane Now"
 }

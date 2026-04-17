@@ -37,5 +37,17 @@
   "info.lunch_dinner": "Mittags & Abends",
   "info.lunch": "Mittags",
   "info.dinner": "Abends",
-  "info.visit_title": "Besucherinformationen und Anfahrt"
+  "info.visit_title": "Besucherinformationen und Anfahrt",
+  "services.label": "Unsere Services",
+  "services.accessibility": "Barrierefrei",
+  "services.buffet": "Büfett",
+  "services.catering": "Catering",
+  "services.outdoor": "Außenbereich",
+  "services.parking": "Parkplätze",
+  "services.private_events": "Private Veranstaltungen",
+  "services.takeaway": "Essen zum Mitnehmen",
+  "services.heated_terrace": "Beheizte Terrasse",
+  "services.weddings": "Hochzeiten",
+  "services.free_wifi": "Kostenloses WLAN",
+  "services.pets_allowed": "Haustiere erlaubt"
 }

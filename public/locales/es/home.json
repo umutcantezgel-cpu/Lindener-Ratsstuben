@@ -37,5 +37,17 @@
   "info.lunch_dinner": "Lunch & Dinner",
   "info.lunch": "Lunch",
   "info.dinner": "Dinner",
-  "info.visit_title": "Visitor Information & Directions"
+  "info.visit_title": "Visitor Information & Directions",
+  "services.label": "Nuestros Servicios",
+  "services.accessibility": "Accesible para discapacitados",
+  "services.buffet": "Buffet",
+  "services.catering": "Catering",
+  "services.outdoor": "Zona exterior",
+  "services.parking": "Aparcamiento",
+  "services.private_events": "Eventos privados",
+  "services.takeaway": "Comida para llevar",
+  "services.heated_terrace": "Terraza calefactada",
+  "services.weddings": "Bodas",
+  "services.free_wifi": "WiFi gratuito",
+  "services.pets_allowed": "Se admiten mascotas"
 }

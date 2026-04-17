@@ -23,5 +23,17 @@
   "info.address_title": "Adres",
   "info.phone_title": "Telefon",
   "info.email_title": "E-Posta",
-  "info.plan_route": "Rota Planla"
+  "info.plan_route": "Rota Planla",
+  "services.label": "Hizmetlerimiz",
+  "services.accessibility": "Engelli erişimine uygun",
+  "services.buffet": "Açık Büfe",
+  "services.catering": "Catering hizmeti",
+  "services.outdoor": "Açık oturma alanı",
+  "services.parking": "Otopark",
+  "services.private_events": "Özel etkinlikler",
+  "services.takeaway": "Paket servis",
+  "services.heated_terrace": "Isıtmalı teras",
+  "services.weddings": "Düğünler",
+  "services.free_wifi": "Ücretsiz WiFi",
+  "services.pets_allowed": "Evcil hayvan kabul edilir"
 }

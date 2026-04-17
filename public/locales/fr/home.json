@@ -19,5 +19,17 @@
   "info.address_title": "Adresse",
   "info.phone_title": "Téléphone",
   "info.email_title": "E-Mail",
-  "info.plan_route": "Planifier l'Itinéraire"
+  "info.plan_route": "Planifier l'Itinéraire",
+  "services.label": "Nos Services",
+  "services.accessibility": "Accessible pour les handicapés",
+  "services.buffet": "Buffet",
+  "services.catering": "Service traiteur",
+  "services.outdoor": "Espace extérieur",
+  "services.parking": "Parking",
+  "services.private_events": "Événements privés",
+  "services.takeaway": "Plats à emporter",
+  "services.heated_terrace": "Terrasse chauffée",
+  "services.weddings": "Mariages",
+  "services.free_wifi": "WiFi gratuit",
+  "services.pets_allowed": "Animaux de compagnie acceptés"
 }

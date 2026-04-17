@@ -212,6 +212,58 @@ export function createContactPageSchema() {
   };
 }
 
+/** KegelbahnPage — injected on /kegelbahn */
+export function createKegelbahnPageSchema(translations?: (key: string) => string) {
+  const baseSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `Kegelbahn — ${companyData.companyName}`,
+    url: `${BASE_URL}/kegelbahn`,
+    mainEntity: { '@id': IDS.restaurant },
+  };
+
+  if (!translations) {
+    return baseSchema;
+  }
+
+  const faqData = [
+    { question: translations('kegelbahn.faq.q1'), answer: translations('kegelbahn.faq.a1') },
+    { question: translations('kegelbahn.faq.q2'), answer: translations('kegelbahn.faq.a2') },
+    { question: translations('kegelbahn.faq.q3'), answer: translations('kegelbahn.faq.a3') }
+  ];
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      baseSchema,
+      {
+        '@type': 'Product',
+        name: translations('kegelbahn.hero.title'),
+        description: translations('kegelbahn.hero.subtitle'),
+        offers: {
+            '@type': 'Offer',
+            priceSpecification: {
+                '@type': 'PriceSpecification',
+                price: '15.00',
+                priceCurrency: 'EUR'
+            }
+        }
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }
+    ]
+  };
+}
+
 /** Menu schema — injected on /menu */
 export function createMenuPageSchema() {
   return generateMenuSchema();
