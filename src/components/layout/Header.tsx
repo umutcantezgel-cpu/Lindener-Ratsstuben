@@ -68,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                     : "bg-gradient-to-b from-surface/80 via-surface/40 to-transparent py-6 lg:py-8"
             )}
         >
-            <div className="container mx-auto px-4 flex items-center justify-between">
+            <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 lg:px-16 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group relative z-10" aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
                     <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 group-hover:border-primary/40 transition-colors" aria-hidden="true">
