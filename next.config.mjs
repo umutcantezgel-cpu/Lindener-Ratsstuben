@@ -1,6 +1,15 @@
+import withBundleAnalyzer from '@next/bundle-analyzer';
+
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@tabler/icons-react', 'date-fns', 'lodash'],
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 960, 1280, 1920, 2560],
@@ -63,4 +72,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default bundleAnalyzer(nextConfig);
