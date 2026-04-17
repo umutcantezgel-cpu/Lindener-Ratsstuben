@@ -1,12 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import dynamic from 'next/dynamic';
 import { KegelbahnHero } from '@/components/kegelbahn/KegelbahnHero';
-
-const KegelbahnDetails = dynamic(() => import('@/components/kegelbahn/KegelbahnDetails').then((mod) => mod.KegelbahnDetails), {
-    ssr: false,
-});
+import { KegelbahnDetails } from '@/components/kegelbahn/KegelbahnDetails';
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
     const t = await getTranslations({ locale, namespace: 'common' });
