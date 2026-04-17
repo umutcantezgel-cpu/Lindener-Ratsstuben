@@ -56,6 +56,7 @@ export const Footer: React.FC<FooterProps> = ({ mainMenuPdfUrl }) => {
                                 { name: t('nav.home') as string, path: '/' },
                                 { name: t('nav.about') as string, path: '/about' },
                                 { name: t('nav.menu') as string, path: '/menu' },
+                                { name: t('nav.kegelbahn') as string, path: '/kegelbahn' },
                                 { name: variant === 'general' ? (t('nav.reservation') as string) : navCta, path: '/reservation' },
                                 { name: t('nav.contact') as string, path: '/contact' }
                             ].map((item) => (

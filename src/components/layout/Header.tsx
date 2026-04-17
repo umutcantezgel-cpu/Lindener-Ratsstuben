@@ -53,6 +53,7 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
         { name: t('nav.home') as string, path: '/' },
         { name: t('nav.about') as string, path: '/about' },
         { name: t('nav.menu') as string, path: '/menu' },
+        { name: t('nav.kegelbahn') as string, path: '/kegelbahn' },
         { name: t('nav.gallery') as string, path: '/gallery' },
         { name: t('nav.reservation') as string, path: '/reservation' },
         { name: t('nav.contact') as string, path: '/contact' },
