@@ -19,5 +19,17 @@
   "info.address_title": "住所",
   "info.phone_title": "電話",
   "info.email_title": "メール",
-  "info.plan_route": "ルート検索"
+  "info.plan_route": "ルート検索",
+  "services.label": "当レストランのサービス",
+  "services.accessibility": "バリアフリー",
+  "services.buffet": "ビュッフェ",
+  "services.catering": "ケータリング",
+  "services.outdoor": "屋外席",
+  "services.parking": "駐車場",
+  "services.private_events": "プライベートイベント",
+  "services.takeaway": "テイクアウト",
+  "services.heated_terrace": "暖房付きテラス",
+  "services.weddings": "結婚式",
+  "services.free_wifi": "無料WiFi",
+  "services.pets_allowed": "ペット可"
 }

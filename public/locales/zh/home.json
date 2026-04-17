@@ -37,5 +37,17 @@
   "info.lunch_dinner": "Lunch & Dinner",
   "info.lunch": "Lunch",
   "info.dinner": "Dinner",
-  "info.visit_title": "Visitor Information & Directions"
+  "info.visit_title": "Visitor Information & Directions",
+  "services.label": "我们的服务",
+  "services.accessibility": "无障碍设施",
+  "services.buffet": "自助餐",
+  "services.catering": "餐饮服务",
+  "services.outdoor": "户外座位",
+  "services.parking": "停车场",
+  "services.private_events": "私人活动",
+  "services.takeaway": "外带",
+  "services.heated_terrace": "加热露台",
+  "services.weddings": "婚礼",
+  "services.free_wifi": "免费WiFi",
+  "services.pets_allowed": "允许带宠物"
 }
