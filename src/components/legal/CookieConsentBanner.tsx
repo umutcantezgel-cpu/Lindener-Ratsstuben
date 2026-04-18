@@ -30,8 +30,8 @@ export const CookieConsentBanner = () => {
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 100, opacity: 0 }}
-                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                className="fixed bottom-0 left-0 right-0 z-[9999] p-4 md:p-6 pb-safe-bottom"
+                transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+                className="fixed bottom-0 inset-x-0 z-[9999] p-4 md:p-6 pb-safe-bottom"
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
             >
                 <div className="max-w-5xl mx-auto bg-surface/95 backdrop-blur-xl border border-border shadow-2xl rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center">
@@ -98,7 +98,7 @@ export const CookieConsentBanner = () => {
                                 </p>
                             </div>
 
-                            <div className="space-y-4 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar">
+                            <div className="space-y-4 max-h-[40vh] overflow-y-auto pe-2 custom-scrollbar">
                                 {/* Necessary */}
                                 <div className="p-4 rounded-xl border border-border/50 bg-bg-secondary/30 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
                                     <div>

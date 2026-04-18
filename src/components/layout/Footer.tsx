@@ -16,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ mainMenuPdfUrl }) => {
     const { t: tCommon } = useTranslation('common');
     const { navCta, variant } = useAdaptiveMessaging();
     return (
-        <footer className="bg-bg-primary text-text-primary pt-20 pb-10 border-t border-border">
+        <footer role="contentinfo" className="bg-bg-primary text-text-primary pt-20 pb-10 border-t border-border">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand */}
@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ mainMenuPdfUrl }) => {
 
                     {/* Quick Links */}
                     <nav aria-label="Footer Navigation">
-                        <h4 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
+                        <h3 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">Quick Links</h3>
                         <ul className="space-y-3 m-0 p-0 list-none">
                             {[
                                 { name: t('nav.home') as string, path: '/' },
@@ -78,7 +78,7 @@ export const Footer: React.FC<FooterProps> = ({ mainMenuPdfUrl }) => {
 
                     {/* Contact */}
                     <address className="not-italic">
-                        <h4 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('nav.contact') as string}</h4>
+                        <h3 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('nav.contact') as string}</h3>
                         <ul className="space-y-4 m-0 p-0 list-none">
                             <li className="flex items-start gap-3 text-text-secondary group">
                                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-1 group-hover:text-text-primary transition-colors" aria-hidden="true" />
@@ -105,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({ mainMenuPdfUrl }) => {
 
                     {/* Hours */}
                     <section aria-label="Opening Hours">
-                        <h4 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.opening_hours') as string}</h4>
+                        <h3 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.opening_hours') as string}</h3>
                         <ul className="space-y-3 text-text-secondary text-sm m-0 p-0 list-none">
                             <li className="flex justify-between border-b border-border pb-2">
                                 <span>{t('footer.monday') as string}</span>
@@ -128,14 +128,14 @@ export const Footer: React.FC<FooterProps> = ({ mainMenuPdfUrl }) => {
                                 <li><Link href="/impressum" className="hover:text-primary transition-colors">{t('footer.imprint') as string}</Link></li>
                                 <li><Link href="/datenschutz" className="hover:text-primary transition-colors">{t('footer.privacy') as string}</Link></li>
                                 <li><Link href="/agb" className="hover:text-primary transition-colors">{t('footer.terms') as string}</Link></li>
-                                <li><Link href="/widerruf" className="hover:text-primary transition-colors">Widerruf</Link></li>
-                                <li><Link href="/cookies" className="hover:text-primary transition-colors">{(t('footer.cookies') || 'Cookie-Richtlinie') as string}</Link></li>
+                                <li><Link href="/widerruf" className="hover:text-primary transition-colors">{t('footer.revocation') as string}</Link></li>
+                                <li><Link href="/cookies" className="hover:text-primary transition-colors">{(t('footer.cookies') || t('footer.cookie_policy') || 'Cookie-Richtlinie') as string}</Link></li>
                                 <li>
                                     <button 
                                         onClick={() => window.dispatchEvent(new Event('open-cookie-preferences'))}
                                         className="hover:text-primary transition-colors cursor-pointer"
                                     >
-                                        Privatsphäre-Einstellungen
+                                        {t('footer.privacy_settings') as string}
                                     </button>
                                 </li>
                             </ul>

@@ -9,6 +9,7 @@ import { companyData } from '@/data/company';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
+import { useFocusManagement } from '@/hooks/useFocusManagement';
 
 interface HeaderProps {
     mainMenuPdfUrl?: string;
@@ -18,6 +19,8 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const pathname = usePathname();
+
+    const { containerRef } = useFocusManagement(isMobileMenuOpen, () => setIsMobileMenuOpen(false));
 
     useEffect(() => {
         let animationFrameId: number;
@@ -61,23 +64,23 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
 
     return (
         <header
+            role="banner"
             className={clsx(
-                "fixed top-0 w-full z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                "fixed top-0 w-full z-[100] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                 isScrolled
-                    ? "bg-bg-primary/90 backdrop-blur-2xl border-b border-border shadow-elevation-1 py-3 lg:py-4"
-                    : "bg-gradient-to-b from-surface/80 via-surface/40 to-transparent py-6 lg:py-8"
+                    ? "bg-onyx-deep/90 backdrop-blur-2xl border-b border-white/10 shadow-elevation-1 py-3 lg:py-4"
+                    : "bg-gradient-to-b from-black/70 via-black/20 to-transparent py-6 lg:py-8"
             )}
         >
             <div className="w-full max-w-[1920px] mx-auto px-4 lg:px-8 xl:px-8 2xl:px-16 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex-1 flex justify-start">
                     <Link href="/" className="flex items-center gap-3 group relative z-10" aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
-                        <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 group-hover:border-primary/40 transition-colors" aria-hidden="true">
-                            <Flame className="w-4 h-4 text-primary group-hover:scale-110 transition-transform duration-500 ease-out drop-shadow-[0_0_8px_rgba(var(--color-primary),0.2)]" />
+                        <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-accent/20 to-transparent border border-accent/20 group-hover:border-accent/40 transition-colors" aria-hidden="true">
+                            <Flame className="w-4 h-4 text-accent group-hover:scale-110 transition-transform duration-500 ease-out drop-shadow-[0_0_8px_rgba(var(--color-accent),0.2)]" />
                         </div>
                         <span className={clsx(
-                            "text-lg xl:text-xl font-display font-medium tracking-tight transition-colors duration-300",
-                            isScrolled ? "text-text-primary" : "text-text-primary drop-shadow-sm"
+                            "text-lg xl:text-xl font-display font-medium tracking-tight transition-colors duration-300 text-white drop-shadow-md"
                         )}>
                             {companyData.companyName.split(' ')[0]} <span className="font-light">{companyData.companyName.split(' ')[1] || ''}</span>
                         </span>
@@ -86,12 +89,13 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
 
                 {/* Desktop Nav */}
                 <nav className="hidden xl:flex items-center justify-center flex-[2]" aria-label={tCommon('accessibility.main_navigation') as string}>
-                    <ul className="flex items-center gap-0.5 m-0 p-1.5 bg-surface/60 rounded-full backdrop-blur-md border border-border shadow-inner">
+                    <ul className="flex items-center gap-0.5 m-0 p-1.5 bg-surface/80 rounded-full backdrop-blur-md border border-white/20 shadow-lg shadow-black/10">
                         {navLinks.map((link) => {
                             const isActive = pathname === link.path || pathname === `/[locale]${link.path}`;
                             return (
                                 <li key={link.name} className="relative">
                                     <Link href={link.path}
+                                        prefetch={true}
                                         aria-current={isActive ? "page" : undefined}
                                         className={clsx(
                                             "relative z-10 block px-3.5 2xl:px-4 py-2 text-[14px] 2xl:text-[15px] font-medium transition-colors duration-300 shadow-none whitespace-nowrap",
@@ -107,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                                             layoutId="active-nav-pill"
                                             className="absolute inset-0 bg-primary rounded-full shadow-[0_0_15px_rgba(var(--color-primary),0.4)]"
                                             initial={false}
-                                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                         />
                                     )}
                                 </li>
@@ -119,12 +123,12 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                 {/* Actions */}
                 <div className="hidden xl:flex items-center justify-end gap-5 flex-1 relative z-10">
                     <div className={clsx(
-                        "transition-opacity duration-300", 
-                        isScrolled ? "opacity-100" : "opacity-90 hover:opacity-100"
+                        "transition-opacity duration-300 opacity-100"
                     )}>
                         <LanguageSwitcher variant="header" />
                     </div>
                     <Link href="/reservation"
+                        prefetch={true}
                         className="group relative px-6 py-2 bg-primary text-surface font-medium rounded-full overflow-hidden transition-all shadow-[0_4px_20px_rgba(var(--color-primary),0.3)] hover:shadow-[0_6px_25px_rgba(var(--color-primary),0.5)] transform hover:-translate-y-0.5 whitespace-nowrap text-[14px] 2xl:text-[15px]"
                     >
                         <span className="relative z-10 flex items-center gap-2">
@@ -137,10 +141,10 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                 {/* Mobile Toggle */}
                 <button
                     className={clsx(
-                        "xl:hidden relative z-50 p-2.5 rounded-full backdrop-blur-md transition-all duration-300",
+                        "xl:hidden relative z-[110] p-2.5 rounded-full transition-all duration-300 cursor-pointer pointer-events-auto touch-manipulation",
                         isMobileMenuOpen 
-                            ? "bg-bg-secondary text-text-primary" 
-                            : (isScrolled ? "bg-bg-secondary text-text-primary" : "bg-surface/50 text-text-primary")
+                            ? "bg-onyx-light text-white" 
+                            : (isScrolled ? "bg-white/10 text-white shadow-sm" : "bg-white/10 text-white backdrop-blur-md border border-white/10")
                     )}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-label={isMobileMenuOpen ? tCommon('accessibility.menu_close') as string : tCommon('accessibility.menu_open') as string}
@@ -161,12 +165,13 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
+                        ref={containerRef}
                         id="mobile-menu"
                         initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
                         animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
                         exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="fixed inset-0 bg-bg-primary/90 z-40 flex flex-col items-center justify-center pt-20 pb-10 px-6 overflow-y-auto"
+                        transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+                        className="fixed inset-0 bg-onyx-deep/98 z-[105] flex flex-col items-center justify-center pt-20 pb-10 px-6 overflow-y-auto"
                         role="dialog"
                         aria-modal="true"
                     >
@@ -190,19 +195,22 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                                                 open: { opacity: 1, y: 0, scale: 1 },
                                                 closed: { opacity: 0, y: 20, scale: 0.95 }
                                             }}
-                                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                                            transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
                                         >
                                             <Link href={link.path}
-                                            onClick={() => setIsMobileMenuOpen(false)}
+                                                prefetch={true}
+                                                onClick={() => setIsMobileMenuOpen(false)}
                                                 aria-current={isActive ? "page" : undefined}
                                                 className={clsx(
                                                     "flex items-center justify-between p-4 rounded-2xl text-2xl font-display font-medium transition-all duration-300",
                                                     isActive 
-                                                        ? "bg-primary text-surface shadow-[0_8px_30px_rgba(var(--color-primary),0.3)]" 
-                                                        : "bg-surface/50 text-text-primary hover:bg-surface"
+                                                        ? "bg-accent/20 text-accent shadow-[0_8px_30px_rgba(var(--color-accent),0.2)]" 
+                                                        : "bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white"
                                                 )}
                                             >
-                                                {link.name}
+                                                <span className="break-words max-w-full text-balance leading-tight">
+                                                    {link.name}
+                                                </span>
                                             </Link>
                                         </motion.li>
                                     );
@@ -212,17 +220,17 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                                         open: { opacity: 1, y: 0, scale: 1 },
                                         closed: { opacity: 0, y: 20, scale: 0.95 }
                                     }}
-                                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                                    transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
                                 >
                                     <a
                                         href={mainMenuPdfUrl || companyData.menuLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-between p-4 rounded-2xl text-2xl font-display font-medium bg-surface/50 text-text-primary hover:bg-surface transition-all duration-300 mt-2"
+                                        className="flex items-center justify-between p-4 rounded-2xl text-2xl font-display font-medium bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white transition-all duration-300 mt-2"
                                     >
                                         {t('nav.menu') as string} (PDF)
-                                        <span className="text-sm font-sans font-normal text-text-tertiary uppercase tracking-widest bg-bg-secondary py-1 px-3 rounded-full">PDF</span>
+                                        <span className="text-sm font-sans font-normal text-white uppercase tracking-widest bg-white/10 py-1 px-3 rounded-full">PDF</span>
                                     </a>
                                 </motion.li>
                             </motion.ul>
@@ -232,17 +240,18 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                                     open: { opacity: 1, y: 0 },
                                     closed: { opacity: 0, y: 20 }
                                 }}
-                                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+                                transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.3 }}
                                 className="flex flex-col gap-6 w-full"
                             >
                                 <Link href="/reservation"
+                                    prefetch={true}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="w-full py-4 bg-primary text-surface text-lg font-medium rounded-2xl text-center hover:bg-primary-hover transition-colors shadow-[0_8px_30px_rgba(var(--color-primary),0.3)]"
+                                    className="w-full py-4 bg-accent text-onyx-deep text-lg font-medium rounded-2xl text-center hover:bg-accent/90 transition-colors shadow-[0_8px_30px_rgba(var(--color-accent),0.3)]"
                                 >
                                     {variant === 'general' ? t('nav.reservation') : navCta}
                                 </Link>
 
-                                <div className="p-4 bg-surface rounded-2xl border border-border">
+                                <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
                                     <LanguageSwitcher variant="mobile" />
                                 </div>
                             </motion.div>

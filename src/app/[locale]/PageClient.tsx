@@ -1,33 +1,50 @@
-"use client";
 import React from 'react';
-import Image from '@/components/ui/ImagePlaceholder';
-
+import { AdaptiveImage as Image } from '@/components/ui/AdaptiveImage';
 import Link from 'next/link';
 import { ArrowRight, Clock, Phone, Mail, Leaf, Star, ChefHat, MapPin } from 'lucide-react';
-import { companyData } from '@/data/company';
-import { getTestimonialsBySegment } from '@/data/testimonials';
-import { TestimonialCard } from '@/components/cards/TestimonialCard';
-import { AnimatedCounter } from '@/components/interactive/AnimatedCounter';
+import { getCompanyData } from '@/data/company';
+import dynamic from 'next/dynamic';
 import { AnimateIn } from '@/components/animations/animate-in';
 import { StaggerContainer } from '@/components/animations/stagger-container';
-import { ServiceMarquee } from '@/components/ui/ServiceMarquee';
-import { CtaBand } from '@/components/layout/CtaBand';
-import { useTranslation } from '@/lib/i18n/use-translation';
-import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
+import { getTranslations } from '@/lib/i18n/get-translations';
+import { LocaleType } from '@/lib/locales';
+
+// Dynamic Imports for below-the-fold & heavy interactive components
+const AnimatedCounter = dynamic(() => import('@/components/interactive/AnimatedCounter').then(mod => mod.AnimatedCounter));
+const ServiceMarquee = dynamic(() => import('@/components/ui/ServiceMarquee').then(mod => mod.ServiceMarquee));
+const CtaBand = dynamic(() => import('@/components/layout/CtaBand').then(mod => mod.CtaBand));
+import { TranslationKey } from '@/lib/i18n/types';
 import { HeroRoot } from '@/components/hero/HeroRoot';
+import { ClientTestimonials } from '@/components/interactive/ClientTestimonials';
 
 export interface HomeProps {
     mainMenuPdfUrl?: string;
+    locale: string;
 }
 
-export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
-    const { t } = useTranslation('home');
-    const { heroVariant } = useAdaptiveMessaging();
+export const Home = async ({ mainMenuPdfUrl, locale }: HomeProps) => {
+    const t = await getTranslations(locale as LocaleType, 'home');
+    const tCommon = await getTranslations(locale as LocaleType, 'common');
+    const companyData = getCompanyData();
+
+    const formatTime = (timeRange: { start: string, end: string }) => {
+        const parseTime = (tStr: string) => {
+            const [h, m] = tStr.split(':');
+            const d = new Date();
+            d.setHours(parseInt(h, 10), parseInt(m, 10), 0, 0);
+            return d;
+        };
+        const timeFmt = new Intl.DateTimeFormat(locale, { hour: 'numeric', minute: '2-digit' });
+        const startFmt = timeFmt.format(parseTime(timeRange.start));
+        const endFmt = timeFmt.format(parseTime(timeRange.end));
+        return tCommon('opening_hours.time_range', { start: startFmt, end: endFmt }) as string;
+    };
+
     const highlights = [
-        { name: 'Lindener Rucksack', price: '€20.90', desc: 'Gefüllt mit Vorderschinken und Käse | Champignon-Rahm-Sauce', image: 'https://placehold.co/600x400' },
-        { name: 'Bistecca alla Griglia', price: '€26.90', desc: 'Argentinisches Rumpsteak vom Grill | Kräuterbutter', image: 'https://placehold.co/600x400' },
-        { name: 'Pizza Ratsstubbe', price: '€11.50', desc: 'Salami | Peperoniwurst | Vorderschinken | Ei | Champignons | Zwiebeln', image: 'https://placehold.co/600x400' },
-        { name: 'Tris di Pasta della Casa', price: '€23.90', desc: '3 verschiedene gefüllte Nudeln | 3 verschiedene Saucen', image: 'https://placehold.co/600x400' },
+        { name: 'Bistecca alla Griglia', price: '€26.90', desc: 'Argentinisches Rumpsteak vom Grill | Kräuterbutter', image: '/images/editorial/rumpsteak.png' },
+        { name: 'Pizza Ratsstubbe', price: '€11.50', desc: 'Salami | Peperoniwurst | Vorderschinken | Ei | Champignons | Zwiebeln', image: '/images/editorial/pizza.png' },
+        { name: 'Tris di Pasta della Casa', price: '€23.90', desc: '3 verschiedene gefüllte Nudeln | 3 verschiedene Saucen', image: '/images/editorial/pasta.png' },
+        { name: 'Scampi alla Griglia', price: '€28.90', desc: 'Gegrillte Scampi | Knoblauch | Kräuter', image: '/images/editorial/scampi.png' },
     ];
 
     return (
@@ -38,32 +55,32 @@ export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
             <HeroRoot mainMenuPdfUrl={mainMenuPdfUrl} />
 
             {/* Welcome / Philosophy Section */}
-            <section aria-labelledby="philosophy-title" className="py-24 md:py-32 lg:py-48 bg-bg-primary">
-                <div className="container mx-auto px-4 max-w-7xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <section aria-labelledby="philosophy-title" className="py-24 md:py-32 lg:py-48 bg-onyx-deep">
+                <div className="container mx-auto px-4 max-w-7xl bg-onyx-deep">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center bg-onyx-deep">
                         <AnimateIn direction="up">
-                            <div className="space-y-8">
-                                <span className="text-accent-text font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('philosophy.label') as string}</span>
-                                <h2 id="philosophy-title" className="text-4xl md:text-5xl font-display font-bold text-text-primary leading-tight text-balance">
+                            <div className="space-y-8 bg-onyx-deep">
+                                <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('philosophy.label') as string}</span>
+                                <h2 id="philosophy-title" className="text-4xl md:text-5xl font-display font-bold text-white leading-tight text-balance">
                                     {t('philosophy.title') as string}
                                 </h2>
-                                <p className="text-text-secondary text-lg leading-relaxed max-w-prose">
+                                <p className="text-stone-200 text-lg leading-relaxed max-w-prose">
                                     {(t('philosophy.description') as string).replace('{name}', companyData.companyName) || `Bei ${companyData.companyName} glauben wir, dass jedes Gericht eine Geschichte erzählt.`}
                                 </p>
                                 <div className="grid grid-cols-2 gap-8 pt-4">
                                     <section className="flex flex-col gap-2">
-                                        <ChefHat className="w-8 h-8 text-primary" aria-hidden="true" />
-                                        <h3 className="font-bold text-text-primary">{t('philosophy.master_chefs') as string}</h3>
-                                        <p className="text-sm text-text-secondary">{t('philosophy.master_chefs_desc') as string}</p>
+                                        <ChefHat className="w-8 h-8 text-accent-text" aria-hidden="true" />
+                                        <h3 className="font-bold text-white">{t('philosophy.master_chefs') as string}</h3>
+                                        <p className="text-sm text-stone-300">{t('philosophy.master_chefs_desc') as string}</p>
                                     </section>
                                     <section className="flex flex-col gap-2">
-                                        <Leaf className="w-8 h-8 text-status-success" aria-hidden="true" />
-                                        <h3 className="font-bold text-text-primary">{t('philosophy.fresh_ingredients') as string}</h3>
-                                        <p className="text-sm text-text-secondary">{t('philosophy.fresh_ingredients_desc') as string}</p>
+                                        <Leaf className="w-8 h-8 text-accent-text" aria-hidden="true" />
+                                        <h3 className="font-bold text-white">{t('philosophy.fresh_ingredients') as string}</h3>
+                                        <p className="text-sm text-stone-300">{t('philosophy.fresh_ingredients_desc') as string}</p>
                                     </section>
                                 </div>
                                 <div className="pt-6">
-                                    <Link href="/about" className="text-primary font-bold hover:text-primary-hover flex items-center gap-2 group transition-colors inline-flex">
+                                    <Link href="/about" className="text-accent-text font-bold hover:text-white flex items-center gap-2 group transition-colors inline-flex">
                                         {t('philosophy.learn_more') || 'Mehr über die Ratsstuben erfahren'} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>
@@ -73,14 +90,15 @@ export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
                             <div className="relative">
                                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-warm transform rotate-2 hover:rotate-0 transition-transform duration-700 ease-liquid">
                                     <Image
-                                        src="/images/placeholder.svg"
+                                        src="/images/editorial/kitchen_heritage.png"
                                         alt="Chef cooking"
                                         fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
                                         className="object-cover"
                                     />
                                 </div>
-                                <div className="absolute -bottom-10 -left-10 bg-bg-secondary p-6 rounded-xl shadow-sm max-w-xs hidden md:block">
-                                    <p className="font-hand text-2xl text-text-primary mb-2">&quot;{t('philosophy.quote') as string}&quot;</p>
+                                <div className="absolute -bottom-10 -start-10 bg-onyx-light/90 backdrop-blur-md border border-white/10 p-6 rounded-xl shadow-warm max-w-xs hidden md:block">
+                                    <p className="font-hand text-2xl text-white mb-2">&quot;{t('philosophy.quote') as string}&quot;</p>
                                     <p className="text-sm font-bold text-accent-text">- {t('philosophy.quote_author') as string}</p>
                                 </div>
                             </div>
@@ -93,11 +111,11 @@ export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
             <ServiceMarquee />
 
             {/* Highlights Grid */}
-            <section aria-labelledby="highlights-title" className="py-24 md:py-32 lg:py-48 bg-bg-secondary">
+            <section aria-labelledby="highlights-title" className="py-24 md:py-32 lg:py-48 bg-onyx-light">
                 <div className="container mx-auto px-4 max-w-7xl">
                     <AnimateIn className="text-center mb-20">
-                        <span className="text-accent-text font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('highlights.label') as string}</span>
-                        <h2 id="highlights-title" className="text-4xl md:text-5xl font-display font-bold text-text-primary mt-3 text-balance">{t('highlights.title') as string}</h2>
+                        <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('highlights.label') as string}</span>
+                        <h2 id="highlights-title" className="text-4xl md:text-5xl font-display font-bold text-white mt-3 text-balance">{t('highlights.title') as string}</h2>
                     </AnimateIn>
 
                     <StaggerContainer as="div" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" itemScope itemType="https://schema.org/ItemList">
@@ -107,7 +125,7 @@ export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
                                 itemProp="itemListElement"
                                 itemScope
                                 itemType="https://schema.org/MenuItem"
-                                className="group card-lift bg-bg-secondary rounded-2xl overflow-hidden shadow-warm"
+                                className="group card-lift bg-onyx-muted/50 border border-white/5 backdrop-blur-sm rounded-2xl overflow-hidden shadow-warm"
                             >
                                 <meta itemProp="position" content={(index + 1).toString()} />
                                 <div className="relative h-72 overflow-hidden">
@@ -115,16 +133,17 @@ export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
                                         src={dish.image}
                                         alt={dish.name}
                                         fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                         className="object-cover group-hover:scale-110 transition-transform duration-700 ease-liquid"
                                     />
-                                    <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-sm font-bold text-primary shadow-sm">
+                                    <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="absolute top-4 end-4 bg-onyx-deep/90 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-sm font-bold text-white shadow-sm">
                                         <span itemProp="price" content={dish.price.replace('€', '').trim()}>{dish.price}</span>
                                         <meta itemProp="priceCurrency" content="EUR" />
                                     </div>
                                 </div>
                                 <div className="p-8">
-                                    <h3 itemProp="name" className="text-xl font-bold text-text-primary mb-2 group-hover:text-primary transition-colors">{dish.name}</h3>
-                                    <p itemProp="description" className="text-text-secondary text-sm mb-6 line-clamp-2">{dish.desc}</p>
+                                    <h3 itemProp="name" className="text-xl font-bold text-white mb-2 group-hover:text-accent-text transition-colors">{dish.name}</h3>
+                                    <p itemProp="description" className="text-stone-300 text-sm mb-6 line-clamp-2">{dish.desc}</p>
                                     <a
                                         href={mainMenuPdfUrl || companyData.menuLink}
                                         target="_blank"
@@ -143,7 +162,7 @@ export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
                             href={mainMenuPdfUrl || companyData.menuLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="interaction-bounce inline-block px-10 py-4 border border-text-primary text-text-primary font-bold rounded-lg hover:bg-text-primary hover:text-white uppercase tracking-wider"
+                            className="interaction-bounce inline-block px-10 py-4 border border-white/20 text-white font-bold rounded-lg hover:bg-white hover:text-onyx-deep uppercase tracking-wider transition-colors"
                         >
                             {t('highlights.view_menu') as string}
                         </a>
@@ -152,11 +171,11 @@ export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
             </section>
 
             {/* Stats Section with Animated Counters */}
-            <section aria-labelledby="stats-title" className="py-24 md:py-32 lg:py-40 bg-bg-beige border-y border-gray-100 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+            <section aria-labelledby="stats-title" className="py-24 md:py-32 lg:py-40 bg-onyx-deep border-y border-white/5 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
                 <div className="container mx-auto px-4 relative z-10">
                     <h2 id="stats-title" className="sr-only">{t('stats.title') as string}</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x divide-gray-200/50">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x divide-white/10 text-white">
                         <div className="flex flex-col items-center justify-center p-4">
                             <AnimatedCounter target={25} label={t('counter.years') as string} suffix="+" />
                         </div>
@@ -180,58 +199,52 @@ export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
             />
 
             {/* Testimonials Section */}
-            <section aria-labelledby="testimonials-title" className="py-24 md:py-32 lg:py-48 bg-bg-primary">
+            <section aria-labelledby="testimonials-title" className="py-24 md:py-32 lg:py-48 bg-onyx-deep">
                 <div className="container mx-auto px-4 max-w-7xl">
                     <AnimateIn className="text-center mb-20">
-                        <span className="text-accent-text font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('testimonials.label') as string}</span>
-                        <h2 id="testimonials-title" className="text-4xl md:text-5xl font-display font-bold text-text-primary mt-3 text-balance">{t('testimonials.title') as string}</h2>
+                        <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('testimonials.label') as string}</span>
+                        <h2 id="testimonials-title" className="text-4xl md:text-5xl font-display font-bold text-white mt-3 text-balance">{t('testimonials.title') as string}</h2>
                         <div className="flex justify-center items-center gap-2 mt-4">
-                            <span className="font-bold text-lg text-text-primary">4.8</span>
-                            <div className="flex text-yellow-400">
+                            <span className="font-bold text-lg text-white">4.8</span>
+                            <div className="flex text-accent-text">
                                 {[...Array(5)].map((_, i) => <Star key={i} className={`w-5 h-5 ${i === 4 ? 'fill-current opacity-50' : 'fill-current'}`} />)}
                             </div>
-                            <span className="text-sm text-text-tertiary ms-2">{t('testimonials.from_reviews') as string}</span>
+                            <span className="text-sm text-stone-300 ms-2">{t('testimonials.from_reviews') as string}</span>
                         </div>
                     </AnimateIn>
 
-                    <StaggerContainer as="div" className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {getTestimonialsBySegment(heroVariant || 'general').map((t) => (
-                            <div key={t.id}>
-                                <TestimonialCard testimonial={t} />
-                            </div>
-                        ))}
-                    </StaggerContainer>
+                    <ClientTestimonials />
                 </div>
             </section>
 
             {/* Info & Location (Premium Layout) */}
-            <section aria-labelledby="info-location-title" className="py-24 md:py-32 lg:py-48 bg-surface text-text-primary relative overflow-hidden">
+            <section aria-labelledby="info-location-title" className="py-24 md:py-32 lg:py-48 bg-onyx-deep text-white relative overflow-hidden">
                 <h2 id="info-location-title" className="sr-only">{t('info.visit_title') as string}</h2>
                 <div className="container mx-auto px-4 max-w-7xl relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                         {/* Hours */}
-                        <AnimateIn className="lg:col-span-1 bg-bg-secondary p-10 rounded-2xl border border-border">
-                            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6 text-primary">
+                        <AnimateIn className="lg:col-span-1 bg-onyx-light/80 backdrop-blur-md p-10 rounded-2xl border border-white/10">
+                            <div className="w-12 h-12 bg-accent-text/10 rounded-full flex items-center justify-center mb-6 text-accent-text">
                                 <Clock className="w-6 h-6" />
                             </div>
-                            <h3 className="text-2xl font-display font-bold mb-6 text-text-primary">{t('info.hours_title') as string}</h3>
-                            <ul className="space-y-4 text-text-secondary">
-                                <li className="flex justify-between border-b border-border pb-3">
-                                    <span>{companyData.openingHours.ruhetag.tag}</span>
-                                    <span className="font-mono text-text-primary">{companyData.openingHours.monday}</span>
+                            <h3 className="text-2xl font-display font-bold mb-6 text-white">{t('info.hours_title') as string}</h3>
+                            <ul className="space-y-4 text-stone-100">
+                                <li className="flex justify-between border-b border-white/10 pb-3">
+                                    <span>{tCommon(companyData.openingHours.ruhetag.tagKey as TranslationKey)}</span>
+                                    <span className="font-mono text-white">{tCommon('footer.closed') as string}</span>
                                 </li>
-                                <li className="border-b border-border pb-3">
+                                <li className="border-b border-white/10 pb-3">
                                     <div className="flex justify-between mb-1">
-                                        <span>{companyData.openingHours.regulaer.tage}</span>
-                                        <span className="font-mono text-text-primary text-sm">{t('info.lunch_dinner') as string}</span>
+                                        <span>{tCommon(companyData.openingHours.regulaer.tageKey as TranslationKey)}</span>
+                                        <span className="font-mono text-white text-sm">{t('info.lunch_dinner') as string}</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-text-tertiary">{t('info.lunch') as string}</span>
-                                        <span className="font-mono text-text-primary">{companyData.openingHours.regulaer.mittags}</span>
+                                        <span className="text-stone-200">{t('info.lunch') as string}</span>
+                                        <span className="font-mono text-white">{formatTime(companyData.openingHours.regulaer.mittags)}</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-text-tertiary">{t('info.dinner') as string}</span>
-                                        <span className="font-mono text-text-primary">{companyData.openingHours.regulaer.abends}</span>
+                                        <span className="text-stone-200">{t('info.dinner') as string}</span>
+                                        <span className="font-mono text-white">{formatTime(companyData.openingHours.regulaer.abends)}</span>
                                     </div>
                                 </li>
                             </ul>
@@ -240,20 +253,20 @@ export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
                         {/* Contact & Map */}
                         <AnimateIn delay={150} className="lg:col-span-2 space-y-8">
                             <address className="flex flex-col md:flex-row gap-8 not-italic">
-                                <div className="flex-1 bg-bg-secondary p-8 rounded-2xl border border-border hover:border-primary/50 hover:shadow-xs transition-all">
-                                    <MapPin className="w-8 h-8 text-primary mb-4" aria-hidden="true" />
-                                    <h3 className="font-bold text-lg mb-2">{t('info.address_title') as string}</h3>
-                                    <p className="text-text-secondary">{companyData.address.street}<br />{companyData.address.zip} {companyData.address.city}</p>
+                                <div className="flex-1 bg-onyx-light/80 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-accent-text/50 hover:shadow-glow transition-all">
+                                    <MapPin className="w-8 h-8 text-accent-text mb-4" aria-hidden="true" />
+                                    <h3 className="font-bold text-lg mb-2 text-white">{t('info.address_title') as string}</h3>
+                                    <p className="text-stone-100">{companyData.address.street}<br />{companyData.address.zip} {companyData.address.city}</p>
                                 </div>
-                                <div className="flex-1 bg-bg-secondary p-8 rounded-2xl border border-border hover:border-primary/50 hover:shadow-xs transition-all">
-                                    <Phone className="w-8 h-8 text-primary mb-4" aria-hidden="true" />
-                                    <h3 className="font-bold text-lg mb-2">{t('info.phone_title') as string}</h3>
-                                    <p className="text-text-secondary"><a href={`tel:${companyData.phone}`} className="hover:text-primary transition-colors">{companyData.displayPhone}</a></p>
+                                <div className="flex-1 bg-onyx-light/80 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-accent-text/50 hover:shadow-glow transition-all">
+                                    <Phone className="w-8 h-8 text-accent-text mb-4" aria-hidden="true" />
+                                    <h3 className="font-bold text-lg mb-2 text-white">{t('info.phone_title') as string}</h3>
+                                    <p className="text-stone-100"><a href={`tel:${companyData.phone}`} className="hover:text-accent-text transition-colors">{companyData.displayPhone}</a></p>
                                 </div>
-                                <div className="flex-1 bg-bg-secondary p-8 rounded-2xl border border-border hover:border-primary/50 hover:shadow-xs transition-all">
-                                    <Mail className="w-8 h-8 text-primary mb-4" aria-hidden="true" />
-                                    <h3 className="font-bold text-lg mb-2">{t('info.email_title') as string}</h3>
-                                    <p className="text-text-secondary"><a href={`mailto:${companyData.email}`} className="hover:text-primary transition-colors">{companyData.email}</a></p>
+                                <div className="flex-1 bg-onyx-light/80 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-accent-text/50 hover:shadow-glow transition-all">
+                                    <Mail className="w-8 h-8 text-accent-text mb-4" aria-hidden="true" />
+                                    <h3 className="font-bold text-lg mb-2 text-white">{t('info.email_title') as string}</h3>
+                                    <p className="text-stone-100"><a href={`mailto:${companyData.email}`} className="hover:text-accent-text transition-colors">{companyData.email}</a></p>
                                 </div>
                             </address>
 
@@ -268,10 +281,10 @@ export const Home = ({ mainMenuPdfUrl }: HomeProps) => {
                                     title="Standortkarte"
                                     className="group-hover:filter-none transition-all duration-700 ease-liquid"
                                 ></iframe>
-                                <div className="absolute bottom-6 right-6">
+                                <div className="absolute bottom-6 end-6">
                                     <Link
                                         href="/contact"
-                                        className="interaction-bounce px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary-hover shadow-sm inline-block"
+                                        className="interaction-bounce px-6 py-3 bg-accent-text text-onyx-deep font-bold rounded-lg hover:bg-white shadow-sm inline-block transition-colors"
                                     >
                                         {t('info.plan_route') as string}
                                     </Link>

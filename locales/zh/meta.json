@@ -1,9 +1,9 @@
 {
-  "home.title": "首页 | Lindener Ratsstuben",
-  "home.description": "欢迎来到 Lindener Ratsstuben。享受充满热情制作的意大利和地中海美食。",
-  "menu.title": "菜单 | Lindener Ratsstuben",
+  "about.title": "关于我们 | Lindener Ratsstuben",
   "contact.title": "联系我们 — Lindener Ratsstuben",
-  "reservation.title": "预约 | Lindener Ratsstuben",
   "gallery.title": "图片库 — Lindener Ratsstuben",
-  "about.title": "关于我们 | Lindener Ratsstuben"
+  "home.description": "欢迎来到 Lindener Ratsstuben。享受充满热情制作的意大利和地中海美食。",
+  "home.title": "首页 | Lindener Ratsstuben",
+  "menu.title": "菜单 | Lindener Ratsstuben",
+  "reservation.title": "预约 | Lindener Ratsstuben"
 }

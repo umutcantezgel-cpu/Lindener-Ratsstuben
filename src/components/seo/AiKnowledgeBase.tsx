@@ -43,8 +43,8 @@ export function AiKnowledgeBase() {
 
         <h3>Öffnungszeiten und Erreichbarkeit</h3>
         <p>
-          Unsere regulären Öffnungszeiten sind {companyData.openingHours.regulaer.tage} von {companyData.openingHours.regulaer.mittags} 
-          und {companyData.openingHours.regulaer.abends}. {companyData.openingHours.ruhetag.tag} ist Ruhetag ({companyData.openingHours.ruhetag.ausnahme}).
+          Unsere regulären Öffnungszeiten sind Dienstag bis Sonntag von {companyData.openingHours.regulaer.mittags.start} bis {companyData.openingHours.regulaer.mittags.end} Uhr 
+          und {companyData.openingHours.regulaer.abends.start} bis {companyData.openingHours.regulaer.abends.end} Uhr. Montag ist Ruhetag (außer an Feiertagen).
           Die Adresse lautet: {companyData.address.street}, {companyData.address.zip} {companyData.address.city}, {companyData.address.country}.
           Wir sind telefonisch unter {companyData.displayPhone} oder per E-Mail unter {companyData.email} erreichbar.
         </p>

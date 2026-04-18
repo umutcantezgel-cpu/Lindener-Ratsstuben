@@ -1,9 +1,9 @@
 {
-  "home.title": "Головна | Lindener Ratsstuben",
-  "home.description": "Ласкаво просимо до Lindener Ratsstuben. Насолоджуйтесь італійськими та середземноморськими стравами, приготовленими з любов'ю.",
-  "menu.title": "Меню | Lindener Ratsstuben",
+  "about.title": "Про нас | Lindener Ratsstuben",
   "contact.title": "Контакти — Lindener Ratsstuben",
-  "reservation.title": "Бронювання | Lindener Ratsstuben",
   "gallery.title": "Галерея — Lindener Ratsstuben",
-  "about.title": "Про нас | Lindener Ratsstuben"
+  "home.description": "Ласкаво просимо до Lindener Ratsstuben. Насолоджуйтесь італійськими та середземноморськими стравами, приготовленими з любов'ю.",
+  "home.title": "Головна | Lindener Ratsstuben",
+  "menu.title": "Меню | Lindener Ratsstuben",
+  "reservation.title": "Бронювання | Lindener Ratsstuben"
 }

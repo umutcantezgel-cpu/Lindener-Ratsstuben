@@ -1,8 +1,8 @@
 {
-  "imprint.title": "Impressum",
-  "privacy.title": "Zásady ochrany osobních údajů",
-  "terms.title": "Obchodní podmínky",
   "accessibility.title": "Přístupnost",
   "cookies.title": "Zásady cookies",
-  "legal.only_german": "Tento obsah je z právních důvodů k dispozici pouze v němčině."
+  "imprint.title": "Impressum",
+  "legal.only_german": "Tento obsah je z právních důvodů k dispozici pouze v němčině.",
+  "privacy.title": "Zásady ochrany osobních údajů",
+  "terms.title": "Obchodní podmínky"
 }

@@ -25,11 +25,11 @@ export const ClientLogoMarquee = () => {
             </div>
             
             <div className="relative flex max-w-[100vw] overflow-hidden">
-                <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-bg-secondary to-transparent pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-bg-secondary to-transparent pointer-events-none" />
+                <div className="absolute start-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-bg-secondary to-transparent pointer-events-none" />
+                <div className="absolute end-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-bg-secondary to-transparent pointer-events-none" />
                 
                 <motion.div 
-                    className="flex gap-16 md:gap-24 items-center whitespace-nowrap pl-4 pr-16"
+                    className="flex gap-16 md:gap-24 items-center whitespace-nowrap ps-4 pe-16"
                     animate={{ x: ["0%", "-33.33%"] }}
                     transition={{
                         ease: "linear",

@@ -77,7 +77,7 @@ export function CaseStudySlider({
       </div>
 
       <div 
-        className="absolute inset-0 bg-bg-secondary bg-cover bg-center flex items-end p-4 border-r-2 border-surface pointer-events-none"
+        className="absolute inset-0 bg-bg-secondary bg-cover bg-center flex items-end p-4 border-e-2 border-surface pointer-events-none"
         style={{ 
           width: `${sliderPosition}%`,
           backgroundImage: imgBefore ? `url(${imgBefore})` : undefined 

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Image from '@/components/ui/ImagePlaceholder';
+import Image, { getImageProps } from 'next/image';
 import type { ImageProps } from 'next/image';
 import { useDevice } from '@/lib/context/DeviceContext';
 import { clsx } from 'clsx';
@@ -23,11 +23,14 @@ export type ImageVariant = DescriptiveImageProps | DecorativeImageProps;
 type BaseAdaptiveImageProps = Omit<ImageProps, 'src' | 'alt' | 'decorative'> & {
     src: string;
     lowResSrc?: string;
+    mobileSrc?: string; // Opt-in für Art-Direction
+    blurDataURL?: string;
+    placeholder?: 'blur' | 'empty';
 };
 
 export type AdaptiveImageProps = BaseAdaptiveImageProps & ImageVariant;
 
-export const AdaptiveImage: React.FC<AdaptiveImageProps> = ({ src, lowResSrc, className, priority, alt, ...props }) => {
+export const AdaptiveImage: React.FC<AdaptiveImageProps> = ({ src, lowResSrc, mobileSrc, blurDataURL, placeholder, className, priority, alt, ...props }) => {
     const { connection, saveData } = useDevice();
     const [finalSrc, setFinalSrc] = useState<string>(src);
     const [quality, setQuality] = useState<number>(75);
@@ -48,13 +51,48 @@ export const AdaptiveImage: React.FC<AdaptiveImageProps> = ({ src, lowResSrc, cl
         }
     }, [connection, saveData, src, lowResSrc]);
 
+    const commonClasses = clsx("transition-opacity duration-500", className);
+    const resolvedPriority = priority || false;
+
+    // Advanced Art-Direction mit <picture> Tag für optimale Bandbreiten-Nutzung
+    if (mobileSrc) {
+        const commonProps = { 
+            alt: alt as string, 
+            quality, 
+            priority: resolvedPriority, 
+            className: commonClasses,
+            placeholder: placeholder,
+            blurDataURL: blurDataURL,
+            ...props 
+        };
+
+        const {
+            props: { srcSet: desktopSrcSet },
+        } = getImageProps({ ...commonProps, src: finalSrc });
+
+        const {
+            props: { srcSet: mobileSrcSet, ...rest },
+        } = getImageProps({ ...commonProps, src: mobileSrc });
+
+        return (
+            <picture>
+                <source media="(min-width: 768px)" srcSet={desktopSrcSet} />
+                <source media="(max-width: 767px)" srcSet={mobileSrcSet} />
+                <img {...rest} alt={alt as string} />
+            </picture>
+        );
+    }
+
+    // Default Fallback
     return (
         <Image
             src={finalSrc}
-            alt={alt}
-            className={clsx("transition-opacity duration-500", className)}
+            alt={alt as string}
+            className={commonClasses}
             quality={quality}
-            priority={priority || false} // Provide explicit false fallback
+            priority={resolvedPriority}
+            placeholder={placeholder}
+            blurDataURL={blurDataURL}
             {...props}
         />
     );

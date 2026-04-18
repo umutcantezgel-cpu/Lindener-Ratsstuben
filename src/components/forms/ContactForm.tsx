@@ -11,6 +11,9 @@ import { SuccessCelebration } from '../ui/SuccessCelebration';
 import { TrustSignals } from '../ui/TrustSignals';
 import { useFormProgress } from '@/hooks/useFormProgress';
 import { useTranslation } from '@/lib/i18n/use-translation';
+import { MorphingButton, ButtonState } from '../ui/MorphingButton';
+import { motion, AnimatePresence } from 'framer-motion';
+import { EASING, SPRING } from '@/lib/constants/motion';
 
 // Optional: Pass Formspree ID via Env. For now fallback to a demo ID or generic handle.
 const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || "xjkvrwgq";
@@ -49,6 +52,9 @@ export function ContactForm() {
     // We can use the useFormProgress hook to show progress. We must give the form an ID.
     const progress = useFormProgress("main-contact-form");
 
+    const [optimisticSuccess, setOptimisticSuccess] = useState(false);
+    const [buttonState, setButtonState] = useState<ButtonState>('idle');
+
     // Autosave Logic (sessionStorage)
     useEffect(() => {
         const savedData = sessionStorage.getItem('contact_form_autosave');
@@ -56,12 +62,12 @@ export function ContactForm() {
             try {
                 const parsed = JSON.parse(savedData);
                 // Don't restore if already submitted successfully to avoid confusion
-                if (!state.succeeded) reset(parsed);
+                if (!optimisticSuccess && !state.succeeded) reset(parsed);
             } catch (e) {
                 console.error("Autosave restore parsing error", e);
             }
         }
-    }, [reset, state.succeeded]);
+    }, [reset, state.succeeded, optimisticSuccess]);
 
     useEffect(() => {
         const subscription = watch((value) => {
@@ -87,61 +93,82 @@ export function ContactForm() {
         }
     }, [errors, setFocus]);
 
-    const onSubmit = async (data: ContactFormData) => {
+    const onSubmit = (data: ContactFormData) => {
+        setButtonState('loading');
+        // Store & Forward preparation
+        const fallbackQueue = JSON.parse(localStorage.getItem('form_retry_queue') || '[]');
+        
         if (!navigator.onLine) {
             setOfflineWarning(true);
-            return;
+            // Add to background queue
+            fallbackQueue.push({ type: 'contact', data, timestamp: Date.now() });
+            localStorage.setItem('form_retry_queue', JSON.stringify(fallbackQueue));
+        } else {
+            setOfflineWarning(false);
+            
+            // Background network request
+            handleSubmitFormspree(data).catch(() => {
+                // If network fails unexpectedly, queue it
+                fallbackQueue.push({ type: 'contact', data, timestamp: Date.now() });
+                localStorage.setItem('form_retry_queue', JSON.stringify(fallbackQueue));
+            });
         }
-        setOfflineWarning(false);
-        try {
-            await handleSubmitFormspree(data);
-            if (state.succeeded || process.env.NODE_ENV === 'development') {
-                if (!state.succeeded) {
-                    console.warn(`[Forms] Formspree failed or returned 404. Mocking success for DEV.`);
-                }
-                setCooldown(30);
-                sessionStorage.removeItem('contact_form_autosave');
-            }
-        } catch {
-            // Unhandled network crash via formspree react lib
-            if (process.env.NODE_ENV === 'development') {
-                console.warn(`[Forms] Formspree error caught. Mocking success for DEV.`);
-                setCooldown(30);
-                sessionStorage.removeItem('contact_form_autosave');
-            }
-        }
-    };
 
-    if (state.succeeded && cooldown > 0) {
-        return (
-            <SuccessCelebration 
-                name={watch("name")} 
-                message={t('success.message') as string}
-                nextStep={t('success.next_step') as string}
-                nextStepLink="/menu"
-                nextStepText={t('success.to_menu') as string}
-                onReset={() => {
-                    reset();
-                    window.location.reload(); 
-                }}
-            />
-        );
-    }
+        // --- Optimistic UI Execution ---
+        // Provide fluid visual feedback with MorphingButton
+        setTimeout(() => {
+            setButtonState('success');
+            setTimeout(() => {
+                setOptimisticSuccess(true);
+                setCooldown(30);
+                sessionStorage.removeItem('contact_form_autosave');
+                setButtonState('idle');
+            }, 1000);
+        }, 800);
+    };
 
     return (
         <div className="relative">
             {/* Progress Indicator */}
             {progress.percent > 0 && progress.percent < 100 && (
-                <div className="absolute -top-12 left-0 right-0 p-3 bg-blue-50 text-blue-800 text-sm font-medium rounded-lg text-center animate-fade-in border border-blue-100">
+                <div className="absolute -top-12 inset-x-0 p-3 bg-blue-50 text-blue-800 text-sm font-medium rounded-lg text-center animate-fade-in border border-blue-100">
                     {(t('form.almost_done') as string).replace('{count}', String(progress.remainingRequired))}
                 </div>
             )}
 
-            <form 
-                id="main-contact-form"
-                onSubmit={handleSubmit(onSubmit)} 
-                className="space-y-6"
-            >
+            <AnimatePresence mode="wait">
+                {((optimisticSuccess || state.succeeded) && cooldown > 0) ? (
+                    <motion.div
+                        key="success-view"
+                        initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
+                        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                        exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
+                        transition={{ duration: 0.4, ease: EASING.fluid }}
+                    >
+                        <SuccessCelebration 
+                            name={watch("name")} 
+                            message={t('success.message') as string}
+                            nextStep={t('success.next_step') as string}
+                            nextStepLink="/menu"
+                            nextStepText={t('success.to_menu') as string}
+                            onReset={() => {
+                                setOptimisticSuccess(false);
+                                reset();
+                                window.location.reload(); 
+                            }}
+                        />
+                    </motion.div>
+                ) : (
+                    <motion.form 
+                        key="form-view"
+                        initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
+                        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                        exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
+                        transition={{ duration: 0.4, ease: EASING.fluid }}
+                        id="main-contact-form"
+                        onSubmit={handleSubmit(onSubmit)} 
+                        className="space-y-6"
+                    >
                 {/* Honeypot for Spam Protection */}
                 <input type="text" name="_gotcha" style={{ display: 'none' }} />
 
@@ -261,25 +288,23 @@ export function ContactForm() {
                 )}
 
                 <div className="pt-2">
-                    <button
+                    <MorphingButton
                         type="submit"
                         disabled={state.submitting || !isValid || cooldown > 0}
-                        className="interaction-bounce w-full py-4 bg-primary text-surface font-bold rounded-xl hover:bg-primary/90 flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                        {state.submitting 
-                            ? (t('status.sending') as string) 
-                            : cooldown > 0 
-                                ? (t('status.sent_pause') as string).replace('{seconds}', String(cooldown))
-                                : (t('form.send_free') as string)
-                        }
-                    </button>
+                        state={buttonState}
+                        idleText={cooldown > 0 ? (t('status.sent_pause') as string).replace('{seconds}', String(cooldown)) : (t('form.send_free') as string)}
+                        loadingText={t('status.sending') as string}
+                        successText="Gesendet!"
+                    />
                     
                     <div className="flex justify-center gap-4 mt-4">
                         <TrustSignals type="security" text={t('form.trust_gdpr') as string} />
                         <TrustSignals type="bullet" text={t('form.trust_response') as string} />
                     </div>
                 </div>
-            </form>
+            </motion.form>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

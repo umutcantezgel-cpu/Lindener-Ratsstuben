@@ -34,7 +34,7 @@ export const ExitIntentOverlay = () => {
           initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
           animate={{ opacity: 1, backdropFilter: 'blur(12px)' }}
           exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+          transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-text-primary/40"
           onClick={() => setIsVisible(false)}
         >
@@ -42,7 +42,7 @@ export const ExitIntentOverlay = () => {
             initial={{ opacity: 0, scale: 0.95, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 1, 0.5, 1] }}
+            transition={{ duration: 0.5, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="bg-surface p-10 md:p-14 rounded-2xl shadow-luxury max-w-lg w-full mx-4 text-center cursor-default"
             onClick={(e) => e.stopPropagation()}
           >

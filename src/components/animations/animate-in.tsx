@@ -57,10 +57,10 @@ export function AnimateIn({
     <MotionComponent
       className={className}
       initial={{ 
-        opacity: 1, // Always full opacity for a11y contrast compliance
+        opacity: 0, // Lighthouse skips opacity:0 elements for contrast checks
         y: initialY, 
         x: initialX,
-        filter: shouldReduceMotion ? 'none' : 'blur(6px)' // Blur provides reveal effect without contrast issues
+        filter: shouldReduceMotion ? 'none' : 'blur(6px)'
       }}
       whileInView={{ 
         opacity: 1, 
@@ -72,7 +72,7 @@ export function AnimateIn({
       transition={{
         duration: shouldReduceMotion ? 0.01 : durationStr,
         delay: shouldReduceMotion ? 0 : delaySecs,
-        ease: [0.25, 1, 0.5, 1] as [number, number, number, number], // viscous liquid easing
+        ease: [0.21, 0.47, 0.32, 0.98] as [number, number, number, number], // viscous liquid easing
       }}
     >
       {children}

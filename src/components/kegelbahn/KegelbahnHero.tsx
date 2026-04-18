@@ -5,7 +5,7 @@ import { useTranslation } from '@/lib/i18n/use-translation';
 import { MousePointerClick, ShieldCheck, Trophy } from 'lucide-react';
 
 export const KegelbahnHero: React.FC = () => {
-    const { t } = useTranslation('common');
+    useTranslation('common');
     const containerRef = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -35,7 +35,7 @@ export const KegelbahnHero: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
                     className="space-y-6"
                 >
                     <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary uppercase tracking-widest text-sm font-semibold backdrop-blur-sm">

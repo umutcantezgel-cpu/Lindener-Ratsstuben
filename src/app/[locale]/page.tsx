@@ -1,3 +1,4 @@
+import { getAlternates } from '@/lib/seo/metadata';
 import { Metadata } from 'next';
 import PageClient from './PageClient';
 import { getTranslations } from '@/lib/i18n/get-translations';
@@ -13,20 +14,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t('hero.headline_1', 'Startseite'),
     description,
-    alternates: {
-      canonical: "/",
-    },
+    alternates: getAlternates(locale, ''),
     openGraph: {
       title,
       description,
-      url: "/",
+      url: `/${locale}`,
     }
   };
 }
 
 import { getSiteSettings } from '@/lib/sanity/fetch';
 
-export default async function Page() {
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const siteSettings = await getSiteSettings().catch(() => null);
-  return <PageClient mainMenuPdfUrl={siteSettings?.mainMenuPdfUrl} />;
+  return <PageClient mainMenuPdfUrl={siteSettings?.mainMenuPdfUrl} locale={locale} />;
 }

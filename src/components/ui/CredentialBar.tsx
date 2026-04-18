@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '@/components/ui/ImagePlaceholder';
+import { AdaptiveImage as Image } from '@/components/ui/AdaptiveImage';
 
 interface Credential {
     id: string;

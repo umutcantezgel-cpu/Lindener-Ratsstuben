@@ -50,8 +50,8 @@ export function StickyCtaBar({
                     initial={{ y: 150, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 150, opacity: 0 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                    className="fixed bottom-4 left-4 right-4 md:left-auto md:right-8 z-toast pointer-events-none"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    className="fixed bottom-4 start-4 end-4 md:start-auto md:end-8 z-toast pointer-events-none"
                     role="region"
                     aria-label={t('accessibility.quick_action') as string}
                 >
@@ -79,7 +79,7 @@ export function StickyCtaBar({
                         
                         <button 
                             onClick={handleClose}
-                            className="absolute -top-2 -right-2 bg-surface text-text-tertiary rounded-full p-1 shadow-sm border border-border hover:text-text-primary"
+                            className="absolute -top-2 -end-2 bg-surface text-text-tertiary rounded-full p-1 shadow-sm border border-border hover:text-text-primary"
                             aria-label={t('accessibility.close_menu') as string}
                         >
                             <X className="w-4 h-4" />

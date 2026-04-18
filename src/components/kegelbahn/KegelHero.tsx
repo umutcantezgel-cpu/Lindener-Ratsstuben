@@ -20,7 +20,7 @@ export const KegelHero: React.FC<KegelHeroProps> = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
                 >
                     <h1 className="text-4xl md:text-6xl font-display text-onyx mb-6 uppercase tracking-[0.05em] leading-tight">
                         {t('kegelbahn.hero.title') as string}
@@ -30,7 +30,7 @@ export const KegelHero: React.FC<KegelHeroProps> = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 1.2, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
                 >
                     <p className="text-lg md:text-2xl text-gray-500 max-w-2xl font-light">
                         {t('kegelbahn.hero.subtitle') as string}

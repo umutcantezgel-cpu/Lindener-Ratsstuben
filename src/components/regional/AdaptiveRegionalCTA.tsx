@@ -27,7 +27,7 @@ export function AdaptiveRegionalCTA({
     <div className="mt-16 pt-12 border-t border-[#d4a843]/30">
       <div className="bg-gradient-to-br from-[#1a1a2e] to-[#2d1810] text-[#fcfbf9] rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden">
         {/* Subtle overlay accent */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#C48810]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute top-0 end-0 w-64 h-64 bg-[#C48810]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 rtl:-translate-x-1/2" />
         
         <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
           <div>
@@ -51,7 +51,7 @@ export function AdaptiveRegionalCTA({
             </div>
           </div>
           
-          <div className="space-y-4 text-sm text-[#fcfbf9]/70 border-l border-[#fcfbf9]/10 pl-6 h-fit">
+          <div className="space-y-4 text-sm text-[#fcfbf9]/70 border-s border-[#fcfbf9]/10 ps-6 h-fit">
             <div className="flex gap-2">
               <span className="text-[#d4a843]">📍</span>
               <span>{street}, {zip} {city}</span>

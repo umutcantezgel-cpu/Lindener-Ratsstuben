@@ -78,18 +78,21 @@ export function StaggerContainer({
             filter: 'blur(0px)',
             transition: {
               duration: 0.8,
-              ease: [0.16, 1, 0.3, 1] as [number, number, number, number], // liquid easing
+              ease: [0.21, 0.47, 0.32, 0.98] as [number, number, number, number], // liquid easing
             } 
           }
         };
 
+        // Use motion.li when parent is a list element to maintain valid HTML structure
+        const ChildWrapper = (as === 'ul' || as === 'ol') ? motion.li : motion.div;
+
         return (
-          <motion.div key={index} variants={isStaggered ? childVariants : {
+          <ChildWrapper key={index} variants={isStaggered ? childVariants : {
             hidden: { opacity: 1, y: 0 },
             show: { opacity: 1, y: 0 }
           }}>
             {child}
-          </motion.div>
+          </ChildWrapper>
         );
       })}
     </MotionComponent>

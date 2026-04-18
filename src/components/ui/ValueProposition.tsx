@@ -41,7 +41,7 @@ export function ValueProposition({
 
             {/* Metrics (Optional) */}
             {(metric || timeframe) && (
-                <div className="md:w-64 w-full flex flex-row md:flex-col justify-center gap-4 md:border-l md:border-t-0 border-t border-border/60 pt-6 md:pt-0 md:pl-6">
+                <div className="md:w-64 w-full flex flex-row md:flex-col justify-center gap-4 md:border-s md:border-t-0 border-t border-border/60 pt-6 md:pt-0 md:ps-6">
                     {metric && (
                         <div className="flex items-center gap-3">
                             <div className="p-2 bg-green-100 text-green-700 rounded-lg">

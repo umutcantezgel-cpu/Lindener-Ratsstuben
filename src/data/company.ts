@@ -34,17 +34,15 @@ export const companyData: CompanyData = {
         "EC-Karte"
     ],
     openingHours: {
-        monday: "Geschlossen (außer an Feiertagen)",
-        tuesdayToSunday: "11:30 - 14:30 & 17:30 - 22:30",
-        // Structured data for detailed rendering
+        // Structured data for detailed rendering and dynamic formatting
         regulaer: {
-            tage: "Dienstag - Sonntag",
-            mittags: "11:30 - 14:30 Uhr",
-            abends: "17:30 - 22:30 Uhr"
+            tageKey: "footer.tuesday_sunday",
+            mittags: { start: "11:30", end: "14:30" },
+            abends: { start: "17:30", end: "22:30" }
         },
         ruhetag: {
-            tag: "Montag",
-            ausnahme: "außer an Feiertagen"
+            tagKey: "footer.monday",
+            ausnahmeKey: "opening_hours.exception_holidays"
         }
     },
     eventCatering: {

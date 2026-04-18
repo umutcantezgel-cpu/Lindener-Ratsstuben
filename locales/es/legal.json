@@ -1,8 +1,8 @@
 {
-  "imprint.title": "Aviso legal",
-  "privacy.title": "Política de Privacidad",
-  "terms.title": "Términos y Condiciones",
   "accessibility.title": "Accesibilidad",
   "cookies.title": "Política de Cookies",
-  "legal.only_german": "Este contenido solo está disponible en alemán por razones legales."
+  "imprint.title": "Aviso legal",
+  "legal.only_german": "Este contenido solo está disponible en alemán por razones legales.",
+  "privacy.title": "Política de Privacidad",
+  "terms.title": "Términos y Condiciones"
 }

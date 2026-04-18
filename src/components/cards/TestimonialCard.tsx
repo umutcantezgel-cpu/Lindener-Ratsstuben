@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '@/components/ui/ImagePlaceholder';
+import { AdaptiveImage as Image } from '@/components/ui/AdaptiveImage';
 import { Testimonial } from '@/data/testimonials';
 
 const StarRating = ({ rating }: { rating: number }) => {
@@ -43,6 +43,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial })
                                 src={testimonial.avatar} 
                                 alt={testimonial.name} 
                                 fill 
+                                sizes="48px"
                                 className="object-cover"
                             />
                         </div>

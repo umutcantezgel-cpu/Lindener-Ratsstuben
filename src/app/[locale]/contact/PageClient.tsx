@@ -6,9 +6,25 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { companyData } from '@/data/company';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { useTranslation } from '@/lib/i18n/use-translation';
+import { TranslationKey } from '@/lib/i18n/types';
 
 export const Contact = () => {
     const { t } = useTranslation('pages');
+    const { t: tCommon, locale } = useTranslation('common');
+
+    const formatTime = (timeRange: { start: string, end: string }) => {
+        const parseTime = (tStr: string) => {
+            const [h, m] = tStr.split(':');
+            const d = new Date();
+            d.setHours(parseInt(h, 10), parseInt(m, 10), 0, 0);
+            return d;
+        };
+        const timeFmt = new Intl.DateTimeFormat(locale, { hour: 'numeric', minute: '2-digit' });
+        const startFmt = timeFmt.format(parseTime(timeRange.start));
+        const endFmt = timeFmt.format(parseTime(timeRange.end));
+        return tCommon('opening_hours.time_range', { start: startFmt, end: endFmt }) as string;
+    };
+
     return (
         <PageTransition>
             
@@ -58,10 +74,10 @@ export const Contact = () => {
                                     </div>
                                     <h3 className="font-bold text-text-main mb-2">{t('contact.hours') as string}</h3>
                                     <p className="text-text-secondary text-sm">
-                                        {companyData.openingHours.ruhetag.tag}: {companyData.openingHours.monday}<br />
-                                        {companyData.openingHours.regulaer.tage}:<br />
-                                        {companyData.openingHours.regulaer.mittags}<br />
-                                        {companyData.openingHours.regulaer.abends}
+                                        {tCommon(companyData.openingHours.ruhetag.tagKey as TranslationKey)}: {tCommon('footer.closed') as string}<br />
+                                        {tCommon(companyData.openingHours.regulaer.tageKey as TranslationKey)}:<br />
+                                        {formatTime(companyData.openingHours.regulaer.mittags)}<br />
+                                        {formatTime(companyData.openingHours.regulaer.abends)}
                                     </p>
                                 </div>
                                 {/* Facebook */}

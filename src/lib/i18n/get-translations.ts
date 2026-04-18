@@ -1,6 +1,8 @@
 import { LocaleType } from '../locales';
 import { loadTranslations, getTranslationString } from './translations';
 
+import { TranslationValues, formatICUMessage } from './icu-formatter';
+
 /**
  * Server-side translation helper for Next.js Server Components.
  * Usage in page.tsx:
@@ -13,11 +15,24 @@ export async function getTranslations(
 ) {
   const dictionary = await loadTranslations(locale, namespace);
 
-  const t = (key: string, fallback?: string): string => {
+  const t = (key: string, valuesOrFallback?: TranslationValues | string, fallback?: string): string => {
     const value = getTranslationString(dictionary, key);
-    // If the key itself is returned (missing), use fallback
-    if (value === key && fallback) return fallback;
-    return value;
+    let values: TranslationValues | undefined = undefined;
+    let fallbackStr: string | undefined = fallback;
+
+    if (typeof valuesOrFallback === 'string') {
+        fallbackStr = valuesOrFallback;
+    } else if (valuesOrFallback) {
+        values = valuesOrFallback;
+    }
+
+    if (value === key) {
+        if (fallbackStr) return fallbackStr;
+        return ""; // Match useTranslation behavior of returning empty string so `|| 'Fallback'` works
+    }
+
+    const formatted = formatICUMessage(value, locale, values);
+    return typeof formatted === 'string' ? formatted : String(formatted);
   };
 
   return t;
@@ -32,7 +47,7 @@ export async function getMultiTranslations(
   locale: LocaleType,
   namespaces: string[]
 ) {
-  const result: Record<string, (key: string, fallback?: string) => string> = {};
+  const result: Record<string, (key: string, valuesOrFallback?: TranslationValues | string, fallback?: string) => string> = {};
 
   for (const ns of namespaces) {
     result[ns] = await getTranslations(locale, ns);

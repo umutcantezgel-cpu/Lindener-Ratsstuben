@@ -1,9 +1,9 @@
 {
-  "home.title": "Početna | Lindener Ratsstuben",
-  "home.description": "Dobrodošli u Lindener Ratsstuben. Uživajte u talijanskim i mediteranskim specijalitetima, pripremljenim sa strašću.",
-  "menu.title": "Jelovnik | Lindener Ratsstuben",
+  "about.title": "O nama | Lindener Ratsstuben",
   "contact.title": "Kontakt — Lindener Ratsstuben",
-  "reservation.title": "Rezervacija | Lindener Ratsstuben",
   "gallery.title": "Galerija — Lindener Ratsstuben",
-  "about.title": "O nama | Lindener Ratsstuben"
+  "home.description": "Dobrodošli u Lindener Ratsstuben. Uživajte u talijanskim i mediteranskim specijalitetima, pripremljenim sa strašću.",
+  "home.title": "Početna | Lindener Ratsstuben",
+  "menu.title": "Jelovnik | Lindener Ratsstuben",
+  "reservation.title": "Rezervacija | Lindener Ratsstuben"
 }

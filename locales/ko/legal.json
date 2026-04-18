@@ -1,8 +1,8 @@
 {
-  "imprint.title": "법적 고지",
-  "privacy.title": "개인정보 보호정책",
-  "terms.title": "이용약관",
   "accessibility.title": "접근성",
   "cookies.title": "쿠키 정책",
-  "legal.only_german": "법적 이유로 이 콘텐츠는 독일어로만 제공됩니다."
+  "imprint.title": "법적 고지",
+  "legal.only_german": "법적 이유로 이 콘텐츠는 독일어로만 제공됩니다.",
+  "privacy.title": "개인정보 보호정책",
+  "terms.title": "이용약관"
 }

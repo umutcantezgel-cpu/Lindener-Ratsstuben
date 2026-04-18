@@ -34,7 +34,7 @@ export function PricingCard({
     return (
         <div className={`relative flex flex-col p-8 rounded-2xl bg-surface border ${isPopular ? 'border-primary shadow-warm' : 'border-border'} transition-all`}>
             {isPopular && (
-                <div className="absolute top-0 right-8 -translate-y-1/2">
+                <div className="absolute top-0 end-8 -translate-y-1/2">
                     <span className="bg-primary text-surface text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full">
                         Empfehlung
                     </span>

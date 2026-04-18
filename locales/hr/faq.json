@@ -1,0 +1,25 @@
+{
+  "items": {
+    "q1": {
+      "question": "Što su Lindener Ratsstuben?",
+      "shortAnswer": "To je tradicionalni restoran u Lindenu, specijaliziran za autentičnu njemačko-talijansku i mediteransku kuhinju."
+    },
+    "q2": {
+      "question": "Nudite li catering?",
+      "shortAnswer": "Da, nudimo profesionalni catering za događaje do 120 osoba."
+    },
+    "q3": {
+      "question": "Koje je radno vrijeme?",
+      "shortAnswer": "Otvoreni smo od utorka do nedjelje. Ručak: 11:30-14:30, Večera: 17:30-22:30. Ponedjeljkom zatvoreno."
+    },
+    "q4": {
+      "question": "Imate li vegetarijanska jela?",
+      "shortAnswer": "Da, nudimo širok izbor svježih vegetarijanskih jela."
+    },
+    "q5": {
+      "question": "Gdje mogu pronaći jelovnik?",
+      "shortAnswer": "Naš jelovnik možete pronaći izravno na našoj web stranici."
+    }
+  },
+  "title": "Često Postavljana Pitanja"
+}

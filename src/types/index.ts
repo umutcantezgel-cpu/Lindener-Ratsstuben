@@ -33,20 +33,23 @@ export interface Address {
   readonly country: string;
 }
 
+export interface TimeRange {
+  readonly start: string;
+  readonly end: string;
+}
+
 export interface OpeningHoursSlot {
-  readonly tage: string;
-  readonly mittags: string;
-  readonly abends: string;
+  readonly tageKey: string;
+  readonly mittags: TimeRange;
+  readonly abends: TimeRange;
 }
 
 export interface Ruhetag {
-  readonly tag: string;
-  readonly ausnahme: string;
+  readonly tagKey: string;
+  readonly ausnahmeKey: string;
 }
 
 export interface OpeningHours {
-  readonly monday: string;
-  readonly tuesdayToSunday: string;
   readonly regulaer: OpeningHoursSlot;
   readonly ruhetag: Ruhetag;
 }

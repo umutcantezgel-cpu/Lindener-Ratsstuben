@@ -75,16 +75,16 @@ export function AnimateIn({
         initial: "hidden",
         whileInView: "visible",
         viewport: { once, amount: threshold, margin: "-50px" },
-        transition: { duration, delay, ease: [0.16, 1, 0.3, 1] },
+        transition: { duration, delay, ease: [0.21, 0.47, 0.32, 0.98] },
         variants,
       }
 
   return (
-    <motion.div
+    <motion.div style={{ willChange: "transform, opacity" }}
       className={className}
       {...motionProps}
       {...(isStaggered && !prefersReducedMotion
-        ? { transition: { duration, ease: [0.16, 1, 0.3, 1] } }
+        ? { transition: { duration, ease: [0.21, 0.47, 0.32, 0.98] } }
         : {})}
       {...props}
     >
@@ -124,7 +124,7 @@ export function StaggerContainer({
 
   return (
     <StaggerContext.Provider value={true}>
-      <motion.div
+      <motion.div style={{ willChange: "transform, opacity" }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once, amount: threshold, margin: "-50px" }}

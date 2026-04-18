@@ -35,7 +35,7 @@ export const KegelFAQ: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl md:text-5xl font-display text-onyx mb-4 uppercase tracking-widest">
@@ -44,9 +44,10 @@ export const KegelFAQ: React.FC = () => {
                     <div className="h-[1px] w-12 bg-muted-gold mx-auto" />
                 </motion.div>
 
-                <div className="flex flex-col gap-4">
+                <motion.div layout className="flex flex-col gap-4">
                     {faqs.map((faq, idx) => (
                         <motion.div 
+                            layout
                             key={idx}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -54,25 +55,27 @@ export const KegelFAQ: React.FC = () => {
                             transition={{ duration: 0.8, delay: idx * 0.1, ease: "easeOut" }}
                             className="bg-white border border-gray-200"
                         >
-                            <button
+                            <motion.button
+                                layout="position"
                                 onClick={() => toggleFAQ(idx)}
                                 className="w-full text-left px-8 py-6 flex justify-between items-center group cursor-pointer"
                                 aria-expanded={openIndex === idx}
                             >
-                                <h3 className="text-lg font-display uppercase tracking-widest text-onyx pr-8 group-hover:text-muted-gold transition-colors duration-300">
+                                <h3 className="text-lg font-display uppercase tracking-widest text-onyx pe-8 group-hover:text-muted-gold transition-colors duration-300">
                                     {faq.question}
                                 </h3>
                                 <ChevronDown 
                                     className={`w-5 h-5 text-muted-gold flex-shrink-0 transition-transform duration-500 ease-in-out ${openIndex === idx ? 'rotate-180' : ''}`} 
                                 />
-                            </button>
+                            </motion.button>
                             
-                            <AnimatePresence>
+                            <AnimatePresence initial={false}>
                                 {openIndex === idx && (
                                     <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: 'auto', opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
+                                        layout="position"
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
                                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                                         className="overflow-hidden"
                                     >
@@ -84,7 +87,7 @@ export const KegelFAQ: React.FC = () => {
                             </AnimatePresence>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

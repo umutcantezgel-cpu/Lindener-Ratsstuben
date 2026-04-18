@@ -5,21 +5,21 @@ import DishItem from './DishItem';
 export default function EditorialDolci({ pageNum }: { pageNum: string }) {
   return (
     <PrintPage pageNum={pageNum}>
-      <div style={{ maxWidth: '90%', margin: '0 auto', paddingTop: '40px', position: 'relative' }}>
+      <div style={{ maxWidth: '90%', margin: '0 auto', paddingTop: '20px', position: 'relative' }}>
         
         {/* Editorial Header */}
-        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '30px' }}>
           <h2 style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--gold)', fontSize: '20px', letterSpacing: '8px', marginBottom: '10px', textTransform: 'uppercase' }}>Il Finale</h2>
           <h3 style={{ fontFamily: 'var(--font-cormorant)', color: 'var(--ink)', fontSize: '48px', fontStyle: 'italic', margin: '0', lineHeight: '1.2' }}>Dolci e Caffè</h3>
           <div style={{ margin: '20px auto 0', width: '40px', height: '1px', backgroundColor: 'var(--gold)' }}></div>
         </div>
 
-        <p className="cv-intro" style={{ textAlign: 'center', fontSize: '14px', lineHeight: '1.7', marginBottom: '50px', padding: '0 20px' }}>
+        <p className="cv-intro" style={{ textAlign: 'center', fontSize: '14px', lineHeight: '1.7', marginBottom: '30px', padding: '0 20px' }}>
           Jedes großartige Menü verdient einen krönenden Abschluss. Von klassischem Tiramisu nach Familienrezeptur bis hin zum authentischen italienischen Espresso – lassen Sie sich verführen.
         </p>
 
         {/* Dolci Items */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '30px', marginBottom: '50px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px', marginBottom: '30px' }}>
           <DishItem id="130" name="TIRAMISU (HAUSGEMACHT)" price="6,00 €" descStyle={{ fontSize: '14px', lineHeight: '1.6' }} desc="Das ikonische Dessert Italiens. Löffelbiskuit, umhüllt von edlem Espresso, geschichtet mit einer samtigen Mascarpone-Creme und fein bestäubt mit dunklem Kakao." marginBottom="0" />
           
           <DishItem id="131" name="PANNA COTTA" price="5,50 €" descStyle={{ fontSize: '14px', lineHeight: '1.6' }} desc="Ein zartschmelzender Traum aus Sahne und echter Vanille, abgerundet mit einer fruchtigen, hausgemachten Erdbeer-Coulis." marginBottom="0" />
@@ -53,7 +53,7 @@ export default function EditorialDolci({ pageNum }: { pageNum: string }) {
           </div>
         </div>
         
-        <div className="cv-est" style={{position: 'relative', bottom: 'auto', marginTop: '40px'}}>
+        <div className="cv-est" style={{position: 'relative', bottom: 'auto', marginTop: '20px'}}>
           <span style={{fontSize: '24px'}}>GRAZIE ◆ BUON APPETITO</span>
         </div>
         

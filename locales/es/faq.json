@@ -1,0 +1,25 @@
+{
+  "items": {
+    "q1": {
+      "question": "¿Qué son los Lindener Ratsstuben?",
+      "shortAnswer": "Es un restaurante tradicional en Linden especializado en auténtica cocina germano-italiana y mediterránea, que además ofrece servicios de catering."
+    },
+    "q2": {
+      "question": "¿Ofrecen servicio de catering?",
+      "shortAnswer": "Sí, ofrecemos un servicio profesional de catering y eventos para bodas y celebraciones corporativas de hasta 120 personas."
+    },
+    "q3": {
+      "question": "¿Cuál es el horario de atención?",
+      "shortAnswer": "Abrimos de martes a domingo. El almuerzo se sirve de 11:30 a 14:30 y la cena de 17:30 a 22:30. Cerramos los lunes, excepto festivos."
+    },
+    "q4": {
+      "question": "¿Tienen opciones vegetarianas?",
+      "shortAnswer": "Sí, disponemos de una amplia selección de platos vegetarianos frescos de inspiración italiana y mediterránea."
+    },
+    "q5": {
+      "question": "¿Dónde puedo ver el menú?",
+      "shortAnswer": "El menú está disponible en nuestro sitio web, donde encontrará nuestras especialidades, ensaladas y nuestro menú diario de 2 platos."
+    }
+  },
+  "title": "Preguntas Frecuentes"
+}

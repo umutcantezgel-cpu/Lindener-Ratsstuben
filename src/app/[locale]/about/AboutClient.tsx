@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import Image from '@/components/ui/ImagePlaceholder';
+import { AdaptiveImage as Image } from '@/components/ui/AdaptiveImage';
 import Link from 'next/link';
 import { PageTransition } from '@/components/effects/PageTransition';
 import { Flame, Heart, Leaf } from 'lucide-react';
@@ -50,9 +50,10 @@ const AboutClient = ({ faqData }: AboutClientProps) => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-sm">
                                 <Image
-                                    src="/images/placeholder.svg"
+                                    src="/images/editorial/kitchen_ambiance.png"
                                     alt="Restaurant Interior"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-cover"
                                 />
                             </div>
@@ -110,7 +111,7 @@ const AboutClient = ({ faqData }: AboutClientProps) => {
                         </div>
                         <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 m-0 p-0 list-none">
                             {[
-                                { name: 'Rahul Sharma', role: t('about.role_chef') as string, image: '/images/placeholder.svg' },
+                                { name: 'Rahul Sharma', role: t('about.role_chef') as string, image: '/images/philosophy_chef.png' },
                                 { name: 'Amina Khan', role: t('about.role_manager') as string, image: '/images/placeholder.svg' },
                                 { name: 'Vikram Singh', role: t('about.role_souschef') as string, image: '/images/placeholder.svg' }
                             ].map((member, index) => (
@@ -119,6 +120,7 @@ const AboutClient = ({ faqData }: AboutClientProps) => {
                                         src={member.image}
                                         alt={`Portrait von ${member.name}, ${member.role}`}
                                         fill
+                                        sizes="(max-width: 768px) 100vw, 33vw"
                                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-text-primary/80 via-text-primary/20 to-transparent flex flex-col justify-end p-6 text-surface translate-y-4 group-hover:translate-y-0 transition-transform">

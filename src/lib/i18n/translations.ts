@@ -36,13 +36,14 @@ export function getFallbackLocales(locale: string): LocaleType[] {
   }
   // Generic fallback logic
   const baseLang = locale.split('-')[0] as LocaleType;
-  if (baseLang !== locale && baseLang !== 'en') {
-    return [baseLang, 'en'];
+  if (baseLang !== locale && baseLang !== 'en' && baseLang !== 'de') {
+    return [baseLang, 'en', 'de'];
   }
   
-  if (locale !== 'en') return ['en'];
+  if (locale !== 'en' && locale !== 'de') return ['en', 'de'];
+  if (locale === 'en') return ['de']; // English falls back to German
   
-  return [];
+  return []; // German (de) is the root, no further fallback
 }
 
 /**

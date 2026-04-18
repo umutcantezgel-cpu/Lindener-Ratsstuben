@@ -18,7 +18,7 @@ export const TrustBadgeRow = () => {
             {badges.map((badge, idx) => (
                 <div key={idx} className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface shadow-sm">
                     <badge.icon className={`w-4 h-4 ${badge.color}`} aria-hidden="true" />
-                    <span className="text-sm font-semibold text-text-secondary">{badge.text}</span>
+                    <span className="text-sm font-semibold text-text-primary">{badge.text}</span>
                 </div>
             ))}
         </div>

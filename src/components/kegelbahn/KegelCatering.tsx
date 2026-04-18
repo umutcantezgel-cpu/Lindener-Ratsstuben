@@ -27,7 +27,7 @@ export const KegelCatering: React.FC = () => {
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
                         className="w-full md:w-1/3"
                     >
                         <h2 className="text-3xl md:text-5xl font-display text-onyx mb-6 uppercase tracking-widest leading-tight">
@@ -44,7 +44,7 @@ export const KegelCatering: React.FC = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.8, delay: idx * 0.2, ease: "easeOut" }}
-                                className="group relative pl-8 border-l border-gray-200 hover:border-muted-gold transition-colors duration-500"
+                                className="group relative ps-8 border-s border-gray-200 hover:border-muted-gold transition-colors duration-500"
                             >
                                 <h3 className="text-2xl font-display text-onyx mb-3 uppercase tracking-wider">
                                     {item.title}

@@ -44,7 +44,7 @@ export function SnippetAnswer({
             </HeadingTag>
             
             {/* The Featured Snippet target: 40-60 words format directly under the heading */}
-            <p className="text-lg font-medium text-text-secondary leading-relaxed mb-4 border-l-4 border-primary pl-4">
+            <p className="text-lg font-medium text-text-secondary leading-relaxed mb-4 border-s-4 border-primary ps-4">
                 {shortAnswer}
             </p>
 

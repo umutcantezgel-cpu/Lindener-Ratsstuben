@@ -3,10 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import { WifiOff } from 'lucide-react';
 import { useOnlineStatus } from '@/hooks/useOnlineStatus';
+import { useNetworkRetry } from '@/hooks/useNetworkRetry';
 
 export function OfflineBanner() {
   const isOnline = useOnlineStatus();
   const [mounted, setMounted] = useState(false);
+
+  // Initialize the background retry worker
+  useNetworkRetry();
 
   useEffect(() => {
     setMounted(true);

@@ -1,3 +1,4 @@
+import { getAlternates } from '@/lib/seo/metadata';
 import { notFound } from 'next/navigation';
 import { getRegionalArticle, getRegionalSlugsByCategory } from '@/utils/markdown-regional';
 import { RegionalArticleTemplate } from '@/components/regional/RegionalArticleTemplate';
@@ -22,9 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${article.metaTitle} | Lindener Ratsstuben`,
     description: article.metaDescription,
-    alternates: {
-      canonical: `https://lindener-ratsstuben.de/${params.locale}/business/${params.slug}`
-    }
+    alternates: getAlternates(params.locale, `business/${params.slug}`),
   };
 }
 
