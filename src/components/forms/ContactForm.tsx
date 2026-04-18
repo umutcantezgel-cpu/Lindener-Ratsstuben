@@ -13,7 +13,7 @@ import { useFormProgress } from '@/hooks/useFormProgress';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { MorphingButton, ButtonState } from '../ui/MorphingButton';
 import { motion, AnimatePresence } from 'framer-motion';
-import { EASING, SPRING } from '@/lib/constants/motion';
+import { EASING } from '@/lib/constants/motion';
 
 // Optional: Pass Formspree ID via Env. For now fallback to a demo ID or generic handle.
 const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || "xjkvrwgq";
@@ -169,7 +169,9 @@ export function ContactForm() {
                         onSubmit={handleSubmit(onSubmit)} 
                         className="space-y-6"
                     >
-                {/* Honeypot for Spam Protection */}
+                {/* Formspree configuration fields */}
+                <input type="hidden" name="_subject" value={`[Kontakt] ${watch('subject')} - ${watch('name')}`} />
+                <input type="hidden" name="_replyto" value={watch('email')} />
                 <input type="text" name="_gotcha" style={{ display: 'none' }} />
 
                 <div>
