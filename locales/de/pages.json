@@ -101,5 +101,16 @@
   "kegelbahn.faq.q2": "Dürfen eigene Getränke mitgebracht werden?",
   "kegelbahn.faq.a2": "Der Verzehr von mitgebrachten Speisen und Getränken ist in unseren Räumlichkeiten nicht gestattet. Unser Service bedient Sie gerne direkt an der Bahn.",
   "kegelbahn.faq.q3": "Ist die Kegelbahn für Kindergeburtstage geeignet?",
-  "kegelbahn.faq.a3": "Absolut! Wir bieten spezielle Rahmenbedingungen und Menüs für jüngere Gäste nach vorheriger Absprache an."
+  "kegelbahn.faq.a3": "Absolut! Wir bieten spezielle Rahmenbedingungen und Menüs für jüngere Gäste nach vorheriger Absprache an.",
+  "menu.category_suppen": "Suppen",
+  "menu.category_vorspeisen": "Vorspeisen",
+  "menu.category_salate": "Salate",
+  "menu.category_pasta": "Pasta",
+  "menu.category_ueberbackenes": "Überbackenes",
+  "menu.category_hausgemacht": "Hausgemacht",
+  "menu.category_schnitzel": "Schnitzel",
+  "menu.category_fleisch": "Fleischgerichte",
+  "menu.category_kinder": "Kinder",
+  "menu.category_pizza": "Pizza",
+  "menu.category_familienpizza": "Familienpizza"
 }

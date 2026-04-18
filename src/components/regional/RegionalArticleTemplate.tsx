@@ -104,7 +104,7 @@ function parseMarkdown(content: string) {
     .replace(/^### (.*$)/gim, '<h3 class="text-2xl mt-8 mb-4">$1</h3>')
     .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
     .replace(/\n\n/gim, '</p><p class="mb-4 leading-relaxed">')
-    .replace(/^\* (.*$)/gim, '<li class="ml-4 list-disc mb-2">$1</li>')
+    .replace(/^\* (.*$)/gim, '<li class="ms-4 list-disc mb-2">$1</li>')
     // Wrap initial paragraph
     .replace(/^([^<].*)$/m, '<p class="mb-4 leading-relaxed">$1</p>');
 }

@@ -1,8 +1,8 @@
 {
-  "imprint.title": "Juridisk informasjon",
-  "privacy.title": "Personvernpolicy",
-  "terms.title": "Vilkår og Betingelser",
   "accessibility.title": "Tilgjengelighet",
   "cookies.title": "Informasjonskapsel­policy",
-  "legal.only_german": "Dette innholdet er av juridiske grunner kun tilgjengelig på tysk."
+  "imprint.title": "Juridisk informasjon",
+  "legal.only_german": "Dette innholdet er av juridiske grunner kun tilgjengelig på tysk.",
+  "privacy.title": "Personvernpolicy",
+  "terms.title": "Vilkår og Betingelser"
 }

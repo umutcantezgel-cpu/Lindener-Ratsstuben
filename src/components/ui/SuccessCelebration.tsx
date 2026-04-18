@@ -1,6 +1,7 @@
 import React from 'react';
 import { Check, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SPRING } from '@/lib/constants/motion';
 
 interface SuccessCelebrationProps {
     name?: string;
@@ -28,7 +29,7 @@ export function SuccessCelebration({
             <motion.div 
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
+                transition={{ ...SPRING.fluid, delay: 0.1 }}
                 className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6"
             >
                 <Check className="w-10 h-10" />

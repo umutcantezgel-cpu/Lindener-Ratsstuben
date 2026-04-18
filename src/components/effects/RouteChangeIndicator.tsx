@@ -24,8 +24,8 @@ export function RouteChangeIndicator() {
   if (!isRouting) return null;
 
   return (
-    <div className="fixed top-0 left-0 w-full h-1 z-[100] bg-transparent">
-      <div className="h-full bg-primary animate-pulse opacity-75" style={{ width: '100%', transition: 'width 0.3s ease' }}></div>
+    <div className="fixed top-0 start-0 w-full h-1 z-[100] bg-transparent">
+      <div className="h-full bg-primary animate-pulse opacity-75 origin-left" style={{ transform: 'scaleX(1)', transition: 'transform 0.3s ease' }}></div>
     </div>
   );
 }

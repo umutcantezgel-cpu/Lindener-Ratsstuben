@@ -19,27 +19,34 @@ export const HeroRoot: React.FC<HeroRootProps> = ({ mainMenuPdfUrl }) => {
         offset: ["start start", "end start"]
     });
 
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
     const opacityTransform = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
     return (
         <section 
             ref={containerRef} 
             aria-labelledby="hero-title" 
-            className="relative min-h-[82vh] 2xl:min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#FAFAFA] pt-36 pb-28 md:pt-40 md:pb-32"
+            className="relative w-full h-[100svh] overflow-hidden bg-neutral-950 flex flex-col items-center justify-center"
         >
-            <div className="absolute inset-0 bg-gradient-to-b from-stone-50 to-[#FAFAFA] pointer-events-none z-0" />
+            {/* Layer 0: Cinematic Background & Vignette */}
+            <div className="absolute inset-0 z-0">
+                <HeroCinematics 
+                    scrollYProgress={scrollYProgress} 
+                    imageUrl={hero.imageUrl} 
+                    blurDataURL={hero.blurDataURL}
+                />
+            </div>
             
-            <HeroCinematics scrollYProgress={scrollYProgress} imageUrl={hero.imageUrl} />
-
-            <div className="container relative z-10 mx-auto px-6 sm:px-8 max-w-5xl flex flex-col items-center justify-center text-center">
-                <div className="w-full flex flex-col items-center">
-                    <HeroMessaging textY={textY} />
-                    <HeroInteractionHarness mainMenuPdfUrl={mainMenuPdfUrl} />
-                </div>
+            {/* Layer 1: Core Messaging & CTAs */}
+            <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl w-full flex flex-col items-center justify-center">
+                <HeroMessaging textY={textY} />
+                <HeroInteractionHarness mainMenuPdfUrl={mainMenuPdfUrl} />
             </div>
 
-            <HeroScrollIndicator opacityTransform={opacityTransform} />
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-40">
+                <HeroScrollIndicator opacityTransform={opacityTransform} />
+            </div>
         </section>
     );
 };

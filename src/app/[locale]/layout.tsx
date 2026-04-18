@@ -6,8 +6,9 @@ import dynamic from 'next/dynamic';
 
 const Footer = dynamic(() => import('@/components/layout/Footer').then(mod => mod.Footer), { ssr: true });
 import { SkipNav } from '@/components/layout/SkipNav';
-import { ScrollProgress } from '@/components/ui/ScrollProgress';
-import { BackToTop } from '@/components/ui/BackToTop';
+const ScrollProgress = dynamic(() => import('@/components/ui/ScrollProgress').then(mod => mod.ScrollProgress), { ssr: false });
+const BackToTop = dynamic(() => import('@/components/ui/BackToTop').then(mod => mod.BackToTop), { ssr: false });
+import { PageSkeleton } from '@/components/ui/PageSkeleton';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { companyData } from '@/data/company';
 import { createGlobalSchemaGraph } from '@/lib/seo/schema-generators';
@@ -16,8 +17,9 @@ import { AppProvider } from '@/lib/context/AppContext';
 import { UIProvider } from '@/lib/context/UIContext';
 import { DeviceProvider } from '@/lib/context/DeviceContext';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
-import ToastContainer from '@/components/ui/ToastContainer';
-import { ClientKeyboardShortcuts } from '@/components/ui/ClientKeyboardShortcuts';
+const ToastContainer = dynamic(() => import('@/components/ui/ToastContainer'), { ssr: false });
+const ClientKeyboardShortcuts = dynamic(() => import('@/components/ui/ClientKeyboardShortcuts').then(mod => mod.ClientKeyboardShortcuts), { ssr: false });
+import { GlobalMotionProvider } from '@/lib/context/MotionProvider';
 import { RouteChangeIndicator } from '@/components/effects/RouteChangeIndicator';
 import { OfflineBanner } from '@/components/effects/OfflineBanner';
 import { headers } from 'next/headers';
@@ -49,7 +51,11 @@ const loraFont = Lora({
 });
 
 import { getTranslations } from '@/lib/i18n/get-translations';
-import { LocaleType } from '@/lib/locales';
+import { ALLOWED_LOCALES, LocaleType } from '@/lib/locales';
+
+export function generateStaticParams() {
+  return ALLOWED_LOCALES.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -77,7 +83,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       },
     },
     alternates: {
-      canonical: '/',
+      canonical: `/${locale}`,
     },
     openGraph: {
       type: 'website',
@@ -144,8 +150,9 @@ export default async function RootLayout({
               <AppProvider>
                 <UIProvider>
                   <I18nProvider dictionary={clientDictionary} locale={locale as LocaleType}>
-                    <SkipNav />
-                    <ErrorBoundary>
+                    <GlobalMotionProvider>
+                      <SkipNav />
+                      <ErrorBoundary>
                       <div className="antialiased min-h-screen flex flex-col" role="document">
                       <div className="bg-paper-texture" aria-hidden="true" />
                       <OfflineBanner />
@@ -153,8 +160,8 @@ export default async function RootLayout({
                       <RouteChangeIndicator />
                       <ScrollProgress />
                       <Header mainMenuPdfUrl={mainMenuPdfUrl} />
-                      <main id="main-content" className="flex-grow">
-                        <Suspense fallback={<div className="min-h-screen bg-bg-primary" />}>
+                      <main id="main-content" role="main" className="flex-grow">
+                        <Suspense fallback={<PageSkeleton />}>
                           {children}
                         </Suspense>
                       </main>
@@ -167,6 +174,7 @@ export default async function RootLayout({
                       <AiKnowledgeBase />
                     </div>
                   </ErrorBoundary>
+                  </GlobalMotionProvider>
                   </I18nProvider>
                 </UIProvider>
               </AppProvider>

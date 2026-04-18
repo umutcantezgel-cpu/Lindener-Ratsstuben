@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: fullTitle,
       description,
-      url: "/contact",
+      url: `/${locale}/contact`,
     }
   };
 }

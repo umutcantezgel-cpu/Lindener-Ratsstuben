@@ -25,7 +25,7 @@ export function Skeleton({
     <div
       aria-hidden="true"
       className={cn(
-        'animate-pulse bg-border',
+        'relative overflow-hidden bg-surface/80 border border-border/40',
         circle ? 'rounded-full' : 'rounded-lg',
         className
       )}
@@ -33,6 +33,14 @@ export function Skeleton({
         width: typeof width === 'number' ? `${width}px` : width,
         height: typeof height === 'number' ? `${height}px` : height,
       }}
-    />
+    >
+      <div 
+        className="absolute inset-0 -translate-x-full"
+        style={{
+          animation: 'shimmer 1.5s infinite linear',
+          backgroundImage: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.06) 50%, transparent 100%)'
+        }}
+      />
+    </div>
   );
 }

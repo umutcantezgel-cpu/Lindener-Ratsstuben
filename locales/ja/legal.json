@@ -1,8 +1,8 @@
 {
-  "imprint.title": "法的情報",
-  "privacy.title": "プライバシーポリシー",
-  "terms.title": "利用規約",
   "accessibility.title": "アクセシビリティ",
   "cookies.title": "Cookieポリシー",
-  "legal.only_german": "このコンテンツは法的理由によりドイツ語のみで提供されています。"
+  "imprint.title": "法的情報",
+  "legal.only_german": "このコンテンツは法的理由によりドイツ語のみで提供されています。",
+  "privacy.title": "プライバシーポリシー",
+  "terms.title": "利用規約"
 }

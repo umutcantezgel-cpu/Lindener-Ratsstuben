@@ -30,17 +30,17 @@ export const KegelFeatures: React.FC = () => {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 1, delay: idx * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                            transition={{ duration: 1, delay: idx * 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
                             className="flex flex-col relative group"
                         >
                             {/* Number Accent */}
-                            <span className="text-8xl font-display font-light text-gray-100 mb-8 select-none transition-colors duration-700 group-hover:text-muted-gold/10">
+                            <span className="text-8xl font-display font-light text-gray-500 mb-8 select-none transition-colors duration-700 group-hover:text-muted-gold/10" aria-hidden="true">
                                 {feature.number}
                             </span>
                             
                             <h2 className="text-3xl font-display text-onyx mb-6 uppercase tracking-wider relative">
                                 {feature.title}
-                                <span className="absolute -bottom-3 left-0 w-8 h-[2px] bg-muted-gold transition-all duration-500 group-hover:w-16"></span>
+                                <span className="absolute -bottom-3 start-0 w-8 h-[2px] bg-muted-gold transition-all duration-500 group-hover:w-16"></span>
                             </h2>
                             
                             <p className="text-gray-500 leading-relaxed font-light text-lg">

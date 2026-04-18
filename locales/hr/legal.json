@@ -1,8 +1,8 @@
 {
-  "imprint.title": "Impressum",
-  "privacy.title": "Pravila privatnosti",
-  "terms.title": "Uvjeti korištenja",
   "accessibility.title": "Pristupačnost",
   "cookies.title": "Politika kolačića",
-  "legal.only_german": "Ovaj sadržaj je iz pravnih razloga dostupan samo na njemačkom jeziku."
+  "imprint.title": "Impressum",
+  "legal.only_german": "Ovaj sadržaj je iz pravnih razloga dostupan samo na njemačkom jeziku.",
+  "privacy.title": "Pravila privatnosti",
+  "terms.title": "Uvjeti korištenja"
 }

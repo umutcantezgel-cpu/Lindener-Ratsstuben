@@ -1,9 +1,9 @@
 {
-  "home.title": "Hem | Lindener Ratsstuben",
-  "home.description": "Välkommen till Lindener Ratsstuben. Njut av italienska och medelhavs­specialiteter, tillagade med passion.",
-  "menu.title": "Meny | Lindener Ratsstuben",
+  "about.title": "Om Oss | Lindener Ratsstuben",
   "contact.title": "Kontakt — Lindener Ratsstuben",
-  "reservation.title": "Bokning | Lindener Ratsstuben",
   "gallery.title": "Galleri — Lindener Ratsstuben",
-  "about.title": "Om Oss | Lindener Ratsstuben"
+  "home.description": "Välkommen till Lindener Ratsstuben. Njut av italienska och medelhavs­specialiteter, tillagade med passion.",
+  "home.title": "Hem | Lindener Ratsstuben",
+  "menu.title": "Meny | Lindener Ratsstuben",
+  "reservation.title": "Bokning | Lindener Ratsstuben"
 }

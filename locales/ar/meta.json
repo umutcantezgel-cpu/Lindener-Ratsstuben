@@ -1,9 +1,9 @@
 {
-  "home.title": "الرئيسية | Lindener Ratsstuben",
-  "home.description": "مرحباً بكم في Lindener Ratsstuben. استمتعوا بالأطباق الإيطالية والمتوسطية المعدة بشغف.",
-  "menu.title": "القائمة | Lindener Ratsstuben",
+  "about.title": "من نحن | Lindener Ratsstuben",
   "contact.title": "اتصل بنا — Lindener Ratsstuben",
-  "reservation.title": "حجز | Lindener Ratsstuben",
   "gallery.title": "المعرض — Lindener Ratsstuben",
-  "about.title": "من نحن | Lindener Ratsstuben"
+  "home.description": "مرحباً بكم في Lindener Ratsstuben. استمتعوا بالأطباق الإيطالية والمتوسطية المعدة بشغف.",
+  "home.title": "الرئيسية | Lindener Ratsstuben",
+  "menu.title": "القائمة | Lindener Ratsstuben",
+  "reservation.title": "حجز | Lindener Ratsstuben"
 }

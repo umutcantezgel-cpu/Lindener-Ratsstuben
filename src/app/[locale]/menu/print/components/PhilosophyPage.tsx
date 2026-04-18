@@ -4,11 +4,11 @@ import PrintPage from './PrintPage';
 export default function PhilosophyPage() {
   return (
     <PrintPage pageNum="II">
-      <div style={{ maxWidth: '85%', margin: '0 auto', paddingTop: '60px' }}>
-        <h2 style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--gold)', fontSize: '24px', letterSpacing: '6px', marginBottom: '20px', textTransform: 'uppercase', textAlign: 'center' }}>Unsere Philosophie</h2>
-        <h3 style={{ fontFamily: 'var(--font-cormorant)', color: 'var(--ink)', fontSize: '36px', fontStyle: 'italic', marginBottom: '70px', textAlign: 'center' }}>Tradition, Qualität & Handwerk</h3>
+      <div style={{ maxWidth: '85%', margin: '0 auto', paddingTop: '40px' }}>
+        <h2 style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--gold)', fontSize: '24px', letterSpacing: '6px', marginBottom: '15px', textTransform: 'uppercase', textAlign: 'center' }}>Unsere Philosophie</h2>
+        <h3 style={{ fontFamily: 'var(--font-cormorant)', color: 'var(--ink)', fontSize: '36px', fontStyle: 'italic', marginBottom: '40px', textAlign: 'center' }}>Tradition, Qualität & Handwerk</h3>
         
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '50px', marginBottom: '60px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', marginBottom: '40px' }}>
           <div>
             <h4 style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--ink)', fontSize: '18px', letterSpacing: '2px', marginBottom: '20px' }}>Echtes Handwerk</h4>
             <p className="cv-intro" style={{ fontSize: '15px', lineHeight: '1.7', textAlign: 'justify' }}>
@@ -23,7 +23,7 @@ export default function PhilosophyPage() {
           </div>
         </div>
 
-        <div style={{ padding: '60px 0', margin: '40px 0', textAlign: 'center', position: 'relative' }}>
+        <div style={{ padding: '40px 0', margin: '20px 0', textAlign: 'center', position: 'relative' }}>
           {/* Decorative Divider Top */}
           <svg style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)' }} width="200" height="20" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 10L100 10L190 10" stroke="var(--gold)" strokeWidth="0.5"/>

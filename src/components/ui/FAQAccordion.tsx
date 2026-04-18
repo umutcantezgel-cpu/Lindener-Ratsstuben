@@ -66,7 +66,7 @@ export function FAQAccordion({
               aria-controls={panelId}
               className="w-full flex items-center justify-between py-5 text-left transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-lg"
             >
-              <span className="text-base font-semibold text-text-primary pr-4">
+              <span className="text-base font-semibold text-text-primary pe-4">
                 {item.question}
               </span>
               <ChevronDown
@@ -87,7 +87,7 @@ export function FAQAccordion({
                 isOpen ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'
               )}
             >
-              <p className="text-text-secondary leading-relaxed pl-0.5">
+              <p className="text-text-secondary leading-relaxed ps-0.5">
                 {item.answer}
               </p>
             </div>

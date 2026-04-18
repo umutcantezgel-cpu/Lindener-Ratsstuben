@@ -1,9 +1,9 @@
 {
-  "home.title": "Etusivu | Lindener Ratsstuben",
-  "home.description": "Tervetuloa Lindener Ratsstubeniin. Nauti intohimolla valmistettuja italialaisia ja välimeren herkkuja.",
-  "menu.title": "Menu | Lindener Ratsstuben",
+  "about.title": "Meistä | Lindener Ratsstuben",
   "contact.title": "Yhteystiedot — Lindener Ratsstuben",
-  "reservation.title": "Varaus | Lindener Ratsstuben",
   "gallery.title": "Galleria — Lindener Ratsstuben",
-  "about.title": "Meistä | Lindener Ratsstuben"
+  "home.description": "Tervetuloa Lindener Ratsstubeniin. Nauti intohimolla valmistettuja italialaisia ja välimeren herkkuja.",
+  "home.title": "Etusivu | Lindener Ratsstuben",
+  "menu.title": "Menu | Lindener Ratsstuben",
+  "reservation.title": "Varaus | Lindener Ratsstuben"
 }

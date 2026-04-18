@@ -36,7 +36,7 @@ export function CookieBanner() {
         <div
             role="dialog"
             aria-label={t('cookie.settings') as string}
-            className="fixed bottom-0 left-0 right-0 z-toast p-4 md:p-6"
+            className="fixed bottom-0 inset-x-0 z-toast p-4 md:p-6"
         >
             <div className="max-w-3xl mx-auto bg-bg-primary border border-border rounded-2xl shadow-elevation-high p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <Shield className="w-8 h-8 text-primary flex-shrink-0 mt-1 sm:mt-0" aria-hidden="true" />

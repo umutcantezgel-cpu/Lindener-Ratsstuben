@@ -59,7 +59,7 @@ export function FloatingReservationCTA() {
   // Liquid Transition configurations
   const liquidTransition = {
     duration: 0.8,
-    ease: [0.25, 1, 0.5, 1] as [number, number, number, number]
+    ease: [0.21, 0.47, 0.32, 0.98] as [number, number, number, number]
   };
 
   const getFomoText = () => {
@@ -80,7 +80,7 @@ export function FloatingReservationCTA() {
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           exit={{ opacity: 0, y: 50, filter: 'blur(8px)' }}
           transition={liquidTransition}
-          className="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none"
+          className="fixed bottom-6 end-6 z-50 flex flex-col items-end pointer-events-none"
         >
           {/* FOMO / Social Proof Tooltip */}
           <AnimatePresence>
@@ -89,8 +89,8 @@ export function FloatingReservationCTA() {
                 initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: 5, filter: 'blur(4px)' }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="mb-3 px-4 py-2 bg-surface/95 backdrop-blur-md text-text-secondary text-xs font-semibold rounded-lg shadow-warm border border-border"
+                transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="mb-3 px-4 py-2 bg-onyx/95 backdrop-blur-md text-stone-300 text-xs font-semibold rounded-lg shadow-warm border border-white/10"
               >
                 {getFomoText()}
               </motion.div>
@@ -124,7 +124,7 @@ export function FloatingReservationCTA() {
               <CalendarDays className="w-4 h-4 text-neutral-950" />
             </div>
             
-            <span className="relative z-10 font-bold text-sm tracking-wide pr-1">
+            <span className="relative z-10 font-bold text-sm tracking-wide pe-1">
               {navCta}
             </span>
 

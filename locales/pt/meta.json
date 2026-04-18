@@ -1,9 +1,9 @@
 {
-  "home.title": "Início | Lindener Ratsstuben",
-  "home.description": "Bem-vindos ao Lindener Ratsstuben. Saboreie especialidades italianas e mediterrâneas, preparadas com paixão.",
-  "menu.title": "Cardápio | Lindener Ratsstuben",
+  "about.title": "Sobre Nós | Lindener Ratsstuben",
   "contact.title": "Contacto — Lindener Ratsstuben",
-  "reservation.title": "Reserva | Lindener Ratsstuben",
   "gallery.title": "Galeria — Lindener Ratsstuben",
-  "about.title": "Sobre Nós | Lindener Ratsstuben"
+  "home.description": "Bem-vindos ao Lindener Ratsstuben. Saboreie especialidades italianas e mediterrâneas, preparadas com paixão.",
+  "home.title": "Início | Lindener Ratsstuben",
+  "menu.title": "Cardápio | Lindener Ratsstuben",
+  "reservation.title": "Reserva | Lindener Ratsstuben"
 }

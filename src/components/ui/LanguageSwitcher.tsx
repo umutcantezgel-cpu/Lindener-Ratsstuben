@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useTransition, useDeferredValue } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { ChevronDown, Check, Search } from 'lucide-react';
 import { clsx } from 'clsx';
@@ -28,6 +28,8 @@ const LOCALE_NATIVE_NAMES: Record<string, string> = {
 export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobile' }> = ({ variant = 'header' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const deferredSearchQuery = useDeferredValue(searchQuery);
+  const [isPending, startTransition] = useTransition();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
@@ -43,8 +45,8 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
 
   // Filter locales by search
   const filteredLocales = ALLOWED_LOCALES.filter(locale => {
-    if (!searchQuery) return true;
-    const q = searchQuery.toLowerCase();
+    if (!deferredSearchQuery) return true;
+    const q = deferredSearchQuery.toLowerCase();
     return (
       locale.includes(q) ||
       LOCALE_DISPLAY_NAMES[locale]?.toLowerCase().includes(q) ||
@@ -59,7 +61,9 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
     document.documentElement.lang = newLocale;
     setIsOpen(false);
     setSearchQuery('');
-    router.push(newPath);
+    startTransition(() => {
+      router.push(newPath);
+    });
   };
 
   // Focus search on open
@@ -115,10 +119,10 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
           {isMobile ? (
             <span>{LOCALE_NATIVE_NAMES[currentLocale]}</span>
           ) : (
-            <span className="uppercase font-semibold">{currentLocale}</span>
+            <span className={clsx("uppercase font-semibold", isPending && "opacity-50 transition-opacity")}>{currentLocale}</span>
           )}
         </span>
-        <ChevronDown className={clsx('w-4 h-4 transition-transform duration-200', isOpen && 'rotate-180')} />
+        <ChevronDown className={clsx('w-4 h-4 transition-transform duration-200', isOpen && 'rotate-180', isPending && 'animate-pulse')} />
       </button>
 
       {/* Dropdown */}
@@ -127,10 +131,10 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
           className={clsx(
             'absolute z-50 mt-2 rounded-2xl shadow-2xl border backdrop-blur-xl overflow-hidden',
             isFooter
-              ? 'bottom-full mb-2 bg-surface/98 border-border w-72 right-0'
+              ? 'bottom-full mb-2 bg-surface/98 border-border w-72 end-0'
               : isMobile
-                ? 'left-0 right-0 bg-surface border-border w-full'
-                : 'top-full bg-surface/98 border-border w-80 right-0',
+                ? 'inset-x-0 bg-surface border-border w-full'
+                : 'top-full bg-surface/98 border-border w-80 end-0',
           )}
           role="listbox"
           aria-label="Available languages"

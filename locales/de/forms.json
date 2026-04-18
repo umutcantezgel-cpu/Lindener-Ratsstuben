@@ -53,5 +53,9 @@
   "validation.guests_required": "Personenanzahl ist erforderlich",
   "validation.subject_required": "Bitte wählen Sie einen Betreff",
   "validation.message_min": "Die Nachricht muss mindestens 10 Zeichen lang sein",
-  "validation.privacy_required": "Sie müssen der Datenschutzerklärung zustimmen"
+  "validation.privacy_required": "Sie müssen der Datenschutzerklärung zustimmen",
+  "reservation.name_label": "Name",
+  "reservation.email_label": "E-Mail",
+  "reservation.phone_label": "Telefon",
+  "reservation.persons": "Personen"
 }

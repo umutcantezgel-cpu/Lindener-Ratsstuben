@@ -1,56 +1,21 @@
+import { getAlternates } from '@/lib/seo/metadata';
 import { Metadata } from 'next';
 import PageClient from './PageClient';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
 import { companyData } from '@/data/company';
 import { Suspense } from 'react';
+import { MenuSkeleton } from '@/components/ui/MenuSkeleton';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { createMenuPageSchema } from '@/lib/seo/schema-generators';
 import { sanityFetch } from '@/lib/sanity/client';
 import { menuCategoriesQuery, dishesQuery } from '@/lib/sanity/queries';
+import { categories as ssotCategories, menuItems as ssotMenuItems, categoryFootnotes } from '@/data/menu';
 
 // ═══ SANITY TYPE INTERFACES ═══
-interface SanityAllergen {
-  _id: string;
-  code: string;
-  name_de?: string;
-  name_en?: string;
-  name_ar?: string;
-  name_fr?: string;
-}
-
-interface SanityCategory {
-  _id: string;
-  title_de?: string;
-  title_en?: string;
-  title_ar?: string;
-  title_fr?: string;
-  slug?: string;
-  icon?: string;
-  order?: number;
-}
-
-interface SanityDish {
-  _id: string;
-  nr?: string;
-  title_de?: string;
-  title_en?: string;
-  title_ar?: string;
-  title_fr?: string;
-  description_de?: string;
-  description_en?: string;
-  description_ar?: string;
-  description_fr?: string;
-  price: number;
-  isBestseller?: boolean;
-  isVegetarian?: boolean;
-  isVegan?: boolean;
-  spiceLevel?: number;
-  additives?: string[];
-  category?: SanityCategory;
-  allergens?: SanityAllergen[];
-  imageUrl?: string;
-}
+interface SanityAllergen { _id: string; code: string; }
+interface SanityCategory { _id: string; title_de?: string; title_en?: string; title_ar?: string; title_fr?: string; slug?: string; icon?: string; order?: number; }
+interface SanityDish { _id: string; nr?: string; title_de?: string; title_en?: string; title_ar?: string; title_fr?: string; description_de?: string; description_en?: string; description_ar?: string; description_fr?: string; price: number; isBestseller?: boolean; isVegetarian?: boolean; isVegan?: boolean; spiceLevel?: number; additives?: string[]; category?: SanityCategory; allergens?: SanityAllergen[]; imageUrl?: string; }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -62,14 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: titleText,
     description,
-    alternates: {
-      canonical: '/menu',
-    },
-    openGraph: {
-      title: fullTitle,
-      description,
-      url: "/menu",
-    }
+    alternates: getAlternates(locale, 'menu'),
+    openGraph: { title: fullTitle, description, url: `/${locale}/menu` }
   };
 }
 
@@ -88,10 +47,9 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     fetchedCategories = categoriesResult || [];
     fetchedDishes = dishesResult || [];
   } catch (error) {
-    console.error("[Sanity] Menu fetch failed. Rendering with empty data.", error);
+    console.error("[Sanity] Menu fetch failed. Falling back to SSOT data.", error);
   }
 
-  // Localized string extraction helper
   const getLocalizedString = (obj: unknown, fieldPrefix: string) => {
     if (!obj || typeof obj !== 'object') return "";
     const record = obj as Record<string, unknown>;
@@ -99,54 +57,53 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     return typeof val === 'string' ? val : "";
   };
 
-  // Transform categories for client component
-  const mappedCategories = fetchedCategories.map((cat) => ({
-    id: cat._id,
-    name: getLocalizedString(cat, 'title'),
-    label: getLocalizedString(cat, 'title'),
-    description: getLocalizedString(cat, 'description'),
-    slug: cat.slug || cat._id,
-    icon: cat.icon || undefined,
-  }));
+  // ═══ SSOT FALLBACK: If Sanity returns no data, use the local SSOT ═══
+  const useSSOTFallback = fetchedDishes.length === 0;
 
-  const finalCategories = mappedCategories.length > 0 ? mappedCategories : [
-    { id: 'fallback', name: 'Speisekarte', label: 'Speisekarte (CMS nicht verbunden)', slug: 'speisekarte' }
-  ];
+  let finalCategories: { id: string; name: string; label: string; description?: string }[];
+  let finalMenuItems: { id: string; nr: string; name: string; description: string; price: number | null; category: string; }[];
 
-  // Transform dishes for client component with all new fields
-  const mappedMenuItems = fetchedDishes.map((dish, index: number) => {
-    const allergens = (dish.allergens || []).map((ref: SanityAllergen) => ref.code);
+  if (useSSOTFallback) {
+    // Use SSOT data directly
+    finalCategories = ssotCategories.map(c => ({
+      id: c.id,
+      name: c.name,
+      label: c.label,
+      description: categoryFootnotes[c.id] || undefined,
+    }));
 
-    const tags: string[] = [];
-    if (dish.isBestseller) tags.push('bestseller');
-    if (dish.isVegetarian) tags.push('vegetarian');
-    if (dish.isVegan) tags.push('vegan');
-    if ((dish.spiceLevel || 0) > 0) tags.push('spicy');
+    finalMenuItems = ssotMenuItems.map((item, idx) => ({
+      id: `ssot-${item.nr || idx}`,
+      nr: item.nr,
+      name: item.name,
+      description: item.description,
+      price: item.price,
+      category: item.category,
+    }));
+  } else {
+    // Use Sanity data (with SSOT as secondary)
+    finalCategories = fetchedCategories.map((cat) => ({
+      id: cat._id,
+      name: getLocalizedString(cat, 'title'),
+      label: getLocalizedString(cat, 'title'),
+      description: getLocalizedString(cat, 'description'),
+    }));
 
-    return {
+    finalMenuItems = fetchedDishes.map((dish, index: number) => ({
       id: dish._id,
       nr: dish.nr || String(index + 1),
       name: getLocalizedString(dish, 'title'),
       description: getLocalizedString(dish, 'description'),
       price: dish.price,
       category: dish.category?._id || 'fallback',
-      categorySlug: dish.category?.slug || '',
-      allergens: allergens,
-      zusatzstoffe: dish.additives || [],
-      tags: tags,
-      spiceLevel: dish.spiceLevel || 0,
-      isBestseller: dish.isBestseller || false,
-      isVegetarian: dish.isVegetarian || false,
-      isVegan: dish.isVegan || false,
-      imageUrl: dish.imageUrl,
-    };
-  });
+    }));
+  }
 
   return (
     <>
       <JsonLd data={createMenuPageSchema()} />
-      <Suspense fallback={<div className="pt-32 pb-20 min-h-screen bg-bg-secondary flex justify-center"><div className="w-8 h-8 rounded-full border-4 border-primary border-t-transparent animate-spin"/></div>}>
-        <PageClient categories={finalCategories} menuItems={mappedMenuItems} />
+      <Suspense fallback={<MenuSkeleton />}>
+        <PageClient categories={finalCategories} menuItems={finalMenuItems} locale={locale} />
       </Suspense>
     </>
   );

@@ -107,7 +107,7 @@ export default async function DatenschutzPage() {
             <p>
                 Unsere Website nutzt ein erweitertes, striktes Consent-Cookie-Verfahren (&quot;Zero-Script Policy&quot;, &quot;Opt-In by Default&quot;). Das bedeutet konkret:
             </p>
-            <ul className="list-disc ml-6 space-y-2 my-4">
+            <ul className="list-disc ms-6 space-y-2 my-4">
                 <li><strong>Technische Cookies:</strong> Für die Bereitstellung der Website-Infrastruktur setzen wir (und unser Hoster Vercel) essenzielle Session-Tokens oder Routing-Cookies. Diese enthalten niemals personenbezogene Identifikationsmerkmale und dienen ausschließlich der Sicherheit, der Bot-Erkennung und der Lastenverteilung. Die Rechtsgrundlage hierfür bildet unser überwiegendes berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO in Verbindung mit § 25 Abs. 2 TTDSG.</li>
                 <li><strong>Zustimmungspflichtige Cookies:</strong> Alle externen Marketing-Scripts, Analyse-Tracker von Drittherstellern, externe Webfonts (Google Fonts sofern nicht lokal gehostet) und sonstige Drittanbieter-Elemente, die Ihr Verhalten studieren könnten, sind standardmäßig physikalisch aus dem Quellcode <strong>blockiert</strong>. Sie werden erst nach Ihrer ausdrücklichen Bestätigung im Consent Banner (Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TTDSG) freigegeben und geladen.</li>
             </ul>
@@ -119,7 +119,7 @@ export default async function DatenschutzPage() {
             <p>
                 Wenn Sie unser digitales System zur Reservierung von Tischen nutzen, erheben und verarbeiten wir die folgenden, bei der Nutzung verpflichtenden oder freiwilligen Daten:
             </p>
-            <ul className="list-disc ml-6 space-y-2 my-4">
+            <ul className="list-disc ms-6 space-y-2 my-4">
                 <li>Vollständiger Vor- und Nachname</li>
                 <li>E-Mail-Adresse (Einfache Überprüfung mittels Pattern-Matching)</li>
                 <li>Telefonnummer (Zwecks kurzfristiger Rückfragen zur Reservierung)</li>

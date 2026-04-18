@@ -80,7 +80,7 @@ export const KegelbahnDetails: React.FC = () => {
                         <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-transparent blur-2xl rounded-[3rem] -z-10" />
                         
                         <div className="bg-bg-primary/80 backdrop-blur-xl border border-border rounded-[2.5rem] p-10 lg:p-14 shadow-elevation-2 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+                            <div className="absolute top-0 end-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
                             
                             <h3 className="text-3xl font-display font-medium text-text-primary mb-4">
                                 Tarife & Buchung

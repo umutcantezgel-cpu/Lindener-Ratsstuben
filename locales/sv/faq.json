@@ -1,0 +1,25 @@
+{
+  "items": {
+    "q1": {
+      "question": "Vad är Lindener Ratsstuben?",
+      "shortAnswer": "Det är en traditionell restaurang i Linden som specialiserar sig på äkta tysk-italiensk och medelhavsmat, och som även erbjuder catering."
+    },
+    "q2": {
+      "question": "Erbjuder ni catering?",
+      "shortAnswer": "Ja, vi erbjuder professionell catering för evenemang, bröllop och företagsfester för upp till 120 personer."
+    },
+    "q3": {
+      "question": "Vilka är era öppettider?",
+      "shortAnswer": "Vi har öppet tisdag till söndag. Lunch serveras 11:30 till 14:30 och middag 17:30 till 22:30. Stängt på måndagar, utom helgdagar."
+    },
+    "q4": {
+      "question": "Har ni vegetariska alternativ?",
+      "shortAnswer": "Ja, vi erbjuder ett brett utbud av fräscha vegetariska rätter med medelhavskänsla."
+    },
+    "q5": {
+      "question": "Var hittar jag menyn?",
+      "shortAnswer": "Menyn finns på vår hemsida, inklusive tysk-italienska specialiteter och vår dagliga tvårättersmeny."
+    }
+  },
+  "title": "Vanliga Frågor"
+}

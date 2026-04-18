@@ -36,7 +36,7 @@ export function StickyCta() {
   if (isDismissed || !isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-bg-secondary border-t border-border text-text-primary p-4 shadow-2xl z-toast flex items-center justify-between md:bottom-6 md:left-auto md:right-6 md:w-96 md:rounded-xl md:border">
+    <div className="fixed bottom-0 inset-x-0 bg-bg-secondary border-t border-border text-text-primary p-4 shadow-2xl z-toast flex items-center justify-between md:bottom-6 md:inset-x-auto md:end-6 md:w-96 md:rounded-xl md:border">
       <div>
         <p className="font-semibold text-sm">Bereit für Ihr Projekt?</p>
         <p className="text-xs text-text-secondary">Reservieren Sie ein kostenfreies Strategiegespräch.</p>

@@ -46,48 +46,55 @@ const MATRIX: Record<PrimaryInterest, CTAContent> = {
   }
 };
 
-const HERO_MATRIX: Record<PrimaryInterest, { headline: string; subheadline: string; cta1: string; imageUrl: string }> = {
+const HERO_MATRIX: Record<PrimaryInterest, { headline: string; subheadline: string; cta1: string; imageUrl: string; blurDataURL?: string }> = {
   kultur: {
     headline: 'Kultur genießen',
     subheadline: 'Kombinieren Sie Ihre kulturellen Erlebnisse mit einer Reise durch unsere meisterhafte mediterrane Küche.',
     cta1: 'Abend ausklingen lassen',
-    imageUrl: '/images/ambient-wine.jpg' // Assuming a placeholder image exists or will exist
+    imageUrl: '/images/hero_trattoria.png',
+    blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   natur: {
     headline: 'Echte Erholung',
     subheadline: 'Der perfekte Ort, um nach einem aktiven Tag in der Natur neue Kraft zu tanken und sich verwöhnen zu lassen.',
     cta1: 'Einen Tisch sichern',
-    imageUrl: '/images/hearty-meal.jpg'
+    imageUrl: '/images/hero_trattoria.png',
+    blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   kulinarik: {
     headline: 'Pure Raffinesse',
     subheadline: 'Entdecken Sie handwerklich perfekte Kompositionen für höchste kulinarische Ansprüche.',
     cta1: 'Ihre Genussreise starten',
-    imageUrl: '/images/gourmet-plating.jpg'
+    imageUrl: '/images/hero_trattoria.png',
+    blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   business: {
     headline: 'Premium Atmosphäre',
     subheadline: 'Diskreter Service und kompromisslose Qualität für Ihre Geschäftsessen und exklusiven Abende.',
     cta1: 'Business-Tisch anfragen',
-    imageUrl: '/images/business-dining.jpg'
+    imageUrl: '/images/hero_trattoria.png',
+    blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   romantik: {
     headline: 'Zweisamkeit zelebrieren',
     subheadline: 'Genießen Sie intime Atmosphäre und meisterhafte Menüs, die Ihren Abend unvergesslich machen.',
     cta1: 'Tisch für Zwei reservieren',
-    imageUrl: '/images/placeholder.svg'
+    imageUrl: '/images/hero_trattoria.png',
+    blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   familie: {
     headline: 'Gemeinsam genießen',
     subheadline: 'Der ideale Rahmen für ein entspanntes und hochwertiges Familienessen.',
     cta1: 'Zum Familientisch',
-    imageUrl: '/images/placeholder.svg'
+    imageUrl: '/images/hero_trattoria.png',
+    blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   general: {
     headline: 'Kulinarische Exzellenz',
     subheadline: 'Willkommen in den Lindener Ratsstuben. Genießen Sie italienische und mediterrane Spezialitäten, frisch zubereitet mit Leidenschaft.',
     cta1: 'Tisch reservieren',
-    imageUrl: '/images/placeholder.svg'
+    imageUrl: '/images/hero_trattoria.png',
+    blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   }
 };
 

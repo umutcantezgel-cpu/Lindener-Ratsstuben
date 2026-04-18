@@ -1,0 +1,25 @@
+{
+  "items": {
+    "q1": {
+      "question": "Lindener Ratsstuben nedir?",
+      "shortAnswer": "Linden'de otantik Alman-İtalyan ve Akdeniz mutfağında uzmanlaşmış geleneksel bir restorandır."
+    },
+    "q2": {
+      "question": "Catering hizmeti sunuyor musunuz?",
+      "shortAnswer": "Evet, 120 kişiye kadar olan etkinlikler için profesyonel catering hizmeti sunuyoruz."
+    },
+    "q3": {
+      "question": "Çalışma saatleriniz nelerdir?",
+      "shortAnswer": "Salı'dan Pazar'a kadar açığız. Öğle yemeği: 11:30-14:30, Akşam yemeği: 17:30-22:30. Pazartesi günleri kapalıyız."
+    },
+    "q4": {
+      "question": "Vejetaryen yemekleriniz var mı?",
+      "shortAnswer": "Evet, çok çeşitli taze vejetaryen yemekler sunuyoruz."
+    },
+    "q5": {
+      "question": "Menüyü nerede bulabilirim?",
+      "shortAnswer": "Menümüzü doğrudan web sitemizde bulabilirsiniz."
+    }
+  },
+  "title": "Sıkça Sorulan Sorular"
+}

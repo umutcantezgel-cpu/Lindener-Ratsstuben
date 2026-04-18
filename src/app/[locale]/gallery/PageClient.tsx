@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import Image from '@/components/ui/ImagePlaceholder';
+import { AdaptiveImage } from '@/components/ui/AdaptiveImage';
 import { PageTransition } from '@/components/effects/PageTransition';
 import { X, ZoomIn } from 'lucide-react';
 import { useFocusManagement } from '@/hooks/useFocusManagement';
@@ -13,15 +13,15 @@ export const Gallery = () => {
     const { t } = useTranslation('pages');
 
     const images = [
-        { src: '/images/placeholder.svg', category: 'Ambiente' },
-        { src: '/images/placeholder.svg', category: 'Gerichte' },
-        { src: '/images/placeholder.svg', category: 'Gerichte' },
-        { src: '/images/placeholder.svg', category: 'Ambiente' },
-        { src: '/images/placeholder.svg', category: 'Gerichte' },
-        { src: '/images/placeholder.svg', category: 'Gerichte' },
-        { src: '/images/placeholder.svg', category: 'Gerichte' },
-        { src: '/images/placeholder.svg', category: 'Ambiente' },
-        { src: '/images/placeholder.svg', category: 'Gerichte' },
+        { src: '/images/gallery_ambiente_1.png', category: 'Ambiente' },
+        { src: '/images/dish_tris_pasta.png', category: 'Gerichte' },
+        { src: '/images/dish_bistecca.png', category: 'Gerichte' },
+        { src: '/images/gallery_ambiente_3.png', category: 'Ambiente' },
+        { src: '/images/gallery_food_1.png', category: 'Gerichte' },
+        { src: '/images/gallery_food_2.png', category: 'Gerichte' },
+        { src: '/images/dish_pizza_ratsstubbe.png', category: 'Gerichte' },
+        { src: '/images/gallery_ambiente_2.png', category: 'Ambiente' },
+        { src: '/images/gallery_food_3.png', category: 'Gerichte' },
     ];
 
     return (
@@ -37,6 +37,7 @@ export const Gallery = () => {
                     </header>
 
                     {/* Masonry Grid */}
+                    <h2 className="sr-only">{t('gallery.title') as string}</h2>
                     <ul className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 m-0 p-0 list-none">
                         {images.map((img, index) => (
                             <li
@@ -48,16 +49,17 @@ export const Gallery = () => {
                                     aria-label={`${t('gallery.zoom') as string}: ${img.category}`}
                                     className="relative w-full h-64 text-start cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-primary block"
                                 >
-                                    <Image
+                                    <AdaptiveImage
                                         src={img.src}
                                         alt={`${t('gallery.image') as string}: ${img.category}`}
                                         fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100" aria-hidden="true">
                                         <ZoomIn className="text-white w-10 h-10" />
                                     </div>
-                                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
+                                    <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
                                         <span className="text-white font-medium">{img.category}</span>
                                     </div>
                                 </button>
@@ -76,17 +78,18 @@ export const Gallery = () => {
                         aria-label={t('gallery.preview') as string}
                     >
                         <button
-                            className="absolute top-6 right-6 text-white hover:text-primary transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-primary"
+                            className="absolute top-6 end-6 text-white hover:text-primary transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-primary"
                             onClick={() => setSelectedImage(null)}
                             aria-label={t('gallery.close') as string}
                         >
                             <X className="w-10 h-10" aria-hidden="true" />
                         </button>
                         <div className="relative w-full max-w-4xl h-[80vh]">
-                            <Image
+                            <AdaptiveImage
                                 src={selectedImage.src}
                                 alt={`${t('gallery.enlarged') as string}: ${selectedImage.category}`}
                                 fill
+                                sizes="100vw"
                                 className="object-contain rounded-lg shadow-warm"
                             />
                         </div>

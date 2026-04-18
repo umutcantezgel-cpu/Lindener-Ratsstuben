@@ -1,9 +1,9 @@
 {
-  "home.title": "Startpagina | Lindener Ratsstuben",
-  "home.description": "Welkom bij Lindener Ratsstuben. Geniet van Italiaanse en mediterrane specialiteiten, bereid met passie.",
-  "menu.title": "Menu | Lindener Ratsstuben",
+  "about.title": "Over Ons | Lindener Ratsstuben",
   "contact.title": "Contact — Lindener Ratsstuben",
-  "reservation.title": "Reservering | Lindener Ratsstuben",
   "gallery.title": "Galerij — Lindener Ratsstuben",
-  "about.title": "Over Ons | Lindener Ratsstuben"
+  "home.description": "Welkom bij Lindener Ratsstuben. Geniet van Italiaanse en mediterrane specialiteiten, bereid met passie.",
+  "home.title": "Startpagina | Lindener Ratsstuben",
+  "menu.title": "Menu | Lindener Ratsstuben",
+  "reservation.title": "Reservering | Lindener Ratsstuben"
 }

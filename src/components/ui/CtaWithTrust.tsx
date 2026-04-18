@@ -48,9 +48,9 @@ export function CtaWithTrust({
 
     const renderButtonContent = () => (
         <>
-            <span className="relative z-10 flex items-center gap-2">
-                {text}
-                {isPrimary && <ArrowRight className="w-5 h-5 transition-transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />}
+            <span className="relative z-10 flex items-center justify-center text-center text-balance gap-2 max-w-full">
+                <span className="break-words line-clamp-2">{text}</span>
+                {isPrimary && <ArrowRight className="w-5 h-5 flex-shrink-0 transition-transform rtl-mirror group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />}
             </span>
             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-surface/20 to-transparent -translate-x-[150%] skew-x-[-30deg] group-hover:translate-x-[150%] transition-transform duration-700 ease-out" />
         </>
