@@ -27,9 +27,9 @@ export const categories = [
   { id: 'suppen', name: 'Suppen', label: 'Suppen' },
   { id: 'vorspeisen', name: 'Vorspeisen', label: 'Vorspeisen' },
   { id: 'salate', name: 'Salate', label: 'Salate' },
-  { id: 'pasta', name: 'Pasta', label: 'Pasta' },
-  { id: 'pasta-al-forno', name: 'Pasta al Forno', label: 'Überbacken' },
-  { id: 'hausgemachte-pasta', name: 'Hausgemachte Pasta', label: 'Hausgemacht' },
+  { id: 'pasta', name: 'Nudelgerichte', label: 'Nudelgerichte' },
+  { id: 'pasta-al-forno', name: 'Überbackene Nudelgerichte', label: 'Überbacken' },
+  { id: 'hausgemachte-pasta', name: 'Hausgemachte Nudelgerichte', label: 'Hausgemacht' },
   { id: 'schnitzel', name: 'Schnitzelvariation', label: 'Schnitzel' },
   { id: 'fleisch-fisch', name: 'Fleischgerichte & Fischgerichte', label: 'Fleisch & Fisch' },
   { id: 'pizza', name: 'Pizza aus dem Steinofen / 28 cm', label: 'Pizza' },
@@ -44,8 +44,6 @@ export const categories = [
   { id: 'weissweine', name: 'Offene Weißweine', label: 'Weißweine' },
   { id: 'spirituosen', name: 'Spirituosen 0,2 cl', label: 'Spirituosen' },
   { id: 'likoere', name: 'Liköre 0,2 cl', label: 'Liköre' },
-  { id: 'burger', name: 'Hausgemachte Burger', label: 'Burger' },
-  { id: 'limonaden', name: 'Hausgemachte Limonaden', label: 'Limonaden' },
 ];
 
 // ─── Category Footnotes (wörtlich aus SSOT) ───────────────────
@@ -54,14 +52,10 @@ export const categoryFootnotes: Record<string, string> = {
   vorspeisen: 'Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
   salate: 'Unsere Salate servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
   pizza: 'alle Pizzen werden mit Tomaten soße mit Special würzen & Käse zubereitet.',
-  burger: 'Alle Burger werden frisch zubereitet und mit knusprigen Pommes Frites serviert.',
-  limonaden: 'Alle Limonaden werden frisch zubereitet und mit ausgewählten Zutaten verfeinert.',
 };
 
 // ─── Category Header Texts (wörtlich aus SSOT) ───────────────
 export const categoryHeaderTexts: Record<string, string> = {
-  burger: 'Unsere Burger werden mit 100 % hochwertigem Rindfleisch, frischen Zutaten und unserer hausgemachten Sauce zubereitet – serviert mit knusprigen Pommes Frites.',
-  limonaden: 'Genießen Sie unsere liebevoll zubereiteten, hausgemachten Limonaden – aus besten Zutaten, mit ausgewogenen Aromen und perfekt abgestimmt für ein besonderes Geschmackserlebnis.',
 };
 
 // ─── Category Extras (SSOT-Preise) ────────────────────────────
@@ -91,27 +85,17 @@ import { drinkItems } from './menu-ssot-drinks';
 
 export const menuItems: SSOTMenuItem[] = [...foodItems, ...drinkItems];
 
-// ─── Allergen Legend (kept for UI — NOT linked to items per SSOT Rule 9) ─
-export const allergenLegend: Record<string, string> = {
-  A: "Glutenhaltiges Getreide", B: "Krebstiere", C: "Eier", D: "Fische",
-  E: "Erdnüsse", F: "Sojabohnen", G: "Milch (inkl. Laktose)",
-  H: "Schalenfrüchte (Nüsse)", L: "Sellerie", M: "Senf",
-  N: "Sesamsamen", O: "Schwefeldioxid und Sulfite", P: "Lupinen", R: "Weichtiere",
-};
+// ─── Allergen Legend (removed per request) ────────────────────
+export const allergenLegend: Record<string, string> = {};
 
-// ─── Zusatzstoff Legend ───────────────────────────────────────
-export const zusatzstoffLegend: Record<string, string> = {
-  "1": "mit Farbstoff", "2": "mit Konservierungsstoffe", "3": "mit Nitropökelsalz",
-  "4": "mit Antioxidationsmittel", "5": "mit Geschmacksverstärker", "6": "geschwefelt",
-  "7": "geschwärzt", "8": "mit Phosphat", "9": "mit Milcheiweiß",
-  "10": "koffeinhaltig", "11": "mit Süßungsmittel",
-};
+// ─── Zusatzstoff Legend (removed per request) ─────────────────
+export const zusatzstoffLegend: Record<string, string> = {};
 
-// ─── Legal Disclaimers ────────────────────────────────────────
+// ─── Legal Disclaimers (removed per request) ──────────────────
 export const legal_disclaimers = {
-  allergens: "Lieber Gast! Informationen über Zutaten in unseren Speisen, die Allergien oder Unverträglichkeiten auslösen können, erhalten Sie auf Nachfrage bei unseren Servicemitarbeiter/innen.",
-  cross_contamination: "Kreuzkontamination: Trotz größter Sorgfalt bei der Zubereitung können wir nicht zu 100% garantieren, dass Gerichte vollkommen frei von Spuren anderer Allergene sind.",
-  additives: "Bei den angegebenen Zusatzstoffen stützen wir uns auf die Deklarationen unserer Lieferanten. Änderungen der Rezepturen der Hersteller bleiben vorbehalten.",
+  allergens: "",
+  cross_contamination: "",
+  additives: "",
 };
 
 // ─── Known Data Gaps (SSOT §4) ────────────────────────────────
@@ -122,7 +106,6 @@ export const knownDataGaps = [
   { issue: 'Nr. 188 dreifach vergeben', severity: 'warning' },
   { issue: 'Nr. 221/227 Himbergeist sowie 222/228 Obstler doppelt', severity: 'warning' },
   { issue: 'Spirituosen & Liköre "0,2 cl" — Mengeneinheit ungewöhnlich', severity: 'info' },
-  { issue: 'Alle 4 Burger — keine Preise', severity: 'blocker' },
   { issue: '"Sprit" (160/161) — Schreibweise so übernommen', severity: 'info' },
 ];
 

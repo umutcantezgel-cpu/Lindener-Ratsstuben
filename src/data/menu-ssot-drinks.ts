@@ -91,14 +91,4 @@ export const drinkItems: SSOTMenuItem[] = [
   { nr: '236', name: 'Sambuca', description: '', price: 3.70, category: 'likoere' },
   { nr: '237', name: 'Baileys', description: '', price: 3.70, category: 'likoere' },
   { nr: '238', name: 'Limoncello', description: '', price: 3.70, category: 'likoere' },
-  // §3.21 Hausgemachte Burger — ALLE PREISE FEHLEN (SSOT §4.7)
-  { nr: '', name: 'Classic Burger', description: 'Saftiges Rindfleisch mit knackigem Salat, eingelegten Gurken, frischen Tomatenscheiben und roten Zwiebeln, verfeinert mit unserer hauseigenen Sauce.', price: null, category: 'burger' },
-  { nr: '', name: 'Cheeseburger', description: 'Saftiges Rindfleisch mit geschmolzenem Käse, knackigem Salat, eingelegten Gurken, Tomaten und roten Zwiebeln, abgerundet mit unserer hausgemachten Sauce.', price: null, category: 'burger' },
-  { nr: '', name: 'Chili Cheeseburger', description: 'Kräftiges Rindfleisch mit geschmolzenem Mozzarella, pikanten Jalapeños, knackigem Salat, Gurken, Tomaten und roten Zwiebeln, verfeinert mit unserer würzigen Haussauce.', price: null, category: 'burger' },
-  { nr: '', name: 'Deluxe Burger', description: 'Saftiges Rindfleisch mit luftgetrocknetem Schinken, frischem Salat, eingelegten Gurken, Tomaten und roten Zwiebeln, veredelt mit unserer exklusiven Haussauce.', price: null, category: 'burger' },
-  // §3.22 Hausgemachte Limonaden
-  { nr: '', name: 'Citrus Mint Limonade', description: 'Erfrischende Zitrusfrüchte treffen auf aromatische Minze – spritzig, belebend und angenehm kühl.', price: 6.90, category: 'limonaden' },
-  { nr: '', name: 'Grenadine Limonade', description: 'Fruchtig-süß mit einer feinen Note von Granatapfel – ein stilvoller Klassiker mit intensiver Farbe.', price: 6.90, category: 'limonaden' },
-  { nr: '', name: 'Erdbeer Limonade', description: 'Sonnengereifte Erdbeeren sorgen für einen natürlichen, fruchtigen Genuss – mild, süß und herrlich sommerlich.', price: 6.90, category: 'limonaden' },
-  { nr: '', name: 'Pfirsich Limonade', description: 'Zarter Pfirsichgeschmack, leicht und harmonisch – eine sanfte Erfrischung mit feiner Süße.', price: 6.90, category: 'limonaden' },
 ];
