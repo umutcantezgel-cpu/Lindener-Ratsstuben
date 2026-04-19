@@ -38,6 +38,14 @@ const nextConfig = {
   },
   async headers() {
     return [
+      // Defense-in-depth: Markdown mirror SEO protection
+      {
+        source: '/:path*.md',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, noarchive' },
+          { key: 'Vary', value: 'Accept' },
+        ],
+      },
       {
         source: '/(.*)',
         headers: [

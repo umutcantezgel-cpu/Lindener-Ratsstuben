@@ -1,3 +1,12 @@
+/**
+ * ═══════════════════════════════════════════════════════════════
+ * ROBOTS.TXT GENERATOR
+ * Defense-in-depth: Disallow *.md for regular crawlers in addition
+ * to the X-Robots-Tag headers set on the markdown responses.
+ * AI crawlers get full access including llms.txt.
+ * ═══════════════════════════════════════════════════════════════
+ */
+
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
@@ -6,24 +15,24 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/sanity/'],
+        disallow: ['/api/', '/sanity/', '/*.md'],
       },
       {
         userAgent: [
-          'GPTBot', 
-          'Google-Extended', 
-          'PerplexityBot', 
-          'ClaudeBot', 
-          'Applebot-Extended', 
-          'OAI-SearchBot', 
+          'GPTBot',
+          'Google-Extended',
+          'PerplexityBot',
+          'ClaudeBot',
+          'Applebot-Extended',
+          'OAI-SearchBot',
           'anthropic-ai',
           'CCBot',
           'Diffbot',
           'FacebookBot',
-          'ImagesiftBot'
+          'ImagesiftBot',
         ],
-        allow: '/',
-      }
+        allow: ['/', '/llms.txt'],
+      },
     ],
     sitemap: 'https://lindener-ratsstuben.de/sitemap.xml',
   };

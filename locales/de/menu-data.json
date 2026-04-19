@@ -1,0 +1,37 @@
+{
+  "categories": {
+    "suppen": {
+      "name": "Suppen",
+      "label": "Suppen",
+      "description": "Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€"
+    },
+    "vorspeisen": {
+      "name": "Vorspeisen",
+      "label": "Vorspeisen",
+      "description": "Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€"
+    },
+    "salate": {
+      "name": "Salate",
+      "label": "Salate",
+      "description": "Unsere Salate servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€"
+    },
+    "pizza": {
+      "name": "Pizza aus dem Steinofen / 28 cm",
+      "label": "Pizza",
+      "description": "alle Pizzen werden mit Tomaten soße mit Special würzen & Käse zubereitet."
+    },
+    "burger": {
+      "name": "Hausgemachte Burger",
+      "label": "Burger",
+      "description": "Alle Burger werden frisch zubereitet und mit knusprigen Pommes Frites serviert.",
+      "headerText": "Unsere Burger werden mit 100 % hochwertigem Rindfleisch, frischen Zutaten und unserer hausgemachten Sauce zubereitet – serviert mit knusprigen Pommes Frites."
+    },
+    "limonaden": {
+      "name": "Hausgemachte Limonaden",
+      "label": "Limonaden",
+      "description": "Alle Limonaden werden frisch zubereitet und mit ausgewählten Zutaten verfeinert.",
+      "headerText": "Genießen Sie unsere liebevoll zubereiteten, hausgemachten Limonaden – aus besten Zutaten, mit ausgewogenen Aromen und perfekt abgestimmt für ein besonderes Geschmackserlebnis."
+    }
+  },
+  "items": {}
+}

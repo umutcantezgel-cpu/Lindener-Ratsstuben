@@ -14,7 +14,7 @@ export interface MenuItem {
 }
 
 export interface PageClientProps {
-    categories: { id: string; name: string; label: string; description?: string }[];
+    categories: { id: string; name: string; label: string; description?: string; headerText?: string }[];
     menuItems: MenuItem[];
     locale: string;
 }

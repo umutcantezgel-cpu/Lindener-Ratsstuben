@@ -3,17 +3,20 @@ import Link from 'next/link';
 import { PageTransition } from '@/components/effects/PageTransition';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: "Barrierefreiheit – Lindener Ratsstuben",
-  description: "Erklärung zur Barrierefreiheit der Lindener Ratsstuben. Informationen zur digitalen Zugänglichkeit gemäß BITV 2.0 und WCAG 2.1.",
-  alternates: {
-    canonical: "/barrierefreiheit",
-  },
-  robots: {
-    index: false,
-    follow: true,
-  }
-};
+import { getAlternates } from '@/lib/seo/metadata';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Barrierefreiheit – Lindener Ratsstuben",
+    description: "Erklärung zur Barrierefreiheit der Lindener Ratsstuben. Informationen zur digitalen Zugänglichkeit gemäß BITV 2.0 und WCAG 2.1.",
+    alternates: getAlternates(locale, 'barrierefreiheit'),
+    robots: {
+      index: false,
+      follow: true,
+    }
+  };
+}
 
 const Barrierefreiheit = () => {
     return (

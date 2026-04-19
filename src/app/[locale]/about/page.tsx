@@ -6,6 +6,7 @@ import { LocaleType } from '@/lib/locales';
 import { companyData } from '@/data/company';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { createAboutPageSchema } from '@/lib/seo/schema-generators';
+import { getAlternates } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -17,9 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: titleText,
     description,
-    alternates: {
-      canonical: "/about",
-    },
+    alternates: getAlternates(locale, 'about'),
     openGraph: {
       title: fullTitle,
       description,
@@ -30,6 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
+    const t = await getTranslations(locale as LocaleType, 'pages');
     let faqData = null;
     try {
         faqData = (await import(`../../../../locales/${locale}/faq.json`)).default;
@@ -39,7 +39,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
     return (
       <>
-        <JsonLd data={createAboutPageSchema()} />
+        <JsonLd data={createAboutPageSchema(t)} />
         <AboutClient faqData={faqData} />
       </>
     );

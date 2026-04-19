@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect, useTransition, useDeferredValue } f
 import { useRouter, usePathname } from 'next/navigation';
 import { ChevronDown, Check, Search } from 'lucide-react';
 import { clsx } from 'clsx';
-import { ALLOWED_LOCALES, LOCALE_DISPLAY_NAMES, isRTL, type LocaleType } from '@/lib/locales';
+import { ALLOWED_LOCALES, LOCALE_DISPLAY_NAMES, ACTIVE_LOCALES, isRTL, type LocaleType } from '@/lib/locales';
 
 // Flag emojis for each locale
 const LOCALE_FLAGS: Record<string, string> = {
@@ -43,8 +43,8 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
 
   const pathWithoutLocale = '/' + segments.slice(1).join('/');
 
-  // Filter locales by search
-  const filteredLocales = ALLOWED_LOCALES.filter(locale => {
+  // Filter locales by search AND active status
+  const filteredLocales = ACTIVE_LOCALES.filter(locale => {
     if (!deferredSearchQuery) return true;
     const q = deferredSearchQuery.toLowerCase();
     return (

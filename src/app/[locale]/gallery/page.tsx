@@ -4,6 +4,8 @@ import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
 import { companyData } from '@/data/company';
 
+import { getAlternates } from '@/lib/seo/metadata';
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations(locale as LocaleType, 'pages');
@@ -14,9 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: titleText,
     description,
-    alternates: {
-      canonical: '/gallery',
-    },
+    alternates: getAlternates(locale, 'gallery'),
     openGraph: {
       title: fullTitle,
       description,

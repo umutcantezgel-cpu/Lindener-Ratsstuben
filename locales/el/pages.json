@@ -1,116 +1,85 @@
 {
-  "about.headline": "Our Story",
-  "about.hospitality_text": "Every guest is part of our family. Your well-being comes first.",
-  "about.hospitality_title": "Hospitality",
-  "about.motto": "Authentic. Fresh. Passionate.",
-  "about.philosophy_subtitle": "What drives us and what we stand for.",
-  "about.philosophy_title": "Our Philosophy",
-  "about.quality_text": "We use only the best ingredients, daily fresh from the market.",
-  "about.quality_title": "Quality & Freshness",
-  "about.story_p1": "{name} began with a simple idea: to combine the rich culinary tradition of Italian and Mediterranean cuisine with a modern ambience.",
-  "about.story_p2": "Every dish tells a story of herbs, patience, and love for detail. We exclusively use fresh ingredients.",
-  "about.story_title": "From Vision to Reality",
-  "about.subtitle": "Tradition meets passion. We bring the authentic flavors of Italian and Mediterranean cuisine to Linden. With a wide range of vegetarian options.",
-  "about.team_subtitle": "The people behind the taste.",
-  "about.team_title": "Our Team",
-  "about.title": "Σχετικά",
-  "about.tradition_text": "We honor ancient cooking techniques and preserve authentic flavors.",
-  "about.tradition_title": "Η παράδοσή μας",
-  "contact.address": "Διεύθυνση",
-  "contact.description": "Do you have questions, suggestions, or would you like to give us feedback? We are here for you.",
-  "contact.email": "E-mail",
-  "contact.hours": "Opening Hours",
-  "contact.info_title": "Contact Information",
-  "contact.phone": "Τηλέφωνο",
-  "contact.title": "Επικοινωνία",
-  "contact.visit_us": "Visit Us",
-  "contact.write_us": "Write to Us",
-  "exit_intent.cta_continue": "Keep Exploring",
-  "exit_intent.cta_reserve": "Reserve a Table",
-  "exit_intent.description": "Take your time. The best decisions ripen — just like our culinary creations.",
-  "exit_intent.title": "Still deciding?",
-  "fomo.business": "Discreet tables available on request.",
-  "fomo.default": "High demand this weekend.",
-  "fomo.kulinarik": "We recommend making a timely reservation.",
-  "fomo.kultur": "Perfect before or after your event.",
-  "fomo.natur": "The best way to end your day.",
-  "gallery.category_ambience": "Ambience",
-  "gallery.category_dishes": "Dishes",
-  "gallery.description": "Be inspired by the atmosphere and our culinary creations.",
-  "gallery.title": "Γκαλερί",
-  "kegelbahn.catering.drinks": "Drinks",
-  "kegelbahn.catering.drinks_desc": "Refreshments",
-  "kegelbahn.catering.snacks": "Snacks",
-  "kegelbahn.catering.snacks_desc": "Fingerfood",
-  "kegelbahn.catering.title": "Catering",
-  "kegelbahn.cta.book": "Book Now",
-  "kegelbahn.faq.a1": "8-10 max",
-  "kegelbahn.faq.a2": "No",
-  "kegelbahn.faq.a3": "Yes",
-  "kegelbahn.faq.q1": "Capacity?",
-  "kegelbahn.faq.q2": "Own drinks?",
-  "kegelbahn.faq.q3": "Kids?",
-  "kegelbahn.faq.title": "FAQ",
-  "kegelbahn.features.dining.desc": "Integrated Dining",
-  "kegelbahn.features.dining.title": "Dining Areas",
-  "kegelbahn.features.lanes.desc": "Modern Lanes",
-  "kegelbahn.features.lanes.title": "3 Lanes",
-  "kegelbahn.hero.subtitle": "Sport & Food",
-  "kegelbahn.hero.title": "Kegelbahn",
-  "kegelbahn.pricing.hourly": "Hourly",
-  "kegelbahn.pricing.hourly_desc": "Per lane and hour.",
-  "kegelbahn.pricing.hourly_price": "15,00 €",
-  "kegelbahn.pricing.package": "Package",
-  "kegelbahn.pricing.package_desc": "3 hours",
-  "kegelbahn.pricing.package_price": "89,00 €",
-  "kegelbahn.pricing.shoes": "Shoes",
-  "kegelbahn.pricing.shoes_desc": "Shoe Rental",
-  "kegelbahn.pricing.shoes_price": "2,50 €",
-  "kegelbahn.pricing.title": "Pricing",
-  "kegelbahn.rules.r1_desc": "Indoor shoes only",
-  "kegelbahn.rules.r1_title": "Shoes",
-  "kegelbahn.rules.r2_desc": "15 min rule",
-  "kegelbahn.rules.r2_title": "Punctuality",
-  "kegelbahn.rules.r3_desc": "Do not step on lane",
-  "kegelbahn.rules.r3_title": "Safety",
-  "kegelbahn.rules.title": "Rules",
-  "menu.additives": "Additives",
-  "menu.allergens": "Allergens",
-  "menu.allergens_title": "Allergens & Additives — Legend",
-  "menu.bestseller": "Δημοφιλή",
-  "menu.category_familienpizza": "Family Pizza",
-  "menu.category_fleisch": "Meat Dishes",
-  "menu.category_hausgemacht": "Homemade",
-  "menu.category_kinder": "Kids",
-  "menu.category_pasta": "Pasta",
-  "menu.category_pizza": "Pizza",
-  "menu.category_salate": "Salads",
-  "menu.category_schnitzel": "Schnitzel",
-  "menu.category_suppen": "Soups",
-  "menu.category_ueberbackenes": "Oven Baked",
-  "menu.category_vorspeisen": "Appetizers",
-  "menu.description": "German-Italian cuisine — freshly prepared with high-quality ingredients. All prices in Euro.",
-  "menu.dishes": "Dishes",
-  "menu.filter": "Φίλτρο",
-  "menu.no_results": "No dishes found matching the selected filters.",
-  "menu.recommendation": "Recommendation",
-  "menu.reset_filters": "Reset Filters",
-  "menu.spicy": "Spicy",
-  "menu.subtitle": "Our Selection",
-  "menu.title": "Μενού",
-  "menu.vegetarian": "Vegetarian",
-  "notfound.description": "The requested page does not exist or has been moved. Don't let that spoil your appetite.",
-  "notfound.helpful_links": "Helpful Links",
-  "notfound.title": "Page Not Found",
-  "notfound.to_contact": "Contact",
-  "notfound.to_home": "Go Home",
-  "notfound.to_menu": "Menu",
-  "reservation.date": "Date",
-  "reservation.description": "Secure your seat for an unforgettable culinary experience.",
-  "reservation.guests": "Guests",
-  "reservation.guests_count": "{count} Guests",
-  "reservation.more_than_10": "More than 10",
-  "reservation.time": "Time",
-  "reservation.title": "Κράτηση",
-  "reservation.wishes": "Wishes (Optional)"
+  "faq": {
+    "title": "Συχνές Ερωτήσεις",
+    "description": "Εδώ θα βρείτε απαντήσεις στις πιο συχνές ερωτήσεις.",
+    "booking": {
+      "question": "Πώς μπορώ να κάνω κράτηση τραπεζιού;",
+      "answer": "Μπορείτε να κάνετε κράτηση τραπεζιού μέσω τηλεφώνου, email ή μέσω της φόρμας κράτησης στην ιστοσελίδα μας."
+    },
+    "payment": {
+      "question": "Ποιες μεθόδους πληρωμής δέχεστε;",
+      "answer": "Δεχόμαστε μετρητά, EC-Card (Girocard) καθώς και τις περισσότερες πιστωτικές κάρτες (Visa, Mastercard)."
+    },
+    "dietary": {
+      "question": "Προσφέρετε χορτοφαγικά ή vegan πιάτα;",
+      "answer": "Ναι, το μενού μας περιλαμβάνει ποικιλία από χορτοφαγικές και vegan επιλογές. Ρωτήστε το προσωπικό μας για προτάσεις."
+    },
+    "allergies": {
+      "question": "Λαμβάνετε υπόψη τροφικές αλλεργίες;",
+      "answer": "Φυσικά. Παρακαλούμε ενημερώστε μας κατά την παραγγελία σας για τυχόν αλλεργίες, ώστε να προσαρμόσουμε τα πιάτα σας."
+    },
+    "parking": {
+      "question": "Υπάρχουν χώροι στάθμευσης κοντά;",
+      "answer": "Υπάρχει δωρεάν χώρος στάθμευσης ακριβώς δίπλα στο εστιατόριο για τους επισκέπτες μας."
+    },
+    "events": {
+      "question": "Μπορώ να διοργανώσω ιδιωτική εκδήλωση στο χώρο σας;",
+      "answer": "Ναι, διαθέτουμε χώρο για ιδιωτικές εκδηλώσεις. Επικοινωνήστε μαζί μας για να σχεδιάσουμε την εκδήλωσή σας."
+    }
+  },
+  "contact": {
+    "title": "Επικοινωνία",
+    "description": "Έχετε ερωτήσεις ή θέλετε να κάνετε κράτηση; Επικοινωνήστε μαζί μας.",
+    "form_title": "Στείλτε μας μήνυμα",
+    "info_title": "Στοιχεία Επικοινωνίας"
+  },
+  "menu": {
+    "title": "Το Μενού μας",
+    "description": "Ανακαλύψτε τις αυθεντικές μας ιταλικές σπεσιαλιτέ, από κλασική πίτσα μέχρι εκλεκτά ζυμαρικά.",
+    "drinks_title": "Ποτά"
+  },
+  "reservation": {
+    "title": "Κράτηση Τραπεζιού",
+    "description": "Κλείστε το τραπέζι σας εύκολα και γρήγορα online.",
+    "form_title": "Στοιχεία Κράτησης"
+  },
+  "about": {
+    "title": "Σχετικά με Εμάς",
+    "description": "Η ιστορία και η φιλοσοφία του Lindener Ratsstuben."
+  },
+  "imprint": {
+    "title": "Αποτύπωμα (Imprint)"
+  },
+  "privacy": {
+    "title": "Πολιτική Απορρήτου"
+  },
+  "home": {
+    "hero": {
+      "welcome": "Καλώς ήρθατε στο",
+      "subtitle": "Απολαύστε αυθεντική ιταλική κουζίνα στην καρδιά του Λίντεν",
+      "cta_menu": "Δείτε το Μενού",
+      "cta_reserve": "Κράτηση Τραπεζιού"
+    },
+    "about": {
+      "title": "Η Ιστορία μας",
+      "description1": "Στο Lindener Ratsstuben, το πάθος για το καλό φαγητό συναντά τη φιλοξενία. Εδώ και χρόνια, σερβίρουμε αυθεντικά ιταλικά πιάτα, φτιαγμένα με αγάπη και φρέσκα υλικά.",
+      "description2": "Είτε πρόκειται για ένα ρομαντικό δείπνο, μια οικογενειακή γιορτή ή απλώς ένα χαλαρό γεύμα με φίλους – εγγυόμαστε μια αξέχαστη γαστρονομική εμπειρία.",
+      "button": "Μάθετε περισσότερα"
+    },
+    "highlights": {
+      "title": "Γιατί να μας επιλέξετε",
+      "fresh": {
+        "title": "Φρέσκα Υλικά",
+        "description": "Χρησιμοποιούμε μόνο τα καλύτερα και πιο φρέσκα υλικά."
+      },
+      "authentic": {
+        "title": "Αυθεντική Κουζίνα",
+        "description": "Παραδοσιακές ιταλικές συνταγές, εκτελεσμένες στην εντέλεια."
+      },
+      "atmosphere": {
+        "title": "Ζεστή Ατμόσφαιρα",
+        "description": "Απολαύστε το γεύμα σας σε ένα φιλόξενο και όμορφο περιβάλλον."
+      }
+    }
+  }
 }

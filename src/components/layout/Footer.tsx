@@ -56,10 +56,10 @@ export const Footer: React.FC = () => {
                                 { name: variant === 'general' ? (t('nav.reservation') as string) : navCta, path: '/reservation' },
                                 { name: t('nav.contact') as string, path: '/contact' }
                             ].map((item) => (
-                                <li key={item.name}>
+                                <li key={item.path}>
                                     <Link href={item.path} className="text-text-secondary hover:text-primary transition-colors flex items-center gap-2 group">
                                         <span className="w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
-                                        {item.name}
+                                        {item.name as React.ReactNode}
                                     </Link>
                                 </li>
                             ))}

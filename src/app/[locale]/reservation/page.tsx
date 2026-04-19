@@ -5,6 +5,7 @@ import { LocaleType } from '@/lib/locales';
 import { companyData } from '@/data/company';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { createReservationPageSchema } from '@/lib/seo/schema-generators';
+import { getAlternates } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -16,9 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: titleText,
     description,
-    alternates: {
-      canonical: '/reservation',
-    },
+    alternates: getAlternates(locale, 'reservation'),
     openGraph: {
       title: fullTitle,
       description,
@@ -27,10 +26,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function Page() {
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations(locale as LocaleType, 'pages');
+
   return (
     <>
-      <JsonLd data={createReservationPageSchema()} />
+      <JsonLd data={createReservationPageSchema(t)} />
       <PageClient />
     </>
   );
