@@ -11,7 +11,6 @@ export const MenuSkeleton = () => {
                     <Skeleton className="h-14 w-3/4 max-w-2xl mb-6 rounded-lg" /> {/* Title */}
                     <Skeleton className="h-6 w-full max-w-3xl mb-2 rounded-md" /> {/* Desc line 1 */}
                     <Skeleton className="h-6 w-5/6 max-w-2xl mb-6 rounded-md" /> {/* Desc line 2 */}
-                    <Skeleton className="h-12 w-64 rounded-lg" /> {/* Print button */}
                 </header>
 
                 {/* Category Navigation Skeleton */}
@@ -55,7 +54,6 @@ export const MenuSkeleton = () => {
                     <Skeleton className="h-6 w-64 mb-2 rounded-md" /> {/* Prompt */}
                     <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
                         <Skeleton className="h-14 w-full sm:w-64 rounded-lg" /> {/* Res CTA */}
-                        <Skeleton className="h-14 w-full sm:w-64 rounded-lg" /> {/* PDF CTA */}
                     </div>
                 </div>
             </div>

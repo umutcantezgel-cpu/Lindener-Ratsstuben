@@ -10,7 +10,7 @@ export interface TrustScore {
 export const CURRENT_TRUST_SCORE: TrustScore = {
     socialProof: 9.0, // Google Reviews are high, Testimonials are present
     authority: 9.5,   // Certificate / Experience present
-    transparency: 8.5,// Prices are on external PDF, faces available in Philosophy
+    transparency: 9.5,// Prices are digital, faces available in Philosophy
     consistency: 9.5, // Strict UI guidelines implemented
     userExperience: 9.5, // Performance optimization passed
     security: 10.0    // DSGVO standard passed

@@ -9,7 +9,6 @@ export default defineType({
     { name: 'contact', title: 'Kontakt & Adresse' },
     { name: 'hours', title: 'Öffnungszeiten' },
     { name: 'hero', title: 'Startseite Hero-Texte' },
-    { name: 'menu', title: 'Speisekarte (PDF)' },
     { name: 'social', title: 'Social Media' },
   ],
   fields: [
@@ -191,28 +190,6 @@ export default defineType({
       type: 'text',
       group: 'hero',
       rows: 4,
-    }),
-
-    // ═══ PDF MENU ═══
-    defineField({
-      name: 'mainMenuPdf',
-      title: 'Hauptspeisekarte (PDF)',
-      type: 'file',
-      group: 'menu',
-      description: 'Lade hier die aktuelle Hauptspeisekarte als PDF hoch. Alle Download-Buttons auf der Webseite aktualisieren sich automatisch.',
-      options: {
-        accept: 'application/pdf',
-      },
-    }),
-    defineField({
-      name: 'dailySpecialsPdf',
-      title: 'Tageskarte (PDF)',
-      type: 'file',
-      group: 'menu',
-      description: 'Lade hier eine optionale Tageskarte als PDF hoch.',
-      options: {
-        accept: 'application/pdf',
-      },
     }),
 
     // ═══ SOCIAL MEDIA ═══
