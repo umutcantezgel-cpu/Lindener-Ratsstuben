@@ -1,74 +1,46 @@
+/**
+ * ═══════════════════════════════════════════════════════════════
+ * SITEMAP GENERATOR
+ * Driven by the central route registry.
+ * IMPORTANT: .md mirror URLs are intentionally EXCLUDED because
+ * they are served with X-Robots-Tag: noindex. Including noindex
+ * URLs in the sitemap is an SEO anti-pattern.
+ * ═══════════════════════════════════════════════════════════════
+ */
+
 import { MetadataRoute } from 'next';
-import { ALLOWED_LOCALES } from '@/lib/locales';
+import { ACTIVE_LOCALES } from '@/lib/locales';
+import { CONTENT_ROUTES } from '@/lib/routes';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://lindener-ratsstuben.de';
-  
-  // Base routes to include in sitemap
-  const routes = [
-    {
-      url: '',
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 1,
-    },
-    {
-      url: '/menu',
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: '/reservation',
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: '/about',
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: '/contact',
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.8,
-    },
-  ];
-
-  // Map each route across all supported locales. Add the default route.
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
-  routes.forEach((route) => {
-    // Add default language HTML route
+  for (const route of CONTENT_ROUTES) {
+    const routePath = route.path === '/' ? '' : route.path;
+
+    // Default (non-locale-prefixed) HTML route
     sitemapEntries.push({
-      ...route,
-      url: `${baseUrl}${route.url}`,
+      url: `${baseUrl}${routePath || '/'}`,
+      lastModified: new Date(),
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
     });
-    
-    // Add default language Markdown route for AI crawlers
-    sitemapEntries.push({
-      ...route,
-      url: `${baseUrl}${route.url ? route.url + '.md' : '/index.md'}`,
-    });
-    
-    // Add locale-prefixed routes
-    ALLOWED_LOCALES.forEach((locale) => {
-      // HTML variant
+
+    // Locale-prefixed HTML routes (only ACTIVE locales)
+    for (const locale of ACTIVE_LOCALES) {
       sitemapEntries.push({
-        ...route,
-        url: `${baseUrl}/${locale}${route.url}`,
+        url: `${baseUrl}/${locale}${routePath}`,
+        lastModified: new Date(),
+        changeFrequency: route.changeFrequency,
+        priority: route.priority,
       });
-      
-      // Markdown variant for AI crawlers
-      sitemapEntries.push({
-        ...route,
-        url: `${baseUrl}/${locale}${route.url ? route.url + '.md' : '/index.md'}`,
-      });
-    });
-  });
+    }
+
+    // NOTE: .md variants are intentionally NOT included.
+    // They serve X-Robots-Tag: noindex, noarchive – listing them
+    // in the sitemap would create an SEO signal conflict.
+  }
 
   return sitemapEntries;
 }

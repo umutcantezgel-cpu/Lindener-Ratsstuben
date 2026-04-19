@@ -139,13 +139,22 @@ export function createWebsiteSchema() {
 // ═══ GLOBAL @graph (injected in layout.tsx) ═══
 
 import { generateMenuSchema } from './entity-map-builder';
+import { getTranslations } from '@/lib/i18n/get-translations';
+import { LocaleType } from '@/lib/locales';
 
-export function createGlobalSchemaGraph() {
+export async function createGlobalSchemaGraph(locale: LocaleType = 'de') {
+  const t = await getTranslations(locale, 'meta');
+  
+  const restaurantSchema = createRestaurantSchema();
+  if (t('home.description')) {
+    restaurantSchema.description = t('home.description');
+  }
+
   return {
     '@context': 'https://schema.org',
     '@graph': [
       createOrganizationSchema(),
-      createRestaurantSchema(),
+      restaurantSchema,
       createWebsiteSchema(),
       generateMenuSchema(),
     ],
@@ -191,22 +200,24 @@ export function createFAQSchema(
 // ═══ PAGE-SPECIFIC SCHEMAS (SEQ-58) ═══
 
 /** AboutPage — injected on /about */
-export function createAboutPageSchema() {
+export function createAboutPageSchema(translations?: (key: string, fallback?: string) => string) {
+  const namePrefix = translations ? translations('about.title', 'Über Uns') : 'Über Uns';
   return {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    name: `Über Uns — ${companyData.companyName}`,
+    name: `${namePrefix} — ${companyData.companyName}`,
     url: `${BASE_URL}/about`,
     mainEntity: { '@id': IDS.restaurant },
   };
 }
 
 /** ContactPage — injected on /contact */
-export function createContactPageSchema() {
+export function createContactPageSchema(translations?: (key: string, fallback?: string) => string) {
+  const namePrefix = translations ? translations('contact.title', 'Kontakt') : 'Kontakt';
   return {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: `Kontakt — ${companyData.companyName}`,
+    name: `${namePrefix} — ${companyData.companyName}`,
     url: `${BASE_URL}/contact`,
     mainEntity: { '@id': IDS.restaurant },
   };
@@ -270,11 +281,14 @@ export function createMenuPageSchema() {
 }
 
 /** ReservationPage with ReserveAction — injected on /reservation */
-export function createReservationPageSchema() {
+export function createReservationPageSchema(translations?: (key: string, fallback?: string) => string) {
+  const namePrefix = translations ? translations('reservation.title', 'Reservierung') : 'Reservierung';
+  const actionName = translations ? translations('reservation.actionName', 'Tischreservierung') : 'Tischreservierung';
+  
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: `Reservierung — ${companyData.companyName}`,
+    name: `${namePrefix} — ${companyData.companyName}`,
     url: `${BASE_URL}/reservation`,
     mainEntity: { '@id': IDS.restaurant },
     potentialAction: {
@@ -289,7 +303,7 @@ export function createReservationPageSchema() {
       },
       result: {
         '@type': 'FoodEstablishmentReservation',
-        name: 'Tischreservierung',
+        name: actionName,
       },
     },
   };

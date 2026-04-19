@@ -3,17 +3,20 @@ import Link from 'next/link';
 import { PageTransition } from '@/components/effects/PageTransition';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: "Cookie-Richtlinie – Lindener Ratsstuben",
-  description: "Cookie-Richtlinie der Lindener Ratsstuben: Informationen zu den eingesetzten Cookies, localStorage-Einträgen und Ihren Kontrollmöglichkeiten.",
-  alternates: {
-    canonical: "/cookie-richtlinie",
-  },
-  robots: {
-    index: false,
-    follow: true,
-  }
-};
+import { getAlternates } from '@/lib/seo/metadata';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Cookie-Richtlinie – Lindener Ratsstuben",
+    description: "Cookie-Richtlinie der Lindener Ratsstuben: Informationen zu den eingesetzten Cookies, localStorage-Einträgen und Ihren Kontrollmöglichkeiten.",
+    alternates: getAlternates(locale, 'cookie-richtlinie'),
+    robots: {
+      index: false,
+      follow: true,
+    }
+  };
+}
 
 const CookieRichtlinie = () => {
     return (

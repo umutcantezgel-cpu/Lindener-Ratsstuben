@@ -6,6 +6,7 @@ import { LocaleType } from '@/lib/locales';
 import { companyData } from '@/data/company';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { createKegelbahnPageSchema } from '@/lib/seo/schema-generators';
+import { getAlternates } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -17,9 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: titleText,
     description,
-    alternates: {
-      canonical: "/kegelbahn",
-    },
+    alternates: getAlternates(locale, 'kegelbahn'),
     openGraph: {
       title: fullTitle,
       description,

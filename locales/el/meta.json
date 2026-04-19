@@ -1,9 +1,9 @@
 {
-  "about.title": "Σχετικά | Lindener Ratsstuben",
-  "contact.title": "Επικοινωνία — Lindener Ratsstuben",
-  "gallery.title": "Γκαλερί — Lindener Ratsstuben",
-  "home.description": "Καλώς ήρθατε στο Lindener Ratsstuben. Απολαύστε ιταλικές και μεσογειακές γεύσεις, ετοιμασμένες με πάθος.",
   "home.title": "Αρχική | Lindener Ratsstuben",
+  "home.description": "Καλώς ήρθατε στο Lindener Ratsstuben. Απολαύστε ιταλικές και μεσογειακές σπεσιαλιτέ, φρεσκομαγειρεμένες με πάθος.",
   "menu.title": "Μενού | Lindener Ratsstuben",
-  "reservation.title": "Κράτηση | Lindener Ratsstuben"
+  "contact.title": "Επικοινωνία | Lindener Ratsstuben",
+  "reservation.title": "Κράτηση | Lindener Ratsstuben",
+  "gallery.title": "Συλλογή | Lindener Ratsstuben",
+  "about.title": "Σχετικά με Εμάς | Lindener Ratsstuben"
 }

@@ -52,6 +52,7 @@ const loraFont = Lora({
 
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { ALLOWED_LOCALES, LocaleType } from '@/lib/locales';
+import { getAlternates } from '@/lib/seo/metadata';
 
 export function generateStaticParams() {
   return ALLOWED_LOCALES.map((locale) => ({ locale }));
@@ -82,9 +83,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         'max-snippet': -1,
       },
     },
-    alternates: {
-      canonical: `/${locale}`,
-    },
+    alternates: getAlternates(locale, ''),
     openGraph: {
       type: 'website',
       locale: locale === 'en' ? 'en_US' : `${locale}_${locale.toUpperCase()}`,
@@ -124,7 +123,7 @@ export default async function RootLayout({
   );
   const clientDictionary = dictionaries.reduce((acc, current) => ({ ...acc, ...current }), {});
 
-  const jsonLd = createGlobalSchemaGraph();
+  const jsonLd = await createGlobalSchemaGraph(locale as LocaleType);
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning className={`${interFont.variable} ${loraFont.variable}`}>

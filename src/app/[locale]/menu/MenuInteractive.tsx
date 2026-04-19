@@ -105,7 +105,7 @@ const dishImageMap: Record<string, string> = {
 const FALLBACK_IMAGE = '/images/placeholder.svg';
 
 interface MenuInteractiveProps {
-    categories: { id: string; name: string; label: string; description?: string }[];
+    categories: { id: string; name: string; label: string; description?: string; headerText?: string }[];
     menuItems: MenuItem[];
     translations: {
         categoriesLabel: string;
@@ -208,7 +208,7 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
                         const titleId = `title-${itemId}`;
                         const descId = `desc-${itemId}`;
                         return (
-                            <li key={itemId} role="listitem" className="list-none">
+                            <li key={itemId} className="list-none">
                                 <article itemScope itemType="https://schema.org/MenuItem" aria-labelledby={titleId} aria-describedby={item.description ? descId : undefined} className="p-4 sm:p-6 bg-surface rounded-2xl border border-border/50 hover:border-accent/40 shadow-sm hover:shadow-md transition-all relative group flex gap-4 sm:gap-6">
                                     <div className="shrink-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl overflow-hidden relative border border-border/50 bg-bg-secondary" aria-hidden="true">
                                         <AdaptiveImage
@@ -251,7 +251,7 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
                         );
                     })
                 ) : (
-                    <li className="col-span-full text-center py-32 bg-bg-secondary rounded-2xl border border-dashed border-border" role="listitem">
+                    <li className="col-span-full text-center py-32 bg-bg-secondary rounded-2xl border border-dashed border-border">
                         <Info className="w-12 h-12 text-text-tertiary mx-auto mb-4" aria-hidden="true" />
                         <p className="text-text-secondary text-lg font-medium">{translations.noResults}</p>
                     </li>

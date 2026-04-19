@@ -10,7 +10,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { createMenuPageSchema } from '@/lib/seo/schema-generators';
 import { sanityFetch } from '@/lib/sanity/client';
 import { menuCategoriesQuery, dishesQuery } from '@/lib/sanity/queries';
-import { categories as ssotCategories, menuItems as ssotMenuItems, categoryFootnotes } from '@/data/menu';
+
 
 // ═══ SANITY TYPE INTERFACES ═══
 interface SanityAllergen { _id: string; code: string; }
@@ -60,19 +60,15 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   // ═══ SSOT FALLBACK: If Sanity returns no data, use the local SSOT ═══
   const useSSOTFallback = fetchedDishes.length === 0;
 
-  let finalCategories: { id: string; name: string; label: string; description?: string }[];
+  let finalCategories: { id: string; name: string; label: string; description?: string; headerText?: string }[];
   let finalMenuItems: { id: string; nr: string; name: string; description: string; price: number | null; category: string; }[];
 
   if (useSSOTFallback) {
-    // Use SSOT data directly
-    finalCategories = ssotCategories.map(c => ({
-      id: c.id,
-      name: c.name,
-      label: c.label,
-      description: categoryFootnotes[c.id] || undefined,
-    }));
-
-    finalMenuItems = ssotMenuItems.map((item, idx) => ({
+    const { getLocalizedMenuData } = await import('@/lib/i18n/menu-data');
+    const localizedData = await getLocalizedMenuData(locale);
+    
+    finalCategories = localizedData.categories;
+    finalMenuItems = localizedData.menuItems.map((item, idx) => ({
       id: `ssot-${item.nr || idx}`,
       nr: item.nr,
       name: item.name,

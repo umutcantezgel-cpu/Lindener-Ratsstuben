@@ -6,6 +6,8 @@ export const ALLOWED_LOCALES = [
 
 export type LocaleType = typeof ALLOWED_LOCALES[number];
 
+export const ACTIVE_LOCALES: LocaleType[] = ['de', 'en', 'el'];
+
 export const DEFAULT_LOCALE: LocaleType = 'de';
 
 /** Human-readable display names for each locale (in its own language) */

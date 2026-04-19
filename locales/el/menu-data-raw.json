@@ -1,0 +1,758 @@
+{
+  "categories": {
+    "suppen": {
+      "name": "Suppen",
+      "label": "Suppen",
+      "description": "Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€",
+      "headerText": ""
+    },
+    "vorspeisen": {
+      "name": "Vorspeisen",
+      "label": "Vorspeisen",
+      "description": "Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€",
+      "headerText": ""
+    },
+    "salate": {
+      "name": "Salate",
+      "label": "Salate",
+      "description": "Unsere Salate servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€",
+      "headerText": ""
+    },
+    "pasta": {
+      "name": "Pasta",
+      "label": "Pasta",
+      "description": "",
+      "headerText": ""
+    },
+    "pasta-al-forno": {
+      "name": "Pasta al Forno",
+      "label": "Überbacken",
+      "description": "",
+      "headerText": ""
+    },
+    "hausgemachte-pasta": {
+      "name": "Hausgemachte Pasta",
+      "label": "Hausgemacht",
+      "description": "",
+      "headerText": ""
+    },
+    "schnitzel": {
+      "name": "Schnitzelvariation",
+      "label": "Schnitzel",
+      "description": "",
+      "headerText": ""
+    },
+    "fleisch-fisch": {
+      "name": "Fleischgerichte & Fischgerichte",
+      "label": "Fleisch & Fisch",
+      "description": "",
+      "headerText": ""
+    },
+    "pizza": {
+      "name": "Pizza aus dem Steinofen / 28 cm",
+      "label": "Pizza",
+      "description": "alle Pizzen werden mit Tomaten soße mit Special würzen & Käse zubereitet.",
+      "headerText": ""
+    },
+    "familienpizza": {
+      "name": "Familienpizza aus dem Steinofen / 40 × 60 cm",
+      "label": "Familienpizza",
+      "description": "",
+      "headerText": ""
+    },
+    "kindergerichte": {
+      "name": "Kindergerichte",
+      "label": "Kindergerichte",
+      "description": "",
+      "headerText": ""
+    },
+    "dessert": {
+      "name": "Dessert",
+      "label": "Dessert",
+      "description": "",
+      "headerText": ""
+    },
+    "warme-getraenke": {
+      "name": "Warme Getränke",
+      "label": "Kaffee & Tee",
+      "description": "",
+      "headerText": ""
+    },
+    "alkoholfreie-getraenke": {
+      "name": "Alkoholfreie Getränke",
+      "label": "Alkoholfrei",
+      "description": "",
+      "headerText": ""
+    },
+    "saefte": {
+      "name": "Säfte von Vaihinger",
+      "label": "Säfte",
+      "description": "",
+      "headerText": ""
+    },
+    "biere": {
+      "name": "Biere",
+      "label": "Biere",
+      "description": "",
+      "headerText": ""
+    },
+    "rotweine": {
+      "name": "Offene Rotweine",
+      "label": "Rotweine",
+      "description": "",
+      "headerText": ""
+    },
+    "weissweine": {
+      "name": "Offene Weißweine",
+      "label": "Weißweine",
+      "description": "",
+      "headerText": ""
+    },
+    "spirituosen": {
+      "name": "Spirituosen 0,2 cl",
+      "label": "Spirituosen",
+      "description": "",
+      "headerText": ""
+    },
+    "likoere": {
+      "name": "Liköre 0,2 cl",
+      "label": "Liköre",
+      "description": "",
+      "headerText": ""
+    },
+    "burger": {
+      "name": "Hausgemachte Burger",
+      "label": "Burger",
+      "description": "Alle Burger werden frisch zubereitet und mit knusprigen Pommes Frites serviert.",
+      "headerText": "Unsere Burger werden mit 100 % hochwertigem Rindfleisch, frischen Zutaten und unserer hausgemachten Sauce zubereitet – serviert mit knusprigen Pommes Frites."
+    },
+    "limonaden": {
+      "name": "Hausgemachte Limonaden",
+      "label": "Limonaden",
+      "description": "Alle Limonaden werden frisch zubereitet und mit ausgewählten Zutaten verfeinert.",
+      "headerText": "Genießen Sie unsere liebevoll zubereiteten, hausgemachten Limonaden – aus besten Zutaten, mit ausgewogenen Aromen und perfekt abgestimmt für ein besonderes Geschmackserlebnis."
+    }
+  },
+  "items": {
+    "10": {
+      "name": "Tagessuppe",
+      "description": "Frisch zubereitet nach saisonalem Angebot."
+    },
+    "11": {
+      "name": "Tomatencremesuppe",
+      "description": "Fein abgestimmte, cremig verfeinerte Tomatensuppe."
+    },
+    "20": {
+      "name": "Bruschetta Classico",
+      "description": "Geröstete Weißbrotscheiben mit frischen Tomaten, Zwiebeln, Oliven und Knoblauch, veredelt mit extra nativem Olivenöl. Wahlweise mit überbackenem Mozzarella (+2,00 €)."
+    },
+    "21": {
+      "name": "Prosciutto di Parma e Melone",
+      "description": "Edler luftgetrockneter Parmaschinken, serviert mit sonnengereifter Melone."
+    },
+    "22": {
+      "name": "La Buratta",
+      "description": "Cremige Burrata auf feinem Tomaten-Carpaccio, verfeinert mit einer Balsamico-Kräutervinaigrette und Genovese-Basilikum Pesto."
+    },
+    "23": {
+      "name": "Vitello Tonnato",
+      "description": "Zart rosa gegartes Kalbfleisch, fein aufgeschnitten, begleitet von einer cremigen Thunfischsauce mit Kapern, Sardellen & Ei."
+    },
+    "24": {
+      "name": "Carpaccio di Manzo",
+      "description": "Hauchdünn geschnittenes argentinisches Rinderfilet auf mariniertem Rucola, mit frischen Champignons und gehobeltem Grana Padano, verfeinert mit extra nativem Olivenöl."
+    },
+    "25": {
+      "name": "Antipasti Misti della Casa",
+      "description": "Eine erlesene Auswahl italienischer Vorspeisenspezialitäten nach Art des Hauses – warm und kalt serviert. Auch als stilvolle Antipasti-Platten für mehrere Personen erhältlich. Pro Person 13,90 €."
+    },
+    "30": {
+      "name": "Insalata Mista",
+      "description": "Kleiner, bunter Salatteller – ideal als Beilage oder Vorspeise."
+    },
+    "31": {
+      "name": "Insalata Italia",
+      "description": "Bunter Salatteller mit Vorderschinken, saftigem Thunfisch, Mozzarella und Ei, serviert mit hausgemachtem Joghurtdressing."
+    },
+    "32": {
+      "name": "Insalata Italia (klein)",
+      "description": "Wahlweise als Vorspeise oder Beilage."
+    },
+    "33": {
+      "name": "Insalata Frutti di Mare",
+      "description": "Rucolasalat mit köstlich marinierten Meeresfrüchten, Cocktailtomaten und roten Zwiebeln in Balsamico-Kräuter-Vinaigrette."
+    },
+    "34": {
+      "name": "Insalata di Pollo",
+      "description": "Bunter Salatteller mit Hähnchenbrustfilet und frischen Champignons, serviert mit hausgemachtem Joghurtdressing."
+    },
+    "35": {
+      "name": "Insalata Salmone e Gamberoni",
+      "description": "Bunter Salatteller mit frischem Lachsfilet und Garnelen in Balsamico-Kräuter-Vinaigrette."
+    },
+    "36": {
+      "name": "Insalata Don Capo",
+      "description": "Bunter Salatteller mit argentinischem Rinderfleisch und gehobeltem Grana Padano, serviert mit hausgemachtem Joghurtdressing."
+    },
+    "40": {
+      "name": "Spaghetti alla Bolognese",
+      "description": "Mit geschmortem Rinderhackfleisch in würziger Tomatensauce, serviert mit frisch geriebenem Parmigiano."
+    },
+    "41": {
+      "name": "Original Spaghetti Carbonara",
+      "description": "Mit knusprigem Guanciale (Schweinebacke), Ei, grob geschrotetem Pfeffer und frisch geriebenem Parmigiano."
+    },
+    "42": {
+      "name": "Rigatoni alla Puglia",
+      "description": "Mit knusprigem Guanciale (Schweinebacke), Brokkoli, Zwiebeln und einem Hauch Knoblauch in aromatischer Tomatensauce, verfeinert mit geriebenem Parmigiano."
+    },
+    "43": {
+      "name": "Rigatoni „Ratsstube\"",
+      "description": "Mit gebratener Hähnchenbrust und frischen Champignons in cremiger Tomaten-Sahnesauce, serviert mit Parmigiano."
+    },
+    "44": {
+      "name": "Tagliatelle al Ragù di Verdure",
+      "description": "Feine Bandnudeln mit frischem Marktgemüse-Ragout in aromatischer Tomatensauce, dazu geriebener Parmigiano."
+    },
+    "45": {
+      "name": "Tagliatelle Salmone e Gamberoni",
+      "description": "Feine Bandnudeln mit gebratenem Lachsfilet und Garnelen, verfeinert mit einem Hauch Knoblauch in cremiger Sauce nach Art des Hauses."
+    },
+    "46": {
+      "name": "Linguine ai Frutti di Mare",
+      "description": "Flache Pasta mit erlesenen Meeresfrüchten in aromatischer Tomatensauce mit feiner Knoblauchnote."
+    },
+    "47": {
+      "name": "Linguine Pesce Misto della Casa",
+      "description": "Flache Pasta mit ausgewähltem Edelfisch in feiner Weißwein-Kräutersauce. Empfehlung des Küchenchefs."
+    },
+    "48": {
+      "name": "Pasta Combinazione",
+      "description": "Drei verschiedene Pasta in geschmortes Rinderhackfleisch in aromatische Tomaten Soße überbacken mit Mozzarella."
+    },
+    "49": {
+      "name": "Rigatoni al Ragu e Verdure",
+      "description": "Mit frischem Marktgemüse Ragout in Cremigen Sahne Soße überbacken mit Mozzarella."
+    },
+    "50": {
+      "name": "Tortellini alla Panna",
+      "description": "Mit Vorderschinken, Ei in Cremigen Sahne Soße serviert geriebenen Parmigiano."
+    },
+    "51": {
+      "name": "Tortelacci Burro e Salvia",
+      "description": "Hausgemachte Riesen Tortellacci gefüllt mit Ricotta, Spinat in Butter Salbei geschwenkt Kirsch-Tomaten auf Rucola Salat Bukket und Grana Padano."
+    },
+    "52": {
+      "name": "Tortellacci con Salmone e Gamberoni",
+      "description": "Hausgemachte Riesen Tortellacci gefüllt mit Ricotta, Spinat in Cremigen Soße nach Art des Hauses."
+    },
+    "53": {
+      "name": "Gnocchi con Gamberoni",
+      "description": "Gefüllte Kartoffeln Gnocchi Tomaten, Mozzarella mit gebratenen Garnelen cremiger Tomaten-Sahnesauce."
+    },
+    "54": {
+      "name": "Gnocchi e Basilikum Pesto Genovese con La Buratta",
+      "description": "Gefüllte Kartoffeln Gnocchi mit cremigen Buratta Basilikum Pesto aus Genovese."
+    },
+    "62": {
+      "name": "Tortellini Prosciutto e Panna",
+      "description": "Tortellini gefüllt mit Fleisch in Vorderschinken Sahne Soße überbacken mit Mozzarella."
+    },
+    "70": {
+      "name": "Schnitzel Wiener Art",
+      "description": "Mit Zitronenscheiben. Dazu servieren wir Pommes Frites & Salat der Saison."
+    },
+    "71": {
+      "name": "Rahm-Schnitzel",
+      "description": "In Cremigen Rahm Soße. Dazu servieren wir Pommes Frites & Salat der Saison."
+    },
+    "72": {
+      "name": "Jäger-Schnitzel",
+      "description": "Mit frischen Champignons in Brauner Soße. Dazu servieren wir Pommes Frites & Salat der Saison."
+    },
+    "73": {
+      "name": "Pfeffer-Schnitzel",
+      "description": "Mit Grünen Madagaskar-Pfefferkörnern in cremige Rahmsoße. Dazu servieren wir Pommes Frites & Salat der Saison."
+    },
+    "74": {
+      "name": "Bauern-Schnitzel",
+      "description": "Mit knusprig gebratenem Speck & Zwiebeln. Dazu servieren wir Pommes Frites & Salat der Saison."
+    },
+    "75": {
+      "name": "Schlemmer-Schnitzel",
+      "description": "Mit frischem Champignon in Cremige Bernaise Soße. Dazu servieren wir Pommes Frites & Salat der Saison."
+    },
+    "76": {
+      "name": "Lindener Rucksack",
+      "description": "Gefüllt mit Vorder-Schinken & Mozzarella Käse in frischem Champignon Sahne Soße."
+    },
+    "80": {
+      "name": "Petto di Pollo alla Griglia",
+      "description": "Hähnchenbrustfilet vom Grill mit hausgemachter Kräuter-Butter & Zitronen Scheibe. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
+    },
+    "81": {
+      "name": "Petto di Pollo al Pepe Verde",
+      "description": "Hähnchenbrustfilet vom Grill mit grünen Madagaskar Pfefferkörner in cremigen Rahm Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
+    },
+    "82": {
+      "name": "Filetto di Maiale al Vino Bianco e Limone",
+      "description": "Schweinefilet Medaillons vom Grill in Weißwein, Zitronen Kräuter Knoblauch Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
+    },
+    "83": {
+      "name": "Filetto di Maiale al Pepe Verde",
+      "description": "Schweinefilet vom Grill mit grünen Madagaskar Pfefferkörner in cremigen Rahm Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
+    },
+    "84": {
+      "name": "Bistecca alla Griglia",
+      "description": "Argent. Rumpsteak vom Lava Grill mit hausgemachter Kräuter-Butter & Zitronen Scheibe. Dazu servieren wir frischem Marktgemüse & Gourmet Kartoffeln."
+    },
+    "85": {
+      "name": "Bistecca al Pepe Verde",
+      "description": "Argent. Rumpsteak vom Lava Grill mit grünen Madagaskar Pfefferkörner in cremigen Rahm Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
+    },
+    "86": {
+      "name": "Orata con Burro al Limone e Aglio",
+      "description": "Frisches Doraden Filet, geschwenkt in einer feinen Zitronen-Kräuter-Knoblauch-Buttersauce. Dazu servieren wir knackiges Marktgemüse und goldbraune Gourmetkartoffeln."
+    },
+    "87": {
+      "name": "Salmone alla Griglia salsa all`Arancia e Senape",
+      "description": "Saftiges Lachsfilet aus Norwegen, frisch vom Grill in Cremigen Orangensenf Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
+    },
+    "88": {
+      "name": "Seppia alla Griglia",
+      "description": "Marinierten Tintenfisch nach Art des Hauses. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
+    },
+    "90": {
+      "name": "Pizza Margarita",
+      "description": "Mozzarella Käse & Oregano."
+    },
+    "91": {
+      "name": "Pizza Salame e funghi",
+      "description": "Salami & frischen Champignons."
+    },
+    "92": {
+      "name": "Pizza Regina",
+      "description": "Salami, Vorder-Schinken & frischen Champignons."
+    },
+    "93": {
+      "name": "Pizza Toscana",
+      "description": "Salami, Vorder-Schinken, Peperoni Wurst, Zwiebeln & frischen Champignons."
+    },
+    "94": {
+      "name": "Pizza Ratsstuben",
+      "description": "Salami, Vorder-Schinken, Peperoni Wurst, Zwiebeln, frischen Champignons & Ei."
+    },
+    "95": {
+      "name": "Pizza Hawaii",
+      "description": "Vorder-Schinken & Ananas-Stücken."
+    },
+    "96": {
+      "name": "Pizza Diavolo",
+      "description": "Peperoni Wurst, Peperoni (Scharf), frischen Champignons."
+    },
+    "97": {
+      "name": "Pizza Parma e Rucola",
+      "description": "Luftgetrocknete Parma-Schinken, Mariniertem Rucola, gehobeltem Grana Padano."
+    },
+    "98": {
+      "name": "Pizza Amore Mio Talia",
+      "description": "Mozzarella-Käse, frische Champignons, Kirsch-Tomaten & Basilikum."
+    },
+    "99": {
+      "name": "Pizza Tonno",
+      "description": "Saftigem Thunfisch, frische Champignons, Rote-Zwiebeln."
+    },
+    "100": {
+      "name": "Pizza Burrata e Rucola",
+      "description": "Cremige Burrata Käse, mariniertem Rucola Salat & Basilikum Pesto."
+    },
+    "101": {
+      "name": "Pizza Frutti di Mare",
+      "description": "Köstlichem Meeresfrüchte, Kirsch-Tomaten & Knoblauch."
+    },
+    "102": {
+      "name": "Pizza Salmone e Gamberoni",
+      "description": "Lachsfilet aus Norwegen, Garnelen, Kirsch-Tomaten & Knoblauch."
+    },
+    "103": {
+      "name": "Pizza Deluxe",
+      "description": "Hauch dünn geschnittene Kalbsfleisch, Cremige Thunfisch Soße, mariniertem Rucola Salat gehobeltem Grana Padano."
+    },
+    "105": {
+      "name": "Pizza Vegetale",
+      "description": "Gegrilltem frisches Marktgemüse."
+    },
+    "106": {
+      "name": "Pizzapane",
+      "description": "Pizzabrot mit Tomaten Soße, Knoblauch & Oregano – Ohne Käse."
+    },
+    "110": {
+      "name": "Pizza Margherita",
+      "description": "Mozzarella und Oregano."
+    },
+    "111": {
+      "name": "Pizza Regina",
+      "description": "Salami, Vorderschinken und frische Champignons."
+    },
+    "112": {
+      "name": "Pizza Toskana",
+      "description": "Salami, Vorderschinken, Peperoniwurst, Zwiebeln und frische Champignons."
+    },
+    "113": {
+      "name": "Pizza Tonno",
+      "description": "Saftiger Thunfisch, rote Zwiebeln und frische Champignons."
+    },
+    "114": {
+      "name": "Pizza Parma e Rucola",
+      "description": "Luftgetrockneter Parmaschinken, marinierter Rucola und gehobelter Grana Padano."
+    },
+    "115": {
+      "name": "Pizza Vegetaria",
+      "description": "Gegrilltes frisches Marktgemüse und Oregano."
+    },
+    "120": {
+      "name": "Chicken Nuggets",
+      "description": "6 Stück Hähnchen-Nuggets mit Pommes frites."
+    },
+    "121": {
+      "name": "Rigatoni burro",
+      "description": "Nudeln in Butter geschwenkt."
+    },
+    "122": {
+      "name": "Spaghetti alla Bolognese",
+      "description": "Geschmortes Rinderhackfleisch in Tomatensoße."
+    },
+    "123": {
+      "name": "Kleine Schnitzel Wiener Art",
+      "description": "Mit Pommes frites."
+    },
+    "130": {
+      "name": "Tiramisu",
+      "description": "Hausgemachtes Tiramisu nach traditioneller Art."
+    },
+    "131": {
+      "name": "Panna Cotta",
+      "description": "Cremige Panna Cotta mit fruchtiger Erdbeersauce."
+    },
+    "132": {
+      "name": "Tartufo Nero",
+      "description": "Schokolade-Trüffeleis mit Cremige Kern & Sahne."
+    },
+    "133": {
+      "name": "Cassata Siciliana",
+      "description": "Sizilianische Eisspezialität mit kandierten Früchten, serviert mit Erdbeersauce und Sahne."
+    },
+    "134": {
+      "name": "Bourbon-Vanilleeis (je Kugel)",
+      "description": "Feines Bourbon-Vanilleeis mit intensivem Vanillearoma."
+    },
+    "140": {
+      "name": "Espresso",
+      "description": ""
+    },
+    "141": {
+      "name": "Espresso Macchiato",
+      "description": ""
+    },
+    "142": {
+      "name": "Espresso Coretto Grappa / Sambuca",
+      "description": ""
+    },
+    "143": {
+      "name": "Espresso Doppio",
+      "description": ""
+    },
+    "144": {
+      "name": "Kaffee Crema",
+      "description": ""
+    },
+    "145": {
+      "name": "Capuccino",
+      "description": ""
+    },
+    "146": {
+      "name": "Milchkaffee",
+      "description": ""
+    },
+    "147": {
+      "name": "Latte Macchiato",
+      "description": ""
+    },
+    "148": {
+      "name": "Tee (Schwarz, Pfefferminz, Früchte, Kamille)",
+      "description": ""
+    },
+    "150": {
+      "name": "Selters Medium 0,25 l",
+      "description": ""
+    },
+    "151": {
+      "name": "Selters Medium 0,75 l",
+      "description": ""
+    },
+    "152": {
+      "name": "Selters Naturell 0,25",
+      "description": ""
+    },
+    "153": {
+      "name": "Selters Naturell 0,75",
+      "description": ""
+    },
+    "154": {
+      "name": "Coca-Cola 0,3",
+      "description": ""
+    },
+    "155": {
+      "name": "Coca-Cola 0,4",
+      "description": ""
+    },
+    "156": {
+      "name": "Coca-Cola Zero 0,3",
+      "description": ""
+    },
+    "157": {
+      "name": "Coca-Cola Zero 0,4",
+      "description": ""
+    },
+    "158": {
+      "name": "Fanta 0,3",
+      "description": ""
+    },
+    "159": {
+      "name": "Fanta 0,4",
+      "description": ""
+    },
+    "160": {
+      "name": "Sprit 0,3",
+      "description": ""
+    },
+    "161": {
+      "name": "Sprit 0,4",
+      "description": ""
+    },
+    "162": {
+      "name": "Spezi 0,3",
+      "description": ""
+    },
+    "163": {
+      "name": "Spezi 0,4",
+      "description": ""
+    },
+    "164": {
+      "name": "Bitter Lemon 0,2",
+      "description": ""
+    },
+    "165": {
+      "name": "Ginger Ale",
+      "description": ""
+    },
+    "166": {
+      "name": "Trade Island Pfirsich",
+      "description": ""
+    },
+    "167": {
+      "name": "Apfelsaftschorle 0,3",
+      "description": ""
+    },
+    "168": {
+      "name": "Apfelsaftschorle",
+      "description": ""
+    },
+    "170": {
+      "name": "Apfelsaft 0,2",
+      "description": ""
+    },
+    "171": {
+      "name": "Apfelsaft 0,4",
+      "description": ""
+    },
+    "172": {
+      "name": "Orangensaft 0,2",
+      "description": ""
+    },
+    "173": {
+      "name": "Orangensaft 0,4",
+      "description": ""
+    },
+    "174": {
+      "name": "Maracuja Saft 0,2",
+      "description": ""
+    },
+    "175": {
+      "name": "Maracuja Saft 0,4",
+      "description": ""
+    },
+    "176": {
+      "name": "Johannisbeersaft 0,2",
+      "description": ""
+    },
+    "177": {
+      "name": "Johannisbeersaft 0,4",
+      "description": ""
+    },
+    "180": {
+      "name": "Krombacher Pils vom Fass 0,3",
+      "description": ""
+    },
+    "181": {
+      "name": "Krombacher Pils vom Fass 0,4",
+      "description": ""
+    },
+    "182": {
+      "name": "Radler 0,3",
+      "description": ""
+    },
+    "183": {
+      "name": "Radler 0,4",
+      "description": ""
+    },
+    "184": {
+      "name": "Cola-Bier 0,3",
+      "description": ""
+    },
+    "185": {
+      "name": "Cola-Bier 0,4",
+      "description": ""
+    },
+    "186": {
+      "name": "Krombacher Alkoholfreiweizen 0,5",
+      "description": ""
+    },
+    "187": {
+      "name": "Starnberger Weizen vom Fass 0,5",
+      "description": ""
+    },
+    "188": {
+      "name": "Alkoholfrei Radler 0,4 l",
+      "description": ""
+    },
+    "189": {
+      "name": "Cola-Weizen 0,5",
+      "description": ""
+    },
+    "200": {
+      "name": "Primitivo",
+      "description": ""
+    },
+    "201": {
+      "name": "Spätburgunder Finkenauer",
+      "description": ""
+    },
+    "202": {
+      "name": "Valpolicella",
+      "description": ""
+    },
+    "203": {
+      "name": "Lambrusco Perlwein",
+      "description": ""
+    },
+    "204": {
+      "name": "Lugana",
+      "description": ""
+    },
+    "205": {
+      "name": "Pinot Grigio",
+      "description": ""
+    },
+    "206": {
+      "name": "Weißburgunder Finkenauer",
+      "description": ""
+    },
+    "207": {
+      "name": "Frizzantino",
+      "description": ""
+    },
+    "208": {
+      "name": "Rosé Spätburgunder Finkenauer",
+      "description": ""
+    },
+    "209": {
+      "name": "Weinschorle — Weiß / Rot / Rosé 0,2",
+      "description": ""
+    },
+    "210": {
+      "name": "Possmann Apfelwein — Pur / Cola / Sprit / Fanta 0,5",
+      "description": ""
+    },
+    "220": {
+      "name": "Marsala",
+      "description": ""
+    },
+    "221": {
+      "name": "Himbergeist",
+      "description": ""
+    },
+    "222": {
+      "name": "Obstler",
+      "description": ""
+    },
+    "223": {
+      "name": "Ouzo",
+      "description": ""
+    },
+    "224": {
+      "name": "Vecchia Romagna",
+      "description": ""
+    },
+    "225": {
+      "name": "Haus Grappa",
+      "description": ""
+    },
+    "226": {
+      "name": "Grappa di Prosecco",
+      "description": ""
+    },
+    "227": {
+      "name": "Himbergeist",
+      "description": ""
+    },
+    "228": {
+      "name": "Obstler",
+      "description": ""
+    },
+    "229": {
+      "name": "Malteser",
+      "description": ""
+    },
+    "230": {
+      "name": "Amaretto",
+      "description": ""
+    },
+    "231": {
+      "name": "Ramazotti",
+      "description": ""
+    },
+    "232": {
+      "name": "Averna",
+      "description": ""
+    },
+    "233": {
+      "name": "Fernet Branca",
+      "description": ""
+    },
+    "234": {
+      "name": "Jägermeister",
+      "description": ""
+    },
+    "235": {
+      "name": "Lockstedter",
+      "description": ""
+    },
+    "236": {
+      "name": "Sambuca",
+      "description": ""
+    },
+    "237": {
+      "name": "Baileys",
+      "description": ""
+    },
+    "238": {
+      "name": "Limoncello",
+      "description": ""
+    },
+    "": {
+      "name": "Pfirsich Limonade",
+      "description": "Zarter Pfirsichgeschmack, leicht und harmonisch – eine sanfte Erfrischung mit feiner Süße."
+    }
+  }
+}

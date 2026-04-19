@@ -3,6 +3,25 @@ import type { NextRequest } from 'next/server';
 import { userAgent } from 'next/server';
 import { DEFAULT_LOCALE, isValidLocale } from '@/lib/locales';
 
+// ═══════════════════════════════════════════════════════════════
+// BROWSER USER-AGENT HEURISTIC
+// Used to distinguish real browsers from AI/CLI crawlers when
+// a .md URL is requested without an Accept: text/markdown header.
+// ═══════════════════════════════════════════════════════════════
+const BROWSER_UA_PATTERNS = [
+  /Chrome\//i, /Firefox\//i, /Safari\//i, /Edg\//i,
+  /Opera\//i, /OPR\//i, /Vivaldi\//i, /Brave\//i,
+  /MSIE/i, /Trident\//i,
+];
+
+function isBrowserUserAgent(uaString: string | null): boolean {
+  if (!uaString) return false;
+  return BROWSER_UA_PATTERNS.some((pattern) => pattern.test(uaString));
+}
+
+// ═══════════════════════════════════════════════════════════════
+// LOCALE DETECTION
+// ═══════════════════════════════════════════════════════════════
 function getLocale(request: NextRequest): string {
   // 1. Explicit locale from cookie
   const cookieLocale = request.cookies.get('X-Preferred-Locale')?.value;
@@ -26,35 +45,61 @@ function getLocale(request: NextRequest): string {
   return DEFAULT_LOCALE;
 }
 
+// ═══════════════════════════════════════════════════════════════
+// MIDDLEWARE ENTRY POINT
+// ═══════════════════════════════════════════════════════════════
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  
-  // --- Markdown Mirror Interceptor ---
-  const isMarkdownExtension = pathname.endsWith('.md');
-  const acceptsMarkdown = request.headers.get('accept')?.includes('text/markdown');
 
-  // Prevent rewriting the actual api/markdown route (prevent infinite loop in edge cases)
+  // ───────────────────────────────────────────────────────────
+  // GUARD 1: MARKDOWN MIRROR INTERCEPTOR (FIRST PRIORITY)
+  // Must run BEFORE locale detection to catch bare paths
+  // like /about.md before they get redirected to /de/about.md
+  // ───────────────────────────────────────────────────────────
+  const isMarkdownExtension = pathname.endsWith('.md');
+  const acceptHeader = request.headers.get('accept') || '';
+  const acceptsMarkdown = acceptHeader.includes('text/markdown');
   const isInternalRequest = request.headers.get('x-internal-markdown-request') === 'true';
-  if (!pathname.startsWith('/api/') && !isInternalRequest && (isMarkdownExtension || acceptsMarkdown)) {
-      if (isMarkdownExtension && !acceptsMarkdown) {
-          // Strict Fallback: Regular browsers requesting .md get redirected to canonical HTML (301)
-          let htmlPath = pathname.replace(/\.md$/, '');
-          if (htmlPath.endsWith('/index')) htmlPath = htmlPath.replace(/\/index$/, '');
-          return NextResponse.redirect(new URL(htmlPath || '/', request.url), 301);
+  const uaString = request.headers.get('user-agent');
+
+  if (!isInternalRequest && (isMarkdownExtension || acceptsMarkdown)) {
+    // ── STRICT FALLBACK: Browser requesting .md → 301 to canonical HTML ──
+    // A request has .md extension BUT does not send Accept: text/markdown.
+    // If the User-Agent looks like a real browser, redirect to HTML.
+    if (isMarkdownExtension && !acceptsMarkdown) {
+      // Even without Accept header, non-browser clients (curl, bots) may
+      // intentionally request .md — only redirect known browsers.
+      if (isBrowserUserAgent(uaString) || (!uaString && !acceptsMarkdown)) {
+        let htmlPath = pathname.replace(/\.md$/, '');
+        if (htmlPath.endsWith('/index')) htmlPath = htmlPath.replace(/\/index$/, '');
+        const redirectResponse = NextResponse.redirect(new URL(htmlPath || '/', request.url), 301);
+        redirectResponse.headers.set('Vary', 'Accept');
+        return redirectResponse;
       }
-      
-      // Rewrite to dynamic DOM-conversion engine
-      let targetPath = isMarkdownExtension ? pathname.replace(/\.md$/, '') : pathname;
-      if (targetPath.endsWith('/index')) targetPath = targetPath.replace(/\/index$/, '');
-      const newUrl = new URL(`/api/markdown?path=${encodeURIComponent(targetPath || '/')}`, request.url);
-      const response = NextResponse.rewrite(newUrl);
-      
-      // Set Vary header for CDN/Cache safety
-      response.headers.set('Vary', 'Accept');
-      return response;
+    }
+
+    // ── REWRITE: Route to dynamic DOM-conversion engine ──
+    let targetPath = isMarkdownExtension ? pathname.replace(/\.md$/, '') : pathname;
+    if (targetPath.endsWith('/index')) targetPath = targetPath.replace(/\/index$/, '');
+    const newUrl = new URL(`/api/markdown`, request.url);
+    newUrl.searchParams.set('path', targetPath || '/');
+    const response = NextResponse.rewrite(newUrl, {
+      request: {
+        headers: new Headers({
+          ...Object.fromEntries(request.headers.entries()),
+          'x-markdown-target-path': targetPath || '/',
+        }),
+      },
+    });
+
+    // CDN/Cache safety: different content for same URL based on Accept header
+    response.headers.set('Vary', 'Accept');
+    return response;
   }
 
-  // --- Locale Detection & Routing ---
+  // ───────────────────────────────────────────────────────────
+  // GUARD 2: LOCALE DETECTION & ROUTING
+  // ───────────────────────────────────────────────────────────
   const pathnameSegments = pathname.split('/').filter(Boolean);
   const firstSegment = pathnameSegments[0];
 
@@ -67,7 +112,9 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(newUrl);
   }
 
-  // --- Visitor Tracking & Segmentation Logic ---
+  // ───────────────────────────────────────────────────────────
+  // GUARD 3: VISITOR TRACKING & SEGMENTATION LOGIC
+  // ───────────────────────────────────────────────────────────
   const { device } = userAgent(request);
   const isMobile = device.type === 'mobile';
   const isTablet = device.type === 'tablet';
