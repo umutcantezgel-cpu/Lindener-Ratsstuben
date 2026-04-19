@@ -60,22 +60,22 @@ export const Home = async ({ locale }: HomeProps) => {
                         <AnimateIn direction="up">
                             <div className="space-y-8 bg-onyx-deep">
                                 <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('philosophy.label') as string}</span>
-                                <h2 id="philosophy-title" className="text-4xl md:text-5xl font-display font-bold text-white leading-tight text-balance">
+                                <h2 id="philosophy-title" className="text-4xl md:text-5xl font-display font-bold text-stone-600 leading-tight text-balance">
                                     {t('philosophy.title') as string}
                                 </h2>
-                                <p className="text-stone-200 text-lg leading-relaxed max-w-prose">
+                                <p className="text-stone-700 text-lg leading-relaxed max-w-prose">
                                     {(t('philosophy.description') as string).replace('{name}', companyData.companyName) || `Bei ${companyData.companyName} glauben wir, dass jedes Gericht eine Geschichte erzählt.`}
                                 </p>
                                 <div className="grid grid-cols-2 gap-8 pt-4">
                                     <section className="flex flex-col gap-2">
                                         <ChefHat className="w-8 h-8 text-accent-text" aria-hidden="true" />
-                                        <h3 className="font-bold text-white">{t('philosophy.master_chefs') as string}</h3>
-                                        <p className="text-sm text-stone-300">{t('philosophy.master_chefs_desc') as string}</p>
+                                        <h3 className="font-bold text-stone-600">{t('philosophy.master_chefs') as string}</h3>
+                                        <p className="text-sm text-stone-700">{t('philosophy.master_chefs_desc') as string}</p>
                                     </section>
                                     <section className="flex flex-col gap-2">
                                         <Leaf className="w-8 h-8 text-accent-text" aria-hidden="true" />
-                                        <h3 className="font-bold text-white">{t('philosophy.fresh_ingredients') as string}</h3>
-                                        <p className="text-sm text-stone-300">{t('philosophy.fresh_ingredients_desc') as string}</p>
+                                        <h3 className="font-bold text-stone-600">{t('philosophy.fresh_ingredients') as string}</h3>
+                                        <p className="text-sm text-stone-700">{t('philosophy.fresh_ingredients_desc') as string}</p>
                                     </section>
                                 </div>
                                 <div className="pt-6">
@@ -198,13 +198,13 @@ export const Home = async ({ locale }: HomeProps) => {
                 <div className="container mx-auto px-4 max-w-7xl">
                     <AnimateIn className="text-center mb-20">
                         <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('testimonials.label') as string}</span>
-                        <h2 id="testimonials-title" className="text-4xl md:text-5xl font-display font-bold text-white mt-3 text-balance">{t('testimonials.title') as string}</h2>
+                        <h2 id="testimonials-title" className="text-4xl md:text-5xl font-display font-bold text-stone-600 mt-3 text-balance">{t('testimonials.title') as string}</h2>
                         <div className="flex justify-center items-center gap-2 mt-4">
-                            <span className="font-bold text-lg text-white">4.8</span>
+                            <span className="font-bold text-lg text-stone-600">4.8</span>
                             <div className="flex text-accent-text">
                                 {[...Array(5)].map((_, i) => <Star key={i} className={`w-5 h-5 ${i === 4 ? 'fill-current opacity-50' : 'fill-current'}`} />)}
                             </div>
-                            <span className="text-sm text-stone-300 ms-2">{t('testimonials.from_reviews') as string}</span>
+                            <span className="text-sm text-stone-700 ms-2">{t('testimonials.from_reviews') as string}</span>
                         </div>
                     </AnimateIn>
 

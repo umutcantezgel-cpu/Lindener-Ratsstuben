@@ -106,5 +106,16 @@
   "footer.brand_description": "Italienische & Mediterrane Küche. Tradition trifft auf Leidenschaft in jedem Gericht. Erleben Sie den Geschmack der Exzellenz.",
   "footer.rights": "Alle Rechte vorbehalten.",
   "opening_hours.exception_holidays": "(außer an Feiertagen)",
-  "opening_hours.time_range": "{start} – {end} Uhr"
+  "opening_hours.time_range": "{start} – {end} Uhr",
+  "footer.opening_hours": "Öffnungszeiten",
+  "footer.monday": "Montag",
+  "footer.monday_status": "Ruhetag",
+  "footer.tuesday_sunday": "Dienstag – Sonntag",
+  "footer.tuesday_sunday_status": "11:30 - 14:30 & 17:30 - 23:00",
+  "footer.imprint": "Impressum",
+  "footer.privacy": "Datenschutz",
+  "footer.terms": "AGB",
+  "footer.revocation": "Widerruf",
+  "footer.cookies": "Cookie-Einstellungen",
+  "footer.privacy_settings": "Datenschutz-Präferenzen"
 }

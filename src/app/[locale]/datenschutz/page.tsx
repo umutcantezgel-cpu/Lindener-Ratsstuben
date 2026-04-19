@@ -57,10 +57,10 @@ export default async function DatenschutzPage() {
 
             <h3>Sanity CMS (Headless Content Management)</h3>
             <p>
-                Wir nutzen zur Bereitstellung unserer digitalen Inhalte (Texte, Bilder, Metadaten) das Content-Management-System Sanity, betrieben von der Sanity AS, Bakkehaugveien 54, 0873 Oslo, Norwegen.
+                Wir nutzen zur Bereitstellung unserer digitalen Inhalte (Texte, Bilder, PDF-Speisekarten, Metadaten) das Content-Management-System Sanity, betrieben von der Sanity AS, Bakkehaugveien 54, 0873 Oslo, Norwegen.
             </p>
             <p>
-                Sanity speichert die Inhalte auf europäischen Servern und liefert diese über deren hauseigenes Content Delivery Network (CDN) direkt an Ihren Browser aus. Bei diesem Abruf tauscht Ihr Browser notwendigerweise technische Metadaten inklusive Ihrer IP-Adresse mit den Sanity-Servern aus. Die Datenübertragung nutzt modernste TLS/SSL-Verschlüsselungen (https).
+                Sanity speichert die Inhalte auf europäischen Servern und liefert diese über deren hauseigenes Content Delivery Network (CDN) direkt an Ihren Browser aus. Bei diesem Abruf, z. B. beim Herunterladen der aktuellen PDF-Speisekarte, tauscht Ihr Browser notwendigerweise technische Metadaten inklusive Ihrer IP-Adresse mit den Sanity-Servern aus. Die Datenübertragung nutzt modernste TLS/SSL-Verschlüsselungen (https).
             </p>
             <p>
                 Die Verarbeitung dieser Verbindungsdaten erfolgt auf Grundlage unseres berechtigten Interesses gemäß Art. 6 Abs. 1 lit. f DSGVO an der hochverfügbaren Bereitstellung unserer redaktionellen Inhalte. Auch hier garantieren entsprechende Auftragsverarbeitungsverträge den DSGVO-Normstandard.

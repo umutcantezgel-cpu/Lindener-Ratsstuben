@@ -78,7 +78,7 @@ const Barrierefreiheit = () => {
                                 Trotz unserer Bemühungen können derzeit folgende Bereiche Einschränkungen aufweisen:
                             </p>
                             <ul className="list-disc list-inside space-y-2">
-
+                                <li><strong>PDF-Speisekarte:</strong> Die als PDF bereitgestellte Speisekarte ist möglicherweise nicht vollständig barrierefrei. Die vollständige Speisekarte ist alternativ als HTML auf der <Link href="/menu" className="text-primary hover:text-primary-hover underline">Menü-Seite</Link> verfügbar.</li>
                                 <li><strong>Google Maps:</strong> Die eingebettete Karte stammt von einem Drittanbieter und unterliegt dessen Barrierefreiheitsstandards. Alternativ stellen wir die Adresse und den Link zur Kartenansicht als Text bereit.</li>
                                 <li><strong>Animationen:</strong> Die Website nutzt bewegte Elemente. Nutzer können Animationen über die Betriebssystem-Einstellung &quot;Bewegung reduzieren&quot; deaktivieren (<code>prefers-reduced-motion</code>).</li>
                             </ul>

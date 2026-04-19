@@ -35,6 +35,8 @@ export const Header: React.FC = () => {
     const { t: tCommon } = useTranslation('common');
     const { navCta, variant } = useAdaptiveMessaging();
 
+    const isHomePage = pathname === '/' || /^\/[a-z]{2}$/.test(pathname);
+
     const navLinks = [
         { name: t('nav.home') as string, path: '/' },
         { name: t('nav.about') as string, path: '/about' },
@@ -52,7 +54,9 @@ export const Header: React.FC = () => {
                 "fixed top-0 w-full z-[100] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                 isScrolled
                     ? "bg-onyx-deep/90 backdrop-blur-2xl border-b border-white/10 shadow-elevation-1 py-3 lg:py-4"
-                    : "bg-gradient-to-b from-black/70 via-black/20 to-transparent py-6 lg:py-8"
+                    : isHomePage
+                        ? "bg-gradient-to-b from-black/70 via-black/20 to-transparent py-6 lg:py-8"
+                        : "bg-onyx-deep/80 backdrop-blur-md border-b border-white/10 py-6 lg:py-8"
             )}
         >
             <div className="w-full max-w-[1920px] mx-auto px-4 lg:px-8 xl:px-8 2xl:px-16 flex items-center justify-between">
