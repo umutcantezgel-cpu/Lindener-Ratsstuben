@@ -22,7 +22,7 @@ export interface NavigationConfig {
   legal: NavigationLink[];
   /** Social media links (Footer) */
   social: NavigationLink[];
-  /** External links (e.g. PDF menu) */
+  /** External links */
   external: NavigationLink[];
 }
 
@@ -87,7 +87,7 @@ export function getSocialLinks(): NavigationLink[] {
 }
 
 /**
- * Returns all external links (PDF menu, etc.).
+ * Returns all external links.
  */
 export function getExternalLinks(): NavigationLink[] {
   return navigationConfig.external;

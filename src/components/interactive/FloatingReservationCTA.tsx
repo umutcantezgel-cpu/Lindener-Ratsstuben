@@ -14,11 +14,7 @@ export function FloatingReservationCTA() {
   const { t } = useTranslation('pages');
   const pathname = usePathname();
   
-  // Do not render on reservation page
-  if (pathname === '/reservation' || pathname?.endsWith('/reservation')) {
-    return null;
-  }
-  
+
   const [isVisible, setIsVisible] = useState(false);
   const [isPulsing, setIsPulsing] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -82,6 +78,11 @@ export function FloatingReservationCTA() {
       default: return t('fomo.default') as string;
     }
   };
+
+  // Do not render on reservation page
+  if (pathname === '/reservation' || pathname?.endsWith('/reservation')) {
+    return null;
+  }
 
   return (
     <AnimatePresence>

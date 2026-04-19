@@ -1,5 +1,4 @@
 import React from 'react';
-import { Download } from 'lucide-react';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
 import { MenuInteractive } from './MenuInteractive';
@@ -44,10 +43,6 @@ export const Menu = async ({ categories, menuItems, locale }: PageClientProps) =
                     <p className="text-text-secondary max-w-2xl mx-auto text-lg leading-relaxed mb-6">
                         {t('menu.description') as string}
                     </p>
-                    <a href={`/${locale}/menu/print`} target="_blank" rel="noopener noreferrer" className="interaction-bounce px-8 py-3 bg-surface border-2 border-accent text-accent-text font-bold rounded-lg hover:bg-accent hover:text-neutral-950 transition-colors shadow-sm inline-flex items-center gap-2 uppercase tracking-wide">
-                        <Download className="w-5 h-5" />
-                        {t('menu.download_pdf', 'Speisekarte als PDF / Drucken')}
-                    </a>
                 </header>
 
                 <MenuInteractive 
@@ -62,10 +57,6 @@ export const Menu = async ({ categories, menuItems, locale }: PageClientProps) =
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <a href={`/${locale}/reservation`} className="interaction-bounce px-10 py-4 bg-accent text-neutral-950 font-bold rounded-lg hover:bg-accent-hover shadow-warm flex items-center justify-center gap-2 uppercase tracking-wider w-full sm:w-auto">
                             {t('menu.reservation_cta', 'Jetzt Tisch reservieren')}
-                        </a>
-                        <a href={`/${locale}/menu/print`} target="_blank" rel="noopener noreferrer" className="interaction-bounce px-10 py-4 bg-surface border-2 border-accent text-accent-text font-bold rounded-lg hover:bg-accent hover:text-neutral-950 transition-colors flex items-center justify-center gap-2 uppercase tracking-wider w-full sm:w-auto">
-                            <Download className="w-5 h-5" />
-                            {t('menu.download_pdf', 'Drucken / Als PDF')}
                         </a>
                     </div>
                 </div>
