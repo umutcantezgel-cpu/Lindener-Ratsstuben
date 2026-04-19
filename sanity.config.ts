@@ -1,15 +1,16 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
-import { schema } from './src/lib/sanity/schemas'
-import { apiVersion, dataset, projectId } from './src/lib/sanity/env'
+import { visionTool } from '@sanity/vision'
+import { schemaTypes } from './src/lib/sanity/schemas'
 
 export default defineConfig({
+  name: 'lindener-ratsstuben',
+  title: 'Lindener Ratsstuben',
   basePath: '/sanity',
-  projectId,
-  dataset,
-  // Add and edit the content schema in the './sanity/schema' folder
-  schema,
-  plugins: [
-    structureTool(),
-  ],
+  projectId: 'sqgqbi4y',
+  dataset: 'production',
+  plugins: [structureTool(), visionTool()],
+  schema: {
+    types: schemaTypes,
+  },
 })

@@ -89,7 +89,6 @@ export interface CompanyData {
   readonly openingHours: OpeningHours;
   readonly eventCatering: EventCatering;
   readonly tagesangebot: Tagesangebot;
-  readonly menuLink: string;
 }
 
 // ═══════════════════════════════════════════════════════════════

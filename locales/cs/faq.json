@@ -1,25 +1,13 @@
 {
-  "items": {
-    "q1": {
-      "question": "Co jsou Lindener Ratsstuben?",
-      "shortAnswer": "Tradiční restaurace v Lindenu, specializující se na autentickou německo-italskou a středomořskou kuchyni."
-    },
-    "q2": {
-      "question": "Nabízíte catering?",
-      "shortAnswer": "Ano, nabízíme profesionální catering a služby pro akce až pro 120 osob."
-    },
-    "q3": {
-      "question": "Jaká je otevírací doba?",
-      "shortAnswer": "Máme otevřeno od úterý do neděle. Oběd: 11:30-14:30, Večeře: 17:30-22:30. V pondělí zavřeno."
-    },
-    "q4": {
-      "question": "Máte vegetariánská jídla?",
-      "shortAnswer": "Ano, nabízíme široký výběr čerstvých vegetariánských jídel."
-    },
-    "q5": {
-      "question": "Kde najdu jídelní lístek?",
-      "shortAnswer": "Naše menu najdete přímo na našich webových stránkách."
-    }
-  },
-  "title": "Často Kladené Otázky"
+  "title": "Často Kladené Otázky",
+  "items.q1.question": "Co jsou Lindener Ratsstuben?",
+  "items.q1.shortAnswer": "Tradiční restaurace v Lindenu, specializující se na autentickou německo-italskou a středomořskou kuchyni.",
+  "items.q2.question": "Nabízíte catering?",
+  "items.q2.shortAnswer": "Ano, nabízíme profesionální catering a služby pro akce až pro 120 osob.",
+  "items.q3.question": "Jaká je otevírací doba?",
+  "items.q3.shortAnswer": "Máme otevřeno od úterý do neděle. Oběd: 11:30-14:30, Večeře: 17:30-22:30. V pondělí zavřeno.",
+  "items.q4.question": "Máte vegetariánská jídla?",
+  "items.q4.shortAnswer": "Ano, nabízíme široký výběr čerstvých vegetariánských jídel.",
+  "items.q5.question": "Kde najdu jídelní lístek?",
+  "items.q5.shortAnswer": "Naše menu najdete přímo na našich webových stránkách."
 }

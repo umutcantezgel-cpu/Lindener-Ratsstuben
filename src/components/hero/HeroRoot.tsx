@@ -7,11 +7,7 @@ import { HeroInteractionHarness } from './HeroInteractionHarness';
 import { HeroScrollIndicator } from './HeroScrollIndicator';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
 
-interface HeroRootProps {
-    mainMenuPdfUrl?: string;
-}
-
-export const HeroRoot: React.FC<HeroRootProps> = ({ mainMenuPdfUrl }) => {
+export const HeroRoot: React.FC = () => {
     const { hero } = useAdaptiveMessaging();
     const containerRef = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
@@ -40,7 +36,7 @@ export const HeroRoot: React.FC<HeroRootProps> = ({ mainMenuPdfUrl }) => {
             {/* Layer 1: Core Messaging & CTAs */}
             <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl w-full flex flex-col items-center justify-center">
                 <HeroMessaging textY={textY} />
-                <HeroInteractionHarness mainMenuPdfUrl={mainMenuPdfUrl} />
+                <HeroInteractionHarness />
             </div>
 
             {/* Scroll Indicator */}

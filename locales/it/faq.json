@@ -1,25 +1,13 @@
 {
-  "items": {
-    "q1": {
-      "question": "Cosa sono le Lindener Ratsstuben?",
-      "shortAnswer": "È un ristorante tradizionale a Linden specializzato in autentica cucina italo-tedesca e mediterranea, che offre anche servizi di catering."
-    },
-    "q2": {
-      "question": "Offrite servizio di catering?",
-      "shortAnswer": "Sì, offriamo un servizio di catering professionale per eventi, matrimoni e feste aziendali fino a 120 persone."
-    },
-    "q3": {
-      "question": "Quali sono gli orari di apertura?",
-      "shortAnswer": "Siamo aperti dal martedì alla domenica. Il pranzo viene servito dalle 11:30 alle 14:30, la cena dalle 17:30 alle 22:30. Chiuso il lunedì, eccetto i giorni festivi."
-    },
-    "q4": {
-      "question": "Avete piatti vegetariani?",
-      "shortAnswer": "Sì, offriamo un'ampia scelta di piatti vegetariani freschi d'ispirazione mediterranea."
-    },
-    "q5": {
-      "question": "Dove posso trovare il menu?",
-      "shortAnswer": "Il nostro menu è disponibile direttamente sul sito web. Include specialità italo-tedesche, piatti vegetariani e un menu del giorno."
-    }
-  },
-  "title": "Domande Frequenti"
+  "title": "Domande Frequenti",
+  "items.q1.question": "Cosa sono le Lindener Ratsstuben?",
+  "items.q1.shortAnswer": "È un ristorante tradizionale a Linden specializzato in autentica cucina italo-tedesca e mediterranea, che offre anche servizi di catering.",
+  "items.q2.question": "Offrite servizio di catering?",
+  "items.q2.shortAnswer": "Sì, offriamo un servizio di catering professionale per eventi, matrimoni e feste aziendali fino a 120 persone.",
+  "items.q3.question": "Quali sono gli orari di apertura?",
+  "items.q3.shortAnswer": "Siamo aperti dal martedì alla domenica. Il pranzo viene servito dalle 11:30 alle 14:30, la cena dalle 17:30 alle 22:30. Chiuso il lunedì, eccetto i giorni festivi.",
+  "items.q4.question": "Avete piatti vegetariani?",
+  "items.q4.shortAnswer": "Sì, offriamo un'ampia scelta di piatti vegetariani freschi d'ispirazione mediterranea.",
+  "items.q5.question": "Dove posso trovare il menu?",
+  "items.q5.shortAnswer": "Il nostro menu è disponibile direttamente sul sito web. Include specialità italo-tedesche, piatti vegetariani e un menu del giorno."
 }

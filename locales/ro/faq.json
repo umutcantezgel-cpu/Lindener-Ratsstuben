@@ -1,25 +1,13 @@
 {
-  "items": {
-    "q1": {
-      "question": "Ce sunt Lindener Ratsstuben?",
-      "shortAnswer": "Un restaurant tradițional în Linden, specializat în bucătărie autentică germano-italiană și mediteraneană."
-    },
-    "q2": {
-      "question": "Oferiți servicii de catering?",
-      "shortAnswer": "Da, oferim servicii profesionale de catering pentru evenimente de până la 120 de persoane."
-    },
-    "q3": {
-      "question": "Care este programul?",
-      "shortAnswer": "Suntem deschiși de marți până duminică. Prânz: 11:30-14:30, Cină: 17:30-22:30. Luni închis."
-    },
-    "q4": {
-      "question": "Aveți mâncăruri vegetariene?",
-      "shortAnswer": "Da, oferim o selecție largă de mâncăruri vegetariene proaspete."
-    },
-    "q5": {
-      "question": "Unde pot găsi meniul?",
-      "shortAnswer": "Meniul nostru este disponibil direct pe site-ul web."
-    }
-  },
-  "title": "Întrebări Frecvente"
+  "title": "Întrebări Frecvente",
+  "items.q1.question": "Ce sunt Lindener Ratsstuben?",
+  "items.q1.shortAnswer": "Un restaurant tradițional în Linden, specializat în bucătărie autentică germano-italiană și mediteraneană.",
+  "items.q2.question": "Oferiți servicii de catering?",
+  "items.q2.shortAnswer": "Da, oferim servicii profesionale de catering pentru evenimente de până la 120 de persoane.",
+  "items.q3.question": "Care este programul?",
+  "items.q3.shortAnswer": "Suntem deschiși de marți până duminică. Prânz: 11:30-14:30, Cină: 17:30-22:30. Luni închis.",
+  "items.q4.question": "Aveți mâncăruri vegetariene?",
+  "items.q4.shortAnswer": "Da, oferim o selecție largă de mâncăruri vegetariene proaspete.",
+  "items.q5.question": "Unde pot găsi meniul?",
+  "items.q5.shortAnswer": "Meniul nostru este disponibil direct pe site-ul web."
 }

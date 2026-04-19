@@ -406,6 +406,33 @@ export const ReservationInteractive = () => {
                     )}
                 </AnimatePresence>
             </div>
+
+            {/* Sticky Mobile Summary Bar */}
+            {step > 1 && formStatus !== 'completed' && formStatus !== 'success' && (
+                <div className="fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-md border-t border-border p-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] md:hidden z-40 transform transition-transform duration-300">
+                    <div className="flex justify-between items-center max-w-2xl mx-auto px-2">
+                        <div className="flex flex-col">
+                            <span className="text-xs font-medium text-text-secondary uppercase tracking-wider">{t('reservation.summary_title', 'Ihre Auswahl')}</span>
+                            <div className="flex items-center gap-2 text-sm font-semibold text-text-primary mt-1">
+                                <span className="flex items-center gap-1"><User className="w-3.5 h-3.5 text-accent" /> {guests}</span>
+                                {watch('date') && (
+                                    <>
+                                        <span className="text-taupe/40">•</span>
+                                        <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5 text-accent" /> {new Date(watch('date')).toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' })}</span>
+                                    </>
+                                )}
+                                {watch('time') && (
+                                    <>
+                                        <span className="text-taupe/40">•</span>
+                                        <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-accent" /> {watch('time')}</span>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </div>
     );
 };

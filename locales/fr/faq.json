@@ -1,25 +1,13 @@
 {
-  "items": {
-    "q1": {
-      "question": "Que sont les Lindener Ratsstuben ?",
-      "shortAnswer": "Les Lindener Ratsstuben sont un restaurant traditionnel situé à Linden, spécialisé dans la cuisine authentique germano-italienne et méditerranéenne. Nous proposons également un service traiteur."
-    },
-    "q2": {
-      "question": "Proposez-vous un service traiteur ?",
-      "shortAnswer": "Oui, nous proposons un service traiteur professionnel pour vos événements à Linden et ses environs, pouvant accueillir jusqu'à 120 personnes pour des mariages ou des anniversaires d'entreprise."
-    },
-    "q3": {
-      "question": "Quelles sont les heures d'ouverture ?",
-      "shortAnswer": "Nous sommes ouverts du mardi au dimanche. Le déjeuner est servi de 11h30 à 14h30 et le dîner de 17h30 à 22h30. Fermé le lundi, sauf jours fériés."
-    },
-    "q4": {
-      "question": "Avez-vous des plats végétariens ?",
-      "shortAnswer": "Oui, nous offrons un grand choix de plats végétariens frais d'inspiration méditerranéenne et italienne."
-    },
-    "q5": {
-      "question": "Où puis-je trouver le menu ?",
-      "shortAnswer": "Notre menu est disponible sur notre site web. Vous y trouverez nos plats germano-italiens, des spécialités végétariennes et notre menu du jour."
-    }
-  },
-  "title": "Questions Fréquentes"
+  "title": "Questions Fréquentes",
+  "items.q1.question": "Que sont les Lindener Ratsstuben ?",
+  "items.q1.shortAnswer": "Les Lindener Ratsstuben sont un restaurant traditionnel situé à Linden, spécialisé dans la cuisine authentique germano-italienne et méditerranéenne. Nous proposons également un service traiteur.",
+  "items.q2.question": "Proposez-vous un service traiteur ?",
+  "items.q2.shortAnswer": "Oui, nous proposons un service traiteur professionnel pour vos événements à Linden et ses environs, pouvant accueillir jusqu'à 120 personnes pour des mariages ou des anniversaires d'entreprise.",
+  "items.q3.question": "Quelles sont les heures d'ouverture ?",
+  "items.q3.shortAnswer": "Nous sommes ouverts du mardi au dimanche. Le déjeuner est servi de 11h30 à 14h30 et le dîner de 17h30 à 22h30. Fermé le lundi, sauf jours fériés.",
+  "items.q4.question": "Avez-vous des plats végétariens ?",
+  "items.q4.shortAnswer": "Oui, nous offrons un grand choix de plats végétariens frais d'inspiration méditerranéenne et italienne.",
+  "items.q5.question": "Où puis-je trouver le menu ?",
+  "items.q5.shortAnswer": "Notre menu est disponible sur notre site web. Vous y trouverez nos plats germano-italiens, des spécialités végétariennes et notre menu du jour."
 }

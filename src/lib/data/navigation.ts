@@ -53,14 +53,7 @@ const navigationConfig: NavigationConfig = {
       ariaLabel: 'Besuchen Sie uns auf Facebook',
     },
   ],
-  external: [
-    {
-      label: 'Speisekarte (PDF)',
-      href: companyData.menuLink,
-      external: true,
-      ariaLabel: 'Speisekarte als PDF herunterladen',
-    },
-  ],
+  external: [],
 };
 
 // ═══ GETTER FUNCTIONS ═══

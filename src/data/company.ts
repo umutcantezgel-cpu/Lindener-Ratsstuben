@@ -58,9 +58,8 @@ export const companyData: CompanyData = {
         name: "2-Gänge-Menü",
         beschreibung: "Täglich wechselndes 2-Gänge-Menü",
         tage: "Dienstag - Freitag",
-        ausnahme: "außer an Feiertagen"
-    },
-    menuLink: "https://cdn.website.dish.co/media/06/bb/8657909/Speisekarte.pdf"
+        ausnahme: "Außer an Feiertagen"
+    }
 };
 
 // ═══ GETTER FUNKTIONEN (STRICT TYPED ARCHITECTURE) ═══

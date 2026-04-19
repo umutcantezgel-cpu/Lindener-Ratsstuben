@@ -101,7 +101,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-import { getSiteSettings } from '@/lib/sanity/fetch';
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
@@ -127,15 +126,6 @@ export default async function RootLayout({
 
   const jsonLd = createGlobalSchemaGraph();
 
-  let siteSettings;
-  try {
-    siteSettings = await getSiteSettings();
-  } catch (error) {
-    console.error('Failed to fetch site settings in layout:', error);
-  }
-
-  const mainMenuPdfUrl = siteSettings?.mainMenuPdfUrl;
-
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning className={`${interFont.variable} ${loraFont.variable}`}>
       <head>
@@ -159,13 +149,13 @@ export default async function RootLayout({
                       <ClientKeyboardShortcuts />
                       <RouteChangeIndicator />
                       <ScrollProgress />
-                      <Header mainMenuPdfUrl={mainMenuPdfUrl} />
+                      <Header />
                       <main id="main-content" role="main" className="flex-grow">
                         <Suspense fallback={<PageSkeleton />}>
                           {children}
                         </Suspense>
                       </main>
-                      <Footer mainMenuPdfUrl={mainMenuPdfUrl} />
+                      <Footer />
                       <FloatingReservationCTA />
                       <ExitIntentOverlay />
                       <BackToTop />

@@ -1,25 +1,13 @@
 {
-  "items": {
-    "q1": {
-      "question": "Mikä on Lindener Ratsstuben?",
-      "shortAnswer": "Lindener Ratsstuben on perinteinen ravintola Lindenissä, joka on erikoistunut saksalais-italialaiseen ja välimerelliseen keittiöön. Tarjoamme myös pitopalvelua."
-    },
-    "q2": {
-      "question": "Tarjoatteko pitopalvelua (catering)?",
-      "shortAnswer": "Kyllä, tarjoamme ammattitaitoista pitopalvelua jopa 120 hengen häihin ja yritysjuhliin."
-    },
-    "q3": {
-      "question": "Mitkä ovat aukioloaikanne?",
-      "shortAnswer": "Olemme avoinna tiistaista sunnuntaihin. Lounas tarjoillaan klo 11.30-14.30 ja illallinen klo 17.30-22.30. Maanantaisin suljettu, paitsi pyhäpäivinä."
-    },
-    "q4": {
-      "question": "Onko teillä kasvisruokia?",
-      "shortAnswer": "Kyllä, meillä on laaja valikoima tuoreita välimerellisiä kasvisruokia."
-    },
-    "q5": {
-      "question": "Mistä löydän ruokalistan?",
-      "shortAnswer": "Ruokalistamme löytyy suoraan verkkosivuiltamme, mukaan lukien saksalais-italialaiset erikoisuudet ja päivittäinen lounasmenu."
-    }
-  },
-  "title": "Usein Kysytyt Kysymykset"
+  "title": "Usein Kysytyt Kysymykset",
+  "items.q1.question": "Mikä on Lindener Ratsstuben?",
+  "items.q1.shortAnswer": "Lindener Ratsstuben on perinteinen ravintola Lindenissä, joka on erikoistunut saksalais-italialaiseen ja välimerelliseen keittiöön. Tarjoamme myös pitopalvelua.",
+  "items.q2.question": "Tarjoatteko pitopalvelua (catering)?",
+  "items.q2.shortAnswer": "Kyllä, tarjoamme ammattitaitoista pitopalvelua jopa 120 hengen häihin ja yritysjuhliin.",
+  "items.q3.question": "Mitkä ovat aukioloaikanne?",
+  "items.q3.shortAnswer": "Olemme avoinna tiistaista sunnuntaihin. Lounas tarjoillaan klo 11.30-14.30 ja illallinen klo 17.30-22.30. Maanantaisin suljettu, paitsi pyhäpäivinä.",
+  "items.q4.question": "Onko teillä kasvisruokia?",
+  "items.q4.shortAnswer": "Kyllä, meillä on laaja valikoima tuoreita välimerellisiä kasvisruokia.",
+  "items.q5.question": "Mistä löydän ruokalistan?",
+  "items.q5.shortAnswer": "Ruokalistamme löytyy suoraan verkkosivuiltamme, mukaan lukien saksalais-italialaiset erikoisuudet ja päivittäinen lounasmenu."
 }

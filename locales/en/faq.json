@@ -1,25 +1,13 @@
 {
-  "items": {
-    "q1": {
-      "question": "What are the Lindener Ratsstuben?",
-      "shortAnswer": "The Lindener Ratsstuben is a traditional restaurant in Linden, Hesse, specializing in authentic German-Italian and Mediterranean cuisine. In addition to regular daily operations with lunch and dinner, the restaurant also offers catering services."
-    },
-    "q2": {
-      "question": "Does the Lindener Ratsstuben offer catering?",
-      "shortAnswer": "Yes, we offer professional event and catering services in Linden and the surrounding areas. This includes individually planned weddings, corporate anniversaries, and celebrations for up to 120 people."
-    },
-    "q3": {
-      "question": "What are the opening hours?",
-      "shortAnswer": "We are open from Tuesday to Sunday. Lunch is served from 11:30 AM to 2:30 PM, and dinner from 5:30 PM to 10:30 PM. We are closed on Mondays, except on public holidays."
-    },
-    "q4": {
-      "question": "Do you have vegetarian dishes?",
-      "shortAnswer": "Yes, we offer a wide selection of vegetarian dishes. Our menu features special Mediterranean and Italian meals prepared entirely without meat."
-    },
-    "q5": {
-      "question": "Where can I find the menu?",
-      "shortAnswer": "You can find our menu directly on our website. It features German-Italian dishes, salads, vegetarian specialties, and a daily changing 2-course menu."
-    }
-  },
-  "title": "Frequently Asked Questions"
+  "title": "Frequently Asked Questions",
+  "items.q1.question": "What are the Lindener Ratsstuben?",
+  "items.q1.shortAnswer": "The Lindener Ratsstuben is a traditional restaurant in Linden, Hesse, specializing in authentic German-Italian and Mediterranean cuisine. In addition to regular daily operations with lunch and dinner, the restaurant also offers catering services.",
+  "items.q2.question": "Does the Lindener Ratsstuben offer catering?",
+  "items.q2.shortAnswer": "Yes, we offer professional event and catering services in Linden and the surrounding areas. This includes individually planned weddings, corporate anniversaries, and celebrations for up to 120 people.",
+  "items.q3.question": "What are the opening hours?",
+  "items.q3.shortAnswer": "We are open from Tuesday to Sunday. Lunch is served from 11:30 AM to 2:30 PM, and dinner from 5:30 PM to 10:30 PM. We are closed on Mondays, except on public holidays.",
+  "items.q4.question": "Do you have vegetarian dishes?",
+  "items.q4.shortAnswer": "Yes, we offer a wide selection of vegetarian dishes. Our menu features special Mediterranean and Italian meals prepared entirely without meat.",
+  "items.q5.question": "Where can I find the menu?",
+  "items.q5.shortAnswer": "You can find our menu directly on our website. It features German-Italian dishes, salads, vegetarian specialties, and a daily changing 2-course menu."
 }

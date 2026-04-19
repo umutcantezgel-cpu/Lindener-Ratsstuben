@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CalendarDays, ArrowRight } from 'lucide-react';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
+import { usePathname } from 'next/navigation';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 import { useTranslation } from '@/lib/i18n/use-translation';
 
@@ -11,6 +12,12 @@ export function FloatingReservationCTA() {
   const { navCta, variant } = useAdaptiveMessaging();
   const shouldReduceMotion = useReducedMotion();
   const { t } = useTranslation('pages');
+  const pathname = usePathname();
+  
+  // Do not render on reservation page
+  if (pathname === '/reservation' || pathname?.endsWith('/reservation')) {
+    return null;
+  }
   
   const [isVisible, setIsVisible] = useState(false);
   const [isPulsing, setIsPulsing] = useState(false);
@@ -28,7 +35,11 @@ export function FloatingReservationCTA() {
       
 
 
-      if (scrollPosition > windowHeight * 0.5) {
+      // Desktop: show after 50% scroll. Mobile: show after 30% scroll but hide near footer
+      const triggerThreshold = window.innerWidth < 768 ? 0.3 : 0.5;
+      
+      // Hide near the bottom so it doesn't cover footer elements on mobile
+      if (scrollPosition > windowHeight * triggerThreshold && scrollPercentage < 95) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -40,7 +51,7 @@ export function FloatingReservationCTA() {
       // Psycho-Kinetic Trigger: Pulse when highly engaged (scroll speed drops to 0 while far down)
       setIsPulsing(false);
       setIsHovered(false); // We'll use isHovered for both actual hover and auto-show
-      if (scrollPercentage > 30) {
+      if (scrollPercentage > 30 && scrollPercentage < 95) {
         // Start pulsing after 1.5s of no scrolling (dwell time)
         scrollTimeout = setTimeout(() => {
           setIsPulsing(true);

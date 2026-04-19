@@ -23,10 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-import { getSiteSettings } from '@/lib/sanity/fetch';
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const siteSettings = await getSiteSettings().catch(() => null);
-  return <PageClient mainMenuPdfUrl={siteSettings?.mainMenuPdfUrl} locale={locale} />;
+  return <PageClient locale={locale} />;
 }
