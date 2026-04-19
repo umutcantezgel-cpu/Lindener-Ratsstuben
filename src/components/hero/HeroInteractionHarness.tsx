@@ -5,16 +5,10 @@ import { motion } from 'framer-motion';
 import { ArrowRight, BookOpen, CalendarDays } from 'lucide-react';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
-import { companyData } from '@/data/company';
 
 const MotionLink = motion.create(Link);
-const MotionA = motion.a;
 
-interface HeroInteractionHarnessProps {
-    mainMenuPdfUrl?: string;
-}
-
-export const HeroInteractionHarness: React.FC<HeroInteractionHarnessProps> = ({ mainMenuPdfUrl }) => {
+export const HeroInteractionHarness: React.FC = () => {
     const { t } = useTranslation('home');
     const { hero, heroVariant } = useAdaptiveMessaging();
 
@@ -38,17 +32,15 @@ export const HeroInteractionHarness: React.FC<HeroInteractionHarnessProps> = ({ 
                 <ArrowRight className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl-mirror hidden xl:block z-10" />
             </MotionLink>
 
-            <MotionA
-                href={mainMenuPdfUrl || companyData.menuLink}
-                target="_blank"
-                rel="noopener noreferrer"
+            <MotionLink
+                href="/menu"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="group relative flex items-center justify-center gap-3 px-8 py-4 sm:py-5 w-full sm:w-auto overflow-hidden rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 text-neutral-200 hover:text-white font-medium uppercase tracking-[0.15em] text-sm sm:text-base transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:bg-white/10 hover:border-white/20"
             >
                 <BookOpen className="w-5 h-5 xl:hidden z-10" />
                 <span className="z-10">{t('hero.cta_menu') as string}</span>
-            </MotionA>
+            </MotionLink>
         </motion.div>
     );
 };

@@ -22,8 +22,8 @@ export const siteSettingsQuery = groq`
     welcomeText_en,
     welcomeText_ar,
     welcomeText_fr,
-    "mainMenuPdfUrl": mainMenuPdf.asset->url,
     "dailySpecialsPdfUrl": dailySpecialsPdf.asset->url,
+    "mainMenuPdfUrl": mainMenuPdf.asset->url,
     facebookUrl,
     instagramUrl
   }

@@ -1,25 +1,13 @@
 {
-  "items": {
-    "q1": {
-      "question": "Hva er Lindener Ratsstuben?",
-      "shortAnswer": "Det er en tradisjonsrik restaurant i Linden som spesialiserer seg på tysk-italiensk og middelhavsmat, og som også tilbyr catering."
-    },
-    "q2": {
-      "question": "Tilbyr dere catering?",
-      "shortAnswer": "Ja, vi tilbyr profesjonell catering og eventtjenester for opptil 120 personer til bryllup og firmafester."
-    },
-    "q3": {
-      "question": "Hva er åpningstidene?",
-      "shortAnswer": "Vi har åpent fra tirsdag til søndag. Lunsj serveres fra 11:30 til 14:30 og middag fra 17:30 til 22:30. Stengt mandager, unntatt helligdager."
-    },
-    "q4": {
-      "question": "Har dere vegetarretter?",
-      "shortAnswer": "Ja, vi tilbyr et bredt utvalg av vegetariske retter med inspirasjon fra middelhavet."
-    },
-    "q5": {
-      "question": "Hvor finner jeg menyen?",
-      "shortAnswer": "Menyen vår ligger på nettsiden og inkluderer tysk-italienske spesialiteter og en daglig to-retters meny."
-    }
-  },
-  "title": "Ofte Stilte Spørsmål"
+  "title": "Ofte Stilte Spørsmål",
+  "items.q1.question": "Hva er Lindener Ratsstuben?",
+  "items.q1.shortAnswer": "Det er en tradisjonsrik restaurant i Linden som spesialiserer seg på tysk-italiensk og middelhavsmat, og som også tilbyr catering.",
+  "items.q2.question": "Tilbyr dere catering?",
+  "items.q2.shortAnswer": "Ja, vi tilbyr profesjonell catering og eventtjenester for opptil 120 personer til bryllup og firmafester.",
+  "items.q3.question": "Hva er åpningstidene?",
+  "items.q3.shortAnswer": "Vi har åpent fra tirsdag til søndag. Lunsj serveres fra 11:30 til 14:30 og middag fra 17:30 til 22:30. Stengt mandager, unntatt helligdager.",
+  "items.q4.question": "Har dere vegetarretter?",
+  "items.q4.shortAnswer": "Ja, vi tilbyr et bredt utvalg av vegetariske retter med inspirasjon fra middelhavet.",
+  "items.q5.question": "Hvor finner jeg menyen?",
+  "items.q5.shortAnswer": "Menyen vår ligger på nettsiden og inkluderer tysk-italienske spesialiteter og en daglig to-retters meny."
 }

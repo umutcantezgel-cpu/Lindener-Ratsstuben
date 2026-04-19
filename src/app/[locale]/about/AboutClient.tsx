@@ -10,16 +10,8 @@ import { useTranslation } from '@/lib/i18n/use-translation';
 
 import { SnippetAnswer } from '@/components/seo/SnippetAnswer';
 
-interface FAQItem {
-    question: string;
-    shortAnswer: string;
-}
-
 interface AboutClientProps {
-    faqData: {
-        title: string;
-        items: Record<string, FAQItem>;
-    } | null;
+    faqData: Record<string, string> | null;
 }
 
 const AboutClient = ({ faqData }: AboutClientProps) => {
@@ -134,7 +126,7 @@ const AboutClient = ({ faqData }: AboutClientProps) => {
                 </section>
 
                 {/* FAQ Section (AI Optimized) */}
-                {faqData && faqData.items && (
+                {faqData && (
                     <section aria-labelledby="faq-title" className="py-20 bg-bg-secondary mt-20">
                         <div className="container mx-auto px-4 max-w-4xl">
                             <div className="text-center mb-16">
@@ -143,13 +135,22 @@ const AboutClient = ({ faqData }: AboutClientProps) => {
                                 </h2>
                             </div>
                             <div className="space-y-8">
-                                {Object.values(faqData.items).map((item: FAQItem, index: number) => (
-                                    <SnippetAnswer
-                                        key={index}
-                                        question={item.question}
-                                        shortAnswer={item.shortAnswer}
-                                    />
-                                ))}
+                                {Object.keys(faqData)
+                                    .filter(key => key.startsWith('items.') && key.endsWith('.question'))
+                                    .map((key, index) => {
+                                        const baseKey = key.replace('.question', '');
+                                        const question = faqData[key];
+                                        const shortAnswer = faqData[`${baseKey}.shortAnswer`];
+                                        if (!question || !shortAnswer) return null;
+                                        return (
+                                            <SnippetAnswer
+                                                key={index}
+                                                question={question}
+                                                shortAnswer={shortAnswer}
+                                            />
+                                        );
+                                    })
+                                }
                             </div>
                         </div>
                     </section>

@@ -1,25 +1,13 @@
 {
-  "items": {
-    "q1": {
-      "question": "Czym są Lindener Ratsstuben?",
-      "shortAnswer": "To tradycyjna restauracja w Linden specjalizująca się w autentycznej kuchni niemiecko-włoskiej i śródziemnomorskiej."
-    },
-    "q2": {
-      "question": "Czy oferujecie catering?",
-      "shortAnswer": "Tak, oferujemy profesjonalne usługi cateringowe dla wydarzeń do 120 osób."
-    },
-    "q3": {
-      "question": "Jakie są godziny otwarcia?",
-      "shortAnswer": "Jesteśmy otwarci od wtorku do niedzieli. Obiad: 11:30-14:30, Kolacja: 17:30-22:30. W poniedziałki zamknięte."
-    },
-    "q4": {
-      "question": "Czy macie dania wegetariańskie?",
-      "shortAnswer": "Tak, oferujemy szeroki wybór świeżych dań wegetariańskich."
-    },
-    "q5": {
-      "question": "Gdzie znajdę menu?",
-      "shortAnswer": "Nasze menu znajduje się bezpośrednio na naszej stronie internetowej."
-    }
-  },
-  "title": "Często Zadawane Pytania"
+  "title": "Często Zadawane Pytania",
+  "items.q1.question": "Czym są Lindener Ratsstuben?",
+  "items.q1.shortAnswer": "To tradycyjna restauracja w Linden specjalizująca się w autentycznej kuchni niemiecko-włoskiej i śródziemnomorskiej.",
+  "items.q2.question": "Czy oferujecie catering?",
+  "items.q2.shortAnswer": "Tak, oferujemy profesjonalne usługi cateringowe dla wydarzeń do 120 osób.",
+  "items.q3.question": "Jakie są godziny otwarcia?",
+  "items.q3.shortAnswer": "Jesteśmy otwarci od wtorku do niedzieli. Obiad: 11:30-14:30, Kolacja: 17:30-22:30. W poniedziałki zamknięte.",
+  "items.q4.question": "Czy macie dania wegetariańskie?",
+  "items.q4.shortAnswer": "Tak, oferujemy szeroki wybór świeżych dań wegetariańskich.",
+  "items.q5.question": "Gdzie znajdę menu?",
+  "items.q5.shortAnswer": "Nasze menu znajduje się bezpośrednio na naszej stronie internetowej."
 }

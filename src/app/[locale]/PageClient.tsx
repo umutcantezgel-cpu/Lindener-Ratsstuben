@@ -18,11 +18,10 @@ import { HeroRoot } from '@/components/hero/HeroRoot';
 import { ClientTestimonials } from '@/components/interactive/ClientTestimonials';
 
 export interface HomeProps {
-    mainMenuPdfUrl?: string;
     locale: string;
 }
 
-export const Home = async ({ mainMenuPdfUrl, locale }: HomeProps) => {
+export const Home = async ({ locale }: HomeProps) => {
     const t = await getTranslations(locale as LocaleType, 'home');
     const tCommon = await getTranslations(locale as LocaleType, 'common');
     const companyData = getCompanyData();
@@ -52,7 +51,7 @@ export const Home = async ({ mainMenuPdfUrl, locale }: HomeProps) => {
             
 
             {/* Modular Epic Cinematic Hero Section - 10x Redesign */}
-            <HeroRoot mainMenuPdfUrl={mainMenuPdfUrl} />
+            <HeroRoot />
 
             {/* Welcome / Philosophy Section */}
             <section aria-labelledby="philosophy-title" className="py-24 md:py-32 lg:py-48 bg-onyx-deep">
@@ -144,28 +143,24 @@ export const Home = async ({ mainMenuPdfUrl, locale }: HomeProps) => {
                                 <div className="p-8">
                                     <h3 itemProp="name" className="text-xl font-bold text-white mb-2 group-hover:text-accent-text transition-colors">{dish.name}</h3>
                                     <p itemProp="description" className="text-stone-300 text-sm mb-6 line-clamp-2">{dish.desc}</p>
-                                    <a
-                                        href={mainMenuPdfUrl || companyData.menuLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <Link
+                                        href="/menu"
                                         className="text-accent-text font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all duration-500 ease-liquid inline-block mt-2"
                                     >
                                         {t('highlights.details') as string} <ArrowRight className="w-4 h-4 inline" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         ))}
                     </StaggerContainer>
 
                     <AnimateIn className="text-center mt-16" delay={300}>
-                        <a
-                            href={mainMenuPdfUrl || companyData.menuLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link
+                            href="/menu"
                             className="interaction-bounce inline-block px-10 py-4 border border-white/20 text-white font-bold rounded-lg hover:bg-white hover:text-onyx-deep uppercase tracking-wider transition-colors"
                         >
                             {t('highlights.view_menu') as string}
-                        </a>
+                        </Link>
                     </AnimateIn>
                 </div>
             </section>

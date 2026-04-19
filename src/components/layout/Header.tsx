@@ -2,25 +2,19 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Flame } from 'lucide-react';
+import { Flame } from 'lucide-react';
 import { clsx } from 'clsx';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { companyData } from '@/data/company';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
-import { useFocusManagement } from '@/hooks/useFocusManagement';
+import { MobileMenu } from '@/components/layout/MobileMenu';
 
-interface HeaderProps {
-    mainMenuPdfUrl?: string;
-}
-
-export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
+export const Header: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const pathname = usePathname();
-
-    const { containerRef } = useFocusManagement(isMobileMenuOpen, () => setIsMobileMenuOpen(false));
 
     useEffect(() => {
         let animationFrameId: number;
@@ -36,17 +30,6 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
             if (animationFrameId) window.cancelAnimationFrame(animationFrameId);
         };
     }, []);
-
-    useEffect(() => {
-        if (isMobileMenuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => {
-             document.body.style.overflow = '';
-        };
-    }, [isMobileMenuOpen]);
 
     const { t } = useTranslation('navigation');
     const { t: tCommon } = useTranslation('common');
@@ -141,124 +124,47 @@ export const Header: React.FC<HeaderProps> = ({ mainMenuPdfUrl }) => {
                 {/* Mobile Toggle */}
                 <button
                     className={clsx(
-                        "xl:hidden relative z-[110] p-2.5 rounded-full transition-all duration-300 cursor-pointer pointer-events-auto touch-manipulation",
+                        "xl:hidden relative z-[110] p-3 rounded-full transition-all duration-500 cursor-pointer pointer-events-auto touch-manipulation group",
                         isMobileMenuOpen 
-                            ? "bg-onyx-light text-white" 
-                            : (isScrolled ? "bg-white/10 text-white shadow-sm" : "bg-white/10 text-white backdrop-blur-md border border-white/10")
+                            ? "bg-white/10 text-white backdrop-blur-md" 
+                            : (isScrolled ? "bg-white/10 text-white shadow-sm" : "bg-white/10 text-white backdrop-blur-md border border-white/10 hover:bg-white/20")
                     )}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-label={isMobileMenuOpen ? tCommon('accessibility.menu_close') as string : tCommon('accessibility.menu_open') as string}
                     aria-expanded={isMobileMenuOpen}
                     aria-controls="mobile-menu"
                 >
-                    <motion.div
-                        initial={false}
-                        animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
-                        transition={{ duration: 0.4, ease: "backInOut" }}
-                    >
-                        {isMobileMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
-                    </motion.div>
+                    <div className="relative w-6 h-6 flex items-center justify-center">
+                        <motion.span 
+                            className="absolute h-[2px] w-6 bg-current rounded-full"
+                            animate={{ 
+                                y: isMobileMenuOpen ? 0 : -6,
+                                rotate: isMobileMenuOpen ? 45 : 0 
+                            }}
+                            transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+                        />
+                        <motion.span 
+                            className="absolute h-[2px] w-6 bg-current rounded-full"
+                            animate={{ 
+                                opacity: isMobileMenuOpen ? 0 : 1,
+                                scaleX: isMobileMenuOpen ? 0 : 1
+                            }}
+                            transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+                        />
+                        <motion.span 
+                            className="absolute h-[2px] w-6 bg-current rounded-full"
+                            animate={{ 
+                                y: isMobileMenuOpen ? 0 : 6,
+                                rotate: isMobileMenuOpen ? -45 : 0 
+                            }}
+                            transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+                        />
+                    </div>
                 </button>
             </div>
 
             {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        ref={containerRef}
-                        id="mobile-menu"
-                        initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-                        animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
-                        exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-                        transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-                        className="fixed inset-0 bg-onyx-deep/98 z-[105] flex flex-col items-center justify-center pt-20 pb-10 px-6 overflow-y-auto"
-                        role="dialog"
-                        aria-modal="true"
-                    >
-                        <nav aria-label={tCommon('accessibility.mobile_navigation') as string} className="w-full max-w-sm mx-auto flex flex-col gap-10">
-                            <motion.ul 
-                                className="flex flex-col gap-2 m-0 p-0 list-none"
-                                initial="closed"
-                                animate="open"
-                                exit="closed"
-                                variants={{
-                                    open: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
-                                    closed: { transition: { staggerChildren: 0.04, staggerDirection: -1 } }
-                                }}
-                            >
-                                {navLinks.map((link) => {
-                                    const isActive = pathname === link.path || pathname === `/[locale]${link.path}`;
-                                    return (
-                                        <motion.li 
-                                            key={link.name}
-                                            variants={{
-                                                open: { opacity: 1, y: 0, scale: 1 },
-                                                closed: { opacity: 0, y: 20, scale: 0.95 }
-                                            }}
-                                            transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-                                        >
-                                            <Link href={link.path}
-                                                prefetch={true}
-                                                onClick={() => setIsMobileMenuOpen(false)}
-                                                aria-current={isActive ? "page" : undefined}
-                                                className={clsx(
-                                                    "flex items-center justify-between p-4 rounded-2xl text-2xl font-display font-medium transition-all duration-300",
-                                                    isActive 
-                                                        ? "bg-accent/20 text-accent shadow-[0_8px_30px_rgba(var(--color-accent),0.2)]" 
-                                                        : "bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white"
-                                                )}
-                                            >
-                                                <span className="break-words max-w-full text-balance leading-tight">
-                                                    {link.name}
-                                                </span>
-                                            </Link>
-                                        </motion.li>
-                                    );
-                                })}
-                                <motion.li
-                                    variants={{
-                                        open: { opacity: 1, y: 0, scale: 1 },
-                                        closed: { opacity: 0, y: 20, scale: 0.95 }
-                                    }}
-                                    transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-                                >
-                                    <a
-                                        href={mainMenuPdfUrl || companyData.menuLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-between p-4 rounded-2xl text-2xl font-display font-medium bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white transition-all duration-300 mt-2"
-                                    >
-                                        {t('nav.menu') as string} (PDF)
-                                        <span className="text-sm font-sans font-normal text-white uppercase tracking-widest bg-white/10 py-1 px-3 rounded-full">PDF</span>
-                                    </a>
-                                </motion.li>
-                            </motion.ul>
-                            
-                            <motion.div
-                                variants={{
-                                    open: { opacity: 1, y: 0 },
-                                    closed: { opacity: 0, y: 20 }
-                                }}
-                                transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.3 }}
-                                className="flex flex-col gap-6 w-full"
-                            >
-                                <Link href="/reservation"
-                                    prefetch={true}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className="w-full py-4 bg-accent text-onyx-deep text-lg font-medium rounded-2xl text-center hover:bg-accent/90 transition-colors shadow-[0_8px_30px_rgba(var(--color-accent),0.3)]"
-                                >
-                                    {variant === 'general' ? t('nav.reservation') : navCta}
-                                </Link>
-
-                                <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
-                                    <LanguageSwitcher variant="mobile" />
-                                </div>
-                            </motion.div>
-                        </nav>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
         </header>
     );
 };

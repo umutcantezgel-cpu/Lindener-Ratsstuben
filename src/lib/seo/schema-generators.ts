@@ -70,7 +70,7 @@ export function createRestaurantSchema() {
         closes: '22:30',
       },
     ],
-    menu: companyData.menuLink,
+    menu: `${BASE_URL}/menu`,
     servesCuisine: ['German', 'Italian', 'Mediterranean'],
     acceptsReservations: 'True',
     paymentAccepted: companyData.paymentMethods.join(', '),

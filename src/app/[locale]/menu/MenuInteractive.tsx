@@ -145,26 +145,30 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
     return (
         <>
             {/* Category Navigation */}
-            <nav aria-label={translations.categoriesLabel} className="mb-12 overflow-x-auto pb-4 scrollbar-hide">
-                <ul className="flex gap-3 md:justify-center min-w-max px-4 m-0 p-0 list-none">
-                    {categories.map(category => (
-                        <li key={category.id}>
-                            <button
-                                onClick={() => setActiveCategory(category.id)}
-                                aria-current={activeCategory === category.id ? "page" : undefined}
-                                className={clsx(
-                                    "px-6 py-3 rounded-lg font-bold transition-all whitespace-nowrap border-2 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary",
-                                    activeCategory === category.id
-                                        ? "bg-primary border-primary text-surface shadow-sm transform scale-105"
-                                        : "bg-bg-secondary border-transparent text-text-secondary hover:border-border hover:bg-surface"
-                                )}
-                            >
-                                {category.label}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+            <div className="relative mb-12">
+                <nav aria-label={translations.categoriesLabel} className="overflow-x-auto pb-4 scrollbar-hide relative z-10">
+                    <ul className="flex gap-3 md:justify-center min-w-max px-4 m-0 p-0 list-none">
+                        {categories.map(category => (
+                            <li key={category.id}>
+                                <button
+                                    onClick={() => setActiveCategory(category.id)}
+                                    aria-current={activeCategory === category.id ? "page" : undefined}
+                                    className={clsx(
+                                        "px-6 py-3 rounded-lg font-bold transition-all whitespace-nowrap border-2 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary",
+                                        activeCategory === category.id
+                                            ? "bg-primary border-primary text-surface shadow-sm transform scale-105"
+                                            : "bg-bg-secondary border-transparent text-text-secondary hover:border-border hover:bg-surface"
+                                    )}
+                                >
+                                    {category.label}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+                {/* Visual scroll indicator for mobile */}
+                <div className="absolute top-0 right-0 bottom-4 w-12 bg-gradient-to-l from-bg-primary to-transparent pointer-events-none md:hidden z-20" aria-hidden="true" />
+            </div>
 
             {/* Category Note / Footnote */}
             {currentNote && (
