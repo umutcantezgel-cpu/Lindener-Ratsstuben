@@ -145,9 +145,9 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
     return (
         <>
             {/* Category Navigation */}
-            <div className="relative mb-12">
-                <nav aria-label={translations.categoriesLabel} className="overflow-x-auto pb-4 scrollbar-hide relative z-10">
-                    <ul className="flex gap-3 md:justify-center min-w-max px-4 m-0 p-0 list-none">
+            <div className="sticky top-[72px] lg:top-[88px] z-[90] -mx-4 px-4 py-4 sm:mx-0 sm:px-0 sm:py-0 sm:relative sm:top-0 sm:z-10 mb-12 bg-onyx-deep/95 sm:bg-transparent backdrop-blur-xl sm:backdrop-blur-none border-b border-white/10 sm:border-none shadow-md sm:shadow-none transition-all duration-300">
+                <nav aria-label={translations.categoriesLabel} className="overflow-x-auto pb-2 sm:pb-4 scrollbar-hide relative z-10">
+                    <ul className="flex gap-3 md:justify-center min-w-max m-0 p-0 list-none">
                         {categories.map(category => (
                             <li key={category.id}>
                                 <button
@@ -167,7 +167,7 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
                     </ul>
                 </nav>
                 {/* Visual scroll indicator for mobile */}
-                <div className="absolute top-0 right-0 bottom-4 w-12 bg-gradient-to-l from-bg-primary to-transparent pointer-events-none md:hidden z-20" aria-hidden="true" />
+                <div className="absolute top-0 right-0 bottom-0 w-12 bg-gradient-to-l from-onyx-deep to-transparent pointer-events-none md:hidden z-20" aria-hidden="true" />
             </div>
 
             {/* Category Note / Footnote */}
@@ -201,46 +201,60 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
 
             {/* Menu Grid */}
             <h2 className="sr-only">{translations.dishesHeading}</h2>
-            <StaggerContainer as="ul" key={activeCategory} className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 xl:gap-x-16 gap-y-6 m-0 p-0 list-none">
+            <StaggerContainer as="ul" role="list" key={activeCategory} className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 xl:gap-x-16 gap-y-6 m-0 p-0 list-none">
                 {filteredItems.length > 0 ? (
-                    filteredItems.map((item, idx) => (
-                        <div key={item.id || `${item.nr}-${idx}`} className="p-4 sm:p-6 bg-surface rounded-2xl border border-border/50 hover:border-accent/40 shadow-sm hover:shadow-md transition-all relative group flex gap-4 sm:gap-6">
-                            <div className="shrink-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl overflow-hidden relative border border-border/50 bg-bg-secondary">
-                                <AdaptiveImage
-                                    src={dishImageMap[item.nr] || FALLBACK_IMAGE}
-                                    alt={item.name}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                    sizes="(max-width: 640px) 5rem, (max-width: 768px) 6rem, 7rem"
-                                />
-                            </div>
-                            <div className="flex-grow min-w-0 flex flex-col justify-center">
-                                <div className="flex justify-between items-start sm:items-baseline mb-2 gap-3 flex-col sm:flex-row">
-                                    <h3 className="text-lg sm:text-xl font-display font-bold text-text-primary group-hover:text-primary transition-colors leading-tight">
-                                        {item.nr && <span className="text-text-tertiary font-mono text-sm sm:text-base me-2">{item.nr}.</span>}
-                                        {item.name}
-                                    </h3>
-                                    <div className="flex-grow border-b-2 border-dotted border-border/40 relative -top-1.5 hidden sm:block" aria-hidden="true" />
-                                    <span className="text-lg sm:text-xl font-display font-bold text-text-primary whitespace-nowrap self-start sm:self-auto">
-                                        {item.price !== null ? formatCurrency(item.price, locale) : (
-                                            <span className="text-text-tertiary text-base italic">{translations.priceOnRequest}</span>
-                                        )}
-                                    </span>
-                                </div>
+                    filteredItems.map((item, idx) => {
+                        const itemId = item.id || `menu-item-${item.nr}-${idx}`;
+                        const titleId = `title-${itemId}`;
+                        const descId = `desc-${itemId}`;
+                        return (
+                            <li key={itemId} role="listitem" className="list-none">
+                                <article itemScope itemType="https://schema.org/MenuItem" aria-labelledby={titleId} aria-describedby={item.description ? descId : undefined} className="p-4 sm:p-6 bg-surface rounded-2xl border border-border/50 hover:border-accent/40 shadow-sm hover:shadow-md transition-all relative group flex gap-4 sm:gap-6">
+                                    <div className="shrink-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl overflow-hidden relative border border-border/50 bg-bg-secondary" aria-hidden="true">
+                                        <AdaptiveImage
+                                            src={dishImageMap[item.nr] || FALLBACK_IMAGE}
+                                            alt={item.name}
+                                            fill
+                                            itemProp="image"
+                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                            sizes="(max-width: 640px) 5rem, (max-width: 768px) 6rem, 7rem"
+                                        />
+                                    </div>
+                                    <div className="flex-grow min-w-0 flex flex-col justify-center">
+                                        <div className="flex justify-between items-start sm:items-baseline mb-2 gap-3 flex-col sm:flex-row">
+                                            <h3 id={titleId} itemProp="name" className="text-lg sm:text-xl font-display font-bold text-text-primary group-hover:text-primary transition-colors leading-tight">
+                                                {item.nr && <span className="text-text-tertiary font-mono text-sm sm:text-base me-2" aria-hidden="true">{item.nr}.</span>}
+                                                {item.name}
+                                            </h3>
+                                            <div className="flex-grow border-b-2 border-dotted border-border/40 relative -top-1.5 hidden sm:block" aria-hidden="true" />
+                                            <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="text-lg sm:text-xl font-display font-bold text-text-primary whitespace-nowrap self-start sm:self-auto">
+                                                {item.price !== null ? (
+                                                    <>
+                                                        <span itemProp="price" content={item.price.toString()}>{formatCurrency(item.price, locale)}</span>
+                                                        <meta itemProp="priceCurrency" content="EUR" />
+                                                        <link itemProp="availability" href="https://schema.org/InStock" />
+                                                    </>
+                                                ) : (
+                                                    <span className="text-text-tertiary text-base italic">{translations.priceOnRequest}</span>
+                                                )}
+                                            </div>
+                                        </div>
 
-                                {item.description && (
-                                    <p className="text-text-secondary font-body text-sm sm:text-base leading-relaxed max-w-xl">
-                                        {item.description}
-                                    </p>
-                                )}
-                            </div>
-                        </div>
-                    ))
+                                        {item.description && (
+                                            <p id={descId} itemProp="description" className="text-text-secondary font-body text-sm sm:text-base leading-relaxed max-w-xl">
+                                                {item.description}
+                                            </p>
+                                        )}
+                                    </div>
+                                </article>
+                            </li>
+                        );
+                    })
                 ) : (
-                    <div className="col-span-full text-center py-32 bg-bg-secondary rounded-2xl border border-dashed border-border">
+                    <li className="col-span-full text-center py-32 bg-bg-secondary rounded-2xl border border-dashed border-border" role="listitem">
                         <Info className="w-12 h-12 text-text-tertiary mx-auto mb-4" aria-hidden="true" />
                         <p className="text-text-secondary text-lg font-medium">{translations.noResults}</p>
-                    </div>
+                    </li>
                 )}
             </StaggerContainer>
 

@@ -88,7 +88,9 @@ export const Header: React.FC = () => {
                                             "relative z-10 block px-3.5 2xl:px-4 py-2 text-[14px] 2xl:text-[15px] font-medium transition-colors duration-300 shadow-none whitespace-nowrap",
                                             isActive
                                                 ? "text-surface"
-                                                : "text-text-secondary hover:text-text-primary"
+                                                : link.path === '/menu' 
+                                                    ? "text-accent drop-shadow-[0_0_8px_rgba(var(--color-accent),0.4)] hover:text-white" 
+                                                    : "text-text-secondary hover:text-text-primary"
                                         )}
                                     >
                                         {link.name}

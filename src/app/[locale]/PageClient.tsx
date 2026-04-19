@@ -78,7 +78,13 @@ export const Home = async ({ locale }: HomeProps) => {
                                         <p className="text-sm text-stone-700">{t('philosophy.fresh_ingredients_desc') as string}</p>
                                     </section>
                                 </div>
-                                <div className="pt-6">
+                                <div className="pt-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+                                    <Link 
+                                        href="/menu" 
+                                        className="interaction-bounce px-8 py-4 bg-accent text-onyx-deep font-bold rounded-lg shadow-[0_0_20px_rgba(var(--color-accent),0.3)] hover:shadow-[0_0_30px_rgba(var(--color-accent),0.5)] transition-all flex items-center gap-2"
+                                    >
+                                        {t('hero.cta_menu') as string} <ArrowRight className="w-5 h-5" />
+                                    </Link>
                                     <Link href="/about" className="text-accent-text font-bold hover:text-white flex items-center gap-2 group transition-colors inline-flex">
                                         {t('philosophy.learn_more') || 'Mehr über die Ratsstuben erfahren'} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </Link>
