@@ -33,6 +33,7 @@ export interface SiteSettings {
   welcomeText_en?: string;
   welcomeText_ar?: string;
   welcomeText_fr?: string;
+  dailySpecialsPdfUrl?: string;
   facebookUrl?: string;
   instagramUrl?: string;
 }

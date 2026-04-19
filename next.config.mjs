@@ -54,11 +54,11 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com https://www.googletagmanager.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com https://www.googletagmanager.com https://va.vercel-scripts.com",
               "style-src 'self' 'unsafe-inline' https://assets.calendly.com https://fonts.googleapis.com",
               "img-src 'self' data: https: blob:",
               "font-src 'self' https://fonts.gstatic.com",
-              "connect-src 'self' https://formspree.io https://*.google-analytics.com https://calendly.com https://vitals.vercel-insights.com",
+              "connect-src 'self' https://formspree.io https://*.google-analytics.com https://calendly.com https://vitals.vercel-insights.com https://va.vercel-scripts.com",
               "frame-src https://calendly.com https://maps.google.com https://www.google.com",
               "base-uri 'self'",
               "form-action 'self' https://formspree.io",

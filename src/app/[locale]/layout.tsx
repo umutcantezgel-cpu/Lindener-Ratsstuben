@@ -147,7 +147,9 @@ export default async function RootLayout({
                       <div className="bg-paper-texture" aria-hidden="true" />
                       <OfflineBanner />
                       <ClientKeyboardShortcuts />
-                      <RouteChangeIndicator />
+                      <Suspense fallback={null}>
+                        <RouteChangeIndicator />
+                      </Suspense>
                       <ScrollProgress />
                       <Header />
                       <main id="main-content" role="main" className="flex-grow">
