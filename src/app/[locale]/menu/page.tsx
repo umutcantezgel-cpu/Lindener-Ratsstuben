@@ -61,7 +61,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const useSSOTFallback = fetchedDishes.length === 0;
 
   let finalCategories: { id: string; name: string; label: string; description?: string; headerText?: string }[];
-  let finalMenuItems: { id: string; nr: string; name: string; description: string; price: number | null; category: string; }[];
+  let finalMenuItems: { id: string; nr: string; name: string; description: string; price: number | null; category: string; allergens: string[]; }[];
 
   if (useSSOTFallback) {
     const { getLocalizedMenuData } = await import('@/lib/i18n/menu-data');
@@ -75,6 +75,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       description: item.description,
       price: item.price,
       category: item.category,
+      allergens: item.allergens || [],
     }));
   } else {
     // Use Sanity data (with SSOT as secondary)
@@ -92,6 +93,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       description: getLocalizedString(dish, 'description'),
       price: dish.price,
       category: dish.category?._id || 'fallback',
+      allergens: dish.allergens?.map(a => a.code) || [],
     }));
   }
 

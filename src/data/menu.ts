@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
-// Lindener Ratsstuben — SSOT Menü-Datenbank v1.0
-// Einzige Wahrheitsquelle: SSOT-Artikelkatalog v1.0 (2026-04-17)
+// Lindener Ratsstuben — SSOT Menü-Datenbank v2.0
+// Einzige Wahrheitsquelle: SSOT-Artikelkatalog v2.0 (2026-04-20)
 //
 // SCHUTZREGELN (Nicht-Verhandelbar):
 // • Keine Erfindung von Artikeln, Preisen, Allergenen oder Tags
@@ -10,8 +10,12 @@
 // • Nummern exakt wie vergeben (auch bei Duplikaten)
 // ═══════════════════════════════════════════════════════════════
 
-export const SSOT_VERSION = '1.0';
-export const SSOT_DATE = '2026-04-17';
+export const SSOT_VERSION = '2.0';
+export const SSOT_DATE = '2026-04-20';
+
+// ─── Allergen Type Import ──────────────────────────────────────
+import type { AllergenIdentifier } from './allergens';
+export type { AllergenIdentifier };
 
 // ─── SSOT MenuItem Type ───────────────────────────────────────
 export interface SSOTMenuItem {
@@ -20,6 +24,7 @@ export interface SSOTMenuItem {
   description: string;
   price: number | null; // null = {{PREIS FEHLT}}
   category: string;
+  allergens: AllergenIdentifier[]; // LMIV EU-VO 1169/2011 Allergen-Codes
 }
 
 // ─── Categories (SSOT §3 Reihenfolge) ─────────────────────────
@@ -48,10 +53,10 @@ export const categories = [
 
 // ─── Category Footnotes (wörtlich aus SSOT) ───────────────────
 export const categoryFootnotes: Record<string, string> = {
-  suppen: 'Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
-  vorspeisen: 'Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
-  salate: 'Unsere Salate servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
-  pizza: 'alle Pizzen werden mit Tomaten soße mit Special würzen & Käse zubereitet.',
+  suppen: 'Unsere Suppen & Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch mit Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
+  vorspeisen: 'Unsere Suppen & Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch mit Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
+  salate: 'Unsere Salate servieren wir mit hausgemachtem Brot. Auf Wunsch mit Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
+  pizza: 'Alle Pizzen werden mit speziell gewürzter Tomatensauce und Käse zubereitet.',
 };
 
 // ─── Category Header Texts (wörtlich aus SSOT) ───────────────
@@ -85,17 +90,43 @@ import { drinkItems } from './menu-ssot-drinks';
 
 export const menuItems: SSOTMenuItem[] = [...foodItems, ...drinkItems];
 
-// ─── Allergen Legend (removed per request) ────────────────────
-export const allergenLegend: Record<string, string> = {};
+// ─── Allergen Legend (LMIV EU-VO 1169/2011 — 14 deklarationspflichtige Allergene) ─
+export const allergenLegend: Record<string, string> = {
+  'A': 'Glutenhaltiges Getreide',
+  'B': 'Krebstiere',
+  'C': 'Eier',
+  'D': 'Fische',
+  'E': 'Erdnüsse',
+  'F': 'Sojabohnen',
+  'G': 'Milch (inkl. Laktose)',
+  'H': 'Schalenfrüchte',
+  'L': 'Sellerie',
+  'M': 'Senf',
+  'N': 'Sesamsamen',
+  'O': 'Sulfite (>10mg/kg)',
+  'P': 'Lupinen',
+  'R': 'Weichtiere',
+};
 
-// ─── Zusatzstoff Legend (removed per request) ─────────────────
-export const zusatzstoffLegend: Record<string, string> = {};
+// ─── Zusatzstoff Legend ───────────────────────────────────────
+export const zusatzstoffLegend: Record<string, string> = {
+  '1': 'mit Farbstoff',
+  '2': 'mit Konservierungsstoff',
+  '3': 'mit Antioxidationsmittel',
+  '4': 'mit Geschmacksverstärker',
+  '5': 'geschwefelt',
+  '6': 'geschwärzt',
+  '7': 'mit Phosphat',
+  '8': 'mit Süßungsmitteln',
+  '9': 'enthält eine Phenylalaninquelle',
+  '10': 'koffeinhaltig',
+};
 
-// ─── Legal Disclaimers (removed per request) ──────────────────
+// ─── Legal Disclaimers (LMIV-konform) ─────────────────────────
 export const legal_disclaimers = {
-  allergens: "",
-  cross_contamination: "",
-  additives: "",
+  allergens: 'Die Kennzeichnung der Allergene erfolgt gemäß EU-Verordnung Nr. 1169/2011 (LMIV). Die aufgeführten Allergene basieren auf den uns bekannten Rezepturen und Zutatenlisten unserer Lieferanten.',
+  cross_contamination: 'Liebe Gäste, in unserer Küche verarbeiten wir täglich alle 14 deklarationspflichtigen Hauptallergene. Trotz sorgfältiger Arbeitsweise und getrennter Zubereitung können wir Kreuzkontaminationen nicht mit absoluter Sicherheit ausschließen. Bitte informieren Sie unser Servicepersonal vor Ihrer Bestellung über bestehende Allergien oder Unverträglichkeiten — wir beraten Sie gerne persönlich und passen Gerichte nach Möglichkeit individuell an.',
+  additives: 'Zusatzstoffe gemäß LMIV. Änderungen vorbehalten. Verbindliche Auskunft erteilt unser Servicepersonal.',
 };
 
 // ─── Known Data Gaps (SSOT §4) ────────────────────────────────
