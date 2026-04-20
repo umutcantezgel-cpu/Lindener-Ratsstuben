@@ -3,22 +3,22 @@
     "suppen": {
       "name": "Suppen",
       "label": "Suppen",
-      "description": "Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€"
+      "description": "Unsere Suppen & Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch mit Pizzabrot, Tomatensauce & Knoblauch (6,50 €)."
     },
     "vorspeisen": {
       "name": "Vorspeisen",
       "label": "Vorspeisen",
-      "description": "Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€"
+      "description": "Unsere Suppen & Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch mit Pizzabrot, Tomatensauce & Knoblauch (6,50 €)."
     },
     "salate": {
       "name": "Salate",
       "label": "Salate",
-      "description": "Unsere Salate servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€"
+      "description": "Unsere Salate servieren wir mit hausgemachtem Brot. Auf Wunsch mit Pizzabrot, Tomatensauce & Knoblauch (6,50 €)."
     },
     "pizza": {
       "name": "Pizza aus dem Steinofen / 28 cm",
       "label": "Pizza",
-      "description": "alle Pizzen werden mit Tomaten soße mit Special würzen & Käse zubereitet."
+      "description": "Alle Pizzen werden mit speziell gewürzter Tomatensauce und Käse zubereitet."
     },
     "burger": {
       "name": "Hausgemachte Burger",

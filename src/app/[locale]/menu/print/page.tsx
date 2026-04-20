@@ -48,13 +48,13 @@ export default function PrintMenuPage() {
         <div className="box">
           <div className="box-t">ALLERGEN-KENNZEICHNUNG (EU-VO 1169/2011)</div>
           <div className="box-c">
-            A) Glutenhaltiges Getreide • B) Krebstiere • C) Eier • D) Fisch • E) Erdnüsse • F) Soja • G) Milch & Laktose<br/>
-            H) Schalenfrüchte / Nüsse • I) Sellerie • J) Senf • K) Sesamsamen • L) Sulfite • M) Lupinen • N) Weichtiere
+            A) Glutenhaltiges Getreide • B) Krebstiere • C) Eier • D) Fische • E) Erdnüsse • F) Sojabohnen • G) Milch (inkl. Laktose)<br/>
+            H) Schalenfrüchte • L) Sellerie • M) Senf • N) Sesamsamen • O) Sulfite • P) Lupinen • R) Weichtiere
           </div>
           <div className="box-t" style={{marginTop: "8px"}}>ZUSATZSTOFFE</div>
           <div className="box-c">
-            1) Farbstoff • 2) Konservierungsstoff • 3) Antioxidationsmittel • 4) Geschmacksverstärker<br/>
-            5) Geschwefelt • 6) Geschwärzt • 7) Phosphat • 8) Süßungsmittel
+            1) Farbstoff • 2) Konservierungsstoff • 3) Antioxidationsmittel • 4) Geschmacksverstärker • 5) Geschwefelt<br/>
+            6) Geschwärzt • 7) Phosphat • 8) Süßungsmittel • 9) Phenylalaninquelle • 10) Koffeinhaltig
           </div>
         </div>
       </PrintPage>

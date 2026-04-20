@@ -40,10 +40,10 @@ export const Home = async ({ locale }: HomeProps) => {
     };
 
     const highlights = [
-        { name: 'Bistecca alla Griglia', price: '€26.90', desc: 'Argentinisches Rumpsteak vom Grill | Kräuterbutter', image: '/images/editorial/rumpsteak.png' },
-        { name: 'Pizza Ratsstubbe', price: '€11.50', desc: 'Salami | Peperoniwurst | Vorderschinken | Ei | Champignons | Zwiebeln', image: '/images/editorial/pizza.png' },
-        { name: 'Tris di Pasta della Casa', price: '€23.90', desc: '3 verschiedene gefüllte Nudeln | 3 verschiedene Saucen', image: '/images/editorial/pasta.png' },
-        { name: 'Scampi alla Griglia', price: '€28.90', desc: 'Gegrillte Scampi | Knoblauch | Kräuter', image: '/images/editorial/scampi.png' },
+        { name: 'Gegrilltes Rumpsteak', price: '€29.90', desc: 'Argentinisches Rumpsteak vom Lava-Grill | Kräuterbutter | Marktgemüse', image: '/images/editorial/rumpsteak.png' },
+        { name: 'Pizza Ratsstuben', price: '€14.50', desc: 'Salami | Peperoniwurst | Vorderschinken | Ei | Champignons | Zwiebeln', image: '/images/editorial/pizza.png' },
+        { name: 'Tortellacci mit Butter und Salbei', price: '€17.90', desc: 'Hausgemacht | Ricotta | Spinat | Kirschtomaten | Grana Padano', image: '/images/editorial/pasta.png' },
+        { name: 'Lachs- und Garnelensalat', price: '€17.90', desc: 'Frisches Lachsfilet | Garnelen | Balsamico-Kräuter-Vinaigrette', image: '/images/editorial/scampi.png' },
     ];
 
     return (

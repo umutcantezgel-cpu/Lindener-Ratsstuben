@@ -11,6 +11,7 @@ export interface MenuItem {
     description: string;
     price: number | null; // null = {{PREIS FEHLT}}
     category: string;
+    allergens: string[];
 }
 
 export interface PageClientProps {

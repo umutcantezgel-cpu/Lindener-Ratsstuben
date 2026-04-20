@@ -4,56 +4,57 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { getParam, setParam } from '@/lib/utils/url-params';
 import { allergenLegend, zusatzstoffLegend, legal_disclaimers, categoryFootnotes } from '@/data/menu';
-import { Info, AlertTriangle, ChevronDown } from 'lucide-react';
+import { Info, AlertTriangle, ChevronDown, Filter, X } from 'lucide-react';
 import { clsx } from 'clsx';
 import { StaggerContainer } from '@/components/animations/stagger-container';
 import { AdaptiveImage } from '@/components/ui/AdaptiveImage';
 import { formatCurrency } from '@/lib/i18n/formatters/number';
-import { MenuItem } from './PageClient'; // We will export this from the server component or move it
+import { AllergenBadgeList } from '@/components/cards/AllergenBadge';
+import { MenuItem } from './PageClient';
 
 const categoryImageMap: Record<string, string> = {
-    'dessert': '/images/category_dolci.png',
+    'dessert': '/images/category_dessert.png',
     'pasta': '/images/category_pasta.png',
     'hausgemachte-pasta': '/images/category_pasta.png',
     'pasta-al-forno': '/images/category_pasta.png',
     'pizza': '/images/category_pizza.png',
     'familienpizza': '/images/category_pizza.png',
-    'rotweine': '/images/category_vino.png',
-    'weissweine': '/images/category_vino.png',
+    'rotweine': '/images/category_wein.png',
+    'weissweine': '/images/category_wein.png',
 };
 
 const dishImageMap: Record<string, string> = {
     '10': '/images/menu/suppen/10-tagessuppe.png',
     '11': '/images/menu/suppen/11-tomatencremesuppe.png',
-    '20': '/images/menu/vorspeisen/20-bruschetta-classico.png',
-    '21': '/images/menu/vorspeisen/21-prosciutto-melone.png',
-    '22': '/images/menu/vorspeisen/22-la-burrata.png',
-    '23': '/images/menu/vorspeisen/23-vitello-tonnato.png',
-    '24': '/images/menu/vorspeisen/24-carpaccio-manzo.png',
-    '25': '/images/menu/vorspeisen/25-antipasti-misti.png',
-    '30': '/images/menu/salate/30-insalata-mista.png',
-    '31': '/images/menu/salate/31-insalata-italia.png',
-    '32': '/images/menu/salate/32-insalata-italia-klein.png',
-    '33': '/images/menu/salate/33-insalata-frutti-di-mare.png',
-    '34': '/images/menu/salate/34-insalata-pollo.png',
-    '35': '/images/menu/salate/35-insalata-salmone-gamberoni.png',
-    '36': '/images/menu/salate/36-insalata-don-capo.png',
+    '20': '/images/menu/vorspeisen/20-klassische-bruschetta.png',
+    '21': '/images/menu/vorspeisen/21-parmaschinken-mit-melone.png',
+    '22': '/images/menu/vorspeisen/22-burrata.png',
+    '23': '/images/menu/vorspeisen/23-kalbfleisch-mit-thunfischsauce.png',
+    '24': '/images/menu/vorspeisen/24-rindercarpaccio.png',
+    '25': '/images/menu/vorspeisen/25-gemischte-vorspeisen.png',
+    '30': '/images/menu/salate/30-gemischter-salat.png',
+    '31': '/images/menu/salate/31-italienischer-salat.png',
+    '32': '/images/menu/salate/32-italienischer-salat-klein.png',
+    '33': '/images/menu/salate/33-meeresfruechtesalat.png',
+    '34': '/images/menu/salate/34-haehnchensalat.png',
+    '35': '/images/menu/salate/35-lachs-und-garnelensalat.png',
+    '36': '/images/menu/salate/36-chef-salat.png',
     '40': '/images/menu/pasta/40-spaghetti-bolognese.png',
     '41': '/images/menu/pasta/41-spaghetti-carbonara.png',
-    '42': '/images/menu/pasta/42-rigatoni-puglia.png',
+    '42': '/images/menu/pasta/42-rigatoni-apulien.png',
     '43': '/images/menu/pasta/43-rigatoni-ratsstube.png',
-    '44': '/images/menu/pasta/44-tagliatelle-verdure.png',
-    '45': '/images/menu/pasta/45-tagliatelle-salmone.png',
-    '46': '/images/menu/pasta/46-linguine-frutti-di-mare.png',
-    '47': '/images/menu/pasta/47-linguine-pesce-misto.png',
-    '48': '/images/menu/pasta/48-pasta-combinazione.png',
-    '49': '/images/menu/pasta/49-rigatoni-al-ragu-e-verdure.png',
-    '50': '/images/menu/pasta/50-tortellini-alla-panna.png',
-    '51': '/images/menu/pasta/51-tortelacci-burro-e-salvia.png',
-    '52': '/images/menu/pasta/52-tortellacci-salmone-e-gamberoni.png',
-    '53': '/images/menu/pasta/53-gnocchi-con-gamberoni.png',
-    '54': '/images/menu/pasta/54-gnocchi-pesto-burrata.png',
-    '62': '/images/menu/pasta/62-tortellini-prosciutto-e-panna.png',
+    '44': '/images/menu/pasta/44-bandnudeln-mit-gemuese.png',
+    '45': '/images/menu/pasta/45-bandnudeln-mit-lachs.png',
+    '46': '/images/menu/pasta/46-linguine-meeresfruechte.png',
+    '47': '/images/menu/pasta/47-linguine-edelfisch.png',
+    '48': '/images/menu/pasta/48-nudel-kombination.png',
+    '49': '/images/menu/pasta/49-rigatoni-mit-gemuese.png',
+    '50': '/images/menu/pasta/50-tortellini-in-sahnesauce.png',
+    '51': '/images/menu/pasta/51-tortellacci-butter-und-salbei.png',
+    '52': '/images/menu/pasta/52-tortellacci-lachs-und-garnelen.png',
+    '53': '/images/menu/pasta/53-gnocchi-mit-garnelen.png',
+    '54': '/images/menu/pasta/54-gnocchi-mit-basilikumpesto-und-burrata.png',
+    '62': '/images/menu/pasta/62-tortellini-mit-schinken-und-sahne.png',
     '70': '/images/menu/schnitzel/70-schnitzel-wiener-art.png',
     '71': '/images/menu/schnitzel/71-rahm-schnitzel.png',
     '72': '/images/menu/schnitzel/72-jaeger-schnitzel.png',
@@ -61,45 +62,46 @@ const dishImageMap: Record<string, string> = {
     '74': '/images/menu/schnitzel/74-bauern-schnitzel.png',
     '75': '/images/menu/schnitzel/75-schlemmer-schnitzel.png',
     '76': '/images/menu/schnitzel/76-lindener-rucksack.png',
-    '80': '/images/menu/fleisch-fisch/80-petto-di-pollo-alla-griglia.png',
-    '81': '/images/menu/fleisch-fisch/81-petto-di-pollo-al-pepe-verde.png',
-    '82': '/images/menu/fleisch-fisch/82-filetto-di-maiale-al-vino-bianco.png',
-    '83': '/images/menu/fleisch-fisch/83-filetto-di-maiale-al-pepe-verde.png',
-    '84': '/images/menu/fleisch-fisch/84-bistecca-alla-griglia.png',
-    '85': '/images/menu/fleisch-fisch/85-bistecca-al-pepe-verde.png',
-    '86': '/images/menu/fleisch-fisch/86-orata-con-burro-al-limone-e-aglio.png',
-    '87': '/images/menu/fleisch-fisch/87-salmone-alla-griglia-salsa-all-arancia-e-senape.png',
-    '88': '/images/menu/fleisch-fisch/88-seppia-alla-griglia.png',
-    '90': '/images/menu/pizzen/90-pizza-margarita.png',
-    '91': '/images/menu/pizzen/91-pizza-salame-e-funghi.png',
+    '80': '/images/menu/fleisch-fisch/80-gegrilltes-haehnchenbrustfilet.png',
+    '81': '/images/menu/fleisch-fisch/81-haehnchenbrustfilet-in-gruener-pfeffersauce.png',
+    '82': '/images/menu/fleisch-fisch/82-schweinefilet-in-weisswein-zitronensauce.png',
+    '83': '/images/menu/fleisch-fisch/83-schweinefilet-in-gruener-pfeffersauce.png',
+    '84': '/images/menu/fleisch-fisch/84-gegrilltes-rumpsteak.png',
+    '85': '/images/menu/fleisch-fisch/85-rumpsteak-in-gruener-pfeffersauce.png',
+    '86': '/images/menu/fleisch-fisch/86-doradenfilet.png',
+    '87': '/images/menu/fleisch-fisch/87-gegrilltes-lachsfilet.png',
+    '88': '/images/menu/fleisch-fisch/88-gegrillter-tintenfisch.png',
+    '90': '/images/menu/pizzen/90-pizza-margherita.png',
+    '91': '/images/menu/pizzen/91-pizza-salami-und-champignons.png',
     '92': '/images/menu/pizzen/92-pizza-regina.png',
     '93': '/images/menu/pizzen/93-pizza-toscana.png',
     '94': '/images/menu/pizzen/94-pizza-ratsstuben.png',
     '95': '/images/menu/pizzen/95-pizza-hawaii.png',
     '96': '/images/menu/pizzen/96-pizza-diavolo.png',
-    '97': '/images/menu/pizzen/97-pizza-parma-e-rucola.png',
-    '98': '/images/menu/pizzen/98-pizza-amore-mio-talia.png',
-    '99': '/images/menu/pizzen/99-pizza-tonno.png',
-    '100': '/images/menu/pizzen/100-pizza-burrata-e-rucola.png',
-    '101': '/images/menu/pizzen/101-pizza-frutti-di-mare.png',
-    '102': '/images/menu/pizzen/102-pizza-salmone-e-gamberoni.png',
+    '97': '/images/menu/pizzen/97-pizza-parmaschinken-und-rucola.png',
+    '98': '/images/menu/pizzen/98-pizza-amore-mio.png',
+    '99': '/images/menu/pizzen/99-pizza-thunfisch.png',
+    '100': '/images/menu/pizzen/100-pizza-burrata-und-rucola.png',
+    '101': '/images/menu/pizzen/101-pizza-meeresfruechte.png',
+    '102': '/images/menu/pizzen/102-pizza-lachs-und-garnelen.png',
     '103': '/images/menu/pizzen/103-pizza-deluxe.png',
-    '105': '/images/menu/pizzen/105-pizza-vegetale.png',
-    '106': '/images/menu/pizzen/106-pizzapane.png',
+    '105': '/images/menu/pizzen/105-pizza-vegetarisch.png',
+    '106': '/images/menu/pizzen/106-pizzabrot.png',
     '110': '/images/menu/pizzen/110-familienpizza-margherita.png',
     '111': '/images/menu/pizzen/111-familienpizza-regina.png',
     '112': '/images/menu/pizzen/112-familienpizza-toskana.png',
-    '113': '/images/menu/pizzen/113-familienpizza-tonno.png',
-    '114': '/images/menu/pizzen/114-familienpizza-parma-e-rucola.png',
-    '115': '/images/menu/pizzen/115-familienpizza-vegetaria.png',
+    '113': '/images/menu/pizzen/113-familienpizza-thunfisch.png',
+    '114': '/images/menu/pizzen/114-familienpizza-parmaschinken-und-rucola.png',
+    '115': '/images/menu/pizzen/115-familienpizza-vegetarisch.png',
     '120': '/images/menu/kindergerichte/120-chicken-nuggets.png',
-    '121': '/images/menu/kindergerichte/121-rigatoni-burro.png',
-    '122': '/images/menu/kindergerichte/122-spaghetti-alla-bolognese.png',
+    '121': '/images/menu/kindergerichte/121-rigatoni-mit-butter.png',
+    '122': '/images/menu/kindergerichte/122-spaghetti-bolognese.png',
     '123': '/images/menu/kindergerichte/123-kleine-schnitzel-wiener-art.png',
     '130': '/images/menu/dessert/130-tiramisu.png',
     '131': '/images/menu/dessert/131-panna-cotta.png',
-    '132': '/images/menu/dessert/132-tartufo-nero.png',
-    '133': '/images/menu/dessert/133-cassata-siciliana.png',
+    '132': '/images/menu/dessert/132-schokoladen-trueffeleis.png',
+    '133': '/images/menu/dessert/133-sizilianische-eisspezialitaet.png',
+    '134': '/images/menu/dessert/134-bourbon-vanilleeis.png',
 };
 
 const FALLBACK_IMAGE = '/images/placeholder.svg';
@@ -129,14 +131,24 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
     const activeCategory = urlCategory || 'suppen';
 
     const [showLegend, setShowLegend] = useState(false);
+    const [showFilter, setShowFilter] = useState(false);
+    const [excludedAllergens, setExcludedAllergens] = useState<string[]>([]);
 
     const setActiveCategory = useCallback((categoryId: string) => {
         setParam('category', categoryId, router, pathname, searchParams);
     }, [router, pathname, searchParams]);
 
     const filteredItems = useMemo(() => {
-        return menuItems.filter(item => item.category === activeCategory);
-    }, [activeCategory, menuItems]);
+        return menuItems.filter(item => {
+            if (item.category !== activeCategory) return false;
+            if (excludedAllergens.length > 0 && item.allergens) {
+                if (item.allergens.some(a => excludedAllergens.includes(a))) {
+                    return false;
+                }
+            }
+            return true;
+        });
+    }, [activeCategory, menuItems, excludedAllergens]);
 
     const currentCategoryObj = categories.find(c => c.id === activeCategory);
     const currentNote = currentCategoryObj?.description || categoryFootnotes[activeCategory] || undefined;
@@ -199,6 +211,66 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
                 </div>
             )}
 
+            {/* Allergen Filter */}
+            <div className="mb-8 max-w-4xl mx-auto">
+                <button 
+                    onClick={() => setShowFilter(!showFilter)}
+                    aria-expanded={showFilter}
+                    className="flex items-center gap-2 text-sm font-bold text-text-secondary hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-2 py-1"
+                >
+                    <Filter className="w-4 h-4" aria-hidden="true" /> Allergiefilter
+                    {excludedAllergens.length > 0 && (
+                        <span className="bg-primary text-surface text-xs px-1.5 py-0.5 rounded-full ml-1">
+                            {excludedAllergens.length} aktiv
+                        </span>
+                    )}
+                </button>
+                {showFilter && (
+                    <div className="mt-4 p-5 bg-surface border border-border rounded-xl shadow-sm animate-in fade-in slide-in-from-top-2 duration-200">
+                        <p className="text-sm text-text-secondary mb-3">Tippen Sie auf Allergene, die Sie <strong>ausschließen</strong> möchten:</p>
+                        <div className="flex flex-wrap gap-2">
+                            {Object.entries(allergenLegend).map(([code, name]) => {
+                                const isExcluded = excludedAllergens.includes(code);
+                                return (
+                                    <button
+                                        key={code}
+                                        onClick={() => {
+                                            if (isExcluded) {
+                                                setExcludedAllergens(prev => prev.filter(c => c !== code));
+                                            } else {
+                                                setExcludedAllergens(prev => [...prev, code]);
+                                            }
+                                        }}
+                                        className={clsx(
+                                            "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border",
+                                            isExcluded 
+                                                ? "bg-red-500/10 border-red-500/50 text-red-500 shadow-sm" 
+                                                : "bg-bg-secondary border-border text-text-secondary hover:border-text-tertiary hover:bg-bg-tertiary"
+                                        )}
+                                        title={name}
+                                        aria-pressed={isExcluded}
+                                    >
+                                        <span className="font-mono">{code}</span>
+                                        <span className="hidden sm:inline font-normal opacity-80">{name}</span>
+                                        {isExcluded && <X className="w-3 h-3 ml-0.5" />}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                        {excludedAllergens.length > 0 && (
+                            <div className="mt-4 pt-4 border-t border-border flex justify-end">
+                                <button
+                                    onClick={() => setExcludedAllergens([])}
+                                    className="px-4 py-2 rounded-lg text-sm font-bold text-text-secondary hover:text-text-primary hover:bg-bg-secondary transition-colors"
+                                >
+                                    Filter zurücksetzen
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
+
             {/* Menu Grid */}
             <h2 className="sr-only">{translations.dishesHeading}</h2>
             <StaggerContainer as="ul" role="list" key={activeCategory} className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 xl:gap-x-16 gap-y-6 m-0 p-0 list-none">
@@ -244,6 +316,13 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
                                             <p id={descId} itemProp="description" className="text-text-secondary font-body text-sm sm:text-base leading-relaxed max-w-xl">
                                                 {item.description}
                                             </p>
+                                        )}
+                                        
+                                        {/* Allergens Display */}
+                                        {item.allergens && item.allergens.length > 0 && (
+                                            <div className="mt-3">
+                                                <AllergenBadgeList codes={item.allergens} size="sm" />
+                                            </div>
                                         )}
                                     </div>
                                 </article>
