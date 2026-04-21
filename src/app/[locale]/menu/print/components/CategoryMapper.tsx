@@ -35,6 +35,7 @@ export function CategoryMapper({
           desc={item.description}
           marginBottom={marginBottom}
           descStyle={descStyle}
+          allergens={item.allergens}
         />
       ))}
     </>

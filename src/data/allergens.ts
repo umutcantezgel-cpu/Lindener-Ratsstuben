@@ -93,33 +93,3 @@ export const LMIV_ALLERGENS: Record<AllergenIdentifier, AllergenData> = {
     hiddenRisks: ['Frutti di Mare Mische (oft nicht von Krebstieren getrennt)'],
   }
 };
-
-// Hilfsfunktion, um basierend auf einem Rezept-String oder Zutatenliste Kreuzkontaminationen zu flaggen
-export function checkHiddenAllergens(dishDescription: string): string[] {
-  const warnings: string[] = [];
-  const lowerDesc = dishDescription.toLowerCase();
-
-  if (lowerDesc.includes('grana padano') || lowerDesc.includes('parmesan')) {
-    warnings.push("Achtung: Lysozym (Ei) und Milch in italienischem Hartkäse.");
-  }
-  if (lowerDesc.includes('schinken') || lowerDesc.includes('salami')) {
-    warnings.push("Bitte Produktdatenblatt der Wurst auf Soja (Wasserbinder), Senf und Sulfite prüfen.");
-  }
-  if (lowerDesc.includes('wein') || lowerDesc.includes('balsamico') || lowerDesc.includes('vinaigrette')) {
-    warnings.push("Konzentrierte Sulfite durch Reduktion / Essig beachten.");
-  }
-  if (lowerDesc.includes('ragù') || lowerDesc.includes('bolognese')) {
-    warnings.push("Klassisches Soffritto enthält thermisch extrem stabilen Sellerie.");
-  }
-  if (lowerDesc.includes('hollandaise') || lowerDesc.includes('béarnaise')) {
-    warnings.push("Senf als Emulgator sowie Eier, Milch und Sulfite in Convenience-Sauce prüfen.");
-  }
-  if (lowerDesc.includes('pesto')) {
-    warnings.push("Schalenfrüchte-Substitution (Erdnuss/Cashew statt Pinie) in Convenience-Pestos prüfen.");
-  }
-  if (lowerDesc.includes('frutti di mare')) {
-    warnings.push("Weichtiere und Krebstiere müssen strikt getrennt deklariert werden.");
-  }
-
-  return warnings;
-}

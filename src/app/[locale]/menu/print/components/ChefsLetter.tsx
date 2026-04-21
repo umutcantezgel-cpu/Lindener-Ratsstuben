@@ -6,7 +6,7 @@ export default function ChefsLetter() {
   return (
     <PrintPage pageNum="I">
       <div style={{ maxWidth: '80%', margin: '0 auto', textAlign: 'center', paddingTop: '40px' }}>
-        <h2 style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--gold)', fontSize: '28px', letterSpacing: '8px', marginBottom: '20px', textTransform: 'uppercase' }}>Benvenuti</h2>
+        <h2 style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--gold)', fontSize: '28px', letterSpacing: '8px', marginBottom: '20px', textTransform: 'uppercase' }}>Willkommen</h2>
         <h3 style={{ fontFamily: 'var(--font-cormorant)', color: 'var(--ink)', fontSize: '42px', fontStyle: 'italic', marginBottom: '30px' }}>Ein Brief aus unserer Küche</h3>
         
         <p className="cv-intro" style={{ textAlign: 'justify', fontSize: '15px', lineHeight: '1.7', marginBottom: '15px', textIndent: '30px' }}>
@@ -23,11 +23,11 @@ export default function ChefsLetter() {
         </p>
 
         <div style={{ marginTop: '50px', textAlign: 'right', paddingRight: '40px' }}>
-          <div style={{ fontFamily: 'var(--font-vibes)', fontSize: '50px', color: 'var(--ink)', position: 'relative', right: '-20px', top: '10px' }}>La Famiglia</div>
+          <div style={{ fontFamily: 'var(--font-vibes)', fontSize: '50px', color: 'var(--ink)', position: 'relative', right: '-20px', top: '10px' }}>Ihre Familie</div>
           <div style={{ fontFamily: 'var(--font-montserrat)', fontSize: '12px', letterSpacing: '4px', color: 'var(--ink-soft)', textTransform: 'uppercase', marginTop: '5px' }}>Küchendirektion</div>
         </div>
 
-        <Quote text="Il cibo è l'essenza della vita." marginTop="60px" />
+        <Quote text="Essen ist die Essenz des Lebens." marginTop="60px" />
       </div>
     </PrintPage>
   );

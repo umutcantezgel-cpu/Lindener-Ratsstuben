@@ -32,8 +32,8 @@ export default function MenuCover() {
       <CornerOrnament className="cv-br" />
       
       <div className="cv-content">
-        <div className="cv-tag"><span>◆</span>RISTORANTE<span>◆</span></div>
-        <div className="cv-trad">— Tradizione Italiana —</div>
+        <div className="cv-tag"><span>◆</span>RESTAURANT<span>◆</span></div>
+        <div className="cv-trad">— Tradition & Genuss —</div>
         <h1 className="cv-title">RATSSTUBEN</h1>
         <OrnateDivider />
         <div className="cv-sub">Kulinarische Meisterwerke<br/>mit Leidenschaft kreiert</div>
