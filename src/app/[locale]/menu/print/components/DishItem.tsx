@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 
-import { AllergenIdentifier, checkHiddenAllergens } from '@/data/allergens';
+import { AllergenIdentifier } from '@/data/allergens';
 
 interface DishItemProps {
   id: string;
@@ -55,11 +55,6 @@ export default function DishItem({ id, name, price, desc, marginBottom, descStyl
           <span className="it-alc"> ({allergens.join(', ')})</span>
         )}
       </div>
-      {typeof desc === 'string' && checkHiddenAllergens(desc).length > 0 && (
-        <div className="it-warn" style={{ fontSize: '10px', color: 'var(--brand-red)', marginTop: '2px', fontStyle: 'italic' }}>
-          ⚠️ {checkHiddenAllergens(desc).join(' ')}
-        </div>
-      )}
     </div>
   );
 }
