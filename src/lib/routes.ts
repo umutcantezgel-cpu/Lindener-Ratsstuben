@@ -27,7 +27,7 @@ export const CONTENT_ROUTES: ContentRoute[] = [
   { path: '/contact',       label: 'Kontakt',               priority: 0.8,  changeFrequency: 'yearly',   indexable: true },
   { path: '/gallery',       label: 'Galerie',               priority: 0.7,  changeFrequency: 'monthly',  indexable: true },
   { path: '/kegelbahn',     label: 'Kegelbahn',             priority: 0.7,  changeFrequency: 'monthly',  indexable: true },
-  { path: '/barrierefreiheit', label: 'Barrierefreiheit',   priority: 0.4,  changeFrequency: 'yearly',   indexable: true },
+  { path: '/entdecken',     label: 'Mittelhessen Entdecken', priority: 0.6,  changeFrequency: 'weekly',   indexable: true },
   { path: '/impressum',     label: 'Impressum',             priority: 0.2,  changeFrequency: 'yearly',   indexable: true },
   { path: '/datenschutz',   label: 'Datenschutz',           priority: 0.2,  changeFrequency: 'yearly',   indexable: true },
   { path: '/agb',           label: 'AGB',                   priority: 0.2,  changeFrequency: 'yearly',   indexable: true },

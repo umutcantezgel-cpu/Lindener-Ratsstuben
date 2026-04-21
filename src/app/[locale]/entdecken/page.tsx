@@ -1,12 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
-import { Metadata } from 'next';
+import { getAlternates } from '@/lib/seo/metadata';
+import { ALLOWED_LOCALES } from '@/lib/locales';
 import { getAllRegionalArticles } from '@/utils/markdown-regional';
 
-export const metadata: Metadata = {
-  title: 'Mittelhessen Entdecken - Ausflugsziele & Freizeit | Lindener Ratsstuben',
-  description: 'Ihr Ratgeber für Mittelhessen: Die schönsten Sehenswürdigkeiten, Radtouren, Ausflugsziele und Geheimtipps in Gießen, Wetzlar und Umgebung.',
-};
+export function generateStaticParams() {
+  return ALLOWED_LOCALES.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return {
+    title: 'Mittelhessen Entdecken - Ausflugsziele & Freizeit | Lindener Ratsstuben',
+    description: 'Ihr Ratgeber für Mittelhessen: Die schönsten Sehenswürdigkeiten, Radtouren, Ausflugsziele und Geheimtipps in Gießen, Wetzlar und Umgebung.',
+    alternates: getAlternates(locale, 'entdecken'),
+  };
+}
 
 interface PageProps {
   params: {
