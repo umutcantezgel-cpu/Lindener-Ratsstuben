@@ -36,12 +36,6 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                 E-Mail: {companyData.email}
             </p>
 
-            <h2>Steuernummer</h2>
-            <p>
-                Steuernummer:<br />
-                020 874 316 28 {/* Vom Kunden übermittelte Steuernummer */}
-            </p>
-
             <h2>Aufsichtsbehörde und Gewerbeordnung</h2>
             <p>
                 Das Betreiben einer gastronomischen Einrichtung bedarf der Erlaubnis nach § 2 GastG. Zuständige Aufsichtsbehörde für die Erteilung und Überwachung ist:<br />
