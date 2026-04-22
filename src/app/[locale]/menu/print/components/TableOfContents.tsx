@@ -26,49 +26,34 @@ export default function TableOfContents() {
             
             {/* Menu Items */}
             <li className="toc-item">
-              <span className="toc-title">Suppen & Vorspeisen</span>
+              <span className="toc-title">Suppen &amp; Vorspeisen</span>
               <span className="toc-dots"></span>
               <span className="toc-page">IV</span>
             </li>
             <li className="toc-item">
-              <span className="toc-title">Salate</span>
+              <span className="toc-title">Salate &amp; Pasta</span>
               <span className="toc-dots"></span>
               <span className="toc-page">V</span>
             </li>
             <li className="toc-item">
-              <span className="toc-title">Traditionell</span>
+              <span className="toc-title">Überbackenes, Hausgemachte Nudeln &amp; Schnitzel</span>
               <span className="toc-dots"></span>
               <span className="toc-page">VI</span>
             </li>
             <li className="toc-item">
-              <span className="toc-title">Überbackenes & Hausgemacht</span>
+              <span className="toc-title">Fleisch &amp; Fisch</span>
               <span className="toc-dots"></span>
               <span className="toc-page">VII</span>
             </li>
             <li className="toc-item">
-              <span className="toc-title">Schnitzel</span>
+              <span className="toc-title">Pizza</span>
               <span className="toc-dots"></span>
               <span className="toc-page">VIII</span>
             </li>
             <li className="toc-item">
-              <span className="toc-title">Fleisch & Fisch</span>
+              <span className="toc-title">Familienpizza, Kinder &amp; Desserts</span>
               <span className="toc-dots"></span>
               <span className="toc-page">IX</span>
-            </li>
-            <li className="toc-item">
-              <span className="toc-title">Pizza</span>
-              <span className="toc-dots"></span>
-              <span className="toc-page">X</span>
-            </li>
-            <li className="toc-item">
-              <span className="toc-title">Familienpizza</span>
-              <span className="toc-dots"></span>
-              <span className="toc-page">XI</span>
-            </li>
-            <li className="toc-item">
-              <span className="toc-title">Für Kinder & Desserts</span>
-              <span className="toc-dots"></span>
-              <span className="toc-page">XI</span>
             </li>
             
             <div style={{ height: '30px' }} /> {/* Spacing */}
