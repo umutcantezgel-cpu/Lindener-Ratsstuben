@@ -106,7 +106,7 @@ export const activeEntityMap: ProjectEntityMap = {
   },
   persons: [
     {
-      id: "H.Toker",
+      id: "Hasan Toker",
       name: companyData.ownerName,
       jobTitle: "Inhaber",
       description: `Inhaber des Restaurants ${companyData.companyName}`
