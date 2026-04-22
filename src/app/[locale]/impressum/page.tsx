@@ -28,7 +28,7 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
             </p>
 
             <h2>Vertreten durch</h2>
-            <p>Inhaber: Oruc Cantezgel</p>
+            <p>Inhaber: {companyData.ownerName}</p>
 
             <h2>Kontakt</h2>
             <p>
@@ -36,23 +36,23 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                 E-Mail: {companyData.email}
             </p>
 
-            <h2>Umsatzsteuer-ID</h2>
+            <h2>Steuernummer</h2>
             <p>
-                Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-                DE123456789 {/* Platzhalter, muss vor echtem Live-Gang vom Kunden eingetragen werden */}
+                Steuernummer:<br />
+                020 874 316 28 {/* Vom Kunden übermittelte Steuernummer */}
             </p>
 
             <h2>Aufsichtsbehörde und Gewerbeordnung</h2>
             <p>
                 Das Betreiben einer gastronomischen Einrichtung bedarf der Erlaubnis nach § 2 GastG. Zuständige Aufsichtsbehörde für die Erteilung und Überwachung ist:<br />
-                <strong>Gewerbeamt der Stadt Gießen/Linden</strong><br />
-                [Beispieladresse des Amts, ggf. 35390 Gießen]<br />
+                <strong>Gewerbeamt Linden</strong><br />
+                [Beispieladresse des Amts, ggf. 35440 Linden]<br />
                 Mögliche Kammerzugehörigkeit: Industrie- und Handelskammer (IHK) Gießen-Friedberg.
             </p>
 
             <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
             <p>
-                Oruc Cantezgel<br />
+                {companyData.ownerName}<br />
                 {companyData.address.street}<br />
                 {companyData.address.zip} {companyData.address.city}
             </p>

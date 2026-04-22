@@ -4,7 +4,7 @@ export const companyData: CompanyData = {
     companyName: "Lindener Ratsstuben",
     zusatz: "Restaurant und Kegelzentrum",
     tagline: "Deutsch - Italienische Küche",
-    ownerName: "H. Toker",
+    ownerName: "Hasan Toker",
     email: "hasantoker38@hotmail.de",
     phone: "+49640364556",
     displayPhone: "06403 - 64556",
