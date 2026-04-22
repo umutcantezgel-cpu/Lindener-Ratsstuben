@@ -2,7 +2,6 @@ import React from 'react';
 import PrintLayoutClient from './PrintLayoutClient';
 import './print.css';
 import MenuCover from './components/MenuCover';
-import ChefsLetter from './components/ChefsLetter';
 import PhilosophyPage from './components/PhilosophyPage';
 import TableOfContents from './components/TableOfContents';
 
@@ -18,11 +17,10 @@ export default function PrintMenuPage() {
       <PrintLayoutClient />
       
       <MenuCover />
-      <ChefsLetter />
       <PhilosophyPage />
       <TableOfContents />
 
-      <PrintPage pageNum="IV">
+      <PrintPage pageNum="III">
         <DishCategory dropcap="S" title="Suppen" marginTop="10px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="suppen" />
@@ -36,7 +34,7 @@ export default function PrintMenuPage() {
         <div className="fn">Alle Suppen und Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch Pizzabrot.</div>
       </PrintPage>
 
-      <PrintPage pageNum="V">
+      <PrintPage pageNum="IV">
         <DishCategory dropcap="S" title="Salate" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="salate" marginBottom="2px" />
@@ -50,7 +48,7 @@ export default function PrintMenuPage() {
       </PrintPage>
 
       {/* Page VI: Überbackenes + Hausgemachte Nudeln + Schnitzel (fusioniert) */}
-      <PrintPage pageNum="VI">
+      <PrintPage pageNum="V">
         <DishCategory dropcap="Ü" title="Überbackenes" marginTop="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="pasta-al-forno" />
@@ -68,7 +66,7 @@ export default function PrintMenuPage() {
         <div className="fn" style={{ marginTop: '5px' }}>Unsere Schnitzel sind frisch vom Schweinerücken. Alle Schnitzelgerichte servieren wir wahlweise mit Pommes Frites, Kroketten oder Nudeln.</div>
       </PrintPage>
 
-      <PrintPage pageNum="VII">
+      <PrintPage pageNum="VI">
         <DishCategory dropcap="F" title="Fleisch &amp; Fisch" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="fleisch-fisch" />
@@ -77,7 +75,7 @@ export default function PrintMenuPage() {
         <div className="fn" style={{ marginTop: '5px' }}>Alle Fleisch- und Fischgerichte servieren wir mit Gemüse der Saison und Gourmet-Kartoffeln (Rosmarin-Drillinge) als Beilage. Zu Calamari Fritti reichen wir einen Beilagensalat.</div>
       </PrintPage>
 
-      <PrintPage pageNum="VIII">
+      <PrintPage pageNum="VII">
         <DishCategory dropcap="P" title="Pizza" subtitle="(∅ 28cm)" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="pizza" marginBottom="2px" />
@@ -85,7 +83,7 @@ export default function PrintMenuPage() {
         <div className="fn" style={{ marginTop: '5px' }}>Alle Pizzen werden mit Tomatensoße, Gewürzen &amp; Käse belegt. Jeder Extra Belag kostet 1,00 € / 4,00 € / 6,00 €.</div>
       </PrintPage>
 
-      <PrintPage pageNum="IX">
+      <PrintPage pageNum="VIII">
         <DishCategory dropcap="F" title="Familienpizza" subtitle="ca. 40×60 cm" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="familienpizza" marginBottom="2px" />
@@ -106,7 +104,7 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="X">
+      <PrintPage pageNum="IX">
         <AllergenLegend style={{ marginTop: '20px', border: '1px solid var(--gold-primary)' }} />
       </PrintPage>
     </div>
