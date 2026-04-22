@@ -41,6 +41,11 @@ export default function PrintLayoutClient() {
     // Ensure fonts are loaded
     document.fonts.ready.then(() => {
         setFontsLoaded(true);
+        // Auto-trigger print dialogue shortly after fonts are loaded
+        setTimeout(() => {
+          const btn = document.getElementById('auto-print-btn');
+          if (btn) btn.click();
+        }, 800);
     });
 
     // Intersection Observer for Entrance Animations (Awwwards-Level Polish)
@@ -90,7 +95,7 @@ export default function PrintLayoutClient() {
           <strong>Ansicht für Druck optimiert</strong><br />
           <span style={{ fontSize: '11px', opacity: 0.8 }}>Zweiseitigen Druck ohne Ränder empfehlen</span>
         </p>
-        <button onClick={handlePrint} disabled={!fontsLoaded || isPreparingPrint}>
+        <button id="auto-print-btn" onClick={handlePrint} disabled={!fontsLoaded || isPreparingPrint}>
           <Printer size={18} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '8px' }} />
           {fontsLoaded ? (isPreparingPrint ? 'Bereite Druck vor...' : 'Speisekarte drucken / PDF exportieren') : 'Lade Schriftarten...'}
         </button>
