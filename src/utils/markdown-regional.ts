@@ -26,9 +26,11 @@ export function getRegionalSlugsByCategory(category: RegionalCategory): string[]
   }
 
   const files = fs.readdirSync(categoryPath);
-  return files
+  const slugs = files
     .filter((file) => file.endsWith('.md') || file.endsWith('.mdx'))
     .map((file) => file.replace(/\.mdx?$/, ''));
+  // Deduplicate: if both .md and .mdx exist for the same slug, only include once
+  return [...new Set(slugs)];
 }
 
 /**
