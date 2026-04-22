@@ -32,9 +32,9 @@ export const categories = [
   { id: 'suppen', name: 'Suppen', label: 'Suppen' },
   { id: 'vorspeisen', name: 'Vorspeisen', label: 'Vorspeisen' },
   { id: 'salate', name: 'Salate', label: 'Salate' },
-  { id: 'pasta', name: 'Nudelgerichte', label: 'Nudelgerichte' },
+  { id: 'pasta', name: 'Pasta', label: 'Pasta' },
   { id: 'pasta-al-forno', name: 'Überbackene Nudelgerichte', label: 'Überbacken' },
-  { id: 'hausgemachte-pasta', name: 'Hausgemachte Nudelgerichte', label: 'Hausgemacht' },
+  { id: 'hausgemachte-pasta', name: 'Hausgemachte Nudelgerichte', label: 'Hausgemachte Nudeln' },
   { id: 'schnitzel', name: 'Schnitzelvariation', label: 'Schnitzel' },
   { id: 'fleisch-fisch', name: 'Fleischgerichte & Fischgerichte', label: 'Fleisch & Fisch' },
   { id: 'pizza', name: 'Pizza aus dem Steinofen / 28 cm', label: 'Pizza' },
@@ -53,9 +53,10 @@ export const categories = [
 
 // ─── Category Footnotes (wörtlich aus SSOT) ───────────────────
 export const categoryFootnotes: Record<string, string> = {
-  suppen: 'Unsere Suppen & Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch mit Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
-  vorspeisen: 'Unsere Suppen & Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch mit Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
-  salate: 'Unsere Salate servieren wir mit hausgemachtem Brot. Auf Wunsch mit Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
+  suppen: 'Unsere Suppen & Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
+  vorspeisen: 'Unsere Suppen & Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
+  salate: 'Unsere Salate servieren wir mit hausgemachtem Brot. Auf Wunsch Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
+  pasta: 'Pasta Gerichte werden auf Anfrage auch vegan serviert, bitte sprechen Sie dafür mit einer Servicekraft.',
   pizza: 'Alle Pizzen werden mit speziell gewürzter Tomatensauce und Käse zubereitet.',
 };
 

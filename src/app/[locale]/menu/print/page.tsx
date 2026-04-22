@@ -23,100 +23,82 @@ export default function PrintMenuPage() {
       <TableOfContents />
 
       <PrintPage pageNum="IV">
-        <DishCategory dropcap="S" title="Suppen" marginTop="20px" />
-        <div className="cat-grid">
+        <DishCategory dropcap="S" title="Suppen" marginTop="10px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="suppen" />
         </div>
 
-        <DishCategory dropcap="V" title="Vorspeisen" marginTop="20px" />
-        <div className="cat-grid">
+        <DishCategory dropcap="V" title="Vorspeisen" marginTop="10px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="vorspeisen" />
           <Quote text="Kochen ist ein Akt der Liebe" />
         </div>
-        <div className="fn">Alle Suppen und Vorspeisen servieren wir mit ofenfrischem Pizzabrot.</div>
+        <div className="fn">Alle Suppen und Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch Pizzabrot.</div>
       </PrintPage>
 
       <PrintPage pageNum="V">
-        <DishCategory dropcap="S" title="Salate" />
-        <div className="cat-grid">
-          <CategoryMapper categoryId="salate" />
+        <DishCategory dropcap="S" title="Salate" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+          <CategoryMapper categoryId="salate" marginBottom="2px" />
         </div>
-        <div className="fn" style={{marginBottom: "20px"}}>Alle großen Salate servieren wir mit ofenfrischem Pizzabrot und unserem Balsamico-Joghurt Dressing.</div>
-        
-        <div className="box">
-          <div className="box-t">ALLERGEN-KENNZEICHNUNG (EU-VO 1169/2011)</div>
-          <div className="box-c">
-            A) Glutenhaltiges Getreide • B) Krebstiere • C) Eier • D) Fische • E) Erdnüsse • F) Sojabohnen • G) Milch (inkl. Laktose)<br/>
-            H) Schalenfrüchte • L) Sellerie • M) Senf • N) Sesamsamen • O) Sulfite • P) Lupinen • R) Weichtiere
-          </div>
-          <div className="box-t" style={{marginTop: "8px"}}>ZUSATZSTOFFE</div>
-          <div className="box-c">
-            1) Farbstoff • 2) Konservierungsstoff • 3) Antioxidationsmittel • 4) Geschmacksverstärker • 5) Geschwefelt<br/>
-            6) Geschwärzt • 7) Phosphat • 8) Süßungsmittel • 9) Phenylalaninquelle • 10) Koffeinhaltig
-          </div>
+
+        <DishCategory dropcap="P" title="Pasta" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+          <CategoryMapper categoryId="pasta" marginBottom="2px" />
         </div>
+        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px" }}>Pasta Gerichte werden auf Anfrage auch vegan serviert, bitte sprechen Sie dafür mit einer Servicekraft.</div>
       </PrintPage>
 
+      {/* Page VI: Überbackenes + Hausgemachte Nudeln + Schnitzel (fusioniert) */}
       <PrintPage pageNum="VI">
-        <DishCategory dropcap="T" title="Traditionell" />
-        <div className="cat-grid">
-          <CategoryMapper categoryId="pasta" />
-          <Quote text="Das Geheimnis einer guten Küche..." />
-        </div>
-      </PrintPage>
-
-      <PrintPage pageNum="VII">
-        <DishCategory dropcap="Ü" title="Überbackenes" />
-        <div className="cat-grid">
+        <DishCategory dropcap="Ü" title="Überbackenes" marginTop="5px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="pasta-al-forno" />
         </div>
 
-        <DishCategory dropcap="H" title="Hausgemacht" marginTop="30px" />
-        <div className="cat-grid">
+        <DishCategory dropcap="H" title="Hausgemachte Nudeln" marginTop="15px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="hausgemachte-pasta" />
-          <Quote text="Hausgemachte Pasta mit Liebe..." />
         </div>
-      </PrintPage>
 
-      <PrintPage pageNum="VIII">
-        <DishCategory dropcap="S" title="Schnitzel (Schweinerücken)" />
-        <div className="cat-grid">
+        <DishCategory dropcap="S" title="Schnitzel Variationen" marginTop="15px" marginBottom="5px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="schnitzel" />
-          <div className="fn">Alle Schnitzelgerichte servieren wir wahlweise mit Pommes Frites, Kroketten oder Nudeln.</div>
         </div>
+        <div className="fn" style={{ marginTop: '5px' }}>Unsere Schnitzel sind frisch vom Schweinerücken. Alle Schnitzelgerichte servieren wir wahlweise mit Pommes Frites, Kroketten oder Nudeln.</div>
       </PrintPage>
 
-      <PrintPage pageNum="IX">
-        <DishCategory dropcap="F" title="Fleisch & Fisch" />
-        <div className="cat-grid">
+      <PrintPage pageNum="VII">
+        <DishCategory dropcap="F" title="Fleisch &amp; Fisch" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="fleisch-fisch" />
           <Quote text="Qualität ist niemals ein Zufall." />
         </div>
-        <div className="fn">Alle Fleisch- und Fischgerichte servieren wir mit Gemüse der Saison und Gourmet-Kartoffeln (Rosmarin-Drillinge) als Beilage. Zu Calamari Fritti reichen wir einen Beilagensalat.</div>
+        <div className="fn" style={{ marginTop: '5px' }}>Alle Fleisch- und Fischgerichte servieren wir mit Gemüse der Saison und Gourmet-Kartoffeln (Rosmarin-Drillinge) als Beilage. Zu Calamari Fritti reichen wir einen Beilagensalat.</div>
       </PrintPage>
 
-      <PrintPage pageNum="X">
-        <DishCategory dropcap="P" title="Pizza" subtitle="(∅ 28cm)" marginBottom="10px" />
-        <div className="cat-grid">
-          <CategoryMapper categoryId="pizza" marginBottom="8px" />
+      <PrintPage pageNum="VIII">
+        <DishCategory dropcap="P" title="Pizza" subtitle="(∅ 28cm)" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+          <CategoryMapper categoryId="pizza" marginBottom="2px" />
         </div>
-        <div className="fn">Alle Pizzen (außer Pizzabrot) werden mit Tomatensoße, Gewürzen & Käse belegt. Jede weitere kleine Zutat berechnen wir mit + 1,00 €. Frischer Lachs, Garnelen, Parmaschinken berechnen wir mit + 2,00 €. Extrawünsche sind bei Calzone leider nicht möglich.</div>
+        <div className="fn" style={{ marginTop: '5px' }}>Alle Pizzen werden mit Tomatensoße, Gewürzen &amp; Käse belegt. Jeder Extra Belag kostet 1,00 € / 4,00 € / 6,00 €.</div>
       </PrintPage>
 
-      <PrintPage pageNum="XI">
-        <DishCategory dropcap="F" title="Familienpizza" subtitle="ca. 40×60 cm (ab 4 Pers.)" marginBottom="10px" />
-        <div className="cat-grid">
-          <CategoryMapper categoryId="familienpizza" marginBottom="6px" />
+      <PrintPage pageNum="IX">
+        <DishCategory dropcap="F" title="Familienpizza" subtitle="ca. 40×60 cm" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+          <CategoryMapper categoryId="familienpizza" marginBottom="2px" />
         </div>
 
-        <DishCategory dropcap="K" title="Kindergerichte" marginTop="10px" marginBottom="10px" />
-        <div className="cat-grid">
-          <CategoryMapper categoryId="kindergerichte" marginBottom="6px" />
+        <DishCategory dropcap="K" title="Kindergerichte" marginTop="10px" marginBottom="5px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+          <CategoryMapper categoryId="kindergerichte" marginBottom="2px" />
         </div>
 
-        <DishCategory dropcap="D" title="Desserts" marginTop="10px" marginBottom="10px" />
-        <div className="cat-grid">
-          <CategoryMapper categoryId="dessert" marginBottom="6px" />
+        <DishCategory dropcap="D" title="Desserts" marginTop="10px" marginBottom="5px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+          <CategoryMapper categoryId="dessert" marginBottom="2px" />
         </div>
         
         <div className="cv-est" style={{position: 'relative', bottom: 'auto', marginTop: '15px'}}>
@@ -124,7 +106,7 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="XII">
+      <PrintPage pageNum="X">
         <AllergenLegend style={{ marginTop: '20px', border: '1px solid var(--gold-primary)' }} />
       </PrintPage>
     </div>

@@ -34,7 +34,7 @@ export function CategoryMapper({
           price={item.price === null ? "Preis auf Anfrage" : formatCurrency(item.price, locale)}
           desc={item.description}
           marginBottom={marginBottom}
-          descStyle={descStyle}
+          descStyle={item.nr === '25' ? { color: 'var(--gold-deep, #b8860b)', fontSize: '1.05em', fontWeight: 500 } : descStyle}
           allergens={item.allergens}
         />
       ))}

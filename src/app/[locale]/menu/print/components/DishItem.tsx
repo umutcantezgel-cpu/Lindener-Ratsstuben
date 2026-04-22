@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 import { AllergenIdentifier } from '@/data/allergens';
 
@@ -15,22 +13,6 @@ interface DishItemProps {
 }
 
 export default function DishItem({ id, name, price, desc, marginBottom, descStyle, allergens }: DishItemProps) {
-  const nameRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (nameRef.current) {
-      const el = nameRef.current;
-      let fontSize = 13;
-      el.style.fontSize = `${fontSize}px`;
-      
-      // Scale down font size until it fits into its bounded container or hits minimum size
-      while (el.scrollWidth > el.clientWidth && fontSize > 9) {
-        fontSize -= 0.5;
-        el.style.fontSize = `${fontSize}px`;
-      }
-    }
-  }, [name]);
-
   const preventOrphans = (text: string | React.ReactNode) => {
     if (typeof text === 'string') {
       const lastSpace = text.lastIndexOf(' ');
@@ -45,7 +27,7 @@ export default function DishItem({ id, name, price, desc, marginBottom, descStyl
     <div className="it" style={{ marginBottom }}>
       <div className="it-hdr">
         <span className="it-id">{id}</span>
-        <span className="it-n" ref={nameRef}>{name}</span>
+        <span className="it-n">{name}</span>
         <span className="it-dots"></span>
         <span className="it-p">{price}</span>
       </div>
