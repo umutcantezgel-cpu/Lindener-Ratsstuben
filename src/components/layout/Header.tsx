@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Flame } from 'lucide-react';
+import Image from 'next/image';
 import { clsx } from 'clsx';
 import { motion } from 'framer-motion';
 import { companyData } from '@/data/company';
@@ -62,15 +62,18 @@ export const Header: React.FC = () => {
             <div className="w-full max-w-[1920px] mx-auto px-4 lg:px-8 xl:px-8 2xl:px-16 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex-1 flex justify-start">
-                    <Link href="/" className="flex items-center gap-3 group relative z-10" aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
-                        <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-accent/20 to-transparent border border-accent/20 group-hover:border-accent/40 transition-colors" aria-hidden="true">
-                            <Flame className="w-4 h-4 text-accent group-hover:scale-110 transition-transform duration-500 ease-out drop-shadow-[0_0_8px_rgba(var(--color-accent),0.2)]" />
-                        </div>
-                        <span className={clsx(
-                            "text-lg xl:text-xl font-display font-medium tracking-tight transition-colors duration-300 text-white drop-shadow-md"
-                        )}>
-                            {companyData.companyName.split(' ')[0]} <span className="font-light">{companyData.companyName.split(' ')[1] || ''}</span>
-                        </span>
+                    <Link href="/" className="flex items-center group relative z-10" aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
+                        <Image
+                            src="/images/logo.svg"
+                            alt={companyData.companyName}
+                            width={140}
+                            height={50}
+                            priority
+                            className={clsx(
+                                "w-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] brightness-0 invert drop-shadow-md",
+                                isScrolled ? "h-8" : "h-10"
+                            )}
+                        />
                     </Link>
                 </div>
 

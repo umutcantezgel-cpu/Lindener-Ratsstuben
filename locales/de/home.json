@@ -46,7 +46,6 @@
   "hero.glasspane.hours_title": "Gourmet Zeiten",
   "hero.glasspane.hours_lunch": "Mittags",
   "hero.glasspane.hours_dinner": "Abends",
-  "company.time_suffix": "Uhr",
   "services.label": "Unsere Services",
   "services.accessibility": "Barrierefrei",
   "services.buffet": "Büfett",
@@ -58,5 +57,7 @@
   "services.heated_terrace": "Beheizte Terrasse",
   "services.weddings": "Hochzeiten",
   "services.free_wifi": "Kostenloses WLAN",
-  "services.pets_allowed": "Haustiere erlaubt"
+  "services.pets_allowed": "Haustiere erlaubt",
+  "company.time_suffix": "",
+  "philosophy.learn_more": "Mehr über die Ratsstuben erfahren"
 }

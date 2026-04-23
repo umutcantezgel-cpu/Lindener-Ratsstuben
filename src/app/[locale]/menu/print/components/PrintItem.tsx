@@ -43,7 +43,6 @@ export default function PrintItem({ nr, marginBottom, descStyle, overrideName, o
       desc={overrideDesc !== undefined ? overrideDesc : item.description}
       marginBottom={marginBottom}
       descStyle={descStyle}
-      allergens={item.allergens}
     />
   );
 }

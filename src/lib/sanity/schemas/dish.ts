@@ -21,21 +21,21 @@ export default defineType({
     }),
     defineField({
       name: 'title_en',
-      title: 'Title (English)',
+      title: 'Titel (Englisch)',
       type: 'string',
       group: 'content',
       validation: (rule) => rule.max(80),
     }),
     defineField({
       name: 'title_ar',
-      title: 'Title (Arabic)',
+      title: 'Titel (Arabisch)',
       type: 'string',
       group: 'content',
       validation: (rule) => rule.max(80),
     }),
     defineField({
       name: 'title_fr',
-      title: 'Title (French)',
+      title: 'Titel (Französisch)',
       type: 'string',
       group: 'content',
       validation: (rule) => rule.max(80),
@@ -50,7 +50,7 @@ export default defineType({
     }),
     defineField({
       name: 'description_en',
-      title: 'Description (English)',
+      title: 'Beschreibung (Englisch)',
       type: 'text',
       group: 'content',
       rows: 3,
@@ -58,7 +58,7 @@ export default defineType({
     }),
     defineField({
       name: 'description_ar',
-      title: 'Description (Arabic)',
+      title: 'Beschreibung (Arabisch)',
       type: 'text',
       group: 'content',
       rows: 3,
@@ -66,7 +66,7 @@ export default defineType({
     }),
     defineField({
       name: 'description_fr',
-      title: 'Description (French)',
+      title: 'Beschreibung (Französisch)',
       type: 'text',
       group: 'content',
       rows: 3,
@@ -101,9 +101,9 @@ export default defineType({
           type: 'object',
           fields: [
             { name: 'name_de', title: 'Name (Deutsch) z.B. "Klein"', type: 'string', validation: rule => rule.required() },
-            { name: 'name_en', title: 'Name (English)', type: 'string' },
-            { name: 'name_ar', title: 'Name (Arabic)', type: 'string' },
-            { name: 'name_fr', title: 'Name (French)', type: 'string' },
+            { name: 'name_en', title: 'Name (Englisch)', type: 'string' },
+            { name: 'name_ar', title: 'Name (Arabisch)', type: 'string' },
+            { name: 'name_fr', title: 'Name (Französisch)', type: 'string' },
             { name: 'price', title: 'Preis (€)', type: 'number', validation: rule => rule.required().positive().precision(2) }
           ],
           preview: {

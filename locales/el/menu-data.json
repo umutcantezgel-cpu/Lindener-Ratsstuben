@@ -1,485 +1,434 @@
 {
   "categories": {
     "suppen": {
-      "name": "Σούπες",
-      "label": "Σούπες",
-      "description": "Τις σούπες και τα ορεκτικά μας τα σερβίρουμε δωρεάν με σπιτικό ψωμί - κατόπιν παραγγελίας σκορδόψωμο με σάλτσα ντομάτας & σκόρδο 6,50€",
-      "headerText": ""
+      "name": "Suppen",
+      "label": "Suppen",
+      "description": "Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€"
     },
     "vorspeisen": {
-      "name": "Ορεκτικά",
-      "label": "Ορεκτικά",
-      "description": "Τις σούπες και τα ορεκτικά μας τα σερβίρουμε δωρεάν με σπιτικό ψωμί - κατόπιν παραγγελίας σκορδόψωμο με σάλτσα ντομάτας & σκόρδο 6,50€",
-      "headerText": ""
+      "name": "Vorspeisen",
+      "label": "Vorspeisen",
+      "description": "Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€"
     },
     "salate": {
-      "name": "Σαλάτες",
-      "label": "Σαλάτες",
-      "description": "Τις σαλάτες μας τις σερβίρουμε δωρεάν με σπιτικό ψωμί - κατόπιν παραγγελίας σκορδόψωμο με σάλτσα ντομάτας & σκόρδο 6,50€",
-      "headerText": ""
+      "name": "Salate",
+      "label": "Salate",
+      "description": "Unsere Salate servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€"
     },
     "pasta": {
-      "name": "Ζυμαρικά",
-      "label": "Ζυμαρικά",
-      "description": "",
-      "headerText": ""
+      "name": "Pasta",
+      "label": "Pasta",
+      "description": "Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter."
     },
     "pasta-al-forno": {
-      "name": "Ζυμαρικά στο Φούρνο",
-      "label": "Ογκρατέν",
-      "description": "",
-      "headerText": ""
+      "name": "Pasta al Forno",
+      "label": "Pasta al Forno",
+      "description": "Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter."
     },
     "hausgemachte-pasta": {
-      "name": "Σπιτικά Ζυμαρικά",
-      "label": "Σπιτικά",
-      "description": "",
-      "headerText": ""
+      "name": "Hausgemachte Pasta",
+      "label": "Hausgemachte Pasta",
+      "description": "Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter."
     },
     "schnitzel": {
-      "name": "Παραλλαγές Σνίτσελ",
-      "label": "Σνίτσελ",
-      "description": "",
-      "headerText": ""
+      "name": "Schnitzelvariation",
+      "label": "Schnitzel",
+      "description": "Bei unseren Schnitzeln handelt es sich um frischen Schweinerücken."
     },
     "fleisch-fisch": {
-      "name": "Πιάτα Κρεατικών & Ψαρικών",
-      "label": "Κρέας & Ψάρι",
-      "description": "",
-      "headerText": ""
+      "name": "Fleischgerichte & Fischgerichte",
+      "label": "Fleisch & Fisch"
     },
     "pizza": {
-      "name": "Πίτσα από ξυλόφουρνο / 28 εκ.",
-      "label": "Πίτσα",
-      "description": "Όλες οι πίτσες παρασκευάζονται με σάλτσα ντομάτας με ειδικά μπαχαρικά & τυρί.",
-      "headerText": ""
+      "name": "Pizza aus dem Steinofen / 28 cm",
+      "label": "Pizza",
+      "description": "Jeder extra Belag kostet 1,00 / 4,00 / 6,00 €",
+      "headerText": "alle Pizzen werden mit Tomaten soße mit Special würzen & Käse zubereitet."
     },
     "familienpizza": {
-      "name": "Οικογενειακή Πίτσα από ξυλόφουρνο / 40 × 60 εκ.",
-      "label": "Οικογενειακή Πίτσα",
-      "description": "",
-      "headerText": ""
+      "name": "Familienpizza aus dem Steinofen / 40 × 60 cm",
+      "label": "Familienpizza"
     },
     "kindergerichte": {
-      "name": "Παιδικά Πιάτα",
-      "label": "Παιδικά Πιάτα",
-      "description": "",
-      "headerText": ""
+      "name": "Kindergerichte",
+      "label": "Kindergerichte"
     },
     "dessert": {
-      "name": "Επιδόρπια",
-      "label": "Επιδόρπια",
-      "description": "",
-      "headerText": ""
+      "name": "Dessert",
+      "label": "Dessert"
     },
     "warme-getraenke": {
-      "name": "Ζεστά Ροφήματα",
-      "label": "Καφές & Τσάι",
-      "description": "",
-      "headerText": ""
+      "name": "Warme Getränke",
+      "label": "Kaffee & Tee"
     },
     "alkoholfreie-getraenke": {
-      "name": "Μη Αλκοολούχα Ποτά",
-      "label": "Μη Αλκοολούχα",
-      "description": "",
-      "headerText": ""
+      "name": "Alkoholfreie Getränke",
+      "label": "Alkoholfrei"
     },
     "saefte": {
-      "name": "Χυμοί της Vaihinger",
-      "label": "Χυμοί",
-      "description": "",
-      "headerText": ""
+      "name": "Säfte von Vaihinger",
+      "label": "Säfte"
     },
     "biere": {
-      "name": "Μπύρες",
-      "label": "Μπύρες",
-      "description": "",
-      "headerText": ""
+      "name": "Biere",
+      "label": "Biere"
     },
     "rotweine": {
-      "name": "Χύμα Κόκκινα Κρασιά",
-      "label": "Κόκκινα Κρασιά",
-      "description": "",
-      "headerText": ""
+      "name": "Offene Rotweine",
+      "label": "Rotweine"
     },
     "weissweine": {
-      "name": "Χύμα Λευκά Κρασιά",
-      "label": "Λευκά Κρασιά",
-      "description": "",
-      "headerText": ""
+      "name": "Offene Weißweine",
+      "label": "Weißweine"
     },
     "spirituosen": {
-      "name": "Οινοπνευματώδη 0,2 cl",
-      "label": "Οινοπνευματώδη",
-      "description": "",
-      "headerText": ""
+      "name": "Spirituosen 0,2 cl",
+      "label": "Spirituosen"
     },
     "likoere": {
-      "name": "Λικέρ 0,2 cl",
-      "label": "Λικέρ",
-      "description": "",
-      "headerText": ""
-    },
-    "burger": {
-      "name": "Σπιτικά Burger",
-      "label": "Burger",
-      "description": "Όλα τα burger παρασκευάζονται φρέσκα και σερβίρονται με τραγανές τηγανητές πατάτες.",
-      "headerText": "Τα burger μας παρασκευάζονται με 100% υψηλής ποιότητας βοδινό κρέας, φρέσκα υλικά και τη σπιτική μας σάλτσα – σερβίρονται με τραγανές τηγανητές πατάτες."
-    },
-    "limonaden": {
-      "name": "Σπιτικές Λεμονάδες",
-      "label": "Λεμονάδες",
-      "description": "Όλες οι λεμονάδες παρασκευάζονται φρέσκες και εμπλουτίζονται με εκλεκτά υλικά.",
-      "headerText": "Απολαύστε τις φτιαγμένες με αγάπη σπιτικές μας λεμονάδες – από τα καλύτερα υλικά, με ισορροπημένα αρώματα και τέλεια συνδυασμένες για μια ξεχωριστή γευστική εμπειρία."
+      "name": "Liköre 0,2 cl",
+      "label": "Liköre"
     }
   },
   "items": {
     "10": {
-      "name": "Σούπα Ημέρας",
-      "description": "Φρεσκομαγειρεμένη ανάλογα με την εποχική προσφορά."
+      "name": "Tagessuppe",
+      "description": "Frisch zubereitet nach saisonalem Angebot."
     },
     "11": {
-      "name": "Ντοματόσουπα",
-      "description": "Λεπτά αρωματισμένη, κρεμώδης ντοματόσουπα."
+      "name": "Tomatencremesuppe",
+      "description": "Fein abgestimmte, cremig verfeinerte Tomatensuppe."
     },
     "20": {
-      "name": "Μπρουσκέτα Κλασική",
-      "description": "Φρυγανισμένες φέτες λευκού ψωμιού με φρέσκες ντομάτες, κρεμμύδι, ελιές και σκόρδο, ραντισμένες με έξτρα παρθένο ελαιόλαδο. Προαιρετικά με λιωμένη μοτσαρέλα στο φούρνο (+2,00 €)."
+      "name": "Bruschetta Classico",
+      "description": "4 Geröstete Weißbrotscheiben mit frischen Tomatenwürfel, Zwiebeln, Oliven und Knoblauch, veredelt mit extra nativem Olivenöl. Wahlweise mit überbackenem Mozzarella (+2,00 €)."
     },
     "21": {
-      "name": "Προσούτο Πάρμας και Πεπόνι",
-      "description": "Εκλεκτό αέρινο προσούτο Πάρμας, σερβιρισμένο με ώριμο πεπόνι."
+      "name": "Prosciutto di Parma e Melone",
+      "description": "Edler luftgetrockneter Parmaschinken, serviert mit sonnengereifter Melone u. Butter."
     },
     "22": {
-      "name": "Η Μπουράτα",
-      "description": "Κρεμώδης μπουράτα πάνω σε εκλεπτυσμένο καρπάτσιο ντομάτας, εμπλουτισμένο με βινεγκρέτ βαλσάμικου-βοτάνων και πέστο βασιλικού Genovese."
+      "name": "La Buratta",
+      "description": "Cremige Burrata auf feinem Tomaten-Carpaccio, verfeinert mit einer Balsamico-Kräutervinaigrette und Genovese-Basilikum Pesto"
     },
     "23": {
-      "name": "Βιτέλο Τονάτο",
-      "description": "Μοσχαράκι ελαφρώς ψημένο, λεπτοκομμένο, συνοδευόμενο από κρεμώδη σάλτσα τόνου με κάπαρη, αντζούγιες & αυγό."
+      "name": "Vitello Tonnato",
+      "description": "Zart rosa gegartes Kalbfleisch, fein aufgeschnitten, begleitet von einer cremigen Thunfischsauce mit Kapern, Sardellen & Ei."
     },
     "24": {
-      "name": "Καρπάτσιο Μοσχαριού",
-      "description": "Λεπτοκομμένο φιλέτο μοσχαριού Αργεντινής πάνω σε μαριναρισμένη ρόκα, με φρέσκα μανιτάρια και τριμμένο Grana Padano, εμπλουτισμένο με έξτρα παρθένο ελαιόλαδο."
+      "name": "Carpaccio di Manzo",
+      "description": "hauchdünn geschnittenes argentinisches Rinderfilet auf mariniertem Rucola, mit frischen Champignons und gehobeltem Grana Padano, verfeinert mit extra nativem Olivenöl."
     },
     "25": {
-      "name": "Ανάμεικτα Ορεκτικά του Σπιτιού (Antipasti)",
-      "description": "Μια εκλεκτή επιλογή ιταλικών ορεκτικών του σπιτιού – σερβιρισμένα ζεστά και κρύα. Διατίθεται και ως κομψή πιατέλα ορεκτικών για πολλά άτομα. Ανά άτομο 13,90 €."
+      "name": "Antipasti Misti della Casa",
+      "description": "Eine erlesene Auswahl italienischer Vorspeisenspezialitäten nach Art des Hauses – warm und kalt serviert. Auch als stilvolle Antipasti-Platten für mehrere Personen erhältlich. Pro Person 13,90 €"
     },
     "30": {
-      "name": "Ανάμεικτη Σαλάτα",
-      "description": "Μικρή, πολύχρωμη σαλάτα – ιδανική ως συνοδευτικό ή ορεκτικό."
+      "name": "Insalata Mista",
+      "description": "Kleiner, bunter Salatteller – ideal als Beilage oder Vorspeise."
     },
     "31": {
-      "name": "Σαλάτα Ιταλίας",
-      "description": "Πολύχρωμη σαλάτα με ζαμπόν, ζουμερό τόνο, μοτσαρέλα και αυγό, σερβιρισμένη με σπιτικό dressing γιαουρτιού."
+      "name": "Insalata Italia",
+      "description": "Bunter Salatteller mit Vorderschinken, saftigem Thunfisch, Mozzarella und Ei, serviert mit hausgemachtem Joghurtdressing."
     },
     "32": {
-      "name": "Σαλάτα Ιταλίας (μικρή)",
-      "description": "Προαιρετικά ως ορεκτικό ή συνοδευτικό."
+      "name": "Insalata Italia (klein)",
+      "description": "wahlweise als Vorspeise oder Beilage."
     },
     "33": {
-      "name": "Σαλάτα Θαλασσινών",
-      "description": "Σαλάτα ρόκας με υπέροχα μαριναρισμένα θαλασσινά, ντοματίνια και κόκκινα κρεμμύδια σε βινεγκρέτ βαλσάμικου-βοτάνων."
+      "name": "Insalata Frutti di Mare",
+      "description": "Rucolasalat mit köstlich marinierten Meeresfrüchten, Cocktailtomaten und roten Zwiebeln in Balsamico-Kräuter-Vinaigrette."
     },
     "34": {
-      "name": "Σαλάτα Κοτόπουλο",
-      "description": "Πολύχρωμη σαλάτα με φιλέτο στήθος κοτόπουλου και φρέσκα μανιτάρια, σερβιρισμένη με σπιτικό dressing γιαουρτιού."
+      "name": "Insalata di Pollo",
+      "description": "Bunter Salatteller mit Hähnchenbrustfilet und frischen Champignons, serviert mit hausgemachtem Joghurtdressing."
     },
     "35": {
-      "name": "Σαλάτα Σολομός & Γαρίδες",
-      "description": "Πολύχρωμη σαλάτα με φρέσκο φιλέτο σολομού και γαρίδες σε βινεγκρέτ βαλσάμικου-βοτάνων."
+      "name": "Insalata Salmone e Gamberoni",
+      "description": "Bunter Salatteller mit frischem Lachsfilet und Garnelen in Balsamico-Kräuter-Vinaigrette."
     },
     "36": {
-      "name": "Σαλάτα Don Capo",
-      "description": "Πολύχρωμη σαλάτα με μοσχαρίσιο κρέας Αργεντινής και τριμμένο Grana Padano, σερβιρισμένη με σπιτικό dressing γιαουρτιού."
+      "name": "Insalata Don Capo",
+      "description": "Bunter Salatteller mit argentinischem Rinderfleisch und gehobeltem Grana Padano, serviert mit hausgemachtem Joghurtdressing."
     },
     "40": {
-      "name": "Σπαγγέτι Μπολονέζ",
-      "description": "Με σιγομαγειρεμένο μοσχαρίσιο κιμά σε πικάντικη σάλτσα ντομάτας, σερβιρισμένο με φρεσκοτριμμένη παρμεζάνα."
+      "name": "Spaghetti alla Bolognese",
+      "description": "mit geschmortem Rinderhackfleisch in würziger Tomatensauce, serviert mit frisch geriebenem Parmigiano"
     },
     "41": {
-      "name": "Αυθεντική Σπαγγέτι Καρμπονάρα",
-      "description": "Με τραγανό Guanciale (χοιρινό μάγουλο), αυγό, χοντροκομμένο πιπέρι και φρεσκοτριμμένη παρμεζάνα."
+      "name": "Original Spaghetti Carbonara",
+      "description": "mit knusprigem Guanciale (Schweinebacke), Ei, grob geschrotetem Pfeffer und frisch geriebenem Parmigiano"
     },
     "42": {
-      "name": "Ριγκατόνι Απουλίας",
-      "description": "Με τραγανό Guanciale (χοιρινό μάγουλο), μπρόκολο, κρεμμύδια και μια δόση σκόρδου σε αρωματική σάλτσα ντομάτας, εμπλουτισμένο με τριμμένη παρμεζάνα."
+      "name": "Rigatoni alla Puglia",
+      "description": "mit knusprigem Guanciale (Schweinebacke), Brokkoli, Zwiebeln und einem Hauch Knoblauch in aromatischer Tomatensauce, frisch mit geriebenem Parmigiano"
     },
     "43": {
-      "name": "Ριγκατόνι „Ratsstube“",
-      "description": "Με ψητό στήθος κοτόπουλου και φρέσκα μανιτάρια σε κρεμώδη σάλτσα ντομάτας-κρέμας γάλακτος, σερβιρισμένο με παρμεζάνα."
+      "name": "Rigatoni „Ratsstube“",
+      "description": "mit gebratener Hähnchenbrust und frischen Champignons in cremiger Tomaten-Sahnesauce, serviert mit frisch geriebenem Parmigiano"
     },
     "44": {
-      "name": "Ταλιατέλες με Ραγού Λαχανικών",
-      "description": "Εκλεκτά ζυμαρικά με φρέσκο ραγού λαχανικών εποχής σε αρωματική σάλτσα ντομάτας, συνοδεύεται από τριμμένη παρμεζάνα."
+      "name": "Tagliatelle al Ragù di Verdure",
+      "description": "feine Bandnudeln mit frischem Marktgemüse Ragout in aromatischer Tomatensauce, dazu frisch geriebener Parmigiano"
     },
     "45": {
-      "name": "Ταλιατέλες Σολομός & Γαρίδες",
-      "description": "Εκλεκτά ζυμαρικά με ψητό φιλέτο σολομού και γαρίδες, εμπλουτισμένα με λίγο σκόρδο σε κρεμώδη σάλτσα του σπιτιού."
+      "name": "Tagliatelle Salmone e Gamberoni",
+      "description": "feine Bandnudeln mit gebratenem Lachsfilet und Garnelen, verfeinert mit einem Hauch Knoblauch in cremiger Sauce nach Art des Hauses"
     },
     "46": {
-      "name": "Λιγκουίνι με Θαλασσινά",
-      "description": "Επίπεδα ζυμαρικά με εκλεκτά θαλασσινά σε αρωματική σάλτσα ντομάτας με απαλή νότα σκόρδου."
+      "name": "Linguine ai Frutti di Mare",
+      "description": "flache Pasta mit erlesenen Meeresfrüchten in aromatischer Tomatensauce mit feiner Knoblauchnote"
     },
     "47": {
-      "name": "Λιγκουίνι Pesce Misto του Σπιτιού",
-      "description": "Επίπεδα ζυμαρικά με επιλεγμένα εκλεκτά ψάρια σε φίνα σάλτσα λευκού κρασιού-βοτάνων. Πρόταση του σεφ."
+      "name": "Linguine Pesce Misto della Casa",
+      "description": "flache Pasta mit ausgewähltem Edelfisch in feiner Weißwein-Kräutersauce Empfehlung des Küchenchefs"
     },
     "48": {
-      "name": "Πάστα Combinazione",
-      "description": "Τρία διαφορετικά είδη ζυμαρικών σε σιγομαγειρεμένο μοσχαρίσιο κιμά μέσα σε αρωματική σάλτσα ντομάτας ογκρατέν με μοτσαρέλα."
+      "name": "Pasta Combinazione",
+      "description": "Drei verschiedene Pasta in geschmortes Rinderhackfleisch in aromatische Tomaten Soße überbacken mit Mozzarella."
     },
     "49": {
-      "name": "Ριγκατόνι με Ραγού & Λαχανικά",
-      "description": "Με φρέσκο ραγού λαχανικών εποχής σε κρεμώδη σάλτσα κρέμας γάλακτος ογκρατέν με μοτσαρέλα."
-    },
-    "50": {
-      "name": "Τορτελίνι alla Panna",
-      "description": "Με ζαμπόν, αυγό σε κρεμώδη σάλτσα κρέμας γάλακτος σερβιρισμένο με τριμμένη παρμεζάνα."
+      "name": "Rigatoni al Ragu e Verdure",
+      "description": "mit frischem Marktgemüse Ragout in Cremigen Sahne Soße überbacken mit Mozzarella"
     },
     "51": {
-      "name": "Τορτελάτσι Βούτυρο & Φασκόμηλο",
-      "description": "Σπιτικά γιγάντια Τορτελάτσι γεμιστά με ρικότα και σπανάκι σοταρισμένα σε βούτυρο φασκόμηλου, ντοματίνια πάνω σε μπουκέτο ρόκας και Grana Padano."
+      "name": "Tortelacci Burro e Salvia",
+      "description": "Hausgemachte Riesen Tortellacci gefüllt mit Ricotta, Spinat in Butter Salbei geschwenkt Kirsch-Tomaten auf Rucola Salat Bukket und Grana Padano"
     },
     "52": {
-      "name": "Τορτελάτσι με Σολομό & Γαρίδες",
-      "description": "Σπιτικά γιγάντια Τορτελάτσι γεμιστά με ρικότα και σπανάκι σε κρεμώδη σάλτσα του σπιτιού."
+      "name": "Tortellacci con Salmone e Gamberoni",
+      "description": "Hausgemachte Riesen Tortellacci gefüllt mit Ricotta, Spinat in Cremigen Soße nach Art des Hauses."
     },
     "53": {
-      "name": "Νιόκι με Γαρίδες",
-      "description": "Γεμιστά νιόκι πατάτας με ντομάτα, μοτσαρέλα με ψητές γαρίδες σε κρεμώδη σάλτσα ντομάτας-κρέμας γάλακτος."
+      "name": "Gnocchi con Gamberoni",
+      "description": "gefüllte Kartoffeln Gnocchi Tomaten, Mozzarella mit gebratenen Garnelen würziger Tomatensoße."
     },
     "54": {
-      "name": "Νιόκι με Πέστο Βασιλικού Genovese & Μπουράτα",
-      "description": "Γεμιστά νιόκι πατάτας με κρεμώδη μπουράτα και πέστο βασιλικού Genovese."
-    },
-    "62": {
-      "name": "Τορτελίνι με Προσούτο & Panna",
-      "description": "Τορτελίνι γεμιστά με κρέας σε σάλτσα κρέμας γάλακτος με ζαμπόν ογκρατέν με μοτσαρέλα."
+      "name": "Gnocchi e Basilikum Pesto Genovese con La Buratta",
+      "description": "gefüllte Kartoffeln Gnocchi mit cremigen Buratta Basilikum Pesto Soße."
     },
     "70": {
-      "name": "Σνίτσελ Βιεννέζικο",
-      "description": "Με φέτες λεμονιού. Συνοδεύεται από τηγανητές πατάτες & σαλάτα εποχής."
+      "name": "Schnitzel Wiener Art",
+      "description": "mit Zitronenscheiben. Dazu servieren wir Pommes Frites & Salat der Saison."
     },
     "71": {
-      "name": "Σνίτσελ με Κρέμα Γάλακτος",
-      "description": "Σε κρεμώδη σάλτσα. Συνοδεύεται από τηγανητές πατάτες & σαλάτα εποχής."
+      "name": "Rahm-Schnitzel",
+      "description": "in Cremigen Rahm Soße. Dazu servieren wir Pommes Frites & Salat der Saison"
     },
     "72": {
-      "name": "Σνίτσελ του Κυνηγού",
-      "description": "Με φρέσκα μανιτάρια σε καφέ σάλτσα. Συνοδεύεται από τηγανητές πατάτες & σαλάτα εποχής."
+      "name": "Jäger-Schnitzel",
+      "description": "mit frischen Champignons in Brauner Soße. Dazu servieren wir Pommes Frites & Salat der Saison"
     },
     "73": {
-      "name": "Σνίτσελ Πιπεριού",
-      "description": "Με πράσινους κόκκους πιπεριού Μαδαγασκάρης σε κρεμώδη σάλτσα. Συνοδεύεται από τηγανητές πατάτες & σαλάτα εποχής."
+      "name": "Pfeffer-Schnitzel",
+      "description": "Mit Grünen Madagaskar-Pfefferkörnern in cremige Rahmsoße. Dazu servieren wir Pommes Frites & Salat der Saison."
     },
     "74": {
-      "name": "Σνίτσελ Χωριάτικο",
-      "description": "Με τραγανό ψητό μπέικον & κρεμμύδια. Συνοδεύεται από τηγανητές πατάτες & σαλάτα εποχής."
+      "name": "Bauern-Schnitzel",
+      "description": "mit knusprig gebratenem Speck & Zwiebeln. Dazu servieren wir Pommes Frites & Salat der Saison"
     },
     "75": {
-      "name": "Σνίτσελ Schlemmer",
-      "description": "Με φρέσκα μανιτάρια σε κρεμώδη σάλτσα Μπεαρνέζ. Συνοδεύεται από τηγανητές πατάτες & σαλάτα εποχής."
+      "name": "Schlemmer-Schnitzel",
+      "description": "mit frischem Champignon in Cremige Bernaise Soße. Dazu servieren wir Pommes Frites & Salat der Saison."
     },
     "76": {
-      "name": "Σακίδιο του Linden",
-      "description": "Γεμιστό με ζαμπόν & τυρί μοτσαρέλα σε φρέσκια σάλτσα μανιταριών-κρέμας γάλακτος."
+      "name": "Lindener Rucksack",
+      "description": "gefüllt mit Vorder-Schinken & Mozzarella Käse in frischem Champignon Sahne Soße"
     },
     "80": {
-      "name": "Στήθος Κοτόπουλου στη Σχάρα",
-      "description": "Φιλέτο στήθος κοτόπουλου από το γκριλ με σπιτικό βούτυρο βοτάνων & φέτα λεμονιού. Συνοδεύεται από φρέσκα λαχανικά εποχής & gourmet πατάτες."
+      "name": "Petto di Pollo alla Griglia",
+      "description": "Hähnchenbrustfilet vom Grill mit hausgemachter Kräuter-Butter & Zitronen Scheibe. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
     },
     "81": {
-      "name": "Στήθος Κοτόπουλου με Πράσινο Πιπέρι",
-      "description": "Φιλέτο στήθος κοτόπουλου από το γκριλ με πράσινους κόκκους πιπεριού Μαδαγασκάρης σε κρεμώδη σάλτσα. Συνοδεύεται από φρέσκα λαχανικά εποχής & gourmet πατάτες."
+      "name": "Petto di Pollo al Pepe Verde",
+      "description": "Hähnchenbrustfilet vom Grill mit grünen Madagaskar Pfefferkörner in cremigen Rahm Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
     },
     "82": {
-      "name": "Χοιρινό Φιλέτο με Λευκό Κρασί και Λεμόνι",
-      "description": "Μενταγιόν χοιρινού φιλέτου από το γκριλ σε σάλτσα λευκού κρασιού, λεμονιού, βοτάνων και σκόρδου. Συνοδεύεται από φρέσκα λαχανικά εποχής & gourmet πατάτες."
+      "name": "Filetto di Maiale al Pepe Verde",
+      "description": "Schweinefilet vom Grill mit grünen Madagaskar Pfefferkörner in cremigen Rahm Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
     },
     "83": {
-      "name": "Χοιρινό Φιλέτο με Πράσινο Πιπέρι",
-      "description": "Χοιρινό φιλέτο από το γκριλ με πράσινους κόκκους πιπεριού Μαδαγασκάρης σε κρεμώδη σάλτσα. Συνοδεύεται από φρέσκα λαχανικά εποχής & gourmet πατάτες."
+      "name": "Filetto di Maiale al Vino Bianco e Limone",
+      "description": "Schweinefilet Medaillons vom Grill in Weißwein, Zitronen Kräuter Knoblauch Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
     },
     "84": {
-      "name": "Μπριζόλα στη Σχάρα",
-      "description": "Μοσχαρίσιο Rumpsteak Αργεντινής από το Lava Grill με σπιτικό βούτυρο βοτάνων & φέτα λεμονιού. Συνοδεύεται από φρέσκα λαχανικά εποχής & gourmet πατάτες."
+      "name": "Bistecca alla Griglia",
+      "description": "Argent. Rumpsteak vom Lava Grill mit hausgemachter Kräuter-Butter & Zitronen Scheibe. Dazu servieren wir frischem Marktgemüse & Gourmet Kartoffeln."
     },
     "85": {
-      "name": "Μπριζόλα με Πράσινο Πιπέρι",
-      "description": "Μοσχαρίσιο Rumpsteak Αργεντινής από το Lava Grill με πράσινους κόκκους πιπεριού Μαδαγασκάρης σε κρεμώδη σάλτσα. Συνοδεύεται από φρέσκα λαχανικά εποχής & gourmet πατάτες."
+      "name": "Bistecca al Pepe Verde",
+      "description": "Argent. Rumpsteak vom Lava Grill mit grünen Madagaskar Pfefferkörner in cremigen Rahm Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln"
     },
     "86": {
-      "name": "Τσιπούρα με Βούτυρο, Λεμόνι και Σκόρδο",
-      "description": "Φρέσκο φιλέτο τσιπούρας, σε φίνα σάλτσα βουτύρου με λεμόνι, βότανα και σκόρδο. Συνοδεύεται από τραγανά λαχανικά εποχής και χρυσαφένιες gourmet πατάτες."
+      "name": "Orata con Burro al Limone e Aglio",
+      "description": "Frisches Doraden Filet, geschwenkt in einer feinen Zitronen-Kräuter-Knoblauch-Buttersauce. Dazu servieren wir knackiges Marktgemüse und goldbraune Gourmetkartoffeln."
     },
     "87": {
-      "name": "Σολομός στη Σχάρα με Σάλτσα Πορτοκαλιού-Μουστάρδας",
-      "description": "Ζουμερό φιλέτο σολομού Νορβηγίας, φρέσκο από το γκριλ σε κρεμώδη σάλτσα πορτοκαλιού-μουστάρδας. Συνοδεύεται από φρέσκα λαχανικά εποχής & gourmet πατάτες."
-    },
-    "88": {
-      "name": "Σουπιά στη Σχάρα",
-      "description": "Μαριναρισμένη σουπιά του σπιτιού. Συνοδεύεται από φρέσκα λαχανικά εποχής & gourmet πατάτες."
+      "name": "Salmone alla Griglia salsa all`Arancia e Senape",
+      "description": "Saftiges Lachsfilet aus Norwegen, frisch vom Grill in Cremigen Orangensenf Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln."
     },
     "90": {
-      "name": "Πίτσα Μαργαρίτα",
-      "description": "Τυρί μοτσαρέλα & ρίγανη."
+      "name": "Pizza Margarita",
+      "description": "Mozzarella Käse & Oregano."
     },
     "91": {
-      "name": "Πίτσα Σαλάμι και Μανιτάρια",
-      "description": "Σαλάμι & φρέσκα μανιτάρια."
+      "name": "Pizza Salame e funghi",
+      "description": "Salami & frischen Champignons."
     },
     "92": {
-      "name": "Πίτσα Ρετζίνα",
-      "description": "Σαλάμι, ζαμπόν & φρέσκα μανιτάρια."
+      "name": "Pizza Regina",
+      "description": "Salami, Vorder-Schinken & frischen Champignons."
     },
     "93": {
-      "name": "Πίτσα Τοσκάνα",
-      "description": "Σαλάμι, ζαμπόν, πεπερόνι λουκάνικο, κρεμμύδια & φρέσκα μανιτάρια."
+      "name": "Pizza Toscana",
+      "description": "Salami, Vorder-Schinken, Peperoni Wurst, Zwiebeln & frischen Champignons."
     },
     "94": {
-      "name": "Πίτσα Ratsstuben",
-      "description": "Σαλάμι, ζαμπόν, πεπερόνι λουκάνικο, κρεμμύδια, φρέσκα μανιτάρια & αυγό."
+      "name": "Pizza Ratsstuben",
+      "description": "Salami, Vorder-Schinken, Peperoni Wurst, Zwiebeln, frischen Champignons & Ei."
     },
     "95": {
-      "name": "Πίτσα Χαβάη",
-      "description": "Ζαμπόν & κομμάτια ανανά."
+      "name": "Pizza Hawaii",
+      "description": "Vorder-Schinken & Ananas-Stücken."
     },
     "96": {
-      "name": "Πίτσα Διάβολο",
-      "description": "Πεπερόνι λουκάνικο, πεπερόνι (Καυτερό), φρέσκα μανιτάρια."
+      "name": "Pizza Diavolo",
+      "description": "Peperoni Wurst, Peperoni (Scharf), frischen Champignons"
     },
     "97": {
-      "name": "Πίτσα Πάρμα & Ρόκα",
-      "description": "Αέρινο προσούτο Πάρμας, μαριναρισμένη ρόκα, τριμμένο Grana Padano."
+      "name": "Pizza Parma e Rucola",
+      "description": "Luftgetrocknete Parma-Schinken, Mariniertem Rucola, gehobeltem Grana Padano."
     },
     "98": {
-      "name": "Πίτσα Amore Mio Talia",
-      "description": "Τυρί μοτσαρέλα, φρέσκα μανιτάρια, ντοματίνια & βασιλικός."
+      "name": "Pizza Amore Mio Talia",
+      "description": "Mozzarella-Käse, frische Champignons, Kirsch-Tomaten & Basilikum."
     },
     "99": {
-      "name": "Πίτσα Τόνος",
-      "description": "Ζουμερός τόνος, φρέσκα μανιτάρια, κόκκινα κρεμμύδια."
+      "name": "Pizza Tonno",
+      "description": "Saftigem Thunfisch, frische Champignons, Rote-Zwiebeln."
     },
     "100": {
-      "name": "Πίτσα Μπουράτα & Ρόκα",
-      "description": "Κρεμώδες τυρί μπουράτα, μαριναρισμένη σαλάτα ρόκας & πέστο βασιλικού."
+      "name": "Pizza Burrata e Rucola",
+      "description": "Cremige Burrata Käse, mariniertem Rucola Salat & Basilikum Pesto."
     },
     "101": {
-      "name": "Πίτσα Θαλασσινών",
-      "description": "Υπέροχα θαλασσινά, ντοματίνια & σκόρδο."
+      "name": "Pizza Frutti di Mare",
+      "description": "Köstlichem Meeresfrüchte, Kirsch-Tomaten & Knoblauch."
     },
     "102": {
-      "name": "Πίτσα Σολομός & Γαρίδες",
-      "description": "Φιλέτο σολομού Νορβηγίας, γαρίδες, ντοματίνια & σκόρδο."
+      "name": "Pizza Salmone e Gamberoni",
+      "description": "Lachsfilet aus Norwegen, Garnelen, Kirsch-Tomaten & Knoblauch."
     },
     "103": {
-      "name": "Πίτσα Deluxe",
-      "description": "Λεπτοκομμένο μοσχαράκι, κρεμώδης σάλτσα τόνου, μαριναρισμένη σαλάτα ρόκας τριμμένο Grana Padano."
+      "name": "Pizza Deluxe",
+      "description": "Hauch dünn geschnittene Kalbsfleisch, Cremige Thunfisch Soße, mariniertem Rucola Salat gehobeltem Grana Padano."
     },
     "105": {
-      "name": "Πίτσα Λαχανικών (Vegetale)",
-      "description": "Φρέσκα λαχανικά εποχής στο γκριλ."
+      "name": "Pizza Vegetale",
+      "description": "gegrilltem frisches Marktgemüse."
     },
     "106": {
-      "name": "Σκορδόψωμο (Pizzapane)",
-      "description": "Ψωμί πίτσας με σάλτσα ντομάτας, σκόρδο & ρίγανη – Χωρίς τυρί."
+      "name": "Pizzapane",
+      "description": "Pizzabrot mit Tomaten Soße, Knoblauch & Oregano – Ohne Käse."
     },
     "110": {
-      "name": "Πίτσα Μαργαρίτα",
-      "description": "Μοτσαρέλα και ρίγανη."
+      "name": "Pizza Margherita",
+      "description": "Mozzarella und Oregano"
     },
     "111": {
-      "name": "Πίτσα Ρετζίνα",
-      "description": "Σαλάμι, ζαμπόν και φρέσκα μανιτάρια."
+      "name": "Pizza Regina",
+      "description": "Salami, Vorderschinken und frische Champignons"
     },
     "112": {
-      "name": "Πίτσα Τοσκάνα",
-      "description": "Σαλάμι, ζαμπόν, πεπερόνι λουκάνικο, κρεμμύδια και φρέσκα μανιτάρια."
+      "name": "Pizza Toskana",
+      "description": "Salami, Vorderschinken, Peperoniwurst, Zwiebeln und frische Champignons"
     },
     "113": {
-      "name": "Πίτσα Τόνος",
-      "description": "Ζουμερός τόνος, κόκκινα κρεμμύδια και φρέσκα μανιτάρια."
+      "name": "Pizza Tonno",
+      "description": "Saftiger Thunfisch, rote Zwiebeln und frische Champignons"
     },
     "114": {
-      "name": "Πίτσα Πάρμα & Ρόκα",
-      "description": "Αέρινο προσούτο Πάρμας, μαριναρισμένη ρόκα και τριμμένο Grana Padano."
+      "name": "Pizza Parma e Rucola",
+      "description": "Luftgetrockneter Parmaschinken, marinierter Rucola und gehobelter Grana Padano"
     },
     "115": {
-      "name": "Πίτσα Λαχανικών (Vegetaria)",
-      "description": "Φρέσκα λαχανικά εποχής στο γκριλ και ρίγανη."
+      "name": "Pizza Vegetaria",
+      "description": "Gegrilltes frisches Marktgemüse und Oregano"
     },
     "120": {
-      "name": "Κοτομπουκιές",
-      "description": "6 τεμάχια κοτομπουκιές με τηγανητές πατάτες."
+      "name": "Chicken Nuggets",
+      "description": "6 Stück Hähnchen-Nuggets mit Pommes frites"
     },
     "121": {
-      "name": "Ριγκατόνι με βούτυρο",
-      "description": "Ζυμαρικά σοταρισμένα σε βούτυρο."
+      "name": "Rigatoni burro",
+      "description": "Nudeln in Butter geschwenkt."
     },
     "122": {
-      "name": "Σπαγγέτι Μπολονέζ",
-      "description": "Σιγομαγειρεμένος μοσχαρίσιος κιμάς σε σάλτσα ντομάτας."
+      "name": "Spaghetti alla Bolognese",
+      "description": "Geschmortes Rinderhackfleisch in Tomatensoße."
     },
     "123": {
-      "name": "Μικρό Σνίτσελ Βιεννέζικο",
-      "description": "Με τηγανητές πατάτες."
+      "name": "Kleine Schnitzel Wiener Art",
+      "description": "mit Pommes frites."
     },
     "130": {
-      "name": "Τιραμισού",
-      "description": "Σπιτικό τιραμισού με παραδοσιακό τρόπο."
+      "name": "Tiramisu",
+      "description": "Hausgemachtes Tiramisu nach traditioneller Art."
     },
     "131": {
-      "name": "Πάνα Κότα",
-      "description": "Κρεμώδης Πάνα Κότα με φρουτώδη σάλτσα φράουλας."
+      "name": "Panna Cotta",
+      "description": "Cremige Panna Cotta mit fruchtiger Erdbeersauce."
     },
     "132": {
-      "name": "Tartufo Nero (Μαύρη Τρούφα)",
-      "description": "Παγωτό σοκολάτας-τρούφας με κρεμώδη πυρήνα & σαντιγί."
+      "name": "Tartufo Nero",
+      "description": "Schokolade-Trüffeleis mit Cremige Kern & Sahne."
     },
     "133": {
       "name": "Cassata Siciliana",
-      "description": "Σικελιανή σπεσιαλιτέ παγωτού με ζαχαρωμένα φρούτα, σερβιρισμένη με σάλτσα φράουλας και σαντιγί."
+      "description": "Sizilianische Eisspezialität mit kandierten Früchten, serviert mit Erdbeersauce und Sahne."
     },
     "134": {
-      "name": "Παγωτό Βανίλια Bourbon (ανά μπάλα)",
-      "description": "Φίνο παγωτό βανίλια Bourbon με έντονο άρωμα βανίλιας."
+      "name": "Bourbon-Vanilleeis (je Kugel)",
+      "description": "Feines Bourbon-Vanilleeis mit intensivem Vanillearoma sowie extra Schoko oder Erdbeer Soße"
+    },
+    "135": {
+      "name": "Affogato Espresso",
+      "description": "Vanilleeis übergossen mit heißem Espresso."
     },
     "140": {
-      "name": "Εσπρέσο",
+      "name": "Espresso",
       "description": ""
     },
     "141": {
-      "name": "Εσπρέσο Μακιάτο",
+      "name": "Espresso Macchiato",
       "description": ""
     },
     "142": {
-      "name": "Espresso Coretto Grappa / Sambuca",
+      "name": "Espresso Coretto Grappa | Sambuca",
       "description": ""
     },
     "143": {
-      "name": "Εσπρέσο Διπλός",
+      "name": "Espresso Doppio",
       "description": ""
     },
     "144": {
-      "name": "Καφές Κρέμα (Kaffee Crema)",
+      "name": "Kaffee Crema",
       "description": ""
     },
     "145": {
-      "name": "Καπουτσίνο",
+      "name": "Capuccino",
       "description": ""
     },
     "146": {
-      "name": "Καφές Φίλτρου με Γάλα (Milchkaffee)",
+      "name": "Milchkaffee",
       "description": ""
     },
     "147": {
-      "name": "Λάτε Μακιάτο",
+      "name": "Latte Macchiato",
       "description": ""
     },
     "148": {
-      "name": "Τσάι (Μαύρο, Μέντα, Φρούτων, Χαμομήλι)",
+      "name": "Tee -Schwarz, Pfefferminz, Früchte, Kamille-",
       "description": ""
     },
     "150": {
@@ -491,11 +440,11 @@
       "description": ""
     },
     "152": {
-      "name": "Selters Φυσικό (Naturell) 0,25",
+      "name": "Selters Naturell 0,25",
       "description": ""
     },
     "153": {
-      "name": "Selters Φυσικό (Naturell) 0,75",
+      "name": "Selters Naturell 0,75",
       "description": ""
     },
     "154": {
@@ -523,11 +472,11 @@
       "description": ""
     },
     "160": {
-      "name": "Sprite 0,3",
+      "name": "Sprit 0,3",
       "description": ""
     },
     "161": {
-      "name": "Sprite 0,4",
+      "name": "Sprit 0,4",
       "description": ""
     },
     "162": {
@@ -547,63 +496,63 @@
       "description": ""
     },
     "166": {
-      "name": "Trade Island Ροδάκινο",
+      "name": "Trade Island Pfirsich",
       "description": ""
     },
     "167": {
-      "name": "Χυμός Μήλου με Ανθρακικό 0,3",
+      "name": "Apfelsaftschorle 0,3",
       "description": ""
     },
     "168": {
-      "name": "Χυμός Μήλου με Ανθρακικό",
+      "name": "Apfelsaftschorle",
       "description": ""
     },
     "170": {
-      "name": "Χυμός Μήλου 0,2",
+      "name": "Apfelsaft 0,2",
       "description": ""
     },
     "171": {
-      "name": "Χυμός Μήλου 0,4",
+      "name": "Apfelsaft 0,4",
       "description": ""
     },
     "172": {
-      "name": "Χυμός Πορτοκάλι 0,2",
+      "name": "Orangensaft 0,2",
       "description": ""
     },
     "173": {
-      "name": "Χυμός Πορτοκάλι 0,4",
+      "name": "Orangensaft 0,4",
       "description": ""
     },
     "174": {
-      "name": "Χυμός Maracuja (Φρούτα του Πάθους) 0,2",
+      "name": "Maracuja Saft 0,2",
       "description": ""
     },
     "175": {
-      "name": "Χυμός Maracuja (Φρούτα του Πάθους) 0,4",
+      "name": "Maracuja Saft 0,4",
       "description": ""
     },
     "176": {
-      "name": "Χυμός Φραγκοστάφυλου 0,2",
+      "name": "Johannisbeersaft 0,2",
       "description": ""
     },
     "177": {
-      "name": "Χυμός Φραγκοστάφυλου 0,4",
+      "name": "Johannisbeersaft 0,4",
       "description": ""
     },
     "180": {
-      "name": "Βαρελίσια Μπύρα Krombacher Pils 0,3",
+      "name": "Krombacher Pils vom Fass 0,3",
       "description": ""
     },
     "181": {
-      "name": "Βαρελίσια Μπύρα Krombacher Pils 0,4",
+      "name": "Krombacher Pils vom Fass 0,4",
       "description": ""
     },
     "182": {
-      "name": "Radler (Μπύρα με λεμονάδα) 0,3",
+      "name": "Radler 0,3",
       "description": ""
     },
     "183": {
-      "name": "Radler (Μπύρα με λεμονάδα) 0,4",
+      "name": "Radler 0,4",
       "description": ""
     },
     "184": {
@@ -615,15 +564,15 @@
       "description": ""
     },
     "186": {
-      "name": "Μπύρα Krombacher χωρίς αλκοόλ Σιταριού 0,5",
+      "name": "Krombacher Alkoholfreiweizen 0,5",
       "description": ""
     },
     "187": {
-      "name": "Βαρελίσια Μπύρα Starnberger Σιταριού 0,5",
+      "name": "Starnberger Weizen vom Fass 0,5",
       "description": ""
     },
     "188": {
-      "name": "Radler χωρίς αλκοόλ 0,4 l",
+      "name": "alkoholfrei Radler 0,4l",
       "description": ""
     },
     "189": {
@@ -643,7 +592,7 @@
       "description": ""
     },
     "203": {
-      "name": "Lambrusco Αφρώδες",
+      "name": "Lambrusco Perlwein",
       "description": ""
     },
     "204": {
@@ -655,7 +604,7 @@
       "description": ""
     },
     "206": {
-      "name": "Weißburgunder Finkenauer",
+      "name": "Weißburgender Finkenauer",
       "description": ""
     },
     "207": {
@@ -663,15 +612,15 @@
       "description": ""
     },
     "208": {
-      "name": "Ροζέ Spätburgunder Finkenauer",
+      "name": "Rose Spätburgunder Finkenauer",
       "description": ""
     },
     "209": {
-      "name": "Κρασί με Ανθρακικό — Λευκό / Κόκκινο / Ροζέ 0,2",
+      "name": "Weinschorle - Weiß/Rot/Rose 0,2",
       "description": ""
     },
     "210": {
-      "name": "Possmann Μηλίτης — Σκέτος / Cola / Sprite / Fanta 0,5",
+      "name": "Possman Apfelwein-Pur/ Cola/Sprit/Fanta 0,5€",
       "description": ""
     },
     "220": {
@@ -687,19 +636,19 @@
       "description": ""
     },
     "223": {
-      "name": "Ούζο",
+      "name": "Ouzo",
       "description": ""
     },
     "224": {
-      "name": "Vecchia Romagna",
+      "name": "Vecchia Romagne",
       "description": ""
     },
     "225": {
-      "name": "Γκράπα του Σπιτιού",
+      "name": "Haus Grappa",
       "description": ""
     },
     "226": {
-      "name": "Γκράπα Prosecco",
+      "name": "Grappa di Prosecco",
       "description": ""
     },
     "227": {
@@ -715,11 +664,11 @@
       "description": ""
     },
     "230": {
-      "name": "Αμαρέτο",
+      "name": "Amaretto",
       "description": ""
     },
     "231": {
-      "name": "Ραματσότι",
+      "name": "Ramazotti",
       "description": ""
     },
     "232": {
@@ -739,52 +688,16 @@
       "description": ""
     },
     "236": {
-      "name": "Σαμπούκα",
+      "name": "Sambuca",
       "description": ""
     },
     "237": {
-      "name": "Baileys",
+      "name": "Bailys",
       "description": ""
     },
     "238": {
-      "name": "Λιμοντσέλο",
+      "name": "Limoncello",
       "description": ""
-    },
-    "BUR1": {
-      "name": "Classic Burger",
-      "description": "Zartes Rindfleisch (200g) με σπιτική σάλτσα, ντομάτα & αγγούρι."
-    },
-    "BUR2": {
-      "name": "Cheeseburger",
-      "description": "Zartes Rindfleisch (200g) με τυρί, σπιτική σάλτσα, ντομάτα & αγγούρι."
-    },
-    "BUR3": {
-      "name": "Chili Burger (Καυτερό)",
-      "description": "Zartes Rindfleisch (200g) με σάλτσα chili, Jalapeños, ντομάτα & αγγούρι."
-    },
-    "BUR4": {
-      "name": "Chicken Burger",
-      "description": "Τραγανό στήθος κοτόπουλου, με σπιτική σάλτσα, ντομάτα & αγγούρι."
-    },
-    "LIM1": {
-      "name": "Λεμονάδα Passion",
-      "description": "Φρούτα του πάθους, πορτοκάλι, σιρόπι ζάχαρης από ζαχαροκάλαμο, ανθρακούχο νερό, λάιμ, μέντα & πάγος."
-    },
-    "LIM2": {
-      "name": "Λεμονάδα Blue Ocean",
-      "description": "Πορτοκάλι, σιρόπι Blue Curaçao, ανθρακούχο νερό, λάιμ, μέντα & πάγος."
-    },
-    "LIM3": {
-      "name": "Λεμονάδα Βατόμουρο",
-      "description": "Βατόμουρο, σιρόπι ζάχαρης από ζαχαροκάλαμο, ανθρακούχο νερό, λάιμ, μέντα & πάγος."
-    },
-    "LIM4": {
-      "name": "Λεμονάδα Φράουλα",
-      "description": "Φράουλα, σιρόπι ζάχαρης από ζαχαροκάλαμο, ανθρακούχο νερό, λάιμ, μέντα & πάγος."
-    },
-    "LIM5": {
-      "name": "Λεμονάδα Ροδάκινο",
-      "description": "Απαλή γεύση ροδάκινου, ελαφριά και αρμονική – μια δροσερή απόλαυση με διακριτική γλυκύτητα."
     }
   }
 }

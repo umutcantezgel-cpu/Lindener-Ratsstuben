@@ -1,9 +1,17 @@
 {
   "about.title": "Chi Siamo | Lindener Ratsstuben",
+  "agb.title": "Termini e condizioni | Sale del consiglio del tiglio",
+  "barrierefreiheit.title": "Accessibilità | Sale del consiglio del tiglio",
   "contact.title": "Contatto — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Politica sui cookie | Sale del consiglio del tiglio",
+  "cookies.title": "Biscotti | Sale del consiglio del tiglio",
+  "datenschutz.title": "Informativa sulla privacy | Sale del consiglio del tiglio",
   "gallery.title": "Galleria — Lindener Ratsstuben",
   "home.description": "Benvenuti al Lindener Ratsstuben. Gustate le specialità italiane e mediterranee, preparate con passione.",
-  "home.title": "Home | Lindener Ratsstuben",
-  "menu.title": "Menu | Lindener Ratsstuben",
-  "reservation.title": "Prenotazione | Lindener Ratsstuben"
+  "home.title": "Casa | Lindener Ratsstuben",
+  "impressum.title": "Impronta | Sale del consiglio del tiglio",
+  "kegelbahn.title": "pista da bowling | Sale del consiglio del tiglio",
+  "menu.title": "Menù | Lindener Ratsstuben",
+  "reservation.title": "Prenotazione | Lindener Ratsstuben",
+  "widerruf.title": "Politica di cancellazione | Sale del consiglio del tiglio"
 }

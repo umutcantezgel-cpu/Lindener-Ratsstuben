@@ -1,9 +1,17 @@
 {
   "about.title": "Om Oss | Lindener Ratsstuben",
+  "agb.title": "Allmänna villkor | Linden rådstugor",
+  "barrierefreiheit.title": "Tillgänglighet | Linden rådstugor",
   "contact.title": "Kontakt — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Cookiepolicy | Linden rådstugor",
+  "cookies.title": "Cookies | Linden rådstugor",
+  "datenschutz.title": "Sekretesspolicy | Linden rådstugor",
   "gallery.title": "Galleri — Lindener Ratsstuben",
   "home.description": "Välkommen till Lindener Ratsstuben. Njut av italienska och medelhavs­specialiteter, tillagade med passion.",
   "home.title": "Hem | Lindener Ratsstuben",
+  "impressum.title": "Avtryck | Linden rådstugor",
+  "kegelbahn.title": "bowlinghall | Linden rådstugor",
   "menu.title": "Meny | Lindener Ratsstuben",
-  "reservation.title": "Bokning | Lindener Ratsstuben"
+  "reservation.title": "Bokning | Lindener Ratsstuben",
+  "widerruf.title": "Avbokningsregler | Linden rådstugor"
 }

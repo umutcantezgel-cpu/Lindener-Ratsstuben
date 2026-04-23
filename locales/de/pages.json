@@ -112,5 +112,16 @@
   "menu.category_fleisch": "Fleischgerichte",
   "menu.category_kinder": "Kinder",
   "menu.category_pizza": "Pizza",
-  "menu.category_familienpizza": "Familienpizza"
+  "menu.category_familienpizza": "Familienpizza",
+  "menu.allergens_heading": "Allergene",
+  "menu.additives_heading": "Zusatzstoffe",
+  "menu.reservation_prompt": "Appetit bekommen? Sichern Sie sich jetzt Ihren Tisch.",
+  "menu.reservation_cta": "Jetzt Tisch reservieren",
+  "menu.download_pdf": "Drucken / Als PDF",
+  "menu.categories_label": "Kategorien",
+  "menu.dishes_heading": "Gerichte",
+  "menu.price_on_request": "Preis auf Anfrage",
+  "menu.legend_heading": "Legende",
+  "menu.legend_title": "Allergene & Zusatzstoffe",
+  "reservation.actionName": "Tischreservierung"
 }

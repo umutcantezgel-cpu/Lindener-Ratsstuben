@@ -6,7 +6,11 @@ export const ALLOWED_LOCALES = [
 
 export type LocaleType = typeof ALLOWED_LOCALES[number];
 
-export const ACTIVE_LOCALES: LocaleType[] = ['de', 'en', 'el'];
+export const ACTIVE_LOCALES: LocaleType[] = [
+  'de', 'en', 'it', 'tr', 'fr', 'es', 'pt', 'ru', 'nl', 'pl',
+  'ja', 'zh', 'ko', 'ar', 'hi', 'uk', 'cs', 'sv', 'da', 'fi',
+  'no', 'el', 'hu', 'ro', 'hr'
+];
 
 export const DEFAULT_LOCALE: LocaleType = 'de';
 

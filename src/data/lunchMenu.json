@@ -1,0 +1,41 @@
+{
+  "restaurantName": "Lindener Ratsstuben",
+  "restaurantSub": "Restaurant & Kegelzentrum",
+  "menuLabel": "2 Gang Mittags Menü",
+  "dateRange": "21.04.2026 - 25.04.2026",
+  "vorspeise": "Tages-Suppe oder Salat der Saison",
+  "mainCourses": [
+    {
+      "id": 1,
+      "price": "13,50 €",
+      "description": "Hähnchenbrustfilet vom Grill mit gebratenem Zwiebeln dazu Gourmet Kartoffeln."
+    },
+    {
+      "id": 2,
+      "price": "13,50 €",
+      "description": "Jäger-Schnitzel mit frischem Champignon in Brauner Soße dazu Pommes Frites."
+    },
+    {
+      "id": 3,
+      "price": "13,50 €",
+      "description": "Rigatoni mit Hähnchenbrustfilet-Ragout & frischen Champignons Cremige Tomaten Sahne Soße."
+    },
+    {
+      "id": 4,
+      "price": "13,50 €",
+      "description": "Salat nach Wahl (Wählen Sie Ihre Lieblingssalat aus unserer Speisekarte) dazu Hausgemachte Brot."
+    },
+    {
+      "id": 5,
+      "price": "12,00 €",
+      "description": "Pizza nach Wahl (Wählen Sie Ihre Lieblingspizza aus unserer Speisekarte)"
+    },
+    {
+      "id": 6,
+      "price": "16,50 €",
+      "description": "Gebratene Zanderfilet in Weißwein-Kräuter-Knoblauch Soße dazu Tagesbeilage. <em>(Nur Freitag)</em>",
+      "isHtml": true
+    }
+  ],
+  "footerNote": "Dienstag – Freitag · 12:00 – 14:30 Uhr"
+}

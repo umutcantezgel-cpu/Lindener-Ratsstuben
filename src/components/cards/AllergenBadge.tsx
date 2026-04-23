@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { allergenLegend } from '@/data/menu';
+import { useTranslation } from '@/lib/i18n/use-translation';
 
 interface AllergenBadgeProps {
   code: string;
@@ -55,10 +56,11 @@ interface AllergenBadgeListProps {
 }
 
 export function AllergenBadgeList({ codes, size = 'sm', className = '' }: AllergenBadgeListProps) {
+  const { t } = useTranslation('common');
   if (!codes || codes.length === 0) return null;
 
   return (
-    <div className={`flex flex-wrap gap-1 ${className}`} aria-label="Allergene">
+    <div className={`flex flex-wrap gap-1 ${className}`} aria-label={t('aria.allergens') as string}>
       {codes.map(code => (
         <AllergenBadge key={code} code={code} size={size} />
       ))}

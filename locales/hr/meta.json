@@ -1,9 +1,17 @@
 {
   "about.title": "O nama | Lindener Ratsstuben",
+  "agb.title": "Uvjeti | Lipove vijećnice",
+  "barrierefreiheit.title": "Pristupačnost | Lipove vijećnice",
   "contact.title": "Kontakt — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Politika kolačića | Lipove vijećnice",
+  "cookies.title": "Kolačići | Lipove vijećnice",
+  "datenschutz.title": "Politika privatnosti | Lipove vijećnice",
   "gallery.title": "Galerija — Lindener Ratsstuben",
   "home.description": "Dobrodošli u Lindener Ratsstuben. Uživajte u talijanskim i mediteranskim specijalitetima, pripremljenim sa strašću.",
   "home.title": "Početna | Lindener Ratsstuben",
+  "impressum.title": "Otisak | Lipove vijećnice",
+  "kegelbahn.title": "kuglana | Lipove vijećnice",
   "menu.title": "Jelovnik | Lindener Ratsstuben",
-  "reservation.title": "Rezervacija | Lindener Ratsstuben"
+  "reservation.title": "Rezervacija | Lindener Ratsstuben",
+  "widerruf.title": "Politika otkazivanja | Lipove vijećnice"
 }

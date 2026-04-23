@@ -1,0 +1,627 @@
+{
+  "categories": {
+    "suppen": {
+      "name": "Soups",
+      "label": "Soups",
+      "description": "We serve our soups and starters free of charge. Homemade bread - on request pizza bread, tomato sauce and garlic €6.50"
+    },
+    "vorspeisen": {
+      "name": "Appetizers",
+      "label": "Appetizers",
+      "description": "We serve our soups and starters free of charge. Homemade bread - on request pizza bread, tomato sauce and garlic €6.50"
+    },
+    "salate": {
+      "name": "Salads",
+      "label": "Salads",
+      "description": "We serve our salads free of charge with homemade bread - on request pizza bread, tomato sauce & garlic €6.50"
+    },
+    "pasta": {
+      "name": "pasta",
+      "label": "pasta",
+      "description": "Vegan pasta is also available upon request - please contact the nearest service representative."
+    },
+    "pasta-al-forno": {
+      "name": "Pasta al Forno",
+      "label": "Pasta al Forno",
+      "description": "Vegan pasta is also available upon request - please contact the nearest service representative."
+    },
+    "hausgemachte-pasta": {
+      "name": "Homemade pasta",
+      "label": "Homemade pasta",
+      "description": "Vegan pasta is also available upon request - please contact the nearest service representative."
+    },
+    "schnitzel": {
+      "name": "Schnitzel variation",
+      "label": "Schnitzel",
+      "description": "Our schnitzels are fresh pork loin."
+    },
+    "fleisch-fisch": {
+      "name": "Meat dishes & fish dishes",
+      "label": "Meat & Fish"
+    },
+    "pizza": {
+      "name": "Pizza from the stone oven / 28 cm",
+      "label": "pizza",
+      "description": "Each extra topping costs €1.00 / €4.00 / €6.00",
+      "headerText": "all pizzas are prepared with tomato sauce with special seasonings & cheese."
+    },
+    "familienpizza": {
+      "name": "Family pizza from the stone oven / 40 × 60 cm",
+      "label": "Family pizza"
+    },
+    "kindergerichte": {
+      "name": "Children's meals",
+      "label": "Children's meals"
+    },
+    "dessert": {
+      "name": "dessert",
+      "label": "dessert"
+    },
+    "warme-getraenke": {
+      "name": "Warm drinks",
+      "label": "Coffee & tea"
+    },
+    "alkoholfreie-getraenke": {
+      "name": "Non-alcoholic drinks",
+      "label": "Alcohol-free"
+    },
+    "saefte": {
+      "name": "Juices from Vaihinger",
+      "label": "Juices"
+    },
+    "biere": {
+      "name": "Beers",
+      "label": "Beers"
+    },
+    "rotweine": {
+      "name": "Open red wines",
+      "label": "Red wines"
+    },
+    "weissweine": {
+      "name": "Open white wines",
+      "label": "White wines"
+    },
+    "spirituosen": {
+      "name": "Spirits 0.2 cl",
+      "label": "spirits"
+    },
+    "likoere": {
+      "name": "Liqueurs 0.2 cl",
+      "label": "Liqueurs"
+    }
+  },
+  "items": {
+    "10": {
+      "name": "Soup of the day",
+      "description": "Freshly prepared according to seasonal offerings."
+    },
+    "11": {
+      "name": "Tomato cream soup",
+      "description": "Finely balanced, creamy tomato soup."
+    },
+    "20": {
+      "name": "Bruschetta Classico",
+      "description": "4 toasted white bread slices with fresh diced tomatoes, onions, olives and garlic, refined with extra virgin olive oil. Optionally with gratinated mozzarella (+€2.00)."
+    },
+    "21": {
+      "name": "Prosciutto di Parma and melon",
+      "description": "Fine air-dried Parma ham, served with sun-ripened melon and butter."
+    },
+    "22": {
+      "name": "La Buratta",
+      "description": "Creamy burrata on fine tomato carpaccio, refined with a balsamic herb vinaigrette and Genovese basil pesto"
+    },
+    "23": {
+      "name": "Vitello Tonnato",
+      "description": "Softly pink cooked veal, finely sliced, accompanied by a creamy tuna sauce with capers, anchovies and egg."
+    },
+    "24": {
+      "name": "Carpaccio di Manzo",
+      "description": "Thinly sliced ​​Argentinian beef fillet on marinated rocket, with fresh mushrooms and grated Grana Padano, refined with extra virgin olive oil."
+    },
+    "25": {
+      "name": "Antipasti Misti della Casa",
+      "description": "A select selection of Italian starter specialties in the house style – served warm and cold. Also available as stylish antipasti platters for several people. €13.90 per person"
+    },
+    "30": {
+      "name": "Insalata Mista",
+      "description": "Small, colorful salad plate – ideal as a side dish or starter."
+    },
+    "31": {
+      "name": "Insalata Italia",
+      "description": "Colorful salad plate with shoulder ham, juicy tuna, mozzarella and egg, served with homemade yogurt dressing."
+    },
+    "32": {
+      "name": "Insalata Italia (small)",
+      "description": "either as a starter or side dish."
+    },
+    "33": {
+      "name": "Insalata Frutti di Mare",
+      "description": "Rocket salad with delicious marinated seafood, cocktail tomatoes and red onions in a balsamic herb vinaigrette."
+    },
+    "34": {
+      "name": "Insalata di Pollo",
+      "description": "Colorful salad plate with chicken breast fillet and fresh mushrooms, served with homemade yogurt dressing."
+    },
+    "35": {
+      "name": "Insalata Salmone e Gamberoni",
+      "description": "Colorful salad plate with fresh salmon fillet and shrimps in balsamic herb vinaigrette."
+    },
+    "36": {
+      "name": "Insalata Don Capo",
+      "description": "Colorful salad plate with Argentinian beef and grated Grana Padano, served with homemade yogurt dressing."
+    },
+    "40": {
+      "name": "Spaghetti alla Bolognese",
+      "description": "with braised ground beef in a spicy tomato sauce, served with freshly grated Parmigiano"
+    },
+    "41": {
+      "name": "Original spaghetti carbonara",
+      "description": "with crispy guanciale (pork cheek), egg, coarsely cracked pepper and freshly grated Parmigiano"
+    },
+    "42": {
+      "name": "Rigatoni alla Puglia",
+      "description": "with crispy guanciale (pork cheek), broccoli, onions and a hint of garlic in an aromatic tomato sauce, fresh with grated Parmigiano"
+    },
+    "43": {
+      "name": "Rigatoni “Ratsstube”",
+      "description": "with fried chicken breast and fresh mushrooms in a creamy tomato cream sauce, served with freshly grated Parmigiano"
+    },
+    "44": {
+      "name": "Tagliatelle with Ragù di Verdure",
+      "description": "fine tagliatelle with fresh market vegetables ragout in aromatic tomato sauce, with freshly grated Parmigiano"
+    },
+    "45": {
+      "name": "Tagliatelle Salmone and Gamberoni",
+      "description": "fine tagliatelle with fried salmon fillet and shrimp, refined with a touch of garlic in a creamy house-style sauce"
+    },
+    "46": {
+      "name": "Linguine ai Frutti di Mare",
+      "description": "flat pasta with exquisite seafood in an aromatic tomato sauce with a subtle note of garlic"
+    },
+    "47": {
+      "name": "Linguine Pesce Misto della Casa",
+      "description": "flat pasta with selected game fish in a fine white wine and herb sauce recommended by the chef"
+    },
+    "48": {
+      "name": "Pasta combination",
+      "description": "Three different pastas in braised ground beef in an aromatic tomato sauce gratinated with mozzarella."
+    },
+    "49": {
+      "name": "Rigatoni al Ragu e Verdure",
+      "description": "with fresh market vegetables ragout in a creamy cream sauce gratinated with mozzarella"
+    },
+    "51": {
+      "name": "Tortelacci Burro e Salvia",
+      "description": "Homemade giant tortellacci filled with ricotta, spinach tossed in butter, sage, cherry tomatoes on a rocket salad bukket and Grana Padano"
+    },
+    "52": {
+      "name": "Tortellacci with Salmone and Gamberoni",
+      "description": "Homemade giant tortellacci filled with ricotta and spinach in a creamy house-style sauce."
+    },
+    "53": {
+      "name": "Gnocchi con Gamberoni",
+      "description": "stuffed potatoes, gnocchi tomatoes, mozzarella with fried shrimps in a spicy tomato sauce."
+    },
+    "54": {
+      "name": "Gnocchi e Basil Pesto Genovese con La Buratta",
+      "description": "stuffed potato gnocchi with creamy buratta basil pesto sauce."
+    },
+    "70": {
+      "name": "Schnitzel Viennese style",
+      "description": "with lemon slices. We also serve French fries and seasonal salad."
+    },
+    "71": {
+      "name": "Cream schnitzel",
+      "description": "in creamy cream sauce. We also serve French fries and seasonal salad"
+    },
+    "72": {
+      "name": "Jäger schnitzel",
+      "description": "with fresh mushrooms in brown sauce. We also serve French fries and seasonal salad"
+    },
+    "73": {
+      "name": "Pepper schnitzel",
+      "description": "With green Madagascar peppercorns in a creamy cream sauce. We also serve French fries and seasonal salad."
+    },
+    "74": {
+      "name": "Farmer's schnitzel",
+      "description": "with crispy fried bacon & onions. We also serve French fries and seasonal salad"
+    },
+    "75": {
+      "name": "Gourmet schnitzel",
+      "description": "with fresh mushrooms in creamy Bernaise sauce. We also serve French fries and seasonal salad."
+    },
+    "76": {
+      "name": "Linden backpack",
+      "description": "filled with shoulder ham & mozzarella cheese in fresh mushroom cream sauce"
+    },
+    "80": {
+      "name": "Petto di Pollo alla Griglia",
+      "description": "Grilled chicken breast fillet with homemade herb butter & lemon slice. We also serve fresh market vegetables and gourmet potatoes."
+    },
+    "81": {
+      "name": "Petto di Pollo al Pepe Verde",
+      "description": "Grilled chicken breast fillet with green Madagascar peppercorns in creamy cream sauce. We also serve fresh market vegetables and gourmet potatoes."
+    },
+    "82": {
+      "name": "Filetto di Maiale al Pepe Verde",
+      "description": "Grilled pork fillet with green Madagascar peppercorns in creamy cream sauce. We also serve fresh market vegetables and gourmet potatoes."
+    },
+    "83": {
+      "name": "Filetto di Maiale with Vino Bianco and Limone",
+      "description": "Grilled pork fillet medallions in white wine, lemon herb garlic sauce. We also serve fresh market vegetables and gourmet potatoes."
+    },
+    "84": {
+      "name": "Bistecca alla Griglia",
+      "description": "Argent. Rump steak from the lava grill with homemade herb butter & lemon slice. We also serve fresh market vegetables and gourmet potatoes."
+    },
+    "85": {
+      "name": "Bistecca al Pepe Verde",
+      "description": "Argent. Rump steak from the lava grill with green Madagascar peppercorns in a creamy cream sauce. We also serve fresh market vegetables and gourmet potatoes"
+    },
+    "86": {
+      "name": "Orata with Burro al Limone e Aglio",
+      "description": "Fresh sea bream fillet, tossed in a fine lemon-herb-garlic butter sauce. We serve crunchy market vegetables and golden brown gourmet potatoes."
+    },
+    "87": {
+      "name": "Salmone alla Griglia salsa all`Arancia e Senape",
+      "description": "Juicy salmon fillet from Norway, fresh from the grill in a creamy orange mustard sauce. We also serve fresh market vegetables and gourmet potatoes."
+    },
+    "90": {
+      "name": "Pizza Margarita",
+      "description": "Mozzarella cheese & oregano."
+    },
+    "91": {
+      "name": "Pizza Salame e funghi",
+      "description": "Salami & fresh mushrooms."
+    },
+    "92": {
+      "name": "Pizza Regina",
+      "description": "Salami, shoulder ham & fresh mushrooms."
+    },
+    "93": {
+      "name": "Pizza Tuscany",
+      "description": "Salami, shoulder ham, pepperoni sausage, onions & fresh mushrooms."
+    },
+    "94": {
+      "name": "Pizza Ratsstuben",
+      "description": "Salami, shoulder ham, pepperoni sausage, onions, fresh mushrooms & egg."
+    },
+    "95": {
+      "name": "Pizza Hawaii",
+      "description": "Shoulder ham & pineapple pieces."
+    },
+    "96": {
+      "name": "Pizza Diavolo",
+      "description": "Pepperoni sausage, pepperoni (spicy), fresh mushrooms"
+    },
+    "97": {
+      "name": "Pizza Parma e Rocket",
+      "description": "Air-dried Parma ham, marinated rocket, grated Grana Padano."
+    },
+    "98": {
+      "name": "Pizza Amore Mio Talia",
+      "description": "Mozzarella cheese, fresh mushrooms, cherry tomatoes & basil."
+    },
+    "99": {
+      "name": "Pizza Tonno",
+      "description": "Juicy tuna, fresh mushrooms, red onions."
+    },
+    "100": {
+      "name": "Pizza Burrata e Rocket",
+      "description": "Creamy burrata cheese, marinated arugula salad & basil pesto."
+    },
+    "101": {
+      "name": "Pizza Frutti di Mare",
+      "description": "Delicious seafood, cherry tomatoes & garlic."
+    },
+    "102": {
+      "name": "Pizza Salmone and Gamberoni",
+      "description": "Salmon fillet from Norway, shrimp, cherry tomatoes & garlic."
+    },
+    "103": {
+      "name": "Pizza deluxe",
+      "description": "Touch of thinly sliced ​​veal, creamy tuna sauce, marinated rocket salad and grated Grana Padano."
+    },
+    "105": {
+      "name": "Pizza Vegetale",
+      "description": "grilled fresh market vegetables."
+    },
+    "106": {
+      "name": "Pizza pane",
+      "description": "Pizza bread with tomato sauce, garlic & oregano – without cheese."
+    },
+    "110": {
+      "name": "Pizza Margherita",
+      "description": "Mozzarella and oregano"
+    },
+    "111": {
+      "name": "Pizza Regina",
+      "description": "Salami, shoulder ham and fresh mushrooms"
+    },
+    "112": {
+      "name": "Pizza Tuscany",
+      "description": "Salami, shoulder ham, pepperoni sausage, onions and fresh mushrooms"
+    },
+    "113": {
+      "name": "Pizza Tonno",
+      "description": "Juicy tuna, red onions and fresh mushrooms"
+    },
+    "114": {
+      "name": "Pizza Parma e Rocket",
+      "description": "Air-dried Parma ham, marinated rocket and grated Grana Padano"
+    },
+    "115": {
+      "name": "Vegetarian pizza",
+      "description": "Grilled fresh market vegetables and oregano"
+    },
+    "120": {
+      "name": "Chicken nuggets",
+      "description": "6 pieces of chicken nuggets with French fries"
+    },
+    "121": {
+      "name": "Rigatoni burro",
+      "description": "Pasta tossed in butter."
+    },
+    "122": {
+      "name": "Spaghetti alla Bolognese",
+      "description": "Braised ground beef in tomato sauce."
+    },
+    "123": {
+      "name": "Small Viennese style schnitzels",
+      "description": "with French fries."
+    },
+    "130": {
+      "name": "Tiramisu",
+      "description": "Homemade traditional style tiramisu."
+    },
+    "131": {
+      "name": "Panna cotta",
+      "description": "Creamy panna cotta with fruity strawberry sauce."
+    },
+    "132": {
+      "name": "Tartufo Nero",
+      "description": "Chocolate truffle ice cream with creamy center and cream."
+    },
+    "133": {
+      "name": "Cassata Siciliana",
+      "description": "Sicilian ice cream specialty with candied fruits, served with strawberry sauce and cream."
+    },
+    "134": {
+      "name": "Bourbon vanilla ice cream (per scoop)",
+      "description": "Fine bourbon vanilla ice cream with an intense vanilla aroma and extra chocolate or strawberry sauce"
+    },
+    "135": {
+      "name": "Affogato espresso",
+      "description": "Vanilla ice cream topped with hot espresso."
+    },
+    "140": {
+      "name": "espresso"
+    },
+    "141": {
+      "name": "Espresso macchiato"
+    },
+    "142": {
+      "name": "Espresso Coretto Grappa | Sambuca"
+    },
+    "143": {
+      "name": "Double espresso"
+    },
+    "144": {
+      "name": "Coffee crema"
+    },
+    "145": {
+      "name": "Cappuccino"
+    },
+    "146": {
+      "name": "Latte"
+    },
+    "147": {
+      "name": "Latte macchiato"
+    },
+    "148": {
+      "name": "Tea -black, peppermint, fruits, chamomile-"
+    },
+    "150": {
+      "name": "Seltzer medium 0.25 l"
+    },
+    "151": {
+      "name": "Seltzer medium 0.75 l"
+    },
+    "152": {
+      "name": "Seltzer Natural 0.25"
+    },
+    "153": {
+      "name": "Seltzer Natural 0.75"
+    },
+    "154": {
+      "name": "Coca Cola 0.3"
+    },
+    "155": {
+      "name": "Coca Cola 0.4"
+    },
+    "156": {
+      "name": "Coca-Cola Zero 0.3"
+    },
+    "157": {
+      "name": "Coca-Cola Zero 0.4"
+    },
+    "158": {
+      "name": "Fantasy 0.3"
+    },
+    "159": {
+      "name": "Fantasy 0.4"
+    },
+    "160": {
+      "name": "Fuel 0.3"
+    },
+    "161": {
+      "name": "Fuel 0.4"
+    },
+    "162": {
+      "name": "Speci 0.3"
+    },
+    "163": {
+      "name": "Speci 0.4"
+    },
+    "164": {
+      "name": "Bitter Lemon 0.2"
+    },
+    "165": {
+      "name": "Ginger ale"
+    },
+    "166": {
+      "name": "Trade Island Peach"
+    },
+    "167": {
+      "name": "Apple juice spritzer 0.3"
+    },
+    "168": {
+      "name": "Apple juice spritzer"
+    },
+    "170": {
+      "name": "Apple juice 0.2"
+    },
+    "171": {
+      "name": "Apple juice 0.4"
+    },
+    "172": {
+      "name": "Orange juice 0.2"
+    },
+    "173": {
+      "name": "Orange juice 0.4"
+    },
+    "174": {
+      "name": "Passion fruit juice 0.2"
+    },
+    "175": {
+      "name": "Passion fruit juice 0.4"
+    },
+    "176": {
+      "name": "Currant juice 0.2"
+    },
+    "177": {
+      "name": "Currant juice 0.4"
+    },
+    "180": {
+      "name": "Krombacher Pils on tap 0.3"
+    },
+    "181": {
+      "name": "Krombacher Pils on tap 0.4"
+    },
+    "182": {
+      "name": "Cyclist 0.3"
+    },
+    "183": {
+      "name": "Cyclist 0.4"
+    },
+    "184": {
+      "name": "Cola beer 0.3"
+    },
+    "185": {
+      "name": "Cola beer 0.4"
+    },
+    "186": {
+      "name": "Krombacher non-alcoholic wheat 0.5"
+    },
+    "187": {
+      "name": "Starnberger wheat from the barrel 0.5"
+    },
+    "188": {
+      "name": "alcohol-free Radler 0.4l"
+    },
+    "189": {
+      "name": "Cola-Wheat 0.5"
+    },
+    "200": {
+      "name": "Primitive"
+    },
+    "201": {
+      "name": "Pinot Noir Finkenauer"
+    },
+    "202": {
+      "name": "Valpolicella"
+    },
+    "203": {
+      "name": "Lambrusco sparkling wine"
+    },
+    "204": {
+      "name": "Lugana"
+    },
+    "205": {
+      "name": "Pinot Grigio"
+    },
+    "206": {
+      "name": "Weissburgender Finkenauer"
+    },
+    "207": {
+      "name": "Frizzantino"
+    },
+    "208": {
+      "name": "Rose Pinot Noir Finkenauer"
+    },
+    "209": {
+      "name": "Wine spritzer - white/red/rose 0.2"
+    },
+    "210": {
+      "name": "Possman Cider-Pure/Cola/Sprit/Fanta 0.5€"
+    },
+    "220": {
+      "name": "Marsala"
+    },
+    "221": {
+      "name": "Himberg spirit"
+    },
+    "222": {
+      "name": "Obstler"
+    },
+    "223": {
+      "name": "ouzo"
+    },
+    "224": {
+      "name": "Vecchia Romagne"
+    },
+    "225": {
+      "name": "House Grappa"
+    },
+    "226": {
+      "name": "Grappa di Prosecco"
+    },
+    "227": {
+      "name": "Himberg spirit"
+    },
+    "228": {
+      "name": "Obstler"
+    },
+    "229": {
+      "name": "Maltese"
+    },
+    "230": {
+      "name": "Amaretto"
+    },
+    "231": {
+      "name": "Ramazotti"
+    },
+    "232": {
+      "name": "Averna"
+    },
+    "233": {
+      "name": "Fernet Branca"
+    },
+    "234": {
+      "name": "Jagermeister"
+    },
+    "235": {
+      "name": "Lockstedter"
+    },
+    "236": {
+      "name": "Sambuca"
+    },
+    "237": {
+      "name": "Baileys"
+    },
+    "238": {
+      "name": "Limoncello"
+    }
+  }
+}

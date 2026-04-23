@@ -1,9 +1,17 @@
 {
   "about.title": "Rólunk | Lindener Ratsstuben",
+  "agb.title": "Feltételek | Linden tanácstermek",
+  "barrierefreiheit.title": "Kisegítő lehetőségek | Linden tanácstermek",
   "contact.title": "Kapcsolat — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Cookie-szabályzat | Linden tanácstermek",
+  "cookies.title": "Cookie-k | Linden tanácstermek",
+  "datenschutz.title": "Adatvédelmi szabályzat | Linden tanácstermek",
   "gallery.title": "Galéria — Lindener Ratsstuben",
   "home.description": "Üdvözöljük a Lindener Ratsstubenben. Élvezze az olasz és mediterrán ételkülönlegességeket, szenvedéllyel elkészítve.",
   "home.title": "Főoldal | Lindener Ratsstuben",
+  "impressum.title": "Impresszum | Linden tanácstermek",
+  "kegelbahn.title": "tekepálya | Linden tanácstermek",
   "menu.title": "Étlap | Lindener Ratsstuben",
-  "reservation.title": "Foglalás | Lindener Ratsstuben"
+  "reservation.title": "Foglalás | Lindener Ratsstuben",
+  "widerruf.title": "Lemondási feltételek | Linden tanácstermek"
 }

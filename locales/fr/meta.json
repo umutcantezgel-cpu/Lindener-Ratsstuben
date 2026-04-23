@@ -1,9 +1,17 @@
 {
   "about.title": "À Propos | Lindener Ratsstuben",
+  "agb.title": "Conditions générales | Salle du conseil de Linden",
+  "barrierefreiheit.title": "Accessibilité | Salle du conseil de Linden",
   "contact.title": "Contact — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Politique en matière de cookies | Salle du conseil de Linden",
+  "cookies.title": "Biscuits | Salle du conseil de Linden",
+  "datenschutz.title": "Politique de confidentialité | Salle du conseil de Linden",
   "gallery.title": "Galerie — Lindener Ratsstuben",
   "home.description": "Bienvenue au Lindener Ratsstuben. Savourez des spécialités italiennes et méditerranéennes, préparées avec passion.",
   "home.title": "Accueil | Lindener Ratsstuben",
-  "menu.title": "Menu | Lindener Ratsstuben",
-  "reservation.title": "Réservation | Lindener Ratsstuben"
+  "impressum.title": "Mentions légales | Salle du conseil de Linden",
+  "kegelbahn.title": "piste de bowling | Salle du conseil de Linden",
+  "menu.title": "Menus | Lindener Ratsstuben",
+  "reservation.title": "Réservation | Lindener Ratsstuben",
+  "widerruf.title": "Politique d'annulation | Salle du conseil de Linden"
 }

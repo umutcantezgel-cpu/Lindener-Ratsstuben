@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import { RefreshCw, Phone } from 'lucide-react';
 import { Container } from '@/components/layout/Container';
+import { useTranslation } from '@/lib/i18n/use-translation';
 
 export default function ContactError({
   error,
@@ -11,6 +12,8 @@ export default function ContactError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const { t } = useTranslation('common');
+
   useEffect(() => {
     console.error('Contact error:', error);
   }, [error]);
@@ -18,11 +21,10 @@ export default function ContactError({
   return (
     <Container className="py-24 text-center">
       <h2 className="text-3xl font-display font-bold text-text-main mb-6">
-        Fehler im Kontaktbereich
+        {t('error.contact_title') as string}
       </h2>
       <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
-        Das Kontaktformular oder die zugehörigen Daten konnten nicht geladen werden.
-        Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt telefonisch.
+        {t('error.contact_description') as string}
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <button
@@ -30,7 +32,7 @@ export default function ContactError({
           className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-medium hover:bg-primary-hover transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30"
         >
           <RefreshCw className="w-5 h-5" />
-          Erneut versuchen
+          {t('error.try_again') as string}
         </button>
         <a
           href="tel:+4964032345"

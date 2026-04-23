@@ -1,6 +1,6 @@
 /**
- * Local analytics events tracker. 
- * Stores nothing external, just console.logs or logs to local attributes.
+ * Local analytics events tracker.
+ * Privacy-first: stores events to window attributes only.
  */
 
 export type ConversionEventName = 
@@ -32,9 +32,5 @@ export const trackEvent = (eventName: ConversionEventName, properties?: Tracking
         ...properties
     };
 
-    if (process.env.NODE_ENV === 'development') {
-        console.log(`[Analytics Tracked] ${eventName}`, eventPayload);
-    }
-    
     window.lastConversionEvent = eventPayload;
 };

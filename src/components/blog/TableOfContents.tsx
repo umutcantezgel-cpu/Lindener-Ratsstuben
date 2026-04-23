@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from '@/lib/i18n/use-translation';
 
 interface TOCItem {
     id: string;
@@ -9,6 +10,7 @@ interface TOCItem {
 }
 
 export function TableOfContents() {
+    const { t } = useTranslation('common');
     const [headings, setHeadings] = useState<TOCItem[]>([]);
     const [activeId, setActiveId] = useState<string>("");
 
@@ -44,9 +46,9 @@ export function TableOfContents() {
     if (headings.length === 0) return null;
 
     return (
-        <nav aria-label="Inhaltsverzeichnis" className="sticky top-24 p-6 bg-bg-secondary rounded-xl border border-border">
+        <nav aria-label={t('aria.table_of_contents') as string} className="sticky top-24 p-6 bg-bg-secondary rounded-xl border border-border">
             <h4 className="font-display font-bold text-text-main mb-4 uppercase tracking-wider text-sm">
-                Auf dieser Seite
+                {t('aria.table_of_contents') as string}
             </h4>
             <ul className="space-y-2">
                 {headings.map((heading) => (

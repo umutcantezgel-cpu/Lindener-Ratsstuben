@@ -3,6 +3,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import type { MenuCategory } from '@/types';
+import { useTranslation } from '@/lib/i18n/use-translation';
 
 interface MenuCategoryNavProps {
   /** Array of menu categories from the data layer */
@@ -26,9 +27,10 @@ export function MenuCategoryNav({
   onCategoryChange,
   className,
 }: MenuCategoryNavProps) {
+  const { t } = useTranslation('common');
   return (
     <nav
-      aria-label="Speisekarte Kategorien"
+      aria-label={t('aria.menu_categories') as string}
       className={cn(
         'flex flex-wrap gap-2 sm:gap-3',
         className
@@ -45,7 +47,7 @@ export function MenuCategoryNav({
         )}
         aria-pressed={activeCategory === null}
       >
-        Alle
+        {t('menu.all_categories') as string || 'Alle'}
       </button>
 
       {categories.map((cat) => {

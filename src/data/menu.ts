@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
-// Lindener Ratsstuben — SSOT Menü-Datenbank v2.0
-// Einzige Wahrheitsquelle: SSOT-Artikelkatalog v2.0 (2026-04-20)
+// Lindener Ratsstuben — SSOT Menü-Datenbank v3.0
+// Einzige Wahrheitsquelle: Speisekarte.md (SSOT-Artikelkatalog)
 //
 // SCHUTZREGELN (Nicht-Verhandelbar):
 // • Keine Erfindung von Artikeln, Preisen, Allergenen oder Tags
@@ -8,10 +8,11 @@
 // • Preise zeichengenau (Komma, €-Zeichen)
 // • Beschreibungen wortidentisch inkl. Tippfehler
 // • Nummern exakt wie vergeben (auch bei Duplikaten)
+// • Keine Allergen-Anreicherung ohne SSOT-Grundlage (§1.9)
 // ═══════════════════════════════════════════════════════════════
 
-export const SSOT_VERSION = '2.0';
-export const SSOT_DATE = '2026-04-20';
+export const SSOT_VERSION = '3.0';
+export const SSOT_DATE = '2026-04-22';
 
 // ─── Allergen Type Import ──────────────────────────────────────
 import type { AllergenIdentifier } from './allergens';
@@ -24,7 +25,7 @@ export interface SSOTMenuItem {
   description: string;
   price: number | null; // null = {{PREIS FEHLT}}
   category: string;
-  allergens: AllergenIdentifier[]; // LMIV EU-VO 1169/2011 Allergen-Codes
+  allergens: AllergenIdentifier[]; // Derzeit leer (§1.9) — befüllen nach Küchenchef-Verifizierung
 }
 
 // ─── Categories (SSOT §3 Reihenfolge) ─────────────────────────
@@ -33,8 +34,8 @@ export const categories = [
   { id: 'vorspeisen', name: 'Vorspeisen', label: 'Vorspeisen' },
   { id: 'salate', name: 'Salate', label: 'Salate' },
   { id: 'pasta', name: 'Pasta', label: 'Pasta' },
-  { id: 'pasta-al-forno', name: 'Überbackene Nudelgerichte', label: 'Überbacken' },
-  { id: 'hausgemachte-pasta', name: 'Hausgemachte Nudelgerichte', label: 'Hausgemachte Nudeln' },
+  { id: 'pasta-al-forno', name: 'Pasta al Forno', label: 'Pasta al Forno' },
+  { id: 'hausgemachte-pasta', name: 'Hausgemachte Pasta', label: 'Hausgemachte Pasta' },
   { id: 'schnitzel', name: 'Schnitzelvariation', label: 'Schnitzel' },
   { id: 'fleisch-fisch', name: 'Fleischgerichte & Fischgerichte', label: 'Fleisch & Fisch' },
   { id: 'pizza', name: 'Pizza aus dem Steinofen / 28 cm', label: 'Pizza' },
@@ -49,19 +50,25 @@ export const categories = [
   { id: 'weissweine', name: 'Offene Weißweine', label: 'Weißweine' },
   { id: 'spirituosen', name: 'Spirituosen 0,2 cl', label: 'Spirituosen' },
   { id: 'likoere', name: 'Liköre 0,2 cl', label: 'Liköre' },
+
 ];
 
 // ─── Category Footnotes (wörtlich aus SSOT) ───────────────────
 export const categoryFootnotes: Record<string, string> = {
-  suppen: 'Unsere Suppen & Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
-  vorspeisen: 'Unsere Suppen & Vorspeisen servieren wir mit hausgemachtem Brot. Auf Wunsch Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
-  salate: 'Unsere Salate servieren wir mit hausgemachtem Brot. Auf Wunsch Pizzabrot, Tomatensauce & Knoblauch (6,50 €).',
-  pasta: 'Pasta Gerichte werden auf Anfrage auch vegan serviert, bitte sprechen Sie dafür mit einer Servicekraft.',
-  pizza: 'Alle Pizzen werden mit speziell gewürzter Tomatensauce und Käse zubereitet.',
+  suppen: 'Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
+  vorspeisen: 'Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
+  salate: 'Unsere Salate servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
+  pasta: 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
+  'pasta-al-forno': 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
+  'hausgemachte-pasta': 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
+  schnitzel: 'Bei unseren Schnitzeln handelt es sich um frischen Schweinerücken.',
+  pizza: 'Jeder extra Belag kostet 1,00 / 4,00 / 6,00 €',
+
 };
 
 // ─── Category Header Texts (wörtlich aus SSOT) ───────────────
 export const categoryHeaderTexts: Record<string, string> = {
+  pizza: 'alle Pizzen werden mit Tomaten soße mit Special würzen & Käse zubereitet.',
 };
 
 // ─── Category Extras (SSOT-Preise) ────────────────────────────
@@ -92,6 +99,9 @@ import { drinkItems } from './menu-ssot-drinks';
 export const menuItems: SSOTMenuItem[] = [...foodItems, ...drinkItems];
 
 // ─── Allergen Legend (LMIV EU-VO 1169/2011 — 14 deklarationspflichtige Allergene) ─
+// ⚠️ Diese Legende bleibt als Infrastruktur erhalten.
+// Artikel referenzieren aktuell KEINE Allergene (§1.9: keine Anreicherung ohne SSOT-Grundlage).
+// Aktivierung erst nach Küchenchef-Verifizierung und SSOT-Protokolleintrag.
 export const allergenLegend: Record<string, string> = {
   'A': 'Glutenhaltiges Getreide',
   'B': 'Krebstiere',
@@ -139,6 +149,7 @@ export const knownDataGaps = [
   { issue: 'Nr. 221/227 Himbergeist sowie 222/228 Obstler doppelt', severity: 'warning' },
   { issue: 'Spirituosen & Liköre "0,2 cl" — Mengeneinheit ungewöhnlich', severity: 'info' },
   { issue: '"Sprit" (160/161) — Schreibweise so übernommen', severity: 'info' },
+
 ];
 
 // ─── Category Notes (legacy compat) ──────────────────────────

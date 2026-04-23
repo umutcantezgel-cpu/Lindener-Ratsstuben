@@ -2,13 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import { PageTransition } from '@/components/effects/PageTransition';
 import { Metadata } from 'next';
+import { getTranslations } from '@/lib/i18n/get-translations';
+import { LocaleType } from '@/lib/locales';
 
 import { getAlternates } from '@/lib/seo/metadata';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: LocaleType }> }): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations(locale as LocaleType, 'meta');
   return {
-    title: "Cookie-Richtlinie – Lindener Ratsstuben",
+    title: t('cookie_richtlinie.title'),
     description: "Cookie-Richtlinie der Lindener Ratsstuben: Informationen zu den eingesetzten Cookies, localStorage-Einträgen und Ihren Kontrollmöglichkeiten.",
     alternates: getAlternates(locale, 'cookie-richtlinie'),
     robots: {
@@ -18,13 +21,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-const CookieRichtlinie = () => {
+const CookieRichtlinie = async ({ params }: { params: Promise<{ locale: LocaleType }> }) => {
+    const { locale } = await params;
+    const t = await getTranslations(locale as LocaleType, 'meta');
+    const title = t('cookie_richtlinie.title').split('|')[0].trim();
+
     return (
         <PageTransition>
             <article className="pt-24 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
                 <div className="container mx-auto px-4 max-w-3xl">
                     <h1 className="text-3xl md:text-4xl font-display font-bold text-surface bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-10 shadow-warm inline-block w-full max-w-3xl text-center">
-                        Cookie-Richtlinie
+                        {title}
                     </h1>
 
                     <div className="prose prose-lg text-text-secondary space-y-8">

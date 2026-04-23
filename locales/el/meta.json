@@ -1,9 +1,17 @@
 {
-  "home.title": "Αρχική | Lindener Ratsstuben",
-  "home.description": "Καλώς ήρθατε στο Lindener Ratsstuben. Απολαύστε ιταλικές και μεσογειακές σπεσιαλιτέ, φρεσκομαγειρεμένες με πάθος.",
-  "menu.title": "Μενού | Lindener Ratsstuben",
+  "about.title": "Σχετικά με Εμάς | Lindener Ratsstuben",
+  "agb.title": "Όροι & Προϋποθέσεις | Αίθουσες συμβουλίων Linden",
+  "barrierefreiheit.title": "Προσβασιμότητα | Αίθουσες συμβουλίων Linden",
   "contact.title": "Επικοινωνία | Lindener Ratsstuben",
-  "reservation.title": "Κράτηση | Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Πολιτική cookie | Αίθουσες συμβουλίων Linden",
+  "cookies.title": "Cookies | Αίθουσες συμβουλίων Linden",
+  "datenschutz.title": "Πολιτική Απορρήτου | Αίθουσες συμβουλίων Linden",
   "gallery.title": "Συλλογή | Lindener Ratsstuben",
-  "about.title": "Σχετικά με Εμάς | Lindener Ratsstuben"
+  "home.description": "Καλώς ήρθατε στο Lindener Ratsstuben. Απολαύστε ιταλικές και μεσογειακές σπεσιαλιτέ, φρεσκομαγειρεμένες με πάθος.",
+  "home.title": "Αρχική | Lindener Ratsstuben",
+  "impressum.title": "Αποτύπωμα | Αίθουσες συμβουλίων Linden",
+  "kegelbahn.title": "μπόουλινγκ | Αίθουσες συμβουλίων Linden",
+  "menu.title": "Μενού | Lindener Ratsstuben",
+  "reservation.title": "Κράτηση | Lindener Ratsstuben",
+  "widerruf.title": "Πολιτική ακύρωσης | Αίθουσες συμβουλίων Linden"
 }

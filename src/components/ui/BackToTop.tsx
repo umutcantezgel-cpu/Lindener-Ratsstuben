@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { clsx } from 'clsx';
+import { useTranslation } from '@/lib/i18n/use-translation';
 
 export const BackToTop: React.FC = () => {
+    const { t } = useTranslation('common');
     const [isVisible, setIsVisible] = useState<boolean>(false);
 
     useEffect(() => {
@@ -49,7 +51,7 @@ export const BackToTop: React.FC = () => {
                         "hover:bg-primary-hover hover:shadow-elevation-3 hover:-translate-y-1 transition-all",
                         "focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                     )}
-                    aria-label="Zum Anfang springen"
+                    aria-label={t('aria.back_to_top') as string}
                 >
                     <ChevronUp className="w-6 h-6" aria-hidden="true" />
                 </motion.button>

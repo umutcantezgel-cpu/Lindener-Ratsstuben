@@ -83,14 +83,15 @@ export function StaggerContainer({
           }
         };
 
-        // Use motion.li when parent is a list element to maintain valid HTML structure
-        const ChildWrapper = (as === 'ul' || as === 'ol') ? motion.li : motion.div;
+        // Always use a neutral wrapper — children manage their own semantic tags (e.g. <li>).
+        // Using motion.li here caused nested <li><li> hydration errors when children were already <li>.
+        const ChildWrapper = motion.div;
 
         return (
           <ChildWrapper key={index} variants={isStaggered ? childVariants : {
             hidden: { opacity: 1, y: 0 },
             show: { opacity: 1, y: 0 }
-          }}>
+          }} style={{ display: 'contents' }}>
             {child}
           </ChildWrapper>
         );

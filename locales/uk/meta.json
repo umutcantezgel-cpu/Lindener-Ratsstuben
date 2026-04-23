@@ -1,9 +1,17 @@
 {
   "about.title": "Про нас | Lindener Ratsstuben",
+  "agb.title": "Правила та умови | Ліпові палати ради",
+  "barrierefreiheit.title": "Доступність | Ліпові палати ради",
   "contact.title": "Контакти — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Політика файлів cookie | Ліпові палати ради",
+  "cookies.title": "Печиво | Ліпові палати ради",
+  "datenschutz.title": "Політика конфіденційності | Ліпові палати ради",
   "gallery.title": "Галерея — Lindener Ratsstuben",
   "home.description": "Ласкаво просимо до Lindener Ratsstuben. Насолоджуйтесь італійськими та середземноморськими стравами, приготовленими з любов'ю.",
   "home.title": "Головна | Lindener Ratsstuben",
+  "impressum.title": "Вихідні дані | Ліпові палати ради",
+  "kegelbahn.title": "боулінг | Ліпові палати ради",
   "menu.title": "Меню | Lindener Ratsstuben",
-  "reservation.title": "Бронювання | Lindener Ratsstuben"
+  "reservation.title": "Бронювання | Lindener Ratsstuben",
+  "widerruf.title": "Політика скасування | Ліпові палати ради"
 }

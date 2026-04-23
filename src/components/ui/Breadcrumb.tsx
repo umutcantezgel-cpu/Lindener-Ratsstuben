@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { ChevronRight, Home } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { breadcrumbLabelMap } from '@/lib/data/navigation';
+import { useTranslation } from '@/lib/i18n/use-translation';
 
 interface BreadcrumbProps {
   /** Hide home link at the beginning */
@@ -30,6 +31,8 @@ interface BreadcrumbSegment {
  */
 export function Breadcrumb({ hideHome = false, className }: BreadcrumbProps) {
   const pathname = usePathname();
+  const { t } = useTranslation('common');
+  const { t: tNav } = useTranslation('navigation');
 
   // Don't render on homepage
   if (pathname === '/') return null;
@@ -40,7 +43,7 @@ export function Breadcrumb({ hideHome = false, className }: BreadcrumbProps) {
 
   // Home segment
   if (!hideHome) {
-    segments.push({ label: 'Startseite', href: '/', isLast: false });
+    segments.push({ label: tNav('nav.home') as string || 'Startseite', href: '/', isLast: false });
   }
 
   // Dynamic segments from path
@@ -88,7 +91,7 @@ export function Breadcrumb({ hideHome = false, className }: BreadcrumbProps) {
 
       {/* Visual Breadcrumb */}
       <nav
-        aria-label="Breadcrumb"
+        aria-label={t('aria.breadcrumb') as string}
         className={cn('text-sm text-text-secondary', className)}
       >
         <ol className="flex items-center flex-wrap gap-1.5 m-0 p-0 list-none">

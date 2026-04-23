@@ -112,5 +112,16 @@
   "reservation.more_than_10": "More than 10",
   "reservation.time": "Time",
   "reservation.title": "Reserve Table",
-  "reservation.wishes": "Wishes (Optional)"
+  "reservation.wishes": "Wishes (Optional)",
+  "menu.allergens_heading": "Allergens",
+  "menu.additives_heading": "Additives",
+  "menu.reservation_prompt": "Got an appetite? Secure your table now.",
+  "menu.reservation_cta": "Reserve a table now",
+  "menu.download_pdf": "Print / As PDF",
+  "menu.categories_label": "Categories",
+  "menu.dishes_heading": "Dishes",
+  "menu.price_on_request": "Price on request",
+  "menu.legend_heading": "legend",
+  "menu.legend_title": "Allergens & additives",
+  "reservation.actionName": "Table reservation"
 }
