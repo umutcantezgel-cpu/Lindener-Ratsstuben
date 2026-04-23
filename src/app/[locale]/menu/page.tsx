@@ -57,16 +57,15 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     return typeof val === 'string' ? val : "";
   };
 
-  // ═══ SSOT FALLBACK: If Sanity returns no data, use the local SSOT ═══
+  // ═══ SSOT & SANITY MERGE ═══
+  const { getLocalizedMenuData } = await import('@/lib/i18n/menu-data');
+  const localizedData = await getLocalizedMenuData(locale);
   const useSSOTFallback = fetchedDishes.length === 0;
 
   let finalCategories: { id: string; name: string; label: string; description?: string; headerText?: string }[];
   let finalMenuItems: { id: string; nr: string; name: string; description: string; price: number | null; category: string; allergens: string[]; }[];
 
   if (useSSOTFallback) {
-    const { getLocalizedMenuData } = await import('@/lib/i18n/menu-data');
-    const localizedData = await getLocalizedMenuData(locale);
-    
     finalCategories = localizedData.categories;
     finalMenuItems = localizedData.menuItems.map((item, idx) => ({
       id: `ssot-${item.nr || idx}`,
@@ -78,23 +77,48 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       allergens: item.allergens || [],
     }));
   } else {
-    // Use Sanity data (with SSOT as secondary)
-    finalCategories = fetchedCategories.map((cat) => ({
-      id: cat._id,
-      name: getLocalizedString(cat, 'title'),
-      label: getLocalizedString(cat, 'title'),
-      description: getLocalizedString(cat, 'description'),
-    }));
+    // Use Sanity data (with SSOT as translation fallback for 21 languages)
+    finalCategories = fetchedCategories.map((cat) => {
+      const ssotCat = localizedData.categories.find(c => c.id === cat._id);
+      
+      let name = ((cat as unknown) as Record<string, string>)[`title_${locale}`];
+      if (!name) name = ssotCat?.name as string;
+      if (!name) name = getLocalizedString(cat, 'title');
 
-    finalMenuItems = fetchedDishes.map((dish, index: number) => ({
-      id: dish._id,
-      nr: dish.nr || String(index + 1),
-      name: getLocalizedString(dish, 'title'),
-      description: getLocalizedString(dish, 'description'),
-      price: dish.price,
-      category: dish.category?._id || 'fallback',
-      allergens: dish.allergens?.map(a => a.code) || [],
-    }));
+      let description = ((cat as unknown) as Record<string, string>)[`description_${locale}`];
+      if (!description) description = ssotCat?.description as string;
+      if (!description) description = getLocalizedString(cat, 'description');
+
+      return {
+        id: cat._id,
+        name: name,
+        label: name,
+        description: description,
+      };
+    });
+
+    finalMenuItems = fetchedDishes.map((dish, index: number) => {
+      const nr = dish.nr || String(index + 1);
+      const ssotItem = localizedData.menuItems.find(i => i.nr === nr);
+      
+      let name = ((dish as unknown) as Record<string, string>)[`title_${locale}`];
+      if (!name) name = ssotItem?.name as string;
+      if (!name) name = getLocalizedString(dish, 'title');
+
+      let description = ((dish as unknown) as Record<string, string>)[`description_${locale}`];
+      if (!description) description = ssotItem?.description as string;
+      if (!description) description = getLocalizedString(dish, 'description');
+
+      return {
+        id: dish._id,
+        nr: nr,
+        name: name,
+        description: description,
+        price: dish.price,
+        category: dish.category?._id || 'fallback',
+        allergens: dish.allergens?.map(a => a.code) || [],
+      };
+    });
   }
 
   return (

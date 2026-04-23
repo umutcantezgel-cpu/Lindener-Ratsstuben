@@ -1,9 +1,17 @@
 {
   "about.title": "Sobre Nosotros | Lindener Ratsstuben",
+  "agb.title": "Términos y condiciones | Cámaras del consejo de Linden",
+  "barrierefreiheit.title": "Accesibilidad | Cámaras del consejo de Linden",
   "contact.title": "Contacto — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Política de cookies | Cámaras del consejo de Linden",
+  "cookies.title": "Galletas | Cámaras del consejo de Linden",
+  "datenschutz.title": "Política de privacidad | Cámaras del consejo de Linden",
   "gallery.title": "Galería — Lindener Ratsstuben",
   "home.description": "Bienvenidos al Lindener Ratsstuben. Disfrute de especialidades italianas y mediterráneas, preparadas con pasión.",
   "home.title": "Inicio | Lindener Ratsstuben",
+  "impressum.title": "Pie de imprenta | Cámaras del consejo de Linden",
+  "kegelbahn.title": "bolera | Cámaras del consejo de Linden",
   "menu.title": "Menú | Lindener Ratsstuben",
-  "reservation.title": "Reserva | Lindener Ratsstuben"
+  "reservation.title": "Reserva | Lindener Ratsstuben",
+  "widerruf.title": "Política de cancelación | Cámaras del consejo de Linden"
 }

@@ -1,24 +1,28 @@
-
 import { LegalPageLayout } from '@/components/legal/LegalPageLayout';
 import { companyData } from '@/data/company';
 import { Metadata } from 'next';
+import { getTranslations } from '@/lib/i18n/get-translations';
+import { LocaleType } from '@/lib/locales';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-    await params;
+    const { locale } = await params;
+    const t = await getTranslations(locale as LocaleType, 'meta');
     return {
-        title: `Impressum | ${companyData.companyName}`,
+        title: t('impressum.title'),
         description: 'Impressum und rechtliche Angaben der Lindener Ratsstuben.',
     };
 }
 
 export default async function ImpressumPage({ params }: { params: Promise<{ locale: string }> }) {
-    await params;
+    const { locale } = await params;
+    const t = await getTranslations(locale as LocaleType, 'meta');
+    const title = t('impressum.title').split(' |')[0];
 
     // We hardcode the language check to provide multi-lang support or keep it universally German since it's a legal DACH requirement
     // Usually Impressum is kept in German, but we can do a localized intro if needed.
 
     return (
-        <LegalPageLayout title="Impressum" lastUpdated="April 2026">
+        <LegalPageLayout title={title} lastUpdated="April 2026">
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
                 {companyData.companyName}<br />

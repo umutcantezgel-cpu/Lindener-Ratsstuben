@@ -19,17 +19,17 @@ export default defineType({
     }),
     defineField({
       name: 'name_en',
-      title: 'Name (English)',
+      title: 'Name (Englisch)',
       type: 'string',
     }),
     defineField({
       name: 'name_ar',
-      title: 'Name (Arabic)',
+      title: 'Name (Arabisch)',
       type: 'string',
     }),
     defineField({
       name: 'name_fr',
-      title: 'Name (French)',
+      title: 'Name (Französisch)',
       type: 'string',
     }),
   ],

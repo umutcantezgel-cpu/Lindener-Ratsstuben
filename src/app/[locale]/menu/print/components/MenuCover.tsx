@@ -32,16 +32,11 @@ export default function MenuCover() {
       <CornerOrnament className="cv-br" />
       
       <div className="cv-content">
-        <div className="cv-tag"><span>◆</span>RESTAURANT<span>◆</span></div>
-        <div className="cv-trad">— Tradition & Genuss —</div>
-        <h1 className="cv-title">RATSSTUBEN</h1>
+        <div className="cv-tag"><span>◆</span>RESTAURANTE PIZZERIA<span>◆</span></div>
+        <div className="cv-trad">— Internationelle Küche —</div>
+        <h1 className="cv-title">LINDENER<span style={{ display: 'inline-block', width: '0.6em' }}></span>RATSSTUBEN</h1>
         <OrnateDivider />
         <div className="cv-sub">Kulinarische Meisterwerke<br/>mit Leidenschaft kreiert</div>
-        <p className="cv-intro">
-          Unsere Küche ehrt die reiche Tradition Italiens,<br/>
-          wobei nur sorgfältig ausgewählte, frische Zutaten<br/>
-          ihren Weg auf Ihren Teller finden.
-        </p>
       </div>
       
       <div className="cv-est">

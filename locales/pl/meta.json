@@ -1,9 +1,17 @@
 {
   "about.title": "O nas | Lindener Ratsstuben",
+  "agb.title": "Regulamin | Izby rady Linden",
+  "barrierefreiheit.title": "Dostępność | Izby rady Linden",
   "contact.title": "Kontakt — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Polityka plików cookie | Izby rady Linden",
+  "cookies.title": "Ciasteczka | Izby rady Linden",
+  "datenschutz.title": "Polityka prywatności | Izby rady Linden",
   "gallery.title": "Galeria — Lindener Ratsstuben",
   "home.description": "Witamy w Lindener Ratsstuben. Smakuj włoskie i śródziemnomorskie specjały, przygotowane z pasją.",
   "home.title": "Strona główna | Lindener Ratsstuben",
+  "impressum.title": "Odcisk | Izby rady Linden",
+  "kegelbahn.title": "kręgielnia | Izby rady Linden",
   "menu.title": "Menu | Lindener Ratsstuben",
-  "reservation.title": "Rezerwacja | Lindener Ratsstuben"
+  "reservation.title": "Rezerwacja | Lindener Ratsstuben",
+  "widerruf.title": "Zasady anulowania | Izby rady Linden"
 }

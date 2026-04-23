@@ -2,9 +2,11 @@
 
 import React from "react";
 import { useUI } from "@/lib/context/UIContext";
+import { useTranslation } from '@/lib/i18n/use-translation';
 
 export default function ToastContainer() {
   const { toastQueue, removeToast } = useUI();
+  const { t } = useTranslation('common');
 
   if (toastQueue.length === 0) return null;
 
@@ -28,7 +30,7 @@ export default function ToastContainer() {
             <button
               onClick={() => removeToast(toast.id)}
               className="ms-4 text-surface/80 hover:text-surface transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-surface rounded p-1"
-              aria-label="Schließen"
+              aria-label={t('aria.close') as string}
             >
               ✕
             </button>

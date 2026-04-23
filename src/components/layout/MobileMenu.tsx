@@ -8,6 +8,8 @@ import { useTranslation } from '@/lib/i18n/use-translation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
 import { useFocusManagement } from '@/hooks/useFocusManagement';
+import Image from 'next/image';
+import { companyData } from '@/data/company';
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -81,6 +83,25 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                     </div>
 
                     <div className="relative z-10 w-full max-w-sm mx-auto flex flex-col flex-grow justify-between gap-12">
+                        {/* Mobile Menu Logo */}
+                        <motion.div 
+                            className="flex justify-center pb-4"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+                        >
+                            <Link href="/" onClick={onClose} aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
+                                <Image
+                                    src="/images/logo.svg"
+                                    alt={companyData.companyName}
+                                    width={160}
+                                    height={55}
+                                    priority
+                                    className="w-auto h-12 brightness-0 invert opacity-90 drop-shadow-md"
+                                />
+                            </Link>
+                        </motion.div>
+
                         <nav aria-label={tCommon('accessibility.mobile_navigation') as string}>
                             <motion.ul 
                                 className="flex flex-col gap-7 m-0 p-0 list-none perspective-[1000px]"

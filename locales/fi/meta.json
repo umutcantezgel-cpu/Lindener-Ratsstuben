@@ -1,9 +1,17 @@
 {
   "about.title": "Meistä | Lindener Ratsstuben",
+  "agb.title": "Ehdot | Lindenin valtuustohuoneet",
+  "barrierefreiheit.title": "Esteettömyys | Lindenin valtuustohuoneet",
   "contact.title": "Yhteystiedot — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Evästekäytäntö | Lindenin valtuustohuoneet",
+  "cookies.title": "Evästeet | Lindenin valtuustohuoneet",
+  "datenschutz.title": "Tietosuojakäytäntö | Lindenin valtuustohuoneet",
   "gallery.title": "Galleria — Lindener Ratsstuben",
   "home.description": "Tervetuloa Lindener Ratsstubeniin. Nauti intohimolla valmistettuja italialaisia ja välimeren herkkuja.",
   "home.title": "Etusivu | Lindener Ratsstuben",
-  "menu.title": "Menu | Lindener Ratsstuben",
-  "reservation.title": "Varaus | Lindener Ratsstuben"
+  "impressum.title": "Jälki | Lindenin valtuustohuoneet",
+  "kegelbahn.title": "keilahalli | Lindenin valtuustohuoneet",
+  "menu.title": "Valikko | Lindener Ratsstuben",
+  "reservation.title": "Varaus | Lindener Ratsstuben",
+  "widerruf.title": "Peruutusehdot | Lindenin valtuustohuoneet"
 }

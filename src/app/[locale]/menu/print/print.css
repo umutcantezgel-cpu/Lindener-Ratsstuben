@@ -201,6 +201,20 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
 }
 
 /* Category Headers */
+/* Page-level heading (e.g. "Aperitif") — appears once at top of a page */
+.page-heading {
+  font-family: var(--font-cinzel), serif;
+  font-size: 28px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  text-align: center;
+  margin: 0 0 8px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
 .cat-hdr {
   text-align: center;
   margin: 20px 0 15px;
@@ -652,7 +666,7 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
    ========================================================================== */
 
 /* Strict Ligatures and Kerning for authentic Editorial Print */
-body, p, .it-d, .cv-intro, .fn, .box-c {
+body, p, .it-d, .it-n, .cat-title, .cv-intro, .fn, .box-c {
   font-feature-settings: "liga" 1, "kern" 1, "onum" 1, "pnum" 1;
   text-rendering: optimizeLegibility;
 }
@@ -710,4 +724,162 @@ p, .it, .cv-intro, .fn, .box-c, .qt {
   color: var(--gold-deep);
   background: var(--paper);
   padding-inline-start: 10px;
+}
+
+/* ==========================================================================
+   LUNCH MENU PAGE STYLES
+   ========================================================================== */
+
+.lunch-menu-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lunch-content {
+  position: relative;
+  z-index: 10;
+  width: 75%;
+  text-align: center;
+}
+
+.lunch-header {
+  margin-bottom: 30px;
+}
+
+.lunch-restaurant-name {
+  font-family: var(--font-cinzel), serif;
+  font-size: 28px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.lunch-restaurant-sub {
+  font-family: var(--font-cormorant), serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-faint);
+  letter-spacing: 2px;
+}
+
+.lunch-title-block {
+  margin-bottom: 35px;
+  padding: 16px 0;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+
+.lunch-gang-label {
+  font-family: var(--font-cinzel), serif;
+  font-size: 22px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 8px;
+}
+
+.lunch-date {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--ink-soft);
+  font-weight: 300;
+}
+
+.lunch-section {
+  margin-bottom: 20px;
+}
+
+.lunch-section-title {
+  font-family: var(--font-cinzel), serif;
+  font-size: 18px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 15px 0;
+  position: relative;
+}
+
+.lunch-section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 8px auto 0;
+}
+
+.lunch-vorspeise {
+  font-family: var(--font-cormorant), serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--ink-soft);
+  letter-spacing: 1px;
+}
+
+.lunch-divider-ornate {
+  color: var(--gold-deep);
+  font-size: 14px;
+  margin: 20px 0;
+  letter-spacing: 8px;
+}
+
+.lunch-item {
+  text-align: left;
+  max-width: 85%;
+  margin: 0 auto 8px;
+}
+
+.lunch-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 3px;
+}
+
+.lunch-item-nr {
+  font-family: var(--font-cinzel), serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold-deep);
+}
+
+.lunch-item-price {
+  font-family: var(--font-cormorant), serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.lunch-item-desc {
+  font-family: var(--font-cormorant), serif;
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  padding-left: 22px;
+  font-style: italic;
+}
+
+.lunch-item-sep {
+  text-align: center;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 6px;
+  margin: 10px 0;
+  opacity: 0.6;
+}
+
+.lunch-footer-note {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  font-weight: 300;
 }

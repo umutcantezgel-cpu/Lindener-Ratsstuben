@@ -48,7 +48,7 @@ export async function POST(request: Request) {
                     message: validatedData.message || '',
                     status: 'new'
                 });
-                console.log("Reservation saved to Sanity CMS");
+                // Reservation persisted to Sanity CMS
             } catch (sanityError) {
                 console.error("Failed to save reservation to Sanity:", sanityError);
                 // We don't block the email process if DB save fails
@@ -97,7 +97,7 @@ export async function POST(request: Request) {
             });
         } else {
             console.warn("RESEND_API_KEY is not configured. Falling back to log-only mode.");
-            console.log("Reservation Data:", validatedData);
+
         }
 
         return NextResponse.json({ success: true }, { status: 200 });

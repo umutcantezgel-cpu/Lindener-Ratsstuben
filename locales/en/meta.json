@@ -1,9 +1,17 @@
 {
-  "about.title": "About Us | Lindener Ratsstuben",
-  "contact.title": "Contact | Lindener Ratsstuben",
-  "gallery.title": "Gallery | Lindener Ratsstuben",
-  "home.description": "Welcome to Lindener Ratsstuben. Enjoy Italian and Mediterranean specialties, freshly prepared with passion.",
-  "home.title": "Home | Lindener Ratsstuben",
-  "menu.title": "Menu | Lindener Ratsstuben",
-  "reservation.title": "Reservation | Lindener Ratsstuben"
+  "about.title": "About Us | Linden council chambers",
+  "agb.title": "Terms & Conditions | Linden council chambers",
+  "barrierefreiheit.title": "Accessibility | Linden council chambers",
+  "contact.title": "Contact | Linden council chambers",
+  "cookie_richtlinie.title": "Cookie Policy | Linden council chambers",
+  "cookies.title": "Cookies | Linden council chambers",
+  "datenschutz.title": "Privacy Policy | Linden council chambers",
+  "gallery.title": "Gallery | Linden council chambers",
+  "home.description": "Welcome to the Linden council chambers. Enjoy Italian and Mediterranean specialties, freshly prepared with passion.",
+  "home.title": "Home | Linden council chambers",
+  "impressum.title": "Imprint | Linden council chambers",
+  "kegelbahn.title": "bowling alley | Linden council chambers",
+  "menu.title": "Menu | Linden council chambers",
+  "reservation.title": "Reservation | Linden council chambers",
+  "widerruf.title": "Cancellation policy | Linden council chambers"
 }

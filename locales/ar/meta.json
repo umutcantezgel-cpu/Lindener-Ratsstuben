@@ -1,9 +1,17 @@
 {
   "about.title": "من نحن | Lindener Ratsstuben",
+  "agb.title": "الشروط والأحكام | غرف مجلس ليندن",
+  "barrierefreiheit.title": "إمكانية الوصول | غرف مجلس ليندن",
   "contact.title": "اتصل بنا — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "سياسة ملفات تعريف الارتباط | غرف مجلس ليندن",
+  "cookies.title": "ملفات تعريف الارتباط | غرف مجلس ليندن",
+  "datenschutz.title": "سياسة الخصوصية | غرف مجلس ليندن",
   "gallery.title": "المعرض — Lindener Ratsstuben",
   "home.description": "مرحباً بكم في Lindener Ratsstuben. استمتعوا بالأطباق الإيطالية والمتوسطية المعدة بشغف.",
   "home.title": "الرئيسية | Lindener Ratsstuben",
+  "impressum.title": "بصمة | غرف مجلس ليندن",
+  "kegelbahn.title": "صالة بولينج | غرف مجلس ليندن",
   "menu.title": "القائمة | Lindener Ratsstuben",
-  "reservation.title": "حجز | Lindener Ratsstuben"
+  "reservation.title": "حجز | Lindener Ratsstuben",
+  "widerruf.title": "سياسة الإلغاء | غرف مجلس ليندن"
 }

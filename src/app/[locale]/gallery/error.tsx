@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { RefreshCw, Image as ImageIcon } from 'lucide-react';
 import { Container } from '@/components/layout/Container';
 import Link from 'next/link';
+import { useTranslation } from '@/lib/i18n/use-translation';
 
 export default function GalleryError({
   error,
@@ -12,6 +13,8 @@ export default function GalleryError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const { t } = useTranslation('common');
+
   useEffect(() => {
     console.error('Gallery error:', error);
   }, [error]);
@@ -19,11 +22,10 @@ export default function GalleryError({
   return (
     <Container className="py-24 text-center">
       <h2 className="text-3xl font-display font-bold text-text-main mb-6">
-        Die Galerie konnte nicht geladen werden
+        {t('error.gallery_title') as string}
       </h2>
       <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
-        Unsere Bilder sind derzeit nicht abrufbar. 
-        Bitte versuchen Sie es erneut oder stöbern Sie in der Zwischenzeit auf unseren anderen Seiten.
+        {t('error.gallery_description') as string}
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <button
@@ -31,14 +33,14 @@ export default function GalleryError({
           className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-medium hover:bg-primary-hover transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30"
         >
           <RefreshCw className="w-5 h-5" />
-          Erneut versuchen
+          {t('error.try_again') as string}
         </button>
         <Link
           href="/"
           className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-bg-secondary text-text-primary rounded-xl font-medium hover:bg-border transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30"
         >
           <ImageIcon className="w-5 h-5" />
-          Zurück zur Startseite
+          {t('error.go_home') as string}
         </Link>
       </div>
     </Container>

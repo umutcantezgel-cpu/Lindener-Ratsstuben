@@ -36,11 +36,6 @@ class AnalyticsService {
         // Only track if consent allows it
         if (this.config.consentLevel === 'none') return;
 
-        // Log to console in development
-        if (process.env.NODE_ENV === 'development') {
-            console.debug('[Analytics]', event.type, event);
-        }
-
         // Send to custom endpoint (batched, privacy-first)
         this.sendToCustomEndpoint(event);
     }

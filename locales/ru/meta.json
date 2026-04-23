@@ -1,9 +1,17 @@
 {
   "about.title": "О нас | Lindener Ratsstuben",
+  "agb.title": "Условия использования | Палаты совета Линдена",
+  "barrierefreiheit.title": "Доступность | Палаты совета Линдена",
   "contact.title": "Контакты — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Политика использования файлов cookie | Палаты совета Линдена",
+  "cookies.title": "Файлы cookie | Палаты совета Линдена",
+  "datenschutz.title": "Политика конфиденциальности | Палаты совета Линдена",
   "gallery.title": "Галерея — Lindener Ratsstuben",
   "home.description": "Добро пожаловать в Lindener Ratsstuben. Наслаждайтесь итальянскими и средиземноморскими блюдами, приготовленными с любовью.",
   "home.title": "Главная | Lindener Ratsstuben",
+  "impressum.title": "Выходные данные | Палаты совета Линдена",
+  "kegelbahn.title": "боулинг | Палаты совета Линдена",
   "menu.title": "Меню | Lindener Ratsstuben",
-  "reservation.title": "Бронирование | Lindener Ratsstuben"
+  "reservation.title": "Бронирование | Lindener Ratsstuben",
+  "widerruf.title": "Политика отмены | Палаты совета Линдена"
 }

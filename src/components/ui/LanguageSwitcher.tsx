@@ -5,6 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { ChevronDown, Check, Search } from 'lucide-react';
 import { clsx } from 'clsx';
 import { ALLOWED_LOCALES, LOCALE_DISPLAY_NAMES, ACTIVE_LOCALES, isRTL, type LocaleType } from '@/lib/locales';
+import { useTranslation } from '@/lib/i18n/use-translation';
 
 // Flag emojis for each locale
 const LOCALE_FLAGS: Record<string, string> = {
@@ -26,6 +27,7 @@ const LOCALE_NATIVE_NAMES: Record<string, string> = {
  * Supports header and footer variants with distinct styling.
  */
 export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobile' }> = ({ variant = 'header' }) => {
+  const { t } = useTranslation('common');
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const deferredSearchQuery = useDeferredValue(searchQuery);
@@ -137,7 +139,7 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
                 : 'top-full bg-surface/98 border-border w-80 end-0',
           )}
           role="listbox"
-          aria-label="Available languages"
+          aria-label={t('aria.available_languages') as string}
         >
           {/* Search */}
           <div className="p-3 border-b border-border">
@@ -148,7 +150,7 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search..."
+                placeholder={t('aria.search_placeholder') as string || 'Search...'}
                 className="w-full ps-9 pe-3 py-2.5 text-sm rounded-xl outline-none transition-colors bg-bg-secondary text-text-primary placeholder-text-tertiary focus:ring-2 focus:ring-primary/30 focus:bg-surface"
               />
             </div>
@@ -158,7 +160,7 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
           <div className="max-h-80 overflow-y-auto py-1 scrollbar-thin">
             {filteredLocales.length === 0 ? (
               <div className="px-4 py-8 text-center text-sm text-text-tertiary">
-                No results
+                {t('aria.no_results') as string || 'No results'}
               </div>
             ) : (
               filteredLocales.map((locale) => (

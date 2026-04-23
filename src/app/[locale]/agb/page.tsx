@@ -1,19 +1,25 @@
-
 import { LegalPageLayout } from '@/components/legal/LegalPageLayout';
 import { companyData } from '@/data/company';
 import { Metadata } from 'next';
+import { getTranslations } from '@/lib/i18n/get-translations';
+import { LocaleType } from '@/lib/locales';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-    await params;
+    const { locale } = await params;
+    const t = await getTranslations(locale as LocaleType, 'meta');
     return {
-        title: `Allgemeine Geschäftsbedingungen | ${companyData.companyName}`,
+        title: t('agb.title'),
         description: 'Allgemeine Geschäftsbedingungen (AGB) für Reservierungen und Veranstaltungen in den Lindener Ratsstuben.',
     };
 }
 
-export default async function AGBPage() {
+export default async function AGBPage({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    const t = await getTranslations(locale as LocaleType, 'meta');
+    const title = t('agb.title').split(' |')[0];
+
     return (
-        <LegalPageLayout title="Allgemeine Geschäftsbedingungen" lastUpdated="April 2026">
+        <LegalPageLayout title={title} lastUpdated="April 2026">
             <h2>1. Geltungsbereich und Vertragspartner</h2>
             <p>
                 1.1 Diese Allgemeinen Geschäftsbedingungen (im Folgenden „AGB“ genannt) gelten für sämtliche Verträge, Leistungen und Lieferungen, die zwischen den {companyData.companyName} (im Folgenden „Restaurant“ oder „wir“) und ihren Gästen, Kunden sowie Veranstaltern (im Folgenden gemeinsam „Gast“ genannt) geschlossen bzw. erbracht werden.

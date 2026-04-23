@@ -1,9 +1,17 @@
 {
   "about.title": "Over Ons | Lindener Ratsstuben",
+  "agb.title": "Algemene voorwaarden | Linden raadszaal",
+  "barrierefreiheit.title": "Toegankelijkheid | Linden raadszaal",
   "contact.title": "Contact — Lindener Ratsstuben",
+  "cookie_richtlinie.title": "Cookiebeleid | Linden raadszaal",
+  "cookies.title": "Koekjes | Linden raadszaal",
+  "datenschutz.title": "Privacybeleid | Linden raadszaal",
   "gallery.title": "Galerij — Lindener Ratsstuben",
   "home.description": "Welkom bij Lindener Ratsstuben. Geniet van Italiaanse en mediterrane specialiteiten, bereid met passie.",
   "home.title": "Startpagina | Lindener Ratsstuben",
-  "menu.title": "Menu | Lindener Ratsstuben",
-  "reservation.title": "Reservering | Lindener Ratsstuben"
+  "impressum.title": "Impressum | Linden raadszaal",
+  "kegelbahn.title": "bowlingbaan | Linden raadszaal",
+  "menu.title": "Menukaart | Lindener Ratsstuben",
+  "reservation.title": "Reservering | Lindener Ratsstuben",
+  "widerruf.title": "Annuleringsbeleid | Linden raadszaal"
 }

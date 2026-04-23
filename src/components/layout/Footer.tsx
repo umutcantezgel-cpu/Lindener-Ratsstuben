@@ -1,7 +1,8 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { Flame, Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
+import { Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
+import Image from 'next/image';
 import { companyData } from '@/data/company';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
@@ -17,17 +18,22 @@ export const Footer: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand */}
                     <div className="space-y-6">
-                        <div className="flex items-center gap-2" aria-hidden="true">
-                            <Flame className="w-6 h-6 text-primary-500" />
-                            <span className="text-xl font-display font-medium tracking-tight">{companyData.companyName.toUpperCase()}</span>
+                        <div className="inline-flex items-center px-5 py-3 rounded-xl" style={{ backgroundColor: 'rgba(10, 10, 11, 0.92)' }} aria-hidden="true">
+                            <Image
+                                src="/images/logo.svg"
+                                alt={companyData.companyName}
+                                width={160}
+                                height={58}
+                                className="w-auto h-10 brightness-0 invert"
+                            />
                         </div>
                         <p className="text-text-secondary leading-relaxed text-sm">
                             {tCommon('footer.brand_description') as string}
                         </p>
-                        <ul className="flex gap-4 m-0 p-0 list-none" aria-label="Social Media Profile">
+                        <ul className="flex gap-4 m-0 p-0 list-none" aria-label={t('footer.social_media_profile') as string}>
                             {[
-                                { icon: Instagram, label: "Instagram Profil", href: "#" }, 
-                                { icon: Facebook, label: "Facebook Profil", href: "#" }
+                                { icon: Instagram, label: t('footer.instagram_profile') as string, href: "#" }, 
+                                { icon: Facebook, label: t('footer.facebook_profile') as string, href: "#" }
                             ].map((social, i) => (
                                 <li key={i}>
                                     <a 
@@ -45,8 +51,8 @@ export const Footer: React.FC = () => {
                     </div>
 
                     {/* Quick Links */}
-                    <nav aria-label="Footer Navigation">
-                        <h3 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">Quick Links</h3>
+                    <nav aria-label={t('footer.navigation') as string}>
+                        <h3 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.quick_links') as string}</h3>
                         <ul className="space-y-3 m-0 p-0 list-none">
                             {[
                                 { name: t('nav.home') as string, path: '/' },
@@ -94,7 +100,7 @@ export const Footer: React.FC = () => {
                     </address>
 
                     {/* Hours */}
-                    <section aria-label="Opening Hours">
+                    <section aria-label={t('footer.opening_hours') as string}>
                         <h3 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.opening_hours') as string}</h3>
                         <ul className="space-y-3 text-text-secondary text-sm m-0 p-0 list-none">
                             <li className="flex justify-between border-b border-border pb-2">
@@ -113,7 +119,7 @@ export const Footer: React.FC = () => {
                     <p>© {new Date().getFullYear()} {companyData.companyName}. {tCommon('footer.rights') as string}</p>
                     <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                         <LanguageSwitcher variant="footer" />
-                        <nav aria-label="Legal links" className="flex gap-6 w-full sm:w-auto mt-4 sm:mt-0">
+                        <nav aria-label={t('footer.legal_links') as string} className="flex gap-6 w-full sm:w-auto mt-4 sm:mt-0">
                             <ul className="flex flex-wrap justify-center sm:justify-end gap-x-6 gap-y-3 m-0 p-0 list-none">
                                 <li><Link href="/impressum" className="hover:text-primary transition-colors">{t('footer.imprint') as string}</Link></li>
                                 <li><Link href="/datenschutz" className="hover:text-primary transition-colors">{t('footer.privacy') as string}</Link></li>

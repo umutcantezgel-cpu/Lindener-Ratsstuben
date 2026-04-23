@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTranslation } from '@/lib/i18n/use-translation';
 
 export function StickyCta() {
+  const { t } = useTranslation('common');
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
 
@@ -51,7 +53,7 @@ export function StickyCta() {
             setIsDismissed(true);
           }}
           className="text-text-tertiary hover:text-text-primary"
-          aria-label="Schließen"
+          aria-label={t('aria.close') as string}
         >
           ✕
         </button>
