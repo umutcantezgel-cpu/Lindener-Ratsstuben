@@ -7,6 +7,11 @@ import { Shield } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslation } from '@/lib/i18n/use-translation';
 
+/**
+ * @deprecated Use `CookieConsentBanner` from `@/components/legal/CookieConsentBanner` instead.
+ * This simplified banner lacks granular category toggles and Framer Motion animations.
+ * Kept for backwards compatibility — do not use in new code.
+ */
 export function CookieBanner() {
     const [visible, setVisible] = useState(false);
     const { t } = useTranslation('common');
