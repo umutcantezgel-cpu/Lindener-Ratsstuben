@@ -21,10 +21,19 @@ const categoryImageMap: Record<string, string> = {
     'familienpizza': '/images/category_pizza.png',
     'rotweine': '/images/category_wein.png',
     'weissweine': '/images/category_wein.png',
-    'aperitif': '/images/category_wein.png',
+    'aperitif': '/images/category_aperitif.png',
 };
 
 const dishImageMap: Record<string, string> = {
+    '1': '/images/category_aperitif.png',
+    '2': '/images/category_aperitif.png',
+    '3': '/images/category_aperitif.png',
+    '4': '/images/category_aperitif.png',
+    '5': '/images/category_aperitif.png',
+    '6': '/images/category_aperitif.png',
+    '7': '/images/category_aperitif.png',
+    '8': '/images/category_aperitif.png',
+    '9': '/images/category_aperitif.png',
     '10': '/images/menu/suppen/10-tagessuppe.png',
     '11': '/images/menu/suppen/11-tomatencremesuppe.png',
     '20': '/images/menu/vorspeisen/20-klassische-bruschetta.png',

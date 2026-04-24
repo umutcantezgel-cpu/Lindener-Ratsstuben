@@ -30,9 +30,10 @@ export default function PrintMenuPage() {
 
 
       <PrintPage pageNum="III">
-        <h1 className="page-heading">Aperitif</h1>
+        <DishCategory dropcap="A" title="Aperitif" marginTop="10px" marginBottom="10px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="aperitif" />
+          <Quote text="Ein prickelnder Start in einen genussvollen Abend." />
         </div>
       </PrintPage>
 
@@ -45,7 +46,7 @@ export default function PrintMenuPage() {
         <DishCategory dropcap="V" title="Vorspeisen" marginTop="10px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="vorspeisen" />
-          <Quote text="Kochen ist ein Akt der Liebe" />
+          <Quote text="Auch als stilvolle Antipasti-Platten für mehrere Personen erhältlich. Pro Person 13,90 €" />
         </div>
         {/* SSOT-Fußnote wörtlich */}
         <div className="fn">Unsere Suppen &amp; Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße &amp; Knoblauch 6,50€</div>
