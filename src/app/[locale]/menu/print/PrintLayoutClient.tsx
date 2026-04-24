@@ -41,11 +41,6 @@ export default function PrintLayoutClient() {
     // Ensure fonts are loaded
     document.fonts.ready.then(() => {
         setFontsLoaded(true);
-        // Auto-trigger print dialogue shortly after fonts are loaded
-        setTimeout(() => {
-          const btn = document.getElementById('auto-print-btn');
-          if (btn) btn.click();
-        }, 800);
     });
 
     // Intersection Observer for Entrance Animations (Awwwards-Level Polish)

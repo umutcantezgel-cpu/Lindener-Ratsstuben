@@ -37,14 +37,7 @@ export function CategoryMapper({
           id={item.nr}
           name={item.name}
           price={item.price === null ? "Preis auf Anfrage" : formatCurrency(item.price, locale)}
-          desc={item.nr === '25' ? (
-            <>
-              {item.description?.split('. Auch als')[0]}.{' '}
-              <span style={{ color: 'var(--gold-deep, #b8860b)', fontSize: '1.05em', fontWeight: 500 }}>
-                Auch als{item.description?.split('. Auch als')[1]}
-              </span>
-            </>
-          ) : item.description}
+          desc={item.description}
           marginBottom={marginBottom}
           descStyle={descStyle}
         />

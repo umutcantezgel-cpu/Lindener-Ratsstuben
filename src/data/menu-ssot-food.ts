@@ -17,7 +17,7 @@ export const foodItems: SSOTMenuItem[] = [
   { nr: '22', name: 'La Buratta', description: 'Cremige Burrata auf feinem Tomaten-Carpaccio, verfeinert mit einer Balsamico-Kräutervinaigrette und Genovese-Basilikum Pesto', price: 13.90, category: 'vorspeisen', allergens: [] },
   { nr: '23', name: 'Vitello Tonnato', description: 'Zart rosa gegartes Kalbfleisch, fein aufgeschnitten, begleitet von einer cremigen Thunfischsauce mit Kapern, Sardellen & Ei.', price: 14.90, category: 'vorspeisen', allergens: [] },
   { nr: '24', name: 'Carpaccio di Manzo', description: 'hauchdünn geschnittenes argentinisches Rinderfilet auf mariniertem Rucola, mit frischen Champignons und gehobeltem Grana Padano, verfeinert mit extra nativem Olivenöl.', price: 15.90, category: 'vorspeisen', allergens: [] },
-  { nr: '25', name: 'Antipasti Misti della Casa', description: 'Eine erlesene Auswahl italienischer Vorspeisenspezialitäten nach Art des Hauses – warm und kalt serviert. Auch als stilvolle Antipasti-Platten für mehrere Personen erhältlich. Pro Person 13,90 €', price: 16.90, category: 'vorspeisen', allergens: [] },
+  { nr: '25', name: 'Antipasti Misti della Casa', description: 'Eine erlesene Auswahl italienischer Vorspeisenspezialitäten nach Art des Hauses – warm und kalt serviert.', price: 16.90, category: 'vorspeisen', allergens: [] },
 
   // ─── §3.3 Salate ────────────────────────────────────────────
   { nr: '30', name: 'Insalata Mista', description: 'Kleiner, bunter Salatteller – ideal als Beilage oder Vorspeise.', price: 7.90, category: 'salate', allergens: [] },
@@ -30,8 +30,8 @@ export const foodItems: SSOTMenuItem[] = [
 
   // ─── §3.4 Pasta ─────────────────────────────────────────────
   { nr: '40', name: 'Spaghetti alla Bolognese', description: 'mit geschmortem Rinderhackfleisch in würziger Tomatensauce, serviert mit frisch geriebenem Parmigiano', price: 12.90, category: 'pasta', allergens: [] },
-  { nr: '41', name: 'Original Spaghetti Carbonara', description: 'mit knusprigem Guanciale (Schweinebacke), Ei, grob geschrotetem Pfeffer und serviert mit frisch geriebenem Parmigiano', price: 14.90, category: 'pasta', allergens: [] },
-  { nr: '42', name: 'Rigatoni alla Puglia', description: 'mit knusprigem Guanciale (Schweinebacke), Brokkoli, Zwiebeln und einem Hauch Knoblauch in aromatischer Tomatensauce, frisch serviert mit geriebenem Parmigiano', price: 16.90, category: 'pasta', allergens: [] },
+  { nr: '41', name: 'Original Spaghetti Carbonara', description: 'mit knusprigem Guanciale (Schweinebacke), Ei, grob geschrotetem Pfeffer serviert mit frisch geriebenem Parmigiano', price: 14.90, category: 'pasta', allergens: [] },
+  { nr: '42', name: 'Rigatoni alla Puglia', description: 'mit knusprigem Guanciale (Schweinebacke), Brokkoli, Zwiebeln und einem Hauch Knoblauch in aromatischer Tomatensauce, serviert mit frisch geriebenem Parmigiano', price: 16.90, category: 'pasta', allergens: [] },
   { nr: '43', name: 'Rigatoni \u201ERatsstube\u201C', description: 'mit gebratener Hähnchenbrust und frischen Champignons in cremiger Tomaten-Sahnesauce, serviert mit frisch geriebenem Parmigiano', price: 16.90, category: 'pasta', allergens: [] },
   { nr: '44', name: 'Tagliatelle al Ragù di Verdure', description: 'feine Bandnudeln mit frischem Marktgemüse Ragout in aromatischer Tomatensauce, serviert mit frisch geriebener Parmigiano', price: 14.90, category: 'pasta', allergens: [] },
   { nr: '45', name: 'Tagliatelle Salmone e Gamberoni', description: 'feine Bandnudeln mit gebratenem Lachsfilet und Garnelen, verfeinert mit einem Hauch Knoblauch in cremiger Sauce nach Art des Hauses', price: 17.90, category: 'pasta', allergens: [] },
