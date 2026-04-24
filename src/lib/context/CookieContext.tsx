@@ -1,6 +1,8 @@
 'use client';
 
-import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useEffect, useState, useCallback, ReactNode } from 'react';
+import { logConsentEvent, requiresReConsent } from '@/lib/consent-logger';
+import { setConsentState as setLegacyConsentState } from '@/lib/analytics/consent';
 
 // Define the different cookie categories required for 20X Compliance (GDPR/TDDDG)
 export type CookiePreferences = {
@@ -39,8 +41,13 @@ export const CookieProvider = ({ children }: { children: ReactNode }) => {
         const parsed = JSON.parse(stored) as CookiePreferences;
         setPreferences(parsed);
         setHasConsented(true);
+
+        // DSGVO: Re-consent check when consent revision changes
+        if (requiresReConsent()) {
+          setShowBanner(true);
+        }
       } else {
-        // Fallback or Initial state
+        // No prior consent — show banner (Privacy by Default)
         setShowBanner(true);
       }
     } catch {
@@ -49,16 +56,43 @@ export const CookieProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  const savePreferences = (prefs: CookiePreferences) => {
+  // DSGVO Art. 7(3): Enable footer "Cookie-Einstellungen" button
+  // Listens for 'open-cookie-preferences' event dispatched from Footer.tsx
+  useEffect(() => {
+    const handleOpenPreferences = () => {
+      setShowBanner(true);
+      setShowPreferences(true);
+    };
+
+    window.addEventListener('open-cookie-preferences', handleOpenPreferences);
+    return () => {
+      window.removeEventListener('open-cookie-preferences', handleOpenPreferences);
+    };
+  }, []);
+
+  const savePreferences = useCallback((prefs: CookiePreferences) => {
     setPreferences(prefs);
     setHasConsented(true);
     setShowBanner(false);
     setShowPreferences(false);
     try {
+      // Primary store
       localStorage.setItem(COOKIE_PREFERENCES_KEY, JSON.stringify(prefs));
-      
-      // Zero-Script-Policy implementation
-      // Here you could trigger GTM/Analytics script load if prefs.analytics === true
+
+      // DSGVO: Synchronize legacy consent store for AnalyticsService compatibility
+      setLegacyConsentState({
+        analytics: prefs.analytics,
+        marketing: prefs.marketing,
+      });
+
+      // DSGVO Art. 7(1): Log consent event for audit trail
+      logConsentEvent({
+        necessary: true,
+        analytics: prefs.analytics,
+        marketing: prefs.marketing,
+      });
+
+      // Event dispatch for dynamically loaded scripts
       if (prefs.analytics) {
         window.dispatchEvent(new Event('cookies:analytics:accepted'));
       }
@@ -68,7 +102,7 @@ export const CookieProvider = ({ children }: { children: ReactNode }) => {
     } catch {
       console.error("Could not save cookie preferences.");
     }
-  };
+  }, []);
 
   const acceptAll = () => {
     savePreferences({
