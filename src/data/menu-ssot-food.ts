@@ -55,7 +55,7 @@ export const foodItems: SSOTMenuItem[] = [
   { nr: '71', name: 'Rahm-Schnitzel', description: 'in Cremigen Rahm Soße. Dazu servieren wir Pommes Frites & Salat der Saison', price: 18.90, category: 'schnitzel', allergens: [] },
   { nr: '72', name: 'Jäger-Schnitzel', description: 'mit frischen Champignons in Brauner Soße. Dazu servieren wir Pommes Frites & Salat der Saison', price: 19.90, category: 'schnitzel', allergens: [] },
   { nr: '73', name: 'Pfeffer-Schnitzel', description: 'Mit Grünen Madagaskar-Pfefferkörnern in cremige Rahmsoße. Dazu servieren wir Pommes Frites & Salat der Saison.', price: 19.90, category: 'schnitzel', allergens: [] },
-  { nr: '74', name: 'Schnitzel Bolognese', description: 'überbacken mit Vorder Schinken u. Käse in geschmorter Rinderhackfleischsoße', price: null, category: 'schnitzel', allergens: [] },
+  { nr: '74', name: 'Schnitzel Bolognese', description: 'überbacken mit Vorder Schinken u. Käse in geschmorter Rinderhackfleischsoße', price: 20.90, category: 'schnitzel', allergens: [] },
   { nr: '74', name: 'Bauern-Schnitzel', description: 'mit knusprig gebratenem Speck & Zwiebeln. Dazu servieren wir Pommes Frites & Salat der Saison', price: 20.90, category: 'schnitzel', allergens: [] },
   { nr: '75', name: 'Schlemmer-Schnitzel', description: 'mit frischem Champignon in Cremige Bernaise Soße. Dazu servieren wir Pommes Frites & Salat der Saison.', price: 21.90, category: 'schnitzel', allergens: [] },
   { nr: '76', name: 'Lindener Rucksack', description: 'gefüllt mit Vorder-Schinken & Mozzarella Käse in frischem Champignon Sahne Soße', price: 22.90, category: 'schnitzel', allergens: [] },
@@ -69,7 +69,7 @@ export const foodItems: SSOTMenuItem[] = [
   { nr: '85', name: 'Bistecca al Pepe Verde', description: 'Argent. Rumpsteak vom Lava Grill mit grünen Madagaskar Pfefferkörner in cremigen Rahm Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln', price: 32.90, category: 'fleisch-fisch', allergens: [] },
   { nr: '86', name: 'Orata con Burro al Limone e Aglio', description: 'Frisches Doraden Filet, geschwenkt in einer feinen Zitronen-Kräuter-Knoblauch-Buttersauce. Dazu servieren wir frisches Marktgemüse u. Gourmet Kartoffeln.', price: 26.90, category: 'fleisch-fisch', allergens: [] },
   { nr: '87', name: 'Salmone alla Griglia salsa all\u0060Arancia e Senape', description: 'Saftiges Lachsfilet aus Norwegen, frisch vom Grill in Cremigen Orangensenf Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln.', price: 27.90, category: 'fleisch-fisch', allergens: [] },
-  { nr: '88', name: 'Filetto di Lucioperca con Guanciale', description: 'Gebratenes Zanderfilet mit Guanciale (Schweinebacke) in Weißwein-Kräutersauce. Dazu servieren wir frisches Marktgemüse u. Gourmet Kartoffeln.', price: 0, category: 'fleisch-fisch', allergens: [] },
+  { nr: '88', name: 'Filetto di Lucioperca con Guanciale', description: 'Gebratenes Zanderfilet mit Guanciale (Schweinebacke) in Weißwein-Kräutersauce. Dazu servieren wir frisches Marktgemüse u. Gourmet Kartoffeln.', price: 25.90, category: 'fleisch-fisch', allergens: [] },
 
 
   // ─── §3.9 Pizza aus dem Steinofen / 28 cm ───────────────────

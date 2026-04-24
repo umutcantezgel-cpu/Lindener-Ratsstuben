@@ -89,6 +89,16 @@ export default function Flyer8Page() {
             <p style={{ marginTop: '1.5mm', color: '#D4AF37' }}>Montag Ruhetag</p>
           </div>
 
+          {/* Marketing Partner Logos */}
+          <div style={{ marginTop: '3mm', textAlign: 'center' }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/marketing-logos.svg"
+              alt="Marketing Partner Logos"
+              style={{ width: '100%', maxWidth: '70mm', height: 'auto', opacity: 0.8 }}
+            />
+          </div>
+
           {/* Allergen-Hinweis (LMIV-Pflicht) */}
           <div className="legal-disclaimer">
             Alle Preise in Euro (€). Irrtümer, Preisänderungen<br/>

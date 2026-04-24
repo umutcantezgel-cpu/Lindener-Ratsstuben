@@ -194,9 +194,12 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
 
             {/* Category Note / Footnote */}
             {currentNote && (
-                <div className="mb-8 text-center text-text-secondary text-sm bg-bg-primary/80 px-6 py-3 rounded-xl max-w-3xl mx-auto border border-border">
+                <div className="mb-8 text-center text-text-secondary text-sm bg-bg-primary/80 px-6 py-3 rounded-xl max-w-3xl mx-auto border border-border whitespace-pre-wrap">
                     <Info className="w-4 h-4 inline-block me-2 -mt-0.5" aria-hidden="true" />
-                    {currentNote}
+                    {currentNote.split(/(\*\*.*?\*\*)/).map((part, j) => 
+                        part.startsWith('**') && part.endsWith('**') ? 
+                        <strong key={j}>{part.slice(2, -2)}</strong> : part
+                    )}
                 </div>
             )}
 
