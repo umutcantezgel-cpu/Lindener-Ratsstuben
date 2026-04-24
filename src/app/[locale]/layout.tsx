@@ -101,8 +101,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/react';
+const ConsentGatedAnalytics = dynamic(() => import('@/components/analytics/ConsentGatedAnalytics').then(mod => mod.ConsentGatedAnalytics), { ssr: false });
 
 export default async function RootLayout({
   children,
@@ -130,6 +129,7 @@ export default async function RootLayout({
       <head>
         <JsonLd data={jsonLd} />
         <link rel="llms" href="/llms.txt" />
+        <link rel="llms-full" href="/llms-full.txt" />
       </head>
       <body suppressHydrationWarning className="font-body text-text-primary bg-bg-primary overflow-x-hidden" itemScope itemType="https://schema.org/WebPage">
         <WebVitals />
@@ -162,7 +162,8 @@ export default async function RootLayout({
                       <BackToTop />
                       <ToastContainer />
                       <CookieConsentBanner />
-                      <AiKnowledgeBase />
+                      <ConsentGatedAnalytics />
+                      <AiKnowledgeBase locale={locale} />
                     </div>
                   </ErrorBoundary>
                   </GlobalMotionProvider>
@@ -172,8 +173,7 @@ export default async function RootLayout({
             </CookieProvider>
           </UserJourneyProvider>
         </DeviceProvider>
-        <SpeedInsights />
-        <Analytics />
+        {/* Analytics removed from here — now consent-gated via ConsentGatedAnalytics inside CookieProvider */}
       </body>
     </html>
   );
