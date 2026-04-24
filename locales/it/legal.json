@@ -2,7 +2,10 @@
   "accessibility.title": "Accessibilità",
   "cookies.title": "Politica Cookie",
   "imprint.title": "Note legali",
+  "legal.binding_notice": "Solo la versione tedesca di questo documento è giuridicamente vincolante.",
+  "legal.last_updated": "Aggiornato al",
   "legal.only_german": "Questo contenuto è disponibile solo in tedesco per motivi legali.",
+  "legal.original_below": "Il testo originale in tedesco è mostrato di seguito.",
   "privacy.title": "Privacy",
   "terms.title": "Termini e Condizioni"
 }

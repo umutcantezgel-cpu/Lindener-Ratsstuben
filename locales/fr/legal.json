@@ -2,7 +2,10 @@
   "accessibility.title": "Accessibilité",
   "cookies.title": "Politique de Cookies",
   "imprint.title": "Mentions légales",
+  "legal.binding_notice": "Seule la version allemande de ce document fait foi.",
+  "legal.last_updated": "Mise à jour",
   "legal.only_german": "Ce contenu n'est disponible qu'en allemand pour des raisons légales.",
+  "legal.original_below": "Le texte original en allemand est affiché ci-dessous.",
   "privacy.title": "Politique de Confidentialité",
   "terms.title": "Conditions Générales"
 }

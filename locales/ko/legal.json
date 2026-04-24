@@ -2,7 +2,10 @@
   "accessibility.title": "접근성",
   "cookies.title": "쿠키 정책",
   "imprint.title": "법적 고지",
+  "legal.binding_notice": "본 문서의 독일어 버전만 법적 구속력이 있습니다.",
+  "legal.last_updated": "최종 업데이트",
   "legal.only_german": "법적 이유로 이 콘텐츠는 독일어로만 제공됩니다.",
+  "legal.original_below": "독일어 원문은 아래에 표시됩니다.",
   "privacy.title": "개인정보 보호정책",
   "terms.title": "이용약관"
 }

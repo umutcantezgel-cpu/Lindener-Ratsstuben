@@ -21,6 +21,7 @@ const categoryImageMap: Record<string, string> = {
     'familienpizza': '/images/category_pizza.png',
     'rotweine': '/images/category_wein.png',
     'weissweine': '/images/category_wein.png',
+    'aperitif': '/images/category_wein.png',
 };
 
 const dishImageMap: Record<string, string> = {

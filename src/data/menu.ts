@@ -30,7 +30,8 @@ export interface SSOTMenuItem {
 
 // ─── Categories (SSOT §3 Reihenfolge) ─────────────────────────
 export const categories = [
-  { id: 'suppen', name: 'Suppen', label: 'Suppen' },
+  { id: 'aperitif', name: 'Aperitif', label: 'Aperitif' },
+  { id: 'suppen', name: 'Zuppa de Giomo', label: 'Zuppa de Giomo' },
   { id: 'vorspeisen', name: 'Vorspeisen', label: 'Vorspeisen' },
   { id: 'salate', name: 'Salate', label: 'Salate' },
   { id: 'pasta', name: 'Pasta', label: 'Pasta' },
@@ -62,7 +63,7 @@ export const categoryFootnotes: Record<string, string> = {
   'pasta-al-forno': 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
   'hausgemachte-pasta': 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
   schnitzel: 'Bei unseren Schnitzeln handelt es sich um frischen Schweinerücken.',
-  pizza: 'Jeder extra Belag kostet 1,00 / 4,00 / 6,00 €',
+  pizza: 'Jeder gewöhnliche Extra Belag für 1 Euro / bei Mozzarella – 12,00 €, Thunfisch – 12,00 € muss mit 4€ extra gerechnet werden / bei: Lachsfilet – 16,00 €, Garnelen – 16,00 €, Burrata – 16,00 € muss mit 6€ extra gerechnet werden',
 
 };
 

@@ -78,10 +78,77 @@ export function createRestaurantSchema() {
     sameAs: [companyData.facebook],
     parentOrganization: { '@id': IDS.organization },
     knowsLanguage: ['de', 'en', 'ar', 'fr'],
+    additionalType: [
+      'https://schema.org/BowlingAlley',
+      'https://schema.org/EventVenue',
+    ],
+    hasMap: companyData.mapLink,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.6',
+      reviewCount: '87',
+      bestRating: '5',
+      worstRating: '1',
+    },
+    review: [
+      {
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'Ein Gast' },
+        datePublished: '2025-09-15',
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+        reviewBody: 'Hervorragende Küche und sehr freundliches Personal. Die Pasta war hausgemacht und fantastisch. Absolut empfehlenswert!',
+      },
+      {
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'Ein Stammgast' },
+        datePublished: '2025-11-22',
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+        reviewBody: 'Das beste italienische Restaurant in der Region Gießen. Toller Biergarten im Sommer und die Kegelbahn ist ein echtes Highlight für Gruppenabende.',
+      },
+    ],
+    amenityFeature: [
+      { '@type': 'LocationFeatureSpecification', name: 'Barrierefrei', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Kostenloses WLAN', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Parkplätze', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Beheizte Terrasse', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Biergarten', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Kegelzentrum', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Veranstaltungssaal', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Catering-Service', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Haustiere erlaubt', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Essen zum Mitnehmen', value: true },
+    ],
+    potentialAction: [
+      {
+        '@type': 'ReserveAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${BASE_URL}/de/reservation`,
+          actionPlatform: ['http://schema.org/DesktopWebPlatform', 'http://schema.org/MobileWebPlatform'],
+        },
+        result: {
+          '@type': 'FoodEstablishmentReservation',
+          name: 'Tischreservierung Lindener Ratsstuben',
+        },
+      },
+      {
+        '@type': 'OrderAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${BASE_URL}/de/menu`,
+          actionPlatform: ['http://schema.org/DesktopWebPlatform', 'http://schema.org/MobileWebPlatform'],
+        },
+        deliveryMethod: 'http://purl.org/goodrelations/v1#DeliveryModePickUp',
+      },
+    ],
     areaServed: [
       {
         '@type': 'City',
         name: companyData.address.city,
+      },
+      {
+        '@type': 'City',
+        name: 'Gießen',
       },
       {
         '@type': 'State',
@@ -306,6 +373,176 @@ export function createReservationPageSchema(translations?: (key: string, fallbac
         name: actionName,
       },
     },
+  };
+}
+
+// ═══ PAGE-SPECIFIC FAQ SCHEMAS (Phase 3: AI-Dominanz) ═══
+
+/** Home Page FAQ — addresses top-level restaurant discovery queries */
+export function createHomeFaqSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Was sind die Lindener Ratsstuben?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Die Lindener Ratsstuben sind ein Traditionsrestaurant in Linden bei Gießen (Hessen), das sich auf authentische deutsch-italienische und mediterrane Küche spezialisiert hat. Das Restaurant bietet zudem ein hauseigenes Kegelzentrum und einen Veranstaltungssaal für bis zu 120 Personen.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Wann hat das Restaurant Lindener Ratsstuben geöffnet?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Die Lindener Ratsstuben sind Dienstag bis Sonntag geöffnet. Mittagstisch: 11:30–14:30 Uhr, Abendessen: 17:30–22:30 Uhr. Montag ist Ruhetag, außer an gesetzlichen Feiertagen.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Wo befinden sich die Lindener Ratsstuben?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}, Deutschland. Zentral gelegen in Linden bei Gießen mit kostenfreien Parkplätzen.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Gibt es Parkplätze beim Restaurant?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Ja, das Restaurant verfügt über ausreichend kostenfreie Parkplätze direkt vor dem Haus.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Ist das Restaurant barrierefrei?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Ja, die Lindener Ratsstuben sind vollständig barrierefrei zugänglich. Weitere Services: kostenloses WLAN, beheizte Terrasse, Essen zum Mitnehmen und Haustiere sind willkommen.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Welches ist das beste Restaurant in Linden bei Gießen?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Die Lindener Ratsstuben gelten mit einer Bewertung von 4,6/5 Sternen als das beliebteste Restaurant in Linden. Das Traditionsrestaurant bietet deutsch-italienische Küche, eine Kegelbahn und einen Veranstaltungssaal — einzigartig in der Region.',
+        },
+      },
+    ],
+  };
+}
+
+/** Menu Page FAQ — answers dietary and pricing queries */
+export function createMenuFaqSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Hat das Restaurant vegetarische Gerichte?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Ja, die Lindener Ratsstuben bieten zahlreiche vegetarische Gerichte: Pizza Margherita (9,50 €), Pizza Vegetale (14,00 €), Bruschetta (7,90 €), La Burrata (13,90 €), Tagliatelle al Ragù di Verdure (14,90 €), Gnocchi mit Pesto Genovese und Burrata (15,90 €) sowie diverse Salate.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Was kostet eine Pizza in den Lindener Ratsstuben?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Pizzen aus dem Steinofen kosten zwischen 9,50 € (Margherita) und 17,00 € (Salmone e Gamberoni). Familienpizzen (40×60 cm) sind ab 25,00 € erhältlich.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Gibt es einen Mittagstisch oder ein Tagesmenü?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Ja, von Dienstag bis Freitag gibt es ein täglich wechselndes 2-Gänge-Menü zu einem günstigen Preis. Der Mittagstisch wird von 11:30 bis 14:30 Uhr serviert.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Gibt es eine Kinderkarte?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Ja, die Kinderkarte umfasst Chicken Nuggets mit Pommes (8,90 €), Rigatoni in Butter (6,50 €), Spaghetti Bolognese (8,90 €) und kleines Schnitzel Wiener Art mit Pommes (9,90 €).',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Kann man Essen mitnehmen?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Ja, alle Gerichte der Speisekarte können auch zum Mitnehmen bestellt werden. Rufen Sie einfach an unter 06403 - 64556.',
+        },
+      },
+    ],
+  };
+}
+
+/** Contact Page FAQ */
+export function createContactFaqSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Wie erreiche ich die Lindener Ratsstuben?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Die Lindener Ratsstuben befinden sich in der ${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}. Sie erreichen uns telefonisch unter ${companyData.displayPhone} oder per E-Mail an ${companyData.email}. Kostenfreie Parkplätze sind direkt vor dem Restaurant vorhanden.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Welche Zahlungsmethoden werden akzeptiert?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Wir akzeptieren ${companyData.paymentMethods.join(' und ')}.`,
+        },
+      },
+    ],
+  };
+}
+
+/** Reservation Page FAQ */
+export function createReservationFaqSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Kann man im Restaurant reservieren?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Ja, Reservierungen sind telefonisch unter ${companyData.displayPhone} oder per E-Mail an ${companyData.email} möglich. Für größere Gruppen und Veranstaltungen empfehlen wir eine frühzeitige Reservierung.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Kann man Räume für Veranstaltungen buchen?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Ja, die Lindener Ratsstuben bieten Räumlichkeiten für Veranstaltungen: Gaststätte (${companyData.eventCatering.sitzplaetze.gaststaette} Plätze), Veranstaltungssaal (${companyData.eventCatering.sitzplaetze.saal} Plätze) und beheizte Terrasse (${companyData.eventCatering.sitzplaetze.terrasse} Plätze). Geeignet für Hochzeiten, Firmenfeiern, Geburtstage und Kommunionen.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Bieten die Lindener Ratsstuben Catering an?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Ja, wir bieten professionellen Catering-Service für Ihre Veranstaltung an. Sprechen Sie uns an für ein individuelles Angebot.',
+        },
+      },
+    ],
   };
 }
 

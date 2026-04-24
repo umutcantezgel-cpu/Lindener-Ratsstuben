@@ -2,7 +2,10 @@
   "accessibility.title": "Pristupačnost",
   "cookies.title": "Politika kolačića",
   "imprint.title": "Impressum",
+  "legal.binding_notice": "Samo njemačka verzija ovog dokumenta pravno je obvezujuća.",
+  "legal.last_updated": "Zadnje ažuriranje",
   "legal.only_german": "Ovaj sadržaj je iz pravnih razloga dostupan samo na njemačkom jeziku.",
+  "legal.original_below": "Izvorni njemački tekst prikazan je u nastavku.",
   "privacy.title": "Pravila privatnosti",
   "terms.title": "Uvjeti korištenja"
 }

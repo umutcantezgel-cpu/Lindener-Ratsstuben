@@ -33,6 +33,10 @@ export const CONTENT_ROUTES: ContentRoute[] = [
   { path: '/agb',           label: 'AGB',                   priority: 0.2,  changeFrequency: 'yearly',   indexable: true },
   { path: '/widerruf',      label: 'Widerrufsbelehrung',    priority: 0.2,  changeFrequency: 'yearly',   indexable: true },
   { path: '/cookies',       label: 'Cookie-Richtlinie',     priority: 0.2,  changeFrequency: 'yearly',   indexable: false },
+  { path: '/cookie-richtlinie', label: 'Cookie-Richtlinie (Detail)', priority: 0.1, changeFrequency: 'yearly', indexable: false },
+  { path: '/barrierefreiheit',  label: 'Barrierefreiheit',          priority: 0.1, changeFrequency: 'yearly', indexable: false },
+  { path: '/flyer',             label: 'Flyer',                     priority: 0.0, changeFrequency: 'never',  indexable: false },
+  { path: '/menu/print',        label: 'Speisekarte Druck',         priority: 0.0, changeFrequency: 'never',  indexable: false },
 ] as const;
 
 /**

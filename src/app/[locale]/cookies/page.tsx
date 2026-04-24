@@ -1,16 +1,17 @@
-
 import { LegalPageLayout } from '@/components/legal/LegalPageLayout';
 import { companyData } from '@/data/company';
 import { Metadata } from 'next';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
+import { getAlternates } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: LocaleType }> }): Promise<Metadata> {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
     return {
         title: t('cookies.title'),
-        description: 'Details zur Verwendung und Speicherung von Cookies.',
+        description: t('cookies.description'),
+        alternates: getAlternates(locale, 'cookies'),
     };
 }
 
@@ -20,7 +21,7 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
     const title = t('cookies.title').split('|')[0].trim() + " (Cookie Policy)";
 
     return (
-        <LegalPageLayout title={title} lastUpdated="April 2026">
+        <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale}>
             <h2>Transparenz & 20X Scale Zero-Script Architektur</h2>
             <p>
                 Diese Cookie-Richtlinie informiert Sie detailliert über die Art, den Umfang und die Zwecke der Verarbeitung von Cookies und lokal gespeicherten Daten (Local Storage) auf der Webseite der {companyData.companyName}.

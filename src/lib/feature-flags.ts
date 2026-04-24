@@ -47,16 +47,8 @@ export const featureFlags: FeatureFlags = {
         percentage: 100,
         description: "Galerie-Seite aktivieren",
     },
-    showCookieBanner: {
-        enabled: process.env.NEXT_PUBLIC_FF_COOKIE_BANNER !== 'false',
-        percentage: 100,
-        description: "Cookie-Banner aktivieren",
-    },
-    showCalendly: {
-        enabled: process.env.NEXT_PUBLIC_FF_CALENDLY === 'true',
-        percentage: 100,
-        description: "Calendly-Widget auf Reservierungsseite",
-    }
+
+
 };
 
 /**

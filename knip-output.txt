@@ -1,0 +1,187 @@
+Unused files (74)
+scripts/add-legal-keys.mjs                                
+scripts/add-meta-descriptions.mjs                         
+scripts/import-menu-to-sanity.ts                          
+src/app/[locale]/global-error.tsx                         
+src/app/[locale]/menu/print/components/AllergenLegend.tsx 
+src/app/[locale]/menu/print/components/ChefsLetter.tsx    
+src/app/[locale]/menu/print/components/PhilosophyPage.tsx 
+src/app/[locale]/menu/print/components/PrintItem.tsx      
+src/app/[locale]/menu/print/components/TableOfContents.tsx
+src/components/blog/TableOfContents.tsx                   
+src/components/cards/MenuItemCard.tsx                     
+src/components/cards/OpeningHoursCard.tsx                 
+src/components/cards/PricingCard.tsx                      
+src/components/hero/HeroAsymmetricGrid.tsx                
+src/components/kegelbahn/KegelbahnDetails.tsx             
+src/components/kegelbahn/KegelbahnHero.tsx                
+src/components/layout/Grid.tsx                            
+src/components/layout/Stack.tsx                           
+src/components/Motion/AnimateIn.tsx                       
+src/components/regional/AdaptiveRegionalCTA.tsx           
+src/components/regional/RegionalArticleTemplate.tsx       
+src/components/regional/RegionalJourneyTracker.tsx        
+src/components/sections/StatsSection.tsx                  
+src/components/sections/TestimonialSection.tsx            
+src/components/ui/Avatar.tsx                              
+src/components/ui/Badge.tsx                               
+src/components/ui/Breadcrumb.tsx                          
+src/components/ui/Button.tsx                              
+src/components/ui/Card.tsx                                
+src/components/ui/Divider.tsx                             
+src/components/ui/Input.tsx                               
+src/components/ui/StickyCta.tsx                           
+src/components/ui/StickyCtaBar.tsx                        
+src/components/ui/Typography.tsx                          
+src/hooks/useBehavioralTrigger.ts                         
+src/hooks/useConversionDistance.ts                        
+src/hooks/useConversionTracking.ts                        
+src/hooks/useCopyToClipboard.ts                           
+src/hooks/useDebounce.ts                                  
+src/hooks/useMediaQuery.ts                                
+src/hooks/useScrollDepth.ts                               
+src/hooks/useVisitorSegment.ts                            
+src/lib/analytics.ts                                      
+src/lib/analytics/error-handler.ts                        
+src/lib/analytics/hooks/useFormTracking.ts                
+src/lib/analytics/hooks/usePageTracking.ts                
+src/lib/analytics/hooks/useScrollDepth.ts                 
+src/lib/analytics/web-vitals.ts                           
+src/lib/compliance/imprint.ts                             
+src/lib/cookie-inventory.ts                               
+src/lib/data/navigation.ts                                
+src/lib/env.ts                                            
+src/lib/feature-flags.ts                                  
+src/lib/forms/validation.ts                               
+src/lib/formspree/config.ts                               
+src/lib/formspree/types.ts                                
+src/lib/hooks/useReducedMotion.ts                         
+src/lib/i18n/formatters/date.ts                           
+src/lib/i18n/glossary.ts                                  
+src/lib/i18n/performance.ts                               
+src/lib/i18n/seo.ts                                       
+src/lib/i18n/server.ts                                    
+src/lib/image-utils.ts                                    
+src/lib/internal-links.ts                                 
+src/lib/sanity/fetch.ts                                   
+src/lib/seo/link-audit.ts                                 
+src/lib/types/layout.ts                                   
+src/styles/tokens/spacing.ts                              
+src/styles/tokens/typography.ts                           
+src/types/entities.ts                                     
+src/types/result.ts                                       
+src/types/trust.ts                                        
+test-sanity.js                                            
+tests/test-utils.tsx                                      
+Unused dependencies (4)
+@radix-ui/react-slot  package.json:33:6
+plaiceholder          package.json:46:6
+sharp                 package.json:53:6
+web-vitals            package.json:58:6
+Unused devDependencies (7)
+@axe-core/cli                package.json:62:6
+@storybook/addon-a11y        package.json:64:6
+@storybook/nextjs-vite       package.json:65:6
+@testing-library/react       package.json:67:6
+@testing-library/user-event  package.json:68:6
+ajv                          package.json:76:6
+ajv-formats                  package.json:77:6
+Unlisted binaries (2)
+lsof  package.json
+tsx   package.json
+Unused exports (47)
+Contact                               src/app/[locale]/contact/PageClient.tsx:11:14    
+Gallery                               src/app/[locale]/gallery/PageClient.tsx:10:14    
+Menu                                  src/app/[locale]/menu/PageClient.tsx:23:14       
+Home                                  src/app/[locale]/PageClient.tsx:24:14            
+Reservation                           src/app/[locale]/reservation/PageClient.tsx:10:14
+AllergenBadge               function  src/components/cards/AllergenBadge.tsx:32:17     
+LMIV_ALLERGENS                        src/data/allergens.ts:10:14                      
+SSOT_VERSION                          src/data/menu.ts:14:14                           
+SSOT_DATE                             src/data/menu.ts:15:14                           
+categoryExtras                        src/data/menu.ts:77:14                           
+knownDataGaps                         src/data/menu.ts:145:14                          
+categoryNotes                         src/data/menu.ts:157:14                          
+getAllMenuItems             function  src/data/menu.ts:160:17                          
+getMenuItemsByCategory      function  src/data/menu.ts:164:17                          
+getAllCategories            function  src/data/menu.ts:169:17                          
+testimonials                          src/data/testimonials.ts:16:14                   
+getAllTestimonials          function  src/data/testimonials.ts:71:17                   
+getTestimonialById          function  src/data/testimonials.ts:88:17                   
+CONSENT_REVISION                      src/lib/consent-logger.ts:15:14                  
+getConsentLog               function  src/lib/consent-logger.ts:96:17                  
+getLatestConsentEvent       function  src/lib/consent-logger.ts:110:17                 
+useApp                                src/lib/context/AppContext.tsx:85:14             
+formatNumber                function  src/lib/i18n/formatters/number.ts:14:17          
+formatPercent               function  src/lib/i18n/formatters/number.ts:59:17          
+getMultiTranslations        function  src/lib/i18n/get-translations.ts:46:23           
+RTL_LOCALES                           src/lib/i18n/rtl.ts:7:14                         
+isRTL                       function  src/lib/i18n/rtl.ts:17:17                        
+LOCALE_FALLBACK_CHAIN                 src/lib/i18n/translations.ts:4:14                
+getFallbackLocales          function  src/lib/i18n/translations.ts:33:17               
+RTL_LOCALES                           src/lib/locales.ts:47:14                         
+SUPPORTED_REGIONS                     src/lib/locales.ts:49:14                         
+getLocaleRegions            function  src/lib/locales.ts:81:17                         
+client                                src/lib/sanity/client.ts:4:14                    
+siteSettingsQuery                     src/lib/sanity/queries.ts:4:14                   
+highlightDishesQuery                  src/lib/sanity/queries.ts:101:14                 
+createRestaurantSchema      function  src/lib/seo/schema-generators.ts:25:17           
+createOrganizationSchema    function  src/lib/seo/schema-generators.ts:172:17          
+createWebsiteSchema         function  src/lib/seo/schema-generators.ts:196:17          
+createBreadcrumbSchema      function  src/lib/seo/schema-generators.ts:233:17          
+createFAQSchema             function  src/lib/seo/schema-generators.ts:250:17          
+createLocalBusinessSchema   function  src/lib/seo/schema-generators.ts:551:17          
+getNumberParam              function  src/lib/utils/url-params.ts:7:17                 
+removeParam                 function  src/lib/utils/url-params.ts:36:17                
+buildQueryString            function  src/lib/utils/url-params.ts:45:17                
+createSlug                  function  src/types/index.ts:21:17                         
+getRegionalSlugsByCategory  function  src/utils/markdown-regional.ts:20:17             
+getRegionalArticle          function  src/utils/markdown-regional.ts:39:17             
+Unused exported types (36)
+PageClientProps      interface  src/app/[locale]/menu/PageClient.tsx:17:18
+HomeProps            interface  src/app/[locale]/PageClient.tsx:20:18     
+ContainerProps       interface  src/components/layout/Container.tsx:23:18 
+ImageVariant         type       src/components/ui/AdaptiveImage.tsx:21:13 
+AdaptiveImageProps   type       src/components/ui/AdaptiveImage.tsx:31:13 
+TrustSignalType      type       src/components/ui/TrustSignals.tsx:4:13   
+UserJourneyState     interface  src/context/UserJourneyContext.tsx:7:18   
+AllergenData         interface  src/data/allergens.ts:3:18                
+ExtraItem            interface  src/data/menu.ts:76:18                    
+ConsentCategory      type       src/lib/analytics/consent.ts:6:13         
+ConsentState         interface  src/lib/analytics/consent.ts:8:18         
+ConsentEvent         interface  src/lib/consent-logger.ts:17:18           
+AppContextType       interface  src/lib/context/AppContext.tsx:5:18       
+CookiePreferences    type       src/lib/context/CookieContext.tsx:8:13    
+Toast                interface  src/lib/context/UIContext.tsx:5:18        
+UIContextType        interface  src/lib/context/UIContext.tsx:11:18       
+LocalizedCategory    interface  src/lib/i18n/menu-data.ts:3:18            
+LocalizedMenuItem    interface  src/lib/i18n/menu-data.ts:11:18           
+ContentRoute         interface  src/lib/routes.ts:9:18                    
+Slug                 type       src/types/index.ts:13:13                  
+ISODateTime          type       src/types/index.ts:14:13                  
+ImagePath            type       src/types/index.ts:15:13                  
+AllergenCode         type       src/types/index.ts:99:13                  
+ZusatzstoffCode      type       src/types/index.ts:102:13                 
+MenuItemTag          type       src/types/index.ts:105:13                 
+SpiceLevel           type       src/types/index.ts:108:13                 
+MenuCategory         interface  src/types/index.ts:110:18                 
+MenuItem             interface  src/types/index.ts:116:18                 
+AllergenLegend       type       src/types/index.ts:131:13                 
+ZusatzstoffLegend    type       src/types/index.ts:134:13                 
+CategoryNotes        type       src/types/index.ts:137:13                 
+GalleryImage         interface  src/types/index.ts:143:18                 
+ContactFormData      interface  src/types/index.ts:156:18                 
+ReservationFormData  interface  src/types/index.ts:164:18                 
+NavLink              interface  src/types/index.ts:178:18                 
+FooterSection        interface  src/types/index.ts:184:18                 
+Duplicate exports (9)
+Contact|default                  src/app/[locale]/contact/PageClient.tsx         
+Gallery|default                  src/app/[locale]/gallery/PageClient.tsx         
+Menu|default                     src/app/[locale]/menu/PageClient.tsx            
+Home|default                     src/app/[locale]/PageClient.tsx                 
+Reservation|default              src/app/[locale]/reservation/PageClient.tsx     
+ExitIntentOverlay|default        src/components/interactive/ExitIntentOverlay.tsx
+categoryFootnotes|categoryNotes  src/data/menu.ts                                
+menuItems|strictMenuItems        src/data/menu.ts                                
+categories|strictCategories      src/data/menu.ts                                
+Configuration hints (1)

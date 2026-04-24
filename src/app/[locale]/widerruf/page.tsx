@@ -1,16 +1,17 @@
-
 import { LegalPageLayout } from '@/components/legal/LegalPageLayout';
 import { companyData } from '@/data/company';
 import { Metadata } from 'next';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
+import { getAlternates } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: LocaleType }> }): Promise<Metadata> {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
     return {
         title: t('widerruf.title'),
-        description: 'Informationen zum gesetzlichen Widerrufsrecht bei Gastronomiedienstleistungen.',
+        description: t('widerruf.description'),
+        alternates: getAlternates(locale, 'widerruf'),
     };
 }
 
@@ -20,7 +21,7 @@ export default async function WiderrufPage({ params }: { params: Promise<{ local
     const title = t('widerruf.title').split('|')[0].trim();
 
     return (
-        <LegalPageLayout title={title} lastUpdated="April 2026">
+        <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale}>
             <h2>Präambel: Kein Widerrufsrecht in der Gastronomie für Termingeschäfte</h2>
             <p>
                 Der Gesetzgeber hat für Dienstleistungen, die einen spezifischen Termin oder Zeitraum vorsehen (sogenannte Termingeschäfte), im Bereich der Gastronomie, Freizeitbetätigung und Beherbergung strikte Ausnahmeregelungen vom sonst üblichen 14-tägigen Fernabsatz-Widerrufsrecht geschaffen. Dies dient dem Schutz planungsintensiver Betriebe vor ungerechtfertigten Einnahmeausfällen und unkalkulierbaren Warenverlusten (Verderb von Lebensmitteln).

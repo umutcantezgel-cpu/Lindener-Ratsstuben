@@ -171,7 +171,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             className="flex flex-col gap-6 w-full pb-4"
                         >
                             <div className="flex flex-col items-center text-center gap-1.5 mb-2 text-white/60 text-[15px] font-light">
-                                <a href="tel:+4951145086882" className="hover:text-accent transition-colors">0511 45086882</a>
+                                <a href="tel:+49640364556" className="hover:text-accent transition-colors">06403 64556</a>
                                 <a href="mailto:info@lindener-ratsstuben.de" className="hover:text-accent transition-colors">info@lindener-ratsstuben.de</a>
                             </div>
 

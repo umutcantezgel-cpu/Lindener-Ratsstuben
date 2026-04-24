@@ -7,7 +7,7 @@ import { companyData } from '@/data/company';
 import { Suspense } from 'react';
 import { MenuSkeleton } from '@/components/ui/MenuSkeleton';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { createMenuPageSchema } from '@/lib/seo/schema-generators';
+import { createMenuPageSchema, createMenuFaqSchema } from '@/lib/seo/schema-generators';
 import { sanityFetch } from '@/lib/sanity/client';
 import { menuCategoriesQuery, dishesQuery } from '@/lib/sanity/queries';
 
@@ -119,11 +119,39 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         allergens: dish.allergens?.map(a => a.code) || [],
       };
     });
+
+    // Merge missing SSOT categories (e.g., drinks)
+    const sanityCatIds = new Set(fetchedCategories.map(c => c._id));
+    const missingSsotCats = localizedData.categories.filter(cat => !sanityCatIds.has(cat.id));
+    missingSsotCats.forEach(cat => {
+      finalCategories.push({
+        id: cat.id,
+        name: cat.name,
+        label: cat.label,
+        description: cat.description,
+      });
+    });
+
+    // Merge missing SSOT items (e.g., drinks)
+    const sanityNrs = new Set(fetchedDishes.map(d => d.nr).filter(Boolean));
+    const missingSsotItems = localizedData.menuItems.filter(item => item.nr && !sanityNrs.has(item.nr));
+    missingSsotItems.forEach((item, idx) => {
+      finalMenuItems.push({
+        id: `ssot-fallback-${item.nr || idx}`,
+        nr: item.nr,
+        name: item.name,
+        description: item.description,
+        price: item.price,
+        category: item.category,
+        allergens: item.allergens || [],
+      });
+    });
   }
 
   return (
     <>
       <JsonLd data={createMenuPageSchema()} />
+      <JsonLd data={createMenuFaqSchema()} />
       <Suspense fallback={<MenuSkeleton />}>
         <PageClient categories={finalCategories} menuItems={finalMenuItems} locale={locale} />
       </Suspense>

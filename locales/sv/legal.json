@@ -2,7 +2,10 @@
   "accessibility.title": "Tillgänglighet",
   "cookies.title": "Cookie-policy",
   "imprint.title": "Impressum",
+  "legal.binding_notice": "Endast den tyska versionen av detta dokument är juridiskt bindande.",
+  "legal.last_updated": "Senast uppdaterad",
   "legal.only_german": "Detta innehåll är av juridiska skäl endast tillgängligt på tyska.",
+  "legal.original_below": "Den ursprungliga tyska texten visas nedan.",
   "privacy.title": "Integritetspolicy",
   "terms.title": "Allmänna Villkor"
 }

@@ -18,7 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
   // ─── Static routes from the central route registry ───
-  for (const route of CONTENT_ROUTES) {
+  // Only include routes marked as indexable to prevent SEO signal conflicts
+  const indexableRoutes = CONTENT_ROUTES.filter(r => r.indexable !== false);
+  for (const route of indexableRoutes) {
     const routePath = route.path === '/' ? '' : route.path;
 
     // Default (non-locale-prefixed) HTML route
