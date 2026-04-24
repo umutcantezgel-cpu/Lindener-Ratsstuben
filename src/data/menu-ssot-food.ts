@@ -9,7 +9,7 @@ import { SSOTMenuItem } from './menu';
 export const foodItems: SSOTMenuItem[] = [
   // ─── §3.1 Suppen ────────────────────────────────────────────
   { nr: '10', name: 'Tagessuppe', description: 'Frisch zubereitet nach saisonalem Angebot.', price: 6.90, category: 'suppen', allergens: [] },
-  { nr: '11', name: 'Tomatencremesuppe', description: 'Fein abgestimmte, cremig verfeinerte Tomatensuppe.', price: 7.90, category: 'suppen', allergens: [] },
+  { nr: '11', name: 'Zuppa di Pomodoro', description: 'Fein abgestimmte, cremig verfeinerte Tomatensuppe.', price: 7.90, category: 'suppen', allergens: [] },
 
   // ─── §3.2 Vorspeisen ───────────────────────────────────────
   { nr: '20', name: 'Bruschetta Classico', description: '4 Geröstete Weißbrotscheiben mit frischen Tomatenwürfel, Zwiebeln, Oliven und Knoblauch, veredelt mit extra nativem Olivenöl. Wahlweise mit überbackenem Mozzarella (+2,00 €).', price: 7.90, category: 'vorspeisen', allergens: [] },
@@ -30,10 +30,10 @@ export const foodItems: SSOTMenuItem[] = [
 
   // ─── §3.4 Pasta ─────────────────────────────────────────────
   { nr: '40', name: 'Spaghetti alla Bolognese', description: 'mit geschmortem Rinderhackfleisch in würziger Tomatensauce, serviert mit frisch geriebenem Parmigiano', price: 12.90, category: 'pasta', allergens: [] },
-  { nr: '41', name: 'Original Spaghetti Carbonara', description: 'mit knusprigem Guanciale (Schweinebacke), Ei, grob geschrotetem Pfeffer und frisch geriebenem Parmigiano', price: 14.90, category: 'pasta', allergens: [] },
-  { nr: '42', name: 'Rigatoni alla Puglia', description: 'mit knusprigem Guanciale (Schweinebacke), Brokkoli, Zwiebeln und einem Hauch Knoblauch in aromatischer Tomatensauce, frisch mit geriebenem Parmigiano', price: 16.90, category: 'pasta', allergens: [] },
+  { nr: '41', name: 'Original Spaghetti Carbonara', description: 'mit knusprigem Guanciale (Schweinebacke), Ei, grob geschrotetem Pfeffer und serviert mit frisch geriebenem Parmigiano', price: 14.90, category: 'pasta', allergens: [] },
+  { nr: '42', name: 'Rigatoni alla Puglia', description: 'mit knusprigem Guanciale (Schweinebacke), Brokkoli, Zwiebeln und einem Hauch Knoblauch in aromatischer Tomatensauce, frisch serviert mit geriebenem Parmigiano', price: 16.90, category: 'pasta', allergens: [] },
   { nr: '43', name: 'Rigatoni \u201ERatsstube\u201C', description: 'mit gebratener Hähnchenbrust und frischen Champignons in cremiger Tomaten-Sahnesauce, serviert mit frisch geriebenem Parmigiano', price: 16.90, category: 'pasta', allergens: [] },
-  { nr: '44', name: 'Tagliatelle al Ragù di Verdure', description: 'feine Bandnudeln mit frischem Marktgemüse Ragout in aromatischer Tomatensauce, dazu frisch geriebener Parmigiano', price: 14.90, category: 'pasta', allergens: [] },
+  { nr: '44', name: 'Tagliatelle al Ragù di Verdure', description: 'feine Bandnudeln mit frischem Marktgemüse Ragout in aromatischer Tomatensauce, serviert mit frisch geriebener Parmigiano', price: 14.90, category: 'pasta', allergens: [] },
   { nr: '45', name: 'Tagliatelle Salmone e Gamberoni', description: 'feine Bandnudeln mit gebratenem Lachsfilet und Garnelen, verfeinert mit einem Hauch Knoblauch in cremiger Sauce nach Art des Hauses', price: 17.90, category: 'pasta', allergens: [] },
   { nr: '46', name: 'Linguine ai Frutti di Mare', description: 'flache Pasta mit erlesenen Meeresfrüchten in aromatischer Tomatensauce mit feiner Knoblauchnote', price: 18.90, category: 'pasta', allergens: [] },
   { nr: '47', name: 'Linguine Pesce Misto della Casa', description: 'flache Pasta mit ausgewähltem Edelfisch in feiner Weißwein-Kräutersauce Empfehlung des Küchenchefs', price: 22.90, category: 'pasta', allergens: [] },
@@ -55,6 +55,7 @@ export const foodItems: SSOTMenuItem[] = [
   { nr: '71', name: 'Rahm-Schnitzel', description: 'in Cremigen Rahm Soße. Dazu servieren wir Pommes Frites & Salat der Saison', price: 18.90, category: 'schnitzel', allergens: [] },
   { nr: '72', name: 'Jäger-Schnitzel', description: 'mit frischen Champignons in Brauner Soße. Dazu servieren wir Pommes Frites & Salat der Saison', price: 19.90, category: 'schnitzel', allergens: [] },
   { nr: '73', name: 'Pfeffer-Schnitzel', description: 'Mit Grünen Madagaskar-Pfefferkörnern in cremige Rahmsoße. Dazu servieren wir Pommes Frites & Salat der Saison.', price: 19.90, category: 'schnitzel', allergens: [] },
+  { nr: '74', name: 'Schnitzel Bolognese', description: 'überbacken mit Vorder Schinken u. Käse in geschmorter Rinderhackfleischsoße', price: null, category: 'schnitzel', allergens: [] },
   { nr: '74', name: 'Bauern-Schnitzel', description: 'mit knusprig gebratenem Speck & Zwiebeln. Dazu servieren wir Pommes Frites & Salat der Saison', price: 20.90, category: 'schnitzel', allergens: [] },
   { nr: '75', name: 'Schlemmer-Schnitzel', description: 'mit frischem Champignon in Cremige Bernaise Soße. Dazu servieren wir Pommes Frites & Salat der Saison.', price: 21.90, category: 'schnitzel', allergens: [] },
   { nr: '76', name: 'Lindener Rucksack', description: 'gefüllt mit Vorder-Schinken & Mozzarella Käse in frischem Champignon Sahne Soße', price: 22.90, category: 'schnitzel', allergens: [] },
@@ -66,8 +67,9 @@ export const foodItems: SSOTMenuItem[] = [
   { nr: '83', name: 'Filetto di Maiale al Vino Bianco e Limone', description: 'Schweinefilet Medaillons vom Grill in Weißwein, Zitronen Kräuter Knoblauch Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln.', price: 25.90, category: 'fleisch-fisch', allergens: [] },
   { nr: '84', name: 'Bistecca alla Griglia', description: 'Argent. Rumpsteak vom Lava Grill mit hausgemachter Kräuter-Butter & Zitronen Scheibe. Dazu servieren wir frischem Marktgemüse & Gourmet Kartoffeln.', price: 29.90, category: 'fleisch-fisch', allergens: [] },
   { nr: '85', name: 'Bistecca al Pepe Verde', description: 'Argent. Rumpsteak vom Lava Grill mit grünen Madagaskar Pfefferkörner in cremigen Rahm Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln', price: 32.90, category: 'fleisch-fisch', allergens: [] },
-  { nr: '86', name: 'Orata con Burro al Limone e Aglio', description: 'Frisches Doraden Filet, geschwenkt in einer feinen Zitronen-Kräuter-Knoblauch-Buttersauce. Dazu servieren wir knackiges Marktgemüse und goldbraune Gourmetkartoffeln.', price: 26.90, category: 'fleisch-fisch', allergens: [] },
+  { nr: '86', name: 'Orata con Burro al Limone e Aglio', description: 'Frisches Doraden Filet, geschwenkt in einer feinen Zitronen-Kräuter-Knoblauch-Buttersauce. Dazu servieren wir frisches Marktgemüse u. Gourmet Kartoffeln.', price: 26.90, category: 'fleisch-fisch', allergens: [] },
   { nr: '87', name: 'Salmone alla Griglia salsa all\u0060Arancia e Senape', description: 'Saftiges Lachsfilet aus Norwegen, frisch vom Grill in Cremigen Orangensenf Soße. Dazu servieren wir frisches Marktgemüse & Gourmet Kartoffeln.', price: 27.90, category: 'fleisch-fisch', allergens: [] },
+  { nr: '88', name: 'Filetto di Lucioperca con Guanciale', description: 'Gebratenes Zanderfilet mit Guanciale (Schweinebacke) in Weißwein-Kräutersauce. Dazu servieren wir frisches Marktgemüse u. Gourmet Kartoffeln.', price: 0, category: 'fleisch-fisch', allergens: [] },
 
 
   // ─── §3.9 Pizza aus dem Steinofen / 28 cm ───────────────────

@@ -3,13 +3,15 @@ import { companyData } from '@/data/company';
 import { Metadata } from 'next';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
+import { getAlternates } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
     return {
         title: t('datenschutz.title'),
-        description: 'Datenschutzerklärung der Lindener Ratsstuben gemäß DSGVO und TDDDG.',
+        description: t('datenschutz.description'),
+        alternates: getAlternates(locale, 'datenschutz'),
     };
 }
 
@@ -19,7 +21,7 @@ export default async function DatenschutzPage({ params }: { params: Promise<{ lo
     const title = t('datenschutz.title').split(' |')[0];
     
     return (
-        <LegalPageLayout title={title} lastUpdated="April 2026">
+        <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale}>
             <h2>1. Datenschutz auf einen Blick</h2>
             <h3>Allgemeine Hinweise</h3>
             <p>

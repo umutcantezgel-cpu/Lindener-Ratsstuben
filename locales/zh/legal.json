@@ -2,7 +2,10 @@
   "accessibility.title": "无障碍",
   "cookies.title": "Cookie 政策",
   "imprint.title": "法律信息",
+  "legal.binding_notice": "仅本文件的德语版本具有法律约束力。",
+  "legal.last_updated": "最后更新",
   "legal.only_german": "出于法律原因，此内容仅以德语提供。",
+  "legal.original_below": "德语原文显示如下。",
   "privacy.title": "隐私政策",
   "terms.title": "条款和条件"
 }

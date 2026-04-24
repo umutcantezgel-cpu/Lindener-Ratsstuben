@@ -2,7 +2,10 @@
   "accessibility.title": "アクセシビリティ",
   "cookies.title": "Cookieポリシー",
   "imprint.title": "法的情報",
+  "legal.binding_notice": "本文書のドイツ語版のみが法的拘束力を有します。",
+  "legal.last_updated": "最終更新",
   "legal.only_german": "このコンテンツは法的理由によりドイツ語のみで提供されています。",
+  "legal.original_below": "ドイツ語の原文は以下に表示されています。",
   "privacy.title": "プライバシーポリシー",
   "terms.title": "利用規約"
 }

@@ -2,7 +2,10 @@
   "accessibility.title": "Accesibilitate",
   "cookies.title": "Politica cookie-uri",
   "imprint.title": "Informații legale",
+  "legal.binding_notice": "Doar versiunea în limba germană a acestui document este obligatorie din punct de vedere juridic.",
+  "legal.last_updated": "Ultima actualizare",
   "legal.only_german": "Acest conținut este disponibil doar în limba germană din motive legale.",
+  "legal.original_below": "Textul original în limba germană este afișat mai jos.",
   "privacy.title": "Politica de confidențialitate",
   "terms.title": "Termeni și Condiții"
 }

@@ -2,7 +2,10 @@
   "accessibility.title": "إمكانية الوصول",
   "cookies.title": "سياسة ملفات تعريف الارتباط",
   "imprint.title": "البيانات القانونية",
+  "legal.binding_notice": "النسخة الألمانية من هذا المستند هي الملزمة قانونيًا فقط.",
+  "legal.last_updated": "آخر تحديث",
   "legal.only_german": "هذا المحتوى متاح باللغة الألمانية فقط لأسباب قانونية.",
+  "legal.original_below": "النص الألماني الأصلي معروض أدناه.",
   "privacy.title": "سياسة الخصوصية",
   "terms.title": "الشروط والأحكام"
 }

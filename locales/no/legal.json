@@ -2,7 +2,10 @@
   "accessibility.title": "Tilgjengelighet",
   "cookies.title": "Informasjonskapsel­policy",
   "imprint.title": "Juridisk informasjon",
+  "legal.binding_notice": "Kun den tyske versjonen av dette dokumentet er juridisk bindende.",
+  "legal.last_updated": "Sist oppdatert",
   "legal.only_german": "Dette innholdet er av juridiske grunner kun tilgjengelig på tysk.",
+  "legal.original_below": "Den originale tyske teksten vises nedenfor.",
   "privacy.title": "Personvernpolicy",
   "terms.title": "Vilkår og Betingelser"
 }

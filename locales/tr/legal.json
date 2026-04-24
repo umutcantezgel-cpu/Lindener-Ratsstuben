@@ -2,7 +2,10 @@
   "accessibility.title": "Erişilebilirlik",
   "cookies.title": "Çerez Politikası",
   "imprint.title": "Yasal bilgiler",
+  "legal.binding_notice": "Bu belgenin yalnızca Almanca versiyonu hukuken bağlayıcıdır.",
+  "legal.last_updated": "Son güncelleme",
   "legal.only_german": "Bu içerik yasal nedenlerle yalnızca Almanca olarak sunulmaktadır.",
+  "legal.original_below": "Orijinal Almanca metin aşağıda gösterilmektedir.",
   "privacy.title": "Gizlilik Politikası",
   "terms.title": "Şartlar ve Koşullar"
 }

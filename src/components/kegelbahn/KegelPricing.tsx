@@ -14,11 +14,6 @@ export const KegelPricing: React.FC = () => {
             description: t('kegelbahn.pricing.hourly_desc') as string,
         },
         {
-            title: t('kegelbahn.pricing.shoes') as string,
-            price: t('kegelbahn.pricing.shoes_price') as string,
-            description: t('kegelbahn.pricing.shoes_desc') as string,
-        },
-        {
             title: t('kegelbahn.pricing.package') as string,
             price: t('kegelbahn.pricing.package_price') as string,
             description: t('kegelbahn.pricing.package_desc') as string,
@@ -42,7 +37,7 @@ export const KegelPricing: React.FC = () => {
                     <div className="h-[1px] w-12 bg-muted-gold mx-auto" />
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-12">
                     {pricingPlans.map((plan, idx) => (
                         <motion.div 
                             key={idx}

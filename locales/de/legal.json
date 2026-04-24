@@ -1,8 +1,11 @@
 {
-  "imprint.title": "Impressum",
-  "privacy.title": "Datenschutz",
-  "terms.title": "AGB",
   "accessibility.title": "Barrierefreiheit",
   "cookies.title": "Cookie-Richtlinie",
-  "legal.only_german": "Dieser Inhalt ist aus rechtlichen Gründen nur in Deutsch verfügbar."
+  "imprint.title": "Impressum",
+  "legal.binding_notice": "Rechtsverbindlich ist ausschließlich die deutsche Fassung dieses Dokuments.",
+  "legal.last_updated": "Stand",
+  "legal.only_german": "Dieser Inhalt ist aus rechtlichen Gründen nur in Deutsch verfügbar.",
+  "legal.original_below": "Der deutsche Originaltext wird nachfolgend angezeigt.",
+  "privacy.title": "Datenschutz",
+  "terms.title": "AGB"
 }

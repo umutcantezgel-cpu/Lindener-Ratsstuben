@@ -1,0 +1,393 @@
+/* 
+  Flyer Format: 8-seitiger Fensterfalz/Zickzackfalz 
+  Offenes Endformat: 391 x 210 mm
+  Beschnittzugabe (Bleed): 3 mm an jeder Kante
+  Datenformat (inkl. Bleed): 397 x 216 mm
+*/
+
+@page {
+  size: 397mm 216mm;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #555; /* Dunkler Browser-Hintergrund zur Isolation */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.flyer-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  color: #2b2b2b;
+}
+
+@media print {
+  body { background-color: transparent; }
+  .flyer-root {
+    padding: 0;
+    gap: 0;
+    align-items: flex-start;
+  }
+}
+
+.flyer-sheet {
+  width: 397mm;
+  height: 216mm;
+  background-color: #F5EDE0; /* Warmes Pergament — wie Referenz-Design */
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(0, 1fr); /* KRITISCH: verhindert Row-Expansion durch Content */
+}
+
+@media print {
+  .flyer-sheet {
+    box-shadow: none;
+    page-break-after: always;
+  }
+  .flyer-sheet:last-child {
+    page-break-after: auto;
+  }
+}
+
+/* 
+  Jedes Panel ist eine Spalte des Flyers.
+  3mm Rand + 2mm Abstand = 5mm Safe Zone.
+  Reduziert von 8mm auf 5mm für maximale Inhaltsdichte.
+*/
+.flyer-panel {
+  position: relative;
+  height: 100%;
+  max-height: 100%; /* Clamp auf Sheet-Höhe */
+  padding: 5mm;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Verhindert Content-Ausbruch */
+  /* Optionale Falz-Visualisierung im Web zur Orientierung */
+  border-right: 1px dashed rgba(0,0,0,0.1);
+}
+
+@media print {
+  .flyer-panel {
+    border-right: none;
+  }
+}
+
+.flyer-panel:last-child {
+  border-right: none;
+}
+
+/* --- TITELBLATT (Panel 4) --- */
+.panel-cover {
+  background-image: url('/images/hero_trattoria.png'); /* Vom CMS/Public Ordner */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+
+.panel-cover::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(91,33,38,0.85) 0%, rgba(30,10,12,0.95) 100%);
+  z-index: 1;
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 15mm;
+}
+
+.cover-logo {
+  width: 60mm;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
+}
+
+.cover-tagline {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #D4AF37; /* Gold/Orange */
+  margin-top: 10mm;
+  margin-bottom: 3mm;
+}
+
+.cover-sub {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* --- RÜCKSEITE (Panel 1) --- */
+.panel-backcover {
+  background-color: #5B2126; /* Burgunder */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 10mm 6mm;
+}
+
+.backcover-logo {
+  width: 40mm;
+  margin-bottom: 6mm;
+}
+
+.backcover-title {
+  font-family: 'Playfair Display', serif;
+  color: #D4AF37;
+  font-size: 16px;
+  margin-bottom: 4mm;
+}
+
+.qr-box {
+  background: white;
+  padding: 3mm;
+  border-radius: 4px;
+  margin: 5mm 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5mm;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.qr-box span {
+  color: #2b2b2b;
+  font-weight: bold;
+  font-size: 7px;
+  text-transform: uppercase;
+}
+
+.contact-info {
+  font-size: 8px;
+  line-height: 1.5;
+  margin-top: 5mm;
+}
+
+.contact-info p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5mm;
+}
+
+.contact-info svg {
+  width: 10px;
+  height: 10px;
+  color: #D4AF37;
+}
+
+/* --- INNENTEIL (Speisekarten Panels) --- */
+.menu-column {
+  font-size: 7.5pt; /* Balance zwischen Lesbarkeit und Dichte */
+  line-height: 1.15;
+}
+
+/* Kompaktes Layout für Panels mit vielen Items (z.B. Getränke) */
+.menu-column-dense {
+  font-size: 6.5pt;
+  line-height: 1.1;
+}
+.menu-column-dense .category-title {
+  font-size: 9pt;
+  margin: 2.5mm 0 1.5mm 0;
+  padding-bottom: 0.8mm;
+}
+.menu-column-dense .dish-item {
+  margin-bottom: 0.8mm;
+}
+.menu-column-dense .dish-nr {
+  font-size: 6.5pt;
+  width: 5mm;
+}
+.menu-column-dense .dish-name {
+  font-size: 7pt;
+}
+.menu-column-dense .dish-price {
+  font-size: 6.5pt;
+}
+.menu-column-dense .dish-desc {
+  font-size: 5.5pt;
+}
+
+.category-title {
+  font-family: 'Playfair Display', serif;
+  color: #5B2126;
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  border-bottom: 0.5px solid rgba(212, 175, 55, 0.7);
+  margin: 3.5mm 0 2mm 0;
+  padding-bottom: 1.2mm;
+  position: relative;
+}
+
+/* Eleganter Gold-Diamant in der Mitte der Trennlinie */
+.category-title::after {
+  content: '◆';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 6px;
+  color: #D4AF37;
+  background-color: #F5EDE0;
+  padding: 0 3px;
+}
+
+.category-title:first-child {
+  margin-top: 0;
+}
+
+.dish-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.4mm;
+  gap: 1.2mm;
+  width: 100%;
+}
+
+.dish-nr {
+  font-weight: bold;
+  color: #5B2126;
+  width: 5mm;
+  flex-shrink: 0;
+  font-size: 7.5pt;
+  line-height: 1.15;
+}
+
+.dish-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.dish-name-row {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+}
+
+.dish-name {
+  font-weight: 700;
+  font-size: 8pt;
+  line-height: 1.15;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%;
+}
+
+.dot-leader {
+  flex-grow: 1;
+  background-image: radial-gradient(circle, rgba(91, 33, 38, 0.5) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+  background-position: bottom;
+  background-repeat: repeat-x;
+  margin: 0 1.5mm;
+  position: relative;
+  top: -2.5px;
+  min-width: 3mm;
+}
+
+.dish-price {
+  font-weight: bold;
+  color: #5B2126;
+  flex-shrink: 0;
+  text-align: right;
+  font-size: 7.5pt;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.dish-desc {
+  font-size: 6.5pt;
+  color: #555;
+  font-style: italic;
+  margin-top: 0.3mm;
+  line-height: 1.15;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dish-badges {
+  display: inline-flex;
+  gap: 0.5mm;
+  margin-left: 1mm;
+  font-style: normal;
+}
+
+.badge-veg, .badge-spicy {
+  font-size: 6pt;
+  line-height: 1;
+}
+
+/* --- Allergen & Zusatzstoff-Legende (Backcover) --- */
+.allergen-legend {
+  font-size: 5pt;
+  line-height: 1.2;
+  text-align: left;
+  margin-top: 4mm;
+  color: rgba(255,255,255,0.8);
+}
+
+.allergen-legend h4 {
+  font-size: 6pt;
+  color: #D4AF37;
+  margin: 0 0 1mm 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.allergen-legend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5mm 3mm;
+}
+
+.allergen-legend-item {
+  display: flex;
+  gap: 1mm;
+}
+
+.allergen-legend-code {
+  font-weight: bold;
+  color: #D4AF37;
+  min-width: 3mm;
+}
+
+/* --- Legal Disclaimer --- */
+.legal-disclaimer {
+  font-size: 4.5pt;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  margin-top: auto;
+  padding-top: 2mm;
+  line-height: 1.2;
+}

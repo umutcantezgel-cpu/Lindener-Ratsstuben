@@ -4,6 +4,8 @@ import PageClient from './PageClient';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
 import { companyData } from '@/data/company';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { createHomeFaqSchema } from '@/lib/seo/schema-generators';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -26,5 +28,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  return <PageClient locale={locale} />;
+  return (
+    <>
+      <JsonLd data={createHomeFaqSchema()} />
+      <PageClient locale={locale} />
+    </>
+  );
 }

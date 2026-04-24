@@ -3,13 +3,15 @@ import { companyData } from '@/data/company';
 import { Metadata } from 'next';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
+import { getAlternates } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
     return {
         title: t('impressum.title'),
-        description: 'Impressum und rechtliche Angaben der Lindener Ratsstuben.',
+        description: t('impressum.description'),
+        alternates: getAlternates(locale, 'impressum'),
     };
 }
 
@@ -22,7 +24,7 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
     // Usually Impressum is kept in German, but we can do a localized intro if needed.
 
     return (
-        <LegalPageLayout title={title} lastUpdated="April 2026">
+        <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale}>
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
                 {companyData.companyName}<br />

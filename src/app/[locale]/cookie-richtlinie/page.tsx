@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const t = await getTranslations(locale as LocaleType, 'meta');
   return {
     title: t('cookie_richtlinie.title'),
-    description: "Cookie-Richtlinie der Lindener Ratsstuben: Informationen zu den eingesetzten Cookies, localStorage-Einträgen und Ihren Kontrollmöglichkeiten.",
+    description: t('cookie_richtlinie.description'),
     alternates: getAlternates(locale, 'cookie-richtlinie'),
     robots: {
       index: false,
@@ -24,7 +24,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 const CookieRichtlinie = async ({ params }: { params: Promise<{ locale: LocaleType }> }) => {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
+    const tLegal = await getTranslations(locale as LocaleType, 'legal');
     const title = t('cookie_richtlinie.title').split('|')[0].trim();
+    const isNonGerman = locale !== 'de';
+    const bindingNotice = isNonGerman ? tLegal('legal.binding_notice') : '';
 
     return (
         <PageTransition>
@@ -33,6 +36,13 @@ const CookieRichtlinie = async ({ params }: { params: Promise<{ locale: LocaleTy
                     <h1 className="text-3xl md:text-4xl font-display font-bold text-surface bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-10 shadow-warm inline-block w-full max-w-3xl text-center">
                         {title}
                     </h1>
+
+                    {isNonGerman && bindingNotice && (
+                        <div className="mb-8 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl flex items-start gap-3">
+                            <span className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5">ℹ️</span>
+                            <p className="text-sm text-amber-800 dark:text-amber-200 font-medium">{bindingNotice}</p>
+                        </div>
+                    )}
 
                     <div className="prose prose-lg text-text-secondary space-y-8">
                         {/* Einleitung */}

@@ -63,18 +63,18 @@ const nextConfig = {
             value: [
               // Base policy — only allow resources from same origin by default
               "default-src 'self'",
-              // Scripts: self + Calendly embed + Vercel Analytics (consent-gated)
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com https://va.vercel-scripts.com",
-              // Styles: self + Calendly embed + Google Fonts stylesheets
-              "style-src 'self' 'unsafe-inline' https://assets.calendly.com https://fonts.googleapis.com",
+              // Scripts: self + Vercel Analytics (consent-gated)
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
+              // Styles: self + Google Fonts stylesheets
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               // Images: permissive for restaurant photos, external CDNs
               "img-src 'self' data: https: blob:",
               // Fonts: self-hosted + Google Fonts CDN
               "font-src 'self' https://fonts.gstatic.com",
-              // XHR/Fetch: Formspree (forms), Calendly (booking), Vercel Insights (consent-gated)
-              "connect-src 'self' https://formspree.io https://calendly.com https://vitals.vercel-insights.com https://va.vercel-scripts.com",
-              // Iframes: Calendly booking + Google Maps embed
-              "frame-src https://calendly.com https://maps.google.com https://www.google.com",
+              // XHR/Fetch: Formspree (forms), Vercel Insights (consent-gated)
+              "connect-src 'self' https://formspree.io https://vitals.vercel-insights.com https://va.vercel-scripts.com",
+              // Iframes: Google Maps embed
+              "frame-src https://maps.google.com https://www.google.com",
               "base-uri 'self'",
               // Form submissions: only to own origin + Formspree
               "form-action 'self' https://formspree.io",

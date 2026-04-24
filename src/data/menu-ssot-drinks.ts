@@ -6,6 +6,17 @@
 import { SSOTMenuItem } from './menu';
 
 export const drinkItems: SSOTMenuItem[] = [
+  // ─── §3.0 Aperitif ──────────────────────────────────────────
+  { nr: '1', name: 'Prosecco DOCG', description: '', price: 6.90, category: 'aperitif', allergens: [] },
+  { nr: '2', name: 'Aperol Spritz', description: 'Prosecco | Aperol | Sprudel', price: 7.90, category: 'aperitif', allergens: [] },
+  { nr: '3', name: 'Ratsstuben Hasko', description: 'Prosecco | Grenadine | Sprudel', price: 7.90, category: 'aperitif', allergens: [] },
+  { nr: '4', name: 'Hugo', description: 'Prosecco | Holunderblüten | Sprudel', price: 7.90, category: 'aperitif', allergens: [] },
+  { nr: '5', name: 'Sarti Spritz', description: 'Prosecco | Passionsfrucht | Sprudel', price: 7.90, category: 'aperitif', allergens: [] },
+  { nr: '6', name: 'Limoncello Spritz', description: 'Prosecco | Limoncello | Sprudel', price: 7.90, category: 'aperitif', allergens: [] },
+  { nr: '7', name: 'Campari', description: 'mit Orange oder Soda', price: 7.90, category: 'aperitif', allergens: [] },
+  { nr: '8', name: 'San Bitterino (alkoholfrei)', description: 'mit Orange oder Soda', price: 6.90, category: 'aperitif', allergens: [] },
+  { nr: '9', name: 'Martini Bianco', description: '', price: 6.90, category: 'aperitif', allergens: [] },
+
   // ─── §3.13 Warme Getränke ───────────────────────────────────
   { nr: '140', name: 'Espresso', description: '', price: 2.70, category: 'warme-getraenke', allergens: [] },
   { nr: '141', name: 'Espresso Macchiato', description: '', price: 3.20, category: 'warme-getraenke', allergens: [] },
