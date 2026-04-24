@@ -106,13 +106,28 @@ export default function PrintMenuPage() {
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="pizza" marginBottom="2px" />
         </div>
-        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px" }}>Jeder gewöhnliche Extra Belag für 1 Euro / bei Mozzarella – 12,00 €, Thunfisch – 12,00 € muss mit 4€ extra gerechnet werden / bei: Lachsfilet – 16,00 €, Garnelen – 16,00 €, Burrata – 16,00 € muss mit 6€ extra gerechnet werden</div>
+        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px", whiteSpace: "pre-wrap", lineHeight: 1.4 }}>
+          Extrabelege: <strong>Jeder Extrabelag – 1,00 €</strong>{"\n"}
+          <strong>Mozzarella – 4,00 €</strong>{"\n"}
+          <strong>Thunfisch – 4,00 €</strong>{"\n"}
+          <strong>Lachsfilet – 6,00 €</strong>{"\n"}
+          <strong>Garnelen – 6,00 €</strong>{"\n"}
+          <strong>Burrata – 6,00 €</strong>
+        </div>
       </PrintPage>
 
       <PrintPage pageNum="IX">
         <DishCategory dropcap="F" title="Familienpizza" subtitle="ca. 40×60 cm" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="familienpizza" marginBottom="2px" />
+        </div>
+        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px", whiteSpace: "pre-wrap", lineHeight: 1.4 }}>
+          Extrabelege: <strong>Jeder Extrabelag – 4,00 €</strong>{"\n"}
+          <strong>Mozzarella – 12,00 €</strong>{"\n"}
+          <strong>Thunfisch – 12,00 €</strong>{"\n"}
+          <strong>Lachsfilet – 16,00 €</strong>{"\n"}
+          <strong>Garnelen – 16,00 €</strong>{"\n"}
+          <strong>Burrata – 16,00 €</strong>
         </div>
 
         <DishCategory dropcap="K" title="Kindergerichte" marginTop="10px" marginBottom="5px" />
@@ -163,6 +178,16 @@ export default function PrintMenuPage() {
 
         <div className="cv-est" style={{position: 'relative', bottom: 'auto', marginTop: '30px'}}>
           <span style={{fontSize: '24px'}}>VIELEN DANK ◆ GUTEN APPETIT</span>
+        </div>
+
+        {/* Marketing Partner Logos – DIN A4 unten */}
+        <div style={{ marginTop: '20px', textAlign: 'center', padding: '0 5mm' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/marketing-logos.svg"
+            alt="Marketing Partner Logos"
+            style={{ width: '100%', maxWidth: '180mm', height: 'auto', opacity: 0.85 }}
+          />
         </div>
       </PrintPage>
     </div>

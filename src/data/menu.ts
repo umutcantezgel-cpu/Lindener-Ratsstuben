@@ -63,7 +63,8 @@ export const categoryFootnotes: Record<string, string> = {
   'pasta-al-forno': 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
   'hausgemachte-pasta': 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
   schnitzel: 'Bei unseren Schnitzeln handelt es sich um frischen Schweinerücken.',
-  pizza: 'Jeder gewöhnliche Extra Belag für 1 Euro / bei Mozzarella – 12,00 €, Thunfisch – 12,00 € muss mit 4€ extra gerechnet werden / bei: Lachsfilet – 16,00 €, Garnelen – 16,00 €, Burrata – 16,00 € muss mit 6€ extra gerechnet werden',
+  pizza: 'Extrabelege: **Jeder Extrabelag – 1,00 €**\n**Mozzarella – 4,00 €**\n**Thunfisch – 4,00 €**\n**Lachsfilet – 6,00 €**\n**Garnelen – 6,00 €**\n**Burrata – 6,00 €**',
+  familienpizza: 'Extrabelege: **Jeder Extrabelag – 4,00 €**\n**Mozzarella – 12,00 €**\n**Thunfisch – 12,00 €**\n**Lachsfilet – 16,00 €**\n**Garnelen – 16,00 €**\n**Burrata – 16,00 €**',
 
 };
 
