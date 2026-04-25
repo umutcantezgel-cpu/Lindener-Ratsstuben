@@ -93,9 +93,9 @@ export default function Flyer8Page() {
           <div style={{ marginTop: '3mm', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
             <div style={{
               background: 'white',
-              borderRadius: '8px',
-              boxShadow: '0 0 30px 15px white',
-              padding: '2mm 3mm',
+              borderRadius: '16px',
+              boxShadow: '0 0 50px 25px white',
+              padding: '4mm 6mm',
               display: 'inline-block',
             }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -174,22 +174,7 @@ export default function Flyer8Page() {
           <FlyerCategory id="kindergerichte" />
         </div>
 
-        {/* PANEL 7: APERITIF + ALKOHOLFREI + SÄFTE + WARME GETRÄNKE (45 Items) */}
-        <div className="flyer-panel menu-column menu-column-dense">
-          <FlyerCategory id="aperitif" isDrink={true} />
-          <FlyerCategory id="alkoholfreie-getraenke" isDrink={true} shortTitle="Alkoholfreie Getränke" />
-          <FlyerCategory id="saefte" isDrink={true} shortTitle="Säfte von Vaihinger" />
-          <FlyerCategory id="warme-getraenke" isDrink={true} shortTitle="Warme Getränke" />
-        </div>
 
-        {/* PANEL 8: BIERE + WEINE + SPIRITUOSEN + LIKÖRE (42 Items) */}
-        <div className="flyer-panel menu-column menu-column-dense">
-          <FlyerCategory id="biere" isDrink={true} />
-          <FlyerCategory id="rotweine" isDrink={true} shortTitle="Offene Rotweine" />
-          <FlyerCategory id="weissweine" isDrink={true} shortTitle="Offene Weißweine" />
-          <FlyerCategory id="spirituosen" isDrink={true} shortTitle="Spirituosen" />
-          <FlyerCategory id="likoere" isDrink={true} shortTitle="Liköre" />
-        </div>
 
       </div>
 

@@ -8,7 +8,7 @@ import { SSOTMenuItem } from './menu';
 
 export const foodItems: SSOTMenuItem[] = [
   // ─── §3.1 Suppen ────────────────────────────────────────────
-  { nr: '10', name: 'Tagessuppe', description: 'Frisch zubereitet nach saisonalem Angebot.', price: 6.90, category: 'suppen', allergens: [] },
+  { nr: '10', name: 'Zuppa del Giorno', description: 'Frisch zubereitet nach saisonalem Angebot.', price: 6.90, category: 'suppen', allergens: [] },
   { nr: '11', name: 'Zuppa di Pomodoro', description: 'Fein abgestimmte, cremig verfeinerte Tomatensuppe.', price: 7.90, category: 'suppen', allergens: [] },
 
   // ─── §3.2 Vorspeisen ───────────────────────────────────────

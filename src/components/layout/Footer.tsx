@@ -118,10 +118,10 @@ export const Footer: React.FC = () => {
                 {/* Marketing Partner Logos */}
                 <section aria-label="Partner & Kooperationen" className="mb-12 flex justify-center">
                     <div
-                        className="w-full max-w-3xl px-6 py-8 rounded-2xl"
+                        className="w-full max-w-3xl px-6 py-8 rounded-3xl"
                         style={{
                             backgroundColor: 'white',
-                            boxShadow: '0 0 50px 25px white',
+                            boxShadow: '0 0 80px 40px white',
                         }}
                     >
                         <Image

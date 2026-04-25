@@ -30,34 +30,31 @@ export default function PrintMenuPage() {
 
 
       <PrintPage pageNum="III">
-        <DishCategory dropcap="A" title="Aperitif" marginTop="10px" marginBottom="10px" />
+        <DishCategory dropcap="A" title="Aperitif" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="aperitif" />
-          <Quote text="Ein prickelnder Start in einen genussvollen Abend." />
         </div>
-      </PrintPage>
 
-      <PrintPage pageNum="IV">
-        <DishCategory dropcap="Z" title="Zuppa de Giomo" marginTop="10px" />
+        <DishCategory dropcap="Z" title="Zuppa" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="suppen" />
         </div>
 
-        <DishCategory dropcap="V" title="Vorspeisen" marginTop="10px" />
+        <DishCategory dropcap="V" title="Vorspeisen" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="vorspeisen" />
           <Quote text="Auch als stilvolle Antipasti-Platten für mehrere Personen erhältlich. Pro Person 13,90 €" />
         </div>
         {/* SSOT-Fußnote wörtlich */}
-        <div className="fn">Unsere Suppen &amp; Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße &amp; Knoblauch 6,50€</div>
+        <div className="fn">Unsere Suppen &amp; Vorspeisen servieren wir Kostenlos Hausgemachtes Brot - auf Wunsch Pizzabrot Tomaten Soße &amp; Knoblauch 6,50€</div>
       </PrintPage>
 
-      <PrintPage pageNum="V">
+      <PrintPage pageNum="IV">
         <DishCategory dropcap="S" title="Salate" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="salate" marginBottom="2px" />
         </div>
-        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px" }}>Unsere Salate servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße &amp; Knoblauch 6,50€</div>
+        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px" }}>Unsere Salate servieren wir Kostenlos Hausgemachtes Brot - auf Wunsch Pizzabrot Tomaten Soße &amp; Knoblauch 6,50€</div>
 
         <DishCategory dropcap="P" title="Pasta" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
@@ -67,7 +64,7 @@ export default function PrintMenuPage() {
 
       </PrintPage>
 
-      <PrintPage pageNum="VI">
+      <PrintPage pageNum="V">
         <DishCategory dropcap="P" title="Pasta al Forno" marginTop="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="pasta-al-forno" />
@@ -86,7 +83,7 @@ export default function PrintMenuPage() {
         <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px" }}>Bei unseren Schnitzeln handelt es sich um frischen Schweinerücken.</div>
       </PrintPage>
 
-      <PrintPage pageNum="VII">
+      <PrintPage pageNum="VI">
         <DishCategory dropcap="F" title="Fleischgerichte" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="fleisch-fisch" itemIds={['80','81','82','83','84','85']} />
@@ -99,7 +96,7 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="VIII">
+      <PrintPage pageNum="VII">
         <DishCategory dropcap="P" title="Pizza" subtitle="(∅ 28cm)" marginTop="5px" marginBottom="5px" />
         {/* SSOT-Kopftext Pizza wörtlich */}
         <div className="fn" style={{ marginBottom: '5px', fontStyle: 'italic' }}>alle Pizzen werden mit Tomaten soße mit Special würzen &amp; Käse zubereitet.</div>
@@ -116,7 +113,7 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="IX">
+      <PrintPage pageNum="VIII">
         <DishCategory dropcap="F" title="Familienpizza" subtitle="ca. 40×60 cm" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="familienpizza" marginBottom="2px" />
@@ -141,7 +138,7 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="X">
+      <PrintPage pageNum="IX">
         <DishCategory dropcap="E" title="Erfrischungen" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="alkoholfreie-getraenke" marginBottom="2px" />
@@ -150,7 +147,7 @@ export default function PrintMenuPage() {
         <Quote text="Erfrischung pur für jeden Geschmack." />
       </PrintPage>
 
-      <PrintPage pageNum="XI">
+      <PrintPage pageNum="X">
         <DishCategory dropcap="B" title="Biere" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="biere" marginBottom="2px" />
@@ -164,7 +161,7 @@ export default function PrintMenuPage() {
         <Quote text="Ein gutes Glas Wein ist ein Gedicht." />
       </PrintPage>
 
-      <PrintPage pageNum="XII">
+      <PrintPage pageNum="XI">
         <DishCategory dropcap="H" title="Heißgetränke" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="warme-getraenke" marginBottom="2px" />
@@ -190,8 +187,8 @@ export default function PrintMenuPage() {
         }}>
           <div style={{
             background: 'white',
-            borderRadius: '12px',
-            boxShadow: '0 0 40px 20px white',
+            borderRadius: '16px',
+            boxShadow: '0 0 50px 25px white',
             padding: '4mm 6mm',
             display: 'inline-block',
           }}>
