@@ -14,59 +14,32 @@ export const HeroMessaging: React.FC<HeroMessagingProps> = ({ textY }) => {
 
     return (
         <motion.div 
-            style={{ willChange: "transform, opacity", y: textY }}
+            style={{ y: textY }}
             className="flex flex-col items-center text-center w-full z-20"
         >
-            <motion.h1 
+            <h1 
                 id="hero-title" 
                 className="text-[clamp(3rem,8vw,6rem)] font-display font-light leading-[1.05] tracking-tight text-white mb-6 max-w-5xl"
             >
                 {heroVariant === 'general' ? (
-                    <motion.div style={{ willChange: "transform, opacity" }}
-                        initial="hidden"
-                        animate="visible"
-                        variants={{
-                            visible: { transition: { staggerChildren: 0.1 } }
-                        }}
-                    >
-                        <motion.span 
-                            variants={{
-                                hidden: { y: 20 },
-                                visible: { y: 0, transition: { duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.2 } }
-                            }}
-                            className="block"
-                        >
+                    <div>
+                        <span className="block animate-hero-headline">
                             {t('hero.headline_1')}
-                        </motion.span>
-                        <motion.span 
-                            variants={{
-                                hidden: { y: 20 },
-                                visible: { y: 0, transition: { duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.4 } }
-                            }}
-                            className="block text-accent font-medium mt-2"
-                        >
+                        </span>
+                        <span className="block text-accent font-medium mt-2 animate-hero-headline-2">
                             {t('hero.headline_2')}
-                        </motion.span>
-                    </motion.div>
+                        </span>
+                    </div>
                 ) : (
-                    <motion.div style={{ willChange: "transform" }}
-                        initial={{ y: 15 }}
-                        animate={{ y: 0 }}
-                        transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.2 }}
-                    >
-                        <span className="block">{hero.headline}</span>
-                    </motion.div>
+                    <div>
+                        <span className="block animate-hero-headline">{hero.headline}</span>
+                    </div>
                 )}
-            </motion.h1>
+            </h1>
 
-            <motion.p 
-                initial={{ y: 10 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1.4, delay: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="text-[clamp(1.1rem,1.8vw,1.35rem)] font-light tracking-wide text-neutral-300 max-w-2xl leading-relaxed mx-auto"
-            >
+            <p className="text-[clamp(1.1rem,1.8vw,1.35rem)] font-light tracking-wide text-neutral-300 max-w-2xl leading-relaxed mx-auto animate-hero-subheadline">
                 {heroVariant === 'general' ? t('hero.description') : hero.subheadline}
-            </motion.p>
+            </p>
         </motion.div>
     );
 };
