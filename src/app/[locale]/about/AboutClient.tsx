@@ -42,7 +42,7 @@ const AboutClient = ({ faqData }: AboutClientProps) => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-sm">
                                 <Image
-                                    src="/images/editorial/kitchen_ambiance.png"
+                                    src="/images/editorial/kitchen_ambiance.webp"
                                     alt="Restaurant Interior"
                                     fill
                                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -103,7 +103,7 @@ const AboutClient = ({ faqData }: AboutClientProps) => {
                         </div>
                         <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 m-0 p-0 list-none">
                             {[
-                                { name: 'Rahul Sharma', role: t('about.role_chef') as string, image: '/images/philosophy_chef.png' },
+                                { name: 'Rahul Sharma', role: t('about.role_chef') as string, image: '/images/philosophy_chef.webp' },
                                 { name: 'Amina Khan', role: t('about.role_manager') as string, image: '/images/placeholder.svg' },
                                 { name: 'Vikram Singh', role: t('about.role_souschef') as string, image: '/images/placeholder.svg' }
                             ].map((member, index) => (

@@ -5,31 +5,31 @@ import { useTranslation } from '@/lib/i18n/use-translation';
 
 const HERO_IMAGES: Record<PrimaryInterest, { imageUrl: string; blurDataURL?: string }> = {
   kultur: {
-    imageUrl: '/images/hero_trattoria.png',
+    imageUrl: '/images/hero_trattoria.webp',
     blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   natur: {
-    imageUrl: '/images/hero_trattoria.png',
+    imageUrl: '/images/hero_trattoria.webp',
     blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   kulinarik: {
-    imageUrl: '/images/hero_trattoria.png',
+    imageUrl: '/images/hero_trattoria.webp',
     blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   business: {
-    imageUrl: '/images/hero_trattoria.png',
+    imageUrl: '/images/hero_trattoria.webp',
     blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   romantik: {
-    imageUrl: '/images/hero_trattoria.png',
+    imageUrl: '/images/hero_trattoria.webp',
     blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   familie: {
-    imageUrl: '/images/hero_trattoria.png',
+    imageUrl: '/images/hero_trattoria.webp',
     blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   },
   general: {
-    imageUrl: '/images/hero_trattoria.png',
+    imageUrl: '/images/hero_trattoria.webp',
     blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAP0lEQVR4nAE0AMv/AP/mpv/npsSLY6p1UADkn2nwqHJbPi58VzwAhFYz2JZjwYZfHwAAAGQ5G6ZwRf/Vo49OLsQ8GD1mxavnAAAAAElFTkSuQmCC'
   }
 };

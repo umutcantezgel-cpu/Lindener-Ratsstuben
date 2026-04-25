@@ -12,6 +12,7 @@ import { PageSkeleton } from '@/components/ui/PageSkeleton';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { companyData } from '@/data/company';
 import { createGlobalSchemaGraph } from '@/lib/seo/schema-generators';
+import { IdleRender } from '@/components/utils/IdleRender';
 import { Inter, Lora } from 'next/font/google';
 import { AppProvider } from '@/lib/context/AppContext';
 import { UIProvider } from '@/lib/context/UIContext';
@@ -157,13 +158,15 @@ export default async function RootLayout({
                         </Suspense>
                       </main>
                       <Footer />
-                      <FloatingReservationCTA />
-                      <ExitIntentOverlay />
-                      <BackToTop />
-                      <ToastContainer />
-                      <CookieConsentBanner />
-                      <ConsentGatedAnalytics />
-                      <AiKnowledgeBase locale={locale} />
+                      <IdleRender delay={2000}>
+                        <FloatingReservationCTA />
+                        <ExitIntentOverlay />
+                        <BackToTop />
+                        <ToastContainer />
+                        <CookieConsentBanner />
+                        <ConsentGatedAnalytics />
+                        <AiKnowledgeBase locale={locale} />
+                      </IdleRender>
                     </div>
                   </ErrorBoundary>
                   </GlobalMotionProvider>
