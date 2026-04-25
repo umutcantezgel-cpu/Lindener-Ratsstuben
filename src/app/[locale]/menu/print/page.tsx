@@ -181,13 +181,27 @@ export default function PrintMenuPage() {
         </div>
 
         {/* Marketing Partner Logos – DIN A4 unten */}
-        <div style={{ marginTop: '20px', textAlign: 'center', padding: '0 5mm' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/marketing-logos.svg"
-            alt="Marketing Partner Logos"
-            style={{ width: '100%', maxWidth: '180mm', height: 'auto', opacity: 0.85 }}
-          />
+        <div style={{
+          marginTop: '20px',
+          textAlign: 'center',
+          padding: '0 5mm',
+          display: 'flex',
+          justifyContent: 'center',
+        }}>
+          <div style={{
+            background: 'white',
+            borderRadius: '12px',
+            boxShadow: '0 0 40px 20px white',
+            padding: '4mm 6mm',
+            display: 'inline-block',
+          }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/marketing-logos.svg"
+              alt="Marketing Partner Logos"
+              style={{ width: '100%', maxWidth: '170mm', height: 'auto' }}
+            />
+          </div>
         </div>
       </PrintPage>
     </div>

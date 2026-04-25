@@ -90,13 +90,21 @@ export default function Flyer8Page() {
           </div>
 
           {/* Marketing Partner Logos */}
-          <div style={{ marginTop: '3mm', textAlign: 'center' }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/marketing-logos.svg"
-              alt="Marketing Partner Logos"
-              style={{ width: '100%', maxWidth: '70mm', height: 'auto', opacity: 0.8 }}
-            />
+          <div style={{ marginTop: '3mm', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
+            <div style={{
+              background: 'white',
+              borderRadius: '8px',
+              boxShadow: '0 0 30px 15px white',
+              padding: '2mm 3mm',
+              display: 'inline-block',
+            }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/marketing-logos.svg"
+                alt="Marketing Partner Logos"
+                style={{ width: '100%', maxWidth: '65mm', height: 'auto' }}
+              />
+            </div>
           </div>
 
           {/* Allergen-Hinweis (LMIV-Pflicht) */}
