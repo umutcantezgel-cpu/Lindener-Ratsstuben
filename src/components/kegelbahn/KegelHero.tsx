@@ -14,7 +14,7 @@ export const KegelHero: React.FC<KegelHeroProps> = () => {
     return (
         <section className="relative min-h-[60vh] flex flex-col items-center justify-center pt-32 pb-20 px-4 bg-[#FAFAFA] overflow-hidden">
             {/* Minimalist Grain Overlay */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-multiply" style={{ backgroundImage: 'url("/images/noise.png")' }}></div>
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-multiply" style={{ backgroundImage: 'url("/images/noise.webp")' }}></div>
 
             <div className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center">
                 <motion.div

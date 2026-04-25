@@ -13,15 +13,15 @@ export const Gallery = () => {
     const { t } = useTranslation('pages');
 
     const images = [
-        { src: '/images/editorial/bruschetta.png', category: 'Gerichte' },
-        { src: '/images/dish_tris_pasta.png', category: 'Gerichte' },
-        { src: '/images/dish_bistecca.png', category: 'Gerichte' },
-        { src: '/images/editorial/tiramisu.png', category: 'Dessert' },
-        { src: '/images/gallery_food_1.png', category: 'Gerichte' },
-        { src: '/images/gallery_food_2.png', category: 'Gerichte' },
-        { src: '/images/dish_pizza_ratsstubbe.png', category: 'Gerichte' },
-        { src: '/images/editorial/wein.png', category: 'Wein' },
-        { src: '/images/gallery_food_3.png', category: 'Gerichte' },
+        { src: '/images/editorial/bruschetta.webp', category: 'Gerichte' },
+        { src: '/images/dish_tris_pasta.webp', category: 'Gerichte' },
+        { src: '/images/dish_bistecca.webp', category: 'Gerichte' },
+        { src: '/images/editorial/tiramisu.webp', category: 'Dessert' },
+        { src: '/images/gallery_food_1.webp', category: 'Gerichte' },
+        { src: '/images/gallery_food_2.webp', category: 'Gerichte' },
+        { src: '/images/dish_pizza_ratsstubbe.webp', category: 'Gerichte' },
+        { src: '/images/editorial/wein.webp', category: 'Wein' },
+        { src: '/images/gallery_food_3.webp', category: 'Gerichte' },
     ];
 
     return (

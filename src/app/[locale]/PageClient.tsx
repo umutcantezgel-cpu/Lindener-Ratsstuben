@@ -16,6 +16,7 @@ const CtaBand = dynamic(() => import('@/components/layout/CtaBand').then(mod => 
 import { TranslationKey } from '@/lib/i18n/types';
 import { HeroRoot } from '@/components/hero/HeroRoot';
 import { ClientTestimonials } from '@/components/interactive/ClientTestimonials';
+import { MapFacade } from '@/components/ui/MapFacade';
 
 export interface HomeProps {
     locale: string;
@@ -40,10 +41,10 @@ export const Home = async ({ locale }: HomeProps) => {
     };
 
     const highlights = [
-        { name: 'Gegrilltes Rumpsteak', price: '€29.90', desc: 'Argentinisches Rumpsteak vom Lava-Grill | Kräuterbutter | Marktgemüse', image: '/images/editorial/rumpsteak.png' },
-        { name: 'Pizza Ratsstuben', price: '€14.50', desc: 'Salami | Peperoniwurst | Vorderschinken | Ei | Champignons | Zwiebeln', image: '/images/editorial/pizza.png' },
-        { name: 'Tortellacci mit Butter und Salbei', price: '€17.90', desc: 'Hausgemacht | Ricotta | Spinat | Kirschtomaten | Grana Padano', image: '/images/editorial/pasta.png' },
-        { name: 'Lachs- und Garnelensalat', price: '€17.90', desc: 'Frisches Lachsfilet | Garnelen | Balsamico-Kräuter-Vinaigrette', image: '/images/editorial/scampi.png' },
+        { name: 'Gegrilltes Rumpsteak', price: '€29.90', desc: 'Argentinisches Rumpsteak vom Lava-Grill | Kräuterbutter | Marktgemüse', image: '/images/editorial/rumpsteak.webp' },
+        { name: 'Pizza Ratsstuben', price: '€14.50', desc: 'Salami | Peperoniwurst | Vorderschinken | Ei | Champignons | Zwiebeln', image: '/images/editorial/pizza.webp' },
+        { name: 'Tortellacci mit Butter und Salbei', price: '€17.90', desc: 'Hausgemacht | Ricotta | Spinat | Kirschtomaten | Grana Padano', image: '/images/editorial/pasta.webp' },
+        { name: 'Lachs- und Garnelensalat', price: '€17.90', desc: 'Frisches Lachsfilet | Garnelen | Balsamico-Kräuter-Vinaigrette', image: '/images/editorial/scampi.webp' },
     ];
 
     return (
@@ -95,7 +96,7 @@ export const Home = async ({ locale }: HomeProps) => {
                             <div className="relative">
                                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-warm transform rotate-2 hover:rotate-0 transition-transform duration-700 ease-liquid">
                                     <Image
-                                        src="/images/editorial/kitchen_heritage.png"
+                                        src="/images/editorial/kitchen_heritage.webp"
                                         alt="Chef cooking"
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -272,16 +273,10 @@ export const Home = async ({ locale }: HomeProps) => {
                             </address>
 
                             <div className="h-[400px] bg-neutral-200 rounded-2xl overflow-hidden border border-black/10 shadow-soft relative group">
-                                <iframe
-                                    src={`https://maps.google.com/maps?q=${encodeURIComponent(companyData.address.street + ", " + companyData.address.zip + " " + companyData.address.city)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0, filter: 'grayscale(100%)' }}
-                                    allowFullScreen={true}
-                                    loading="lazy"
-                                    title="Standortkarte"
-                                    className="group-hover:filter-none transition-all duration-700 ease-liquid"
-                                ></iframe>
+                                <MapFacade 
+                                    address={`${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}`}
+                                    mapQuery={`${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}`}
+                                />
                                 <div className="absolute bottom-6 end-6">
                                     <Link
                                         href="/contact"
