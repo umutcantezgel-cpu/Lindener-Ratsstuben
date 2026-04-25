@@ -1,6 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { AdaptiveImage } from '@/components/ui/AdaptiveImage';
+import React, { useEffect, useRef } from 'react';
 
 interface HeroCinematicsProps {
     imageUrl?: string;
@@ -8,15 +7,16 @@ interface HeroCinematicsProps {
     blurDataURL?: string;
 }
 
-export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ imageUrl, mobileImageUrl, blurDataURL }) => {
-    // Basic parallax effect via local state
-    const [offsetY, setOffsetY] = useState(0);
+export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ imageUrl }) => {
+    const parallaxRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        const el = parallaxRef.current;
+        if (!el) return;
+
         const handleScroll = () => {
-            // Apply a slight parallax up to 300px
             if (window.scrollY < window.innerHeight) {
-                setOffsetY(window.scrollY * 0.2);
+                el.style.transform = `translateY(${window.scrollY * 0.2}px)`;
             }
         };
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -44,20 +44,28 @@ export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ imageUrl, mobile
             {/* Cinematic Background Image Layer with Parallax */}
             {imageUrl && (
                 <div 
+                    ref={parallaxRef}
                     className="absolute -inset-[10%] z-0 origin-center animate-cinematic-scale"
-                    style={{ transform: `translateY(${offsetY}px)`, willChange: 'transform' }}
+                    style={{ willChange: 'transform' }}
                 >
-                    <AdaptiveImage 
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* Direct <img> tag bypasses the AdaptiveImage JS hydration wall.
+                        The browser discovers this image immediately via the <link rel="preload"> in <head>,
+                        instead of waiting for useDevice() context to resolve. */}
+                    <img 
                         src={imageUrl} 
-                        mobileSrc={mobileImageUrl}
-                        alt="Background" 
-                        fill 
-                        sizes="100vw"
-                        priority={true} 
+                        alt=""
                         fetchPriority="high"
-                        className="object-cover object-center"
-                        placeholder={blurDataURL ? "blur" : "empty"}
-                        blurDataURL={blurDataURL}
+                        decoding="async"
+                        sizes="100vw"
+                        style={{
+                            position: 'absolute',
+                            inset: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            objectPosition: 'center',
+                        }}
                     />
                 </div>
             )}
@@ -76,3 +84,4 @@ export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ imageUrl, mobile
         </div>
     );
 };
+

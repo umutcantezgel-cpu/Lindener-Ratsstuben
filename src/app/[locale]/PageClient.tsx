@@ -15,6 +15,7 @@ const ServiceMarquee = dynamic(() => import('@/components/ui/ServiceMarquee').th
 const CtaBand = dynamic(() => import('@/components/layout/CtaBand').then(mod => mod.CtaBand));
 import { TranslationKey } from '@/lib/i18n/types';
 import { HeroRoot } from '@/components/hero/HeroRoot';
+import { LazyViewport } from '@/components/ui/LazyViewport';
 
 const ClientTestimonials = dynamic(() => import('@/components/interactive/ClientTestimonials').then(mod => mod.ClientTestimonials), { ssr: false });
 const MapFacade = dynamic(() => import('@/components/ui/MapFacade').then(mod => mod.MapFacade), { ssr: false });
@@ -115,7 +116,9 @@ export const Home = async ({ locale }: HomeProps) => {
             </section>
 
             {/* Services */}
-            <ServiceMarquee />
+            <LazyViewport minHeight="100px">
+                <ServiceMarquee />
+            </LazyViewport>
 
             {/* Highlights Grid */}
             <section aria-labelledby="highlights-title" className="py-24 md:py-32 lg:py-48 bg-onyx-light">
@@ -178,28 +181,32 @@ export const Home = async ({ locale }: HomeProps) => {
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
                 <div className="container mx-auto px-4 relative z-10">
                     <h2 id="stats-title" className="sr-only">{t('stats.title') as string}</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x divide-white/10 text-white">
-                        <div className="flex flex-col items-center justify-center p-4">
-                            <AnimatedCounter target={25} label={t('counter.years') as string} suffix="+" />
+                    <LazyViewport minHeight="150px">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x divide-white/10 text-white">
+                            <div className="flex flex-col items-center justify-center p-4">
+                                <AnimatedCounter target={25} label={t('counter.years') as string} suffix="+" />
+                            </div>
+                            <div className="flex flex-col items-center justify-center p-4">
+                                <AnimatedCounter target={48} label={t('counter.dishes') as string} suffix="+" />
+                            </div>
+                            <div className="flex flex-col items-center justify-center p-4">
+                                <AnimatedCounter target={100} label={t('counter.vegetarian') as string} suffix="%" />
+                            </div>
+                            <div className="flex flex-col items-center justify-center p-4">
+                                <AnimatedCounter target={4} label={t('counter.google_stars') as string} suffix=".8" />
+                            </div>
                         </div>
-                        <div className="flex flex-col items-center justify-center p-4">
-                            <AnimatedCounter target={48} label={t('counter.dishes') as string} suffix="+" />
-                        </div>
-                        <div className="flex flex-col items-center justify-center p-4">
-                            <AnimatedCounter target={100} label={t('counter.vegetarian') as string} suffix="%" />
-                        </div>
-                        <div className="flex flex-col items-center justify-center p-4">
-                            <AnimatedCounter target={4} label={t('counter.google_stars') as string} suffix=".8" />
-                        </div>
-                    </div>
+                    </LazyViewport>
                 </div>
             </section>
 
             {/* Conversion CTA Band */}
-            <CtaBand 
-                headline={t('cta.headline') as string} 
-                subheadline={t('cta.subheadline') as string} 
-            />
+            <LazyViewport minHeight="150px">
+                <CtaBand 
+                    headline={t('cta.headline') as string} 
+                    subheadline={t('cta.subheadline') as string} 
+                />
+            </LazyViewport>
 
             {/* Testimonials Section */}
             <section aria-labelledby="testimonials-title" className="py-24 md:py-32 lg:py-48 bg-onyx-deep">
@@ -216,7 +223,9 @@ export const Home = async ({ locale }: HomeProps) => {
                         </div>
                     </AnimateIn>
 
-                    <ClientTestimonials />
+                    <LazyViewport minHeight="300px">
+                        <ClientTestimonials />
+                    </LazyViewport>
                 </div>
             </section>
 
@@ -274,10 +283,12 @@ export const Home = async ({ locale }: HomeProps) => {
                             </address>
 
                             <div className="h-[400px] bg-neutral-200 rounded-2xl overflow-hidden border border-black/10 shadow-soft relative group">
-                                <MapFacade 
-                                    address={`${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}`}
-                                    mapQuery={`${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}`}
-                                />
+                                <LazyViewport minHeight="400px">
+                                    <MapFacade 
+                                        address={`${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}`}
+                                        mapQuery={`${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}`}
+                                    />
+                                </LazyViewport>
                                 <div className="absolute bottom-6 end-6">
                                     <Link
                                         href="/contact"

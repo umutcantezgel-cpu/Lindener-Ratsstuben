@@ -1,22 +1,33 @@
 "use client";
 
-import { m as motion } from "framer-motion";
-import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { useEffect, useState } from "react";
 
 export default function Template({ children }: { children: React.ReactNode }) {
-  const shouldReduceMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+
+  // Check for prefers-reduced-motion
+  const prefersReducedMotion = typeof window !== 'undefined' 
+    ? window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches 
+    : false;
+
+  useEffect(() => {
+    // Trigger the transition on next frame after mount
+    requestAnimationFrame(() => setMounted(true));
+  }, []);
+
+  const style: React.CSSProperties = prefersReducedMotion
+    ? {}
+    : {
+        opacity: mounted ? 1 : 0,
+        transform: mounted ? 'translateY(0)' : 'translateY(25px)',
+        filter: mounted ? 'blur(0px)' : 'blur(10px)',
+        transition: 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+      };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 25, filter: shouldReduceMotion ? 'none' : 'blur(10px)' }}
-      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -20, filter: shouldReduceMotion ? 'none' : 'blur(10px)' }}
-      transition={{
-        duration: shouldReduceMotion ? 0 : 0.8,
-        ease: [0.16, 1, 0.3, 1] // liquid easing
-      }}
-    >
+    <div style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }
+
