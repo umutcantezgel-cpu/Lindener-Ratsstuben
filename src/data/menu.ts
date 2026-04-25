@@ -31,7 +31,7 @@ export interface SSOTMenuItem {
 // ─── Categories (SSOT §3 Reihenfolge) ─────────────────────────
 export const categories = [
   { id: 'aperitif', name: 'Aperitif', label: 'Aperitif' },
-  { id: 'suppen', name: 'Zuppa de Giomo', label: 'Zuppa de Giomo' },
+  { id: 'suppen', name: 'Zuppa', label: 'Zuppa' },
   { id: 'vorspeisen', name: 'Vorspeisen', label: 'Vorspeisen' },
   { id: 'salate', name: 'Salate', label: 'Salate' },
   { id: 'pasta', name: 'Pasta', label: 'Pasta' },
@@ -56,9 +56,9 @@ export const categories = [
 
 // ─── Category Footnotes (wörtlich aus SSOT) ───────────────────
 export const categoryFootnotes: Record<string, string> = {
-  suppen: 'Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
-  vorspeisen: 'Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
-  salate: 'Unsere Salate servieren wir Kostenlos Hausgemachte Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
+  suppen: 'Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachtes Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
+  vorspeisen: 'Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachtes Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
+  salate: 'Unsere Salate servieren wir Kostenlos Hausgemachtes Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
   pasta: 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
   'pasta-al-forno': 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
   'hausgemachte-pasta': 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
