@@ -1,0 +1,59 @@
+{
+  "id": "lcp-breakdown-insight",
+  "title": "LCP breakdown",
+  "description": "Each [subpart has specific improvement strategies](https://developer.chrome.com/docs/performance/insights/lcp-breakdown). Ideally, most of the LCP time should be spent on loading the resources, not within delays.",
+  "score": 1,
+  "scoreDisplayMode": "informative",
+  "metricSavings": {
+    "LCP": 0
+  },
+  "details": {
+    "type": "list",
+    "items": [
+      {
+        "type": "table",
+        "headings": [
+          {
+            "key": "label",
+            "valueType": "text",
+            "label": "Subpart"
+          },
+          {
+            "key": "duration",
+            "valueType": "ms",
+            "label": "Duration"
+          }
+        ],
+        "items": [
+          {
+            "subpart": "timeToFirstByte",
+            "label": "Time to first byte",
+            "duration": 120.036
+          },
+          {
+            "subpart": "elementRenderDelay",
+            "label": "Element render delay",
+            "duration": 2185.583
+          }
+        ]
+      },
+      {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,1,DIV,9,DIV,0,DIV,0,DIV,1,P",
+        "selector": "div.fixed > div.max-w-5xl > div.flex-1 > p.text-sm",
+        "boundingRect": {
+          "top": 475,
+          "bottom": 686,
+          "left": 41,
+          "right": 423,
+          "width": 382,
+          "height": 211
+        },
+        "snippet": "<p class=\"text-sm text-text-secondary leading-relaxed\">",
+        "nodeLabel": "Wir (Lindener Ratsstuben) verwenden Cookies und ähnliche Technologien, um unser…"
+      }
+    ]
+  },
+  "guidanceLevel": 3
+}
