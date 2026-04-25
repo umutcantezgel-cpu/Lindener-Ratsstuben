@@ -447,6 +447,35 @@
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
   }
+
+  /* Hardware-accelerated CSS animations for LCP elements */
+  .animate-hero-headline {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFadeIn 1.2s cubic-bezier(0.21, 0.47, 0.32, 0.98) 0.2s forwards;
+    will-change: transform, opacity;
+  }
+  
+  .animate-hero-headline-2 {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFadeIn 1.2s cubic-bezier(0.21, 0.47, 0.32, 0.98) 0.4s forwards;
+    will-change: transform, opacity;
+  }
+
+  .animate-hero-subheadline {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: slideUpFadeIn 1.4s cubic-bezier(0.21, 0.47, 0.32, 0.98) 0.8s forwards;
+    will-change: transform, opacity;
+  }
+}
+
+@keyframes slideUpFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================================================================
