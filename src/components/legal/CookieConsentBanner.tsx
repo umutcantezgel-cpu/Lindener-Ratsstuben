@@ -45,26 +45,32 @@ export const CookieConsentBanner = () => {
                                         {t('cookie.title')}
                                     </h2>
                                 </div>
-                                <p className="text-sm text-text-secondary leading-relaxed">
-                                    {((t('cookie.description') as string) || '').split('"Alle Akzeptieren"').map((part: string, index: number, array: string[]) => (
-                                      <React.Fragment key={index}>
-                                        {part}
-                                        {index < array.length - 1 && <strong>&quot;{t('cookie.accept')}&quot;</strong>}
-                                      </React.Fragment>
-                                    )).reduce((prev: React.ReactNode[], curr: React.ReactNode) => [prev, curr].flat().flatMap((x, i) => 
-                                      typeof x === 'string' ? x.split('"Anpassen"').map((p, pIndex, pArr) => (
-                                        <React.Fragment key={`${i}-${pIndex}`}>
-                                          {p}
-                                          {pIndex < pArr.length - 1 && <strong>&quot;{t('cookie.customize')}&quot;</strong>}
-                                        </React.Fragment>
-                                      )) : x
-                                    ) as React.ReactNode[], [])}
-                                    <br />
-                                    <span className="inline-flex gap-4 mt-2">
+                                <div className="text-sm text-text-secondary leading-relaxed space-y-3">
+                                    {((t('cookie.description') as string) || '').split('. ').map((sentence: string, sIndex: number, sArray: string[]) => {
+                                        const text = sentence + (sIndex < sArray.length - 1 ? '.' : '');
+                                        return (
+                                            <span key={sIndex} className="block">
+                                                {text.split('"Alle Akzeptieren"').map((part: string, index: number, array: string[]) => (
+                                                  <React.Fragment key={index}>
+                                                    {part}
+                                                    {index < array.length - 1 && <strong>&quot;{t('cookie.accept')}&quot;</strong>}
+                                                  </React.Fragment>
+                                                )).reduce((prev: React.ReactNode[], curr: React.ReactNode) => [prev, curr].flat().flatMap((x, i) => 
+                                                  typeof x === 'string' ? x.split('"Anpassen"').map((p, pIndex, pArr) => (
+                                                    <React.Fragment key={`${i}-${pIndex}`}>
+                                                      {p}
+                                                      {pIndex < pArr.length - 1 && <strong>&quot;{t('cookie.customize')}&quot;</strong>}
+                                                    </React.Fragment>
+                                                  )) : x
+                                                ) as React.ReactNode[], [])}
+                                            </span>
+                                        );
+                                    })}
+                                    <span className="flex gap-4 mt-1">
                                         <Link href={`/${locale}/datenschutz`} className="text-accent hover:underline decoration-accent/30 underline-offset-4">{t('cookie.privacy_link')}</Link>
                                         <Link href={`/${locale}/impressum`} className="text-accent hover:underline decoration-accent/30 underline-offset-4">{t('cookie.imprint_link')}</Link>
                                     </span>
-                                </p>
+                                </div>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
                                 <button
