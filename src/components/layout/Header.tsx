@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { clsx } from 'clsx';
-import { motion } from 'framer-motion';
+import { m as motion } from "framer-motion";
 import { companyData } from '@/data/company';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';

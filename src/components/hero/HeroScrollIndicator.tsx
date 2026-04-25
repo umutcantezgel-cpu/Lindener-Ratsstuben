@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion, MotionValue } from 'framer-motion';
+import { m as motion, MotionValue } from "framer-motion";
 
 interface HeroScrollIndicatorProps {
     opacityTransform: MotionValue<number>;

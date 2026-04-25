@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from "framer-motion";
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { Accessibility, UtensilsCrossed, ChefHat, Sun, Car, PartyPopper, ShoppingBag, Flame, Heart, Wifi, Dog } from 'lucide-react';
 

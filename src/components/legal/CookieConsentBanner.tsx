@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useCookieConsent } from '@/lib/context/CookieContext';
 import { useTranslation } from '@/lib/i18n/use-translation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from "framer-motion";
 import { Shield, ChevronRight, Check } from 'lucide-react';
 import Link from 'next/link';
 

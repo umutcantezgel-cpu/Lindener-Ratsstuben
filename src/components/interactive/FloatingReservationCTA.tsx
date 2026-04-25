@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from "framer-motion";
 import { CalendarDays, ArrowRight } from 'lucide-react';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
 import { usePathname } from 'next/navigation';

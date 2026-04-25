@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion';
+import { m as motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
 import { Loader2, CheckCircle2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { SPRING } from '@/lib/constants/motion';
