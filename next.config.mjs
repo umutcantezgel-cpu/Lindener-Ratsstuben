@@ -10,6 +10,16 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion', '@tabler/icons-react', 'date-fns', 'lodash'],
   },
+  async redirects() {
+    return [
+      // Force naked domain and www root to canonical /de to eliminate redirect chains
+      {
+        source: '/',
+        destination: '/de',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 960, 1280, 1920, 2560],
