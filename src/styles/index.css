@@ -447,32 +447,9 @@
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
   }
-
-  /* Hardware-accelerated CSS animations for LCP elements */
-  .animate-hero-headline {
-    transform: translateY(20px);
-    animation: slideUp 1.2s cubic-bezier(0.21, 0.47, 0.32, 0.98) forwards;
-    will-change: transform;
-  }
-  
-  .animate-hero-headline-2 {
-    transform: translateY(20px);
-    animation: slideUp 1.2s cubic-bezier(0.21, 0.47, 0.32, 0.98) 0.1s forwards;
-    will-change: transform;
-  }
-
-  .animate-hero-subheadline {
-    transform: translateY(10px);
-    animation: slideUp 1.4s cubic-bezier(0.21, 0.47, 0.32, 0.98) 0.2s forwards;
-    will-change: transform;
-  }
 }
 
-@keyframes slideUp {
-  to {
-    transform: translateY(0);
-  }
-}
+
 
 
 

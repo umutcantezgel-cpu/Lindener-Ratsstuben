@@ -15,8 +15,9 @@ const ServiceMarquee = dynamic(() => import('@/components/ui/ServiceMarquee').th
 const CtaBand = dynamic(() => import('@/components/layout/CtaBand').then(mod => mod.CtaBand));
 import { TranslationKey } from '@/lib/i18n/types';
 import { HeroRoot } from '@/components/hero/HeroRoot';
-import { ClientTestimonials } from '@/components/interactive/ClientTestimonials';
-import { MapFacade } from '@/components/ui/MapFacade';
+
+const ClientTestimonials = dynamic(() => import('@/components/interactive/ClientTestimonials').then(mod => mod.ClientTestimonials), { ssr: false });
+const MapFacade = dynamic(() => import('@/components/ui/MapFacade').then(mod => mod.MapFacade), { ssr: false });
 
 export interface HomeProps {
     locale: string;

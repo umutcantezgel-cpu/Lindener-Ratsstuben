@@ -1,34 +1,51 @@
 'use client';
-import React from 'react';
-import { m as motion, MotionValue, useTransform } from "framer-motion";
+import React, { useEffect, useState } from 'react';
 import { AdaptiveImage } from '@/components/ui/AdaptiveImage';
 
 interface HeroCinematicsProps {
-    scrollYProgress: MotionValue<number>;
     imageUrl?: string;
     mobileImageUrl?: string;
     blurDataURL?: string;
 }
 
-export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ scrollYProgress, imageUrl, mobileImageUrl, blurDataURL }) => {
-    // Hardware-accelerated Opacity fade when scrolling down
-    const opacityTransform = useTransform(scrollYProgress, [0, 1], [1, 0.2]);
-    const yTransform = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ imageUrl, mobileImageUrl, blurDataURL }) => {
+    // Basic parallax effect via local state
+    const [offsetY, setOffsetY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Apply a slight parallax up to 300px
+            if (window.scrollY < window.innerHeight) {
+                setOffsetY(window.scrollY * 0.2);
+            }
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const criticalStyles = `
+        .animate-cinematic-scale {
+            transform: scale(1.05);
+            opacity: 0.6;
+            animation: cinematicScale 2s cubic-bezier(0.21, 0.47, 0.32, 0.98) forwards;
+            will-change: transform, opacity;
+        }
+        @keyframes cinematicScale {
+            to { transform: scale(1); opacity: 0.6; }
+        }
+    `;
 
     return (
-        <motion.div 
-            style={{ willChange: "transform, opacity", opacity: opacityTransform }} 
+        <div 
             className="absolute inset-0 z-0 bg-neutral-950 overflow-hidden"
             aria-hidden="true"
         >
+            <style dangerouslySetInnerHTML={{ __html: criticalStyles }} />
             {/* Cinematic Background Image Layer with Parallax */}
             {imageUrl && (
-                <motion.div 
-                    initial={{ scale: 1.05, opacity: 0.6 }}
-                    animate={{ scale: 1, opacity: 0.6 }}
-                    transition={{ duration: 2, ease: [0.21, 0.47, 0.32, 0.98] }}
-                    className="absolute -inset-[10%] z-0 origin-center"
-                    style={{ y: yTransform, willChange: 'transform, opacity' }}
+                <div 
+                    className="absolute -inset-[10%] z-0 origin-center animate-cinematic-scale"
+                    style={{ transform: `translateY(${offsetY}px)`, willChange: 'transform' }}
                 >
                     <AdaptiveImage 
                         src={imageUrl} 
@@ -42,7 +59,7 @@ export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ scrollYProgress,
                         placeholder={blurDataURL ? "blur" : "empty"}
                         blurDataURL={blurDataURL}
                     />
-                </motion.div>
+                </div>
             )}
             
             {/* Deep Vignette Overlay for uncompromising text contrast */}
@@ -56,6 +73,6 @@ export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ scrollYProgress,
             
             {/* High-end Film Grain Overlay */}
             <div className="absolute inset-0 opacity-[0.04] bg-[url('/noise.png')] z-20 pointer-events-none mix-blend-overlay" />
-        </motion.div>
+        </div>
     );
 };
