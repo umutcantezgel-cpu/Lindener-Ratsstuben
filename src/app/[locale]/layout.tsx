@@ -129,11 +129,11 @@ export default async function RootLayout({
     <html lang={locale} dir={dir} suppressHydrationWarning className={`${interFont.variable} ${loraFont.variable}`}>
       <head>
         <JsonLd data={jsonLd} />
+        <link rel="preload" as="image" href="/images/hero_trattoria.webp" type="image/webp" fetchPriority="high" />
         <link rel="llms" href="/llms.txt" />
         <link rel="llms-full" href="/llms-full.txt" />
       </head>
       <body suppressHydrationWarning className="font-body text-text-primary bg-bg-primary overflow-x-hidden" itemScope itemType="https://schema.org/WebPage">
-        <WebVitals />
         <DeviceProvider initialDeviceType={initialDeviceType}>
           <UserJourneyProvider>
             <CookieProvider>
@@ -145,11 +145,6 @@ export default async function RootLayout({
                       <ErrorBoundary>
                       <div className="antialiased min-h-screen flex flex-col" role="document">
                       <div className="bg-paper-texture" aria-hidden="true" />
-                      <OfflineBanner />
-                      <ClientKeyboardShortcuts />
-                      <Suspense fallback={null}>
-                        <RouteChangeIndicator />
-                      </Suspense>
                       <ScrollProgress />
                       <Header />
                       <main id="main-content" role="main" className="flex-grow">
@@ -158,7 +153,13 @@ export default async function RootLayout({
                         </Suspense>
                       </main>
                       <Footer />
-                      <IdleRender delay={2000}>
+                      <IdleRender delay={1500}>
+                        <WebVitals />
+                        <OfflineBanner />
+                        <ClientKeyboardShortcuts />
+                        <Suspense fallback={null}>
+                          <RouteChangeIndicator />
+                        </Suspense>
                         <FloatingReservationCTA />
                         <ExitIntentOverlay />
                         <BackToTop />

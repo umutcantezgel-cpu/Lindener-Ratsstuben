@@ -1,8 +1,6 @@
 'use client';
 
-import React from 'react';
-import { m as motion } from "framer-motion";
-import { useReducedMotion } from '@/hooks/use-reduced-motion';
+import React, { useRef, useState, useEffect } from 'react';
 
 type Direction = 'up' | 'down' | 'left' | 'right' | 'none';
 
@@ -18,13 +16,23 @@ interface AnimateInProps {
 
 const formatDuration = (mode: AnimateInProps['durationMode']): number => {
   switch (mode) {
-    case 'instant': return 0.2;
-    case 'fast': return 0.4;
-    case 'normal': return 0.6;
-    case 'slow': return 0.8;
-    case 'dramatic': return 1.0;
-    case 'cinematic': return 1.4;
-    default: return 1.0; // dramatic default for viscous scroll-reveal
+    case 'instant': return 200;
+    case 'fast': return 400;
+    case 'normal': return 600;
+    case 'slow': return 800;
+    case 'dramatic': return 1000;
+    case 'cinematic': return 1400;
+    default: return 1000; // dramatic default for viscous scroll-reveal
+  }
+};
+
+const getTransform = (direction: Direction): string => {
+  switch (direction) {
+    case 'up': return 'translateY(60px)';
+    case 'down': return 'translateY(-60px)';
+    case 'left': return 'translateX(60px)';
+    case 'right': return 'translateX(-60px)';
+    case 'none': return 'none';
   }
 };
 
@@ -35,47 +43,61 @@ export function AnimateIn({
   durationMode = 'dramatic',
   once = true,
   className,
-  as = 'div'
 }: AnimateInProps) {
-  const shouldReduceMotion = useReducedMotion();
-  const MotionComponent = motion[as as keyof typeof motion] as React.ElementType;
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  let initialY = 0;
-  let initialX = 0;
+  // Check for prefers-reduced-motion
+  const prefersReducedMotion = typeof window !== 'undefined' 
+    ? window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches 
+    : false;
 
-  if (!shouldReduceMotion && direction !== 'none') {
-    if (direction === 'up') initialY = 60; // Increased amplitude for viscous float
-    if (direction === 'down') initialY = -60;
-    if (direction === 'left') initialX = 60;
-    if (direction === 'right') initialX = -60;
-  }
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
 
-  const durationStr = formatDuration(durationMode);
-  const delaySecs = delay / 1000;
+    // If reduced motion, show immediately
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (once) observer.disconnect();
+        }
+      },
+      { rootMargin: '-5% 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [once, prefersReducedMotion]);
+
+  const durationMs = prefersReducedMotion ? 10 : formatDuration(durationMode);
+  const delayMs = prefersReducedMotion ? 0 : delay;
+  const transform = getTransform(direction);
+
+  const style: React.CSSProperties = prefersReducedMotion
+    ? {}
+    : isVisible
+      ? {
+          opacity: 1,
+          transform: 'translateY(0) translateX(0)',
+          filter: 'blur(0px)',
+          transition: `opacity ${durationMs}ms cubic-bezier(0.21, 0.47, 0.32, 0.98) ${delayMs}ms, transform ${durationMs}ms cubic-bezier(0.21, 0.47, 0.32, 0.98) ${delayMs}ms, filter ${durationMs}ms cubic-bezier(0.21, 0.47, 0.32, 0.98) ${delayMs}ms`,
+        }
+      : {
+          opacity: 0,
+          transform,
+          filter: 'blur(6px)',
+        };
 
   return (
-    <MotionComponent
-      className={className}
-      initial={{ 
-        opacity: 0, // Lighthouse skips opacity:0 elements for contrast checks
-        y: initialY, 
-        x: initialX,
-        filter: shouldReduceMotion ? 'none' : 'blur(6px)'
-      }}
-      whileInView={{ 
-        opacity: 1, 
-        y: 0, 
-        x: 0,
-        filter: 'blur(0px)'
-      }}
-      viewport={{ once, margin: '-5% 0px' }}
-      transition={{
-        duration: shouldReduceMotion ? 0.01 : durationStr,
-        delay: shouldReduceMotion ? 0 : delaySecs,
-        ease: [0.21, 0.47, 0.32, 0.98] as [number, number, number, number], // viscous liquid easing
-      }}
-    >
+    <div ref={ref} className={className} style={style}>
       {children}
-    </MotionComponent>
+    </div>
   );
 }
+

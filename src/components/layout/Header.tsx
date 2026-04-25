@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { clsx } from 'clsx';
-import { m as motion } from "framer-motion";
 import { companyData } from '@/data/company';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
@@ -99,11 +98,8 @@ export const Header: React.FC = () => {
                                         {link.name}
                                     </Link>
                                     {isActive && (
-                                        <motion.div
-                                            layoutId="active-nav-pill"
-                                            className="absolute inset-0 bg-primary rounded-full shadow-[0_0_15px_rgba(var(--color-primary),0.4)]"
-                                            initial={false}
-                                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                        <div
+                                            className="absolute inset-0 bg-primary rounded-full shadow-[0_0_15px_rgba(var(--color-primary),0.4)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
                                         />
                                     )}
                                 </li>
@@ -144,29 +140,24 @@ export const Header: React.FC = () => {
                     aria-controls="mobile-menu"
                 >
                     <div className="relative w-6 h-6 flex items-center justify-center">
-                        <motion.span 
-                            className="absolute h-[2px] w-6 bg-current rounded-full"
-                            animate={{ 
-                                y: isMobileMenuOpen ? 0 : -6,
-                                rotate: isMobileMenuOpen ? 45 : 0 
+                        <span 
+                            className="absolute h-[2px] w-6 bg-current rounded-full transition-all duration-400 ease-[cubic-bezier(0.21,0.47,0.32,0.98)]"
+                            style={{
+                                transform: isMobileMenuOpen ? 'translateY(0) rotate(45deg)' : 'translateY(-6px) rotate(0)',
                             }}
-                            transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
                         />
-                        <motion.span 
-                            className="absolute h-[2px] w-6 bg-current rounded-full"
-                            animate={{ 
+                        <span 
+                            className="absolute h-[2px] w-6 bg-current rounded-full transition-all duration-400 ease-[cubic-bezier(0.21,0.47,0.32,0.98)]"
+                            style={{
                                 opacity: isMobileMenuOpen ? 0 : 1,
-                                scaleX: isMobileMenuOpen ? 0 : 1
+                                transform: isMobileMenuOpen ? 'scaleX(0)' : 'scaleX(1)',
                             }}
-                            transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
                         />
-                        <motion.span 
-                            className="absolute h-[2px] w-6 bg-current rounded-full"
-                            animate={{ 
-                                y: isMobileMenuOpen ? 0 : 6,
-                                rotate: isMobileMenuOpen ? -45 : 0 
+                        <span 
+                            className="absolute h-[2px] w-6 bg-current rounded-full transition-all duration-400 ease-[cubic-bezier(0.21,0.47,0.32,0.98)]"
+                            style={{
+                                transform: isMobileMenuOpen ? 'translateY(0) rotate(-45deg)' : 'translateY(6px) rotate(0)',
                             }}
-                            transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
                         />
                     </div>
                 </button>
@@ -177,3 +168,4 @@ export const Header: React.FC = () => {
         </header>
     );
 };
+

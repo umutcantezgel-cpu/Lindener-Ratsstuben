@@ -8,7 +8,7 @@ const bundleAnalyzer = withBundleAnalyzer({
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion', '@tabler/icons-react', 'date-fns', 'lodash'],
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@tabler/icons-react', 'date-fns', 'lodash', 'clsx'],
   },
   async redirects() {
     return [
