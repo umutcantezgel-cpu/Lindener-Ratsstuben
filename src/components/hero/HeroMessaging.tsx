@@ -31,8 +31,8 @@ export const HeroMessaging: React.FC<HeroMessagingProps> = ({ textY }) => {
                     >
                         <motion.span 
                             variants={{
-                                hidden: { opacity: 0, y: 40 },
-                                visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.2 } }
+                                hidden: { y: 20 },
+                                visible: { y: 0, transition: { duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.2 } }
                             }}
                             className="block"
                         >
@@ -40,8 +40,8 @@ export const HeroMessaging: React.FC<HeroMessagingProps> = ({ textY }) => {
                         </motion.span>
                         <motion.span 
                             variants={{
-                                hidden: { opacity: 0, y: 40 },
-                                visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.4 } }
+                                hidden: { y: 20 },
+                                visible: { y: 0, transition: { duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.4 } }
                             }}
                             className="block text-accent font-medium mt-2"
                         >
@@ -49,9 +49,9 @@ export const HeroMessaging: React.FC<HeroMessagingProps> = ({ textY }) => {
                         </motion.span>
                     </motion.div>
                 ) : (
-                    <motion.div style={{ willChange: "transform, opacity" }}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
+                    <motion.div style={{ willChange: "transform" }}
+                        initial={{ y: 15 }}
+                        animate={{ y: 0 }}
                         transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.2 }}
                     >
                         <span className="block">{hero.headline}</span>
@@ -60,8 +60,8 @@ export const HeroMessaging: React.FC<HeroMessagingProps> = ({ textY }) => {
             </motion.h1>
 
             <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ y: 10 }}
+                animate={{ y: 0 }}
                 transition={{ duration: 1.4, delay: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
                 className="text-[clamp(1.1rem,1.8vw,1.35rem)] font-light tracking-wide text-neutral-300 max-w-2xl leading-relaxed mx-auto"
             >

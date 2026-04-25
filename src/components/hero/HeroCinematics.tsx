@@ -24,11 +24,11 @@ export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ scrollYProgress,
             {/* Cinematic Background Image Layer with Parallax */}
             {imageUrl && (
                 <motion.div 
-                    initial={{ scale: 1.1, filter: 'blur(10px)', opacity: 0 }}
-                    animate={{ scale: 1, filter: 'blur(0px)', opacity: 0.6 }}
+                    initial={{ scale: 1.05, opacity: 0.6 }}
+                    animate={{ scale: 1, opacity: 0.6 }}
                     transition={{ duration: 2, ease: [0.21, 0.47, 0.32, 0.98] }}
                     className="absolute -inset-[10%] z-0 origin-center"
-                    style={{ y: yTransform, willChange: 'transform, opacity, filter' }}
+                    style={{ y: yTransform, willChange: 'transform, opacity' }}
                 >
                     <AdaptiveImage 
                         src={imageUrl} 
