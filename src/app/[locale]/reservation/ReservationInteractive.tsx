@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { Calendar, Clock, MessageSquare, CheckCircle, ChevronRight, ChevronLeft, User, Phone, Mail, AlertCircle } from 'lucide-react';
 
 import { useTranslation } from '@/lib/i18n/use-translation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from "framer-motion";
 import { MorphingButton } from '@/components/ui/MorphingButton';
 import { TranslationKey } from '@/lib/i18n/types';
 import { SPRING } from '@/lib/constants/motion';

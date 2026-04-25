@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m as motion } from "framer-motion";
 import { ArrowRight, BookOpen, CalendarDays } from 'lucide-react';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';

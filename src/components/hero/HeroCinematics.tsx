@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion, MotionValue, useTransform } from 'framer-motion';
+import { m as motion, MotionValue, useTransform } from "framer-motion";
 import { AdaptiveImage } from '@/components/ui/AdaptiveImage';
 
 interface HeroCinematicsProps {

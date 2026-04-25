@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useScrollDepth } from '@/hooks/useScrollDepth';
 import { useConversionDistance } from '@/hooks/useConversionDistance';
 import { Phone, X, CalendarCheck } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from '@/lib/i18n/use-translation';
 
 interface StickyCtaBarProps {

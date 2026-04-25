@@ -1,6 +1,6 @@
 'use client';
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m as motion, useScroll, useTransform } from "framer-motion";
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { MousePointerClick, ShieldCheck, Trophy } from 'lucide-react';
 

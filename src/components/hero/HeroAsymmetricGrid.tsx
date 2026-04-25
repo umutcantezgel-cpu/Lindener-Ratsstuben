@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { motion, MotionValue, useTransform } from 'framer-motion';
+import { m as motion, MotionValue, useTransform } from "framer-motion";
 import { Star, Clock, ChevronUp, ChevronDown } from 'lucide-react';
 import { AdaptiveImage as Image } from '@/components/ui/AdaptiveImage';
 import { useTranslation } from '@/lib/i18n/use-translation';

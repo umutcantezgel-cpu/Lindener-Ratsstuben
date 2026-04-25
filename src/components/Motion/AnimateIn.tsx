@@ -1,7 +1,7 @@
 "use client"
 
 import React, { createContext, useContext } from "react"
-import { motion, Variants, HTMLMotionProps } from "framer-motion"
+import { m as motion, Variants, HTMLMotionProps } from "framer-motion"
 import { useReducedMotion } from "@/lib/hooks/useReducedMotion"
 
 type AnimationType = "fadeInUp" | "fadeInDown" | "fadeIn" | "slideInLeft" | "slideInRight" | "scaleIn"

@@ -12,7 +12,7 @@ import { TrustSignals } from '../ui/TrustSignals';
 import { useFormProgress } from '@/hooks/useFormProgress';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { MorphingButton, ButtonState } from '../ui/MorphingButton';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from "framer-motion";
 import { EASING } from '@/lib/constants/motion';
 
 // Optional: Pass Formspree ID via Env. For now fallback to a demo ID or generic handle.

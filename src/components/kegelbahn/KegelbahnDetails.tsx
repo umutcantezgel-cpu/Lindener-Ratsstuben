@@ -1,6 +1,6 @@
 'use client';
 import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { m as motion, useInView } from "framer-motion";
 import { CheckCircle2, Users, Calendar, Trophy, Utensils, Music, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
