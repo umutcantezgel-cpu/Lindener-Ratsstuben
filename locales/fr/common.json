@@ -148,8 +148,6 @@
   "footer.revocation": "Révocation",
   "footer.rights": "Tous droits réservés.",
   "footer.terms": "Conditions Générales",
-  "footer.tuesday_sunday": "Mardi – Dimanche",
-  "footer.tuesday_sunday_status": "11h30 - 14h30 et 17h30 - 23h00",
   "form.almost_done": "Presque terminé ! Plus que {count} champ(s).",
   "form.catering": "Demande de Traiteur",
   "form.email_placeholder": "votre@email.fr",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Réponse Rapide",
   "trust.fresh": "Frais du Jour",
   "trust.gdpr": "Conforme RGPD",
-  "trust.google_stars": "4.8/5 Étoiles Google"
+  "trust.google_stars": "4.8/5 Étoiles Google",
+  "footer.tuesday_saturday": "Mardi – Samedi",
+  "footer.sunday": "Dimanche",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

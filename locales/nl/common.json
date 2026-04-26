@@ -148,8 +148,6 @@
   "footer.revocation": "Intrekking",
   "footer.rights": "Alle rechten voorbehouden.",
   "footer.terms": "Algemene voorwaarden",
-  "footer.tuesday_sunday": "Dinsdag – zondag",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 & 17:30 - 23:00",
   "form.almost_done": "Bijna klaar! Er zijn nog maar {count} veld(en) over.",
   "form.catering": "Cateringaanvraag",
   "form.email_placeholder": "jouw@e-mail.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Snelle reactie",
   "trust.fresh": "Dagelijks vers",
   "trust.gdpr": "AVG-compatibel",
-  "trust.google_stars": "4,8/5 sterrenGoogle"
+  "trust.google_stars": "4,8/5 sterrenGoogle",
+  "footer.tuesday_saturday": "Dinsdag – zaterdag",
+  "footer.sunday": "Zondag",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

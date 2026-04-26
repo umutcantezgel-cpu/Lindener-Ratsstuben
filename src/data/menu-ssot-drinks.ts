@@ -58,6 +58,8 @@ export const drinkItems: SSOTMenuItem[] = [
   { nr: '175', name: 'Maracuja Saft 0,4', description: '', price: 5.90, category: 'saefte', allergens: [] },
   { nr: '176', name: 'Johannisbeersaft 0,2', description: '', price: 3.40, category: 'saefte', allergens: [] },
   { nr: '177', name: 'Johannisbeersaft 0,4', description: '', price: 5.90, category: 'saefte', allergens: [] },
+  { nr: '', name: 'Alle Säfte auch als Schorle 0,2', description: '', price: 3.20, category: 'saefte', allergens: [] },
+  { nr: '', name: 'Alle Säfte auch als Schorle 0,4', description: '', price: 5.70, category: 'saefte', allergens: [] },
 
   // ─── §3.16 Biere ────────────────────────────────────────────
   { nr: '180', name: 'Krombacher Pils vom Fass 0,3', description: '', price: 4.00, category: 'biere', allergens: [] },
@@ -111,4 +113,9 @@ export const drinkItems: SSOTMenuItem[] = [
   { nr: '237', name: 'Bailys', description: '', price: 3.70, category: 'likoere', allergens: [] }, // SSOT: "Bailys" — NICHT korrigieren
   { nr: '238', name: 'Limoncello', description: '', price: 3.70, category: 'likoere', allergens: [] },
 
+  // ─── §3.21 Saisonale Limonaden ────────────────────────────────
+  { nr: '', name: 'Citrus Mint Limonade', description: 'Erfrischende Zitrusfrüchte treffen auf aromatische Minze – spritzig, belebend und angenehm kühl.', price: 6.90, category: 'saisonal-limonaden', allergens: [] },
+  { nr: '', name: 'Grenadine Limonade', description: 'Fruchtig-süß mit einer feinen Note von Granatapfel – ein stilvoller Klassiker mit intensiver Farbe.', price: 6.90, category: 'saisonal-limonaden', allergens: [] },
+  { nr: '', name: 'Erdbeer Limonade', description: 'Sonnengereifte Erdbeeren sorgen für einen natürlichen, fruchtigen Genuss – mild, süß und herrlich sommerlich.', price: 6.90, category: 'saisonal-limonaden', allergens: [] },
+  { nr: '', name: 'Pfirsich Limonade', description: 'Zarter Pfirsichgeschmack, leicht und harmonisch – eine sanfte Erfrischung mit feiner Süße.', price: 6.90, category: 'saisonal-limonaden', allergens: [] },
 ];

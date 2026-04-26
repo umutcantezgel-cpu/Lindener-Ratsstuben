@@ -148,8 +148,6 @@
   "footer.revocation": "撤销",
   "footer.rights": "版权所有。",
   "footer.terms": "条款及条件",
-  "footer.tuesday_sunday": "周二至周日",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 及 17:30 - 23:00",
   "form.almost_done": "快完成了！ 仅剩 {count} 字段。",
   "form.catering": "餐饮查询",
   "form.email_placeholder": "你的@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "快速响应",
   "trust.fresh": "每日新鲜",
   "trust.gdpr": "符合 GDPR",
-  "trust.google_stars": "4.8/5 星谷歌"
+  "trust.google_stars": "4.8/5 星谷歌",
+  "footer.tuesday_saturday": "周二至周日",
+  "footer.sunday": "星期日",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

@@ -148,8 +148,6 @@
   "footer.revocation": "Återkallande",
   "footer.rights": "Alla rättigheter reserverade.",
   "footer.terms": "Allmänna villkor",
-  "footer.tuesday_sunday": "Tisdag – söndag",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 och 17:30 - 23:00",
   "form.almost_done": "Nästan klart! Endast {count} fält kvar.",
   "form.catering": "Cateringförfrågan",
   "form.email_placeholder": "din@e-post.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Snabb respons",
   "trust.fresh": "Daglig färsk",
   "trust.gdpr": "GDPR-kompatibel",
-  "trust.google_stars": "4,8/5 stjärnor Google"
+  "trust.google_stars": "4,8/5 stjärnor Google",
+  "footer.tuesday_saturday": "Tisdag – lördag",
+  "footer.sunday": "Söndag",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

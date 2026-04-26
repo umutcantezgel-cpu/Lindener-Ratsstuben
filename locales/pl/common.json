@@ -148,8 +148,6 @@
   "footer.revocation": "Unieważnienie",
   "footer.rights": "Wszelkie prawa zastrzeżone.",
   "footer.terms": "Regulamin",
-  "footer.tuesday_sunday": "wtorek – niedziela",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 i 17:30 - 23:00",
   "form.almost_done": "Prawie gotowe! Pozostało tylko {count} pól.",
   "form.catering": "Zapytanie o catering",
   "form.email_placeholder": "twój@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Szybka reakcja",
   "trust.fresh": "Codziennie świeże",
   "trust.gdpr": "Zgodny z RODO",
-  "trust.google_stars": "4,8/5 gwiazdek Google"
+  "trust.google_stars": "4,8/5 gwiazdek Google",
+  "footer.tuesday_saturday": "wtorek – sobota",
+  "footer.sunday": "Niedziela",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

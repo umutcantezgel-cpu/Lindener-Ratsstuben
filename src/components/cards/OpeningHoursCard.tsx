@@ -17,7 +17,7 @@ interface OpeningHoursCardProps {
 export const OpeningHoursCard: React.FC<OpeningHoursCardProps> = ({ className }) => {
   const company = getCompanyData();
   const { t, locale } = useTranslation('common');
-  const { regulaer, ruhetag } = company.openingHours;
+  const { regulaer, sonntag, ruhetag } = company.openingHours;
 
   const formatTime = (timeRange: { start: string, end: string }) => {
     const parseTime = (tStr: string) => {
@@ -56,6 +56,22 @@ export const OpeningHoursCard: React.FC<OpeningHoursCardProps> = ({ className })
             </div>
             <div className="text-sm font-semibold text-text-primary">
               {formatTime(regulaer.abends)}
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="h-px bg-border" role="separator" />
+
+        {/* Sunday hours */}
+        <div className="flex justify-between items-center">
+          <span className="text-text-secondary font-medium">{t(sonntag.tageKey as TranslationKey)}</span>
+          <div className="text-right">
+            <div className="text-sm font-semibold text-text-primary">
+              {formatTime(sonntag.mittags)}
+            </div>
+            <div className="text-sm font-semibold text-text-primary">
+              {formatTime(sonntag.abends)}
             </div>
           </div>
         </div>

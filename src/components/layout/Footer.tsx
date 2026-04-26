@@ -108,8 +108,12 @@ export const Footer: React.FC = () => {
                                 <span className="text-text-primary font-mono">{t('footer.monday_status') as string}</span>
                             </li>
                             <li className="flex justify-between pb-2">
-                                <span>{t('footer.tuesday_sunday') as string}</span>
-                                <span className="text-text-primary font-mono">{t('footer.tuesday_sunday_status') as string}</span>
+                                <span>{t('footer.tuesday_saturday') as string}</span>
+                                <span className="text-text-primary font-mono">{t('footer.tuesday_saturday_status') as string}</span>
+                            </li>
+                            <li className="flex justify-between pb-2">
+                                <span>{t('footer.sunday') as string}</span>
+                                <span className="text-text-primary font-mono">{t('footer.sunday_status') as string}</span>
                             </li>
                         </ul>
                     </section>

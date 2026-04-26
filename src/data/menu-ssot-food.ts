@@ -8,7 +8,7 @@ import { SSOTMenuItem } from './menu';
 
 export const foodItems: SSOTMenuItem[] = [
   // ─── §3.1 Suppen ────────────────────────────────────────────
-  { nr: '10', name: 'Zuppa del Giorno', description: 'Frisch zubereitet nach saisonalem Angebot.', price: 6.90, category: 'suppen', allergens: [] },
+  { nr: '10', name: 'Zuppa del Giorno', description: 'Frisch zubereite Tages Suppe nach saisonalem Angebot.', price: 6.90, category: 'suppen', allergens: [] },
   { nr: '11', name: 'Zuppa di Pomodoro', description: 'Fein abgestimmte, cremig verfeinerte Tomatensuppe.', price: 7.90, category: 'suppen', allergens: [] },
 
   // ─── §3.2 Vorspeisen ───────────────────────────────────────
@@ -23,9 +23,9 @@ export const foodItems: SSOTMenuItem[] = [
   { nr: '30', name: 'Insalata Mista', description: 'Kleiner, bunter Salatteller – ideal als Beilage oder Vorspeise.', price: 7.90, category: 'salate', allergens: [] },
   { nr: '31', name: 'Insalata Italia', description: 'Bunter Salatteller mit Vorderschinken, saftigem Thunfisch, Mozzarella und Ei, serviert mit hausgemachtem Joghurtdressing.', price: 14.90, category: 'salate', allergens: [] },
   { nr: '32', name: 'Insalata Italia (klein)', description: 'wahlweise als Vorspeise oder Beilage.', price: 10.90, category: 'salate', allergens: [] },
-  { nr: '33', name: 'Insalata Frutti di Mare', description: 'Rucolasalat mit köstlich marinierten Meeresfrüchten, Cocktailtomaten und roten Zwiebeln in Balsamico-Kräuter-Vinaigrette.', price: 16.90, category: 'salate', allergens: [] },
+  { nr: '33', name: 'Insalata Frutti di Mare', description: 'Rucolasalat mit köstlich marinierten Meeresfrüchten, Cocktailtomaten und roten Zwiebeln serviert mit Balsamico-Kräuter-Vinaigrette.', price: 16.90, category: 'salate', allergens: [] },
   { nr: '34', name: 'Insalata di Pollo', description: 'Bunter Salatteller mit Hähnchenbrustfilet und frischen Champignons, serviert mit hausgemachtem Joghurtdressing.', price: 16.90, category: 'salate', allergens: [] },
-  { nr: '35', name: 'Insalata Salmone e Gamberoni', description: 'Bunter Salatteller mit frischem Lachsfilet und Garnelen in Balsamico-Kräuter-Vinaigrette.', price: 17.90, category: 'salate', allergens: [] },
+  { nr: '35', name: 'Insalata Salmone e Gamberoni', description: 'Bunter Salatteller mit frischem Lachsfilet und Garnelen serviert mit Balsamico-Kräuter-Vinaigrette.', price: 17.90, category: 'salate', allergens: [] },
   { nr: '36', name: 'Insalata Don Capo', description: 'Bunter Salatteller mit argentinischem Rinderfleisch und gehobeltem Grana Padano, serviert mit hausgemachtem Joghurtdressing.', price: 19.90, category: 'salate', allergens: [] },
 
   // ─── §3.4 Pasta ─────────────────────────────────────────────
@@ -35,10 +35,10 @@ export const foodItems: SSOTMenuItem[] = [
   { nr: '43', name: 'Rigatoni \u201ERatsstube\u201C', description: 'mit gebratener Hähnchenbrust und frischen Champignons in cremiger Tomaten-Sahnesauce, serviert mit frisch geriebenem Parmigiano', price: 16.90, category: 'pasta', allergens: [] },
   { nr: '44', name: 'Tagliatelle al Ragù di Verdure', description: 'feine Bandnudeln mit frischem Marktgemüse Ragout in aromatischer Tomatensauce, serviert mit frisch geriebener Parmigiano', price: 14.90, category: 'pasta', allergens: [] },
   { nr: '45', name: 'Tagliatelle Salmone e Gamberoni', description: 'feine Bandnudeln mit gebratenem Lachsfilet und Garnelen, verfeinert mit einem Hauch Knoblauch in cremiger Sauce nach Art des Hauses', price: 17.90, category: 'pasta', allergens: [] },
-  { nr: '46', name: 'Linguine ai Frutti di Mare', description: 'flache Pasta mit erlesenen Meeresfrüchten in aromatischer Tomatensauce mit feiner Knoblauchnote', price: 18.90, category: 'pasta', allergens: [] },
-  { nr: '47', name: 'Linguine Pesce Misto della Casa', description: 'flache Pasta mit ausgewähltem Edelfisch in feiner Weißwein-Kräutersauce Empfehlung des Küchenchefs', price: 22.90, category: 'pasta', allergens: [] },
+  { nr: '46', name: 'Fettuccine Nero di Seppia con Frutti di Mare', description: 'Feine schwarze Bandnudeln, veredelt mit Tintenfischtinte, serviert mit einer erlesenen Auswahl an Meeresfrüchten in einer aromatischen Tomatensauce, fein abgestimmt mit einem Hauch von Knoblauch.', price: 19.90, category: 'pasta', allergens: [] },
+  { nr: '47', name: 'Spaghetti con Pesce Misto e Vino Bianco', description: 'Spaghetti mit einer Auswahl an Edelfischen, sanft gegart in einer Weißwein-Kräutersauce. Empfehlung des Küchenchefs', price: 23.90, category: 'pasta', allergens: [] },
 
-  // ─── §3.5 Pasta al Forno (Quell-Nummern: 48, 49, 62) ──────
+  // ─── §3.5 Aus dem Ofen - Überbackenes (Quell-Nummern: 48, 49, 62) ──────
   { nr: '48', name: 'Pasta Combinazione', description: 'Drei verschiedene Pasta in geschmortes Rinderhackfleisch in aromatische Tomaten Soße überbacken mit Mozzarella.', price: 13.90, category: 'pasta-al-forno', allergens: [] },
   { nr: '49', name: 'Rigatoni al Ragu e Verdure', description: 'mit frischem Marktgemüse Ragout in Cremigen Sahne Soße überbacken mit Mozzarella', price: 15.90, category: 'pasta-al-forno', allergens: [] },
 
@@ -55,7 +55,7 @@ export const foodItems: SSOTMenuItem[] = [
   { nr: '71', name: 'Rahm-Schnitzel', description: 'in Cremigen Rahm Soße. Dazu servieren wir Pommes Frites & Salat der Saison', price: 18.90, category: 'schnitzel', allergens: [] },
   { nr: '72', name: 'Jäger-Schnitzel', description: 'mit frischen Champignons in Brauner Soße. Dazu servieren wir Pommes Frites & Salat der Saison', price: 19.90, category: 'schnitzel', allergens: [] },
   { nr: '73', name: 'Pfeffer-Schnitzel', description: 'Mit Grünen Madagaskar-Pfefferkörnern in cremige Rahmsoße. Dazu servieren wir Pommes Frites & Salat der Saison.', price: 19.90, category: 'schnitzel', allergens: [] },
-  { nr: '74', name: 'Schnitzel Bolognese', description: 'überbacken mit Vorder Schinken u. Käse in geschmorter Rinderhackfleischsoße', price: 20.90, category: 'schnitzel', allergens: [] },
+  { nr: '74', name: 'Schnitzel Bolognese', description: 'überbacken mit Vorder Schinken u. Käse in geschmorter Rinderhackfleischsoße & Salat der Saison', price: 20.90, category: 'schnitzel', allergens: [] },
   { nr: '74', name: 'Bauern-Schnitzel', description: 'mit knusprig gebratenem Speck & Zwiebeln. Dazu servieren wir Pommes Frites & Salat der Saison', price: 20.90, category: 'schnitzel', allergens: [] },
   { nr: '75', name: 'Schlemmer-Schnitzel', description: 'mit frischem Champignon in Cremige Bernaise Soße. Dazu servieren wir Pommes Frites & Salat der Saison.', price: 21.90, category: 'schnitzel', allergens: [] },
   { nr: '76', name: 'Lindener Rucksack', description: 'gefüllt mit Vorder-Schinken & Mozzarella Käse in frischem Champignon Sahne Soße', price: 22.90, category: 'schnitzel', allergens: [] },
@@ -88,7 +88,7 @@ export const foodItems: SSOTMenuItem[] = [
   { nr: '102', name: 'Pizza Salmone e Gamberoni', description: 'Lachsfilet aus Norwegen, Garnelen, Kirsch-Tomaten & Knoblauch.', price: 17.00, category: 'pizza', allergens: [] },
   { nr: '103', name: 'Pizza Deluxe', description: 'Hauch dünn geschnittene Kalbsfleisch, Cremige Thunfisch Soße, mariniertem Rucola Salat gehobeltem Grana Padano.', price: 17.00, category: 'pizza', allergens: [] },
   // Nr. 104 fehlt in der Quelle — NICHT auffüllen (SSOT §4.1)
-  { nr: '105', name: 'Pizza Vegetale', description: 'gegrilltem frisches Marktgemüse.', price: 14.00, category: 'pizza', allergens: [] },
+  { nr: '105', name: 'Pizza Vegetale', description: 'Frisch gehobeltem Parmesan mit gegrilltem frisches Marktgemüse.', price: 14.00, category: 'pizza', allergens: [] },
   { nr: '106', name: 'Pizzapane', description: 'Pizzabrot mit Tomaten Soße, Knoblauch & Oregano – Ohne Käse.', price: 6.50, category: 'pizza', allergens: [] },
 
   // ─── §3.10 Familienpizza aus dem Steinofen / 40 × 60 cm ────
@@ -113,4 +113,9 @@ export const foodItems: SSOTMenuItem[] = [
   { nr: '134', name: 'Bourbon-Vanilleeis (je Kugel)', description: 'Feines Bourbon-Vanilleeis mit intensivem Vanillearoma sowie extra Schoko oder Erdbeer Soße', price: 2.50, category: 'dessert', allergens: [] },
   { nr: '135', name: 'Affogato Espresso', description: 'Vanilleeis übergossen mit heißem Espresso.', price: 5.90, category: 'dessert', allergens: [] },
 
+  // ─── §3.13 Saisonale Burger ───────────────────────────────────
+  { nr: '1', name: 'Classic Burger', description: 'Saftiges Rindfleisch mit knackigem Salat, eingelegten Gurken, frischen Tomatenscheiben und roten Zwiebeln, verfeinert mit unserer hauseigenen Sauce.', price: 13.90, category: 'saisonal-burger', allergens: [] },
+  { nr: '2', name: 'Cheeseburger', description: 'Saftiges Rindfleisch mit geschmolzenem Käse, knackigem Salat, eingelegten Gurken, Tomaten und roten Zwiebeln, abgerundet mit unserer hausgemachten Sauce.', price: 14.90, category: 'saisonal-burger', allergens: [] },
+  { nr: '3', name: 'Chili Cheeseburger', description: 'Kräftiges Rindfleisch mit geschmolzenem Mozzarella, pikanten Jalapeños, knackigem Salat, Gurken, Tomaten und roten Zwiebeln, verfeinert mit unserer würzigen Haussauce.', price: 15.90, category: 'saisonal-burger', allergens: [] },
+  { nr: '4', name: 'Deluxe Burger', description: 'Saftiges Rindfleisch mit luftgetrocknetem Schinken, frischem Salat, eingelegten Gurken, Tomaten und roten Zwiebeln, veredelt mit unserer exklusiven Haussauce.', price: 16.90, category: 'saisonal-burger', allergens: [] },
 ];

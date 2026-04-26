@@ -148,8 +148,6 @@
   "footer.revocation": "Visszavonás",
   "footer.rights": "Minden jog fenntartva.",
   "footer.terms": "Általános Szerződési Feltételek",
-  "footer.tuesday_sunday": "kedd - vasárnap",
-  "footer.tuesday_sunday_status": "11:30-14:30 és 17:30-23:00",
   "form.almost_done": "Majdnem kész! Már csak {count} mező maradt.",
   "form.catering": "Étkeztetési Érdeklődés",
   "form.email_placeholder": "your@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Gyors válasz",
   "trust.fresh": "Napi friss",
   "trust.gdpr": "GDPR-kompatibilis",
-  "trust.google_stars": "4,8/5 csillag Google"
+  "trust.google_stars": "4,8/5 csillag Google",
+  "footer.tuesday_saturday": "kedd - szombat",
+  "footer.sunday": "Vasárnap",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

@@ -48,3 +48,17 @@ replace_menu_images.js
 
 *storybook.log
 storybook-static
+
+# performance traces & reports
+trace*.json
+lh-report*
+lcp*.json
+report.json
+report.html
+lighthouse-budget.json
+knip-output.txt
+
+# one-off scripts
+test-sanity.js
+optimize-images.js
+update-refs.js

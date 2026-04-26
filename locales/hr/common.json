@@ -148,8 +148,6 @@
   "footer.revocation": "Opoziv",
   "footer.rights": "Sva prava pridržana.",
   "footer.terms": "Odredbe i uvjeti",
-  "footer.tuesday_sunday": "utorak – nedjelja",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 i 17:30 - 23:00",
   "form.almost_done": "Skoro gotovo! Preostalo je samo {count} polja.",
   "form.catering": "Catering Upit",
   "form.email_placeholder": "vaša@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Brzi odgovor",
   "trust.fresh": "Dnevno svježe",
   "trust.gdpr": "Sukladno GDPR-u",
-  "trust.google_stars": "4,8/5 zvjezdica Google"
+  "trust.google_stars": "4,8/5 zvjezdica Google",
+  "footer.tuesday_saturday": "utorak – subota",
+  "footer.sunday": "Nedjelja",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

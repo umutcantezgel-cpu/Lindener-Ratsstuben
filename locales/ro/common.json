@@ -148,8 +148,6 @@
   "footer.revocation": "Revocare",
   "footer.rights": "Toate drepturile rezervate.",
   "footer.terms": "Termeni și condiții",
-  "footer.tuesday_sunday": "Marți – Duminică",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 și 17:30 - 23:00",
   "form.almost_done": "Aproape gata! Au mai rămas doar {număr} câmpuri.",
   "form.catering": "Cerere de catering",
   "form.email_placeholder": "your@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Răspuns rapid",
   "trust.fresh": "Proaspăt zilnic",
   "trust.gdpr": "Conform GDPR",
-  "trust.google_stars": "4,8/5 stele Google"
+  "trust.google_stars": "4,8/5 stele Google",
+  "footer.tuesday_saturday": "Marți – Sâmbătă",
+  "footer.sunday": "Duminică",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

@@ -35,7 +35,7 @@ export default function PrintMenuPage() {
           <CategoryMapper categoryId="aperitif" />
         </div>
 
-        <DishCategory dropcap="Z" title="Zuppa" marginTop="5px" marginBottom="5px" />
+        <DishCategory dropcap="S" title="Suppen" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="suppen" />
         </div>
@@ -65,7 +65,7 @@ export default function PrintMenuPage() {
       </PrintPage>
 
       <PrintPage pageNum="V">
-        <DishCategory dropcap="P" title="Pasta al Forno" marginTop="5px" />
+        <DishCategory dropcap="A" title="Aus dem Ofen - Überbackenes" marginTop="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="pasta-al-forno" />
         </div>
@@ -103,7 +103,7 @@ export default function PrintMenuPage() {
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="pizza" marginBottom="2px" />
         </div>
-        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px", whiteSpace: "pre-wrap", lineHeight: 1.4 }}>
+        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px", whiteSpace: "pre-wrap", lineHeight: 1.4, fontSize: "10pt" }}>
           Extrabelege: <strong>Jeder Extrabelag – 1,00 €</strong>{"\n"}
           <strong>Mozzarella – 4,00 €</strong>{"\n"}
           <strong>Thunfisch – 4,00 €</strong>{"\n"}
@@ -118,7 +118,7 @@ export default function PrintMenuPage() {
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="familienpizza" marginBottom="2px" />
         </div>
-        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px", whiteSpace: "pre-wrap", lineHeight: 1.4 }}>
+        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px", whiteSpace: "pre-wrap", lineHeight: 1.4, fontSize: "10pt" }}>
           Extrabelege: <strong>Jeder Extrabelag – 4,00 €</strong>{"\n"}
           <strong>Mozzarella – 12,00 €</strong>{"\n"}
           <strong>Thunfisch – 12,00 €</strong>{"\n"}
@@ -153,9 +153,13 @@ export default function PrintMenuPage() {
           <CategoryMapper categoryId="biere" marginBottom="2px" />
         </div>
 
-        <DishCategory dropcap="W" title="Weine" marginTop="10px" marginBottom="5px" />
+        <DishCategory dropcap="R" title="Rotweine" marginTop="10px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="rotweine" marginBottom="2px" />
+        </div>
+
+        <DishCategory dropcap="W" title="Weißweine" marginTop="10px" marginBottom="5px" />
+        <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="weissweine" marginBottom="2px" />
         </div>
         <Quote text="Ein gutes Glas Wein ist ein Gedicht." />

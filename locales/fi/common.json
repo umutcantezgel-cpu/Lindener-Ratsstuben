@@ -148,8 +148,6 @@
   "footer.revocation": "Peruutus",
   "footer.rights": "Kaikki oikeudet pidätetään.",
   "footer.terms": "Käyttöehdot",
-  "footer.tuesday_sunday": "Tiistai - Sunnuntai",
-  "footer.tuesday_sunday_status": "11.30-14.30 ja 17.30-23.00",
   "form.almost_done": "Melkein valmista! Vain {count} kenttää jäljellä.",
   "form.catering": "Catering-kysely",
   "form.email_placeholder": "sinun@email.fi",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Nopea vastaus",
   "trust.fresh": "Päivittäin tuoretta",
   "trust.gdpr": "GDPR-yhteensopiva",
-  "trust.google_stars": "4.8/5 tähteä Googlessa"
+  "trust.google_stars": "4.8/5 tähteä Googlessa",
+  "footer.tuesday_saturday": "Tiistai - Lauantai",
+  "footer.sunday": "Sunnuntai",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

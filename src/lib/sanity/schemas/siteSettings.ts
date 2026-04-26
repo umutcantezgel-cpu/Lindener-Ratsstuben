@@ -78,16 +78,22 @@ export default defineType({
           initialValue: 'Geschlossen (außer an Feiertagen)',
         }),
         defineField({
-          name: 'tuesdayToSunday',
-          title: 'Dienstag - Sonntag',
+          name: 'tuesdayToSaturday',
+          title: 'Dienstag - Samstag',
           type: 'string',
-          initialValue: '11:30 - 14:30 & 17:30 - 22:30',
+          initialValue: '12:00 - 14:30 & 17:30 - 22:30',
+        }),
+        defineField({
+          name: 'sunday',
+          title: 'Sonntag',
+          type: 'string',
+          initialValue: '12:00 - 14:30 & 17:30 - 21:00',
         }),
         defineField({
           name: 'lunchStart',
           title: 'Mittags-Beginn (für Reservierungs-Validierung)',
           type: 'string',
-          initialValue: '11:30',
+          initialValue: '12:00',
           description: 'Format HH:MM — wird benutzt um Reservierungszeiten zu prüfen',
         }),
         defineField({

@@ -148,8 +148,6 @@
   "footer.revocation": "Ανάκληση",
   "footer.rights": "Με την επιφύλαξη παντός δικαιώματος.",
   "footer.terms": "Όροι και Προϋποθέσεις",
-  "footer.tuesday_sunday": "Τρίτη – Κυριακή",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 & 17:30 - 23:00",
   "form.almost_done": "Σχεδόν τελειώσατε! Μόνο {count} πεδίο/α ακόμη.",
   "form.catering": "Αίτημα Catering",
   "form.email_placeholder": "to.email.sas@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Γρήγορη Ανταπόκριση",
   "trust.fresh": "Φρέσκα Καθημερινά",
   "trust.gdpr": "Συμβατό με GDPR",
-  "trust.google_stars": "4.8/5 Αστέρια Google"
+  "trust.google_stars": "4.8/5 Αστέρια Google",
+  "footer.tuesday_saturday": "Τρίτη – Σάββατο",
+  "footer.sunday": "Κυριακή",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

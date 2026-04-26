@@ -69,8 +69,6 @@
   "footer.opening_hours": "Opening Hours",
   "footer.monday": "Monday",
   "footer.monday_status": "Closed",
-  "footer.tuesday_sunday": "Tuesday – Sunday",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 & 17:30 - 23:00",
   "footer.imprint": "Legal Notice",
   "footer.privacy": "Privacy Policy",
   "footer.terms": "Terms & Conditions",
@@ -192,5 +190,9 @@
   "error.gallery_title": "The gallery could not be loaded",
   "error.gallery_description": "Our images are currently not available. Please try again or browse our other sites in the meantime.",
   "error.menu_title": "The menu is currently unavailable",
-  "error.menu_description": "Sorry to bother you. We couldn't load the current dishes. Try again now."
+  "error.menu_description": "Sorry to bother you. We couldn't load the current dishes. Try again now.",
+  "footer.tuesday_saturday": "Tuesday – Saturday",
+  "footer.sunday": "Sunday",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

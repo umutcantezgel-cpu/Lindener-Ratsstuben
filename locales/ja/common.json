@@ -148,8 +148,6 @@
   "footer.revocation": "取り消し",
   "footer.rights": "無断転載を禁じます。",
   "footer.terms": "利用規約",
-  "footer.tuesday_sunday": "火曜日 – 日曜日",
-  "footer.tuesday_sunday_status": "11:30～14:30、17:30～23:00",
   "form.almost_done": "あと少し！残り{count}項目です。",
   "form.catering": "ケータリングのご依頼",
   "form.email_placeholder": "your@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "迅速な対応",
   "trust.fresh": "毎日新鮮",
   "trust.gdpr": "GDPR準拠",
-  "trust.google_stars": "Google 4.8/5星"
+  "trust.google_stars": "Google 4.8/5星",
+  "footer.tuesday_saturday": "火曜日 – 土曜日",
+  "footer.sunday": "日曜日",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }
