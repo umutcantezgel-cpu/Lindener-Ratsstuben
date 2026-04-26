@@ -51,6 +51,7 @@ export interface Ruhetag {
 
 export interface OpeningHours {
   readonly regulaer: OpeningHoursSlot;
+  readonly sonntag: OpeningHoursSlot;
   readonly ruhetag: Ruhetag;
 }
 

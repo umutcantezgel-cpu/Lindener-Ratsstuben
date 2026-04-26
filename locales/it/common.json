@@ -148,8 +148,6 @@
   "footer.revocation": "Revoca",
   "footer.rights": "Tutti i diritti riservati.",
   "footer.terms": "Termini e condizioni",
-  "footer.tuesday_sunday": "Martedì – Domenica",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 e 17:30 - 23:00",
   "form.almost_done": "Quasi finito! Sono rimasti solo {count} campi.",
   "form.catering": "Richiesta di ristorazione",
   "form.email_placeholder": "tuo@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Risposta rapida",
   "trust.fresh": "Fresco Ogni Giorno",
   "trust.gdpr": "Conforme al GDPR",
-  "trust.google_stars": "4,8/5 stelle Google"
+  "trust.google_stars": "4,8/5 stelle Google",
+  "footer.tuesday_saturday": "Martedì – Sabato",
+  "footer.sunday": "Domenica",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

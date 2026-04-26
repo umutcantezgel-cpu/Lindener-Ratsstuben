@@ -12,7 +12,7 @@ export const KegelHero: React.FC<KegelHeroProps> = () => {
     const { t } = useTranslation('pages');
 
     return (
-        <section className="relative min-h-[60vh] flex flex-col items-center justify-center pt-32 pb-20 px-4 bg-[#FAFAFA] overflow-hidden">
+        <section className="relative min-h-[60vh] flex flex-col items-center justify-center pt-32 pb-20 px-4 overflow-hidden">
             {/* Minimalist Grain Overlay */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-multiply" style={{ backgroundImage: 'url("/images/noise.webp")' }}></div>
 
@@ -22,7 +22,7 @@ export const KegelHero: React.FC<KegelHeroProps> = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
                 >
-                    <h1 className="text-4xl md:text-6xl font-display text-onyx mb-6 uppercase tracking-[0.05em] leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-display text-text-primary mb-6 uppercase tracking-[0.05em] leading-tight">
                         {t('kegelbahn.hero.title') as string}
                     </h1>
                 </motion.div>
@@ -32,7 +32,7 @@ export const KegelHero: React.FC<KegelHeroProps> = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
                 >
-                    <p className="text-lg md:text-2xl text-gray-500 max-w-2xl font-light">
+                    <p className="text-lg md:text-2xl text-text-secondary max-w-2xl font-light">
                         {t('kegelbahn.hero.subtitle') as string}
                     </p>
                 </motion.div>

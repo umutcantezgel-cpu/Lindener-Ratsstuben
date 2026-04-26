@@ -148,8 +148,6 @@
   "footer.revocation": "Tilbagekaldelse",
   "footer.rights": "Alle rettigheder forbeholdes.",
   "footer.terms": "Betingelser",
-  "footer.tuesday_sunday": "Tirsdag - Søndag",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 & 17:30 - 23:00",
   "form.almost_done": "Næsten færdig! Kun {count} felt(er) tilbage.",
   "form.catering": "Cateringforespørgsel",
   "form.email_placeholder": "din@email.dk",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Hurtigt svar",
   "trust.fresh": "Dagligt frisk",
   "trust.gdpr": "GDPR-kompatibel",
-  "trust.google_stars": "4.8/5 stjerner Google"
+  "trust.google_stars": "4.8/5 stjerner Google",
+  "footer.tuesday_saturday": "Tirsdag - Lørdag",
+  "footer.sunday": "Søndag",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

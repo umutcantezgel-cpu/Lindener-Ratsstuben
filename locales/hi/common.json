@@ -148,8 +148,6 @@
   "footer.revocation": "निरसन",
   "footer.rights": "सर्वाधिकार सुरक्षित।",
   "footer.terms": "नियम एवं शर्तें",
-  "footer.tuesday_sunday": "मंगलवार-रविवार",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 और 17:30 - 23:00",
   "form.almost_done": "लगभग पूरा हो गया! केवल {गिनती}फ़ील्ड शेष है।",
   "form.catering": "खानपान संबंधी पूछताछ",
   "form.email_placeholder": "your@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "त्वरित प्रतिक्रिया",
   "trust.fresh": "दैनिक ताज़ा",
   "trust.gdpr": "जीडीपीआर अनुरूप",
-  "trust.google_stars": "4.8/5 स्टार गूगल"
+  "trust.google_stars": "4.8/5 स्टार गूगल",
+  "footer.tuesday_saturday": "मंगलवार-शनिवार",
+  "footer.sunday": "रविवार",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

@@ -148,8 +148,6 @@
   "footer.revocation": "İptal",
   "footer.rights": "Tüm hakları saklıdır.",
   "footer.terms": "Şartlar ve Koşullar",
-  "footer.tuesday_sunday": "Salı – Pazar",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 ve 17:30 - 23:00",
   "form.almost_done": "Neredeyse tamam! Sadece {count} alan kaldı.",
   "form.catering": "Catering Talebi",
   "form.email_placeholder": "senin@eposta.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Hızlı Yanıt",
   "trust.fresh": "Her Gün Taze",
   "trust.gdpr": "KVKK Uyumlu",
-  "trust.google_stars": "4.8/5 Yıldız Google"
+  "trust.google_stars": "4.8/5 Yıldız Google",
+  "footer.tuesday_saturday": "Salı – Cumartesi",
+  "footer.sunday": "Pazar",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

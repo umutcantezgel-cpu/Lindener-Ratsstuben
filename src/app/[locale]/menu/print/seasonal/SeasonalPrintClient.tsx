@@ -26,6 +26,19 @@ export default function SeasonalPrintClient() {
         background: #555 !important;
         overflow-x: hidden;
       }
+      
+      @page {
+        size: a5 landscape;
+        margin: 0;
+      }
+      
+      @media print {
+        .seasonal-print-loader {
+          display: none !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+        }
+      }
     `;
     document.head.appendChild(style);
 
@@ -85,7 +98,7 @@ export default function SeasonalPrintClient() {
       </div>
 
       {isPreparingPrint && (
-        <div style={{
+        <div className="seasonal-print-loader" style={{
           position: 'fixed',
           top: 0, left: 0, right: 0, bottom: 0,
           backgroundColor: '#111',

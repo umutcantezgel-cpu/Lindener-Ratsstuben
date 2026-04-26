@@ -17,7 +17,7 @@ interface KegelClientProps {
 const KegelClient: React.FC<KegelClientProps> = ({ locale }) => {
     return (
         <PageTransition>
-            <article className="min-h-screen bg-[#FAFAFA]" itemProp="mainContentOfPage">
+            <article className="min-h-screen bg-bg-primary" itemProp="mainContentOfPage">
                 <KegelHero locale={locale} />
                 <KegelFeatures />
                 <KegelPricing />

@@ -29,7 +29,7 @@ export const KegelFAQ: React.FC = () => {
     };
 
     return (
-        <section className="py-24 bg-light-sand">
+        <section className="py-24 bg-transparent">
             <div className="container mx-auto px-4 max-w-4xl">
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
@@ -38,7 +38,7 @@ export const KegelFAQ: React.FC = () => {
                     transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-display text-onyx mb-4 uppercase tracking-widest">
+                    <h2 className="text-3xl md:text-5xl font-display text-text-primary mb-4 uppercase tracking-widest">
                         {t('kegelbahn.faq.title') as string}
                     </h2>
                     <div className="h-[1px] w-12 bg-muted-gold mx-auto" />
@@ -53,7 +53,7 @@ export const KegelFAQ: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8, delay: idx * 0.1, ease: "easeOut" }}
-                            className="bg-white border border-gray-200"
+                            className="bg-bg-secondary/50 border border-border-subtle"
                         >
                             <motion.button
                                 layout="position"
@@ -61,7 +61,7 @@ export const KegelFAQ: React.FC = () => {
                                 className="w-full text-left px-8 py-6 flex justify-between items-center group cursor-pointer"
                                 aria-expanded={openIndex === idx}
                             >
-                                <h3 className="text-lg font-display uppercase tracking-widest text-onyx pe-8 group-hover:text-muted-gold transition-colors duration-300">
+                                <h3 className="text-lg font-display uppercase tracking-widest text-text-primary pe-8 group-hover:text-muted-gold transition-colors duration-300">
                                     {faq.question}
                                 </h3>
                                 <ChevronDown 
@@ -79,7 +79,7 @@ export const KegelFAQ: React.FC = () => {
                                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="px-8 pb-6 text-gray-500 font-light leading-relaxed border-t border-gray-100 pt-6">
+                                        <div className="px-8 pb-6 text-text-secondary font-light leading-relaxed border-t border-border-subtle pt-6">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

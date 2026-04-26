@@ -1,5 +1,6 @@
 /* ============================================
    SAISONKARTE – Seasonal Menu Print Styles
+   Awwwards Level DIN A5 Landscape
    Inherits base variables from ../print.css
    ============================================ */
 
@@ -27,27 +28,28 @@
   box-sizing: border-box;
 }
 
-/* ── Page Shell ── */
+/* ── Page Shell (Landscape) ── */
 .seasonal-page {
   width: 210mm;
-  height: 297mm;
+  height: 148mm;
   background-color: var(--paper);
   background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"),
-    linear-gradient(rgba(253, 251, 247, 0.98), rgba(253, 251, 247, 0.98)),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A880' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, rgba(253, 251, 247, 0.95), rgba(248, 245, 238, 0.95)),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A880' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   margin: 0 auto;
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 /* ── Ornamental Frame ── */
 .seasonal-frame {
   position: absolute;
-  inset: 8mm;
+  inset: 6mm;
   border: 1.5px solid var(--gold);
   pointer-events: none;
   z-index: 1;
@@ -55,104 +57,105 @@
 .seasonal-frame::after {
   content: '';
   position: absolute;
-  inset: 3mm;
+  inset: 2.5mm;
   border: 0.5px solid var(--gold-deep);
   opacity: 0.4;
 }
 
 /* ── Corner Ornaments ── */
-.corner-tl { top: 4mm; left: 4mm; }
-.corner-tr { top: 4mm; right: 4mm; transform: rotate(90deg); }
-.corner-bl { bottom: 4mm; left: 4mm; transform: rotate(-90deg); }
-.corner-br { bottom: 4mm; right: 4mm; transform: rotate(180deg); }
-
-/* ── Entrance & Float Animation ── */
-@keyframes floatSeasonal {
-  0%   { transform: translateY(0px);  box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 0 40px rgba(197,168,128,0.05); }
-  50%  { transform: translateY(-8px); box-shadow: 0 35px 60px rgba(0,0,0,0.2),  0 0 60px rgba(197,168,128,0.1); }
-  100% { transform: translateY(0px);  box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 0 40px rgba(197,168,128,0.05); }
+.seasonal-corner {
+  position: absolute;
+  width: 14mm;
+  height: 14mm;
+  pointer-events: none;
+  z-index: 2;
+  color: var(--gold-deep);
 }
 
-@keyframes fadeInUpSeasonal {
-  0%   { opacity: 0; transform: translateY(40px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes shimmerGold {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@media screen {
-  .seasonal-page {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  .seasonal-page.is-visible {
-    animation:
-      fadeInUpSeasonal 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards,
-      floatSeasonal 8s ease-in-out infinite 1.2s;
-  }
-
-  .seasonal-title,
-  .seasonal-badge {
-    background: linear-gradient(110deg, var(--gold-deep) 0%, var(--gold) 40%, #fffda0 50%, var(--gold) 60%, var(--gold-deep) 100%);
-    background-size: 200% auto;
-    color: transparent !important;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: shimmerGold 6s infinite linear;
-  }
-}
+.corner-tl { top: 6mm; left: 6mm; }
+.corner-tr { top: 6mm; right: 6mm; transform: scaleX(-1); }
+.corner-bl { bottom: 6mm; left: 6mm; transform: scaleY(-1); }
+.corner-br { bottom: 6mm; right: 6mm; transform: scale(-1, -1); }
 
 /* ── Page Content Wrapper ── */
 .seasonal-content {
   position: relative;
   z-index: 2;
-  padding: 14mm 16mm 10mm 16mm;
+  padding: 8mm 10mm 6mm 10mm;
   display: flex;
   flex-direction: column;
   flex: 1;
   font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  height: 100%;
+}
+
+/* ── Landscape Layout Grid ── */
+.landscape-layout {
+  display: flex;
+  height: 100%;
+  gap: 6mm;
+}
+
+.landscape-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.border-right {
+  border-right: 1px dashed rgba(197, 168, 128, 0.4); /* subtle gold */
+  padding-right: 8mm;
+  position: relative;
+}
+
+.border-right::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 5%;
+  bottom: 5%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-deep), transparent);
 }
 
 /* ── Header Section ── */
 .seasonal-header {
   text-align: center;
-  margin-bottom: 4mm;
+  margin-bottom: 1mm;
 }
 
 .seasonal-logo {
-  width: 28mm;
+  width: 16mm;
   height: auto;
-  margin-bottom: 3mm;
+  margin-bottom: 1mm;
   opacity: 0.9;
 }
 
 .seasonal-badge {
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  font-size: 9pt;
+  font-size: 7pt;
   font-weight: 600;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 3mm;
+  margin-bottom: 1.5mm;
   display: block;
 }
 
 .seasonal-title {
   font-family: var(--font-cinzel), 'Cinzel', serif;
-  font-size: 22pt;
+  font-size: 13pt;
   font-weight: 700;
   color: var(--gold);
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   line-height: 1.2;
-  margin: 0 0 2mm 0;
+  margin: 0 0 0.5mm 0;
 }
 
 .seasonal-subtitle {
   font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
-  font-size: 13pt;
+  font-size: 10pt;
   font-style: italic;
   color: var(--ink-soft);
   letter-spacing: 1px;
@@ -164,162 +167,146 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin: 3mm 0;
+  gap: 2mm;
+  margin: 1mm 0;
   color: var(--gold);
 }
 .seasonal-divider::before,
 .seasonal-divider::after {
   content: '';
   flex: 1;
-  max-width: 60mm;
+  max-width: 40mm;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 .seasonal-divider span {
-  font-size: 14pt;
+  font-size: 10pt;
   line-height: 1;
 }
 
 /* ── Intro Text ── */
 .seasonal-intro {
   text-align: center;
-  font-size: 10.5pt;
+  font-size: 8pt;
   color: var(--ink-soft);
-  line-height: 1.6;
-  max-width: 150mm;
-  margin: 0 auto 4mm auto;
+  line-height: 1.35;
+  max-width: 88mm;
+  margin: 0 auto 2mm auto;
   font-style: italic;
 }
 
-/* ── Burger Grid ── */
-.burger-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 3mm;
-  flex: 1;
-}
-
-.burger-item {
-  display: flex;
-  gap: 4mm;
-  padding: 3mm 5mm;
-  border: 0.5px solid var(--border);
-  border-radius: 2mm;
-  background: linear-gradient(135deg, rgba(253,251,247,0.6) 0%, rgba(232,227,218,0.15) 100%);
-  position: relative;
-  transition: box-shadow 0.3s ease;
-}
-
-@media screen {
-  .burger-item:hover {
-    box-shadow: 0 4px 20px rgba(197, 168, 128, 0.15);
-  }
-}
-
-.burger-nr {
-  font-family: var(--font-cinzel), 'Cinzel', serif;
-  font-size: 26pt;
-  font-weight: 700;
-  color: var(--gold);
-  opacity: 0.25;
-  line-height: 1;
-  min-width: 12mm;
-  text-align: center;
-  align-self: center;
-}
-
-.burger-details {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.burger-name-row {
-  display: flex;
-  align-items: baseline;
-  gap: 2mm;
-  margin-bottom: 1.5mm;
-}
-
-.burger-name {
-  font-family: var(--font-cinzel), 'Cinzel', serif;
-  font-size: 12pt;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: 0.5px;
-}
-
-.burger-dot-leader {
-  flex: 1;
-  border-bottom: 1px dotted var(--border);
-  margin: 0 2mm;
-  position: relative;
-  top: -3px;
-}
-
-.burger-price {
-  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  font-size: 11pt;
-  font-weight: 600;
-  color: var(--gold-deep);
-  white-space: nowrap;
-}
-
-.burger-desc {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
-  font-size: 9.5pt;
-  color: var(--ink-soft);
-  line-height: 1.5;
-  margin: 0;
-}
-
 /* ── Footer Section ── */
+.landscape-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  padding-bottom: 14mm;
+}
+
 .seasonal-footer {
-  margin-top: auto;
+  position: absolute;
+  bottom: 2mm;
+  left: 0;
+  right: 0;
   text-align: center;
-  padding-top: 4mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: auto;
 }
 
 .seasonal-footnote {
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  font-size: 8pt;
+  font-size: 6pt;
   color: var(--ink-faint);
   letter-spacing: 0.5px;
   font-style: italic;
-  margin-bottom: 4mm;
-}
-
-.seasonal-logos-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 3mm;
-}
-
-.seasonal-logos-container {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 0 50px 25px white;
-  padding: 3mm 5mm;
-  display: inline-block;
-}
-
-.seasonal-logos-container img {
-  width: 100%;
-  max-width: 140mm;
-  height: auto;
+  margin: 0 0 1mm 0;
 }
 
 .seasonal-closing {
   font-family: var(--font-cinzel), 'Cinzel', serif;
-  font-size: 11pt;
-  letter-spacing: 3px;
-  color: var(--gold);
-  margin-bottom: 3mm;
+  font-size: 8pt;
+  letter-spacing: 2.5px;
+  color: var(--gold-deep);
+  margin: 0;
+}
+
+/* ── Items Container Scaling ── */
+.seasonal-items-container {
+  font-size: 0.85em;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 0;
+}
+
+.seasonal-items-container .it {
+  margin-bottom: 0 !important;
+  padding: 0;
+  background: none !important;
+  transform: none !important;
+}
+
+.seasonal-items-container .it-hdr {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  margin-bottom: 1mm;
+}
+
+.seasonal-items-container .it-n {
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-size: 9.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  letter-spacing: 0.5px;
+}
+
+.seasonal-items-container .it-id {
+  display: none; /* Hide numbers for seasonal items */
+}
+
+.seasonal-items-container .it-dots {
+  border-bottom: none;
+  background-image: radial-gradient(circle, var(--gold-deep) 0.8px, transparent 1px);
+  background-size: 5px 10px;
+  background-position: bottom;
+  background-repeat: repeat-x;
+  opacity: 0.5;
+  margin: 0 3mm;
+  position: relative;
+  top: -4px;
+  height: 10px;
+  flex-grow: 1;
+}
+
+.seasonal-items-container .it-p {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  font-size: 10pt;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.seasonal-items-container .it-d {
+  font-size: 7.5pt;
+  line-height: 1.25;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  color: var(--ink-soft);
+  max-width: 95%;
 }
 
 /* ── Print Overrides ── */
+@page {
+  size: a5 landscape;
+  margin: 0;
+}
+
 @media print {
   .seasonal-root {
     background: none !important;
@@ -328,10 +315,17 @@
   .seasonal-page {
     margin: 0 !important;
     box-shadow: none !important;
-    page-break-after: avoid;
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
+  }
+  .seasonal-page {
+    break-after: page;
+    page-break-after: always;
+  }
+  .seasonal-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
   }
   .seasonal-frame {
     border-color: var(--gold) !important;
@@ -343,9 +337,6 @@
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
     animation: none !important;
-  }
-  .burger-item:hover {
-    box-shadow: none !important;
   }
 }
 

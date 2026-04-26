@@ -36,9 +36,14 @@ export const companyData: CompanyData = {
     openingHours: {
         // Structured data for detailed rendering and dynamic formatting
         regulaer: {
-            tageKey: "footer.tuesday_sunday",
-            mittags: { start: "11:30", end: "14:30" },
+            tageKey: "footer.tuesday_saturday",
+            mittags: { start: "12:00", end: "14:30" },
             abends: { start: "17:30", end: "22:30" }
+        },
+        sonntag: {
+            tageKey: "footer.sunday",
+            mittags: { start: "12:00", end: "14:30" },
+            abends: { start: "17:30", end: "21:00" }
         },
         ruhetag: {
             tagKey: "footer.monday",

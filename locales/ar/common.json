@@ -148,8 +148,6 @@
   "footer.revocation": "الإلغاء",
   "footer.rights": "جميع الحقوق محفوظة.",
   "footer.terms": "الشروط والأحكام",
-  "footer.tuesday_sunday": "الثلاثاء - الأحد",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 و 17:30 - 23:00",
   "form.almost_done": "أوشكنا على الانتهاء! بقي {count} حقل.",
   "form.catering": "استفسار عن تقديم الطعام",
   "form.email_placeholder": "your@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "استجابة سريعة",
   "trust.fresh": "طازج يومياً",
   "trust.gdpr": "متوافق مع GDPR",
-  "trust.google_stars": "4.8/5 نجوم جوجل"
+  "trust.google_stars": "4.8/5 نجوم جوجل",
+  "footer.tuesday_saturday": "الثلاثاء - السبت",
+  "footer.sunday": "الأحد",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

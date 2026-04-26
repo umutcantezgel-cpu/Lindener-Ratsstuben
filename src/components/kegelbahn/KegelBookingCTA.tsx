@@ -10,7 +10,7 @@ export const KegelBookingCTA: React.FC = () => {
     const { t } = useTranslation('pages');
 
     return (
-        <section className="py-24 bg-[#FAFAFA] border-t border-gray-100 flex justify-center items-center">
+        <section className="py-24 bg-transparent border-t border-border-subtle flex justify-center items-center">
             <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -20,7 +20,7 @@ export const KegelBookingCTA: React.FC = () => {
             >
                 <Link 
                     href="/reservation"
-                    className="group relative text-onyx hover:text-muted-gold font-medium uppercase tracking-[0.2em] text-sm flex items-center gap-4 transition-colors duration-500 pb-2"
+                    className="group relative text-text-primary hover:text-muted-gold font-medium uppercase tracking-[0.2em] text-sm flex items-center gap-4 transition-colors duration-500 pb-2"
                 >
                     {t('kegelbahn.cta.book') as string}
                     <ArrowRight className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-3 rtl:group-hover:-translate-x-3 rtl-mirror" />

@@ -148,8 +148,6 @@
   "footer.revocation": "폐지",
   "footer.rights": "모든 권리 보유.",
   "footer.terms": "이용약관",
-  "footer.tuesday_sunday": "화요일 – 일요일",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 & 17:30 - 23:00",
   "form.almost_done": "거의 완료되었습니다! {count}개 필드만 남았습니다.",
   "form.catering": "케이터링 문의",
   "form.email_placeholder": "your@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "빠른 응답",
   "trust.fresh": "매일 신선한",
   "trust.gdpr": "GDPR 준수",
-  "trust.google_stars": "4.8/5 별점 구글"
+  "trust.google_stars": "4.8/5 별점 구글",
+  "footer.tuesday_saturday": "화요일 – 토요일",
+  "footer.sunday": "일요일",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

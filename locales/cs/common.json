@@ -148,8 +148,6 @@
   "footer.revocation": "Odvolání",
   "footer.rights": "Všechna práva vyhrazena.",
   "footer.terms": "Podmínky",
-  "footer.tuesday_sunday": "Úterý - Neděle",
-  "footer.tuesday_sunday_status": "11:30–14:30 a 17:30–23:00",
   "form.almost_done": "Téměř hotovo! Zbývá {count} polí.",
   "form.catering": "Poptávka na catering",
   "form.email_placeholder": "vas@email.cz",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Rychlá odpověď",
   "trust.fresh": "Denně čerstvé",
   "trust.gdpr": "V souladu s GDPR",
-  "trust.google_stars": "4.8/5 hvězdiček Google"
+  "trust.google_stars": "4.8/5 hvězdiček Google",
+  "footer.tuesday_saturday": "Úterý - Sobota",
+  "footer.sunday": "Neděle",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

@@ -19,7 +19,7 @@ export const KegelCatering: React.FC = () => {
     ];
 
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-transparent">
             <div className="container mx-auto px-4 max-w-5xl">
                 <div className="flex flex-col md:flex-row gap-16 items-center">
                     
@@ -30,7 +30,7 @@ export const KegelCatering: React.FC = () => {
                         transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
                         className="w-full md:w-1/3"
                     >
-                        <h2 className="text-3xl md:text-5xl font-display text-onyx mb-6 uppercase tracking-widest leading-tight">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-text-primary mb-6 uppercase tracking-widest leading-tight break-words hyphens-auto">
                             {t('kegelbahn.catering.title') as string}
                         </h2>
                         <div className="h-[2px] w-16 bg-muted-gold mb-8" />
@@ -44,12 +44,12 @@ export const KegelCatering: React.FC = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.8, delay: idx * 0.2, ease: "easeOut" }}
-                                className="group relative ps-8 border-s border-gray-200 hover:border-muted-gold transition-colors duration-500"
+                                className="group relative ps-8 border-s border-border-subtle hover:border-muted-gold transition-colors duration-500"
                             >
-                                <h3 className="text-2xl font-display text-onyx mb-3 uppercase tracking-wider">
+                                <h3 className="text-2xl font-display text-text-primary mb-3 uppercase tracking-wider">
                                     {item.title}
                                 </h3>
-                                <p className="text-gray-500 font-light leading-relaxed text-lg">
+                                <p className="text-text-secondary font-light leading-relaxed text-lg">
                                     {item.description}
                                 </p>
                             </motion.div>

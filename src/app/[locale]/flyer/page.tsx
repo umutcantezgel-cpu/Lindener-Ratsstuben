@@ -84,27 +84,9 @@ export default function Flyer8Page() {
             <p><Globe /> lindener-ratsstuben.de</p>
             <br/>
             <p><Clock /> <b>Öffnungszeiten:</b></p>
-            <p style={{ marginTop: '1.5mm'}}>Di - Sa: 11:30 - 14:30 &amp; 17:30 - 22:00 Uhr</p>
-            <p>So: 11:30 - 14:30 &amp; 17:30 - 21:00 Uhr</p>
+            <p style={{ marginTop: '1.5mm'}}>Di - Sa: 12:00 - 14:30 &amp; 17:30 - 22:30 Uhr</p>
+            <p>So: 12:00 - 14:30 &amp; 17:30 - 21:00 Uhr</p>
             <p style={{ marginTop: '1.5mm', color: '#D4AF37' }}>Montag Ruhetag</p>
-          </div>
-
-          {/* Marketing Partner Logos */}
-          <div style={{ marginTop: '3mm', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
-            <div style={{
-              background: 'white',
-              borderRadius: '16px',
-              boxShadow: '0 0 50px 25px white',
-              padding: '4mm 6mm',
-              display: 'inline-block',
-            }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/marketing-logos.svg"
-                alt="Marketing Partner Logos"
-                style={{ width: '100%', maxWidth: '65mm', height: 'auto' }}
-              />
-            </div>
           </div>
 
           {/* Allergen-Hinweis (LMIV-Pflicht) */}
@@ -115,23 +97,16 @@ export default function Flyer8Page() {
         </div>
 
         {/* PANEL 2: PIZZA & FAMILIENPIZZA (22 Items) */}
-        <div className="flyer-panel menu-column">
+        <div className="flyer-panel menu-column" style={{ justifyContent: 'flex-start', gap: '3mm' }}>
           <FlyerCategory id="pizza" shortTitle="Pizza · Steinofen · 28cm" />
           <FlyerCategory id="familienpizza" shortTitle="Familienpizza · 40×60cm" />
-          
-          <div className="flyer-category" style={{ marginTop: 'auto', marginBottom: '8mm', textAlign: 'center' }}>
-            <h3 className="category-title" style={{ borderBottom: 'none', marginBottom: '1mm' }}>Event & Catering</h3>
-            <p style={{ fontSize: '7.5pt', color: '#5B2126', fontStyle: 'italic', marginTop: '2mm', lineHeight: '1.3' }}>
-              Feiern Sie bei uns! Ob Geburtstag, Firmenfeier oder Jubiläum – sprechen Sie uns an.
-            </p>
-          </div>
         </div>
 
         {/* PANEL 3: SUPPEN + ALLE PASTA GERICHTE (16 Items) */}
         <div className="flyer-panel menu-column">
           <FlyerCategory id="suppen" />
           <FlyerCategory id="pasta" />
-          <FlyerCategory id="pasta-al-forno" shortTitle="Pasta al Forno" />
+          <FlyerCategory id="pasta-al-forno" shortTitle="Aus dem Ofen - Überbackenes" />
           <FlyerCategory id="hausgemachte-pasta" shortTitle="Hausgemachte Pasta" />
         </div>
 
@@ -160,18 +135,40 @@ export default function Flyer8Page() {
           ========================================= */}
       <div className="flyer-sheet">
         
-        {/* PANEL 5: VORSPEISEN + SALATE + DESSERT */}
-        <div className="flyer-panel menu-column">
+        {/* PANEL 5: VORSPEISEN + SALATE */}
+        <div className="flyer-panel menu-column" style={{ justifyContent: 'flex-start', gap: '4mm' }}>
           <FlyerCategory id="vorspeisen" />
           <FlyerCategory id="salate" />
-          <FlyerCategory id="dessert" />
         </div>
 
-        {/* PANEL 6: SCHNITZEL + FLEISCH/FISCH + KINDERGERICHTE */}
-        <div className="flyer-panel menu-column">
+        {/* PANEL 6: SCHNITZEL */}
+        <div className="flyer-panel menu-column" style={{ justifyContent: 'flex-start', gap: '4mm' }}>
           <FlyerCategory id="schnitzel" shortTitle="Schnitzelvariation" />
+          
+          <div style={{ marginTop: 'auto', marginBottom: '8mm', textAlign: 'center', padding: '0 4mm' }}>
+            <h3 className="category-title" style={{ borderBottom: 'none', marginBottom: '1mm' }}>Empfehlung des Hauses</h3>
+            <p style={{ fontSize: '7.5pt', color: '#5B2126', fontStyle: 'italic', marginTop: '2mm', lineHeight: '1.3' }}>
+              Zu unseren Fleischgerichten servieren wir stets frisches Marktgemüse und feine Gourmet-Kartoffeln.
+            </p>
+          </div>
+        </div>
+
+        {/* PANEL 7: FLEISCH & FISCH */}
+        <div className="flyer-panel menu-column" style={{ justifyContent: 'flex-start', gap: '4mm' }}>
           <FlyerCategory id="fleisch-fisch" shortTitle="Fleisch & Fisch" />
+        </div>
+
+        {/* PANEL 8: KINDERGERICHTE + DESSERT */}
+        <div className="flyer-panel menu-column" style={{ justifyContent: 'flex-start', gap: '4mm' }}>
           <FlyerCategory id="kindergerichte" />
+          <FlyerCategory id="dessert" />
+          
+          <div style={{ marginTop: 'auto', marginBottom: '8mm', textAlign: 'center', padding: '0 4mm' }}>
+            <h3 className="category-title" style={{ borderBottom: 'none', marginBottom: '1mm' }}>Event & Catering</h3>
+            <p style={{ fontSize: '7.5pt', color: '#5B2126', fontStyle: 'italic', marginTop: '2mm', lineHeight: '1.3' }}>
+              Feiern Sie bei uns! Ob Geburtstag, Firmenfeier oder Jubiläum – sprechen Sie uns an.
+            </p>
+          </div>
         </div>
 
 

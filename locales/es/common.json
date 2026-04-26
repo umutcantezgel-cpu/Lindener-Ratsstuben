@@ -148,8 +148,6 @@
   "footer.revocation": "Revocación",
   "footer.rights": "Todos los derechos reservados.",
   "footer.terms": "Términos y condiciones",
-  "footer.tuesday_sunday": "Martes - Domingo",
-  "footer.tuesday_sunday_status": "11:30 - 14:30 y 17:30 - 23:00",
   "form.almost_done": "¡Casi listo! Solo quedan {count} campo(s).",
   "form.catering": "Consulta de catering",
   "form.email_placeholder": "tu@email.com",
@@ -192,5 +190,9 @@
   "trust.fast_response": "Respuesta rápida",
   "trust.fresh": "Fresco diario",
   "trust.gdpr": "Cumple con el RGPD",
-  "trust.google_stars": "4.8/5 estrellas en Google"
+  "trust.google_stars": "4.8/5 estrellas en Google",
+  "footer.tuesday_saturday": "Martes - Sábado",
+  "footer.sunday": "Domingo",
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }
