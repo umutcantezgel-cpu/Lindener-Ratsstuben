@@ -22,11 +22,10 @@ export const foodItems: SSOTMenuItem[] = [
   // ─── §3.3 Salate ────────────────────────────────────────────
   { nr: '30', name: 'Insalata Mista', description: 'Kleiner, bunter Salatteller – ideal als Beilage oder Vorspeise.', price: 7.90, category: 'salate', allergens: [] },
   { nr: '31', name: 'Insalata Italia', description: 'Bunter Salatteller mit Vorderschinken, saftigem Thunfisch, Mozzarella und Ei, serviert mit hausgemachtem Joghurtdressing.', price: 14.90, category: 'salate', allergens: [] },
-  { nr: '32', name: 'Insalata Italia (klein)', description: 'wahlweise als Vorspeise oder Beilage.', price: 10.90, category: 'salate', allergens: [] },
-  { nr: '33', name: 'Insalata Frutti di Mare', description: 'Rucolasalat mit köstlich marinierten Meeresfrüchten, Cocktailtomaten und roten Zwiebeln serviert mit Balsamico-Kräuter-Vinaigrette.', price: 16.90, category: 'salate', allergens: [] },
-  { nr: '34', name: 'Insalata di Pollo', description: 'Bunter Salatteller mit Hähnchenbrustfilet und frischen Champignons, serviert mit hausgemachtem Joghurtdressing.', price: 16.90, category: 'salate', allergens: [] },
-  { nr: '35', name: 'Insalata Salmone e Gamberoni', description: 'Bunter Salatteller mit frischem Lachsfilet und Garnelen serviert mit Balsamico-Kräuter-Vinaigrette.', price: 17.90, category: 'salate', allergens: [] },
-  { nr: '36', name: 'Insalata Don Capo', description: 'Bunter Salatteller mit argentinischem Rinderfleisch und gehobeltem Grana Padano, serviert mit hausgemachtem Joghurtdressing.', price: 19.90, category: 'salate', allergens: [] },
+  { nr: '32', name: 'Insalata di Pollo', description: 'Bunter Salatteller mit Hähnchenbrustfilet und frischen Champignons, dazu hausgemachtes Joghurtdressing.', price: 16.90, category: 'salate', allergens: [] },
+  { nr: '33', name: 'Insalata Salmone e Gamberoni', description: 'Bunter Salatteller mit frischem Lachsfilet und Garnelen serviert mit Balsamico-Kräuter-Vinaigrette.', price: 17.90, category: 'salate', allergens: [] },
+  { nr: '34', name: 'Insalata Don Capo', description: 'Bunter Salatteller mit argentinischem Rinderfleisch und gehobeltem Grana Padano, serviert mit hausgemachtem Joghurtdressing.', price: 19.90, category: 'salate', allergens: [] },
+  { nr: '35', name: 'Insalata Frutti di Mare', description: 'Rucolasalat mit köstlich marinierten Meeresfrüchten, Cocktailtomaten und roten Zwiebeln serviert mit Balsamico-Kräuter-Vinaigrette.', price: 16.90, category: 'salate', allergens: [] },
 
   // ─── §3.4 Pasta ─────────────────────────────────────────────
   { nr: '40', name: 'Spaghetti alla Bolognese', description: 'mit geschmortem Rinderhackfleisch in würziger Tomatensauce, serviert mit frisch geriebenem Parmigiano', price: 12.90, category: 'pasta', allergens: [] },

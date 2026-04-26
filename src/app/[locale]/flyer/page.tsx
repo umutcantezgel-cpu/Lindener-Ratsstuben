@@ -90,9 +90,19 @@ export default function Flyer8Page() {
           </div>
 
           {/* Allergen-Hinweis (LMIV-Pflicht) */}
-          <div className="legal-disclaimer">
-            Alle Preise in Euro (€). Irrtümer, Preisänderungen<br/>
-            und Druckfehler vorbehalten.
+          <div className="legal-disclaimer" style={{ fontSize: '5pt', lineHeight: '1.2', textAlign: 'left', padding: '0 4mm', marginTop: 'auto', marginBottom: '2mm', color: '#555' }}>
+            <div style={{ display: 'flex', gap: '2mm', marginBottom: '1.5mm' }}>
+              <div style={{ flex: 1 }}>
+                <strong>Zusatzstoffe:</strong> 1 mit Farbstoff, 2 mit Konservierungsstoffe, 3 mit Nitropökelsalz, 4 mit Antioxidationsmittel, 5 mit Geschmacksverstärker, 6 geschwefelt, 7 geschwärzt, 8 mit Phosphat, 9 mit Milcheiweiß, 10 koffeinhaltig, 11 mit Süßungsmittel
+              </div>
+              <div style={{ flex: 1 }}>
+                <strong>Allergene:</strong> A Schwefeldioxid und Sulfite, B Milch/Laktose, C Nüsse (1 Mandel, 2 Erdnuss, 3 Walnuss, 4 Haselnuss), D Sesam, E glutenhaltiges Getreide (1 Weizen, 2 Hafer, 3 Roggen, 4 Gerste, 5 Dinkel), F Sellerie, G Senf, H Krebstiere, I Eier, K Fische, M Weichtiere, O Lupinen, P Sojabohnen
+              </div>
+            </div>
+            <div style={{ textAlign: 'center', fontSize: '5.5pt', fontStyle: 'italic' }}>
+              Aufgrund der Küchenabläufe kann der 100%ige Ausschluss bestimmter Allergene nicht gewährleistet werden.<br/>
+              Alle Preise in (€) Euro. Irrtümer, Preisänderungen und Druckfehler vorbehalten.
+            </div>
           </div>
         </div>
 
@@ -163,11 +173,38 @@ export default function Flyer8Page() {
           <FlyerCategory id="kindergerichte" />
           <FlyerCategory id="dessert" />
           
-          <div style={{ marginTop: 'auto', marginBottom: '8mm', textAlign: 'center', padding: '0 4mm' }}>
-            <h3 className="category-title" style={{ borderBottom: 'none', marginBottom: '1mm' }}>Event & Catering</h3>
-            <p style={{ fontSize: '7.5pt', color: '#5B2126', fontStyle: 'italic', marginTop: '2mm', lineHeight: '1.3' }}>
-              Feiern Sie bei uns! Ob Geburtstag, Firmenfeier oder Jubiläum – sprechen Sie uns an.
+          <div style={{ marginTop: 'auto', marginBottom: '4mm', textAlign: 'center', padding: '0 4mm' }}>
+            <h3 className="category-title" style={{ borderBottom: 'none', marginBottom: '1mm', fontSize: '11px', letterSpacing: '0.5px' }}>EVENT- UND CATERINGSERVICE</h3>
+            <p style={{ fontSize: '7pt', color: '#5B2126', fontStyle: 'italic', marginTop: '1mm', lineHeight: '1.2' }}>
+              Gerne können Sie unsere Räumlichkeiten oder Terrasse für Ihre Kommunion, Hochzeit, Geburtstag oder Firmenjubiläum buchen.<br/>
+              Sprechen Sie uns an.
             </p>
+            
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '3mm', padding: '0 2mm' }}>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '11pt', fontWeight: 'bold', color: '#D4AF37', fontFamily: "'Playfair Display', serif" }}>140</div>
+                <div style={{ fontSize: '6pt', textTransform: 'uppercase', marginTop: '-1px' }}>Sitzplätze</div>
+                <div style={{ fontSize: '7pt', fontWeight: 'bold' }}>Terrasse</div>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '11pt', fontWeight: 'bold', color: '#D4AF37', fontFamily: "'Playfair Display', serif" }}>70</div>
+                <div style={{ fontSize: '6pt', textTransform: 'uppercase', marginTop: '-1px' }}>Sitzplätze</div>
+                <div style={{ fontSize: '7pt', fontWeight: 'bold' }}>Gaststätte</div>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '11pt', fontWeight: 'bold', color: '#D4AF37', fontFamily: "'Playfair Display', serif" }}>120</div>
+                <div style={{ fontSize: '6pt', textTransform: 'uppercase', marginTop: '-1px' }}>Sitzplätze</div>
+                <div style={{ fontSize: '7pt', fontWeight: 'bold' }}>Saal</div>
+              </div>
+            </div>
+
+            <div style={{ marginTop: '4mm', fontSize: '6.5pt', borderTop: '1px solid rgba(0,0,0,0.1)', paddingTop: '2mm' }}>
+              Neuigkeiten von den Lindener Ratsstuben unter:<br/>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '2px', marginTop: '1mm', fontWeight: 'bold' }}>
+                <span style={{ backgroundColor: '#1877F2', color: 'white', padding: '0 3px', borderRadius: '2px', fontSize: '7pt' }}>f</span> 
+                www.facebook.com/Lindenerratstube
+              </span>
+            </div>
           </div>
         </div>
 

@@ -166,7 +166,7 @@ export default function PrintMenuPage() {
       </PrintPage>
 
       <PrintPage pageNum="XI">
-        <DishCategory dropcap="H" title="Heißgetränke" marginTop="5px" marginBottom="5px" />
+        <DishCategory dropcap="W" title="Warme Getränke" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="warme-getraenke" marginBottom="2px" />
         </div>
