@@ -30,13 +30,19 @@ function FlyerCategory({ id, isDrink = false, shortTitle }: { id: string, isDrin
     <div className="flyer-category">
       <h3 className="category-title">{displayTitle}</h3>
       <div className="category-items">
-        {items.map((item, idx) => (
+        {items.map((item, idx) => {
+          const superParts: string[] = [];
+          if (item.zusatzstoffe && item.zusatzstoffe.length > 0) superParts.push(...item.zusatzstoffe);
+          if (item.allergens && item.allergens.length > 0) superParts.push(...item.allergens);
+          const superText = superParts.length > 0 ? superParts.join(',') : null;
+          return (
           <div key={idx} className="dish-item">
             <div className="dish-nr">{item.nr ? `${item.nr}.` : ''}</div>
             <div className="dish-main">
               <div className="dish-name-row">
                 <span className="dish-name">
                   {item.name}
+                  {superText && <sup style={{ fontSize: '0.6em', color: '#d32f2f', fontWeight: 600, marginLeft: '1px' }}>{superText}</sup>}
                   <span className="dish-badges">
                     {isVegetarian(item.name) && <span className="badge-veg">🌱</span>}
                     {isSpicy(item.name) && <span className="badge-spicy">🌶️</span>}
@@ -50,7 +56,8 @@ function FlyerCategory({ id, isDrink = false, shortTitle }: { id: string, isDrin
               {item.description && <div className="dish-desc">{item.description}</div>}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

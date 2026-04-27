@@ -38,6 +38,8 @@ export function CategoryMapper({
           name={item.name}
           price={item.price === null ? "Preis auf Anfrage" : formatCurrency(item.price, locale)}
           desc={item.description}
+          allergens={item.allergens}
+          zusatzstoffe={item.zusatzstoffe}
           marginBottom={marginBottom}
           descStyle={descStyle}
         />

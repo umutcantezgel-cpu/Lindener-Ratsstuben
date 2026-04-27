@@ -14,9 +14,10 @@
 export const SSOT_VERSION = '3.0';
 export const SSOT_DATE = '2026-04-22';
 
-// ─── Allergen Type Import ──────────────────────────────────────
+// ─── Allergen & Zusatzstoff Type Imports ──────────────────────
 import type { AllergenIdentifier } from './allergens';
-export type { AllergenIdentifier };
+import type { ZusatzstoffIdentifier } from './zusatzstoffe';
+export type { AllergenIdentifier, ZusatzstoffIdentifier };
 
 // ─── SSOT MenuItem Type ───────────────────────────────────────
 export interface SSOTMenuItem {
@@ -25,7 +26,8 @@ export interface SSOTMenuItem {
   description: string;
   price: number | null; // null = {{PREIS FEHLT}}
   category: string;
-  allergens: AllergenIdentifier[]; // Derzeit leer (§1.9) — befüllen nach Küchenchef-Verifizierung
+  allergens: AllergenIdentifier[];
+  zusatzstoffe: ZusatzstoffIdentifier[];
 }
 
 // ─── Categories (SSOT §3 Reihenfolge) ─────────────────────────
@@ -102,39 +104,36 @@ import { drinkItems } from './menu-ssot-drinks';
 
 export const menuItems: SSOTMenuItem[] = [...foodItems, ...drinkItems];
 
-// ─── Allergen Legend (LMIV EU-VO 1169/2011 — 14 deklarationspflichtige Allergene) ─
-// ⚠️ Diese Legende bleibt als Infrastruktur erhalten.
-// Artikel referenzieren aktuell KEINE Allergene (§1.9: keine Anreicherung ohne SSOT-Grundlage).
-// Aktivierung erst nach Küchenchef-Verifizierung und SSOT-Protokolleintrag.
+// ─── Allergen Legend (Ratsstuben-Hausschema, LMIV-konform) ────
 export const allergenLegend: Record<string, string> = {
-  'A': 'Glutenhaltiges Getreide',
-  'B': 'Krebstiere',
-  'C': 'Eier',
-  'D': 'Fische',
-  'E': 'Erdnüsse',
-  'F': 'Sojabohnen',
-  'G': 'Milch (inkl. Laktose)',
-  'H': 'Schalenfrüchte',
-  'L': 'Sellerie',
-  'M': 'Senf',
-  'N': 'Sesamsamen',
-  'O': 'Sulfite (>10mg/kg)',
-  'P': 'Lupinen',
-  'R': 'Weichtiere',
+  'A': 'Schwefeldioxid und Sulfite',
+  'B': 'Milch / Laktose',
+  'C': 'Nüsse (1 Mandel - 2 Erdnuss - 3 Walnuss - 4 Haselnuss)',
+  'D': 'Sesam',
+  'E': 'glutenhaltiges Getreide (1 Weizen - 2 Hafer - 3 Roggen - 4 Gerste - 5 Dinkel)',
+  'F': 'Sellerie',
+  'G': 'Senf',
+  'H': 'Krebstiere',
+  'I': 'Eier',
+  'K': 'Fische',
+  'M': 'Weichtiere',
+  'O': 'Lupinen',
+  'P': 'Sojabohnen',
 };
 
-// ─── Zusatzstoff Legend ───────────────────────────────────────
+// ─── Zusatzstoff Legend (Ratsstuben-Hausschema) ───────────────
 export const zusatzstoffLegend: Record<string, string> = {
   '1': 'mit Farbstoff',
-  '2': 'mit Konservierungsstoff',
-  '3': 'mit Antioxidationsmittel',
-  '4': 'mit Geschmacksverstärker',
-  '5': 'geschwefelt',
-  '6': 'geschwärzt',
-  '7': 'mit Phosphat',
-  '8': 'mit Süßungsmitteln',
-  '9': 'enthält eine Phenylalaninquelle',
+  '2': 'mit Konservierungsstoffe',
+  '3': 'mit Nitropökelsalz',
+  '4': 'mit Antioxidationsmittel',
+  '5': 'mit Geschmacksverstärker',
+  '6': 'geschwefelt',
+  '7': 'geschwärzt',
+  '8': 'mit Phosphat',
+  '9': 'mit Milcheiweiß',
   '10': 'koffeinhaltig',
+  '11': 'mit Süßungsmittel',
 };
 
 // ─── Legal Disclaimers (LMIV-konform) ─────────────────────────
