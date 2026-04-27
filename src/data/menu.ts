@@ -148,12 +148,14 @@ export const knownDataGaps = [
   { issue: 'Nr. 104 fehlt zwischen Pizza 103 und 105', severity: 'info' },
   { issue: 'Nr. 166 Trade Island Pfirsich — Preis fehlt', severity: 'blocker' },
   { issue: 'Nr. 210 Possmann Apfelwein — Preis fehlt', severity: 'blocker' },
-  { issue: 'Nr. 188 dreifach vergeben', severity: 'warning' },
+  { issue: 'Nr. 188 entzerrt → 188 (Radler-Weizer), 190 (Alk.frei Pils), 191 (Alk.frei Radler)', severity: 'resolved' },
+  { issue: 'Nr. 74 entzerrt → 74a (Schnitzel Bolognese), 74b (Bauern-Schnitzel)', severity: 'resolved' },
   { issue: 'Nr. 221/227 Himbergeist sowie 222/228 Obstler doppelt', severity: 'warning' },
   { issue: 'Spirituosen & Liköre "0,2 cl" — Mengeneinheit ungewöhnlich', severity: 'info' },
   { issue: '"Sprit" (160/161) — Schreibweise so übernommen', severity: 'info' },
 
 ];
+
 
 // ─── Category Notes (legacy compat) ──────────────────────────
 export const categoryNotes: Record<string, string> = categoryFootnotes;
