@@ -4,38 +4,53 @@
   "menuLabel": "2 Gang Mittags Menü",
   "dateRange": "21.04.2026 - 25.04.2026",
   "vorspeise": "Tages-Suppe oder Salat der Saison",
+  "vorspeiseAllergens": "F,G",
+  "vorspeiseZusatzstoffe": "",
   "mainCourses": [
     {
       "id": 1,
       "price": "13,50 €",
-      "description": "Hähnchenbrustfilet vom Grill mit gebratenen Zwiebeln dazu Gourmet Kartoffeln."
+      "description": "Hähnchenbrustfilet vom Grill mit gebratenen Zwiebeln dazu Gourmet Kartoffeln.",
+      "allergens": "F",
+      "zusatzstoffe": ""
     },
     {
       "id": 2,
       "price": "13,50 €",
-      "description": "Jäger-Schnitzel mit frischem Champignon in Brauner Soße dazu Pommes Frites."
+      "description": "Jäger-Schnitzel mit frischem Champignon in Brauner Soße dazu Pommes Frites.",
+      "allergens": "B,E1,F,G,I",
+      "zusatzstoffe": ""
     },
     {
       "id": 3,
       "price": "13,50 €",
-      "description": "Rigatoni mit Hähnchenbrustfilet-Ragout & frischen Champignons Cremige Tomaten Sahne Soße."
+      "description": "Rigatoni mit Hähnchenbrustfilet-Ragout & frischen Champignons Cremige Tomaten Sahne Soße.",
+      "allergens": "B,E1,F",
+      "zusatzstoffe": ""
     },
     {
       "id": 4,
       "price": "13,50 €",
-      "description": "Salat nach Wahl (Wählen Sie Ihre Lieblingssalat aus unserer Speisekarte) dazu Hausgemachtes Brot."
+      "description": "Salat nach Wahl (Wählen Sie Ihre Lieblingssalat aus unserer Speisekarte) dazu Hausgemachtes Brot.",
+      "allergens": "E1,G",
+      "zusatzstoffe": ""
     },
     {
       "id": 5,
       "price": "12,00 €",
-      "description": "Pizza nach Wahl (Wählen Sie Ihre Lieblingspizza aus unserer Speisekarte)"
+      "description": "Pizza nach Wahl (Wählen Sie Ihre Lieblingspizza aus unserer Speisekarte)",
+      "allergens": "B,E1,F",
+      "zusatzstoffe": ""
     },
     {
       "id": 6,
       "price": "16,50 €",
       "description": "Gebratene Zanderfilet in Weißwein-Kräuter-Knoblauch Soße dazu Tagesbeilage. <em>(Nur Freitag)</em>",
-      "isHtml": true
+      "isHtml": true,
+      "allergens": "A,K",
+      "zusatzstoffe": "6"
     }
   ],
-  "footerNote": "Dienstag – Freitag · 12:00 – 14:30 Uhr"
+  "footerNote": "Dienstag – Freitag · 12:00 – 14:30 Uhr",
+  "allergenDisclaimer": "Aufgrund der Küchenabläufe kann der 100%ige Ausschluss bestimmter Allergene nicht gewährleistet werden."
 }

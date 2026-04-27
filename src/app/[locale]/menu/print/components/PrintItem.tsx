@@ -41,6 +41,8 @@ export default function PrintItem({ nr, marginBottom, descStyle, overrideName, o
       name={overrideName || item.name}
       price={priceStr}
       desc={overrideDesc !== undefined ? overrideDesc : item.description}
+      allergens={item.allergens}
+      zusatzstoffe={item.zusatzstoffe}
       marginBottom={marginBottom}
       descStyle={descStyle}
     />

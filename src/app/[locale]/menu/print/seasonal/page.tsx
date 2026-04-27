@@ -90,6 +90,10 @@ export default function SeasonalMenuPage() {
               <p className="seasonal-footnote" style={{ marginBottom: '1.5mm' }}>
                 Alle Limonaden werden frisch zubereitet. Alle Preise in Euro (€). Irrtümer vorbehalten.
               </p>
+              <p className="seasonal-footnote" style={{ fontSize: '5pt', lineHeight: '1.2', marginBottom: '1.5mm', textAlign: 'left' }}>
+                <strong>Zusatzstoffe:</strong> 1 mit Farbstoff · <strong>Allergene:</strong> B Milch/Laktose, C Nüsse (1 Mandel), D Sesam, E glutenh. Getreide (1 Weizen), F Sellerie, G Senf, I Eier<br/>
+                Aufgrund der Küchenabläufe kann der 100%ige Ausschluss bestimmter Allergene nicht gewährleistet werden.
+              </p>
               <div className="seasonal-closing">ERFRISCHUNG PUR</div>
             </div>
           </div>

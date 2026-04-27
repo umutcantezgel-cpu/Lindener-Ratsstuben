@@ -10,6 +10,7 @@ import PrintPage from './components/PrintPage';
 import DishCategory from './components/DishCategory';
 import Quote from './components/Quote';
 import { CategoryMapper } from './components/CategoryMapper';
+import AllergenLegend from './components/AllergenLegend';
 
 export const metadata: Metadata = {
   title: 'Speisekarte Druckversion | Lindener Ratsstuben',
@@ -139,7 +140,7 @@ export default function PrintMenuPage() {
       </PrintPage>
 
       <PrintPage pageNum="IX">
-        <DishCategory dropcap="E" title="Erfrischungen" marginTop="5px" marginBottom="5px" />
+        <DishCategory dropcap="E" title="Erfrischungsgetränke" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid" style={{ columnGap: '8mm' }}>
           <CategoryMapper categoryId="alkoholfreie-getraenke" marginBottom="2px" />
           <CategoryMapper categoryId="saefte" marginBottom="2px" />
@@ -204,6 +205,10 @@ export default function PrintMenuPage() {
             />
           </div>
         </div>
+      </PrintPage>
+
+      <PrintPage pageNum="XII">
+        <AllergenLegend />
       </PrintPage>
     </div>
   );
