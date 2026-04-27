@@ -20,7 +20,7 @@ export const drinkItems: SSOTMenuItem[] = [
   // ─── §3.13 Warme Getränke ───────────────────────────────────
   { nr: '140', name: 'Espresso', description: '', price: 2.70, category: 'warme-getraenke', allergens: [], zusatzstoffe: ['10'] },
   { nr: '141', name: 'Espresso Macchiato', description: '', price: 3.20, category: 'warme-getraenke', allergens: ['B'], zusatzstoffe: ['10'] },
-  { nr: '142', name: 'Espresso Coretto Grappa | Sambuca', description: '', price: 4.90, category: 'warme-getraenke', allergens: [], zusatzstoffe: ['10'] },
+  { nr: '142', name: 'Espresso Coretto Grappa | Sambuca', description: '', price: 4.90, category: 'warme-getraenke', allergens: ['A'], zusatzstoffe: ['10'] },
   { nr: '143', name: 'Espresso Doppio', description: '', price: 4.70, category: 'warme-getraenke', allergens: [], zusatzstoffe: ['10'] },
   { nr: '144', name: 'Kaffee Crema', description: '', price: 3.20, category: 'warme-getraenke', allergens: [], zusatzstoffe: ['10'] },
   { nr: '145', name: 'Capuccino', description: '', price: 4.20, category: 'warme-getraenke', allergens: ['B'], zusatzstoffe: ['10'] },
@@ -43,7 +43,7 @@ export const drinkItems: SSOTMenuItem[] = [
   { nr: '161', name: 'Sprit 0,4', description: '', price: 4.50, category: 'alkoholfreie-getraenke', allergens: [], zusatzstoffe: [] },
   { nr: '162', name: 'Spezi 0,3', description: '', price: 3.70, category: 'alkoholfreie-getraenke', allergens: [], zusatzstoffe: ['1','10'] },
   { nr: '163', name: 'Spezi 0,4', description: '', price: 4.50, category: 'alkoholfreie-getraenke', allergens: [], zusatzstoffe: ['1','10'] },
-  { nr: '164', name: 'Bitter Lemon 0,2', description: '', price: 3.90, category: 'alkoholfreie-getraenke', allergens: [], zusatzstoffe: [] },
+  { nr: '164', name: 'Bitter Lemon 0,2', description: '', price: 3.90, category: 'alkoholfreie-getraenke', allergens: [], zusatzstoffe: ['1'] },
   { nr: '165', name: 'Ginger Ale', description: '', price: 3.90, category: 'alkoholfreie-getraenke', allergens: [], zusatzstoffe: [] },
   { nr: '166', name: 'Trade Island Pfirsich', description: '', price: null, category: 'alkoholfreie-getraenke', allergens: [], zusatzstoffe: [] }, // {{PREIS FEHLT}}
   { nr: '167', name: 'Apfelsaftschorle 0,3', description: '', price: 3.70, category: 'alkoholfreie-getraenke', allergens: [], zusatzstoffe: [] },
