@@ -72,8 +72,8 @@ export const drinkItems: SSOTMenuItem[] = [
   { nr: '187', name: 'Starnberger Weizen vom Fass 0,5', description: '', price: 5.40, category: 'biere', allergens: ['E1','E4'], zusatzstoffe: [] },
   { nr: '188', name: 'Radler-Weizer 0,5', description: '', price: 5.40, category: 'biere', allergens: ['E1','E4'], zusatzstoffe: [] }, // SSOT: "Radler-Weizer" — NICHT korrigieren
   { nr: '189', name: 'Cola-Weizen 0,5', description: '', price: 5.40, category: 'biere', allergens: ['E1','E4'], zusatzstoffe: ['1','10'] },
-  { nr: '188', name: 'Alkoholfrei Pils 0,33 l', description: '', price: 3.90, category: 'biere', allergens: ['E4'], zusatzstoffe: [] }, // SSOT: 188 (dupl.)
-  { nr: '188', name: 'alkoholfrei Radler 0,4l', description: '', price: 4.90, category: 'biere', allergens: ['E4'], zusatzstoffe: [] }, // SSOT: 188 (dupl.) — klein-a im SSOT
+  { nr: '190', name: 'Alkoholfrei Pils 0,33 l', description: '', price: 3.90, category: 'biere', allergens: ['E4'], zusatzstoffe: [] },
+  { nr: '191', name: 'Alkoholfrei Radler 0,4l', description: '', price: 4.90, category: 'biere', allergens: ['E4'], zusatzstoffe: [] },
 
   // ─── §3.17 Offene Rotweine ──────────────────────────────────
   { nr: '200', name: 'Primitivo', description: '', price: 8.90, category: 'rotweine', allergens: ['A'], zusatzstoffe: ['6'] },
