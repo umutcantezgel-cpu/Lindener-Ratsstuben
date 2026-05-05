@@ -1,13 +1,13 @@
 .print-root {
-  --paper: #FDFBF7;
-  --ink: #2A2A2A;
-  --ink-soft: #555;
-  --ink-faint: #888;
+  --paper: #FFFFFF;
+  --ink: #111111;
+  --ink-soft: #333333;
+  --ink-faint: #555555;
   --gold: #C5A880;
   --gold-bright: #D4AF37;
   --gold-deep: #A8875A;
-  --border: #E8E3DA;
-  --brand-red: #A32A29;
+  --border: #9E1A17;
+  --brand-red: #9E1A17;
   --brand-green: #235B4E;
   
   /* Die Font-Variablen aus dem Next.js Layout werden hier weitergegeben oder als Fallback definiert */
@@ -101,7 +101,7 @@
 
 /* Page content area with padding */
 .page-content {
-  padding: 14mm 16mm 20mm;
+  padding: 8mm 15mm 8mm;
   height: 100%;
   position: relative;
 }
@@ -156,12 +156,12 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
   font-family: var(--font-cormorant), serif;
   font-style: italic;
   color: var(--brand-red);
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 15px;
 }
 .cv-title {
   font-family: var(--font-cinzel), serif;
-  font-size: 48px;
+  font-size: 46px;
   letter-spacing: 12px;
   color: var(--ink);
   margin: 0;
@@ -175,8 +175,8 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
 }
 .cv-sub {
   font-family: var(--font-montserrat), sans-serif;
-  font-weight: 300;
-  font-size: 11px;
+  font-weight: 500;
+  font-size: 12px;
   letter-spacing: 2px;
   color: var(--ink-soft);
   text-transform: uppercase;
@@ -204,20 +204,29 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
 /* Page-level heading (e.g. "Aperitif") — appears once at top of a page */
 .page-heading {
   font-family: var(--font-cinzel), serif;
-  font-size: 28px;
+  font-size: 18px;
   letter-spacing: 6px;
   text-transform: uppercase;
   color: var(--gold-deep);
   text-align: center;
   margin: 0 0 8px 0;
-  padding-bottom: 8px;
+  padding-bottom: 6px;
   border-bottom: 1px solid var(--border);
   position: relative;
+  break-after: avoid;
+  page-break-after: avoid;
+  break-inside: avoid;
 }
 
 .cat-hdr {
   text-align: center;
-  margin: 20px 0 15px;
+  margin: 14px 0 8px;
+  border-top: 2px solid var(--brand-red);
+  border-bottom: 2px solid var(--brand-red);
+  padding: 6px 0;
+  break-after: avoid;
+  page-break-after: avoid;
+  break-inside: avoid;
 }
 /* No margin-top for the first category on a page */
 .page-content > .cat-hdr:first-child {
@@ -226,22 +235,23 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
 
 .cat-title {
   font-family: var(--font-cinzel), serif;
-  font-size: 22px;
-  letter-spacing: 4px;
-  color: var(--ink);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: var(--brand-red);
   margin: 0;
   text-transform: uppercase;
 }
 .cat-it {
   font-family: var(--font-great-vibes), cursive;
-  font-size: 26px;
+  font-size: 22px;
   color: var(--gold-deep);
   margin-top: -5px;
   display: block;
 }
 .cat-dropcap {
   font-family: var(--font-great-vibes), cursive;
-  font-size: 44px;
+  font-size: 40px;
   color: var(--gold-deep);
   position: absolute;
   inset-inline-start: 50%;
@@ -251,27 +261,49 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
   z-index: 0;
 }
 .cat-sep {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 12px;
+  display: none;
 }
 
-/* Category Grid / Two Columns */
+/* Category Grid / Full-Width Single Column */
 .cat-grid {
+  column-count: 1;
+}
+.cat-grid.two-col {
   column-count: 2;
-  column-gap: 12mm;
+  column-gap: 20px;
+}
+.cat-grid.compact .it {
+  margin-bottom: 4px;
+}
+.cat-grid.super-compact .it {
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.cat-grid.super-compact .it-hdr {
+  margin-bottom: 0px;
+}
+.cat-grid.super-compact .it-n {
+  font-size: 13px;
+}
+.cat-grid.super-compact .it-p {
+  font-size: 16px;
+}
+.cat-grid.super-compact .it-d {
+  font-size: 11px;
+  line-height: 1.2;
+  margin-top: 1px;
 }
 
 /* Item block */
 .it {
   break-inside: avoid;
   page-break-inside: avoid;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   position: relative;
   z-index: 2;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  padding: 4px 6px;
+  padding: 2px 6px;
   margin-inline-start: -6px;
   border-radius: 4px;
 }
@@ -290,81 +322,85 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
   max-width: 100%;
 }
 .it-id {
   font-family: var(--font-cinzel), serif;
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 600;
-  width: 24px;
+  color: #111;
+  font-size: 14px;
+  font-weight: 800;
+  width: 38px;
   flex-shrink: 0;
   white-space: nowrap;
 }
 .it-n {
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
+  font-size: 15px;
+  font-weight: 800;
+  color: #111;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   flex: 0 1 auto;
   min-width: 0;
-  white-space: normal;
-  line-height: 1.2;
+  white-space: nowrap;
+  line-height: 1.3;
   padding-inline-end: 4px;
 }
 .it-dots {
   flex-grow: 1;
   flex-shrink: 1;
   min-width: 12px;
-  border-bottom: 1px dotted var(--border);
+  border-bottom: 1px dotted var(--ink-faint);
   margin: 0 8px;
   position: relative;
-  top: -4px;
+  top: -5px;
+  opacity: 0.7;
 }
 .it-p {
   font-family: var(--font-cormorant), serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--ink);
+  font-size: 20px;
+  font-weight: 800;
+  color: #111;
   flex-shrink: 0;
   white-space: nowrap;
 }
 .it-d {
   font-family: var(--font-cormorant), serif;
-  font-size: 13px;
-  color: var(--ink-soft);
-  line-height: 1.4;
-  margin-inline-start: 24px;
-  margin-inline-end: 25px; /* Platz für Preis lassen */
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.5;
+  margin-inline-start: 38px;
+  margin-inline-end: 25px;
   font-style: italic;
+  letter-spacing: 0.3px;
 }
 .it-alc {
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 8px;
+  font-size: 10px;
+  font-weight: 600;
   color: var(--gold-deep);
-  margin-top: 2px;
+  margin-top: 4px;
   letter-spacing: 0.5px;
 }
 
 /* Full width elements that span categories */
 .cat-full {
   column-span: all;
-  margin: 15px 0 15px;
+  margin: 10px 0 10px;
 }
 .it-multi-p {
-  margin-inline-start: 24px;
-  margin-top: 3px;
+  margin-inline-start: 38px;
+  margin-top: 4px;
   font-family: var(--font-cormorant), serif;
-  font-size: 13px;
+  font-size: 18px;
   color: var(--ink);
   display: flex;
   gap: 15px;
 }
 .it-multi-p span {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 /* Decorative Quotes */
@@ -377,6 +413,47 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
   font-family: var(--font-great-vibes), cursive;
   font-size: 22px;
   color: var(--gold-deep);
+  opacity: 0.85;
+}
+
+/* Welcome Block on Aperitif Page */
+.welcome-block {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin: 10px auto 30px;
+  padding: 25px 30px;
+  max-width: 88%;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+
+.welcome-ornament {
+  color: var(--gold-deep);
+  font-size: 14px;
+  letter-spacing: 12px;
+  margin: 8px 0;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.welcome-text {
+  font-family: var(--font-cormorant), serif;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin: 8px 0;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+.welcome-closing {
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 14px;
+  text-align: center;
 }
 
 /* Info Box / Bottom Box */
@@ -384,7 +461,7 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
   column-span: all;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 12px;
+  padding: 14px;
   margin-top: 15px;
   background: transparent;
   position: relative;
@@ -405,14 +482,16 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
 .box-t {
   text-align: center;
   font-family: var(--font-cinzel), serif;
-  font-size: 11px;
+  font-size: 13px;
+  font-weight: 700;
   color: var(--ink);
   letter-spacing: 3px;
   margin-bottom: 8px;
 }
 .box-c {
   font-family: var(--font-cormorant), serif;
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 500;
   color: var(--ink-faint);
   line-height: 1.6;
   text-align: center;
@@ -424,9 +503,10 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
   text-align: center;
   font-family: var(--font-cormorant), serif;
   font-style: italic;
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: 700;
   color: var(--ink-faint);
-  margin-top: 20px;
+  margin-top: 12px;
 }
 .fn::before {
   content: "— ";
@@ -436,13 +516,46 @@ html[dir="rtl"] .cv-br { transform: scale(1, -1); }
 }
 
 /* Contact Info bottom */
+.cv-hours {
+  position: absolute;
+  bottom: 180px;
+  width: 100%;
+  text-align: center;
+}
+.cv-hours-title {
+  font-family: var(--font-cinzel), serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.cv-hours-text {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--ink-faint);
+  line-height: 1.8;
+}
+.cv-hours-closed {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-cormorant), serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--brand-red);
+  letter-spacing: 1px;
+}
+
 .cv-est {
   position: absolute;
   bottom: 80px;
   width: 100%;
   text-align: center;
   font-family: var(--font-cinzel), serif;
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 500;
   letter-spacing: 2px;
   color: var(--ink-faint);
 }
@@ -705,6 +818,7 @@ p, .it, .cv-intro, .fn, .box-c, .qt {
 .toc-title {
   font-family: var(--font-cinzel);
   font-size: 16px;
+  font-weight: 600;
   text-transform: uppercase;
   color: var(--ink);
   letter-spacing: 2px;
@@ -739,53 +853,53 @@ p, .it, .cv-intro, .fn, .box-c, .qt {
 .lunch-content {
   position: relative;
   z-index: 10;
-  width: 75%;
+  width: 90%;
   text-align: center;
 }
 
 .lunch-header {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .lunch-restaurant-name {
   font-family: var(--font-cinzel), serif;
-  font-size: 28px;
+  font-size: 34px;
   letter-spacing: 6px;
   text-transform: uppercase;
   color: var(--ink);
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .lunch-restaurant-sub {
   font-family: var(--font-cormorant), serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 22px;
   color: var(--ink-faint);
   letter-spacing: 2px;
 }
 
 .lunch-title-block {
-  margin-bottom: 35px;
-  padding: 16px 0;
+  margin-bottom: 25px;
+  padding: 15px 0;
   border-top: 1px solid var(--gold);
   border-bottom: 1px solid var(--gold);
 }
 
 .lunch-gang-label {
   font-family: var(--font-cinzel), serif;
-  font-size: 22px;
-  letter-spacing: 5px;
+  font-size: 26px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--gold-deep);
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .lunch-date {
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   letter-spacing: 3px;
   color: var(--ink-soft);
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .lunch-section {
@@ -794,7 +908,7 @@ p, .it, .cv-intro, .fn, .box-c, .qt {
 
 .lunch-section-title {
   font-family: var(--font-cinzel), serif;
-  font-size: 18px;
+  font-size: 22px;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--ink);
@@ -805,15 +919,16 @@ p, .it, .cv-intro, .fn, .box-c, .qt {
 .lunch-section-title::after {
   content: '';
   display: block;
-  width: 60px;
+  width: 70px;
   height: 1px;
   background: var(--gold);
-  margin: 8px auto 0;
+  margin: 10px auto 0;
 }
 
 .lunch-vorspeise {
   font-family: var(--font-cormorant), serif;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 500;
   font-style: italic;
   color: var(--ink-soft);
   letter-spacing: 1px;
@@ -821,65 +936,69 @@ p, .it, .cv-intro, .fn, .box-c, .qt {
 
 .lunch-divider-ornate {
   color: var(--gold-deep);
-  font-size: 14px;
+  font-size: 16px;
   margin: 20px 0;
   letter-spacing: 8px;
 }
 
 .lunch-item {
+  display: flex;
+  align-items: baseline;
   text-align: left;
-  max-width: 85%;
-  margin: 0 auto 8px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 10px;
+  gap: 12px;
 }
 
 .lunch-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 3px;
+  display: none;
 }
 
 .lunch-item-nr {
   font-family: var(--font-cinzel), serif;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--gold-deep);
+  flex-shrink: 0;
+  width: 25px;
+}
+
+.lunch-item-content {
+  flex-grow: 1;
 }
 
 .lunch-item-price {
   font-family: var(--font-cormorant), serif;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
   color: var(--ink);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .lunch-item-desc {
   font-family: var(--font-cormorant), serif;
-  font-size: 13px;
+  font-size: 20px;
+  font-weight: 500;
   color: var(--ink-soft);
-  line-height: 1.5;
-  padding-left: 22px;
+  line-height: 1.3;
+  padding-left: 0;
   font-style: italic;
 }
 
 .lunch-item-sep {
-  text-align: center;
-  color: var(--gold);
-  font-size: 10px;
-  letter-spacing: 6px;
-  margin: 10px 0;
-  opacity: 0.6;
+  display: none;
 }
 
 .lunch-footer-note {
-  margin-top: 30px;
+  margin-top: 25px;
   padding-top: 15px;
   border-top: 1px solid var(--border);
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 2px;
   color: var(--ink-faint);
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: 500;
 }

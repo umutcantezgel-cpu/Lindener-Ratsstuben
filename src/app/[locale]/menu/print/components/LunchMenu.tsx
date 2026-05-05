@@ -45,30 +45,27 @@ export default function LunchMenu() {
         <div className="lunch-section">
           <h2 className="lunch-section-title">Hauptgerichte</h2>
 
-          {lunchData.mainCourses.map((item, index) => {
+          {lunchData.mainCourses.map((item) => {
             const superParts = [item.zusatzstoffe, item.allergens].filter(Boolean).join(',');
             return (
             <React.Fragment key={item.id}>
               <div className="lunch-item">
-                <div className="lunch-item-header">
-                  <span className="lunch-item-nr">{item.id})</span>
-                  <span className="lunch-item-price">{item.price}</span>
+                <div className="lunch-item-nr">{item.id})</div>
+                <div className="lunch-item-content">
+                  {item.isHtml ? (
+                    <div className="lunch-item-desc">
+                      <span dangerouslySetInnerHTML={{ __html: item.description }} />
+                      <AllergenSup codes={superParts} />
+                    </div>
+                  ) : (
+                    <div className="lunch-item-desc">
+                      {item.description}
+                      <AllergenSup codes={superParts} />
+                    </div>
+                  )}
                 </div>
-                {item.isHtml ? (
-                  <div className="lunch-item-desc">
-                    <span dangerouslySetInnerHTML={{ __html: item.description }} />
-                    <AllergenSup codes={superParts} />
-                  </div>
-                ) : (
-                  <div className="lunch-item-desc">
-                    {item.description}
-                    <AllergenSup codes={superParts} />
-                  </div>
-                )}
+                <div className="lunch-item-price">{item.price}</div>
               </div>
-              {index < lunchData.mainCourses.length - 1 && (
-                <div className="lunch-item-sep">✻ ✻ ✻</div>
-              )}
             </React.Fragment>
             );
           })}
@@ -78,7 +75,7 @@ export default function LunchMenu() {
           {lunchData.footerNote}
         </div>
         {lunchData.allergenDisclaimer && (
-          <div style={{ fontSize: '7pt', fontStyle: 'italic', textAlign: 'center', marginTop: '4px', color: '#666', lineHeight: 1.2 }}>
+          <div style={{ fontSize: '9pt', fontStyle: 'italic', textAlign: 'center', marginTop: '0px', color: '#666', lineHeight: 1.2 }}>
             {lunchData.allergenDisclaimer}
           </div>
         )}

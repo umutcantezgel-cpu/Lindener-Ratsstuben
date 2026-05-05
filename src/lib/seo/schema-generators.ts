@@ -75,7 +75,7 @@ export function createRestaurantSchema() {
     acceptsReservations: 'True',
     paymentAccepted: companyData.paymentMethods.join(', '),
     priceRange: '€€',
-    sameAs: [companyData.facebook],
+    sameAs: [companyData.facebook, companyData.instagram],
     parentOrganization: { '@id': IDS.organization },
     knowsLanguage: ['de', 'en', 'ar', 'fr'],
     additionalType: [
@@ -187,7 +187,7 @@ export function createOrganizationSchema() {
       email: companyData.email,
       availableLanguage: ['German', 'English'],
     },
-    sameAs: [companyData.facebook],
+    sameAs: [companyData.facebook, companyData.instagram],
   };
 }
 

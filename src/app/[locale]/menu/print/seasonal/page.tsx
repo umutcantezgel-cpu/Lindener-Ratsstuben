@@ -14,14 +14,7 @@ export const metadata: Metadata = {
   },
 };
 
-/* ── Ornate Divider SVG ── */
-function OrnateDivider() {
-  return (
-    <div className="seasonal-divider">
-      <span>◆</span>
-    </div>
-  );
-}
+
 
 export default function SeasonalMenuPage() {
   return (
@@ -40,12 +33,12 @@ export default function SeasonalMenuPage() {
                 alt="Lindener Ratsstuben"
                 className="seasonal-logo"
               />
-              <span className="seasonal-badge">◆ Saisonkarte ◆</span>
-              <h1 className="seasonal-title">Hausgemachte Burger</h1>
-              <p className="seasonal-subtitle">Saftig. Frisch. Genussvoll.</p>
+              <div className="seasonal-title-line">
+                <span className="seasonal-badge-inline">◆ Saisonkarte ◆</span>
+                <h1 className="seasonal-title">Hausgemachte Burger</h1>
+                <p className="seasonal-subtitle">Saftig. Frisch. Genussvoll.</p>
+              </div>
             </div>
-
-            <OrnateDivider />
 
             <p className="seasonal-intro">
               Unsere Burger werden mit 100&nbsp;% hochwertigem Rindfleisch, frischen Zutaten
@@ -57,6 +50,9 @@ export default function SeasonalMenuPage() {
             </div>
 
             <div className="seasonal-footer" style={{ marginTop: 'auto' }}>
+              <p className="seasonal-footnote" style={{ textAlign: 'center', marginBottom: '1mm' }}>
+                Folgen Sie uns: <strong>@lindener.ratsstuben</strong>
+              </p>
               <div className="seasonal-closing">GUTEN APPETIT</div>
             </div>
           </div>
@@ -64,18 +60,12 @@ export default function SeasonalMenuPage() {
           {/* RIGHT COLUMN: LIMONADEN */}
           <div className="landscape-column">
             <div className="seasonal-header">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/logo.svg"
-                alt="Lindener Ratsstuben"
-                className="seasonal-logo"
-              />
-              <span className="seasonal-badge">◆ Erfrischung ◆</span>
-              <h1 className="seasonal-title">Hausgemachte Limonaden</h1>
-              <p className="seasonal-subtitle">Frisch. Fein. Erfrischend.</p>
+              <div className="seasonal-title-line">
+                <span className="seasonal-badge-inline">◆ Erfrischung ◆</span>
+                <h1 className="seasonal-title">Hausgemachte Limonaden</h1>
+                <p className="seasonal-subtitle">Frisch. Fein. Erfrischend.</p>
+              </div>
             </div>
-
-            <OrnateDivider />
 
             <p className="seasonal-intro">
               Genießen Sie unsere liebevoll zubereiteten Limonaden – aus besten Zutaten,
@@ -93,6 +83,9 @@ export default function SeasonalMenuPage() {
               <p className="seasonal-footnote" style={{ fontSize: '5pt', lineHeight: '1.2', marginBottom: '1.5mm', textAlign: 'left' }}>
                 <strong>Zusatzstoffe:</strong> 1 mit Farbstoff · <strong>Allergene:</strong> B Milch/Laktose, C Nüsse (1 Mandel), D Sesam, E glutenh. Getreide (1 Weizen), F Sellerie, G Senf, I Eier<br/>
                 Aufgrund der Küchenabläufe kann der 100%ige Ausschluss bestimmter Allergene nicht gewährleistet werden.
+              </p>
+              <p className="seasonal-footnote" style={{ textAlign: 'center', marginBottom: '1mm' }}>
+                Folgen Sie uns: <strong>@lindener.ratsstuben</strong>
               </p>
               <div className="seasonal-closing">ERFRISCHUNG PUR</div>
             </div>

@@ -2,20 +2,23 @@ import React from 'react';
 import { legal_disclaimers } from '@/data/menu';
 
 /**
- * AllergenLegend — Full-page print legend (Page XII)
+ * AllergenLegend — Full-page print legend
  * Fills the entire DIN A4 page with well-readable Zusatzstoffe + Allergene.
  * Text content matches the restaurant's official declaration verbatim.
+ * Compacted to fit within A4 boundaries without overflow.
  */
 export default function AllergenLegend() {
   return (
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-between',
+      alignItems: 'center',
+      justifyContent: 'center',
       height: '100%',
       padding: '0',
       fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
       color: '#2a1a0e',
+      gap: '8px',
     }}>
 
       {/* ═══════ ZUSATZSTOFFE ═══════ */}
@@ -23,27 +26,29 @@ export default function AllergenLegend() {
         <h2 style={{
           textAlign: 'center',
           textTransform: 'uppercase',
-          letterSpacing: '5px',
-          fontSize: '18pt',
+          letterSpacing: '4px',
+          fontSize: '12pt',
           fontWeight: 700,
-          marginBottom: '14px',
+          marginBottom: '6px',
           marginTop: '0',
-          borderBottom: '2.5px solid #D4AF37',
-          paddingBottom: '8px',
+          borderBottom: '2px solid #D4AF37',
+          paddingBottom: '4px',
           color: '#5B2126',
         }}>Zusatzstoffe</h2>
 
         <div style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          gap: '10px 28px',
-          marginBottom: '28px',
-          fontSize: '12.5pt',
-          lineHeight: '1.5',
-          padding: '0 6px',
+          justifyItems: 'center',
+          gap: '3px 20px',
+          fontSize: '9.5pt',
+          lineHeight: '1.3',
+          padding: '0 4px',
+          maxWidth: '560px',
+          margin: '0 auto 10px auto',
         }}>
           <ZusatzstoffRow code="1" label="mit Farbstoff" />
-          <ZusatzstoffRow code="2" label="mit Konservierungsstoffe" />
+          <ZusatzstoffRow code="2" label="mit Konservierungsstoff" />
           <ZusatzstoffRow code="3" label="mit Nitropökelsalz" />
           <ZusatzstoffRow code="4" label="mit Antioxidationsmittel" />
           <ZusatzstoffRow code="5" label="mit Geschmacksverstärker" />
@@ -61,24 +66,27 @@ export default function AllergenLegend() {
         <h2 style={{
           textAlign: 'center',
           textTransform: 'uppercase',
-          letterSpacing: '5px',
-          fontSize: '18pt',
+          letterSpacing: '4px',
+          fontSize: '12pt',
           fontWeight: 700,
-          marginBottom: '14px',
+          marginBottom: '6px',
           marginTop: '0',
-          borderBottom: '2.5px solid #D4AF37',
-          paddingBottom: '8px',
+          borderBottom: '2px solid #D4AF37',
+          paddingBottom: '4px',
           color: '#5B2126',
         }}>Liste der Allergene</h2>
 
         <div style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          gap: '10px 28px',
-          marginBottom: '12px',
-          fontSize: '12.5pt',
-          lineHeight: '1.5',
-          padding: '0 6px',
+          justifyItems: 'center',
+          gap: '3px 20px',
+          marginBottom: '6px',
+          fontSize: '9.5pt',
+          lineHeight: '1.3',
+          padding: '0 4px',
+          maxWidth: '560px',
+          margin: '0 auto 6px auto',
         }}>
           <AllergenRow code="A" label="Schwefeldioxid und Sulfite" />
           <AllergenRow code="B" label="Milch / Laktose" />
@@ -99,34 +107,34 @@ export default function AllergenLegend() {
       {/* ═══════ LEGAL DISCLAIMERS ═══════ */}
       <div style={{
         borderTop: '1.5px solid rgba(139,90,43,0.3)',
-        paddingTop: '16px',
+        paddingTop: '10px',
         marginTop: 'auto',
       }}>
         <p style={{
           textAlign: 'center',
-          fontSize: '10.5pt',
+          fontSize: '9pt',
           fontStyle: 'italic',
           color: '#5B2126',
-          lineHeight: '1.65',
-          margin: '0 0 14px 0',
+          lineHeight: '1.5',
+          margin: '0 0 8px 0',
           padding: '0 10px',
         }}>
           — {legal_disclaimers.allergens} —
         </p>
         <p style={{
           textAlign: 'center',
-          fontSize: '10.5pt',
+          fontSize: '9pt',
           fontStyle: 'italic',
           color: '#5B2126',
-          lineHeight: '1.65',
-          margin: '0 0 14px 0',
+          lineHeight: '1.5',
+          margin: '0 0 8px 0',
           padding: '0 10px',
         }}>
           — {legal_disclaimers.cross_contamination}
         </p>
         <p style={{
           textAlign: 'center',
-          fontSize: '9pt',
+          fontSize: '8pt',
           color: '#999',
           margin: '0',
           letterSpacing: '0.5px',
@@ -143,55 +151,55 @@ export default function AllergenLegend() {
 
 function ZusatzstoffRow({ code, label }: { code: string; label: string }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', width: '240px' }}>
       <span style={{
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minWidth: '30px',
-        height: '30px',
+        minWidth: '22px',
+        height: '22px',
         backgroundColor: '#5B2126',
         color: '#fff',
         fontFamily: "'Cinzel', serif",
-        fontSize: '11pt',
+        fontSize: '8.5pt',
         fontWeight: 700,
-        borderRadius: '5px',
-        padding: '0 6px',
+        borderRadius: '3px',
+        padding: '0 4px',
       }}>{code}</span>
-      <span style={{ fontSize: '12.5pt' }}>{label}</span>
+      <span style={{ fontSize: '9.5pt', fontWeight: 500 }}>{label}</span>
     </div>
   );
 }
 
 function AllergenRow({ code, label, sub }: { code: string; label: string; sub?: string }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', width: '240px' }}>
       <span style={{
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minWidth: '30px',
-        height: '30px',
+        minWidth: '22px',
+        height: '22px',
         backgroundColor: '#d32f2f',
         color: '#fff',
         fontFamily: "'Cinzel', serif",
-        fontSize: '12pt',
+        fontSize: '9.5pt',
         fontWeight: 700,
-        borderRadius: '5px',
-        padding: '0 6px',
+        borderRadius: '3px',
+        padding: '0 4px',
         flexShrink: 0,
         marginTop: '1px',
       }}>{code}</span>
       <span>
-        <span style={{ fontWeight: 700, fontSize: '12.5pt' }}>{label}</span>
+        <span style={{ fontWeight: 700, fontSize: '9.5pt' }}>{label}</span>
         {sub && (
           <span style={{
             display: 'block',
-            fontSize: '10pt',
+            fontSize: '8pt',
             color: '#7a5c2e',
             fontStyle: 'italic',
-            lineHeight: '1.35',
-            marginTop: '2px',
+            lineHeight: '1.2',
+            marginTop: '1px',
           }}>({sub})</span>
         )}
       </span>

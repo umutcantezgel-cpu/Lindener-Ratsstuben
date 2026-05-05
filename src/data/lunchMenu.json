@@ -2,53 +2,53 @@
   "restaurantName": "Lindener Ratsstuben",
   "restaurantSub": "Restaurant & Kegelzentrum",
   "menuLabel": "2 Gang Mittags Menü",
-  "dateRange": "21.04.2026 - 25.04.2026",
+  "dateRange": "05.05.2026 - 08.05.2026",
   "vorspeise": "Tages-Suppe oder Salat der Saison",
   "vorspeiseAllergens": "F,G",
   "vorspeiseZusatzstoffe": "",
   "mainCourses": [
     {
       "id": 1,
-      "price": "13,50 €",
-      "description": "Hähnchenbrustfilet vom Grill mit gebratenen Zwiebeln dazu Gourmet Kartoffeln.",
-      "allergens": "F",
+      "price": "15,50 €",
+      "description": "Arg. Rinder-Paillard, hauchdünn plattiert, auf mariniertem Rucola-Salat & Gourmet-Kartoffeln.",
+      "allergens": "G",
       "zusatzstoffe": ""
     },
     {
       "id": 2,
-      "price": "13,50 €",
-      "description": "Jäger-Schnitzel mit frischem Champignon in Brauner Soße dazu Pommes Frites.",
-      "allergens": "B,E1,F,G,I",
+      "price": "15,50 €",
+      "description": "Schnitzel Wiener Art mit Stangenspargel in Soße Hollandaise, dazu Gourmet-Kartoffeln.",
+      "allergens": "B,E1,I",
       "zusatzstoffe": ""
     },
     {
       "id": 3,
-      "price": "13,50 €",
-      "description": "Rigatoni mit Hähnchenbrustfilet-Ragout & frischen Champignons Cremige Tomaten Sahne Soße.",
+      "price": "15,50 €",
+      "description": "Fagottini al Tartufo – Teigsäckchen gefüllt mit Trüffeln in cremiger Sahne-Soße & luftgetrocknetem Parma-Schinken.",
       "allergens": "B,E1,F",
       "zusatzstoffe": ""
     },
     {
       "id": 4,
-      "price": "13,50 €",
-      "description": "Salat nach Wahl (Wählen Sie Ihre Lieblingssalat aus unserer Speisekarte) dazu Hausgemachtes Brot.",
+      "price": "15,50 €",
+      "description": "Salat nach Wahl (Wählen Sie Ihren Lieblingssalat aus unserer Speisekarte), dazu hausgemachtes Brot.",
       "allergens": "E1,G",
       "zusatzstoffe": ""
     },
     {
       "id": 5,
-      "price": "12,00 €",
-      "description": "Pizza nach Wahl (Wählen Sie Ihre Lieblingspizza aus unserer Speisekarte)",
+      "price": "14,00 €",
+      "description": "Pizza nach Wahl (Wählen Sie Ihre Lieblingspizza aus unserer Speisekarte).",
       "allergens": "B,E1,F",
       "zusatzstoffe": ""
     },
     {
       "id": 6,
-      "price": "16,50 €",
-      "description": "Gebratene Zanderfilet in Weißwein-Kräuter-Knoblauch Soße dazu Tagesbeilage. <em>(Nur Freitag)</em>",
+      "price": "17,50 €",
+      "description": "Frisches Lachsfilet vom Grill in cremiger Orangen-Senf-Soße, dazu Blattspinat & Salzkartoffeln. <em>(Nur Freitag)</em>",
       "isHtml": true,
-      "allergens": "A,K",
-      "zusatzstoffe": "6"
+      "allergens": "B,G,K",
+      "zusatzstoffe": ""
     }
   ],
   "footerNote": "Dienstag – Freitag · 12:00 – 14:30 Uhr",

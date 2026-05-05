@@ -77,6 +77,7 @@
     "ajv-formats": "^3.0.1",
     "autoprefixer": "^10.4.22",
     "cross-env": "^10.1.0",
+    "docx": "^9.6.1",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.35",
     "eslint-plugin-jsx-a11y": "^6.10.2",

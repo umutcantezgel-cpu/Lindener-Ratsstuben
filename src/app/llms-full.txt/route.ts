@@ -86,6 +86,7 @@ export async function GET(request: NextRequest) {
   lines.push(`- **E-Mail:** ${companyData.email}`);
   lines.push(`- **Website:** ${baseUrl}`);
   lines.push(`- **Facebook:** ${companyData.facebook}`);
+  lines.push(`- **Instagram:** ${companyData.instagram}`);
   lines.push('- **Parkplätze:** Ja, ausreichend kostenlose Parkplätze vorhanden');
   lines.push('');
   lines.push('## Öffnungszeiten');

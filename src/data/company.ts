@@ -9,6 +9,7 @@ export const companyData: CompanyData = {
     phone: "+49640364556",
     displayPhone: "06403 - 64556",
     facebook: "https://www.facebook.com/Lindenerratsstube",
+    instagram: "https://www.instagram.com/lindener.ratsstuben/",
     address: {
         street: "Konrad-Adenauer-Straße 26",
         zip: "35440",

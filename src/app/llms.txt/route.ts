@@ -25,6 +25,7 @@ export async function GET(request: NextRequest) {
     '> Öffnungszeiten: Di–Sa 12:00–14:30 & 17:30–22:30 | So 12:00–14:30 & 17:30–21:00 | Mo Ruhetag',
     '> Küche: Italienisch, Mediterran, Deutsch | Preisniveau: $$ – $$$',
     '> Bewertung: 4,6/5 Sterne | Barrierefrei | Parkplätze | WLAN',
+    '> Social Media: facebook.com/Lindenerratsstube | instagram.com/lindener.ratsstuben',
     '',
     'For a complete knowledge base in a single request, use:',
     `- [Vollständige Wissensbasis (llms-full.txt)](${baseUrl}/llms-full.txt)`,

@@ -83,6 +83,7 @@ export interface CompanyData {
   readonly phone: string;
   readonly displayPhone: string;
   readonly facebook: string;
+  readonly instagram: string;
   readonly address: Address;
   readonly mapLink: string;
   readonly services: readonly string[];
