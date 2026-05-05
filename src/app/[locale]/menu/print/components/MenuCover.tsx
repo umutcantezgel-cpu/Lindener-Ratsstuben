@@ -1,4 +1,5 @@
 import React from 'react';
+import QRCode from 'react-qr-code';
 
 const CornerOrnament = ({ className }: { className: string }) => (
   <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={`cv-corner ${className}`}>
@@ -32,18 +33,38 @@ export default function MenuCover() {
       <CornerOrnament className="cv-br" />
       
       <div className="cv-content">
-        <div className="cv-tag"><span>◆</span>RESTAURANTE PIZZERIA<span>◆</span></div>
-        <div className="cv-tag"><span>◆</span>Kegelbahnzentrum<span>◆</span></div>
-        <div className="cv-trad">— Internationelle Küche —</div>
+        <div className="cv-tag" style={{ marginBottom: '10px' }}><span>◆</span>RISTORANTE PIZZERIA<span>◆</span></div>
+        <div className="cv-tag">Kegelzentrum</div>
+        <div className="cv-trad">— Internationale Küche —</div>
         <h1 className="cv-title">LINDENER<span style={{ display: 'inline-block', width: '0.6em' }}></span>RATSSTUBEN</h1>
         <OrnateDivider />
         <div className="cv-sub">Kulinarische Meisterwerke<br/>mit Leidenschaft kreiert</div>
       </div>
       
+      <div className="cv-hours">
+        <div className="cv-hours-title">Öffnungszeiten</div>
+        <div className="cv-hours-text">
+          Di – Sa: 12:00 – 14:30 &amp; 17:30 – 22:30 Uhr<br />
+          So: 12:00 – 14:30 &amp; 17:30 – 21:00 Uhr<br />
+          <span className="cv-hours-closed">Montag Ruhetag</span>
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '15px', gap: '8px', position: 'relative', zIndex: 10 }}>
+        <div style={{ fontSize: '11px', fontWeight: 600, color: 'var(--gold-deep)', textTransform: 'uppercase', letterSpacing: '1.5px', fontFamily: 'var(--font-heading)' }}>Digitale Speisekarte</div>
+        <div style={{ padding: '6px', background: 'white', borderRadius: '4px', boxShadow: '0 4px 15px rgba(0,0,0,0.15)', border: '1px solid var(--gold-faint)' }}>
+          <QRCode value="https://lindener-ratsstuben.de/de/menu" size={60} level="M" fgColor="#2c3e50" />
+        </div>
+      </div>
+
       <div className="cv-est">
         Konrad-Adenauer-Straße 26, 35440 Linden<br />
         06403 - 64556<br />
-        www.lindener-ratsstuben.de
+        www.lindener-ratsstuben.de<br />
+        <div style={{ fontSize: '85%', letterSpacing: '0.5px', marginTop: '5px', display: 'flex', justifyContent: 'center', gap: '20px' }}>
+          <span><span style={{ fontWeight: 600 }}>IG</span> @lindener.ratsstuben</span>
+          <span><span style={{ fontWeight: 600 }}>FB</span> Lindenerratsstube</span>
+        </div>
       </div>
     </div>
   );

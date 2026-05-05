@@ -33,7 +33,7 @@ export interface SSOTMenuItem {
 // ─── Categories (SSOT §3 Reihenfolge) ─────────────────────────
 export const categories = [
   { id: 'aperitif', name: 'Aperitif', label: 'Aperitif' },
-  { id: 'suppen', name: 'Zuppa', label: 'Zuppa' },
+  { id: 'suppen', name: 'Suppe', label: 'Suppe' },
   { id: 'vorspeisen', name: 'Vorspeisen', label: 'Vorspeisen' },
   { id: 'salate', name: 'Salate', label: 'Salate' },
   { id: 'pasta', name: 'Pasta', label: 'Pasta' },
@@ -53,28 +53,28 @@ export const categories = [
   { id: 'biere', name: 'Biere', label: 'Biere' },
   { id: 'rotweine', name: 'Offene Rotweine', label: 'Rotweine' },
   { id: 'weissweine', name: 'Offene Weißweine', label: 'Weißweine' },
-  { id: 'spirituosen', name: 'Spirituosen 0,2 cl', label: 'Spirituosen' },
-  { id: 'likoere', name: 'Liköre 0,2 cl', label: 'Liköre' },
+  { id: 'spirituosen', name: 'Spirituosen 2 cl', label: 'Spirituosen' },
+  { id: 'likoere', name: 'Liköre 2 cl', label: 'Liköre' },
 
 ];
 
 // ─── Category Footnotes (wörtlich aus SSOT) ───────────────────
 export const categoryFootnotes: Record<string, string> = {
-  suppen: 'Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachtes Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
-  vorspeisen: 'Unsere Suppen & Vorspeisen servieren wir Kostenlos Hausgemachtes Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
-  salate: 'Unsere Salate servieren wir Kostenlos Hausgemachtes Brot - auf Wunsch Pizzabrot Tomaten Soße & Knoblauch 6,50€',
+  suppen: 'Zu unseren Suppen & Vorspeisen servieren wir kostenlos hausgemachtes Brot – auf Wunsch Pizzabrot mit Tomatensoße & Knoblauch für 6,50 €',
+  vorspeisen: 'Zu unseren Suppen & Vorspeisen servieren wir kostenlos hausgemachtes Brot – auf Wunsch Pizzabrot mit Tomatensoße & Knoblauch für 6,50 €',
+  salate: 'Zu unseren Salaten servieren wir kostenlos hausgemachtes Brot – auf Wunsch Pizzabrot mit Tomatensoße & Knoblauch für 6,50 €',
   pasta: 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
   'pasta-al-forno': 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
   'hausgemachte-pasta': 'Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.',
   schnitzel: 'Bei unseren Schnitzeln handelt es sich um frischen Schweinerücken.',
-  pizza: 'Extrabelege: **Jeder Extrabelag – 1,00 €**\n**Mozzarella – 4,00 €**\n**Thunfisch – 4,00 €**\n**Lachsfilet – 6,00 €**\n**Garnelen – 6,00 €**\n**Burrata – 6,00 €**',
-  familienpizza: 'Extrabelege: **Jeder Extrabelag – 4,00 €**\n**Mozzarella – 12,00 €**\n**Thunfisch – 12,00 €**\n**Lachsfilet – 16,00 €**\n**Garnelen – 16,00 €**\n**Burrata – 16,00 €**',
+  pizza: 'Extrabeläge: **Jeder Extrabelag – 1,00 €**\n**Mozzarella – 4,00 €**\n**Thunfisch – 4,00 €**\n**Lachsfilet – 6,00 €**\n**Garnelen – 6,00 €**\n**Burrata – 6,00 €**',
+  familienpizza: 'Extrabeläge: **Jeder Extrabelag – 4,00 €**\n**Mozzarella – 12,00 €**\n**Thunfisch – 12,00 €**\n**Lachsfilet – 16,00 €**\n**Garnelen – 16,00 €**\n**Burrata – 16,00 €**',
 
 };
 
 // ─── Category Header Texts (wörtlich aus SSOT) ───────────────
 export const categoryHeaderTexts: Record<string, string> = {
-  pizza: 'alle Pizzen werden mit Tomaten soße mit Special würzen & Käse zubereitet.',
+  pizza: 'Alle Pizzen werden mit Tomatensoße, Special-Würzen & Käse zubereitet.',
 };
 
 // ─── Category Extras (SSOT-Preise) ────────────────────────────
@@ -93,8 +93,8 @@ export const categoryExtras: Record<string, ExtraItem[]> = {
     { name: 'Extrasoße (Erdbeer oder Schokosoße)', price: 1.50 },
   ],
   saefte: [
-    { name: 'Alle Säfte auch als Schorle 0,2', price: 3.20 },
-    { name: 'Alle Säfte auch als Schorle 0,4', price: 5.70 },
+    { name: 'Alle Säfte auch als Schorle 0,2 l', price: 3.20 },
+    { name: 'Alle Säfte auch als Schorle 0,4 l', price: 5.70 },
   ],
 };
 
@@ -124,7 +124,7 @@ export const allergenLegend: Record<string, string> = {
 // ─── Zusatzstoff Legend (Ratsstuben-Hausschema) ───────────────
 export const zusatzstoffLegend: Record<string, string> = {
   '1': 'mit Farbstoff',
-  '2': 'mit Konservierungsstoffe',
+  '2': 'mit Konservierungsstoff',
   '3': 'mit Nitropökelsalz',
   '4': 'mit Antioxidationsmittel',
   '5': 'mit Geschmacksverstärker',
@@ -146,10 +146,11 @@ export const legal_disclaimers = {
 // ─── Known Data Gaps (SSOT §4) ────────────────────────────────
 export const knownDataGaps = [
   { issue: 'Nr. 104 fehlt zwischen Pizza 103 und 105', severity: 'info' },
-  { issue: 'Nr. 166 Trade Island Pfirsich — Preis fehlt', severity: 'blocker' },
-  { issue: 'Nr. 210 Possmann Apfelwein — Preis fehlt', severity: 'blocker' },
-  { issue: 'Nr. 188 entzerrt → 188 (Radler-Weizer), 190 (Alk.frei Pils), 191 (Alk.frei Radler)', severity: 'resolved' },
+  { issue: 'Nr. 166 Trade Island Pfirsich — Preis nachgetragen', severity: 'resolved' },
+  { issue: 'Nr. 210 Possmann Apfelwein — Preis nachgetragen', severity: 'resolved' },
+  { issue: 'Nr. 188 entzerrt → 188 (Radler-Weizen), 190 (Alk.frei Pils), 191 (Alk.frei Radler)', severity: 'resolved' },
   { issue: 'Nr. 74 entzerrt → 74a (Schnitzel Bolognese), 74b (Bauern-Schnitzel)', severity: 'resolved' },
+  { issue: 'Nr. 64a/64b entzerrt → 64 (Schnitzel Bolognese), 65 (Bauern-Schnitzel), 66 (Schlemmer), 67 (Rucksack)', severity: 'resolved' },
   { issue: 'Nr. 221/227 Himbergeist sowie 222/228 Obstler doppelt', severity: 'warning' },
   { issue: 'Spirituosen & Liköre "0,2 cl" — Mengeneinheit ungewöhnlich', severity: 'info' },
   { issue: '"Sprit" (160/161) — Schreibweise so übernommen', severity: 'info' },

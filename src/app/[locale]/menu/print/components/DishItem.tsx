@@ -54,7 +54,16 @@ export default function DishItem({ id, name, price, desc, allergens, zusatzstoff
         <span className="it-p">{price}</span>
       </div>
       <div className="it-d" style={descStyle}>
-        {preventOrphans(desc)}
+        {typeof desc === 'string' && desc.includes('Wahlweise') ? (
+          <>
+            {preventOrphans(desc.substring(0, desc.indexOf('Wahlweise')))}
+            <span style={{ display: 'block', marginTop: '2px', fontSize: '1.05em', fontWeight: 600, fontStyle: 'italic' }}>
+              {desc.substring(desc.indexOf('Wahlweise'))}
+            </span>
+          </>
+        ) : (
+          preventOrphans(desc)
+        )}
       </div>
     </div>
   );

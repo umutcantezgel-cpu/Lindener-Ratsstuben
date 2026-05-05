@@ -12,7 +12,7 @@ export interface ZusatzstoffData {
 
 export const ZUSATZSTOFFE: Record<ZusatzstoffIdentifier, ZusatzstoffData> = {
   '1':  { id: '1',  name: 'mit Farbstoff' },
-  '2':  { id: '2',  name: 'mit Konservierungsstoffe' },
+  '2':  { id: '2',  name: 'mit Konservierungsstoff' },
   '3':  { id: '3',  name: 'mit Nitropökelsalz' },
   '4':  { id: '4',  name: 'mit Antioxidationsmittel' },
   '5':  { id: '5',  name: 'mit Geschmacksverstärker' },

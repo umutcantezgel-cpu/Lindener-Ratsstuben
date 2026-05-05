@@ -196,7 +196,7 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
             {currentNote && (
                 <div className={clsx(
                     "mb-8 text-center bg-bg-primary/80 px-6 py-3 rounded-xl max-w-3xl mx-auto border border-border whitespace-pre-wrap",
-                    currentNote.includes('Extrabelege') ? "text-base md:text-lg text-text-primary font-medium" : "text-sm text-text-secondary"
+                    currentNote.includes('Extrabeläge') ? "text-base md:text-lg text-text-primary font-medium" : "text-sm text-text-secondary"
                 )}>
                     <Info className="w-4 h-4 inline-block me-2 -mt-0.5" aria-hidden="true" />
                     {currentNote.split(/(\*\*.*?\*\*)/).map((part, j) => 

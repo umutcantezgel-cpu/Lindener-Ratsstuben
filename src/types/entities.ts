@@ -98,7 +98,8 @@ export const activeEntityMap: ProjectEntityMap = {
       longitude: 8.6566
     },
     social: [
-      companyData.facebook
+      companyData.facebook,
+      companyData.instagram
     ],
     logo: "https://lindener-ratsstuben.de/logo.png",
     description: companyData.tagline,

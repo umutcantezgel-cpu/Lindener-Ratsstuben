@@ -52,6 +52,12 @@ const navigationConfig: NavigationConfig = {
       external: true,
       ariaLabel: 'Besuchen Sie uns auf Facebook',
     },
+    {
+      label: 'Instagram',
+      href: companyData.instagram,
+      external: true,
+      ariaLabel: 'Folgen Sie uns auf Instagram',
+    },
   ],
   external: [],
 };

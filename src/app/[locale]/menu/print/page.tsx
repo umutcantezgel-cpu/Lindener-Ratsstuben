@@ -29,186 +29,252 @@ export default function PrintMenuPage() {
       <MenuCover />
       <LunchMenu />
 
-
+      {/* ═══ SEITE III: Aperitif ═══ */}
       <PrintPage pageNum="III">
-        <DishCategory dropcap="A" title="Aperitif" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="aperitif" />
+        <div className="welcome-block">
+          <div className="welcome-ornament">✦ ✦ ✦</div>
+          <p className="welcome-text">
+            Herzlich willkommen in unserem Restaurant.
+          </p>
+          <p className="welcome-text">
+            Wir wünschen uns, dass Sie sich wohlfühlen und Speis und Trank genießen.
+          </p>
+          <p className="welcome-text">
+            Bei einem guten Getränk und liebevoll, frisch zubereiteten Essen gelingt es Ihnen sicherlich,
+            Ihren Tag (Abend) gemütlich in unserem Restaurant ausklingen zu lassen.
+          </p>
+          <p className="welcome-text welcome-closing">
+            Wir wünschen Ihnen einen guten Appetit und einen angenehmen Aufenthalt.
+          </p>
+          <div className="welcome-ornament">✦ ✦ ✦</div>
         </div>
 
+        <DishCategory dropcap="A" title="Aperitif" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid">
+          <CategoryMapper categoryId="aperitif" />
+          <Quote text="Gönnen Sie sich einen Moment des Genusses." />
+        </div>
+      </PrintPage>
+
+      {/* ═══ SEITE IV: Suppen & Vorspeisen ═══ */}
+      <PrintPage pageNum="IV">
         <DishCategory dropcap="S" title="Suppen" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+        <div className="cat-grid">
           <CategoryMapper categoryId="suppen" />
         </div>
 
         <DishCategory dropcap="V" title="Vorspeisen" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+        <div className="cat-grid">
           <CategoryMapper categoryId="vorspeisen" />
-          <Quote text="Auch als stilvolle Antipasti-Platten für mehrere Personen erhältlich. Pro Person 13,90 €" />
+          <Quote text="Auch als stilvolle Antipasti-Platten für mehrere Personen erhältlich. Pro Person 14,90 €." />
         </div>
-        {/* SSOT-Fußnote wörtlich */}
-        <div className="fn">Unsere Suppen &amp; Vorspeisen servieren wir Kostenlos Hausgemachtes Brot - auf Wunsch Pizzabrot Tomaten Soße &amp; Knoblauch 6,50€</div>
       </PrintPage>
 
-      <PrintPage pageNum="IV">
-        <DishCategory dropcap="S" title="Salate" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="salate" marginBottom="2px" />
-        </div>
-        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px" }}>Unsere Salate servieren wir Kostenlos Hausgemachtes Brot - auf Wunsch Pizzabrot Tomaten Soße &amp; Knoblauch 6,50€</div>
-
-        <DishCategory dropcap="P" title="Pasta" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="pasta" marginBottom="2px" />
-        </div>
-        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px" }}>Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.</div>
-
-      </PrintPage>
-
+      {/* ═══ SEITE V: Salate ═══ */}
       <PrintPage pageNum="V">
-        <DishCategory dropcap="A" title="Aus dem Ofen - Überbackenes" marginTop="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="pasta-al-forno" />
+        <DishCategory dropcap="S" title="Salate" marginTop="3px" marginBottom="3px" />
+        <div className="cat-grid">
+          <CategoryMapper categoryId="salate" marginBottom="2px" />
+          <Quote text="Knackig, frisch und gesund." />
+        </div>
+        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "2px" }}>Zu unseren Suppen, Vorspeisen &amp; Salaten servieren wir kostenlos hausgemachtes Brot – auf Wunsch Pizzabrot mit Tomatensauce &amp; Knoblauch für 6,50 €.</div>
+      </PrintPage>
+
+      {/* ═══ SEITE VI: Pasta ═══ */}
+      <PrintPage pageNum="VI">
+        <DishCategory dropcap="P" title="Pasta" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid">
+          <CategoryMapper categoryId="pasta" itemIds={['40','41','42','43','44','45','46','47']} marginBottom="2px" />
+        </div>
+      </PrintPage>
+
+      {/* ═══ SEITE VII: Aus dem Ofen + Hausgemachte Pasta ═══ */}
+      <PrintPage pageNum="VII">
+        <DishCategory dropcap="A" title="Aus dem Ofen - Überbackenes" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid">
+          <CategoryMapper categoryId="pasta-al-forno" marginBottom="2px" />
         </div>
 
-        <DishCategory dropcap="H" title="Hausgemachte Pasta" marginTop="15px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+        <DishCategory dropcap="H" title="Hausgemachte Pasta" marginTop="3px" marginBottom="3px" />
+        <div className="cat-grid">
           <CategoryMapper categoryId="hausgemachte-pasta" />
         </div>
-        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px" }}>Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.</div>
+        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "2px" }}>Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.</div>
+      </PrintPage>
 
-        <DishCategory dropcap="S" title="Schnitzelvariation" marginTop="15px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+      {/* ═══ SEITE VIII: Schnitzel ═══ */}
+      <PrintPage pageNum="VIII">
+        <DishCategory dropcap="S" title="Schnitzelvariation" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid">
           <CategoryMapper categoryId="schnitzel" />
         </div>
-        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px" }}>Bei unseren Schnitzeln handelt es sich um frischen Schweinerücken.</div>
+        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "2px", marginBottom: "15px" }}>Bei unseren Schnitzeln handelt es sich um frischen Schweinerücken.</div>
       </PrintPage>
 
-      <PrintPage pageNum="VI">
+      {/* ═══ SEITE IX: Fleisch- & Fischgerichte ═══ */}
+      <PrintPage pageNum="IX">
         <DishCategory dropcap="F" title="Fleischgerichte" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="fleisch-fisch" itemIds={['80','81','82','83','84','85']} />
+        <div className="cat-grid">
+          <CategoryMapper categoryId="fleisch-fisch" itemIds={['70','71','72','73','74','75']} />
         </div>
 
-        <DishCategory dropcap="F" title="Fischgerichte" marginTop="10px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="fleisch-fisch" itemIds={['86','87','88']} />
-          <Quote text="Qualität ist niemals ein Zufall." />
+        <DishCategory dropcap="F" title="Fischgerichte" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid">
+          <CategoryMapper categoryId="fleisch-fisch" itemIds={['80','81','82']} />
+          <Quote text="Frischer Fisch – Qualität, die man schmeckt." />
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="VII">
+      {/* ═══ SEITE X: Pizza 1 ═══ */}
+      <PrintPage pageNum="X">
         <DishCategory dropcap="P" title="Pizza" subtitle="(∅ 28cm)" marginTop="5px" marginBottom="5px" />
-        {/* SSOT-Kopftext Pizza wörtlich */}
-        <div className="fn" style={{ marginBottom: '5px', fontStyle: 'italic' }}>alle Pizzen werden mit Tomaten soße mit Special würzen &amp; Käse zubereitet.</div>
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="pizza" marginBottom="2px" />
+        <div className="fn" style={{ marginBottom: '8px', fontStyle: 'italic', fontSize: '12pt', fontWeight: 600, color: 'var(--brand-red, #d32f2f)', textAlign: 'center' }}>Alle Pizzen werden mit Tomatensoße, Special-Würzen &amp; Käse zubereitet.</div>
+        <div className="cat-grid">
+          <CategoryMapper categoryId="pizza" itemIds={['90','91','92','93','94','95','96','97','98','99','100','101','102']} marginBottom="2px" />
+        </div>
+      </PrintPage>
+
+      {/* ═══ SEITE XI: Pizza 2 + Familienpizza ═══ */}
+      <PrintPage pageNum="XI">
+        <DishCategory dropcap="P" title="Pizza" subtitle="(Fortsetzung)" marginTop="3px" marginBottom="3px" />
+        <div className="cat-grid">
+          <CategoryMapper categoryId="pizza" itemIds={['103','105','106']} marginBottom="2px" />
         </div>
         <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px", whiteSpace: "pre-wrap", lineHeight: 1.4, fontSize: "10pt" }}>
-          Extrabelege: <strong>Jeder Extrabelag – 1,00 €</strong>{"\n"}
+          Extrabeläge: <strong>Jeder Extrabelag – 1,00 €</strong>{"\n"}
           <strong>Mozzarella – 4,00 €</strong>{"\n"}
           <strong>Thunfisch – 4,00 €</strong>{"\n"}
           <strong>Lachsfilet – 6,00 €</strong>{"\n"}
           <strong>Garnelen – 6,00 €</strong>{"\n"}
           <strong>Burrata – 6,00 €</strong>
         </div>
-      </PrintPage>
 
-      <PrintPage pageNum="VIII">
-        <DishCategory dropcap="F" title="Familienpizza" subtitle="ca. 40×60 cm" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+        <DishCategory dropcap="F" title="Familienpizza" subtitle="ca. 40×60 cm" marginTop="3px" marginBottom="3px" />
+        <div className="cat-grid">
           <CategoryMapper categoryId="familienpizza" marginBottom="2px" />
         </div>
-        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px", whiteSpace: "pre-wrap", lineHeight: 1.4, fontSize: "10pt" }}>
-          Extrabelege: <strong>Jeder Extrabelag – 4,00 €</strong>{"\n"}
-          <strong>Mozzarella – 12,00 €</strong>{"\n"}
-          <strong>Thunfisch – 12,00 €</strong>{"\n"}
-          <strong>Lachsfilet – 16,00 €</strong>{"\n"}
-          <strong>Garnelen – 16,00 €</strong>{"\n"}
-          <strong>Burrata – 16,00 €</strong>
+        <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "5px", marginBottom: "15px", fontSize: "9pt", lineHeight: 1.3 }}>
+          Extrabeläge Familienpizza: <strong>Jeder Extrabelag – 4,00 €</strong> · <strong>Mozzarella – 12,00 €</strong> · <strong>Thunfisch – 12,00 €</strong> · <strong>Lachsfilet – 16,00 €</strong> · <strong>Garnelen – 16,00 €</strong> · <strong>Burrata – 16,00 €</strong>
         </div>
+      </PrintPage>
 
-        <DishCategory dropcap="K" title="Kindergerichte" marginTop="10px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+      {/* ═══ SEITE XII: Kindergerichte + Dessert ═══ */}
+      <PrintPage pageNum="XII">
+        <DishCategory dropcap="K" title="Kindergerichte" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid">
           <CategoryMapper categoryId="kindergerichte" marginBottom="2px" />
         </div>
 
-        <DishCategory dropcap="D" title="Dessert" marginTop="10px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+        <DishCategory dropcap="D" title="Dessert" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid">
           <CategoryMapper categoryId="dessert" marginBottom="2px" />
         </div>
       </PrintPage>
 
-      <PrintPage pageNum="IX">
-        <DishCategory dropcap="E" title="Erfrischungsgetränke" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="alkoholfreie-getraenke" marginBottom="2px" />
-          <CategoryMapper categoryId="saefte" marginBottom="2px" />
+      {/* ═══ SEITE XIII: Warme Getränke + Erfrischungsgetränke ═══ */}
+      <PrintPage pageNum="XIII">
+        <DishCategory dropcap="W" title="Warme Getränke" marginTop="0px" marginBottom="0px" />
+        <div className="cat-grid super-compact">
+          <CategoryMapper categoryId="warme-getraenke" marginBottom="0px" />
         </div>
-        <Quote text="Erfrischung pur für jeden Geschmack." />
+
+        <DishCategory dropcap="E" title="Erfrischungsgetränke" marginTop="10px" marginBottom="0px" />
+        <div className="cat-grid super-compact">
+          <CategoryMapper categoryId="alkoholfreie-getraenke" marginBottom="2px" />
+        </div>
       </PrintPage>
 
-      <PrintPage pageNum="X">
-        <DishCategory dropcap="B" title="Biere" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
+      {/* ═══ SEITE XIV: Säfte + Biere ═══ */}
+      <PrintPage pageNum="XIV">
+        <DishCategory dropcap="F" title="Fruchtiges von Vaihinger" marginTop="5px" marginBottom="5px" />
+        <div className="cat-grid super-compact">
+          <CategoryMapper categoryId="saefte" marginBottom="0px" />
+        </div>
+
+        <DishCategory dropcap="B" title="Biere" marginTop="10px" marginBottom="5px" />
+        <div className="cat-grid super-compact">
           <CategoryMapper categoryId="biere" marginBottom="2px" />
         </div>
-
-        <DishCategory dropcap="R" title="Rotweine" marginTop="10px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="rotweine" marginBottom="2px" />
-        </div>
-
-        <DishCategory dropcap="W" title="Weißweine" marginTop="10px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="weissweine" marginBottom="2px" />
-        </div>
-        <Quote text="Ein gutes Glas Wein ist ein Gedicht." />
       </PrintPage>
 
-      <PrintPage pageNum="XI">
-        <DishCategory dropcap="W" title="Warme Getränke" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="warme-getraenke" marginBottom="2px" />
+      {/* ═══ SEITE XV: Weine + Liköre + Spirituosen ═══ */}
+      <PrintPage pageNum="XV">
+        <DishCategory dropcap="R" title="Offene Rotweine" marginTop="0px" marginBottom="0px" />
+        <div className="cat-grid super-compact">
+          <CategoryMapper categoryId="rotweine" marginBottom="0px" />
         </div>
 
-        <DishCategory dropcap="S" title="Spirituosen & Liköre" marginTop="15px" marginBottom="5px" />
-        <div className="cat-grid" style={{ columnGap: '8mm' }}>
-          <CategoryMapper categoryId="spirituosen" marginBottom="2px" />
-          <CategoryMapper categoryId="likoere" marginBottom="2px" />
+        <DishCategory dropcap="W" title="Offene Weißweine" marginTop="5px" marginBottom="0px" />
+        <div className="cat-grid super-compact">
+          <CategoryMapper categoryId="weissweine" marginBottom="0px" />
         </div>
 
-        <div className="cv-est" style={{position: 'relative', bottom: 'auto', marginTop: '30px'}}>
-          <span style={{fontSize: '24px'}}>VIELEN DANK ◆ GUTEN APPETIT</span>
+        <DishCategory dropcap="S" title="Spirituosen" marginTop="5px" marginBottom="0px" />
+        <div className="cat-grid super-compact two-col">
+          <CategoryMapper categoryId="spirituosen" marginBottom="0px" />
         </div>
 
-        {/* Marketing Partner Logos – DIN A4 unten */}
+        <DishCategory dropcap="L" title="Liköre" marginTop="5px" marginBottom="0px" />
+        <div className="cat-grid super-compact two-col">
+          <CategoryMapper categoryId="likoere" marginBottom="0px" />
+        </div>
+      </PrintPage>
+
+      {/* ═══ SEITE XVI: Allergenlegende + Marketing Logos ═══ */}
+      <PrintPage pageNum="XVI">
         <div style={{
-          marginTop: '20px',
-          textAlign: 'center',
-          padding: '0 5mm',
           display: 'flex',
-          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+          height: '100%',
+          textAlign: 'center',
+          gap: '0',
         }}>
+          {/* Abschluss-Banner */}
           <div style={{
-            background: 'white',
-            borderRadius: '16px',
-            boxShadow: '0 0 50px 25px white',
-            padding: '4mm 6mm',
-            display: 'inline-block',
+            marginTop: '8px',
+            marginBottom: '16px',
+            textAlign: 'center',
+          }}>
+            <span style={{
+              fontSize: '18px',
+              fontFamily: 'var(--font-cinzel)',
+              letterSpacing: '4px',
+              color: 'var(--brand-red)',
+              fontWeight: 700,
+            }}>
+              VIELEN DANK ◆ GUTEN APPETIT
+            </span>
+          </div>
+
+          {/* Marketing Partner Logos */}
+          <div style={{
+            textAlign: 'center',
+            padding: '0 10mm',
+            marginBottom: '16px',
           }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/marketing-logos.svg"
               alt="Marketing Partner Logos"
-              style={{ width: '100%', maxWidth: '170mm', height: 'auto' }}
+              style={{ width: '100%', maxWidth: '120mm', height: 'auto' }}
             />
           </div>
-        </div>
-      </PrintPage>
 
-      <PrintPage pageNum="XII">
-        <AllergenLegend />
+          {/* Dekorativer Trenner */}
+          <div style={{
+            width: '60%',
+            height: '2px',
+            background: 'linear-gradient(90deg, transparent, var(--gold), var(--brand-red), var(--gold), transparent)',
+            marginBottom: '16px',
+          }} />
+
+          {/* Allergenlegende */}
+          <div style={{ width: '100%' }}>
+            <AllergenLegend />
+          </div>
+        </div>
       </PrintPage>
     </div>
   );

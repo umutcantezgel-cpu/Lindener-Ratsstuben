@@ -1,10 +1,45 @@
-/* 
-  Flyer Format: 8-seitiger Fensterfalz/Zickzackfalz 
-  Offenes Endformat: 391 x 210 mm
-  Beschnittzugabe (Bleed): 3 mm an jeder Kante
-  Datenformat (inkl. Bleed): 397 x 216 mm
-*/
+/* ═══════════════════════════════════════════════════════════════
+   Lindener Ratsstuben — Flyer Design System v3.0
+   8-seitiger WICKELFALZ (Roll Fold)
+   Offenes Endformat: 391 × 210 mm
+   Beschnittzugabe (Bleed): 3 mm an jeder Kante
+   Datenformat (inkl. Bleed): 397 × 216 mm
+   Sicherheitsabstand: 5 mm
 
+   Panel-Breiten (Wickelfalz):
+   ─────────────────────────────────────────────────────
+   Sheet 1 (Außen): 94mm │ 97mm │ 100mm │ 100mm
+                    S6      S7     S8(Back) S1(Front)
+   Sheet 2 (Innen): 100mm │ 100mm │ 97mm │ 94mm
+                    S2       S3      S4     S5
+   ─────────────────────────────────────────────────────
+   Einfaltung: S5 faltet nach innen → S6 klappt darüber
+   Sichtbar im gefalteten Zustand: S1 (Front) + S8 (Back)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --gold: #D4AF37;
+  --gold-deep: #B8941E;
+  --gold-light: rgba(212, 175, 55, 0.15);
+  --gold-faint: rgba(212, 175, 55, 0.08);
+  --burgundy: #9E1A17;
+  --burgundy-dark: #7A1412;
+  --burgundy-light: #C2201D;
+  --parchment: #FFFFFF;
+  --parchment-warm: #FAFAFA;
+  --text-dark: #1a1a1a;
+  --text-body: #2b2b2b;
+  --text-muted: #555;
+  --text-light: rgba(255, 255, 255, 0.92);
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.18);
+  --shadow-image: 0 3px 12px rgba(91, 33, 38, 0.2);
+}
+
+/* ─── Page Setup ────────────────────────────────────────────── */
 @page {
   size: 397mm 216mm;
   margin: 0;
@@ -13,19 +48,20 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #555; /* Dunkler Browser-Hintergrund zur Isolation */
+  background-color: #444;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
 
+/* ─── Root Container ────────────────────────────────────────── */
 .flyer-root {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 20px;
-  font-family: 'Inter', sans-serif;
-  color: #2b2b2b;
+  font-family: var(--font-body);
+  color: var(--text-body);
 }
 
 @media print {
@@ -37,17 +73,30 @@ body {
   }
 }
 
+/* ─── Sheet (Bogen) ─────────────────────────────────────────── */
 .flyer-sheet {
   width: 397mm;
   height: 216mm;
-  background-color: #F5EDE0; /* Warmes Pergament — wie Referenz-Design */
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: minmax(0, 1fr); /* KRITISCH: verhindert Row-Expansion durch Content */
+  /* Wickelfalz: Asymmetrische Panel-Breiten + 3mm Bleed je Seite
+     Sheet 1 (Außen): 94+97+100+100 = 391mm + 6mm Bleed = 397mm
+     Panel-Breiten inkl. Bleed-Anteil:
+     Links 94+3=97mm | 97mm | 100mm | 100+3=103mm */
+  grid-template-columns: 97mm 97mm 100mm 103mm;
+  grid-template-rows: minmax(0, 1fr);
+  /* Clean white background for print */
+  background-color: var(--parchment);
+  background-image: none;
+}
+
+/* Sheet 2 (Innenseite): Spiegelverkehrte Breiten
+   100+3=103mm | 100mm | 97mm | 94+3=97mm */
+.flyer-sheet.sheet-inner {
+  grid-template-columns: 103mm 100mm 97mm 97mm;
 }
 
 @media print {
@@ -60,22 +109,18 @@ body {
   }
 }
 
-/* 
-  Jedes Panel ist eine Spalte des Flyers.
-  3mm Rand + 2mm Abstand = 5mm Safe Zone.
-  Reduziert von 8mm auf 5mm für maximale Inhaltsdichte.
-*/
+/* ─── Panel (Spalte) ────────────────────────────────────────── */
 .flyer-panel {
   position: relative;
   height: 100%;
-  max-height: 100%; /* Clamp auf Sheet-Höhe */
-  padding: 5mm;
+  max-height: 100%;
+  /* Base padding: Top/Bottom 7mm (4mm after 3mm bleed), Left/Right 5mm (Sicherheitsabstand) */
+  padding: 7mm 5mm;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Verhindert Content-Ausbruch */
-  /* Optionale Falz-Visualisierung im Web zur Orientierung */
-  border-right: 1px dashed rgba(0,0,0,0.1);
+  overflow: hidden;
+  border-right: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 @media print {
@@ -84,106 +129,331 @@ body {
   }
 }
 
+/* Outer panels: 3mm Bleed auf den Außenkanten */
+.flyer-panel:first-child {
+  padding-left: 8mm; /* 5mm Sicherheit + 3mm Bleed */
+}
+
 .flyer-panel:last-child {
+  padding-right: 8mm; /* 5mm Sicherheit + 3mm Bleed */
   border-right: none;
 }
 
-/* --- TITELBLATT (Panel 4) --- */
+/* Schmale Einschlag-Panels (94mm netto) – weniger Innenabstand */
+.flyer-panel.panel-narrow {
+  padding-left: 4mm;
+  padding-right: 4mm;
+}
+
+/* Mittel-Panels (97mm netto) */
+.flyer-panel.panel-medium {
+  padding-left: 4.5mm;
+  padding-right: 4.5mm;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FRONT COVER — Panel 4 (ganz rechts, Sheet 1)
+   ═══════════════════════════════════════════════════════════════ */
 .panel-cover {
-  background-image: url('/images/hero_trattoria.png'); /* Vom CMS/Public Ordner */
+  background-image: url('/images/hero_trattoria.png');
   background-size: cover;
   background-position: center;
   position: relative;
   color: #fff;
   text-align: center;
+  border-right: none;
+}
+
+.panel-cover::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* Subtle noise texture overlay */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  z-index: 1;
 }
 
 .panel-cover::after {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to bottom, rgba(91,33,38,0.85) 0%, rgba(30,10,12,0.95) 100%);
-  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(91, 33, 38, 0.82) 0%,
+    rgba(58, 20, 24, 0.88) 40%,
+    rgba(30, 10, 12, 0.94) 100%
+  );
+  z-index: 2;
 }
 
 .cover-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   height: 100%;
-  padding-top: 15mm;
+  padding-top: 12mm;
+  padding-bottom: 8mm;
 }
 
 .cover-logo {
-  width: 60mm;
+  width: 68mm;
   margin: 0 auto;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
 }
 
 .cover-tagline {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
   line-height: 1.2;
-  color: #D4AF37; /* Gold/Orange */
-  margin-top: 10mm;
-  margin-bottom: 3mm;
+  color: var(--gold);
+  margin-top: 6mm;
+  margin-bottom: 2mm;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .cover-sub {
-  font-size: 10px;
+  font-size: 11px;
   text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cover-divider {
+  width: 40mm;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold) 70%, transparent 100%);
+  margin: 3mm auto;
+  position: relative;
+}
+
+.cover-divider::after {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 7px;
+  color: var(--gold);
+  background: var(--burgundy-dark);
+  padding: 0 4px;
+}
+
+.cover-phone {
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 2mm 0 0 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.cover-takeaway {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 1.5mm 3mm;
+  border-radius: 2px;
+}
+
+/* ─── Cover Branding Typography ─────────────────────────────── */
+.cover-badge-line {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
+  color: rgba(255, 255, 255, 0.88);
+  margin-top: 4mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2mm;
+}
+
+.cover-diamond {
+  color: var(--gold);
+  font-size: 7px;
+}
+
+.cover-badge-sub {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-top: 1.5mm;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.cover-cuisine-line {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2mm;
   letter-spacing: 2px;
 }
 
-/* --- RÜCKSEITE (Panel 1) --- */
+.cover-title-main {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-top: 3mm;
+  margin-bottom: 1mm;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+}
+
+.cover-motto {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─── Cover Contact Block ────────────────────────────────────── */
+.cover-contact-block {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.cover-address-block {
+  margin-top: 2mm;
+}
+
+.cover-address-block p {
+  font-size: 8.5px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+
+.cover-ig-line {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5mm;
+  margin-top: 1.5mm !important;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9) !important;
+  letter-spacing: 0.8px !important;
+}
+
+.cover-ig-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  flex-shrink: 0;
+}
+
+.cover-fb-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: #1877F2;
+  flex-shrink: 0;
+}
+
+/* Corner ornaments for cover */
+.cover-corner {
+  position: absolute;
+  z-index: 3;
+  width: 18mm;
+  height: 18mm;
+  opacity: 0.5;
+}
+
+.cover-corner.tl { top: 3mm; left: 3mm; }
+.cover-corner.tr { top: 3mm; right: 3mm; transform: scaleX(-1); }
+.cover-corner.bl { bottom: 3mm; left: 3mm; transform: scaleY(-1); }
+.cover-corner.br { bottom: 3mm; right: 3mm; transform: scale(-1, -1); }
+
+/* ═══════════════════════════════════════════════════════════════
+   BACK COVER — Panel 1 (ganz links, Sheet 1)
+   ═══════════════════════════════════════════════════════════════ */
 .panel-backcover {
-  background-color: #5B2126; /* Burgunder */
+  background-color: var(--burgundy);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.2) 0%, transparent 50%);
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: center;
-  padding: 10mm 6mm;
+  justify-content: flex-start;
+  padding: 8mm 6mm 5mm;
+  border-right: 1px solid rgba(212, 175, 55, 0.15);
 }
 
 .backcover-logo {
-  width: 40mm;
-  margin-bottom: 6mm;
+  width: 48mm;
+  margin-bottom: 5mm;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
 }
 
 .backcover-title {
-  font-family: 'Playfair Display', serif;
-  color: #D4AF37;
-  font-size: 16px;
-  margin-bottom: 4mm;
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 3mm;
+  letter-spacing: 0.5px;
+}
+
+.backcover-divider {
+  width: 30mm;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold) 70%, transparent 100%);
+  margin: 2mm auto;
 }
 
 .qr-box {
   background: white;
-  padding: 3mm;
+  padding: 2.5mm;
   border-radius: 4px;
-  margin: 5mm 0;
+  margin: 4mm 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5mm;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .qr-box span {
-  color: #2b2b2b;
+  color: var(--text-body);
   font-weight: bold;
   font-size: 7px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .contact-info {
-  font-size: 8px;
-  line-height: 1.5;
-  margin-top: 5mm;
+  font-size: 9px;
+  line-height: 1.6;
+  margin-top: 4mm;
 }
 
 .contact-info p {
@@ -195,89 +465,78 @@ body {
 }
 
 .contact-info svg {
-  width: 10px;
-  height: 10px;
-  color: #D4AF37;
+  width: 11px;
+  height: 11px;
+  color: var(--gold);
+  flex-shrink: 0;
 }
 
-/* --- INNENTEIL (Speisekarten Panels) --- */
+/* ═══════════════════════════════════════════════════════════════
+   MENU PANELS — Innenteil (Speisekarten)
+   ═══════════════════════════════════════════════════════════════ */
 .menu-column {
-  font-size: 7.5pt; /* Balance zwischen Lesbarkeit und Dichte */
+  font-size: 6.5pt;
   line-height: 1.15;
 }
 
-/* Kompaktes Layout für Panels mit vielen Items (z.B. Getränke) */
+/* Dense layout for drink-heavy panels */
 .menu-column-dense {
   font-size: 6.5pt;
   line-height: 1.1;
 }
-.menu-column-dense .category-title {
-  font-size: 9pt;
-  margin: 2.5mm 0 1.5mm 0;
+
+.menu-column .category-title {
+  font-size: 9.5pt;
+  margin: 1.5mm 0 1mm 0;
   padding-bottom: 0.8mm;
 }
-.menu-column-dense .dish-item {
-  margin-bottom: 0.8mm;
-}
-.menu-column-dense .dish-nr {
-  font-size: 6.5pt;
-  width: 5mm;
-}
-.menu-column-dense .dish-name {
-  font-size: 7pt;
-}
-.menu-column-dense .dish-price {
-  font-size: 6.5pt;
-}
-.menu-column-dense .dish-desc {
-  font-size: 5.5pt;
-}
 
+.menu-column .dish-item { margin-bottom: 0.5mm; }
+.menu-column .dish-nr { font-size: 6.5pt; width: 5mm; }
+.menu-column .dish-name { font-size: 7.5pt; }
+.menu-column .dish-price { font-size: 6.5pt; }
+.menu-column .dish-desc { font-size: 5.8pt; }
+
+/* ─── Category Headers ──────────────────────────────────────── */
 .category-title {
-  font-family: 'Playfair Display', serif;
-  color: #5B2126;
+  font-family: var(--font-display);
+  color: var(--burgundy);
   font-size: 10pt;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
-  border-bottom: 0.5px solid rgba(212, 175, 55, 0.7);
-  margin: 3.5mm 0 2mm 0;
-  padding-bottom: 1.2mm;
+  border-top: 1.5px solid var(--burgundy);
+  border-bottom: 1.5px solid var(--burgundy);
+  margin: 1.5mm 0 1mm 0;
+  padding: 1mm 0;
   position: relative;
 }
 
-/* Eleganter Gold-Diamant in der Mitte der Trennlinie */
 .category-title::after {
-  content: '◆';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 6px;
-  color: #D4AF37;
-  background-color: #F5EDE0;
-  padding: 0 3px;
+  content: none;
 }
 
 .category-title:first-child {
   margin-top: 0;
 }
 
+/* ─── Dish Item ─────────────────────────────────────────────── */
 .dish-item {
   display: flex;
-  align-items: flex-start;
-  margin-bottom: 1.4mm;
-  gap: 1.2mm;
+  align-items: baseline;
+  margin-bottom: 0.2mm;
+  gap: 1mm;
   width: 100%;
 }
 
 .dish-nr {
   font-weight: bold;
-  color: #5B2126;
+  color: #111;
   width: 5mm;
   flex-shrink: 0;
   font-size: 7.5pt;
-  line-height: 1.15;
+  line-height: 1.18;
 }
 
 .dish-main {
@@ -294,8 +553,8 @@ body {
 .dish-name {
   font-weight: 700;
   font-size: 8pt;
-  line-height: 1.15;
-  color: #1a1a1a;
+  line-height: 1.18;
+  color: #111;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -304,11 +563,11 @@ body {
 
 .dot-leader {
   flex-grow: 1;
-  background-image: radial-gradient(circle, rgba(91, 33, 38, 0.5) 0.5px, transparent 0.5px);
+  background-image: radial-gradient(circle, rgba(91, 33, 38, 0.4) 0.5px, transparent 0.5px);
   background-size: 3px 3px;
   background-position: bottom;
   background-repeat: repeat-x;
-  margin: 0 1.5mm;
+  margin: 0 2mm;
   position: relative;
   top: -2.5px;
   min-width: 3mm;
@@ -316,20 +575,20 @@ body {
 
 .dish-price {
   font-weight: bold;
-  color: #5B2126;
+  color: #111;
   flex-shrink: 0;
   text-align: right;
   font-size: 7.5pt;
-  line-height: 1.15;
+  line-height: 1.18;
   white-space: nowrap;
 }
 
 .dish-desc {
   font-size: 6.5pt;
-  color: #555;
+  color: var(--text-muted);
   font-style: italic;
-  margin-top: 0.3mm;
-  line-height: 1.15;
+  margin-top: 0;
+  line-height: 1.1;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -348,44 +607,291 @@ body {
   line-height: 1;
 }
 
-/* --- Allergen & Zusatzstoff-Legende (Backcover) --- */
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM DESIGN ELEMENTS — Awwward-Level
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Panel Image (Rundes Essensbild) ───────────────────────── */
+.panel-image-circle {
+  width: 28mm;
+  height: 28mm;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--gold);
+  box-shadow: var(--shadow-image);
+  display: block;
+  margin: 3.5mm auto;
+  flex-shrink: 0;
+}
+
+.panel-image-circle.small {
+  width: 22mm;
+  height: 22mm;
+}
+
+.panel-image-circle.large {
+  width: 35mm;
+  height: 35mm;
+}
+
+/* ─── Panel Image (Rechteckig mit abgerundeten Ecken) ─────── */
+.panel-image-rect {
+  width: 100%;
+  height: auto;
+  max-height: 35mm;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: var(--shadow-soft);
+  display: block;
+  margin: 3mm 0;
+  flex-shrink: 0;
+}
+
+.panel-image-rect.hero {
+  max-height: 42mm;
+  border: 1.5px solid var(--gold);
+  box-shadow: var(--shadow-medium);
+}
+
+/* ─── Image Duo (Zwei Bilder nebeneinander) ──────────────── */
+.image-duo {
+  display: flex;
+  justify-content: center;
+  gap: 4mm;
+  margin: 3mm 0;
+}
+
+.image-duo img {
+  width: 22mm;
+  height: 22mm;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--gold);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ─── Badge Circle (28cm, etc.) ──────────────────────────── */
+.badge-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16mm;
+  height: 16mm;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  background: white;
+  font-family: var(--font-display);
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--burgundy);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.badge-circle.small {
+  width: 12mm;
+  height: 12mm;
+  font-size: 6pt;
+}
+
+/* ─── Info Highlight Box ─────────────────────────────────── */
+.info-highlight-box {
+  background: rgba(0, 0, 0, 0.03);
+  border-left: 2.5px solid var(--gold);
+  padding: 2.5mm 3.5mm;
+  margin: 2.5mm 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.info-highlight-box p {
+  margin: 0;
+  font-size: 7pt;
+  font-style: italic;
+  color: var(--burgundy);
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+/* ─── Gold Rule (Horizontale Gold-Linie) ──────────────────── */
+.gold-rule {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.5) 20%, rgba(212, 175, 55, 0.5) 80%, transparent 100%);
+  margin: 1.5mm 0;
+  position: relative;
+}
+
+.gold-rule::after {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5px;
+  color: var(--gold);
+  background-color: var(--parchment);
+  padding: 0 3px;
+}
+
+/* ─── Recommendation Box ─────────────────────────────────── */
+.recommendation-box {
+  margin-top: auto;
+  margin-bottom: 4mm;
+  text-align: center;
+  padding: 0 3mm;
+}
+
+.recommendation-box .rec-title {
+  font-family: var(--font-display);
+  color: var(--burgundy);
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2mm;
+}
+
+.recommendation-box .rec-text {
+  font-size: 7.5pt;
+  color: var(--burgundy);
+  font-style: italic;
+  margin-top: 2mm;
+  line-height: 1.3;
+}
+
+/* ─── Event Section ──────────────────────────────────────── */
+.event-section {
+  margin-top: auto;
+  margin-bottom: 3mm;
+  text-align: center;
+  padding: 0 3mm;
+}
+
+.event-title {
+  font-family: var(--font-display);
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--burgundy);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5mm;
+}
+
+.event-text {
+  font-size: 7.5pt;
+  color: var(--burgundy);
+  font-style: italic;
+  margin-top: 1mm;
+  line-height: 1.25;
+}
+
+.event-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3mm;
+  padding: 0 2mm;
+}
+
+.event-stat {
+  text-align: center;
+}
+
+.event-stat-number {
+  font-size: 13pt;
+  font-weight: bold;
+  color: var(--gold);
+  font-family: var(--font-display);
+  line-height: 1;
+}
+
+.event-stat-label {
+  font-size: 6.5pt;
+  text-transform: uppercase;
+  margin-top: -0.5mm;
+  color: var(--text-muted);
+}
+
+.event-stat-name {
+  font-size: 7.5pt;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.event-social {
+  margin-top: 3mm;
+  font-size: 7pt;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 2mm;
+  color: var(--text-muted);
+}
+
+.event-social .fb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 1mm;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.event-social .fb-icon {
+  background-color: #1877F2;
+  color: white;
+  padding: 0 3px;
+  border-radius: 2px;
+  font-size: 7pt;
+  line-height: 1.4;
+}
+
+/* ─── Category with Badge ────────────────────────────────── */
+.category-header-with-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3mm;
+  margin: 3mm 0 2mm;
+}
+
+.category-header-with-badge .category-title {
+  margin: 0;
+  flex: 1;
+}
+
+/* ─── Image Caption ──────────────────────────────────────── */
+.image-caption {
+  font-size: 6pt;
+  font-style: italic;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: -1mm;
+  margin-bottom: 1mm;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LEGAL / ALLERGEN DISCLAIMERS
+   ═══════════════════════════════════════════════════════════════ */
 .allergen-legend {
   font-size: 5pt;
   line-height: 1.2;
   text-align: left;
   margin-top: 4mm;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .allergen-legend h4 {
   font-size: 6pt;
-  color: #D4AF37;
+  color: var(--gold);
   margin: 0 0 1mm 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.allergen-legend-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5mm 3mm;
-}
-
-.allergen-legend-item {
-  display: flex;
-  gap: 1mm;
-}
-
-.allergen-legend-code {
-  font-weight: bold;
-  color: #D4AF37;
-  min-width: 3mm;
-}
-
-/* --- Legal Disclaimer --- */
 .legal-disclaimer {
-  font-size: 4.5pt;
-  color: rgba(255,255,255,0.6);
+  font-size: 5pt;
+  color: rgba(255, 255, 255, 0.65);
   text-align: center;
   margin-top: auto;
   padding-top: 2mm;

@@ -32,8 +32,8 @@ export const Footer: React.FC = () => {
                         </p>
                         <ul className="flex gap-4 m-0 p-0 list-none" aria-label={t('footer.social_media_profile') as string}>
                             {[
-                                { icon: Instagram, label: t('footer.instagram_profile') as string, href: "#" }, 
-                                { icon: Facebook, label: t('footer.facebook_profile') as string, href: "#" }
+                                { icon: Instagram, label: t('footer.instagram_profile') as string, href: companyData.instagram }, 
+                                { icon: Facebook, label: t('footer.facebook_profile') as string, href: companyData.facebook }
                             ].map((social, i) => (
                                 <li key={i}>
                                     <a 
