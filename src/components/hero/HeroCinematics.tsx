@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 interface HeroCinematicsProps {
     imageUrl?: string;
@@ -48,21 +49,13 @@ export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ imageUrl }) => {
                     className="absolute -inset-[10%] z-0 origin-center animate-cinematic-scale"
                     style={{ willChange: 'transform' }}
                 >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    {/* Direct <img> tag bypasses the AdaptiveImage JS hydration wall.
-                        The browser discovers this image immediately via the <link rel="preload"> in <head>,
-                        instead of waiting for useDevice() context to resolve. */}
-                    <img 
+                    <Image 
                         src={imageUrl} 
                         alt=""
-                        fetchPriority="high"
-                        decoding="async"
+                        priority={true}
+                        fill
                         sizes="100vw"
                         style={{
-                            position: 'absolute',
-                            inset: 0,
-                            width: '100%',
-                            height: '100%',
                             objectFit: 'cover',
                             objectPosition: 'center',
                         }}
