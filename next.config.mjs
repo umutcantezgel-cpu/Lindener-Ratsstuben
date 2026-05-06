@@ -56,8 +56,31 @@ const nextConfig = {
           { key: 'Vary', value: 'Accept' },
         ],
       },
+      // ── Sanity Studio: relaxed CSP for the embedded studio ──
       {
-        source: '/(.*)',
+        source: '/sanity/:path*',
+        headers: [
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "img-src 'self' data: https: blob:",
+              "font-src 'self' https://fonts.gstatic.com data:",
+              "connect-src 'self' https://*.sanity.io https://*.api.sanity.io https://*.apicdn.sanity.io wss://*.sanity.io https://formspree.io https://vitals.vercel-insights.com https://va.vercel-scripts.com",
+              "frame-src https://maps.google.com https://www.google.com",
+              "base-uri 'self'",
+              "form-action 'self' https://formspree.io",
+              "frame-ancestors 'self'",
+            ].join('; ')
+          },
+        ],
+      },
+      // ── Global headers ──
+      {
+        source: '/((?!sanity).*)',
         headers: [
           { key: 'X-DNS-Prefetch-Control', value: 'on' },
           ...(process.env.NODE_ENV === 'production' ? [{ key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' }] : []),
@@ -81,8 +104,8 @@ const nextConfig = {
               "img-src 'self' data: https: blob:",
               // Fonts: self-hosted + Google Fonts CDN
               "font-src 'self' https://fonts.gstatic.com",
-              // XHR/Fetch: Formspree (forms), Vercel Insights (consent-gated)
-              "connect-src 'self' https://formspree.io https://vitals.vercel-insights.com https://va.vercel-scripts.com",
+              // XHR/Fetch: Formspree (forms), Vercel Insights (consent-gated), Sanity API
+              "connect-src 'self' https://formspree.io https://vitals.vercel-insights.com https://va.vercel-scripts.com https://*.sanity.io https://*.api.sanity.io https://*.apicdn.sanity.io",
               // Iframes: Google Maps embed
               "frame-src https://maps.google.com https://www.google.com",
               "base-uri 'self'",
