@@ -28,6 +28,10 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
+      {
+        protocol: 'https',
         hostname: 'placehold.co',
       },
       {
@@ -56,21 +60,31 @@ const nextConfig = {
           { key: 'Vary', value: 'Accept' },
         ],
       },
-      // ── Sanity Studio: relaxed CSP for the embedded studio ──
+      // ── Sanity Studio: fully permissive CSP for the embedded CMS ──
       {
         source: '/sanity/:path*',
         headers: [
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Cross-Origin-Opener-Policy', value: 'unsafe-none' },
+          { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
           {
             key: 'Content-Security-Policy',
             value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "default-src 'self' https://*.sanity.io https://*.sanity-cdn.com",
+              // Scripts: Sanity Bridge + Studio core from sanity-cdn.com
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.sanity.io https://*.sanity-cdn.com https://va.vercel-scripts.com",
+              // Styles: Studio CSS from sanity-cdn.com + Google Fonts
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.sanity-cdn.com https://*.sanity.io",
+              // Images: permissive for restaurant photos + Sanity CDN
               "img-src 'self' data: https: blob:",
-              "font-src 'self' https://fonts.gstatic.com data:",
-              "connect-src 'self' https://*.sanity.io https://*.api.sanity.io https://*.apicdn.sanity.io wss://*.sanity.io https://formspree.io https://vitals.vercel-insights.com https://va.vercel-scripts.com",
-              "frame-src https://maps.google.com https://www.google.com",
+              // Fonts: self-hosted + Google Fonts + Sanity Studio fonts
+              "font-src 'self' https://fonts.gstatic.com https://*.sanity-cdn.com data:",
+              // XHR/Fetch: Sanity API + CDN + WebSocket for live updates
+              "connect-src 'self' https://*.sanity.io https://*.api.sanity.io https://*.apicdn.sanity.io https://*.sanity-cdn.com wss://*.sanity.io https://formspree.io https://vitals.vercel-insights.com https://va.vercel-scripts.com",
+              // Web Workers for Sanity Studio
+              "worker-src 'self' blob:",
+              // Iframes: Google Maps + Sanity media previews
+              "frame-src https://maps.google.com https://www.google.com https://*.sanity.io",
               "base-uri 'self'",
               "form-action 'self' https://formspree.io",
               "frame-ancestors 'self'",
