@@ -1,5 +1,5 @@
 import type { StructureResolver } from 'sanity/structure'
-import { Settings, UtensilsCrossed, CalendarDays, Tags, AlertCircle, MenuSquare, Utensils, Wine, FolderOpen } from 'lucide-react'
+import { Settings, UtensilsCrossed, CalendarDays, Tags, AlertCircle, MenuSquare, FolderOpen } from 'lucide-react'
 
 export const structure: StructureResolver = (S, context) =>
   S.list()
