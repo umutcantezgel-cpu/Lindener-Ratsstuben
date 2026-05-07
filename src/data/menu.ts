@@ -43,8 +43,6 @@ export const categories = [
   { id: 'fleisch-fisch', name: 'Fleischgerichte & Fischgerichte', label: 'Fleisch & Fisch' },
   { id: 'pizza', name: 'Pizza aus dem Steinofen / 28 cm', label: 'Pizza' },
   { id: 'familienpizza', name: 'Familienpizza aus dem Steinofen / 40 × 60 cm', label: 'Familienpizza' },
-  { id: 'saisonal-burger', name: 'Hausgemachte Burger', label: 'Saisonale Burger' },
-  { id: 'saisonal-limonaden', name: 'Hausgemachte Limonaden', label: 'Saisonale Limonaden' },
   { id: 'kindergerichte', name: 'Kindergerichte', label: 'Kindergerichte' },
   { id: 'dessert', name: 'Dessert', label: 'Dessert' },
   { id: 'warme-getraenke', name: 'Warme Getränke', label: 'Kaffee & Tee' },

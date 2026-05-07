@@ -87,7 +87,8 @@ export default defineType({
       title: 'Basis-Preis (€)',
       type: 'number',
       group: 'pricing',
-      description: 'Der Standardpreis. Wird ignoriert oder als "Ab"-Preis genutzt, wenn Preis-Varianten definiert sind.',
+      description: 'Der Standardpreis. (Wird ausgeblendet, wenn Preis-Varianten definiert sind).',
+      hidden: ({ document }) => Array.isArray(document?.priceVariants) && document.priceVariants.length > 0,
       validation: (rule) => rule.positive().precision(2),
     }),
     defineField({
@@ -95,7 +96,8 @@ export default defineType({
       title: 'Preis-Varianten (Optional)',
       type: 'array',
       group: 'pricing',
-      description: 'Verwenden Sie dies für verschiedene Größen (z.B. Klein/Groß, 26cm/32cm).',
+      description: 'Verwenden Sie dies für verschiedene Größen (z.B. Klein/Groß, 26cm/32cm). (Wird ausgeblendet, wenn ein Basis-Preis existiert).',
+      hidden: ({ document }) => typeof document?.price === 'number' && document.price > 0,
       of: [
         {
           type: 'object',

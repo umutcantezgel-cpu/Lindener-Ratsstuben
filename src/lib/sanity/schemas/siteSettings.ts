@@ -2,201 +2,44 @@ import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'siteSettings',
-  title: 'Website-Einstellungen',
+  title: 'SEO & Globale Einstellungen',
   type: 'document',
   groups: [
-    { name: 'general', title: 'Allgemein', default: true },
-    { name: 'contact', title: 'Kontakt & Adresse' },
-    { name: 'hours', title: 'Öffnungszeiten' },
-    { name: 'hero', title: 'Startseite Hero-Texte' },
-    { name: 'menu', title: 'Speisekarte (PDF)' },
+    { name: 'seo', title: 'SEO Meta-Daten', default: true },
+    { name: 'menu', title: 'Speisekarten (PDF)' },
     { name: 'social', title: 'Social Media' },
   ],
   fields: [
-    // ═══ GENERAL ═══
+    // ═══ SEO ═══
     defineField({
-      name: 'title',
-      title: 'Website-Titel',
+      name: 'seoTitle',
+      title: 'SEO Titel',
       type: 'string',
-      group: 'general',
+      group: 'seo',
+      description: 'Der globale Titel der Webseite (z.B. "Lindener Ratsstuben | Italienisches Restaurant")',
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'tagline',
-      title: 'Slogan / Untertitel',
-      type: 'string',
-      group: 'general',
-      description: 'z.B. "Deutsch-Italienische Küche"',
-    }),
-
-    // ═══ CONTACT ═══
-    defineField({
-      name: 'contactEmail',
-      title: 'Kontakt E-Mail',
-      type: 'string',
-      group: 'contact',
-      validation: (rule) => rule.email(),
-    }),
-    defineField({
-      name: 'contactPhone',
-      title: 'Telefonnummer',
-      type: 'string',
-      group: 'contact',
-      description: 'Im internationalen Format, z.B. +49640364556',
-    }),
-    defineField({
-      name: 'displayPhone',
-      title: 'Angezeigte Telefonnummer',
-      type: 'string',
-      group: 'contact',
-      description: 'So wie sie auf der Webseite angezeigt wird, z.B. "06403 - 64556"',
-    }),
-    defineField({
-      name: 'address',
-      title: 'Adresse',
-      type: 'object',
-      group: 'contact',
-      fields: [
-        defineField({ name: 'street', title: 'Straße', type: 'string' }),
-        defineField({ name: 'zip', title: 'PLZ', type: 'string' }),
-        defineField({ name: 'city', title: 'Stadt', type: 'string' }),
-        defineField({ name: 'country', title: 'Land', type: 'string', initialValue: 'Deutschland' }),
-      ],
-    }),
-
-    // ═══ OPENING HOURS ═══
-    defineField({
-      name: 'openingHours',
-      title: 'Öffnungszeiten',
-      type: 'object',
-      group: 'hours',
-      fields: [
-        defineField({
-          name: 'monday',
-          title: 'Montag',
-          type: 'string',
-          initialValue: 'Geschlossen (außer an Feiertagen)',
-        }),
-        defineField({
-          name: 'tuesdayToSaturday',
-          title: 'Dienstag - Samstag',
-          type: 'string',
-          initialValue: '12:00 - 14:30 & 17:30 - 22:30',
-        }),
-        defineField({
-          name: 'sunday',
-          title: 'Sonntag',
-          type: 'string',
-          initialValue: '12:00 - 14:30 & 17:30 - 21:00',
-        }),
-        defineField({
-          name: 'lunchStart',
-          title: 'Mittags-Beginn (für Reservierungs-Validierung)',
-          type: 'string',
-          initialValue: '12:00',
-          description: 'Format HH:MM — wird benutzt um Reservierungszeiten zu prüfen',
-        }),
-        defineField({
-          name: 'lunchEnd',
-          title: 'Mittags-Ende',
-          type: 'string',
-          initialValue: '14:30',
-        }),
-        defineField({
-          name: 'dinnerStart',
-          title: 'Abend-Beginn',
-          type: 'string',
-          initialValue: '17:30',
-        }),
-        defineField({
-          name: 'dinnerEnd',
-          title: 'Abend-Ende',
-          type: 'string',
-          initialValue: '22:30',
-        }),
-      ],
-    }),
-
-    // ═══ HERO TEXTS (per language) ═══
-    defineField({
-      name: 'heroTitle_de',
-      title: 'Hero Titel (Deutsch)',
-      type: 'string',
-      group: 'hero',
-    }),
-    defineField({
-      name: 'heroTitle_en',
-      title: 'Hero Titel (Englisch)',
-      type: 'string',
-      group: 'hero',
-    }),
-    defineField({
-      name: 'heroTitle_ar',
-      title: 'Hero Titel (Arabisch)',
-      type: 'string',
-      group: 'hero',
-    }),
-    defineField({
-      name: 'heroTitle_fr',
-      title: 'Hero Titel (Französisch)',
-      type: 'string',
-      group: 'hero',
-    }),
-    defineField({
-      name: 'heroSubtitle_de',
-      title: 'Hero Untertitel (Deutsch)',
+      name: 'seoDescription',
+      title: 'SEO Beschreibung',
       type: 'text',
-      group: 'hero',
-      rows: 2,
+      group: 'seo',
+      rows: 3,
+      description: 'Die Meta-Beschreibung, die bei Google angezeigt wird (150-160 Zeichen).',
     }),
     defineField({
-      name: 'heroSubtitle_en',
-      title: 'Hero Untertitel (Englisch)',
-      type: 'text',
-      group: 'hero',
-      rows: 2,
+      name: 'seoKeywords',
+      title: 'SEO Keywords',
+      type: 'string',
+      group: 'seo',
+      description: 'Kommagetrennte Liste von Keywords (z.B. "Restaurant, Italienisch, Pizza, Pasta")',
     }),
     defineField({
-      name: 'heroSubtitle_ar',
-      title: 'Hero Untertitel (Arabisch)',
-      type: 'text',
-      group: 'hero',
-      rows: 2,
-    }),
-    defineField({
-      name: 'heroSubtitle_fr',
-      title: 'Hero Untertitel (Französisch)',
-      type: 'text',
-      group: 'hero',
-      rows: 2,
-    }),
-    defineField({
-      name: 'welcomeText_de',
-      title: 'Willkommen Text (Deutsch)',
-      type: 'text',
-      group: 'hero',
-      rows: 4,
-    }),
-    defineField({
-      name: 'welcomeText_en',
-      title: 'Willkommen Text (Englisch)',
-      type: 'text',
-      group: 'hero',
-      rows: 4,
-    }),
-    defineField({
-      name: 'welcomeText_ar',
-      title: 'Willkommen Text (Arabisch)',
-      type: 'text',
-      group: 'hero',
-      rows: 4,
-    }),
-    defineField({
-      name: 'welcomeText_fr',
-      title: 'Willkommen Text (Französisch)',
-      type: 'text',
-      group: 'hero',
-      rows: 4,
+      name: 'ogImage',
+      title: 'Social Media Vorschaubild',
+      type: 'image',
+      group: 'seo',
+      description: 'Bild, das beim Teilen auf Facebook, WhatsApp, etc. angezeigt wird (1200x630px).',
     }),
 
     // ═══ PDF MENU ═══
@@ -238,8 +81,8 @@ export default defineType({
   preview: {
     prepare() {
       return {
-        title: 'Website-Einstellungen',
-        subtitle: 'Globale Konfiguration',
+        title: 'SEO & Globale Einstellungen',
+        subtitle: 'Zentrale Konfiguration für SEO, PDFs und Social Media',
       }
     },
   },

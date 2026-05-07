@@ -5,15 +5,39 @@ export const structure: StructureResolver = (S, context) =>
   S.list()
     .title('Inhalt')
     .items([
-      // ═══ EINSTELLUNGEN ═══
+      // ═══ GLOBALE EINSTELLUNGEN ═══
       S.listItem()
-        .title('Einstellungen')
+        .title('Webseite & Einstellungen')
         .icon(Settings)
         .child(
-          S.document()
-            .schemaType('siteSettings')
-            .documentId('siteSettings')
+          S.list()
             .title('Globale Einstellungen')
+            .items([
+              S.listItem()
+                .title('Unternehmensdaten (Kontakt & Öffnungszeiten)')
+                .child(
+                  S.document()
+                    .schemaType('company')
+                    .documentId('company')
+                    .title('Unternehmensdaten')
+                ),
+              S.listItem()
+                .title('Startseite (Inhalte)')
+                .child(
+                  S.document()
+                    .schemaType('pageHome')
+                    .documentId('pageHome')
+                    .title('Startseite')
+                ),
+              S.listItem()
+                .title('SEO & PDFs')
+                .child(
+                  S.document()
+                    .schemaType('siteSettings')
+                    .documentId('siteSettings')
+                    .title('SEO & PDFs')
+                ),
+            ])
         ),
       S.divider(),
 
@@ -52,6 +76,18 @@ export const structure: StructureResolver = (S, context) =>
                           )
                         )
                     )
+                ),
+
+              S.divider(),
+
+              // ── Saisonkarte ──
+              S.listItem()
+                .title('Saisonkarte (Specials)')
+                .child(
+                  S.document()
+                    .schemaType('seasonalMenu')
+                    .documentId('seasonalMenu')
+                    .title('Saisonkarte')
                 ),
 
               S.divider(),

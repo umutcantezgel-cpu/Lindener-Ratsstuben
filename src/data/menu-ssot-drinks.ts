@@ -113,9 +113,4 @@ export const drinkItems: SSOTMenuItem[] = [
   { nr: '237', name: 'Baileys 2 cl', description: '', price: 3.70, category: 'likoere', allergens: ['B'], zusatzstoffe: [] },
   { nr: '238', name: 'Limoncello 2 cl', description: '', price: 3.70, category: 'likoere', allergens: [], zusatzstoffe: [] },
 
-  // ─── §3.21 Saisonale Limonaden ────────────────────────────────
-  { nr: '', name: 'Citrus Mint Limonade', description: 'Erfrischende Zitrusfrüchte treffen auf aromatische Minze – spritzig, belebend und angenehm kühl.', price: 6.90, category: 'saisonal-limonaden', allergens: [], zusatzstoffe: [] },
-  { nr: '', name: 'Grenadine Limonade', description: 'Fruchtig-süß mit einer feinen Note von Granatapfel – ein stilvoller Klassiker mit intensiver Farbe.', price: 6.90, category: 'saisonal-limonaden', allergens: [], zusatzstoffe: ['1'] },
-  { nr: '', name: 'Erdbeer-Limonade', description: 'Sonnengereifte Erdbeeren sorgen für einen natürlichen, fruchtigen Genuss – mild, süß und herrlich sommerlich.', price: 6.90, category: 'saisonal-limonaden', allergens: [], zusatzstoffe: [] },
-  { nr: '', name: 'Pfirsich-Limonade', description: 'Zarter Pfirsichgeschmack, leicht und harmonisch – eine sanfte Erfrischung mit feiner Süße.', price: 6.90, category: 'saisonal-limonaden', allergens: [], zusatzstoffe: [] },
 ];

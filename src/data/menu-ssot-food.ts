@@ -113,9 +113,4 @@ export const foodItems: SSOTMenuItem[] = [
   { nr: '134', name: 'Bourbon-Vanilleeis (je Kugel)', description: 'Feines Bourbon-Vanilleeis mit intensivem Vanillearoma, wahlweise mit Schoko- oder Erdbeersauce.', price: 2.50, category: 'dessert', allergens: ['B','I','P'], zusatzstoffe: [] },
   { nr: '135', name: 'Affogato Espresso', description: 'Vanilleeis, übergossen mit heißem Espresso.', price: 5.90, category: 'dessert', allergens: ['B','I'], zusatzstoffe: ['10'] },
 
-  // ─── §3.13 Saisonale Burger ───────────────────────────────────
-  { nr: '1', name: 'Classic Burger', description: 'Saftiges Rindfleisch mit knackigem Salat, eingelegten Gurken, frischen Tomatenscheiben und roten Zwiebeln, verfeinert mit unserer hauseigenen Sauce.', price: 13.90, category: 'saisonal-burger', allergens: ['B','D','E1','G','I'], zusatzstoffe: [] },
-  { nr: '2', name: 'Cheeseburger', description: 'Saftiges Rindfleisch mit geschmolzenem Käse, knackigem Salat, eingelegten Gurken, Tomaten und roten Zwiebeln, abgerundet mit unserer hausgemachten Sauce.', price: 14.90, category: 'saisonal-burger', allergens: ['B','D','E1','G','I'], zusatzstoffe: [] },
-  { nr: '3', name: 'Chili Cheeseburger', description: 'Kräftiges Rindfleisch mit geschmolzenem Mozzarella, pikanten Jalapeños, knackigem Salat, Gurken, Tomaten und roten Zwiebeln, verfeinert mit unserer würzigen Haussauce.', price: 15.90, category: 'saisonal-burger', allergens: ['B','D','E1','G','I'], zusatzstoffe: [] },
-  { nr: '4', name: 'Deluxe Burger', description: 'Saftiges Rindfleisch mit luftgetrocknetem Schinken, frischem Salat, eingelegten Gurken, Tomaten und roten Zwiebeln, veredelt mit unserer exklusiven Haussauce.', price: 16.90, category: 'saisonal-burger', allergens: ['A','B','D','E1','G','I','P'], zusatzstoffe: ['1','2','3','5'] },
 ];

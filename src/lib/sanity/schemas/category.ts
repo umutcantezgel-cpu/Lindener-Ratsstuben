@@ -97,11 +97,13 @@ export default defineType({
       title: 'title_de',
       subtitle: 'title_en',
       icon: 'icon',
+      media: 'coverImage',
     },
-    prepare({ title, subtitle, icon }) {
+    prepare({ title, subtitle, icon, media }) {
       return {
         title: icon ? `${icon} ${title}` : title,
         subtitle: subtitle || '',
+        media: media,
       }
     },
   },
