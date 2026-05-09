@@ -3,7 +3,6 @@ import React from 'react';
 import PrintLayoutClient from './PrintLayoutClient';
 import './print.css';
 import MenuCover from './components/MenuCover';
-import LunchMenu from './components/LunchMenu';
 
 
 import PrintPage from './components/PrintPage';
@@ -27,7 +26,6 @@ export default function PrintMenuPage() {
       <PrintLayoutClient />
       
       <MenuCover />
-      <LunchMenu />
 
       {/* ═══ SEITE III: Aperitif ═══ */}
       <PrintPage pageNum="III">
