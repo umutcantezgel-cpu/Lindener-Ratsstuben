@@ -62,42 +62,48 @@ export async function POST(request: Request) {
         // If Resend is configured, we send an email
         if (RESEND_API_KEY) {
             const resend = new Resend(RESEND_API_KEY);
+            const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Reservierungssystem <onboarding@resend.dev>';
 
-            // Notify Admin
-            await resend.emails.send({
-                from: 'Reservierungssystem <onboarding@resend.dev>', // Should be a verified domain in prod
-                to: [process.env.ADMIN_EMAIL || 'info@lindener-ratsstuben.de'],
-                replyTo: validatedData.email,
-                subject: `Neue Reservierung: ${validatedData.name} am ${validatedData.date} um ${validatedData.time}`,
-                html: `
-                    <h2>Neue Reservierungsanfrage</h2>
-                    <p><strong>Name:</strong> ${validatedData.name}</p>
-                    <p><strong>Email:</strong> ${validatedData.email}</p>
-                    <p><strong>Telefon:</strong> ${validatedData.phone}</p>
-                    <p><strong>Datum:</strong> ${validatedData.date}</p>
-                    <p><strong>Uhrzeit:</strong> ${validatedData.time}</p>
-                    <p><strong>Gäste:</strong> ${validatedData.guests}</p>
-                    <p><strong>Nachricht:</strong><br/>${validatedData.message || '-'}</p>
-                `,
-            });
-            
-            // Notify Customer (Confirmation)
-            await resend.emails.send({
-                from: 'Lindener Ratsstuben <onboarding@resend.dev>',
-                to: [validatedData.email],
-                subject: `Ihre Reservierungsanfrage bei Lindener Ratsstuben`,
-                html: `
-                    <h2>Vielen Dank für Ihre Reservierungsanfrage, ${validatedData.name}!</h2>
-                    <p>Wir haben Ihre Anfrage für <strong>${validatedData.guests} Personen</strong> am <strong>${validatedData.date}</strong> um <strong>${validatedData.time} Uhr</strong> erhalten.</p>
-                    <p>Bitte beachten Sie, dass dies eine <strong>Anfrage</strong> ist. Wir werden uns umgehend bei Ihnen melden, um die Reservierung verbindlich zu bestätigen.</p>
-                    <br/>
-                    <p>Mit freundlichen Grüßen,</p>
-                    <p>Ihr Team der Lindener Ratsstuben</p>
-                `,
-            });
+            try {
+                // Notify Admin
+                await resend.emails.send({
+                    from: FROM_EMAIL,
+                    to: [process.env.ADMIN_EMAIL || 'info@lindener-ratsstuben.de'],
+                    replyTo: validatedData.email,
+                    subject: `Neue Reservierung: ${validatedData.name} am ${validatedData.date} um ${validatedData.time}`,
+                    html: `
+                        <h2>Neue Reservierungsanfrage</h2>
+                        <p><strong>Name:</strong> ${validatedData.name}</p>
+                        <p><strong>Email:</strong> ${validatedData.email}</p>
+                        <p><strong>Telefon:</strong> ${validatedData.phone}</p>
+                        <p><strong>Datum:</strong> ${validatedData.date}</p>
+                        <p><strong>Uhrzeit:</strong> ${validatedData.time}</p>
+                        <p><strong>Gäste:</strong> ${validatedData.guests}</p>
+                        <p><strong>Nachricht:</strong><br/>${validatedData.message || '-'}</p>
+                    `,
+                });
+                
+                // Notify Customer (Confirmation)
+                await resend.emails.send({
+                    from: FROM_EMAIL,
+                    to: [validatedData.email],
+                    subject: `Ihre Reservierungsanfrage bei Lindener Ratsstuben`,
+                    html: `
+                        <h2>Vielen Dank für Ihre Reservierungsanfrage, ${validatedData.name}!</h2>
+                        <p>Wir haben Ihre Anfrage für <strong>${validatedData.guests} Personen</strong> am <strong>${validatedData.date}</strong> um <strong>${validatedData.time} Uhr</strong> erhalten.</p>
+                        <p>Bitte beachten Sie, dass dies eine <strong>Anfrage</strong> ist. Wir werden uns umgehend bei Ihnen melden, um die Reservierung verbindlich zu bestätigen.</p>
+                        <br/>
+                        <p>Mit freundlichen Grüßen,</p>
+                        <p>Ihr Team der Lindener Ratsstuben</p>
+                    `,
+                });
+            } catch (emailError) {
+                console.error("Failed to send reservation emails via Resend:", emailError);
+                // Reservation was saved to DB, so we swallow the email error 
+                // to prevent returning a 500 status to the user.
+            }
         } else {
             console.warn("RESEND_API_KEY is not configured. Falling back to log-only mode.");
-
         }
 
         return NextResponse.json({ success: true }, { status: 200 });
