@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useForm as useFormspree } from '@formspree/react';
 import { AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import { SuccessCelebration } from '../ui/SuccessCelebration';
@@ -15,13 +14,10 @@ import { MorphingButton, ButtonState } from '../ui/MorphingButton';
 import { m as motion, AnimatePresence } from "framer-motion";
 import { EASING } from '@/lib/constants/motion';
 
-// Optional: Pass Formspree ID via Env. For now fallback to a demo ID or generic handle.
-const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || "xjkvrwgq";
-
 export function ContactForm() {
-    const [state, handleSubmitFormspree] = useFormspree(FORMSPREE_ID);
     const [cooldown, setCooldown] = useState(0);
     const [offlineWarning, setOfflineWarning] = useState(false);
+    const [serverError, setServerError] = useState(false);
     const { t } = useTranslation('common');
 
     // Dynamic validation with translated messages
@@ -62,12 +58,12 @@ export function ContactForm() {
             try {
                 const parsed = JSON.parse(savedData);
                 // Don't restore if already submitted successfully to avoid confusion
-                if (!optimisticSuccess && !state.succeeded) reset(parsed);
+                if (!optimisticSuccess) reset(parsed);
             } catch (e) {
                 console.error("Autosave restore parsing error", e);
             }
         }
-    }, [reset, state.succeeded, optimisticSuccess]);
+    }, [reset, optimisticSuccess]);
 
     useEffect(() => {
         const subscription = watch((value) => {
@@ -93,8 +89,10 @@ export function ContactForm() {
         }
     }, [errors, setFocus]);
 
-    const onSubmit = (data: ContactFormData) => {
+    const onSubmit = async (data: ContactFormData) => {
         setButtonState('loading');
+        setServerError(false);
+
         // Store & Forward preparation
         const fallbackQueue = JSON.parse(localStorage.getItem('form_retry_queue') || '[]');
         
@@ -103,20 +101,7 @@ export function ContactForm() {
             // Add to background queue
             fallbackQueue.push({ type: 'contact', data, timestamp: Date.now() });
             localStorage.setItem('form_retry_queue', JSON.stringify(fallbackQueue));
-        } else {
-            setOfflineWarning(false);
-            
-            // Background network request
-            handleSubmitFormspree(data).catch(() => {
-                // If network fails unexpectedly, queue it
-                fallbackQueue.push({ type: 'contact', data, timestamp: Date.now() });
-                localStorage.setItem('form_retry_queue', JSON.stringify(fallbackQueue));
-            });
-        }
-
-        // --- Optimistic UI Execution ---
-        // Provide fluid visual feedback with MorphingButton
-        setTimeout(() => {
+            // Still show optimistic success
             setButtonState('success');
             setTimeout(() => {
                 setOptimisticSuccess(true);
@@ -124,7 +109,51 @@ export function ContactForm() {
                 sessionStorage.removeItem('contact_form_autosave');
                 setButtonState('idle');
             }, 1000);
-        }, 800);
+            return;
+        }
+
+        setOfflineWarning(false);
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: data.name,
+                    email: data.email,
+                    subject: data.subject,
+                    message: data.message,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Server responded with ${response.status}`);
+            }
+
+            // Success
+            setButtonState('success');
+            setTimeout(() => {
+                setOptimisticSuccess(true);
+                setCooldown(30);
+                sessionStorage.removeItem('contact_form_autosave');
+                setButtonState('idle');
+            }, 1000);
+        } catch (error) {
+            console.error('[ContactForm] Submission error:', error);
+            
+            // Queue for retry
+            fallbackQueue.push({ type: 'contact', data, timestamp: Date.now() });
+            localStorage.setItem('form_retry_queue', JSON.stringify(fallbackQueue));
+            
+            // Still show success to user (optimistic) — the retry queue will handle it
+            setButtonState('success');
+            setTimeout(() => {
+                setOptimisticSuccess(true);
+                setCooldown(30);
+                sessionStorage.removeItem('contact_form_autosave');
+                setButtonState('idle');
+            }, 1000);
+        }
     };
 
     return (
@@ -137,7 +166,7 @@ export function ContactForm() {
             )}
 
             <AnimatePresence mode="wait">
-                {((optimisticSuccess || state.succeeded) && cooldown > 0) ? (
+                {(optimisticSuccess && cooldown > 0) ? (
                     <motion.div
                         key="success-view"
                         initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
@@ -169,10 +198,8 @@ export function ContactForm() {
                         onSubmit={handleSubmit(onSubmit)} 
                         className="space-y-6"
                     >
-                {/* Formspree configuration fields */}
-                <input type="hidden" name="_subject" value={`[Kontakt] ${watch('subject')} - ${watch('name')}`} />
-                <input type="hidden" name="_replyto" value={watch('email')} />
-                <input type="text" name="_gotcha" style={{ display: 'none' }} />
+                {/* Honeypot field (hidden from real users) */}
+                <input type="text" name="_honeypot" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
 
                 <div>
                     <label className="block text-sm font-medium text-text-primary mb-1" htmlFor="name">{t('contact.name_label') as string}</label>
@@ -283,7 +310,7 @@ export function ContactForm() {
                     </div>
                 )}
 
-                {state.errors && (
+                {serverError && (
                     <div className="p-4 bg-status-error/10 text-status-error rounded-lg text-sm border border-status-error/20 font-medium" role="alert">
                         {t('form.server_error') as string}
                     </div>
@@ -292,7 +319,7 @@ export function ContactForm() {
                 <div className="pt-2">
                     <MorphingButton
                         type="submit"
-                        disabled={state.submitting || !isValid || cooldown > 0}
+                        disabled={buttonState === 'loading' || !isValid || cooldown > 0}
                         state={buttonState}
                         idleText={cooldown > 0 ? (t('status.sent_pause') as string).replace('{seconds}', String(cooldown)) : (t('form.send_free') as string)}
                         loadingText={t('status.sending') as string}

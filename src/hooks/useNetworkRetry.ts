@@ -2,8 +2,6 @@
 
 import { useEffect, useCallback } from 'react';
 
-const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || "xjkvrwgq";
-
 export function useNetworkRetry() {
     const processQueue = useCallback(async () => {
         if (!navigator.onLine) return;
@@ -26,7 +24,7 @@ export function useNetworkRetry() {
         for (const item of queue) {
             try {
                 if (item.type === 'contact') {
-                    const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                    const response = await fetch('/api/contact', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

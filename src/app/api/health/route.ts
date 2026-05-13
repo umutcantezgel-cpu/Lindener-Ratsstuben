@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function GET() {
     // Basic verification of required keys
     const deps = {
-      formspree: !!process.env.NEXT_PUBLIC_FORMSPREE_ID,
+      resend: !!process.env.RESEND_API_KEY,
       environment: !!process.env.NODE_ENV
     };
 

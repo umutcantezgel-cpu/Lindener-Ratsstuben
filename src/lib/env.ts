@@ -2,14 +2,12 @@ import { z } from 'zod';
 
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
-  NEXT_PUBLIC_FORMSPREE_ID: z.string().min(1, 'Formspree ID required'),
   NEXT_PUBLIC_CALENDLY_URL: z.string().url('Valid Calendly URL required').optional(),
 });
 
 // Runtime validation
 const processEnv = {
   NODE_ENV: process.env.NODE_ENV,
-  NEXT_PUBLIC_FORMSPREE_ID: process.env.NEXT_PUBLIC_FORMSPREE_ID || process.env.NEXT_PUBLIC_FORMSPREE_ID_QUICK || process.env.NEXT_PUBLIC_FORMSPREE_ID_RESERVATION || 'test1234', // fallback for dev missing
   NEXT_PUBLIC_CALENDLY_URL: process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/',
 };
 
