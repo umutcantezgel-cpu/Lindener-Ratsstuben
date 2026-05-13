@@ -132,7 +132,16 @@ export async function POST(request: Request) {
             }),
         });
 
-        console.info(`[Reservation] Admin-E-Mail: ${adminResult.success ? '✓' : '✗'} | Gast-E-Mail: ${guestResult.success ? '✓' : '✗'}`);
+        console.info(`[Reservation] Admin-E-Mail: ${adminResult.success ? '✓' : '✗ ' + adminResult.error} | Gast-E-Mail: ${guestResult.success ? '✓' : '✗ ' + guestResult.error}`);
+
+        // If both emails failed, inform the user
+        if (!adminResult.success && !guestResult.success) {
+            console.error('[Reservation] ✗ Beide E-Mails fehlgeschlagen!');
+            return NextResponse.json(
+                { success: false, message: 'Ihre Reservierung konnte leider nicht verarbeitet werden. Bitte kontaktieren Sie uns telefonisch.' },
+                { status: 500 }
+            );
+        }
 
         return NextResponse.json({ success: true }, { status: 200 });
     } catch (error) {

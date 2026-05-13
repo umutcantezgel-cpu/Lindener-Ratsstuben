@@ -115,7 +115,16 @@ export async function POST(request: Request) {
       }),
     });
 
-    console.info(`[Contact] Admin-E-Mail: ${adminResult.success ? '✓' : '✗'} | Gast-E-Mail: ${guestResult.success ? '✓' : '✗'}`);
+    console.info(`[Contact] Admin-E-Mail: ${adminResult.success ? '✓' : '✗ ' + adminResult.error} | Gast-E-Mail: ${guestResult.success ? '✓' : '✗ ' + guestResult.error}`);
+
+    // If both emails failed, inform the user
+    if (!adminResult.success && !guestResult.success) {
+      console.error('[Contact] ✗ Beide E-Mails fehlgeschlagen!');
+      return NextResponse.json(
+        { success: false, message: 'Ihre Nachricht konnte leider nicht verarbeitet werden. Bitte kontaktieren Sie uns telefonisch.' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {

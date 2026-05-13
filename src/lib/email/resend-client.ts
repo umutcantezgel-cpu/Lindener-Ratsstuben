@@ -55,14 +55,21 @@ export async function sendEmail(params: SendEmailParams): Promise<{ success: boo
 
   try {
     const toArray = Array.isArray(params.to) ? params.to : [params.to];
-    await client.emails.send({
+    const { data, error: resendError } = await client.emails.send({
       from: EMAIL_CONFIG.from,
       to: toArray,
       subject: params.subject,
       html: params.html,
       ...(params.replyTo ? { replyTo: params.replyTo } : {}),
     });
-    console.info(`[Email] ✓ Gesendet an ${toArray.join(', ')}: "${params.subject}"`);
+
+    // Resend SDK returns { data: null, error: {...} } on failure instead of throwing
+    if (resendError) {
+      console.error(`[Email] ✗ Resend API Fehler an ${toArray.join(', ')}: ${resendError.name} – ${resendError.message}`);
+      return { success: false, error: `${resendError.name}: ${resendError.message}` };
+    }
+
+    console.info(`[Email] ✓ Gesendet an ${toArray.join(', ')}: "${params.subject}" (ID: ${data?.id})`);
     return { success: true };
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unbekannter Fehler';
