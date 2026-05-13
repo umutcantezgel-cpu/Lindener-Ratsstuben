@@ -25,7 +25,7 @@ export const EMAIL_CONFIG = {
   from: process.env.RESEND_FROM_EMAIL || 'Lindener Ratsstuben <onboarding@resend.dev>',
   
   /** E-Mail-Adresse des Restaurantbesitzers */
-  adminEmail: process.env.ADMIN_EMAIL || 'hasantoker38@hotmail.de',
+  adminEmail: 'hasantoker3868@gmail.com', // Explicitly setting this as requested by the owner
   
   /** Restaurant-Daten für Templates */
   restaurant: {
@@ -33,7 +33,7 @@ export const EMAIL_CONFIG = {
     tagline: 'Deutsch-Italienische Küche',
     address: 'Konrad-Adenauer-Straße 26, 35440 Linden',
     phone: '06403 - 64556',
-    email: 'hasantoker38@hotmail.de',
+    email: 'hasantoker3868@gmail.com',
     website: 'https://www.lindener-ratsstuben.de',
   },
 } as const;

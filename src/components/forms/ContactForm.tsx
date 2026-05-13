@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -89,7 +89,37 @@ export function ContactForm() {
         }
     }, [errors, setFocus]);
 
+    const formStartTime = useRef<number>(Date.now());
+
     const onSubmit = async (data: ContactFormData) => {
+        // ═══ BOT DETECTION: Time-To-Complete Check ═══
+        const elapsed = Date.now() - formStartTime.current;
+        if (elapsed < 3000) {
+            console.warn('[Spam Guard] Submission too fast, likely a bot.');
+            setButtonState('success');
+            setTimeout(() => {
+                setOptimisticSuccess(true);
+                setCooldown(30);
+                sessionStorage.removeItem('contact_form_autosave');
+                setButtonState('idle');
+            }, 1000);
+            return;
+        }
+
+        // ═══ HONEYPOT CHECK ═══
+        const honeypotField = document.querySelector<HTMLInputElement>('input[name="_honeypot"]');
+        if (honeypotField && honeypotField.value.length > 0) {
+            console.warn('[Spam Guard] Honeypot triggered.');
+            setButtonState('success');
+            setTimeout(() => {
+                setOptimisticSuccess(true);
+                setCooldown(30);
+                sessionStorage.removeItem('contact_form_autosave');
+                setButtonState('idle');
+            }, 1000);
+            return;
+        }
+
         setButtonState('loading');
         setServerError(false);
 

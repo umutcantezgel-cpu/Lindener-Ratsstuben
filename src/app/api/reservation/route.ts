@@ -17,7 +17,13 @@ const reservationSchema = z.object({
     name: z.string().min(2).max(80),
     email: z.string().email().max(120),
     phone: z.string().min(5).max(25),
-    date: z.string().min(1),
+    date: z.string().min(1).refine((val) => {
+        const selected = new Date(val);
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(0, 0, 0, 0);
+        return selected >= tomorrow;
+    }, { message: "Reservierungen sind erst ab dem morgigen Tag möglich." }),
     time: z.string().min(1),
     guests: z.string().min(1),
     message: z.string().max(500).optional(),

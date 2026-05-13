@@ -29,10 +29,11 @@ const reservationSchema = z.object({
         .refine((val) => {
             if (!val) return false;
             const selected = new Date(val);
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            return selected >= today;
-        }, { message: "Das Datum muss in der Zukunft liegen." }),
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            return selected >= tomorrow;
+        }, { message: "Reservierungen sind erst ab dem morgigen Tag möglich." }),
     time: z.string()
         .min(1, "Bitte wählen Sie eine Uhrzeit.")
         .regex(/^\d{2}:\d{2}$/, "Ungültiges Zeitformat."),
@@ -166,7 +167,9 @@ export const ReservationInteractive = () => {
     const prevStep = () => setStep(s => Math.max(s - 1, 1));
 
     const guests = watch('guests');
-    const todayStr = new Date().toISOString().split('T')[0];
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const tomorrowStr = tomorrow.toISOString().split('T')[0];
 
     const stepVariants = {
         hidden: { opacity: 0, x: 20, filter: 'blur(4px)' },
@@ -304,7 +307,7 @@ export const ReservationInteractive = () => {
                                                 <label htmlFor="res-date" className="block text-sm font-medium text-onyx flex items-center gap-2">
                                                     <Calendar className="w-4 h-4 text-accent" aria-hidden="true" /> {t('reservation.date_label', 'Datum')}
                                                 </label>
-                                                <input id="res-date" type="date" min={todayStr} {...register('date')}
+                                                <input id="res-date" type="date" min={tomorrowStr} {...register('date')}
                                                     className={`w-full px-5 py-4 bg-surface border rounded-xl focus:ring-1 focus:ring-accent focus:border-accent outline-none transition-all shadow-sm ${errors.date ? 'border-red-400' : 'border-border'}`}
                                                 />
                                                 {errors.date && <p className="text-xs text-red-500 flex items-center gap-1 mt-1"><AlertCircle className="w-3 h-3" /> {errors.date.message}</p>}
