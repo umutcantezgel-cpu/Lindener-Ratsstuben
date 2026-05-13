@@ -23,8 +23,36 @@ const reservationSchema = z.object({
     message: z.string().max(500).optional(),
 });
 
+// ═══ SIMPLE RATE LIMITER (In-Memory) ═══
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_MAX = 5;         // Max requests per window
+const RATE_LIMIT_WINDOW = 60_000; // 1 minute
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  if (!entry || now > entry.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return false;
+  }
+
+  entry.count++;
+  return entry.count > RATE_LIMIT_MAX;
+}
+
 export async function POST(request: Request) {
     try {
+        // Rate Limiting
+        const forwarded = request.headers.get('x-forwarded-for');
+        const ip = forwarded?.split(',')[0]?.trim() || 'unknown';
+        if (isRateLimited(ip)) {
+          return NextResponse.json(
+            { success: false, message: 'Zu viele Anfragen. Bitte versuchen Sie es später erneut.' },
+            { status: 429 }
+          );
+        }
+
         const body = await request.json();
         
         // Zod validation (Backend Security)
