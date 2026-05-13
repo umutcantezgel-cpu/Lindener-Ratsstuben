@@ -28,7 +28,8 @@ const reservationSchema = z.object({
         .min(1, "Bitte wählen Sie ein Datum.")
         .refine((val) => {
             if (!val) return false;
-            const selected = new Date(val);
+            const [year, month, day] = val.split('-').map(Number);
+            const selected = new Date(year, month - 1, day);
             const tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             tomorrow.setHours(0, 0, 0, 0);
@@ -169,7 +170,10 @@ export const ReservationInteractive = () => {
     const guests = watch('guests');
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    const tomorrowStr = tomorrow.toISOString().split('T')[0];
+    const y = tomorrow.getFullYear();
+    const m = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const d = String(tomorrow.getDate()).padStart(2, '0');
+    const tomorrowStr = `${y}-${m}-${d}`;
 
     const stepVariants = {
         hidden: { opacity: 0, x: 20, filter: 'blur(4px)' },

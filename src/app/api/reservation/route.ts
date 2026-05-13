@@ -18,7 +18,8 @@ const reservationSchema = z.object({
     email: z.string().email().max(120),
     phone: z.string().min(5).max(25),
     date: z.string().min(1).refine((val) => {
-        const selected = new Date(val);
+        const [year, month, day] = val.split('-').map(Number);
+        const selected = new Date(year, month - 1, day);
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
         tomorrow.setHours(0, 0, 0, 0);
