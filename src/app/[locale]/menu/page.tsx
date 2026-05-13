@@ -105,15 +105,22 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       if (!name) name = ssotItem?.name as string;
       if (!name) name = getLocalizedString(dish, 'title');
 
-      let description = ((dish as unknown) as Record<string, string>)[`description_${locale}`];
-      if (!description) description = ssotItem?.description as string;
-      if (!description) description = getLocalizedString(dish, 'description');
+      // SSOT is the primary source of truth for descriptions (actively maintained).
+      // Sanity descriptions are used only for non-German locales or when SSOT has no entry.
+      let description: string | undefined;
+      if (locale === 'de' && ssotItem?.description) {
+        description = ssotItem.description;
+      } else {
+        description = ((dish as unknown) as Record<string, string>)[`description_${locale}`];
+        if (!description) description = ssotItem?.description as string;
+        if (!description) description = getLocalizedString(dish, 'description');
+      }
 
       return {
         id: dish._id,
         nr: nr,
         name: name,
-        description: description,
+        description: description || '',
         price: dish.price,
         category: dish.category?._id || 'fallback',
         allergens: dish.allergens?.map(a => a.code) || [],
