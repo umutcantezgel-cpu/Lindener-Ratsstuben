@@ -78,7 +78,14 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     }));
   } else {
     // Use Sanity data (with SSOT as translation fallback for 21 languages)
-    finalCategories = fetchedCategories.map((cat) => {
+    // IMPORTANT: Only include Sanity categories that also exist in the SSOT data.
+    // This filters out seasonal/CMS-exclusive categories (e.g. "Hausgemachte Burger", 
+    // "Hausgemachte Limonaden") that should not be publicly accessible.
+    const ssotCatIds = new Set(localizedData.categories.map(c => c.id));
+    const filteredSanityCategories = fetchedCategories.filter(cat => ssotCatIds.has(cat._id));
+    const filteredSanityCatIds = new Set(filteredSanityCategories.map(c => c._id));
+
+    finalCategories = filteredSanityCategories.map((cat) => {
       const ssotCat = localizedData.categories.find(c => c.id === cat._id);
       
       let name = ((cat as unknown) as Record<string, string>)[`title_${locale}`];
@@ -97,7 +104,13 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       };
     });
 
-    finalMenuItems = fetchedDishes.map((dish, index: number) => {
+    // Only include dishes whose category exists in the SSOT (filters out seasonal dishes)
+    const filteredSanityDishes = fetchedDishes.filter(dish => {
+      const catId = dish.category?._id;
+      return catId && filteredSanityCatIds.has(catId);
+    });
+
+    finalMenuItems = filteredSanityDishes.map((dish, index: number) => {
       const nr = dish.nr || String(index + 1);
       const ssotItem = localizedData.menuItems.find(i => i.nr === nr);
       
