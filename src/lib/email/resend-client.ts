@@ -25,7 +25,7 @@ export const EMAIL_CONFIG = {
   from: process.env.RESEND_FROM_EMAIL || 'Lindener Ratsstuben <onboarding@resend.dev>',
   
   /** E-Mail-Adresse des Restaurantbesitzers */
-  adminEmail: 'hasantoker3868@gmail.com', // Explicitly setting this as requested by the owner
+    adminEmail: process.env.ADMIN_EMAIL || 'hasantoker38678@gmail.com',
   
   /** Restaurant-Daten für Templates */
   restaurant: {
