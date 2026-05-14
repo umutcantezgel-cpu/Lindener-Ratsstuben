@@ -10,30 +10,66 @@ interface MittagskarteResponse {
   success?: boolean;
   message?: string;
   error?: string;
+  hint?: string;
 }
 
 export default function MittagskarteAdminPage() {
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentMenu, setCurrentMenu] = useState<MittagskarteResponse | null>(null);
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [previewHtml, setPreviewHtml] = useState<string | null>(null);
+  const [loginError, setLoginError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // ═══ Login ═══
+  // ═══ Login – Passwort server-seitig validieren ═══
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!password.trim()) return;
 
-    // Aktuelle Mittagskarte laden um Passwort zu validieren
+    setIsLoggingIn(true);
+    setLoginError(null);
+
     try {
+      // Passwort über eine Test-Anfrage validieren
+      // Wir senden eine leere POST-Anfrage ohne Datei — der Server prüft das Passwort
+      // und gibt 401 zurück wenn es falsch ist, oder 400 wenn keine Datei vorhanden ist (= Passwort korrekt)
+      const formData = new FormData();
+      const res = await fetch('/api/mittagskarte', {
+        method: 'POST',
+        headers: { 'x-upload-secret': password },
+        body: formData,
+      });
+
+      if (res.status === 401) {
+        // Falsches Passwort
+        const data: MittagskarteResponse = await res.json();
+        const msg = data.hint 
+          ? `${data.error} ${data.hint}`
+          : data.error || 'Falsches Passwort.';
+        setLoginError(msg);
+        return;
+      }
+      
+      if (res.status === 429) {
+        // Rate-Limited (zu viele Fehlversuche)
+        const data: MittagskarteResponse = await res.json();
+        setLoginError(data.error || 'Zu viele Fehlversuche. Bitte warten.');
+        return;
+      }
+
+      // Status 400 = "Keine Datei" → Passwort war korrekt!
+      // Status 200 = auch OK
       setIsAuthenticated(true);
       await loadCurrentMenu();
     } catch {
-      setStatusMessage({ type: 'error', text: 'Fehler beim Laden.' });
+      setLoginError('Verbindungsfehler. Bitte erneut versuchen.');
+    } finally {
+      setIsLoggingIn(false);
     }
   };
 
@@ -149,15 +185,37 @@ export default function MittagskarteAdminPage() {
           <h1 style={styles.title}>Mittagskarte verwalten</h1>
           <p style={styles.subtitle}>Lindener Ratsstuben – Admin-Bereich</p>
           <form onSubmit={handleLogin} style={styles.form}>
+            {loginError && (
+              <div style={{
+                background: '#f8d7da',
+                color: '#721c24',
+                border: '1px solid #f5c6cb',
+                padding: '10px 14px',
+                borderRadius: '8px',
+                fontSize: '13px',
+                textAlign: 'center' as const,
+              }}>
+                🔒 {loginError}
+              </div>
+            )}
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Passwort eingeben"
               style={styles.input}
+              disabled={isLoggingIn}
             />
-            <button type="submit" style={styles.btnPrimary}>
-              Anmelden
+            <button 
+              type="submit" 
+              style={{
+                ...styles.btnPrimary,
+                opacity: isLoggingIn ? 0.6 : 1,
+                cursor: isLoggingIn ? 'wait' : 'pointer',
+              }}
+              disabled={isLoggingIn}
+            >
+              {isLoggingIn ? 'Wird geprüft...' : 'Anmelden'}
             </button>
           </form>
         </div>
