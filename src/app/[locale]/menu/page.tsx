@@ -168,12 +168,28 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     });
   }
 
+  // ═══ MITTAGSKARTE (Tägliches Lunch-Menü) ═══
+  let mittagskarte = null;
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000';
+    const res = await fetch(`${baseUrl}/api/mittagskarte`, {
+      next: { revalidate: 60 }, // Revalidate every minute
+    });
+    if (res.ok) {
+      mittagskarte = await res.json();
+    }
+  } catch (error) {
+    console.warn('[Menu] Mittagskarte konnte nicht geladen werden:', error);
+  }
+
   return (
     <>
       <JsonLd data={createMenuPageSchema()} />
       <JsonLd data={createMenuFaqSchema()} />
       <Suspense fallback={<MenuSkeleton />}>
-        <PageClient categories={finalCategories} menuItems={finalMenuItems} locale={locale} />
+        <PageClient categories={finalCategories} menuItems={finalMenuItems} locale={locale} mittagskarte={mittagskarte} />
       </Suspense>
     </>
   );

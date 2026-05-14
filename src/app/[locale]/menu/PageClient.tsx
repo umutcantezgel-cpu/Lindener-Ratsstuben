@@ -3,6 +3,7 @@ import { Download } from 'lucide-react';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
 import { MenuInteractive } from './MenuInteractive';
+import { MittagskarteDisplay } from '@/components/menu/MittagskarteDisplay';
 
 export interface MenuItem {
     id: string;
@@ -14,13 +15,20 @@ export interface MenuItem {
     allergens: string[];
 }
 
+export interface MittagskarteData {
+    active: boolean;
+    html?: string;
+    uploadDate?: string;
+}
+
 export interface PageClientProps {
     categories: { id: string; name: string; label: string; description?: string; headerText?: string }[];
     menuItems: MenuItem[];
     locale: string;
+    mittagskarte?: MittagskarteData | null;
 }
 
-export const Menu = async ({ categories, menuItems, locale }: PageClientProps) => {
+export const Menu = async ({ categories, menuItems, locale, mittagskarte }: PageClientProps) => {
     // Fetch translations on the server
     const t = await getTranslations(locale as LocaleType, 'pages');
 
@@ -46,6 +54,14 @@ export const Menu = async ({ categories, menuItems, locale }: PageClientProps) =
                         {t('menu.description') as string}
                     </p>
                 </header>
+
+                {/* Tägliche Mittagskarte (wenn vorhanden) */}
+                {mittagskarte?.active && mittagskarte.html && mittagskarte.uploadDate && (
+                    <MittagskarteDisplay
+                        html={mittagskarte.html}
+                        uploadDate={mittagskarte.uploadDate}
+                    />
+                )}
 
                 <MenuInteractive 
                     categories={categories} 
