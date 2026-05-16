@@ -32,7 +32,6 @@ export interface SSOTMenuItem {
 
 // ─── Categories (SSOT §3 Reihenfolge) ─────────────────────────
 export const categories = [
-  { id: 'aperitif', name: 'Aperitif', label: 'Aperitif' },
   { id: 'suppen', name: 'Suppe', label: 'Suppe' },
   { id: 'vorspeisen', name: 'Vorspeisen', label: 'Vorspeisen' },
   { id: 'salate', name: 'Salate', label: 'Salate' },
@@ -45,15 +44,6 @@ export const categories = [
   { id: 'familienpizza', name: 'Familienpizza aus dem Steinofen / 40 × 60 cm', label: 'Familienpizza' },
   { id: 'kindergerichte', name: 'Kindergerichte', label: 'Kindergerichte' },
   { id: 'dessert', name: 'Dessert', label: 'Dessert' },
-  { id: 'warme-getraenke', name: 'Warme Getränke', label: 'Kaffee & Tee' },
-  { id: 'alkoholfreie-getraenke', name: 'Alkoholfreie Getränke', label: 'Alkoholfrei' },
-  { id: 'saefte', name: 'Säfte von Vaihinger', label: 'Säfte' },
-  { id: 'biere', name: 'Biere', label: 'Biere' },
-  { id: 'rotweine', name: 'Offene Rotweine', label: 'Rotweine' },
-  { id: 'weissweine', name: 'Offene Weißweine', label: 'Weißweine' },
-  { id: 'spirituosen', name: 'Spirituosen 2 cl', label: 'Spirituosen' },
-  { id: 'likoere', name: 'Liköre 2 cl', label: 'Liköre' },
-
 ];
 
 // ─── Category Footnotes (wörtlich aus SSOT) ───────────────────
@@ -90,17 +80,15 @@ export const categoryExtras: Record<string, ExtraItem[]> = {
     { name: 'Extrasahne', price: 1.50 },
     { name: 'Extrasoße (Erdbeer oder Schokosoße)', price: 1.50 },
   ],
-  saefte: [
-    { name: 'Alle Säfte auch als Schorle 0,2 l', price: 3.20 },
-    { name: 'Alle Säfte auch als Schorle 0,4 l', price: 5.70 },
-  ],
 };
 
-// ─── Combined Menu Items ──────────────────────────────────────
+// ─── Combined Menu Items (nur Speisen, ohne Getränkekarte) ────
 import { foodItems } from './menu-ssot-food';
-import { drinkItems } from './menu-ssot-drinks';
+// NOTE: drinkItems are intentionally excluded from the online menu.
+// The drinks menu (Getränkekarte) is only available in the printed menu.
+// import { drinkItems } from './menu-ssot-drinks';
 
-export const menuItems: SSOTMenuItem[] = [...foodItems, ...drinkItems];
+export const menuItems: SSOTMenuItem[] = [...foodItems];
 
 // ─── Allergen Legend (Ratsstuben-Hausschema, LMIV-konform) ────
 export const allergenLegend: Record<string, string> = {
