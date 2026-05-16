@@ -45,7 +45,7 @@ export const foodItems: SSOTMenuItem[] = [
   // ─── §3.6 Hausgemachte Pasta ────────────────────────────────
 
   { nr: '50', name: 'Tortelacci Burro e Salvia', description: 'Hausgemachte Riesen-Tortellacci, gefüllt mit Ricotta und Spinat, in Butter-Salbei geschwenkt, mit Kirschtomaten auf Rucola-Salat-Bouquet und Grana Padano.', price: 17.90, category: 'hausgemachte-pasta', allergens: ['B','E1','I'], zusatzstoffe: [] },
-  { nr: '51', name: 'Tortellacci con Salmone e Gamberoni', description: 'Hausgemachte Riesen-Tortellacci, gefüllt mit Ricotta und Spinat, in cremiger Sauce nach Art des Hauses.', price: 19.90, category: 'hausgemachte-pasta', allergens: ['B','E1','H','I','K'], zusatzstoffe: [] },
+  { nr: '51', name: 'Tortellacci con Salmone e Gamberoni', description: 'Hausgemachte Riesen-Tortellacci, gefüllt mit Ricotta und Spinat, verfeinert mit gebratenen Lachswürfeln und Garnelen in einer cremigen Sauce nach Art des Hauses.', price: 19.90, category: 'hausgemachte-pasta', allergens: ['B','E1','H','I','K'], zusatzstoffe: [] },
   { nr: '52', name: 'Gnocchi\u00A0con\u00A0Gamberoni', description: 'Gnocchi, gefüllt mit Tomaten und Mozzarella, mit gebratenen Garnelen in würziger Tomatensauce.', price: 18.90, category: 'hausgemachte-pasta', allergens: ['B','E1','F','H','I'], zusatzstoffe: [] },
   { nr: '53', name: 'Gnocchi e Basilikum Pesto Genovese con La Burrata', description: 'Gnocchi, gefüllt mit Tomaten und Mozzarella, in cremiger Burrata-Basilikum-Pesto-Sauce.', price: 17.90, category: 'hausgemachte-pasta', allergens: ['B','C1','E1','I'], zusatzstoffe: [] },
 
