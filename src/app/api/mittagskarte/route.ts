@@ -170,7 +170,11 @@ export async function GET() {
       );
     }
 
-    const response = await fetch(blobInfo.url);
+    const response = await fetch(blobInfo.url, {
+      headers: {
+        Authorization: `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}`,
+      },
+    });
     const data: MittagskarteData = await response.json();
 
     return NextResponse.json(
@@ -322,7 +326,7 @@ export async function POST(request: NextRequest) {
     };
 
     await put(BLOB_KEY, JSON.stringify(mittagskarteData), {
-      access: 'public',
+      access: 'private',
       contentType: 'application/json',
       token: process.env.BLOB_READ_WRITE_TOKEN,
       addRandomSuffix: false,
