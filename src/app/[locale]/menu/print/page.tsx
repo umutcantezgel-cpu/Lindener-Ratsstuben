@@ -169,57 +169,8 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      {/* ═══ SEITE XIII: Warme Getränke + Erfrischungsgetränke ═══ */}
+      {/* ═══ SEITE XIII: Allergenlegende + Marketing Logos ═══ */}
       <PrintPage pageNum="XIII">
-        <DishCategory dropcap="W" title="Warme Getränke" marginTop="0px" marginBottom="0px" />
-        <div className="cat-grid super-compact">
-          <CategoryMapper categoryId="warme-getraenke" marginBottom="0px" />
-        </div>
-
-        <DishCategory dropcap="E" title="Erfrischungsgetränke" marginTop="10px" marginBottom="0px" />
-        <div className="cat-grid super-compact">
-          <CategoryMapper categoryId="alkoholfreie-getraenke" marginBottom="2px" />
-        </div>
-      </PrintPage>
-
-      {/* ═══ SEITE XIV: Säfte + Biere ═══ */}
-      <PrintPage pageNum="XIV">
-        <DishCategory dropcap="F" title="Fruchtiges von Vaihinger" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid super-compact">
-          <CategoryMapper categoryId="saefte" marginBottom="0px" />
-        </div>
-
-        <DishCategory dropcap="B" title="Biere" marginTop="10px" marginBottom="5px" />
-        <div className="cat-grid super-compact">
-          <CategoryMapper categoryId="biere" marginBottom="2px" />
-        </div>
-      </PrintPage>
-
-      {/* ═══ SEITE XV: Weine + Liköre + Spirituosen ═══ */}
-      <PrintPage pageNum="XV">
-        <DishCategory dropcap="R" title="Offene Rotweine" marginTop="0px" marginBottom="0px" />
-        <div className="cat-grid super-compact">
-          <CategoryMapper categoryId="rotweine" marginBottom="0px" />
-        </div>
-
-        <DishCategory dropcap="W" title="Offene Weißweine" marginTop="5px" marginBottom="0px" />
-        <div className="cat-grid super-compact">
-          <CategoryMapper categoryId="weissweine" marginBottom="0px" />
-        </div>
-
-        <DishCategory dropcap="S" title="Spirituosen" marginTop="5px" marginBottom="0px" />
-        <div className="cat-grid super-compact two-col">
-          <CategoryMapper categoryId="spirituosen" marginBottom="0px" />
-        </div>
-
-        <DishCategory dropcap="L" title="Liköre" marginTop="5px" marginBottom="0px" />
-        <div className="cat-grid super-compact two-col">
-          <CategoryMapper categoryId="likoere" marginBottom="0px" />
-        </div>
-      </PrintPage>
-
-      {/* ═══ SEITE XVI: Allergenlegende + Marketing Logos ═══ */}
-      <PrintPage pageNum="XVI">
         <div style={{
           display: 'flex',
           flexDirection: 'column',
