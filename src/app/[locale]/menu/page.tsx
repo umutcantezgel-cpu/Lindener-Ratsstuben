@@ -82,11 +82,15 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     // This filters out seasonal/CMS-exclusive categories (e.g. "Hausgemachte Burger", 
     // "Hausgemachte Limonaden") that should not be publicly accessible.
     const ssotCatIds = new Set(localizedData.categories.map(c => c.id));
-    const filteredSanityCategories = fetchedCategories.filter(cat => ssotCatIds.has(cat._id));
+    const filteredSanityCategories = fetchedCategories.filter(cat => {
+      const matchId = cat.slug || cat._id;
+      return ssotCatIds.has(matchId);
+    });
     const filteredSanityCatIds = new Set(filteredSanityCategories.map(c => c._id));
 
     finalCategories = filteredSanityCategories.map((cat) => {
-      const ssotCat = localizedData.categories.find(c => c.id === cat._id);
+      const matchId = cat.slug || cat._id;
+      const ssotCat = localizedData.categories.find(c => c.id === matchId);
       
       let name = ((cat as unknown) as Record<string, string>)[`title_${locale}`];
       if (!name) name = ssotCat?.name as string;
@@ -97,7 +101,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       if (!description) description = getLocalizedString(cat, 'description');
 
       return {
-        id: cat._id,
+        id: matchId,
         name: name,
         label: name,
         description: description,
@@ -135,14 +139,14 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         name: name,
         description: description || '',
         price: dish.price,
-        category: dish.category?._id || 'fallback',
+        category: dish.category?.slug || dish.category?._id || 'fallback',
         allergens: dish.allergens?.map(a => a.code) || [],
       };
     });
 
     // Merge missing SSOT categories (e.g., drinks)
-    const sanityCatIds = new Set(fetchedCategories.map(c => c._id));
-    const missingSsotCats = localizedData.categories.filter(cat => !sanityCatIds.has(cat.id));
+    const sanityCatMatchIds = new Set(fetchedCategories.map(c => c.slug || c._id));
+    const missingSsotCats = localizedData.categories.filter(cat => !sanityCatMatchIds.has(cat.id));
     missingSsotCats.forEach(cat => {
       finalCategories.push({
         id: cat.id,
