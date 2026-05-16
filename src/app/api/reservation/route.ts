@@ -106,7 +106,7 @@ export async function POST(request: Request) {
         // 1. Admin-Benachrichtigung
         const adminResult = await sendEmail({
             to: EMAIL_CONFIG.adminEmail,
-            subject: `Neue Reservierung: ${validatedData.name} – ${validatedData.guests} Pers. am ${validatedData.date}`,
+            subject: `Neue Reservierungsanfrage: ${validatedData.name} – ${validatedData.guests} Pers. am ${validatedData.date}`,
             html: reservationAdminEmail({
                 name: validatedData.name,
                 email: validatedData.email,
