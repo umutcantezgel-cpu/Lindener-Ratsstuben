@@ -94,36 +94,7 @@ const AboutClient = ({ faqData }: AboutClientProps) => {
                     </div>
                 </section>
 
-                {/* Team Section */}
-                <section aria-labelledby="team-title">
-                    <div className="container mx-auto px-4">
-                        <div className="text-center mb-16">
-                            <h2 id="team-title" className="text-3xl md:text-4xl font-display font-bold text-surface bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-4 shadow-warm inline-block">{t('about.team_title') as string}</h2>
-                            <p className="text-text-secondary">{t('about.team_subtitle') as string}</p>
-                        </div>
-                        <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 m-0 p-0 list-none">
-                            {[
-                                { name: 'Rahul Sharma', role: t('about.role_chef') as string, image: '/images/philosophy_chef.webp' },
-                                { name: 'Amina Khan', role: t('about.role_manager') as string, image: '/images/placeholder.svg' },
-                                { name: 'Vikram Singh', role: t('about.role_souschef') as string, image: '/images/placeholder.svg' }
-                            ].map((member, index) => (
-                                <li key={index} className="group relative overflow-hidden rounded-xl shadow-sm aspect-[3/4]">
-                                    <Image
-                                        src={member.image}
-                                        alt={`Portrait von ${member.name}, ${member.role}`}
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, 33vw"
-                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-text-primary/80 via-text-primary/20 to-transparent flex flex-col justify-end p-6 text-surface translate-y-4 group-hover:translate-y-0 transition-transform">
-                                        <h3 className="text-2xl font-display font-bold mb-1">{member.name}</h3>
-                                        <p className="text-accent font-medium">{member.role}</p>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </section>
+
 
                 {/* FAQ Section (AI Optimized) */}
                 {faqData && (
