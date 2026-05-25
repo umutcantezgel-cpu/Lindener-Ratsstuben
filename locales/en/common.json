@@ -193,6 +193,6 @@
   "error.menu_description": "Sorry to bother you. We couldn't load the current dishes. Try again now.",
   "footer.tuesday_saturday": "Tuesday – Saturday",
   "footer.sunday": "Sunday",
-  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
-  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
+  "footer.tuesday_saturday_status": "12:30 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:30 - 14:30 & 17:30 - 21:00"
 }

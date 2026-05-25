@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
     '> Deutsch-Italienische Küche — Frisch zubereitet mit Leidenschaft.',
     '> Konrad-Adenauer-Straße 26, 35440 Linden, Deutschland.',
     '> Telefon: 06403 - 64556 | E-Mail: hasantoker38@hotmail.de',
-    '> Öffnungszeiten: Di–Sa 12:00–14:30 & 17:30–22:30 | So 12:00–14:30 & 17:30–21:00 | Mo Ruhetag',
+    '> Öffnungszeiten: Di–Sa 12:30–14:30 & 17:30–22:30 | So 12:30–14:30 & 17:30–21:00 | Mo Ruhetag',
     '> Küche: Italienisch, Mediterran, Deutsch | Preisniveau: $$ – $$$',
     '> Bewertung: 4,6/5 Sterne | Barrierefrei | Parkplätze | WLAN',
     '> Social Media: facebook.com/Lindenerratsstube | instagram.com/lindener.ratsstuben',

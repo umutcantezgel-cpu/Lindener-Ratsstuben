@@ -27,7 +27,7 @@ export default function PrintMenuPage() {
       
       <MenuCover />
 
-      {/* ═══ SEITE III: Aperitif ═══ */}
+      {/* ═══ SEITE III: Suppen & Vorspeisen ═══ */}
       <PrintPage pageNum="III">
         <div className="welcome-block">
           <div className="welcome-ornament">✦ ✦ ✦</div>
@@ -47,15 +47,6 @@ export default function PrintMenuPage() {
           <div className="welcome-ornament">✦ ✦ ✦</div>
         </div>
 
-        <DishCategory dropcap="A" title="Aperitif" marginTop="5px" marginBottom="5px" />
-        <div className="cat-grid">
-          <CategoryMapper categoryId="aperitif" />
-          <Quote text="Gönnen Sie sich einen Moment des Genusses." />
-        </div>
-      </PrintPage>
-
-      {/* ═══ SEITE IV: Suppen & Vorspeisen ═══ */}
-      <PrintPage pageNum="IV">
         <DishCategory dropcap="S" title="Suppen" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid">
           <CategoryMapper categoryId="suppen" />
@@ -68,8 +59,8 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      {/* ═══ SEITE V: Salate ═══ */}
-      <PrintPage pageNum="V">
+      {/* ═══ SEITE IV: Salate ═══ */}
+      <PrintPage pageNum="IV">
         <DishCategory dropcap="S" title="Salate" marginTop="3px" marginBottom="3px" />
         <div className="cat-grid">
           <CategoryMapper categoryId="salate" marginBottom="2px" />
@@ -78,16 +69,16 @@ export default function PrintMenuPage() {
         <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "2px" }}>Zu unseren Suppen, Vorspeisen &amp; Salaten servieren wir kostenlos hausgemachtes Brot – auf Wunsch Pizzabrot mit Tomatensauce &amp; Knoblauch für 6,50 €.</div>
       </PrintPage>
 
-      {/* ═══ SEITE VI: Pasta ═══ */}
-      <PrintPage pageNum="VI">
+      {/* ═══ SEITE V: Pasta ═══ */}
+      <PrintPage pageNum="V">
         <DishCategory dropcap="P" title="Pasta" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid">
           <CategoryMapper categoryId="pasta" itemIds={['40','41','42','43','44','45','46','47']} marginBottom="2px" />
         </div>
       </PrintPage>
 
-      {/* ═══ SEITE VII: Aus dem Ofen + Hausgemachte Pasta ═══ */}
-      <PrintPage pageNum="VII">
+      {/* ═══ SEITE VI: Aus dem Ofen + Hausgemachte Pasta ═══ */}
+      <PrintPage pageNum="VI">
         <DishCategory dropcap="A" title="Aus dem Ofen - Überbackenes" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid">
           <CategoryMapper categoryId="pasta-al-forno" marginBottom="2px" />
@@ -100,8 +91,8 @@ export default function PrintMenuPage() {
         <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "2px" }}>Vegane Pasta wird auf Anfrage ebenfalls angeboten – bitte wenden Sie sich an den nächsten Service-Mitarbeiter.</div>
       </PrintPage>
 
-      {/* ═══ SEITE VIII: Schnitzel ═══ */}
-      <PrintPage pageNum="VIII">
+      {/* ═══ SEITE VII: Schnitzel ═══ */}
+      <PrintPage pageNum="VII">
         <DishCategory dropcap="S" title="Schnitzelvariation" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid">
           <CategoryMapper categoryId="schnitzel" />
@@ -109,8 +100,8 @@ export default function PrintMenuPage() {
         <div className="fn" style={{ position: "relative", zIndex: 10, marginTop: "2px", marginBottom: "15px" }}>Bei unseren Schnitzeln handelt es sich um frischen Schweinerücken.</div>
       </PrintPage>
 
-      {/* ═══ SEITE IX: Fleisch- & Fischgerichte ═══ */}
-      <PrintPage pageNum="IX">
+      {/* ═══ SEITE VIII: Fleisch- & Fischgerichte ═══ */}
+      <PrintPage pageNum="VIII">
         <DishCategory dropcap="F" title="Fleischgerichte" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid">
           <CategoryMapper categoryId="fleisch-fisch" itemIds={['70','71','72','73','74','75']} />
@@ -123,8 +114,8 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      {/* ═══ SEITE X: Pizza 1 ═══ */}
-      <PrintPage pageNum="X">
+      {/* ═══ SEITE IX: Pizza 1 ═══ */}
+      <PrintPage pageNum="IX">
         <DishCategory dropcap="P" title="Pizza" subtitle="(∅ 28cm)" marginTop="5px" marginBottom="5px" />
         <div className="fn" style={{ marginBottom: '8px', fontStyle: 'italic', fontSize: '12pt', fontWeight: 600, color: 'var(--brand-red, #d32f2f)', textAlign: 'center' }}>Alle Pizzen werden mit Tomatensoße, Special-Würzen &amp; Käse zubereitet.</div>
         <div className="cat-grid">
@@ -132,8 +123,8 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      {/* ═══ SEITE XI: Pizza 2 + Familienpizza ═══ */}
-      <PrintPage pageNum="XI">
+      {/* ═══ SEITE X: Pizza 2 + Familienpizza ═══ */}
+      <PrintPage pageNum="X">
         <DishCategory dropcap="P" title="Pizza" subtitle="(Fortsetzung)" marginTop="3px" marginBottom="3px" />
         <div className="cat-grid">
           <CategoryMapper categoryId="pizza" itemIds={['103','105','106']} marginBottom="2px" />
@@ -156,8 +147,8 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      {/* ═══ SEITE XII: Kindergerichte + Dessert ═══ */}
-      <PrintPage pageNum="XII">
+      {/* ═══ SEITE XI: Kindergerichte + Dessert ═══ */}
+      <PrintPage pageNum="XI">
         <DishCategory dropcap="K" title="Kindergerichte" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid">
           <CategoryMapper categoryId="kindergerichte" marginBottom="2px" />
@@ -169,8 +160,8 @@ export default function PrintMenuPage() {
         </div>
       </PrintPage>
 
-      {/* ═══ SEITE XIII: Allergenlegende + Marketing Logos ═══ */}
-      <PrintPage pageNum="XIII">
+      {/* ═══ SEITE XII: Allergenlegende + Marketing Logos ═══ */}
+      <PrintPage pageNum="XII">
         <div style={{
           display: 'flex',
           flexDirection: 'column',

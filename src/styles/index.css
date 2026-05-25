@@ -362,7 +362,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-variant-numeric: lining-nums;
     word-break: break-word;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1,

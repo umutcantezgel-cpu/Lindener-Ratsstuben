@@ -43,10 +43,10 @@ export const Home = async ({ locale }: HomeProps) => {
     };
 
     const highlights = [
-        { name: 'Gegrilltes Rumpsteak', price: '€29.90', desc: 'Argentinisches Rumpsteak vom Lava-Grill | Kräuterbutter | Marktgemüse', image: '/images/editorial/rumpsteak.webp' },
-        { name: 'Pizza Ratsstuben', price: '€14.50', desc: 'Salami | Peperoniwurst | Vorderschinken | Ei | Champignons | Zwiebeln', image: '/images/editorial/pizza.webp' },
-        { name: 'Tortellacci mit Butter und Salbei', price: '€17.90', desc: 'Hausgemacht | Ricotta | Spinat | Kirschtomaten | Grana Padano', image: '/images/editorial/pasta.webp' },
-        { name: 'Lachs- und Garnelensalat', price: '€17.90', desc: 'Frisches Lachsfilet | Garnelen | Balsamico-Kräuter-Vinaigrette', image: '/images/editorial/scampi.webp' },
+        { name: 'Mix Fleisch Teller', price: '€27.90', desc: 'Saftiges Grillfleisch | Hausgemachte Kräuterbutter | Rosmarin | Frischer Salat', image: '/images/editorial/grillteller_mix.jpg' },
+        { name: 'Tortellacci Burro e Salvia', price: '€17.90', desc: 'Gefüllt mit feiner Ricotta & frischem Spinat | Veredelt mit Butter und Salbei', image: '/images/editorial/tortellacci_salvia.jpg' },
+        { name: 'Dolce Momente: Dessert', price: '€12.50', desc: 'Panna Cotta | Tiramisu | Casata Siciliana – Italienische Klassiker zum Verlieben', image: '/images/editorial/dessert_trio.jpg' },
+        { name: 'Premium Grillplatte', price: '€29.90', desc: 'Große Fleischvariation vom Lavagrill | Zartes Rind & Geflügel | Beilagen', image: '/images/editorial/grillteller_mix_2.jpg' },
     ];
 
     return (

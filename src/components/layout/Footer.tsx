@@ -102,17 +102,17 @@ export const Footer: React.FC = () => {
                     {/* Hours */}
                     <section aria-label={t('footer.opening_hours') as string}>
                         <h3 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.opening_hours') as string}</h3>
-                        <ul className="space-y-3 text-text-secondary text-sm m-0 p-0 list-none">
-                            <li className="flex justify-between border-b border-border pb-2">
-                                <span>{t('footer.monday') as string}</span>
+                        <ul className="space-y-3 text-sm m-0 p-0 list-none">
+                            <li className="flex flex-col sm:flex-row sm:justify-between border-b border-border pb-3 gap-1 sm:gap-0">
+                                <span className="font-medium text-text-secondary">{t('footer.monday') as string}</span>
                                 <span className="text-text-primary font-mono">{t('footer.monday_status') as string}</span>
                             </li>
-                            <li className="flex justify-between pb-2">
-                                <span>{t('footer.tuesday_saturday') as string}</span>
+                            <li className="flex flex-col sm:flex-row sm:justify-between border-b border-border pb-3 gap-1 sm:gap-0">
+                                <span className="font-medium text-text-secondary">{t('footer.tuesday_saturday') as string}</span>
                                 <span className="text-text-primary font-mono">{t('footer.tuesday_saturday_status') as string}</span>
                             </li>
-                            <li className="flex justify-between pb-2">
-                                <span>{t('footer.sunday') as string}</span>
+                            <li className="flex flex-col sm:flex-row sm:justify-between pb-2 gap-1 sm:gap-0">
+                                <span className="font-medium text-text-secondary">{t('footer.sunday') as string}</span>
                                 <span className="text-text-primary font-mono">{t('footer.sunday_status') as string}</span>
                             </li>
                         </ul>
@@ -138,28 +138,29 @@ export const Footer: React.FC = () => {
                     </div>
                 </section>
 
-                <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-text-secondary text-center md:text-left">
-                    <p>© {new Date().getFullYear()} {companyData.companyName}. {tCommon('footer.rights') as string}</p>
-                    <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                <div className="border-t border-border pt-10 pb-4 flex flex-col lg:flex-row justify-between items-center gap-8 text-sm text-text-secondary text-center lg:text-left">
+                    <div className="flex flex-col items-center lg:items-start gap-4">
                         <LanguageSwitcher variant="footer" />
-                        <nav aria-label={t('footer.legal_links') as string} className="flex gap-6 w-full sm:w-auto mt-4 sm:mt-0">
-                            <ul className="flex flex-wrap justify-center sm:justify-end gap-x-6 gap-y-3 m-0 p-0 list-none">
-                                <li><Link href="/impressum" className="hover:text-primary transition-colors">{t('footer.imprint') as string}</Link></li>
-                                <li><Link href="/datenschutz" className="hover:text-primary transition-colors">{t('footer.privacy') as string}</Link></li>
-                                <li><Link href="/agb" className="hover:text-primary transition-colors">{t('footer.terms') as string}</Link></li>
-                                <li><Link href="/widerruf" className="hover:text-primary transition-colors">{t('footer.revocation') as string}</Link></li>
-                                <li><Link href="/cookies" className="hover:text-primary transition-colors">{(t('footer.cookies') || t('footer.cookie_policy') || 'Cookie-Richtlinie') as string}</Link></li>
-                                <li>
-                                    <button 
-                                        onClick={() => window.dispatchEvent(new Event('open-cookie-preferences'))}
-                                        className="hover:text-primary transition-colors cursor-pointer"
-                                    >
-                                        {t('footer.privacy_settings') as string}
-                                    </button>
-                                </li>
-                            </ul>
-                        </nav>
+                        <p>© {new Date().getFullYear()} {companyData.companyName}. {tCommon('footer.rights') as string}</p>
                     </div>
+                    
+                    <nav aria-label={t('footer.legal_links') as string} className="w-full lg:w-auto">
+                        <ul className="flex flex-wrap justify-center lg:justify-end gap-x-6 gap-y-4 m-0 p-0 list-none">
+                            <li><Link href="/impressum" className="hover:text-primary transition-colors">{t('footer.imprint') as string}</Link></li>
+                            <li><Link href="/datenschutz" className="hover:text-primary transition-colors">{t('footer.privacy') as string}</Link></li>
+                            <li><Link href="/agb" className="hover:text-primary transition-colors">{t('footer.terms') as string}</Link></li>
+                            <li><Link href="/widerruf" className="hover:text-primary transition-colors">{t('footer.revocation') as string}</Link></li>
+                            <li><Link href="/cookies" className="hover:text-primary transition-colors">{(t('footer.cookies') || t('footer.cookie_policy') || 'Cookie-Richtlinie') as string}</Link></li>
+                            <li>
+                                <button 
+                                    onClick={() => window.dispatchEvent(new Event('open-cookie-preferences'))}
+                                    className="hover:text-primary transition-colors cursor-pointer"
+                                >
+                                    {t('footer.privacy_settings') as string}
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </footer>

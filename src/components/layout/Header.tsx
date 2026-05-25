@@ -23,12 +23,19 @@ export const Header: React.FC = () => {
                 setIsScrolled(window.scrollY > 20);
             });
         };
+        const handleResize = () => {
+            if (window.innerWidth >= 1280 && isMobileMenuOpen) {
+                setIsMobileMenuOpen(false);
+            }
+        };
         window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('resize', handleResize, { passive: true });
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
             if (animationFrameId) window.cancelAnimationFrame(animationFrameId);
         };
-    }, []);
+    }, [isMobileMenuOpen]);
 
     const { t } = useTranslation('navigation');
     const { t: tCommon } = useTranslation('common');
@@ -50,7 +57,7 @@ export const Header: React.FC = () => {
         <header
             role="banner"
             className={clsx(
-                "fixed top-0 w-full z-[100] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                "fixed top-0 w-full z-[100] isolate transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                 isScrolled
                     ? "bg-onyx-deep/90 backdrop-blur-2xl border-b border-white/10 shadow-elevation-1 py-3 lg:py-4"
                     : isHomePage
@@ -129,7 +136,7 @@ export const Header: React.FC = () => {
                 {/* Mobile Toggle */}
                 <button
                     className={clsx(
-                        "xl:hidden relative z-[110] p-3 rounded-full transition-all duration-500 cursor-pointer pointer-events-auto touch-manipulation group",
+                        "xl:hidden relative z-[110] p-3 rounded-full transition-all duration-500 cursor-pointer pointer-events-auto touch-manipulation group before:absolute before:-inset-4 before:content-['']",
                         isMobileMenuOpen 
                             ? "bg-white/10 text-white backdrop-blur-md" 
                             : (isScrolled ? "bg-white/10 text-white shadow-sm" : "bg-white/10 text-white backdrop-blur-md border border-white/10 hover:bg-white/20")

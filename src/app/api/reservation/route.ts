@@ -103,15 +103,19 @@ export async function POST(request: Request) {
         }
 
         // ─── E-Mail-Versand mit professionellen Templates ───
+        // Datum formatieren (YYYY-MM-DD -> DD.MM.YYYY)
+        const [year, month, day] = validatedData.date.split('-');
+        const displayDate = `${day}.${month}.${year}`;
+
         // 1. Admin-Benachrichtigung
         const adminResult = await sendEmail({
             to: EMAIL_CONFIG.adminEmail,
-            subject: `Neue Reservierungsanfrage: ${validatedData.name} – ${validatedData.guests} Pers. am ${validatedData.date}`,
+            subject: `Neue Reservierungsanfrage: ${validatedData.name} – ${validatedData.guests} Pers. am ${displayDate}`,
             html: reservationAdminEmail({
                 name: validatedData.name,
                 email: validatedData.email,
                 phone: validatedData.phone,
-                date: validatedData.date,
+                date: displayDate,
                 time: validatedData.time,
                 guests: validatedData.guests,
                 message: validatedData.message,
@@ -125,7 +129,7 @@ export async function POST(request: Request) {
             subject: `Ihre Reservierungsanfrage bei Lindener Ratsstuben`,
             html: reservationGuestEmail({
                 name: validatedData.name,
-                date: validatedData.date,
+                date: displayDate,
                 time: validatedData.time,
                 guests: validatedData.guests,
                 message: validatedData.message,

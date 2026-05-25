@@ -26,11 +26,17 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+            document.documentElement.style.overscrollBehavior = 'none';
         } else {
             document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+            document.documentElement.style.overscrollBehavior = '';
         }
         return () => {
             document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+            document.documentElement.style.overscrollBehavior = '';
         };
     }, [isOpen]);
 
@@ -63,7 +69,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                     animate={{ opacity: 1, backdropFilter: "blur(40px)" }}
                     exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
                     transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-                    className="fixed inset-0 bg-onyx-deep/80 z-[105] flex flex-col pt-28 pb-10 px-6 overflow-y-auto overflow-x-hidden"
+                    className="fixed top-0 left-0 w-full h-[100vh] h-[100dvh] bg-onyx-deep z-[105] flex flex-col px-6 overflow-y-auto overflow-x-hidden"
+                    style={{
+                        paddingTop: 'max(7rem, env(safe-area-inset-top))',
+                        paddingBottom: 'max(2.5rem, env(safe-area-inset-bottom))'
+                    }}
                     role="dialog"
                     aria-modal="true"
                 >
@@ -72,13 +82,14 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         <motion.div 
                             variants={orbVariants}
                             animate="animate"
-                            className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-accent/20 blur-[80px]"
+                            className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-accent/20 blur-[80px] will-change-transform"
+                            style={{ willChange: "transform, opacity" }}
                         />
                         <motion.div 
                             variants={orbVariants}
                             animate="animate"
-                            style={{ animationDelay: '2s' }}
-                            className="absolute bottom-[10%] right-[-10%] w-[70vw] h-[70vw] rounded-full bg-primary/10 blur-[100px]"
+                            className="absolute bottom-[10%] right-[-10%] w-[70vw] h-[70vw] rounded-full bg-primary/10 blur-[100px] will-change-transform"
+                            style={{ animationDelay: '2s', willChange: "transform, opacity" }}
                         />
                     </div>
 

@@ -3,6 +3,8 @@
  */
 import { baseLayout, infoCard } from './base-layout';
 
+import he from 'he';
+
 interface ContactAdminData {
   name: string;
   email: string;
@@ -16,14 +18,14 @@ export function contactAdminEmail(data: ContactAdminData): string {
     <p>Über das Kontaktformular der Webseite wurde eine neue Nachricht eingereicht:</p>
     
     ${infoCard([
-      { label: 'Name', value: data.name },
-      { label: 'E-Mail', value: `<a href="mailto:${data.email}">${data.email}</a>` },
-      { label: 'Betreff', value: data.subject },
+      { label: 'Name', value: he.encode(data.name) },
+      { label: 'E-Mail', value: `<a href="mailto:${he.encode(data.email)}">${he.encode(data.email)}</a>` },
+      { label: 'Betreff', value: he.encode(data.subject) },
     ])}
     
     <div style="background-color: #F5F0E8; border-radius: 12px; padding: 24px; margin: 24px 0;">
       <p style="margin: 0 0 8px 0; font-weight: 600; color: #6B6055;">Nachricht:</p>
-      <p style="margin: 0; white-space: pre-wrap;">${data.message}</p>
+      <p style="margin: 0; white-space: pre-wrap;">${he.encode(data.message)}</p>
     </div>
     
     <p style="text-align: center; margin-top: 24px;">

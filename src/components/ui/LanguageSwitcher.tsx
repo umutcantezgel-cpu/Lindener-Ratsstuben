@@ -107,7 +107,7 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
         className={clsx(
           'flex items-center gap-2 rounded-xl transition-all font-medium group',
           isFooter
-            ? 'text-text-secondary hover:text-text-primary hover:bg-bg-secondary px-3 py-2 text-sm'
+            ? 'border border-border bg-bg-secondary text-text-primary hover:bg-surface px-4 py-2.5 text-sm shadow-sm'
             : isMobile
               ? 'text-text-secondary hover:text-primary w-full px-4 py-3 text-base justify-between bg-bg-secondary rounded-xl'
               : 'text-text-secondary hover:text-primary hover:bg-primary/5 px-3 py-2 text-sm'
@@ -131,9 +131,9 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
       {isOpen && (
         <div
           className={clsx(
-            'absolute z-50 mt-2 rounded-2xl shadow-2xl border backdrop-blur-xl overflow-hidden',
+            'absolute z-[100] mt-2 rounded-2xl shadow-2xl border backdrop-blur-xl overflow-hidden',
             isFooter
-              ? 'bottom-full mb-2 bg-surface/98 border-border w-72 end-0'
+              ? 'bottom-full mb-2 bg-surface/98 border-border w-[90vw] max-w-[300px] left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:end-0'
               : isMobile
                 ? 'inset-x-0 bg-surface border-border w-full'
                 : 'top-full bg-surface/98 border-border w-80 end-0',

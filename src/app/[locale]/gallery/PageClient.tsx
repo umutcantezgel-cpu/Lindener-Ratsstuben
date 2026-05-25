@@ -22,6 +22,28 @@ export const Gallery = () => {
         { src: '/images/dish_pizza_ratsstubbe.webp', category: 'Gerichte' },
         { src: '/images/editorial/wein.webp', category: 'Wein' },
         { src: '/images/gallery_food_3.webp', category: 'Gerichte' },
+        // Neue optimierte Bilder
+        { src: '/images/optimized/aussenbereich-terrasse.webp', category: 'Ambiente' },
+        { src: '/images/optimized/fischfilet-bratkartoffeln-gemuese.webp', category: 'Gerichte' },
+        { src: '/images/optimized/schwarze-pasta-garnelen.webp', category: 'Gerichte' },
+        { src: '/images/optimized/spaghetti-riesengarnelen.webp', category: 'Gerichte' },
+        { src: '/images/optimized/tortellacci-ricotta-spinat.webp', category: 'Gerichte' },
+        { src: '/images/optimized/grillteller-gemischtes-fleisch.webp', category: 'Gerichte' },
+        { src: '/images/optimized/fleisch-grillteller-nahaufnahme.webp', category: 'Gerichte' },
+        { src: '/images/optimized/panna-cotta-tiramisu-casata-siciliana.webp', category: 'Dessert' },
+        { src: '/images/optimized/jaegerschnitzel-mit-pommes-frites.webp', category: 'Gerichte' },
+        { src: '/images/optimized/glas-weisswein-auf-gedecktem-tisch.webp', category: 'Wein' },
+        { src: '/images/optimized/rumpsteak-mit-pommes-und-kraeuterbutter.webp', category: 'Gerichte' },
+        { src: '/images/optimized/lachsfilet-mit-spargel-und-kartoffeln.webp', category: 'Gerichte' },
+        { src: '/images/optimized/aussenbereich-terrasse-biergarten.webp', category: 'Ambiente' },
+        { src: '/images/optimized/lindener-ratsstuben-restaurant-schild.webp', category: 'Ambiente' },
+        { src: '/images/optimized/geschmortes-fleisch-mit-dunkler-sosse.webp', category: 'Gerichte' },
+        { src: '/images/optimized/bratkartoffeln-mit-spiegelei.webp', category: 'Gerichte' },
+        { src: '/images/optimized/gemischter-salat-mit-joghurt-dressing.webp', category: 'Gerichte' },
+        { src: '/images/optimized/gedeckte-tafel-mit-weinflasche.webp', category: 'Ambiente' },
+        { src: '/images/optimized/antipasti-vorspeisenteller-mit-meeresfruechten.webp', category: 'Gerichte' },
+        { src: '/images/optimized/grosse-pasta-fleisch-meeresfruechte-platte.webp', category: 'Gerichte' },
+        { src: '/images/optimized/tortellini-mit-fleisch-und-parmesan.webp', category: 'Gerichte' }
     ];
 
     return (

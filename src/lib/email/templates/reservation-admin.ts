@@ -4,6 +4,8 @@
  */
 import { baseLayout, infoCard } from './base-layout';
 
+import he from 'he';
+
 interface ReservationAdminData {
   name: string;
   email: string;
@@ -21,13 +23,13 @@ export function reservationAdminEmail(data: ReservationAdminData): string {
     Der Gast wurde informiert, dass dies <strong>keine Bestätigung</strong> ist und wartet auf Ihre Rückmeldung.</p>
     
     ${infoCard([
-      { label: 'Name', value: data.name },
-      { label: 'E-Mail', value: `<a href="mailto:${data.email}">${data.email}</a>` },
-      { label: 'Telefon', value: `<a href="tel:${data.phone}">${data.phone}</a>` },
-      { label: 'Gewünschtes Datum', value: data.date },
-      { label: 'Gewünschte Uhrzeit', value: `${data.time} Uhr` },
-      { label: 'Personen', value: data.guests },
-      ...(data.message ? [{ label: 'Nachricht', value: data.message }] : []),
+      { label: 'Name', value: he.encode(data.name) },
+      { label: 'E-Mail', value: `<a href="mailto:${he.encode(data.email)}">${he.encode(data.email)}</a>` },
+      { label: 'Telefon', value: `<a href="tel:${he.encode(data.phone)}">${he.encode(data.phone)}</a>` },
+      { label: 'Gewünschtes Datum', value: he.encode(data.date) },
+      { label: 'Gewünschte Uhrzeit', value: `${he.encode(data.time)} Uhr` },
+      { label: 'Personen', value: he.encode(data.guests) },
+      ...(data.message ? [{ label: 'Nachricht', value: he.encode(data.message) }] : []),
     ])}
     
     <p style="text-align: center; margin-top: 24px;">

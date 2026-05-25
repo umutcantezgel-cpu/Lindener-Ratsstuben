@@ -34,7 +34,7 @@ export const CookieConsentBanner = () => {
                 className="fixed bottom-0 inset-x-0 z-[9999] p-4 md:p-6 pb-safe-bottom"
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
             >
-                <div className="max-w-5xl mx-auto bg-surface/95 backdrop-blur-xl border border-border shadow-2xl rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center">
+                <div className="max-w-5xl mx-auto bg-surface border border-border shadow-2xl rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 flex flex-col md:flex-row gap-5 md:gap-8 items-start md:items-center max-h-[85vh] overflow-y-auto custom-scrollbar">
                     
                     {!showPreferences ? (
                         <>
@@ -72,7 +72,7 @@ export const CookieConsentBanner = () => {
                                     </span>
                                 </div>
                             </div>
-                            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+                            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0 mt-2 md:mt-0">
                                 <button
                                     onClick={() => setShowPreferences(true)}
                                     className="px-6 py-3 rounded-xl border border-border text-text-primary hover:bg-bg-secondary transition-colors font-medium text-sm text-center"
@@ -94,7 +94,7 @@ export const CookieConsentBanner = () => {
                             </div>
                         </>
                     ) : (
-                        <div className="w-full flex flex-col gap-6">
+                        <div className="w-full flex flex-col gap-4 md:gap-6">
                             <div className="space-y-2">
                                 <h2 className="text-xl font-display font-semibold text-text-primary flex items-center gap-2">
                                     <Shield className="w-5 h-5 text-accent" /> {t('cookie.preferences_title')}
