@@ -111,11 +111,13 @@ const nextConfig = {
               // Base policy — only allow resources from same origin by default
               "default-src 'self'",
               // Scripts: self + Vercel Analytics (consent-gated)
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
+              process.env.NODE_ENV === 'production' 
+                ? "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com"
+                : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
               // Styles: self + Google Fonts stylesheets
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              // Images: permissive for restaurant photos, external CDNs
-              "img-src 'self' data: https: blob:",
+              // Images: strictly allow only configured domains
+              "img-src 'self' data: blob: https://cdn.sanity.io https://placehold.co https://images.unsplash.com https://i.pravatar.cc",
               // Fonts: self-hosted + Google Fonts CDN
               "font-src 'self' https://fonts.gstatic.com",
               // XHR/Fetch: Formspree (forms), Vercel Insights (consent-gated), Sanity API

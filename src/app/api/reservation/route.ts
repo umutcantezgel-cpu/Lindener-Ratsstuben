@@ -28,6 +28,7 @@ const reservationSchema = z.object({
     time: z.string().min(1),
     guests: z.string().min(1),
     message: z.string().max(500).optional(),
+    privacy: z.literal(true),
 });
 
 // ═══ SIMPLE RATE LIMITER (In-Memory) ═══

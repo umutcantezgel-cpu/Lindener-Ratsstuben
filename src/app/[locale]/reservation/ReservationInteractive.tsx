@@ -46,6 +46,9 @@ const reservationSchema = z.object({
             return !isNaN(num) && num >= 1 && num <= 20;
         }, { message: "Gästeanzahl muss zwischen 1 und 20 liegen." }),
     message: z.string().max(500, "Nachricht darf maximal 500 Zeichen lang sein.").optional(),
+    privacy: z.literal(true, {
+        errorMap: () => ({ message: "Sie müssen der Datenschutzerklärung zustimmen." })
+    })
 });
 
 type ReservationData = z.infer<typeof reservationSchema>;
@@ -79,7 +82,7 @@ export const ReservationInteractive = () => {
         reset
     } = useForm<ReservationData>({
         resolver: zodResolver(reservationSchema),
-        defaultValues: { guests: '2', message: '' },
+        defaultValues: { guests: '2', message: '', privacy: undefined },
         mode: 'onChange'
     });
 
@@ -378,6 +381,24 @@ export const ReservationInteractive = () => {
                                                     placeholder={t('reservation.phone_label', 'Ihre Telefonnummer')}
                                                 />
                                                 {errors.phone && <p className="text-xs text-red-500 absolute -bottom-5 start-0 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.phone.message}</p>}
+                                            </div>
+                                            
+                                            <div className="flex items-start gap-3 mt-6 pt-4 border-t border-taupe/10">
+                                                <div className="flex items-center h-5 mt-0.5">
+                                                    <input
+                                                        id="res-privacy"
+                                                        type="checkbox"
+                                                        {...register('privacy')}
+                                                        className="w-4 h-4 text-accent bg-surface border-border rounded focus:ring-accent focus:ring-2 cursor-pointer"
+                                                    />
+                                                </div>
+                                                <div className="text-sm">
+                                                    <label htmlFor="res-privacy" className="font-medium text-text-primary cursor-pointer">Datenschutz <span className="text-red-500">*</span></label>
+                                                    <p className="text-text-secondary text-xs mt-1">
+                                                        Ich habe die <a href={`/${locale}/datenschutz`} className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a> zur Kenntnis genommen und stimme zu, dass meine Daten zwecks Bearbeitung gespeichert werden.
+                                                    </p>
+                                                    {errors.privacy && <p className="text-xs text-red-500 flex items-center gap-1 mt-1"><AlertCircle className="w-3 h-3" />{errors.privacy.message}</p>}
+                                                </div>
                                             </div>
                                         </div>
                                     </motion.div>
