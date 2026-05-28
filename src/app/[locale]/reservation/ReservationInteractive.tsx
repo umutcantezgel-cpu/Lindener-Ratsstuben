@@ -47,7 +47,7 @@ const reservationSchema = z.object({
         }, { message: "Gästeanzahl muss zwischen 1 und 20 liegen." }),
     message: z.string().max(500, "Nachricht darf maximal 500 Zeichen lang sein.").optional(),
     privacy: z.literal(true, {
-        errorMap: () => ({ message: "Sie müssen der Datenschutzerklärung zustimmen." })
+        error: "Sie müssen der Datenschutzerklärung zustimmen."
     })
 });
 
@@ -69,7 +69,7 @@ export const ReservationInteractive = () => {
     const [formStatus, setFormStatus] = useState<FormStatus>('idle');
     const [errorMessage, setErrorMessage] = useState('');
     const formStartTime = useRef<number>(Date.now());
-    const { safeT: t } = useSafeT('forms');
+    const { safeT: t, locale } = useSafeT('forms');
     const { safeT: tPages } = useSafeT('pages');
 
     const {
@@ -124,6 +124,7 @@ export const ReservationInteractive = () => {
             time: data.time,
             guests: data.guests,
             message: data.message || '',
+            privacy: data.privacy,
         };
 
         const fallbackQueue = JSON.parse(localStorage.getItem('form_retry_queue') || '[]');

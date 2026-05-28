@@ -176,7 +176,7 @@
   "menu.all_categories": "Sve",
   "nav.home": "Početna stranica",
   "opening_hours.exception_holidays": "(osim praznika)",
-  "opening_hours.time_range": "{početak} – {kraj}",
+  "opening_hours.time_range": "{start} – {end}",
   "status.loading": "Učitavanje...",
   "status.sending": "Slanje...",
   "status.sent_pause": "Poslano (pauza od {sekundi}s)",
@@ -193,6 +193,6 @@
   "trust.google_stars": "4,8/5 zvjezdica Google",
   "footer.tuesday_saturday": "utorak – subota",
   "footer.sunday": "Nedjelja",
-  "footer.tuesday_saturday_status": "12:30 - 14:30 & 17:30 - 22:30",
-  "footer.sunday_status": "12:30 - 14:30 & 17:30 - 21:00"
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

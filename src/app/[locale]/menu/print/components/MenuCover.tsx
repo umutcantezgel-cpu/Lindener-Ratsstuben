@@ -44,8 +44,8 @@ export default function MenuCover() {
       <div className="cv-hours">
         <div className="cv-hours-title">Öffnungszeiten</div>
         <div className="cv-hours-text">
-          Di – Sa: 12:30 – 14:30 &amp; 17:30 – 22:30 Uhr<br />
-          So: 12:30 – 14:30 &amp; 17:30 – 21:00 Uhr<br />
+          Di – Sa: 12:00 – 14:30 &amp; 17:30 – 22:30 Uhr<br />
+          So: 12:00 – 14:30 &amp; 17:30 – 21:00 Uhr<br />
           <span className="cv-hours-closed">Montag Ruhetag</span>
         </div>
       </div>

@@ -2,7 +2,7 @@
   "name": "red-flames",
   "version": "0.0.0",
   "scripts": {
-    "dev": "lsof -t -i:5000 | xargs kill -9 2>/dev/null || true && next dev -p 5000",
+    "dev": "lsof -t -i:5001 | xargs kill -9 2>/dev/null || true && next dev -p 5001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

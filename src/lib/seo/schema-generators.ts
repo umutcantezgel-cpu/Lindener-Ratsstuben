@@ -48,7 +48,7 @@ export function createRestaurantSchema() {
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '12:30',
+        opens: '12:00',
         closes: '14:30',
       },
       {
@@ -60,7 +60,7 @@ export function createRestaurantSchema() {
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: 'Sunday',
-        opens: '12:30',
+        opens: '12:00',
         closes: '14:30',
       },
       {
@@ -160,7 +160,7 @@ export function createRestaurantSchema() {
         '@type': 'Offer',
         name: companyData.tagesangebot.name,
         description: companyData.tagesangebot.beschreibung,
-        availabilityStarts: '12:30',
+        availabilityStarts: '12:00',
         availabilityEnds: '14:30',
       }
     ]
@@ -397,7 +397,7 @@ export function createHomeFaqSchema() {
         name: 'Wann hat das Restaurant Lindener Ratsstuben geöffnet?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Die Lindener Ratsstuben sind Dienstag bis Sonntag geöffnet. Mittagstisch: 12:30–14:30 Uhr, Abendessen: 17:30–22:30 Uhr (Sonntags bis 21:00 Uhr). Montag ist Ruhetag, außer an gesetzlichen Feiertagen.',
+          text: 'Die Lindener Ratsstuben sind Dienstag bis Sonntag geöffnet. Mittagstisch: 12:00–14:30 Uhr, Abendessen: 17:30–22:30 Uhr (Sonntags bis 21:00 Uhr). Montag ist Ruhetag, außer an gesetzlichen Feiertagen.',
         },
       },
       {
@@ -463,7 +463,7 @@ export function createMenuFaqSchema() {
         name: 'Gibt es einen Mittagstisch oder ein Tagesmenü?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Ja, von Dienstag bis Freitag gibt es ein täglich wechselndes 2-Gänge-Menü zu einem günstigen Preis. Der Mittagstisch wird von 12:30 bis 14:30 Uhr serviert.',
+          text: 'Ja, von Dienstag bis Freitag gibt es ein täglich wechselndes 2-Gänge-Menü zu einem günstigen Preis. Der Mittagstisch wird von 12:00 bis 14:30 Uhr serviert.',
         },
       },
       {

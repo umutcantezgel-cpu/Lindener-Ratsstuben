@@ -20,7 +20,7 @@ export function contactGuestEmail(data: ContactGuestData): string {
     <p>Sie erreichen uns auch direkt:</p>
     <ul style="padding-left: 20px; color: #6B6055;">
       <li>Telefonisch: <strong>06403 - 64556</strong></li>
-      <li>Öffnungszeiten: Di–Sa 12:30–14:30 & 17:30–22:30 Uhr, So 12:30–14:30 & 17:30–21:00 Uhr</li>
+      <li>Öffnungszeiten: Di–Sa 12:00–14:30 & 17:30–22:30 Uhr, So 12:00–14:30 & 17:30–21:00 Uhr</li>
     </ul>
     
     <p style="margin-top: 24px;">

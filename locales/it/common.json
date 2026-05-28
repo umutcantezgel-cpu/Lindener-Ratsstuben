@@ -176,7 +176,7 @@
   "menu.all_categories": "Tutto",
   "nav.home": "Pagina iniziale",
   "opening_hours.exception_holidays": "(tranne i festivi)",
-  "opening_hours.time_range": "{inizio} – {fine}",
+  "opening_hours.time_range": "{start} – {end}",
   "status.loading": "Caricamento...",
   "status.sending": "Invio...",
   "status.sent_pause": "Inviato ({seconds}s pausa)",
@@ -193,6 +193,6 @@
   "trust.google_stars": "4,8/5 stelle Google",
   "footer.tuesday_saturday": "Martedì – Sabato",
   "footer.sunday": "Domenica",
-  "footer.tuesday_saturday_status": "12:30 - 14:30 & 17:30 - 22:30",
-  "footer.sunday_status": "12:30 - 14:30 & 17:30 - 21:00"
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

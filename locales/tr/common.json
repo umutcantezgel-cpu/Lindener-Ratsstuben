@@ -176,7 +176,7 @@
   "menu.all_categories": "Tüm",
   "nav.home": "Ana sayfa",
   "opening_hours.exception_holidays": "(resmi tatiller hariç)",
-  "opening_hours.time_range": "{başlangıç} – {bitiş}",
+  "opening_hours.time_range": "{start} – {end}",
   "status.loading": "Yükleniyor...",
   "status.sending": "Gönderiliyor...",
   "status.sent_pause": "Gönderildi ({seconds}sn bekleme)",
@@ -193,6 +193,6 @@
   "trust.google_stars": "4.8/5 Yıldız Google",
   "footer.tuesday_saturday": "Salı – Cumartesi",
   "footer.sunday": "Pazar",
-  "footer.tuesday_saturday_status": "12:30 - 14:30 & 17:30 - 22:30",
-  "footer.sunday_status": "12:30 - 14:30 & 17:30 - 21:00"
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

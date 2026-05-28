@@ -176,7 +176,7 @@
   "menu.all_categories": "모두",
   "nav.home": "홈페이지",
   "opening_hours.exception_holidays": "(공휴일 제외)",
-  "opening_hours.time_range": "{시작} – {끝}",
+  "opening_hours.time_range": "{start} – {end}",
   "status.loading": "로드 중...",
   "status.sending": "배상...",
   "status.sent_pause": "전송됨({초}초 일시중지)",
@@ -193,6 +193,6 @@
   "trust.google_stars": "4.8/5 별점 구글",
   "footer.tuesday_saturday": "화요일 – 토요일",
   "footer.sunday": "일요일",
-  "footer.tuesday_saturday_status": "12:30 - 14:30 & 17:30 - 22:30",
-  "footer.sunday_status": "12:30 - 14:30 & 17:30 - 21:00"
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }

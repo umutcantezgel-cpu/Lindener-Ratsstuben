@@ -176,7 +176,7 @@
   "menu.all_categories": "全部",
   "nav.home": "主页",
   "opening_hours.exception_holidays": "(公共假日除外)",
-  "opening_hours.time_range": "{开始} – {结束}",
+  "opening_hours.time_range": "{start} – {end}",
   "status.loading": "加载中...",
   "status.sending": "正在发送...",
   "status.sent_pause": "已发送（{秒}秒暂停）",
@@ -193,6 +193,6 @@
   "trust.google_stars": "4.8/5 星谷歌",
   "footer.tuesday_saturday": "周二至周日",
   "footer.sunday": "星期日",
-  "footer.tuesday_saturday_status": "12:30 - 14:30 & 17:30 - 22:30",
-  "footer.sunday_status": "12:30 - 14:30 & 17:30 - 21:00"
+  "footer.tuesday_saturday_status": "12:00 - 14:30 & 17:30 - 22:30",
+  "footer.sunday_status": "12:00 - 14:30 & 17:30 - 21:00"
 }
