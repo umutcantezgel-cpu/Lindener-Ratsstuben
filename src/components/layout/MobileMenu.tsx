@@ -65,9 +65,9 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                 <motion.div
                     ref={containerRef}
                     id="mobile-menu"
-                    initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-                    animate={{ opacity: 1, backdropFilter: "blur(40px)" }}
-                    exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
                     transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
                     className="fixed top-0 left-0 w-full h-[100vh] h-[100dvh] bg-onyx-deep z-[105] flex flex-col px-6 overflow-y-auto overflow-x-hidden"
                     style={{

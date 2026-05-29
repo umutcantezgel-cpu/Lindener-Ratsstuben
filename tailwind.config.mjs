@@ -15,6 +15,7 @@ export default {
           DEFAULT: '#1a1a2e',
           light: '#2d2d44',
           dark: '#0f0f1c',
+          deep: 'var(--color-onyx-deep)',
         },
         'muted-gold': {
           DEFAULT: '#d4a843',
