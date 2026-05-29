@@ -151,8 +151,21 @@ export function createRestaurantSchema() {
         name: 'Gießen',
       },
       {
+        '@type': 'City',
+        name: 'Wetzlar',
+      },
+      {
         '@type': 'State',
         name: 'Hessen',
+      },
+      {
+        '@type': 'GeoCircle',
+        geoMidpoint: {
+          '@type': 'GeoCoordinates',
+          latitude: 50.5313,
+          longitude: 8.6566,
+        },
+        geoRadius: 50000,
       }
     ],
     makesOffer: [
