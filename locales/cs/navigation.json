@@ -23,5 +23,9 @@
   "nav.home": "Domů",
   "nav.kegelbahn": "Kuželna",
   "nav.menu": "Menu",
-  "nav.reservation": "Rezervace"
+  "nav.reservation": "Rezervace",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

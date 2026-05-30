@@ -40,22 +40,22 @@ export const MapFacade: React.FC<MapFacadeProps> = ({ address, mapQuery, classNa
             aria-label={!isLoaded ? "Google Maps Karte laden" : undefined}
         >
             {!isLoaded ? (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-onyx-light/80 text-white z-10 transition-opacity duration-300">
-                    <div className="p-6 bg-onyx-deep/90 backdrop-blur-sm rounded-xl border border-white/10 text-center shadow-lg group-hover:border-accent/50 transition-colors">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-bg-secondary/80 text-text-primary z-10 transition-opacity duration-300">
+                    <div className="p-6 bg-bg-primary/90 backdrop-blur-sm rounded-xl border border-border text-center shadow-lg group-hover:border-accent/50 transition-colors">
                         <MapPin className="w-10 h-10 text-accent mx-auto mb-3" />
                         <h3 className="font-bold text-lg mb-2">Karte laden</h3>
                         <p className="text-sm text-stone-300 mb-4 max-w-xs">{address}</p>
                         <p className="text-xs text-stone-400 mb-4 max-w-xs leading-relaxed">
                             Mit dem Laden der Karte akzeptieren Sie die Datenschutzerklärung von Google.
                         </p>
-                        <button className="px-6 py-2 bg-accent text-onyx-deep font-bold rounded-lg hover:bg-white transition-colors pointer-events-none">
+                        <button className="px-6 py-2 bg-accent text-text-primary font-bold rounded-lg hover:bg-white transition-colors pointer-events-none">
                             Karte anzeigen
                         </button>
                     </div>
                 </div>
             ) : (
                 <iframe
-                    src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                    src={`https://www.google.com/maps/embed?pb=!1m4!2m1!1s${encodeURIComponent(mapQuery)}!5e0!6i15`}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

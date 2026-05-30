@@ -65,11 +65,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                 <motion.div
                     ref={containerRef}
                     id="mobile-menu"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+                    animate={{ opacity: 1, backdropFilter: "blur(40px)" }}
+                    exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
                     transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-                    className="fixed top-0 left-0 w-full h-[100vh] h-[100dvh] bg-onyx-deep z-[105] flex flex-col px-6 overflow-y-auto overflow-x-hidden"
+                    className="fixed top-0 left-0 w-full h-[100vh] h-[100dvh] bg-surface/50 backdrop-blur-2xl z-[105] flex flex-col px-6 overflow-y-auto overflow-x-hidden"
                     style={{
                         paddingTop: 'max(7rem, env(safe-area-inset-top))',
                         paddingBottom: 'max(2.5rem, env(safe-area-inset-bottom))'
@@ -108,7 +108,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                                     width={160}
                                     height={55}
                                     priority
-                                    className="w-auto h-12 brightness-0 invert opacity-90 drop-shadow-md"
+                                    className="w-auto h-12 opacity-90 drop-shadow-sm"
                                 />
                             </Link>
                         </motion.div>
@@ -145,12 +145,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                                                     "group flex items-center gap-6 text-[32px] font-display font-light tracking-tight transition-all duration-500",
                                                     isActive 
                                                         ? "text-accent" 
-                                                        : "text-white/80 hover:text-white"
+                                                        : "text-text-secondary hover:text-text-primary"
                                                 )}
                                             >
                                                 <span className={clsx(
                                                     "text-sm font-mono font-medium tracking-widest transition-colors duration-500 pt-1",
-                                                    isActive ? "text-accent/60" : "text-white/30 group-hover:text-white/50"
+                                                    isActive ? "text-accent/60" : "text-text-muted group-hover:text-text-secondary"
                                                 )}>
                                                     {number}
                                                 </span>
@@ -181,7 +181,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.5 }}
                             className="flex flex-col gap-6 w-full pb-4"
                         >
-                            <div className="flex flex-col items-center text-center gap-1.5 mb-2 text-white/60 text-[15px] font-light">
+                            <div className="flex flex-col items-center text-center gap-1.5 mb-2 text-text-secondary text-[15px] font-light">
                                 <a href="tel:+49640364556" className="hover:text-accent transition-colors">06403 64556</a>
                                 <a href="mailto:info@lindener-ratsstuben.de" className="hover:text-accent transition-colors">info@lindener-ratsstuben.de</a>
                             </div>
@@ -189,12 +189,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             <Link href="/reservation"
                                 prefetch={true}
                                 onClick={onClose}
-                                className="w-full py-4 bg-accent/90 backdrop-blur-sm border border-accent/20 text-onyx-deep text-lg font-medium rounded-2xl text-center hover:bg-accent hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-[0_0_30px_rgba(var(--color-accent),0.2)]"
+                                className="w-full py-4 bg-primary text-surface text-lg font-medium rounded-2xl text-center hover:bg-primary-hover shadow-warm transition-all duration-300"
                             >
                                 {variant === 'general' ? t('nav.reservation') : navCta}
                             </Link>
 
-                            <div className="p-4 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 flex justify-center">
+                            <div className="p-4 bg-surface/50 backdrop-blur-md rounded-2xl border border-border flex justify-center">
                                 <LanguageSwitcher variant="mobile" />
                             </div>
                         </motion.div>

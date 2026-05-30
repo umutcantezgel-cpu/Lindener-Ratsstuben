@@ -102,7 +102,7 @@ export function FloatingReservationCTA() {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: 5, filter: 'blur(4px)' }}
                 transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="mb-3 px-4 py-2 bg-onyx/95 backdrop-blur-md text-stone-300 text-xs font-semibold rounded-lg shadow-warm border border-white/10"
+                className="mb-3 px-4 py-2 bg-bg-primary/95 backdrop-blur-md text-stone-300 text-xs font-semibold rounded-lg shadow-warm border border-border"
               >
                 {getFomoText()}
               </motion.div>

@@ -23,5 +23,9 @@
   "nav.home": "Strona główna",
   "nav.kegelbahn": "Kręgielnia",
   "nav.menu": "Menu",
-  "nav.reservation": "Rezerwacja"
+  "nav.reservation": "Rezerwacja",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

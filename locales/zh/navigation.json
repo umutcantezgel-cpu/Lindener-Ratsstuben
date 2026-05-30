@@ -23,5 +23,9 @@
   "nav.home": "首页",
   "nav.kegelbahn": "保龄球馆",
   "nav.menu": "菜单",
-  "nav.reservation": "预订"
+  "nav.reservation": "预订",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

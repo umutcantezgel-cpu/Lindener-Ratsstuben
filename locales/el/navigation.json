@@ -23,5 +23,9 @@
   "nav.home": "Αρχική",
   "nav.kegelbahn": "Αίθουσα Μπόουλινγκ",
   "nav.menu": "Μενού",
-  "nav.reservation": "Κράτηση"
+  "nav.reservation": "Κράτηση",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

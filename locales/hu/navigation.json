@@ -23,5 +23,9 @@
   "nav.home": "Kezdőlap",
   "nav.kegelbahn": "Teke",
   "nav.menu": "Étlap",
-  "nav.reservation": "Foglalás"
+  "nav.reservation": "Foglalás",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

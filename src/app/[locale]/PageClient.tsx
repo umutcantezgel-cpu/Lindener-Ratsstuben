@@ -57,11 +57,11 @@ export const Home = async ({ locale }: HomeProps) => {
             <HeroRoot />
 
             {/* Welcome / Philosophy Section */}
-            <section aria-labelledby="philosophy-title" className="py-24 md:py-32 lg:py-48 bg-onyx-deep">
-                <div className="container mx-auto px-4 max-w-7xl bg-onyx-deep">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center bg-onyx-deep">
+            <section aria-labelledby="philosophy-title" className="py-24 md:py-32 lg:py-48 bg-bg-primary">
+                <div className="container mx-auto px-4 max-w-7xl bg-bg-primary">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center bg-bg-primary">
                         <AnimateIn direction="up">
-                            <div className="space-y-8 bg-onyx-deep">
+                            <div className="space-y-8 bg-bg-primary">
                                 <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('philosophy.label') as string}</span>
                                 <h2 id="philosophy-title" className="text-4xl md:text-5xl font-display font-bold text-stone-600 leading-tight text-balance">
                                     {t('philosophy.title') as string}
@@ -84,11 +84,11 @@ export const Home = async ({ locale }: HomeProps) => {
                                 <div className="pt-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
                                     <Link 
                                         href="/menu" 
-                                        className="interaction-bounce px-8 py-4 bg-accent text-onyx-deep font-bold rounded-lg shadow-[0_0_20px_rgba(var(--color-accent),0.3)] hover:shadow-[0_0_30px_rgba(var(--color-accent),0.5)] transition-all flex items-center gap-2"
+                                        className="interaction-bounce px-8 py-4 bg-accent text-text-primary font-bold rounded-lg shadow-[0_0_20px_rgba(var(--color-accent),0.3)] hover:shadow-[0_0_30px_rgba(var(--color-accent),0.5)] transition-all flex items-center gap-2"
                                     >
                                         {t('hero.cta_menu') as string} <ArrowRight className="w-5 h-5" />
                                     </Link>
-                                    <Link href="/about" className="text-accent-text font-bold hover:text-white flex items-center gap-2 group transition-colors inline-flex">
+                                    <Link href="/about" className="text-accent-text font-bold hover:text-text-primary flex items-center gap-2 group transition-colors inline-flex">
                                         {t('philosophy.learn_more') || 'Mehr über die Ratsstuben erfahren'} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>
@@ -105,8 +105,8 @@ export const Home = async ({ locale }: HomeProps) => {
                                         className="object-cover"
                                     />
                                 </div>
-                                <div className="absolute -bottom-10 -start-10 bg-onyx-light/90 backdrop-blur-md border border-white/10 p-6 rounded-xl shadow-warm max-w-xs hidden md:block">
-                                    <p className="font-hand text-2xl text-white mb-2">&quot;{t('philosophy.quote') as string}&quot;</p>
+                                <div className="absolute -bottom-10 -start-10 bg-bg-secondary/90 backdrop-blur-md border border-border p-6 rounded-xl shadow-warm max-w-xs hidden md:block">
+                                    <p className="font-hand text-2xl text-text-primary mb-2">&quot;{t('philosophy.quote') as string}&quot;</p>
                                     <p className="text-sm font-bold text-accent-text">- {t('philosophy.quote_author') as string}</p>
                                 </div>
                             </div>
@@ -121,11 +121,11 @@ export const Home = async ({ locale }: HomeProps) => {
             </LazyViewport>
 
             {/* Highlights Grid */}
-            <section aria-labelledby="highlights-title" className="py-24 md:py-32 lg:py-48 bg-onyx-light">
+            <section aria-labelledby="highlights-title" className="py-24 md:py-32 lg:py-48 bg-bg-secondary">
                 <div className="container mx-auto px-4 max-w-7xl">
                     <AnimateIn className="text-center mb-20">
                         <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('highlights.label') as string}</span>
-                        <h2 id="highlights-title" className="text-4xl md:text-5xl font-display font-bold text-white mt-3 text-balance">{t('highlights.title') as string}</h2>
+                        <h2 id="highlights-title" className="text-4xl md:text-5xl font-display font-bold text-text-primary mt-3 text-balance">{t('highlights.title') as string}</h2>
                     </AnimateIn>
 
                     <StaggerContainer as="div" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" itemScope itemType="https://schema.org/ItemList">
@@ -135,7 +135,7 @@ export const Home = async ({ locale }: HomeProps) => {
                                 itemProp="itemListElement"
                                 itemScope
                                 itemType="https://schema.org/MenuItem"
-                                className="group card-lift bg-onyx-muted/50 border border-white/5 backdrop-blur-sm rounded-2xl overflow-hidden shadow-warm"
+                                className="group card-lift bg-surface/50 border border-border backdrop-blur-sm rounded-2xl overflow-hidden shadow-warm"
                             >
                                 <meta itemProp="position" content={(index + 1).toString()} />
                                 <div className="relative h-72 overflow-hidden">
@@ -146,13 +146,13 @@ export const Home = async ({ locale }: HomeProps) => {
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                         className="object-cover group-hover:scale-110 transition-transform duration-700 ease-liquid"
                                     />
-                                    <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="absolute top-4 end-4 bg-onyx-deep/90 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-sm font-bold text-white shadow-sm">
+                                    <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="absolute top-4 end-4 bg-bg-primary/90 backdrop-blur-md border border-border px-3 py-1 rounded-full text-sm font-bold text-text-primary shadow-sm">
                                         <span itemProp="price" content={dish.price.replace('€', '').trim()}>{dish.price}</span>
                                         <meta itemProp="priceCurrency" content="EUR" />
                                     </div>
                                 </div>
                                 <div className="p-8">
-                                    <h3 itemProp="name" className="text-xl font-bold text-white mb-2 group-hover:text-accent-text transition-colors">{dish.name}</h3>
+                                    <h3 itemProp="name" className="text-xl font-bold text-text-primary mb-2 group-hover:text-accent-text transition-colors">{dish.name}</h3>
                                     <p itemProp="description" className="text-stone-300 text-sm mb-6 line-clamp-2">{dish.desc}</p>
                                     <Link
                                         href="/menu"
@@ -168,7 +168,7 @@ export const Home = async ({ locale }: HomeProps) => {
                     <AnimateIn className="text-center mt-16" delay={300}>
                         <Link
                             href="/menu"
-                            className="interaction-bounce inline-block px-10 py-4 border border-white/20 text-white font-bold rounded-lg hover:bg-white hover:text-onyx-deep uppercase tracking-wider transition-colors"
+                            className="interaction-bounce inline-block px-10 py-4 border border-border text-text-primary font-bold rounded-lg hover:bg-white hover:text-text-primary uppercase tracking-wider transition-colors"
                         >
                             {t('highlights.view_menu') as string}
                         </Link>
@@ -177,12 +177,12 @@ export const Home = async ({ locale }: HomeProps) => {
             </section>
 
             {/* Stats Section with Animated Counters */}
-            <section aria-labelledby="stats-title" className="py-24 md:py-32 lg:py-40 bg-onyx-deep border-y border-white/5 relative overflow-hidden">
+            <section aria-labelledby="stats-title" className="py-24 md:py-32 lg:py-40 bg-bg-primary border-y border-border relative overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
                 <div className="container mx-auto px-4 relative z-10">
                     <h2 id="stats-title" className="sr-only">{t('stats.title') as string}</h2>
                     <LazyViewport minHeight="150px">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x divide-white/10 text-white">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x divide-white/10 text-text-primary">
                             <div className="flex flex-col items-center justify-center p-4">
                                 <AnimatedCounter target={25} label={t('counter.years') as string} suffix="+" />
                             </div>
@@ -209,7 +209,7 @@ export const Home = async ({ locale }: HomeProps) => {
             </LazyViewport>
 
             {/* Testimonials Section */}
-            <section aria-labelledby="testimonials-title" className="py-24 md:py-32 lg:py-48 bg-onyx-deep">
+            <section aria-labelledby="testimonials-title" className="py-24 md:py-32 lg:py-48 bg-bg-primary">
                 <div className="container mx-auto px-4 max-w-7xl">
                     <AnimateIn className="text-center mb-20">
                         <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('testimonials.label') as string}</span>
@@ -230,33 +230,33 @@ export const Home = async ({ locale }: HomeProps) => {
             </section>
 
             {/* Info & Location (Premium Layout) */}
-            <section aria-labelledby="info-location-title" className="py-24 md:py-32 lg:py-48 bg-onyx-deep text-white relative overflow-hidden">
+            <section aria-labelledby="info-location-title" className="py-24 md:py-32 lg:py-48 bg-bg-primary text-surface relative overflow-hidden">
                 <h2 id="info-location-title" className="sr-only">{t('info.visit_title') as string}</h2>
                 <div className="container mx-auto px-4 max-w-7xl relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                         {/* Hours */}
-                        <AnimateIn className="lg:col-span-1 bg-onyx-light/80 backdrop-blur-md p-10 rounded-2xl border border-white/10">
+                        <AnimateIn className="lg:col-span-1 bg-bg-secondary/80 backdrop-blur-md p-10 rounded-2xl border border-border">
                             <div className="w-12 h-12 bg-accent-text/10 rounded-full flex items-center justify-center mb-6 text-accent-text">
                                 <Clock className="w-6 h-6" />
                             </div>
-                            <h3 className="text-2xl font-display font-bold mb-6 text-white">{t('info.hours_title') as string}</h3>
+                            <h3 className="text-2xl font-display font-bold mb-6 text-text-primary">{t('info.hours_title') as string}</h3>
                             <ul className="space-y-4 text-stone-100">
-                                <li className="flex justify-between border-b border-white/10 pb-3">
+                                <li className="flex justify-between border-b border-border pb-3">
                                     <span>{tCommon(companyData.openingHours.ruhetag.tagKey as TranslationKey)}</span>
-                                    <span className="font-mono text-white">{tCommon('footer.closed') as string}</span>
+                                    <span className="font-mono text-text-primary">{tCommon('footer.closed') as string}</span>
                                 </li>
-                                <li className="border-b border-white/10 pb-3">
+                                <li className="border-b border-border pb-3">
                                     <div className="flex justify-between mb-1">
                                         <span>{tCommon(companyData.openingHours.regulaer.tageKey as TranslationKey)}</span>
-                                        <span className="font-mono text-white text-sm">{t('info.lunch_dinner') as string}</span>
+                                        <span className="font-mono text-text-primary text-sm">{t('info.lunch_dinner') as string}</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
                                         <span className="text-stone-200">{t('info.lunch') as string}</span>
-                                        <span className="font-mono text-white">{formatTime(companyData.openingHours.regulaer.mittags)}</span>
+                                        <span className="font-mono text-text-primary">{formatTime(companyData.openingHours.regulaer.mittags)}</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
                                         <span className="text-stone-200">{t('info.dinner') as string}</span>
-                                        <span className="font-mono text-white">{formatTime(companyData.openingHours.regulaer.abends)}</span>
+                                        <span className="font-mono text-text-primary">{formatTime(companyData.openingHours.regulaer.abends)}</span>
                                     </div>
                                 </li>
                             </ul>
@@ -265,19 +265,19 @@ export const Home = async ({ locale }: HomeProps) => {
                         {/* Contact & Map */}
                         <AnimateIn delay={150} className="lg:col-span-2 space-y-8">
                             <address className="flex flex-col md:flex-row gap-8 not-italic">
-                                <div className="flex-1 bg-onyx-light/80 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-accent-text/50 hover:shadow-glow transition-all">
+                                <div className="flex-1 bg-bg-secondary/80 backdrop-blur-md p-8 rounded-2xl border border-border hover:border-accent-text/50 hover:shadow-glow transition-all">
                                     <MapPin className="w-8 h-8 text-accent-text mb-4" aria-hidden="true" />
-                                    <h3 className="font-bold text-lg mb-2 text-white">{t('info.address_title') as string}</h3>
+                                    <h3 className="font-bold text-lg mb-2 text-text-primary">{t('info.address_title') as string}</h3>
                                     <p className="text-stone-100">{companyData.address.street}<br />{companyData.address.zip} {companyData.address.city}</p>
                                 </div>
-                                <div className="flex-1 bg-onyx-light/80 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-accent-text/50 hover:shadow-glow transition-all">
+                                <div className="flex-1 bg-bg-secondary/80 backdrop-blur-md p-8 rounded-2xl border border-border hover:border-accent-text/50 hover:shadow-glow transition-all">
                                     <Phone className="w-8 h-8 text-accent-text mb-4" aria-hidden="true" />
-                                    <h3 className="font-bold text-lg mb-2 text-white">{t('info.phone_title') as string}</h3>
+                                    <h3 className="font-bold text-lg mb-2 text-text-primary">{t('info.phone_title') as string}</h3>
                                     <p className="text-stone-100"><a href={`tel:${companyData.phone}`} className="hover:text-accent-text transition-colors">{companyData.displayPhone}</a></p>
                                 </div>
-                                <div className="flex-1 bg-onyx-light/80 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-accent-text/50 hover:shadow-glow transition-all">
+                                <div className="flex-1 bg-bg-secondary/80 backdrop-blur-md p-8 rounded-2xl border border-border hover:border-accent-text/50 hover:shadow-glow transition-all">
                                     <Mail className="w-8 h-8 text-accent-text mb-4" aria-hidden="true" />
-                                    <h3 className="font-bold text-lg mb-2 text-white">{t('info.email_title') as string}</h3>
+                                    <h3 className="font-bold text-lg mb-2 text-text-primary">{t('info.email_title') as string}</h3>
                                     <p className="text-stone-100"><a href={`mailto:${companyData.email}`} className="hover:text-accent-text transition-colors">{companyData.email}</a></p>
                                 </div>
                             </address>
@@ -292,7 +292,7 @@ export const Home = async ({ locale }: HomeProps) => {
                                 <div className="absolute bottom-6 end-6">
                                     <Link
                                         href="/contact"
-                                        className="interaction-bounce px-6 py-3 bg-accent-text text-onyx-deep font-bold rounded-lg hover:bg-white shadow-sm inline-block transition-colors"
+                                        className="interaction-bounce px-6 py-3 bg-accent-text text-text-primary font-bold rounded-lg hover:bg-white shadow-sm inline-block transition-colors"
                                     >
                                         {t('info.plan_route') as string}
                                     </Link>

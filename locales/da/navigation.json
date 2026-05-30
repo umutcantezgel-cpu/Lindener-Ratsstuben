@@ -23,5 +23,9 @@
   "nav.home": "Hjem",
   "nav.kegelbahn": "Keglebane",
   "nav.menu": "Menu",
-  "nav.reservation": "Reservation"
+  "nav.reservation": "Reservation",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

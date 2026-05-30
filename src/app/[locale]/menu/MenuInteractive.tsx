@@ -167,7 +167,7 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
     return (
         <>
             {/* Category Navigation */}
-            <div className="sticky top-[72px] lg:top-[88px] z-[90] -mx-4 px-4 py-4 sm:mx-0 sm:px-0 sm:py-0 sm:relative sm:top-0 sm:z-10 mb-12 bg-onyx-deep/95 sm:bg-transparent backdrop-blur-xl sm:backdrop-blur-none border-b border-white/10 sm:border-none shadow-md sm:shadow-none transition-all duration-300">
+            <div className="sticky top-[72px] lg:top-[88px] z-[90] -mx-4 px-4 py-4 sm:mx-0 sm:px-0 sm:py-0 sm:relative sm:top-0 sm:z-10 mb-12 bg-bg-primary/95 sm:bg-transparent backdrop-blur-xl sm:backdrop-blur-none border-b border-border sm:border-none shadow-md sm:shadow-none transition-all duration-300">
                 <nav aria-label={translations.categoriesLabel} className="overflow-x-auto pb-2 sm:pb-4 scrollbar-hide relative z-10">
                     <ul className="flex gap-3 md:justify-center min-w-max m-0 p-0 list-none">
                         {categories.map(category => (

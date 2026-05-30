@@ -23,5 +23,9 @@
   "nav.home": "Início",
   "nav.kegelbahn": "Pista de boliche",
   "nav.menu": "Menu",
-  "nav.reservation": "Reserva"
+  "nav.reservation": "Reserva",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

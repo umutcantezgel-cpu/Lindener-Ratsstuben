@@ -23,5 +23,9 @@
   "nav.home": "الرئيسية",
   "nav.kegelbahn": "صالة البولينج",
   "nav.menu": "القائمة",
-  "nav.reservation": "حجز"
+  "nav.reservation": "حجز",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

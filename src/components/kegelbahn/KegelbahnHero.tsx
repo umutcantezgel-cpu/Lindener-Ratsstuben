@@ -18,7 +18,7 @@ export const KegelbahnHero: React.FC = () => {
     return (
         <section 
             ref={containerRef}
-            className="relative h-[85vh] xl:h-[90vh] flex items-center justify-center overflow-hidden bg-onyx text-surface pt-20"
+            className="relative h-[85vh] xl:h-[90vh] flex items-center justify-center overflow-hidden bg-bg-primary text-surface pt-20"
         >
             {/* Cinematic Background */}
             <motion.div 
@@ -57,11 +57,11 @@ export const KegelbahnHero: React.FC = () => {
                     transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
                     className="mt-12 flex flex-wrap justify-center gap-6"
                 >
-                    <div className="flex items-center gap-3 backdrop-blur-md bg-white/5 border border-white/10 px-6 py-3 rounded-2xl">
+                    <div className="flex items-center gap-3 backdrop-blur-md bg-white/5 border border-border px-6 py-3 rounded-2xl">
                         <Trophy className="w-6 h-6 text-primary" />
                         <span className="font-medium">3 Profi-Bahnen</span>
                     </div>
-                    <div className="flex items-center gap-3 backdrop-blur-md bg-white/5 border border-white/10 px-6 py-3 rounded-2xl">
+                    <div className="flex items-center gap-3 backdrop-blur-md bg-white/5 border border-border px-6 py-3 rounded-2xl">
                         <ShieldCheck className="w-6 h-6 text-primary" />
                         <span className="font-medium">3 Essbereiche</span>
                     </div>

@@ -23,5 +23,9 @@
   "nav.home": "Главная",
   "nav.kegelbahn": "Кегельбан",
   "nav.menu": "Меню",
-  "nav.reservation": "Бронирование"
+  "nav.reservation": "Бронирование",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

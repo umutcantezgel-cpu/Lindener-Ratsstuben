@@ -188,10 +188,10 @@ export const ReservationInteractive = () => {
     return (
         <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-5xl font-display font-medium text-onyx mb-4 tracking-tight">
+                <h1 className="text-4xl md:text-5xl font-display font-medium text-text-primary mb-4 tracking-tight">
                     {t('reservation.title', 'Tisch reservieren')}
                 </h1>
-                <p className="text-onyx-muted text-lg max-w-xl mx-auto">
+                <p className="text-text-muted text-lg max-w-xl mx-auto">
                     {tPages('reservation.subtitle', 'Sichern Sie sich Ihren Tisch für ein unvergessliches Erlebnis.')}
                 </p>
             </div>
@@ -210,10 +210,10 @@ export const ReservationInteractive = () => {
                             <div className="w-24 h-24 bg-accent/10 text-accent rounded-full flex items-center justify-center mx-auto mb-8">
                                 <CheckCircle className="w-12 h-12" aria-hidden="true" />
                             </div>
-                            <h2 className="text-3xl font-display font-medium text-onyx mb-4 tracking-wide">
+                            <h2 className="text-3xl font-display font-medium text-text-primary mb-4 tracking-wide">
                                 {t('reservation.success_title', 'Vielen Dank!')}
                             </h2>
-                            <p className="text-onyx-muted text-lg mb-10 max-w-md mx-auto leading-relaxed">
+                            <p className="text-text-muted text-lg mb-10 max-w-md mx-auto leading-relaxed">
                                 {t('reservation.success_message', 'Wir haben Ihre Anfrage erhalten und melden uns in Kürze bei Ihnen.')}
                             </p>
                             <button
@@ -273,10 +273,10 @@ export const ReservationInteractive = () => {
                                 {step === 1 && (
                                     <motion.div key="step1" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.4 }} className="space-y-6">
                                         <div className="text-center mb-8">
-                                            <h2 className="text-2xl font-display font-medium text-onyx mb-2">
+                                            <h2 className="text-2xl font-display font-medium text-text-primary mb-2">
                                                 {t('reservation.step1_title', 'Für wie viele Personen?')}
                                             </h2>
-                                            <p className="text-onyx-muted text-sm">{t('reservation.step1_subtitle', 'Bitte wählen Sie die Gästeanzahl')}</p>
+                                            <p className="text-text-muted text-sm">{t('reservation.step1_subtitle', 'Bitte wählen Sie die Gästeanzahl')}</p>
                                         </div>
                                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                             {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
@@ -307,12 +307,12 @@ export const ReservationInteractive = () => {
                                 {step === 2 && (
                                     <motion.div key="step2" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.4 }} className="space-y-6">
                                         <div className="text-center mb-8">
-                                            <h2 className="text-2xl font-display font-medium text-onyx mb-2">{t('reservation.step2_title', 'Wann dürfen wir Sie erwarten?')}</h2>
-                                            <p className="text-onyx-muted text-sm">{t('reservation.step2_subtitle', 'Datum und Uhrzeit Ihrer Wahl')}</p>
+                                            <h2 className="text-2xl font-display font-medium text-text-primary mb-2">{t('reservation.step2_title', 'Wann dürfen wir Sie erwarten?')}</h2>
+                                            <p className="text-text-muted text-sm">{t('reservation.step2_subtitle', 'Datum und Uhrzeit Ihrer Wahl')}</p>
                                         </div>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div className="space-y-2">
-                                                <label htmlFor="res-date" className="block text-sm font-medium text-onyx flex items-center gap-2">
+                                                <label htmlFor="res-date" className="block text-sm font-medium text-text-primary flex items-center gap-2">
                                                     <Calendar className="w-4 h-4 text-accent" aria-hidden="true" /> {t('reservation.date_label', 'Datum')}
                                                 </label>
                                                 <input id="res-date" type="date" min={tomorrowStr} {...register('date')}
@@ -321,7 +321,7 @@ export const ReservationInteractive = () => {
                                                 {errors.date && <p className="text-xs text-red-500 flex items-center gap-1 mt-1"><AlertCircle className="w-3 h-3" /> {errors.date.message}</p>}
                                             </div>
                                             <div className="space-y-2">
-                                                <label htmlFor="res-time" className="block text-sm font-medium text-onyx flex items-center gap-2">
+                                                <label htmlFor="res-time" className="block text-sm font-medium text-text-primary flex items-center gap-2">
                                                     <Clock className="w-4 h-4 text-accent" aria-hidden="true" /> {t('reservation.time_label', 'Uhrzeit')}
                                                 </label>
                                                 <input id="res-time" type="time" {...register('time')}

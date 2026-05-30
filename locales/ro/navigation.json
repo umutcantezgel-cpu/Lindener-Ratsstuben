@@ -23,5 +23,9 @@
   "nav.home": "Acasă",
   "nav.kegelbahn": "Pistă de popice",
   "nav.menu": "Meniu",
-  "nav.reservation": "Rezervare"
+  "nav.reservation": "Rezervare",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

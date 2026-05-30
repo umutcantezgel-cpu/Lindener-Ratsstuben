@@ -23,5 +23,9 @@
   "nav.home": "ホーム",
   "nav.kegelbahn": "ボウリング場",
   "nav.menu": "メニュー",
-  "nav.reservation": "予約"
+  "nav.reservation": "予約",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

@@ -23,5 +23,9 @@
   "nav.home": "Inicio",
   "nav.kegelbahn": "Bolera",
   "nav.menu": "Menú",
-  "nav.reservation": "Reserva"
+  "nav.reservation": "Reserva",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

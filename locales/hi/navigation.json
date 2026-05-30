@@ -23,5 +23,9 @@
   "nav.home": "होम",
   "nav.kegelbahn": "बॉलिंग एली",
   "nav.menu": "मेनू",
-  "nav.reservation": "आरक्षण"
+  "nav.reservation": "आरक्षण",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

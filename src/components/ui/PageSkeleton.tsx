@@ -12,7 +12,7 @@ export function PageSkeleton() {
           animation: shimmer 1.5s linear infinite;
         }
       `}} />
-      <div className="w-full h-screen max-h-[80vh] bg-onyx-deep relative overflow-hidden">
+      <div className="w-full h-screen max-h-[80vh] bg-bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skeleton-shimmer" />
       </div>
       <div className="container mx-auto px-4 py-24 space-y-12">
@@ -32,7 +32,7 @@ export function PageSkeleton() {
 
 function SkeletonBox({ className }: { className?: string }) {
   return (
-    <div className={`bg-onyx-light/30 rounded-lg overflow-hidden relative ${className}`}>
+    <div className={`bg-bg-secondary/30 rounded-lg overflow-hidden relative ${className}`}>
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skeleton-shimmer" />
     </div>
   );

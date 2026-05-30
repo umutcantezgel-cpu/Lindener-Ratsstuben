@@ -23,5 +23,9 @@
   "nav.home": "홈",
   "nav.kegelbahn": "볼링장",
   "nav.menu": "메뉴",
-  "nav.reservation": "예약"
+  "nav.reservation": "예약",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

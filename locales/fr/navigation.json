@@ -23,5 +23,9 @@
   "nav.home": "Accueil",
   "nav.kegelbahn": "Piste de quilles",
   "nav.menu": "Menu",
-  "nav.reservation": "Réservation"
+  "nav.reservation": "Réservation",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

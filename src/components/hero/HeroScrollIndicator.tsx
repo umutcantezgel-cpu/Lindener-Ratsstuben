@@ -25,7 +25,7 @@ export const HeroScrollIndicator: React.FC = () => {
         <div className="absolute bottom-6 lg:bottom-10 start-1/2 rtl:translate-x-1/2 flex flex-col items-center z-30 pointer-events-none animate-scroll-indicator">
             <style dangerouslySetInnerHTML={{ __html: criticalStyles }} />
             <div className="w-[1px] h-16 bg-gradient-to-b from-onyx/20 to-transparent relative overflow-hidden">
-                <div className="absolute top-0 start-0 w-[1px] h-6 bg-onyx/60 animate-scroll-line" />
+                <div className="absolute top-0 start-0 w-[1px] h-6 bg-bg-primary/60 animate-scroll-line" />
             </div>
         </div>
     );

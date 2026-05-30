@@ -23,5 +23,9 @@
   "nav.home": "Početna",
   "nav.kegelbahn": "Kuglana",
   "nav.menu": "Jelovnik",
-  "nav.reservation": "Rezervacija"
+  "nav.reservation": "Rezervacija",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

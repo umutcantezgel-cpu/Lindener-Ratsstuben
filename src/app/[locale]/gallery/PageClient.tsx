@@ -52,7 +52,7 @@ export const Gallery = () => {
             <article className="pt-24 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
                 <div className="container mx-auto px-4">
                     <header className="text-center mb-12">
-                        <h1 className="text-3xl md:text-4xl font-display font-bold text-white bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-4 shadow-warm inline-block w-full max-w-3xl">{t('gallery.title') as string}</h1>
+                        <h1 className="text-3xl md:text-4xl font-display font-bold text-text-primary bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-4 shadow-warm inline-block w-full max-w-3xl">{t('gallery.title') as string}</h1>
                         <p className="text-text-secondary max-w-2xl mx-auto">
                             {t('gallery.description') as string}
                         </p>
@@ -79,10 +79,10 @@ export const Gallery = () => {
                                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100" aria-hidden="true">
-                                        <ZoomIn className="text-white w-10 h-10" />
+                                        <ZoomIn className="text-text-primary w-10 h-10" />
                                     </div>
                                     <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
-                                        <span className="text-white font-medium">{img.category}</span>
+                                        <span className="text-text-primary font-medium">{img.category}</span>
                                     </div>
                                 </button>
                             </li>
@@ -100,7 +100,7 @@ export const Gallery = () => {
                         aria-label={t('gallery.preview') as string}
                     >
                         <button
-                            className="absolute top-6 end-6 text-white hover:text-primary transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-primary"
+                            className="absolute top-6 end-6 text-text-primary hover:text-primary transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-primary"
                             onClick={() => setSelectedImage(null)}
                             aria-label={t('gallery.close') as string}
                         >

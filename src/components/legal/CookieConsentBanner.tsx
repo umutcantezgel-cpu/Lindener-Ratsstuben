@@ -34,7 +34,7 @@ export const CookieConsentBanner = () => {
                 className="fixed bottom-0 inset-x-0 z-[9999] p-4 md:p-6 pb-safe-bottom"
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
             >
-                <div className="max-w-5xl mx-auto bg-surface border border-border shadow-2xl rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 flex flex-col md:flex-row gap-5 md:gap-8 items-start md:items-center max-h-[85vh] overflow-y-auto custom-scrollbar">
+                <div className="max-w-5xl mx-auto bg-surface/95 backdrop-blur-xl border border-border shadow-2xl rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 flex flex-col md:flex-row gap-5 md:gap-8 items-start md:items-center max-h-[85vh] overflow-y-auto custom-scrollbar">
                     
                     {!showPreferences ? (
                         <>
@@ -106,7 +106,7 @@ export const CookieConsentBanner = () => {
 
                             <div className="space-y-4 max-h-[40vh] overflow-y-auto pe-2 custom-scrollbar">
                                 {/* Necessary */}
-                                <div className="p-4 rounded-xl border border-border bg-bg-secondary flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
+                                <div className="p-4 rounded-xl border border-border/50 bg-bg-secondary/30 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
                                     <div>
                                         <h3 className="text-base font-semibold text-text-primary flex items-center gap-2">
                                             {t('cookie.necessary_title')} <Check className="w-4 h-4 text-green-500" />

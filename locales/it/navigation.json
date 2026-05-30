@@ -23,5 +23,9 @@
   "nav.home": "Casa",
   "nav.kegelbahn": "Pista da bowling",
   "nav.menu": "Menù",
-  "nav.reservation": "Prenotazione"
+  "nav.reservation": "Prenotazione",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

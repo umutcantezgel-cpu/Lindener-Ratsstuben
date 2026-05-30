@@ -59,10 +59,10 @@ export const Header: React.FC = () => {
             className={clsx(
                 "fixed top-0 w-full z-[100] isolate transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                 isScrolled
-                    ? "bg-onyx-deep border-b border-white/10 shadow-elevation-1 py-3 lg:py-4"
+                    ? "bg-surface/80 backdrop-blur-xl border-b border-border shadow-elevation-1 py-3 lg:py-4"
                     : isHomePage
-                        ? "bg-gradient-to-b from-black/70 via-black/20 to-transparent py-6 lg:py-8"
-                        : "bg-onyx-deep border-b border-white/10 py-6 lg:py-8"
+                        ? "bg-surface/50 backdrop-blur-md border-b border-border/50 py-6 lg:py-8 shadow-sm"
+                        : "bg-surface/60 backdrop-blur-md border-b border-border py-6 lg:py-8 shadow-sm"
             )}
         >
             <div className="w-full max-w-[1920px] mx-auto px-4 lg:px-8 xl:px-8 2xl:px-16 flex items-center justify-between">
@@ -85,7 +85,7 @@ export const Header: React.FC = () => {
 
                 {/* Desktop Nav */}
                 <nav className="hidden xl:flex items-center justify-center flex-[2]" aria-label={tCommon('accessibility.main_navigation') as string}>
-                    <ul className="flex items-center gap-0.5 m-0 p-1.5 bg-surface/80 rounded-full backdrop-blur-md border border-white/20 shadow-lg shadow-black/10">
+                    <ul className="flex items-center gap-1 m-0 p-1 bg-surface/50 rounded-full backdrop-blur-md border border-border shadow-inner">
                         {navLinks.map((link) => {
                             const isActive = pathname === link.path || pathname === `/[locale]${link.path}`;
                             return (
@@ -138,8 +138,8 @@ export const Header: React.FC = () => {
                     className={clsx(
                         "xl:hidden relative z-[110] p-3 rounded-full transition-all duration-500 cursor-pointer pointer-events-auto touch-manipulation group before:absolute before:-inset-4 before:content-['']",
                         isMobileMenuOpen 
-                            ? "bg-white/10 text-white backdrop-blur-md" 
-                            : (isScrolled ? "bg-white/10 text-white shadow-sm" : "bg-white/10 text-white backdrop-blur-md border border-white/10 hover:bg-white/20")
+                            ? "bg-bg-secondary text-text-primary" 
+                            : (isScrolled ? "bg-bg-secondary text-text-primary shadow-sm" : "bg-surface/50 text-text-primary backdrop-blur-md hover:bg-surface/70 border border-border")
                     )}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-label={isMobileMenuOpen ? tCommon('accessibility.menu_close') as string : tCommon('accessibility.menu_open') as string}

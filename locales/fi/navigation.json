@@ -23,5 +23,9 @@
   "nav.home": "Etusivu",
   "nav.kegelbahn": "Keilarata",
   "nav.menu": "Ruokalista",
-  "nav.reservation": "Varaus"
+  "nav.reservation": "Varaus",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

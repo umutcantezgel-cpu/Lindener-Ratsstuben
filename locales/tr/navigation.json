@@ -23,5 +23,9 @@
   "nav.home": "Ana Sayfa",
   "nav.kegelbahn": "Bowling",
   "nav.menu": "Menü",
-  "nav.reservation": "Rezervasyon"
+  "nav.reservation": "Rezervasyon",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }

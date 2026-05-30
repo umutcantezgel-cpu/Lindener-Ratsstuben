@@ -23,5 +23,9 @@
   "nav.home": "Hem",
   "nav.kegelbahn": "Kägelbana",
   "nav.menu": "Meny",
-  "nav.reservation": "Bokning"
+  "nav.reservation": "Bokning",
+  "nav.eventlocation": "Eventlocation & Saal",
+  "nav.catering": "Catering & Partyservice",
+  "nav.philosophie": "Italienische Küche",
+  "nav.mittagstisch": "Mittagstisch"
 }
