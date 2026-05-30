@@ -55,7 +55,7 @@ export const MapFacade: React.FC<MapFacadeProps> = ({ address, mapQuery, classNa
                 </div>
             ) : (
                 <iframe
-                    src={`https://www.google.com/maps/embed?pb=!1m4!2m1!1s${encodeURIComponent(mapQuery)}!5e0!6i15`}
+                    src={`https://maps.google.com/maps?width=100%25&height=600&hl=de&q=${encodeURIComponent(mapQuery)}&t=&z=15&ie=UTF8&iwloc=B&output=embed`}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

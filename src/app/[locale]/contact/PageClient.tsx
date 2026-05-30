@@ -105,7 +105,7 @@ export const Contact = () => {
                             {/* Map */}
                             <div className="h-[400px] bg-gray-200 rounded-2xl overflow-hidden shadow-sm border-4 border-white">
                                 <iframe
-                                    src={`https://www.google.com/maps/embed?pb=!1m4!2m1!1s${encodeURIComponent(companyData.address.street + ", " + companyData.address.zip + " " + companyData.address.city)}!5e0!6i15`}
+                                    src={`https://maps.google.com/maps?width=100%25&height=600&hl=de&q=${encodeURIComponent(companyData.address.street + ", " + companyData.address.zip + " " + companyData.address.city)}&t=&z=15&ie=UTF8&iwloc=B&output=embed`}
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
