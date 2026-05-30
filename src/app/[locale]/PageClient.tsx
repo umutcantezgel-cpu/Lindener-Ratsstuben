@@ -230,7 +230,7 @@ export const Home = async ({ locale }: HomeProps) => {
             </section>
 
             {/* Info & Location (Premium Layout) */}
-            <section aria-labelledby="info-location-title" className="py-24 md:py-32 lg:py-48 bg-bg-primary text-surface relative overflow-hidden">
+            <section aria-labelledby="info-location-title" className="py-24 md:py-32 lg:py-48 bg-bg-primary text-text-secondary relative overflow-hidden">
                 <h2 id="info-location-title" className="sr-only">{t('info.visit_title') as string}</h2>
                 <div className="container mx-auto px-4 max-w-7xl relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -240,7 +240,7 @@ export const Home = async ({ locale }: HomeProps) => {
                                 <Clock className="w-6 h-6" />
                             </div>
                             <h3 className="text-2xl font-display font-bold mb-6 text-text-primary">{t('info.hours_title') as string}</h3>
-                            <ul className="space-y-4 text-stone-100">
+                            <ul className="space-y-4 text-text-secondary">
                                 <li className="flex justify-between border-b border-border pb-3">
                                     <span>{tCommon(companyData.openingHours.ruhetag.tagKey as TranslationKey)}</span>
                                     <span className="font-mono text-text-primary">{tCommon('footer.closed') as string}</span>
@@ -251,11 +251,11 @@ export const Home = async ({ locale }: HomeProps) => {
                                         <span className="font-mono text-text-primary text-sm">{t('info.lunch_dinner') as string}</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-stone-200">{t('info.lunch') as string}</span>
+                                        <span className="text-stone-500">{t('info.lunch') as string}</span>
                                         <span className="font-mono text-text-primary">{formatTime(companyData.openingHours.regulaer.mittags)}</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-stone-200">{t('info.dinner') as string}</span>
+                                        <span className="text-stone-500">{t('info.dinner') as string}</span>
                                         <span className="font-mono text-text-primary">{formatTime(companyData.openingHours.regulaer.abends)}</span>
                                     </div>
                                 </li>
@@ -268,17 +268,17 @@ export const Home = async ({ locale }: HomeProps) => {
                                 <div className="flex-1 bg-bg-secondary/80 backdrop-blur-md p-8 rounded-2xl border border-border hover:border-accent-text/50 hover:shadow-glow transition-all">
                                     <MapPin className="w-8 h-8 text-accent-text mb-4" aria-hidden="true" />
                                     <h3 className="font-bold text-lg mb-2 text-text-primary">{t('info.address_title') as string}</h3>
-                                    <p className="text-stone-100">{companyData.address.street}<br />{companyData.address.zip} {companyData.address.city}</p>
+                                    <p className="text-text-secondary">{companyData.address.street}<br />{companyData.address.zip} {companyData.address.city}</p>
                                 </div>
                                 <div className="flex-1 bg-bg-secondary/80 backdrop-blur-md p-8 rounded-2xl border border-border hover:border-accent-text/50 hover:shadow-glow transition-all">
                                     <Phone className="w-8 h-8 text-accent-text mb-4" aria-hidden="true" />
                                     <h3 className="font-bold text-lg mb-2 text-text-primary">{t('info.phone_title') as string}</h3>
-                                    <p className="text-stone-100"><a href={`tel:${companyData.phone}`} className="hover:text-accent-text transition-colors">{companyData.displayPhone}</a></p>
+                                    <p className="text-text-secondary"><a href={`tel:${companyData.phone}`} className="hover:text-accent-text transition-colors">{companyData.displayPhone}</a></p>
                                 </div>
                                 <div className="flex-1 bg-bg-secondary/80 backdrop-blur-md p-8 rounded-2xl border border-border hover:border-accent-text/50 hover:shadow-glow transition-all">
                                     <Mail className="w-8 h-8 text-accent-text mb-4" aria-hidden="true" />
                                     <h3 className="font-bold text-lg mb-2 text-text-primary">{t('info.email_title') as string}</h3>
-                                    <p className="text-stone-100"><a href={`mailto:${companyData.email}`} className="hover:text-accent-text transition-colors">{companyData.email}</a></p>
+                                    <p className="text-text-secondary"><a href={`mailto:${companyData.email}`} className="hover:text-accent-text transition-colors">{companyData.email}</a></p>
                                 </div>
                             </address>
 
@@ -289,13 +289,15 @@ export const Home = async ({ locale }: HomeProps) => {
                                         mapQuery={`${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}`}
                                     />
                                 </LazyViewport>
-                                <div className="absolute bottom-6 end-6">
-                                    <Link
-                                        href="/contact"
-                                        className="interaction-bounce px-6 py-3 bg-accent-text text-text-primary font-bold rounded-lg hover:bg-white shadow-sm inline-block transition-colors"
+                                <div className="absolute bottom-6 end-6 pointer-events-none">
+                                    <a
+                                        href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(companyData.address.street + ", " + companyData.address.zip + " " + companyData.address.city)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="interaction-bounce px-6 py-3 bg-accent-text text-text-primary font-bold rounded-lg hover:bg-white shadow-sm inline-block transition-colors pointer-events-auto"
                                     >
                                         {t('info.plan_route') as string}
-                                    </Link>
+                                    </a>
                                 </div>
                             </div>
                         </AnimateIn>
