@@ -31,9 +31,13 @@ export function StaggerContainer({
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  const prefersReducedMotion = typeof window !== 'undefined' 
-    ? window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches 
-    : false;
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    // Check for prefers-reduced-motion after mount to avoid hydration mismatch
+    const isReduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches || false;
+    setPrefersReducedMotion(isReduced);
+  }, []);
 
   useEffect(() => {
     const el = ref.current;

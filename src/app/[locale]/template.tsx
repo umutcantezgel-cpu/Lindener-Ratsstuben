@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 export default function Template({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
-  // Check for prefers-reduced-motion
-  const prefersReducedMotion = typeof window !== 'undefined' 
-    ? window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches 
-    : false;
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
+    // Check for prefers-reduced-motion after mount to avoid hydration mismatch
+    const isReduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches || false;
+    setPrefersReducedMotion(isReduced);
     // Trigger the transition on next frame after mount
     requestAnimationFrame(() => setMounted(true));
   }, []);
