@@ -69,7 +69,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                     animate={{ opacity: 1, backdropFilter: "blur(40px)" }}
                     exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
                     transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-                    className="fixed top-0 left-0 w-full h-[100vh] h-[100dvh] bg-surface/50 backdrop-blur-2xl z-[105] flex flex-col px-6 overflow-y-auto overflow-x-hidden"
+                    className="fixed top-0 left-0 w-full h-[100vh] h-[100dvh] bg-bg-primary/98 backdrop-blur-3xl z-[105] flex flex-col px-6 overflow-y-auto overflow-x-hidden"
                     style={{
                         paddingTop: 'max(7rem, env(safe-area-inset-top))',
                         paddingBottom: 'max(2.5rem, env(safe-area-inset-bottom))'
@@ -194,7 +194,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                                 {variant === 'general' ? t('nav.reservation') : navCta}
                             </Link>
 
-                            <div className="p-4 bg-surface/50 backdrop-blur-md rounded-2xl border border-border flex justify-center">
+                            <div className="p-4 bg-bg-secondary/80 backdrop-blur-md rounded-2xl border border-border flex justify-center">
                                 <LanguageSwitcher variant="mobile" />
                             </div>
                         </motion.div>
