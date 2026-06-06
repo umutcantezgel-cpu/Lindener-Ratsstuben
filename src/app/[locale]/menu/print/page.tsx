@@ -29,23 +29,7 @@ export default function PrintMenuPage() {
 
       {/* ═══ SEITE III: Suppen & Vorspeisen ═══ */}
       <PrintPage pageNum="III">
-        <div className="welcome-block">
-          <div className="welcome-ornament">✦ ✦ ✦</div>
-          <p className="welcome-text">
-            Herzlich willkommen in unserem Restaurant.
-          </p>
-          <p className="welcome-text">
-            Wir wünschen uns, dass Sie sich wohlfühlen und Speis und Trank genießen.
-          </p>
-          <p className="welcome-text">
-            Bei einem guten Getränk und liebevoll, frisch zubereiteten Essen gelingt es Ihnen sicherlich,
-            Ihren Tag (Abend) gemütlich in unserem Restaurant ausklingen zu lassen.
-          </p>
-          <p className="welcome-text welcome-closing">
-            Wir wünschen Ihnen einen guten Appetit und einen angenehmen Aufenthalt.
-          </p>
-          <div className="welcome-ornament">✦ ✦ ✦</div>
-        </div>
+
 
         <DishCategory dropcap="S" title="Suppen" marginTop="5px" marginBottom="5px" />
         <div className="cat-grid">
