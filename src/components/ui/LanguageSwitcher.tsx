@@ -109,7 +109,7 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
           isFooter
             ? 'border border-border bg-bg-secondary text-text-primary hover:bg-surface px-4 py-2.5 text-sm shadow-sm'
             : isMobile
-              ? 'text-text-secondary hover:text-primary w-full px-4 py-3 text-base justify-between bg-bg-secondary rounded-xl'
+              ? 'text-white hover:text-white/80 w-full px-4 py-3 text-base justify-between bg-white/10 hover:bg-white/20 rounded-xl'
               : 'text-text-secondary hover:text-primary hover:bg-primary/5 px-3 py-2 text-sm'
         )}
         aria-expanded={isOpen}
@@ -135,23 +135,28 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
             isFooter
               ? 'bottom-full mb-2 bg-surface/98 border-border w-[90vw] max-w-[300px] left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:end-0'
               : isMobile
-                ? 'inset-x-0 bg-surface border-border w-full'
+                ? 'inset-x-0 bg-black/20 border-white/10 w-full text-white backdrop-blur-xl'
                 : 'top-full bg-surface/98 border-border w-80 end-0',
           )}
           role="listbox"
           aria-label={t('aria.available_languages') as string}
         >
           {/* Search */}
-          <div className="p-3 border-b border-border">
+          <div className={clsx("p-3 border-b", isMobile ? "border-white/10" : "border-border")}>
             <div className="relative">
-              <Search className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-tertiary" />
+              <Search className={clsx("absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4", isMobile ? "text-white/50" : "text-text-tertiary")} />
               <input
                 ref={searchRef}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t('aria.search_placeholder') as string || 'Search...'}
-                className="w-full ps-9 pe-3 py-2.5 text-sm rounded-xl outline-none transition-colors bg-bg-secondary text-text-primary placeholder-text-tertiary focus:ring-2 focus:ring-primary/30 focus:bg-surface"
+                className={clsx(
+                  "w-full ps-9 pe-3 py-2.5 text-sm rounded-xl outline-none transition-colors",
+                  isMobile 
+                    ? "bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-white/30 focus:bg-white/20"
+                    : "bg-bg-secondary text-text-primary placeholder-text-tertiary focus:ring-2 focus:ring-primary/30 focus:bg-surface"
+                )}
               />
             </div>
           </div>
@@ -159,7 +164,7 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
           {/* Language List */}
           <div className="max-h-80 overflow-y-auto py-1 scrollbar-thin">
             {filteredLocales.length === 0 ? (
-              <div className="px-4 py-8 text-center text-sm text-text-tertiary">
+              <div className={clsx("px-4 py-8 text-center text-sm", isMobile ? "text-white/50" : "text-text-tertiary")}>
                 {t('aria.no_results') as string || 'No results'}
               </div>
             ) : (
@@ -172,8 +177,8 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
                   className={clsx(
                     'w-full text-start px-4 py-3 text-sm flex items-center gap-3 transition-colors group/item',
                     locale === currentLocale
-                      ? 'bg-primary/8 text-primary'
-                      : 'text-text-secondary hover:bg-bg-secondary hover:text-primary'
+                      ? (isMobile ? 'bg-white/20 text-white' : 'bg-primary/8 text-primary')
+                      : (isMobile ? 'text-white/80 hover:bg-white/10 hover:text-white' : 'text-text-secondary hover:bg-bg-secondary hover:text-primary')
                   )}
                 >
                   {/* Flag */}
@@ -184,18 +189,18 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
                   {/* Name */}
                   <div className="flex-1 min-w-0">
                     <div className="font-medium truncate">{LOCALE_NATIVE_NAMES[locale]}</div>
-                    <div className="text-xs truncate text-text-tertiary">
+                    <div className={clsx("text-xs truncate", isMobile ? "text-white/50" : "text-text-tertiary")}>
                       {LOCALE_DISPLAY_NAMES[locale]}
                     </div>
                   </div>
 
                   {/* Active check + ISO code */}
                   <div className="flex items-center gap-2 flex-shrink-0">
-                    <span className="text-xs font-mono uppercase text-border">
+                    <span className={clsx("text-xs font-mono uppercase", isMobile ? "text-white/30" : "text-border")}>
                       {locale}
                     </span>
                     {locale === currentLocale && (
-                      <Check className="w-4 h-4 text-primary" />
+                      <Check className={clsx("w-4 h-4", isMobile ? "text-white" : "text-primary")} />
                     )}
                   </div>
                 </button>
