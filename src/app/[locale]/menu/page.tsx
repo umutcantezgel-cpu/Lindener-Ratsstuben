@@ -176,24 +176,16 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   // ═══ MITTAGSKARTE (Tägliches Lunch-Menü) ═══
   let mittagskarte = null;
   try {
-    const { list } = await import('@vercel/blob');
-    const listResult = await list({
-      prefix: 'mittagskarte/',
-      token: process.env.BLOB_READ_WRITE_TOKEN,
-    }).catch(() => ({ blobs: [] }));
+    const baseUrl = process.env.VERCEL_URL 
+        ? `https://${process.env.VERCEL_URL}`
+        : 'https://www.lindener-ratsstuben.de';
+        
+    const res = await fetch(`${baseUrl}/api/mittagskarte`, {
+      cache: 'no-store'
+    });
     
-    const blobInfo = listResult.blobs.find(b => b.pathname === 'mittagskarte/current.json');
-    if (blobInfo) {
-      // Vercel Blob public URLs can be fetched directly
-      const response = await fetch(blobInfo.url, {
-        headers: {
-          Authorization: `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}`,
-        },
-        cache: 'no-store'
-      });
-      if (response.ok) {
-        mittagskarte = await response.json();
-      }
+    if (res.ok) {
+      mittagskarte = await res.json();
     }
   } catch (error) {
     console.warn('[Menu] Mittagskarte konnte nicht geladen werden:', error);
