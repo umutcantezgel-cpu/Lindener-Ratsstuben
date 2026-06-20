@@ -328,7 +328,7 @@ export async function POST(request: NextRequest) {
     };
 
     await put(BLOB_KEY, JSON.stringify(mittagskarteData), {
-      access: 'public',
+      access: 'private',
       contentType: 'application/json',
       token: process.env.BLOB_READ_WRITE_TOKEN,
       addRandomSuffix: false,
