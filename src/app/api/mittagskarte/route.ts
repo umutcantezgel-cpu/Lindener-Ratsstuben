@@ -13,7 +13,7 @@
  * - HTTPS erzwungen durch Vercel
  */
 import { NextRequest, NextResponse } from 'next/server';
-import { put, head, del, list } from '@vercel/blob';
+import { put, del, list } from '@vercel/blob';
 import mammoth from 'mammoth';
 import { timingSafeEqual } from 'crypto';
 
