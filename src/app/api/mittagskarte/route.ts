@@ -154,7 +154,7 @@ interface MittagskarteData {
 }
 
 // ═══ GET: Aktuelle Mittagskarte abrufen (ÖFFENTLICH) ═══
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     const listResult = await list({
       prefix: 'mittagskarte/',
