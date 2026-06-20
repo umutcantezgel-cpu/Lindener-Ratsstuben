@@ -55,12 +55,18 @@ export const Menu = async ({ categories, menuItems, locale, mittagskarte }: Page
                     </p>
                 </header>
 
-                {/* Tägliche Mittagskarte (wenn vorhanden) */}
-                {mittagskarte?.active && mittagskarte.html && mittagskarte.uploadDate && (
+                {/* Tägliche Mittagskarte */}
+                {mittagskarte?.active && mittagskarte.html && mittagskarte.uploadDate ? (
                     <MittagskarteDisplay
                         html={mittagskarte.html}
                         uploadDate={mittagskarte.uploadDate}
                     />
+                ) : (
+                    <div className="bg-surface border border-border/50 rounded-xl p-8 mb-16 text-center max-w-4xl mx-auto shadow-sm">
+                        <p className="text-text-secondary text-lg">
+                            Momentan gibt es keine spezielle Mittagskarte. Bitte wählen Sie aus unserer regulären Speisekarte.
+                        </p>
+                    </div>
                 )}
 
                 <MenuInteractive 

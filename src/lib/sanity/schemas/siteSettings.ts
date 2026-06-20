@@ -53,16 +53,6 @@ export default defineType({
         accept: 'application/pdf',
       },
     }),
-    defineField({
-      name: 'dailySpecialsPdf',
-      title: 'Tageskarte (PDF)',
-      type: 'file',
-      group: 'menu',
-      description: 'Lade hier eine optionale Tageskarte als PDF hoch.',
-      options: {
-        accept: 'application/pdf',
-      },
-    }),
 
     // ═══ SOCIAL MEDIA ═══
     defineField({
