@@ -1,4 +1,5 @@
 import { getAlternates } from '@/lib/seo/metadata';
+export const revalidate = 60; // ISR: Revalidate the entire page every 60 seconds
 import { Metadata } from 'next';
 import PageClient from './PageClient';
 import { getTranslations } from '@/lib/i18n/get-translations';
@@ -175,14 +176,24 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   // ═══ MITTAGSKARTE (Tägliches Lunch-Menü) ═══
   let mittagskarte = null;
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
-      : 'http://localhost:3000';
-    const res = await fetch(`${baseUrl}/api/mittagskarte`, {
-      next: { revalidate: 60 }, // Revalidate every minute
-    });
-    if (res.ok) {
-      mittagskarte = await res.json();
+    const { list } = await import('@vercel/blob');
+    const listResult = await list({
+      prefix: 'mittagskarte/',
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }).catch(() => ({ blobs: [] }));
+    
+    const blobInfo = listResult.blobs.find(b => b.pathname === 'mittagskarte/current.json');
+    if (blobInfo) {
+      // Vercel Blob public URLs can be fetched directly
+      const response = await fetch(blobInfo.url, {
+        headers: {
+          Authorization: `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}`,
+        },
+        next: { revalidate: 60 } // Cache the blob JSON for 60 seconds
+      });
+      if (response.ok) {
+        mittagskarte = await response.json();
+      }
     }
   } catch (error) {
     console.warn('[Menu] Mittagskarte konnte nicht geladen werden:', error);
