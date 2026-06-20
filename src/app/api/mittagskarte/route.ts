@@ -156,9 +156,12 @@ interface MittagskarteData {
 // ═══ GET: Aktuelle Mittagskarte abrufen (ÖFFENTLICH) ═══
 export async function GET() {
   try {
-    const blobInfo = await head(BLOB_KEY, {
+    const listResult = await list({
+      prefix: 'mittagskarte/',
       token: process.env.BLOB_READ_WRITE_TOKEN,
-    }).catch(() => null);
+    }).catch(() => ({ blobs: [] }));
+
+    const blobInfo = listResult.blobs.find(b => b.pathname === BLOB_KEY);
 
     if (!blobInfo) {
       return NextResponse.json(
@@ -170,6 +173,8 @@ export async function GET() {
       );
     }
 
+    // Falls der Blob als private markiert war, senden wir den Token mit.
+    // (Neue Blobs werden als public gespeichert)
     const response = await fetch(blobInfo.url, {
       headers: {
         Authorization: `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}`,
@@ -323,7 +328,7 @@ export async function POST(request: NextRequest) {
     };
 
     await put(BLOB_KEY, JSON.stringify(mittagskarteData), {
-      access: 'private',
+      access: 'public',
       contentType: 'application/json',
       token: process.env.BLOB_READ_WRITE_TOKEN,
       addRandomSuffix: false,
