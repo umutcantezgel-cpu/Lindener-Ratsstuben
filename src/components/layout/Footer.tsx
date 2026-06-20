@@ -141,7 +141,12 @@ export const Footer: React.FC = () => {
                 <div className="border-t border-border pt-10 pb-4 flex flex-col lg:flex-row justify-between items-center gap-8 text-sm text-text-secondary text-center lg:text-left">
                     <div className="flex flex-col items-center lg:items-start gap-4">
                         <LanguageSwitcher variant="footer" />
-                        <p>© {new Date().getFullYear()} {companyData.companyName}. {tCommon('footer.rights') as string}</p>
+                        <div className="flex flex-col gap-1 items-center lg:items-start">
+                            <p>© {new Date().getFullYear()} {companyData.companyName}. {tCommon('footer.rights') as string}</p>
+                            <p className="text-xs text-text-secondary/70">
+                                Webdesign by <a href="https://codayweb.de" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Coday</a>
+                            </p>
+                        </div>
                     </div>
                     
                     <nav aria-label={t('footer.legal_links') as string} className="w-full lg:w-auto">
