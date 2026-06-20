@@ -1,5 +1,5 @@
 import { getAlternates } from '@/lib/seo/metadata';
-export const revalidate = 60; // ISR: Revalidate the entire page every 60 seconds
+export const dynamic = 'force-dynamic';
 import { Metadata } from 'next';
 import PageClient from './PageClient';
 import { getTranslations } from '@/lib/i18n/get-translations';
@@ -189,7 +189,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         headers: {
           Authorization: `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}`,
         },
-        next: { revalidate: 60 } // Cache the blob JSON for 60 seconds
+        cache: 'no-store'
       });
       if (response.ok) {
         mittagskarte = await response.json();
