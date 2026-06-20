@@ -153,8 +153,10 @@ interface MittagskarteData {
   uploadDate: string;
 }
 
+export const dynamic = 'force-dynamic';
+
 // ═══ GET: Aktuelle Mittagskarte abrufen (ÖFFENTLICH) ═══
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const listResult = await list({
       prefix: 'mittagskarte/',
