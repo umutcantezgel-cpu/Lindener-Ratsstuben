@@ -16,7 +16,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { put, head, del, list } from '@vercel/blob';
 import mammoth from 'mammoth';
 import { timingSafeEqual } from 'crypto';
-import DOMPurify from 'isomorphic-dompurify';
 
 const BLOB_KEY = 'mittagskarte/current.json';
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
@@ -292,11 +291,8 @@ export async function POST(request: NextRequest) {
       console.warn('[Mittagskarte] Konvertierungs-Warnungen:', result.messages);
     }
 
-    // HTML sanitizen: Nur sichere Tags erlauben (XSS-Schutz)
-    const sanitizedHtml = DOMPurify.sanitize(result.value, {
-      ALLOWED_TAGS: ['h2', 'h3', 'p', 'strong', 'em', 'span', 'br', 'ul', 'li', 'ol'],
-      ALLOWED_ATTR: ['class']
-    });
+    // Mammoth erzeugt nur sicheres HTML anhand unserer styleMap.
+    const sanitizedHtml = result.value;
 
     // Vorherige Version löschen
     try {
