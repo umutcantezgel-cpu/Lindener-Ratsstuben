@@ -176,12 +176,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   // ═══ MITTAGSKARTE (Tägliches Lunch-Menü) ═══
   let mittagskarte = null;
   try {
-    const fs = await import('fs');
-    const path = await import('path');
-    const filePath = path.join(process.cwd(), 'public', 'mittagskarte.json');
-    if (fs.existsSync(filePath)) {
-      mittagskarte = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-    }
+    mittagskarte = (await import('../../../../public/mittagskarte.json')).default;
   } catch (error) {
     console.warn('[Menu] Mittagskarte konnte nicht geladen werden:', error);
   }
