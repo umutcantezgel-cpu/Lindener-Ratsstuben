@@ -3,7 +3,7 @@ import { Download } from 'lucide-react';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
 import { MenuInteractive } from './MenuInteractive';
-import { MittagskarteDisplay } from '@/components/menu/MittagskarteDisplay';
+// import { MittagskarteDisplay } from '@/components/menu/MittagskarteDisplay';
 
 export interface MenuItem {
     id: string;
@@ -28,7 +28,7 @@ export interface PageClientProps {
     mittagskarte?: MittagskarteData | null;
 }
 
-export const Menu = async ({ categories, menuItems, locale, mittagskarte }: PageClientProps) => {
+export const Menu = async ({ categories, menuItems, locale, mittagskarte: _mittagskarte }: PageClientProps) => {
     // Fetch translations on the server
     const t = await getTranslations(locale as LocaleType, 'pages');
 
