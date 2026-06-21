@@ -174,19 +174,14 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   }
 
   // ═══ MITTAGSKARTE (Tägliches Lunch-Menü) ═══
-  let mittagskarte = null;
-  try {
-    mittagskarte = (await import('../../../../public/mittagskarte.json')).default;
-  } catch (error) {
-    console.warn('[Menu] Mittagskarte konnte nicht geladen werden:', error);
-  }
+  // Temporarily removed to fix ESLint unused-var errors while hidden
 
   return (
     <>
       <JsonLd data={createMenuPageSchema()} />
       <JsonLd data={createMenuFaqSchema()} />
       <Suspense fallback={<MenuSkeleton />}>
-        <PageClient categories={finalCategories} menuItems={finalMenuItems} locale={locale} mittagskarte={mittagskarte} />
+        <PageClient categories={finalCategories} menuItems={finalMenuItems} locale={locale} />
       </Suspense>
     </>
   );

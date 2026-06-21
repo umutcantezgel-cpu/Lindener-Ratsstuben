@@ -28,7 +28,7 @@ export interface PageClientProps {
     mittagskarte?: MittagskarteData | null;
 }
 
-export const Menu = async ({ categories, menuItems, locale, mittagskarte: _mittagskarte }: PageClientProps) => {
+export const Menu = async ({ categories, menuItems, locale }: PageClientProps) => {
     // Fetch translations on the server
     const t = await getTranslations(locale as LocaleType, 'pages');
 
