@@ -55,7 +55,7 @@ export const Menu = async ({ categories, menuItems, locale, mittagskarte }: Page
                     </p>
                 </header>
 
-                {/* Tägliche Mittagskarte */}
+                {/* Tägliche Mittagskarte - Temporarily hidden as requested by user
                 {mittagskarte?.active && mittagskarte.html && mittagskarte.uploadDate ? (
                     <MittagskarteDisplay
                         html={mittagskarte.html}
@@ -68,6 +68,7 @@ export const Menu = async ({ categories, menuItems, locale, mittagskarte }: Page
                         </p>
                     </div>
                 )}
+                */}
 
                 <MenuInteractive 
                     categories={categories} 
