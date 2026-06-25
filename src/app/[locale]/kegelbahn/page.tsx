@@ -11,7 +11,8 @@ import { getAlternates } from '@/lib/seo/metadata';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations(locale as LocaleType, 'pages');
-  const titleText = t('kegelbahn.hero.title');
+  const tMeta = await getTranslations(locale as LocaleType, 'meta');
+  const titleText = tMeta('kegelbahn.hero.title');
   const description = t('kegelbahn.hero.subtitle');
   const fullTitle = `${titleText} | ${companyData.companyName}`;
 

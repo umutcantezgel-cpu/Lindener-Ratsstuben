@@ -9,12 +9,12 @@ import { createHomeFaqSchema } from '@/lib/seo/schema-generators';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations(locale as LocaleType, 'home');
-  const title = `${t('hero.headline_1', 'Startseite')} | ${companyData.companyName}`;
-  const description = t('hero.description', 'Willkommen in den Lindener Ratsstuben. Genießen Sie italienische und mediterrane Spezialitäten, frisch zubereitet mit Leidenschaft.');
+  const t = await getTranslations(locale as LocaleType, 'meta');
+  const title = `${t('home.title', 'Restaurant & Eventlocation Linden')} | ${companyData.companyName}`;
+  const description = t('home.description', 'Authentisch deutsch-italienische Küche, Eventlocation und hauseigene Kegelbahn.');
   
   return {
-    title: t('hero.headline_1', 'Startseite'),
+    title: t('home.title', 'Restaurant & Eventlocation Linden'),
     description,
     alternates: getAlternates(locale, ''),
     openGraph: {

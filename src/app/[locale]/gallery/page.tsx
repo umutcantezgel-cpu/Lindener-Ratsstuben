@@ -9,7 +9,8 @@ import { getAlternates } from '@/lib/seo/metadata';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations(locale as LocaleType, 'pages');
-  const titleText = t('gallery.title', 'Galerie');
+  const tMeta = await getTranslations(locale as LocaleType, 'meta');
+  const titleText = tMeta('gallery.title', 'Galerie');
   const description = t('gallery.description', 'Werfen Sie einen Blick auf unser gemütliches Ambiente und unsere frisch zubereiteten Gerichte in Linden.');
   const fullTitle = `${titleText} | ${companyData.companyName}`;
 

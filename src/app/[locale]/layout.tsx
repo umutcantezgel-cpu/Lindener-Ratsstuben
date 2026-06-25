@@ -61,18 +61,19 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations(locale as LocaleType, 'home');
-  const defaultTitle = `Restaurant ${companyData.companyName} | ${t('hero.headline_1')}`;
-  const description = t('hero.description');
+  const t = await getTranslations(locale as LocaleType, 'meta');
+  const defaultTitle = `${t('home.title')} | ${companyData.companyName}`;
+  const description = t('home.description');
 
   return {
-    metadataBase: new URL('https://lindener-ratsstuben.de'),
+    metadataBase: new URL('https://www.lindener-ratsstuben.de'),
     title: {
       template: `%s | ${companyData.companyName}`,
       default: defaultTitle,
     },
     description,
     keywords: ['Italienisch', 'Mediterran', 'Restaurant', 'Linden', 'Lindener Ratsstuben', 'Pizza', 'Pasta', 'Vegetarisch', 'Biergarten'],
+    publisher: companyData.companyName,
     robots: {
       index: true,
       follow: true,
