@@ -120,61 +120,7 @@ export const Home = async ({ locale }: HomeProps) => {
                 <ServiceMarquee />
             </LazyViewport>
 
-            {/* Highlights Grid */}
-            <section aria-labelledby="highlights-title" className="py-24 md:py-32 lg:py-48 bg-bg-secondary">
-                <div className="container mx-auto px-4 max-w-7xl">
-                    <AnimateIn className="text-center mb-20">
-                        <span className="text-accent font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('highlights.label') as string}</span>
-                        <h2 id="highlights-title" className="text-4xl md:text-5xl font-display font-bold text-text-primary mt-3 text-balance">{t('highlights.title') as string}</h2>
-                    </AnimateIn>
 
-                    <StaggerContainer as="div" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" itemScope itemType="https://schema.org/ItemList">
-                        {highlights.slice(0, 4).map((dish, index) => (
-                            <div
-                                key={index}
-                                itemProp="itemListElement"
-                                itemScope
-                                itemType="https://schema.org/MenuItem"
-                                className="group card-lift bg-surface/50 border border-border backdrop-blur-sm rounded-2xl overflow-hidden shadow-warm"
-                            >
-                                <meta itemProp="position" content={(index + 1).toString()} />
-                                <div className="relative h-72 overflow-hidden">
-                                    <Image
-                                        src={dish.image}
-                                        alt={dish.name}
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                                        className="object-cover group-hover:scale-110 transition-transform duration-700 ease-liquid"
-                                    />
-                                    <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="absolute top-4 end-4 bg-bg-primary/90 backdrop-blur-md border border-border px-3 py-1 rounded-full text-sm font-bold text-text-primary shadow-sm">
-                                        <span itemProp="price" content={dish.price.replace('€', '').trim()}>{dish.price}</span>
-                                        <meta itemProp="priceCurrency" content="EUR" />
-                                    </div>
-                                </div>
-                                <div className="p-8">
-                                    <h3 itemProp="name" className="text-xl font-bold text-text-primary mb-2 group-hover:text-accent-text transition-colors">{dish.name}</h3>
-                                    <p itemProp="description" className="text-text-secondary text-sm mb-6 line-clamp-2">{dish.desc}</p>
-                                    <Link
-                                        href="/menu"
-                                        className="text-accent-text font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all duration-500 ease-liquid inline-block mt-2"
-                                    >
-                                        {t('highlights.details') as string} <ArrowRight className="w-4 h-4 inline" />
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-                    </StaggerContainer>
-
-                    <AnimateIn className="text-center mt-16" delay={300}>
-                        <Link
-                            href="/menu"
-                            className="interaction-bounce inline-block px-10 py-4 border border-border text-text-primary font-bold rounded-lg hover:bg-white hover:text-text-primary uppercase tracking-wider transition-colors"
-                        >
-                            {t('highlights.view_menu') as string}
-                        </Link>
-                    </AnimateIn>
-                </div>
-            </section>
 
             {/* Stats Section with Animated Counters */}
             <section aria-labelledby="stats-title" className="py-24 md:py-32 lg:py-40 bg-bg-primary border-y border-border relative overflow-hidden">
