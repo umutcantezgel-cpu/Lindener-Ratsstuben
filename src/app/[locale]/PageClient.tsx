@@ -43,10 +43,10 @@ export const Home = async ({ locale }: HomeProps) => {
     };
 
     const highlights = [
-        { name: 'Mix Fleisch Teller', price: '€27.90', desc: 'Saftiges Grillfleisch | Hausgemachte Kräuterbutter | Rosmarin | Frischer Salat', image: '/images/editorial/grillteller_mix.png' },
-        { name: 'Tortellacci Burro e Salvia', price: '€17.90', desc: 'Gefüllt mit feiner Ricotta & frischem Spinat | Veredelt mit Butter und Salbei', image: '/images/editorial/tortellacci_salvia.png' },
-        { name: 'Dolce Momente: Dessert', price: '€12.50', desc: 'Panna Cotta | Tiramisu | Casata Siciliana – Italienische Klassiker zum Verlieben', image: '/images/editorial/dessert_trio.png' },
-        { name: 'Premium Grillplatte', price: '€29.90', desc: 'Große Fleischvariation vom Lavagrill | Zartes Rind & Geflügel | Beilagen', image: '/images/editorial/grillteller_mix_2.png' },
+        { name: 'Unsere Empfehlung', price: '---', desc: 'Hier präsentieren wir in Kürze ein kulinarisches Highlight aus unserer Küche.', image: '/images/editorial/grillteller_mix.png' },
+        { name: 'Frische Kreationen', price: '---', desc: 'Unsere Köche bereiten stetig neue, saisonale Gerichte für Sie vor.', image: '/images/editorial/tortellacci_salvia.png' },
+        { name: 'Süßer Abschluss', price: '---', desc: 'Ein perfektes Dessert rundet jedes gute Essen ab. Bald mehr an dieser Stelle.', image: '/images/editorial/dessert_trio.png' },
+        { name: 'Spezialität des Hauses', price: '---', desc: 'Entdecken Sie demnächst unsere exklusiven Empfehlungen direkt vom Chef.', image: '/images/editorial/grillteller_mix_2.png' },
     ];
 
     return (
