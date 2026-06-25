@@ -6,6 +6,7 @@ import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
 
 import { getAlternates } from '@/lib/seo/metadata';
+import { companyData } from '@/data/company';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: LocaleType }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -131,7 +132,7 @@ const Barrierefreiheit = async ({ params }: { params: Promise<{ locale: LocaleTy
                                 <p>Konrad-Adenauer-Straße 26, 35440 Linden</p>
                                 <p className="mt-2">
                                     Telefon: <a href="tel:+49640364556" className="text-primary hover:text-primary-hover">06403 – 64556</a><br />
-                                    E-Mail: <a href="mailto:hasantoker38@hotmail.de" className="text-primary hover:text-primary-hover">hasantoker38@hotmail.de</a>
+                                    E-Mail: <a href={`mailto:${companyData.email}`} className="text-primary hover:text-primary-hover">{companyData.email}</a>
                                 </p>
                             </div>
                             <p className="mt-4">

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
+import { companyData } from '@/data/company';
 
 export default function GlobalError({
   error,
@@ -48,7 +49,7 @@ export default function GlobalError({
               Erneut versuchen
             </button>
             <a 
-              href="mailto:kontakt@lindener-ratsstuben.de"
+              href={`mailto:${companyData.email}`}
               style={{
                 padding: '12px 24px',
                 backgroundColor: '#eee',

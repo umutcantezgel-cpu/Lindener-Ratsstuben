@@ -183,7 +183,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         >
                             <div className="flex flex-col items-center text-center gap-1.5 mb-2 text-white/60 text-[15px] font-light">
                                 <a href="tel:+49640364556" className="hover:text-white transition-colors">06403 64556</a>
-                                <a href="mailto:info@lindener-ratsstuben.de" className="hover:text-white transition-colors">info@lindener-ratsstuben.de</a>
+                                <a href={`mailto:${companyData.email}`} className="hover:text-white transition-colors">{companyData.email}</a>
                             </div>
 
                             <Link href="/reservation"
