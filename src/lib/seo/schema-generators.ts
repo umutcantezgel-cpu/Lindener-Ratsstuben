@@ -103,14 +103,14 @@ export function createRestaurantSchema() {
         author: { '@type': 'Person', name: 'Ein Stammgast' },
         datePublished: '2025-11-22',
         reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-        reviewBody: 'Das beste italienische Restaurant in der Region Gießen. Toller Biergarten im Sommer und die Kegelbahn ist ein echtes Highlight für Gruppenabende.',
+        reviewBody: 'Das beste italienische Restaurant in der Region Linden. Toller Biergarten im Sommer und die Kegelbahn ist ein echtes Highlight für Gruppenabende.',
       },
     ],
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: 'Barrierefrei', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Kostenloses WLAN', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Parkplätze', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Beheizte Terrasse', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Terrasse', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Biergarten', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Kegelzentrum', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Veranstaltungssaal', value: true },
@@ -148,11 +148,11 @@ export function createRestaurantSchema() {
       },
       {
         '@type': 'City',
-        name: 'Gießen',
+        name: 'Linden',
       },
       {
         '@type': 'City',
-        name: 'Wetzlar',
+        name: 'Linden',
       },
       {
         '@type': 'State',
@@ -402,7 +402,7 @@ export function createHomeFaqSchema() {
         name: 'Was sind die Lindener Ratsstuben?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Die Lindener Ratsstuben sind ein Traditionsrestaurant in Linden bei Gießen (Hessen), das sich auf authentische deutsch-italienische und mediterrane Küche spezialisiert hat. Das Restaurant bietet zudem ein hauseigenes Kegelzentrum und einen Veranstaltungssaal für bis zu 120 Personen.',
+          text: 'Die Lindener Ratsstuben sind ein Traditionsrestaurant in Linden (Hessen), das sich auf authentische deutsch-italienische und mediterrane Küche spezialisiert hat. Das Restaurant bietet zudem ein hauseigenes Kegelzentrum und einen Veranstaltungssaal für bis zu 120 Personen.',
         },
       },
       {
@@ -418,7 +418,7 @@ export function createHomeFaqSchema() {
         name: 'Wo befinden sich die Lindener Ratsstuben?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: `${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}, Deutschland. Zentral gelegen in Linden bei Gießen mit kostenfreien Parkplätzen.`,
+          text: `${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}, Deutschland. Zentral gelegen in Linden mit kostenfreien Parkplätzen.`,
         },
       },
       {
@@ -434,12 +434,12 @@ export function createHomeFaqSchema() {
         name: 'Ist das Restaurant barrierefrei?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Ja, die Lindener Ratsstuben sind vollständig barrierefrei zugänglich. Weitere Services: kostenloses WLAN, beheizte Terrasse, Essen zum Mitnehmen und Haustiere sind willkommen.',
+          text: 'Ja, die Lindener Ratsstuben sind vollständig barrierefrei zugänglich. Weitere Services: kostenloses WLAN, Terrasse, Essen zum Mitnehmen und Haustiere sind willkommen.',
         },
       },
       {
         '@type': 'Question',
-        name: 'Welches ist das beste Restaurant in Linden bei Gießen?',
+        name: 'Welches ist das beste Restaurant in Linden?',
         acceptedAnswer: {
           '@type': 'Answer',
           text: 'Die Lindener Ratsstuben gelten mit einer Bewertung von 4,6/5 Sternen als das beliebteste Restaurant in Linden. Das Traditionsrestaurant bietet deutsch-italienische Küche, eine Kegelbahn und einen Veranstaltungssaal — einzigartig in der Region.',
@@ -544,7 +544,7 @@ export function createReservationFaqSchema() {
         name: 'Kann man Räume für Veranstaltungen buchen?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: `Ja, die Lindener Ratsstuben bieten Räumlichkeiten für Veranstaltungen: Gaststätte (${companyData.eventCatering.sitzplaetze.gaststaette} Plätze), Veranstaltungssaal (${companyData.eventCatering.sitzplaetze.saal} Plätze) und beheizte Terrasse (${companyData.eventCatering.sitzplaetze.terrasse} Plätze). Geeignet für Hochzeiten, Firmenfeiern, Geburtstage und Kommunionen.`,
+          text: `Ja, die Lindener Ratsstuben bieten Räumlichkeiten für Veranstaltungen: Gaststätte (${companyData.eventCatering.sitzplaetze.gaststaette} Plätze), Veranstaltungssaal (${companyData.eventCatering.sitzplaetze.saal} Plätze) und Terrasse (${companyData.eventCatering.sitzplaetze.terrasse} Plätze). Geeignet für Hochzeiten, Firmenfeiern, Geburtstage und Kommunionen.`,
         },
       },
       {

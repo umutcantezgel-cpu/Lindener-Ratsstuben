@@ -8,7 +8,7 @@ export interface UserJourneyState {
   entryPoint: string | null;
   primaryInterest: PrimaryInterest;
   engagementScore: number; // 0 to 100
-  regionalFocus: string | null; // e.g. "Gießen", "Wetzlar"
+  regionalFocus: string | null; // e.g. "Linden", "Linden"
 }
 
 interface UserJourneyContextType {

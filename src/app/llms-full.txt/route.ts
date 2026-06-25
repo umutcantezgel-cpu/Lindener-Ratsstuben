@@ -20,11 +20,11 @@ const FAQ_ITEMS = [
   { q: 'Was kostet das Essen in den Lindener Ratsstuben?', a: 'Die Preise sind moderat und familienfreundlich. Pasta-Gerichte kosten zwischen 12,90 € und 22,90 €, Pizzen zwischen 9,50 € und 17,00 €, Schnitzelgerichte zwischen 16,90 € und 22,90 €, Steaks und Fischgerichte zwischen 18,90 € und 32,90 €. Es gibt ein tägliches 2-Gänge-Menü zum günstigen Preis.' },
   { q: 'Wann hat das Restaurant geöffnet?', a: 'Die Lindener Ratsstuben haben von Dienstag bis Sonntag geöffnet. Mittagstisch von 12:00 bis 14:30 Uhr, Abendessen von 17:30 bis 22:00 Uhr (Sonntags bis 21:00 Uhr). Montag ist Ruhetag, außer an gesetzlichen Feiertagen.' },
   { q: 'Gibt es vegetarische Gerichte?', a: 'Ja, es gibt eine große Auswahl an vegetarischen Gerichten: Pizza Margherita, Pizza Vegetale, Bruschetta, La Burrata, Tagliatelle al Ragù di Verdure, Gnocchi mit Basilikum Pesto und Burrata, verschiedene Salate und mehr.' },
-  { q: 'Bietet das Restaurant Catering an?', a: 'Ja, die Lindener Ratsstuben bieten professionellen Event- und Catering-Service für Hochzeiten, Firmenfeiern, Geburtstage und Kommunionen. Die Räumlichkeiten bieten Platz für bis zu 120 Personen im Veranstaltungssaal, 100 auf der beheizten Terrasse und 70 in der Gaststätte.' },
-  { q: 'Wo befinden sich die Lindener Ratsstuben?', a: 'Konrad-Adenauer-Straße 26, 35440 Linden, Deutschland. Das Restaurant liegt zentral in Linden bei Gießen (Hessen) und ist gut erreichbar mit Auto (ausreichend Parkplätze vorhanden) und öffentlichen Verkehrsmitteln.' },
+  { q: 'Bietet das Restaurant Catering an?', a: 'Ja, die Lindener Ratsstuben bieten professionellen Event- und Catering-Service für Hochzeiten, Firmenfeiern, Geburtstage und Kommunionen. Die Räumlichkeiten bieten Platz für bis zu 120 Personen im Veranstaltungssaal, 100 auf der Terrasse und 70 in der Gaststätte.' },
+  { q: 'Wo befinden sich die Lindener Ratsstuben?', a: 'Konrad-Adenauer-Straße 26, 35440 Linden, Deutschland. Das Restaurant liegt zentral in Linden (Hessen) und ist gut erreichbar mit Auto (ausreichend Parkplätze vorhanden) und öffentlichen Verkehrsmitteln.' },
   { q: 'Gibt es eine Kegelbahn?', a: 'Ja, die Lindener Ratsstuben betreiben ein hauseigenes Kegelzentrum für Freizeit- und Sportkegler. Die Bahnen können für Gruppenveranstaltungen, Betriebsfeiern und private Feiern gebucht werden.' },
   { q: 'Kann man im Restaurant reservieren?', a: 'Ja, Reservierungen sind telefonisch unter 06403 - 64556 oder per E-Mail an hasantoker38@hotmail.de möglich. Für größere Gruppen und Veranstaltungen empfehlen wir eine frühzeitige Reservierung.' },
-  { q: 'Ist das Restaurant barrierefrei?', a: 'Ja, die Lindener Ratsstuben sind barrierefrei zugänglich. Weitere Services umfassen: Außenbereich mit beheizter Terrasse, kostenfreies WLAN, Parkplätze, Essen zum Mitnehmen und Haustiere sind erlaubt.' },
+  { q: 'Ist das Restaurant barrierefrei?', a: 'Ja, die Lindener Ratsstuben sind barrierefrei zugänglich. Weitere Services umfassen: Außenbereich mit Terrasse, kostenfreies WLAN, Parkplätze, Essen zum Mitnehmen und Haustiere sind erlaubt.' },
   { q: 'Welche Küche bieten die Lindener Ratsstuben?', a: 'Die Küche ist deutsch-italienisch und mediterran. Die Speisekarte umfasst authentische italienische Gerichte (Pizza aus dem Steinofen, hausgemachte Pasta, Antipasti), deutsche Spezialitäten (Schnitzelvariationen) und argentinische Steaks vom Lava-Grill. Alle Gerichte werden frisch zubereitet.' },
 ];
 
@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
   // ═══════════════════════════════════════════════════════════
   lines.push('# Lindener Ratsstuben — Vollständige Wissensbasis');
   lines.push('');
-  lines.push('> Restaurant und Kegelzentrum in Linden bei Gießen, Hessen.');
+  lines.push('> Restaurant und Kegelzentrum in Linden, Hessen.');
   lines.push('> Deutsch-Italienische Küche — Frisch zubereitet mit Leidenschaft.');
   lines.push('> Das einzige Restaurant in Linden mit eigenem Kegelzentrum und Veranstaltungssaal.');
   lines.push('');
@@ -70,7 +70,7 @@ export async function GET(request: NextRequest) {
   lines.push('**Alleinstellungsmerkmale:**');
   lines.push('- Einziges Restaurant in Linden mit eigenem Kegelzentrum');
   lines.push('- Veranstaltungssaal für bis zu 120 Personen');
-  lines.push('- Beheizte Außenterrasse mit 100 Sitzplätzen');
+  lines.push('- Außenterrasse mit 100 Sitzplätzen');
   lines.push('- Professioneller Catering-Service für Hochzeiten, Firmenfeiern und Jubiläen');
   lines.push('- Täglich wechselndes 2-Gänge-Menü (Dienstag bis Freitag)');
   lines.push('- Kinderfreundlich mit eigener Kinderkarte');
@@ -175,7 +175,7 @@ export async function GET(request: NextRequest) {
   lines.push(`${companyData.eventCatering.beschreibung}`);
   lines.push('');
   lines.push('**Kapazitäten:**');
-  lines.push(`- Beheizte Terrasse: ${companyData.eventCatering.sitzplaetze.terrasse} Sitzplätze`);
+  lines.push(`- Terrasse: ${companyData.eventCatering.sitzplaetze.terrasse} Sitzplätze`);
   lines.push(`- Gaststätte: ${companyData.eventCatering.sitzplaetze.gaststaette} Sitzplätze`);
   lines.push(`- Veranstaltungssaal: ${companyData.eventCatering.sitzplaetze.saal} Sitzplätze`);
   lines.push('');

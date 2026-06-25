@@ -47,7 +47,7 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                 Das Betreiben einer gastronomischen Einrichtung bedarf der Erlaubnis nach § 2 GastG. Zuständige Aufsichtsbehörde für die Erteilung und Überwachung ist:<br />
                 <strong>Gewerbeamt Linden</strong><br />
                 [Beispieladresse des Amts, ggf. 35440 Linden]<br />
-                Mögliche Kammerzugehörigkeit: Industrie- und Handelskammer (IHK) Gießen-Friedberg.
+                Mögliche Kammerzugehörigkeit: Industrie- und Handelskammer (IHK) Linden-Friedberg.
             </p>
 
             <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>

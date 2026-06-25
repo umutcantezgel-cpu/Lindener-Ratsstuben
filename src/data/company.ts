@@ -25,7 +25,7 @@ export const companyData: CompanyData = {
         "Parkplätze",
         "Private Veranstaltungen",
         "Essen zum Mitnehmen",
-        "Beheizte Terrasse",
+        "Terrasse",
         "Hochzeiten",
         "Kostenloses WLAN",
         "Haustiere erlaubt"

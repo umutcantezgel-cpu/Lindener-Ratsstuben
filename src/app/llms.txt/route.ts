@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
   const lines: string[] = [
     '# Lindener Ratsstuben',
     '',
-    '> Restaurant und Kegelzentrum in Linden bei Gießen, Hessen.',
+    '> Restaurant und Kegelzentrum in Linden, Hessen.',
     '> Deutsch-Italienische Küche — Frisch zubereitet mit Leidenschaft.',
     '> Konrad-Adenauer-Straße 26, 35440 Linden, Deutschland.',
     '> Telefon: 06403 - 64556 | E-Mail: hasantoker38@hotmail.de',
