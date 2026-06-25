@@ -55,7 +55,7 @@ export function createRestaurantSchema() {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         opens: '17:30',
-        closes: '22:30',
+        closes: '22:00',
       },
       {
         '@type': 'OpeningHoursSpecification',
@@ -410,7 +410,7 @@ export function createHomeFaqSchema() {
         name: 'Wann hat das Restaurant Lindener Ratsstuben geöffnet?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Die Lindener Ratsstuben sind Dienstag bis Sonntag geöffnet. Mittagstisch: 12:00–14:30 Uhr, Abendessen: 17:30–22:30 Uhr (Sonntags bis 21:00 Uhr). Montag ist Ruhetag, außer an gesetzlichen Feiertagen.',
+          text: 'Die Lindener Ratsstuben sind Dienstag bis Sonntag geöffnet. Mittagstisch: 12:00–14:30 Uhr, Abendessen: 17:30–22:00 Uhr (Sonntags bis 21:00 Uhr). Montag ist Ruhetag, außer an gesetzlichen Feiertagen.',
         },
       },
       {

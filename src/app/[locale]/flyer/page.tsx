@@ -217,7 +217,7 @@ export default function Flyer8Page() {
             <p><Globe /> lindener-ratsstuben.de</p>
             <br/>
             <p><Clock /> <b>Öffnungszeiten:</b></p>
-            <p style={{ marginTop: '1.5mm'}}>Di - Sa: 12:00 - 14:30 &amp; 17:30 - 22:30 Uhr</p>
+            <p style={{ marginTop: '1.5mm'}}>Di - Sa: 12:00 - 14:30 &amp; 17:30 - 22:00 Uhr</p>
             <p>So: 12:00 - 14:30 &amp; 17:30 - 21:00 Uhr</p>
             <p style={{ marginTop: '1.5mm', color: 'var(--gold)' }}>Montag Ruhetag</p>
           </div>

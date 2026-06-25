@@ -41,7 +41,7 @@ export default defineType({
           type: 'object',
           fields: [
             { name: 'days', title: 'Tage (z.B. Montag - Freitag)', type: 'string' },
-            { name: 'hours', title: 'Zeiten (z.B. 17:00 - 22:30 Uhr)', type: 'string' },
+            { name: 'hours', title: 'Zeiten (z.B. 17:00 - 22:00 Uhr)', type: 'string' },
           ],
           preview: {
             select: { title: 'days', subtitle: 'hours' },
