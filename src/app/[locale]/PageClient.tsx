@@ -51,7 +51,7 @@ export const Home = async ({ locale }: HomeProps) => {
 
     return (
         <article itemProp="mainContentOfPage" itemScope itemType="https://schema.org/AboutPage">
-            
+            <h1 className="sr-only">Restaurant, Eventlocation & Catering in Linden</h1>
 
             {/* Modular Epic Cinematic Hero Section - 10x Redesign */}
             <HeroRoot />

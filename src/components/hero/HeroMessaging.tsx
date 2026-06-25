@@ -31,9 +31,11 @@ export const HeroMessaging: React.FC = () => {
     return (
         <div className="flex flex-col items-center text-center w-full z-20">
             <style dangerouslySetInnerHTML={{ __html: criticalStyles }} />
-            <h1 
+            <div 
                 id="hero-title" 
                 className="text-[clamp(3rem,8vw,6rem)] font-display font-light leading-[1.05] tracking-tight text-white mb-6 max-w-5xl"
+                role="heading"
+                aria-level={2}
             >
                 {heroVariant === 'general' ? (
                     <div>
@@ -49,7 +51,7 @@ export const HeroMessaging: React.FC = () => {
                         <span className="block animate-hero-headline">{hero.headline}</span>
                     </div>
                 )}
-            </h1>
+            </div>
 
             <p className="text-[clamp(1.1rem,1.8vw,1.35rem)] font-light tracking-wide text-neutral-300 max-w-2xl leading-relaxed mx-auto animate-hero-subheadline">
                 {heroVariant === 'general' ? t('hero.description') : hero.subheadline}
