@@ -43,10 +43,10 @@ export const Home = async ({ locale }: HomeProps) => {
     };
 
     const highlights = [
-        { name: 'Mix Fleisch Teller', price: '€27.90', desc: 'Saftiges Grillfleisch | Hausgemachte Kräuterbutter | Rosmarin | Frischer Salat', image: '/images/editorial/grillteller_mix.jpg' },
-        { name: 'Tortellacci Burro e Salvia', price: '€17.90', desc: 'Gefüllt mit feiner Ricotta & frischem Spinat | Veredelt mit Butter und Salbei', image: '/images/editorial/tortellacci_salvia.jpg' },
-        { name: 'Dolce Momente: Dessert', price: '€12.50', desc: 'Panna Cotta | Tiramisu | Casata Siciliana – Italienische Klassiker zum Verlieben', image: '/images/editorial/dessert_trio.jpg' },
-        { name: 'Premium Grillplatte', price: '€29.90', desc: 'Große Fleischvariation vom Lavagrill | Zartes Rind & Geflügel | Beilagen', image: '/images/editorial/grillteller_mix_2.jpg' },
+        { name: 'Mix Fleisch Teller', price: '€27.90', desc: 'Saftiges Grillfleisch | Hausgemachte Kräuterbutter | Rosmarin | Frischer Salat', image: '/images/editorial/grillteller_mix.png' },
+        { name: 'Tortellacci Burro e Salvia', price: '€17.90', desc: 'Gefüllt mit feiner Ricotta & frischem Spinat | Veredelt mit Butter und Salbei', image: '/images/editorial/tortellacci_salvia.png' },
+        { name: 'Dolce Momente: Dessert', price: '€12.50', desc: 'Panna Cotta | Tiramisu | Casata Siciliana – Italienische Klassiker zum Verlieben', image: '/images/editorial/dessert_trio.png' },
+        { name: 'Premium Grillplatte', price: '€29.90', desc: 'Große Fleischvariation vom Lavagrill | Zartes Rind & Geflügel | Beilagen', image: '/images/editorial/grillteller_mix_2.png' },
     ];
 
     return (
@@ -153,7 +153,7 @@ export const Home = async ({ locale }: HomeProps) => {
                                 </div>
                                 <div className="p-8">
                                     <h3 itemProp="name" className="text-xl font-bold text-text-primary mb-2 group-hover:text-accent-text transition-colors">{dish.name}</h3>
-                                    <p itemProp="description" className="text-stone-300 text-sm mb-6 line-clamp-2">{dish.desc}</p>
+                                    <p itemProp="description" className="text-text-secondary text-sm mb-6 line-clamp-2">{dish.desc}</p>
                                     <Link
                                         href="/menu"
                                         className="text-accent-text font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all duration-500 ease-liquid inline-block mt-2"
