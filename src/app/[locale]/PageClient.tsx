@@ -18,8 +18,7 @@ import { HeroRoot } from '@/components/hero/HeroRoot';
 import { LazyViewport } from '@/components/ui/LazyViewport';
 
 const ClientTestimonials = dynamic(() => import('@/components/interactive/ClientTestimonials').then(mod => mod.ClientTestimonials), { ssr: false });
-const MapFacade = dynamic(() => import('@/components/ui/MapFacade').then(mod => mod.MapFacade), { ssr: false });
-
+// MapFacade removed per user request
 export interface HomeProps {
     locale: string;
 }
@@ -274,12 +273,16 @@ export const Home = async ({ locale }: HomeProps) => {
                             </address>
 
                             <div className="h-[400px] bg-neutral-200 rounded-2xl overflow-hidden border border-black/10 shadow-soft relative group">
-                                <LazyViewport minHeight="400px">
-                                    <MapFacade 
-                                        address={`${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}`}
-                                        mapQuery={`${companyData.address.street}, ${companyData.address.zip} ${companyData.address.city}`}
-                                    />
-                                </LazyViewport>
+                                <iframe
+                                    src={`https://maps.google.com/maps?width=100%25&height=600&hl=de&q=${encodeURIComponent(companyData.address.street + ", " + companyData.address.zip + " " + companyData.address.city)}&t=&z=15&ie=UTF8&iwloc=B&output=embed`}
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen={true}
+                                    loading="lazy"
+                                    title="Google Maps"
+                                    className="absolute inset-0 z-0 grayscale-[20%] contrast-[110%]"
+                                ></iframe>
                                 <div className="absolute bottom-6 end-6 pointer-events-none">
                                     <a
                                         href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(companyData.address.street + ", " + companyData.address.zip + " " + companyData.address.city)}`}
