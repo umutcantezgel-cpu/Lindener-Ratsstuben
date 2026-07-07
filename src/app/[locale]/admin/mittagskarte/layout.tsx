@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Flyer | Lindener Ratsstuben',
+  title: 'Admin | Lindener Ratsstuben',
   robots: {
     index: false,
     follow: false,
   },
 };
 
-export default function FlyerLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;

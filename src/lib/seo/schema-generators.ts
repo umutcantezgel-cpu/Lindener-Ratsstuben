@@ -303,6 +303,8 @@ export function createContactPageSchema(translations?: (key: string, fallback?: 
   };
 }
 
+import { kegelbahnPricing } from '@/data/pricing';
+
 /** KegelbahnPage — injected on /kegelbahn */
 export function createKegelbahnPageSchema(translations?: (key: string) => string) {
   const baseSchema = {
@@ -310,11 +312,60 @@ export function createKegelbahnPageSchema(translations?: (key: string) => string
     '@type': 'CollectionPage',
     name: `Kegelbahn — ${companyData.companyName}`,
     url: `${BASE_URL}/kegelbahn`,
-    mainEntity: { '@id': IDS.restaurant },
+    mainEntity: { '@id': `${BASE_URL}/kegelbahn#bowlingAlley` },
+  };
+
+  const bowlingAlleySchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BowlingAlley',
+    '@id': `${BASE_URL}/kegelbahn#bowlingAlley`,
+    name: `Kegelbahn der Lindener Ratsstuben`,
+    description: translations ? translations('kegelbahn.hero.subtitle') : 'Sport & Food',
+    url: `${BASE_URL}/kegelbahn`,
+    telephone: companyData.phone,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: companyData.address.street,
+      addressLocality: companyData.address.city,
+      postalCode: companyData.address.zip,
+      addressCountry: 'DE',
+    },
+    parentOrganization: { '@id': IDS.restaurant },
+    makesOffer: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: kegelbahnPricing.hourly.name,
+          description: kegelbahnPricing.hourly.description
+        },
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          price: kegelbahnPricing.hourly.price.toFixed(2),
+          priceCurrency: kegelbahnPricing.currency
+        }
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: kegelbahnPricing.package.name,
+          description: kegelbahnPricing.package.description
+        },
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          price: kegelbahnPricing.package.price.toFixed(2),
+          priceCurrency: kegelbahnPricing.currency
+        }
+      }
+    ]
   };
 
   if (!translations) {
-    return baseSchema;
+    return {
+      '@context': 'https://schema.org',
+      '@graph': [baseSchema, bowlingAlleySchema]
+    };
   }
 
   const faqData = [
@@ -327,19 +378,7 @@ export function createKegelbahnPageSchema(translations?: (key: string) => string
     '@context': 'https://schema.org',
     '@graph': [
       baseSchema,
-      {
-        '@type': 'Product',
-        name: translations('kegelbahn.hero.title'),
-        description: translations('kegelbahn.hero.subtitle'),
-        offers: {
-            '@type': 'Offer',
-            priceSpecification: {
-                '@type': 'PriceSpecification',
-                price: '15.00',
-                priceCurrency: 'EUR'
-            }
-        }
-      },
+      bowlingAlleySchema,
       {
         '@type': 'FAQPage',
         mainEntity: faqData.map((faq) => ({

@@ -5,6 +5,7 @@ import { LocaleType } from '@/lib/locales';
 import { companyData } from '@/data/company';
 
 import { getAlternates } from '@/lib/seo/metadata';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -27,5 +28,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default function Page() {
-  return <PageClient />;
+  const gallerySchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `Galerie — ${companyData.companyName}`,
+    description: 'Werfen Sie einen Blick auf unser gemütliches Ambiente und unsere frisch zubereiteten Gerichte in Linden.',
+    url: `https://lindener-ratsstuben.de/gallery`,
+  };
+
+  return (
+    <>
+      <JsonLd data={gallerySchema} />
+      <PageClient />
+    </>
+  );
 }

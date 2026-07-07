@@ -6,15 +6,19 @@ import SaisonalClient from './SaisonalClient';
 import './saisonal.css';
 import { PrintPageA5 } from '../print/components/PrintPageA5';
 import { PrintOnlyPortal } from './PrintOnlyPortal';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { createMenuPageSchema } from '@/lib/seo/schema-generators';
 
-export const metadata: Metadata = {
-  title: 'Saisonkarte – Hausgemachte Burger & Limonaden | Lindener Ratsstuben',
-  description: 'Saisonale Burger- & Limonaden-Karte der Lindener Ratsstuben. Saftig. Frisch. Genussvoll.',
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+import { getAlternates } from '@/lib/seo/metadata';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: 'Saisonkarte – Hausgemachte Specials | Lindener Ratsstuben',
+    description: 'Saisonale Spezialitäten der Lindener Ratsstuben. Saftig. Frisch. Genussvoll.',
+    alternates: getAlternates(locale, 'menu/saisonal'),
+  };
+}
 
 const seasonalMenuQuery = groq`
   *[_type == "seasonalMenu"][0]{
@@ -351,6 +355,7 @@ export default async function SaisonalMenuPage({ params }: { params: Promise<{ l
 
   return (
     <div className="seasonal-root">
+      <JsonLd data={createMenuPageSchema()} />
       {/* ─── Elegant Preview Badge for Admins & Testing ─── */}
       {isDemoMode && (
         <div className="preview-alert-bar">

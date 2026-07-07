@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Flyer | Lindener Ratsstuben',
+  title: 'Sanity Studio',
   robots: {
     index: false,
     follow: false,
   },
 };
 
-export default function FlyerLayout({
+export default function SanityLayout({
   children,
 }: {
   children: React.ReactNode;
