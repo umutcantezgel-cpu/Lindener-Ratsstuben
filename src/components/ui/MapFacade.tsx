@@ -2,18 +2,40 @@
 import React, { useState, useEffect } from 'react';
 import { MapPin } from 'lucide-react';
 import { useCookieConsent } from '@/lib/context/CookieContext';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
+// Fix Leaflet marker icons in Next.js
+const DefaultIcon = L.icon({
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    tooltipAnchor: [16, -28],
+    shadowSize: [41, 41]
+});
+L.Marker.prototype.options.icon = DefaultIcon;
 
 interface MapFacadeProps {
     address: string;
-    mapQuery: string;
+    mapQuery?: string;
     className?: string;
 }
 
-export const MapFacade: React.FC<MapFacadeProps> = ({ address, mapQuery, className = '' }) => {
+export const MapFacade: React.FC<MapFacadeProps> = ({ address, className = '' }) => {
     const { preferences } = useCookieConsent();
     const [isLoaded, setIsLoaded] = useState(false);
 
+    // Coordinates for Lindener Ratsstuben
+    const position: [number, number] = [50.5313, 8.6566];
+
     useEffect(() => {
+        // Automatically load if marketing cookies (or general preferences) allow it, 
+        // though OpenStreetMap doesn't strictly require marketing consent, 
+        // we keep the logic to respect user choice.
         if (preferences?.marketing) {
             setIsLoaded(true);
         }
@@ -32,21 +54,24 @@ export const MapFacade: React.FC<MapFacadeProps> = ({ address, mapQuery, classNa
 
     return (
         <div 
-            className={`relative w-full h-full bg-neutral-200 overflow-hidden cursor-pointer group ${className}`}
-            onClick={!isLoaded ? handleLoadMap : undefined}
-            onKeyDown={!isLoaded ? handleKeyDown : undefined}
-            role={!isLoaded ? "button" : undefined}
-            tabIndex={!isLoaded ? 0 : undefined}
-            aria-label={!isLoaded ? "Google Maps Karte laden" : undefined}
+            className={`relative w-full h-full bg-neutral-200 overflow-hidden rounded-xl ${className}`}
+            style={{ zIndex: 0 }}
         >
             {!isLoaded ? (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-bg-secondary/80 text-text-primary z-10 transition-opacity duration-300">
+                <div 
+                    className="absolute inset-0 flex flex-col items-center justify-center bg-bg-secondary/80 text-text-primary z-10 transition-opacity duration-300 cursor-pointer group"
+                    onClick={handleLoadMap}
+                    onKeyDown={handleKeyDown}
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Interaktive Karte laden"
+                >
                     <div className="p-6 bg-bg-primary/90 backdrop-blur-sm rounded-xl border border-border text-center shadow-lg group-hover:border-accent/50 transition-colors">
                         <MapPin className="w-10 h-10 text-accent mx-auto mb-3" />
-                        <h3 className="font-bold text-lg mb-2">Karte laden</h3>
+                        <h3 className="font-bold text-lg mb-2">Interaktive Karte laden</h3>
                         <p className="text-sm text-stone-300 mb-4 max-w-xs">{address}</p>
                         <p className="text-xs text-stone-400 mb-4 max-w-xs leading-relaxed">
-                            Mit dem Laden der Karte akzeptieren Sie die Datenschutzerklärung von Google.
+                            Klicken Sie hier, um die interaktive Karte von OpenStreetMap zu laden.
                         </p>
                         <button className="px-6 py-2 bg-accent text-text-primary font-bold rounded-lg hover:bg-white transition-colors pointer-events-none">
                             Karte anzeigen
@@ -54,16 +79,25 @@ export const MapFacade: React.FC<MapFacadeProps> = ({ address, mapQuery, classNa
                     </div>
                 </div>
             ) : (
-                <iframe
-                    src={`https://maps.google.com/maps?width=100%25&height=600&hl=de&q=${encodeURIComponent(mapQuery)}&t=&z=15&ie=UTF8&iwloc=B&output=embed`}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    title="Standortkarte"
-                    className="absolute inset-0 z-0"
-                ></iframe>
+                <div className="absolute inset-0 z-0 fade-in">
+                    <MapContainer 
+                        center={position} 
+                        zoom={16} 
+                        scrollWheelZoom={false} 
+                        style={{ width: '100%', height: '100%' }}
+                    >
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={position}>
+                            <Popup>
+                                <strong>Lindener Ratsstuben</strong><br />
+                                {address}
+                            </Popup>
+                        </Marker>
+                    </MapContainer>
+                </div>
             )}
         </div>
     );
