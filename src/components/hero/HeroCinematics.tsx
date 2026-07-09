@@ -73,7 +73,7 @@ export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ imageUrl }) => {
             <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/80 via-transparent to-transparent z-10 pointer-events-none" />
             
             {/* High-end Film Grain Overlay */}
-            <div className="absolute inset-0 opacity-[0.04] bg-[url('/noise.png')] z-20 pointer-events-none mix-blend-overlay" />
+            <div className="absolute inset-0 opacity-[0.04] z-20 pointer-events-none mix-blend-overlay" />
         </div>
     );
 };
