@@ -148,7 +148,26 @@ export async function POST(request: Request) {
             );
         }
 
-        return NextResponse.json({ success: true }, { status: 200 });
+        // IMPORTANT FIX: Wenn die Bestätigungs-E-Mail an den Gast fehlschlägt (oft wegen fehlender Domain-Verifizierung bei Resend),
+        // benachrichtigen wir den Admin zusätzlich darüber, damit er den Kunden manuell kontaktieren kann.
+        if (adminResult.success && !guestResult.success) {
+            console.error(`[Reservation] ✗ Gast-E-Mail fehlgeschlagen. Sende Warnung an Admin.`);
+            await sendEmail({
+                to: EMAIL_CONFIG.adminEmail,
+                subject: `⚠️ ACHTUNG: System konnte keine Bestätigung an ${validatedData.name} senden!`,
+                html: `<p>Hallo,</p>
+                       <p>eine neue Reservierung von <strong>${validatedData.name}</strong> wurde empfangen, aber das System konnte dem Gast <strong>keine Bestätigungs-E-Mail</strong> senden.</p>
+                       <p><strong>Fehlergrund:</strong> ${guestResult.error}</p>
+                       <p>Wahrscheinlich muss die Domain in Resend noch verifiziert werden (DNS-Einträge), um E-Mails an beliebige Gäste senden zu dürfen.</p>
+                       <p>Bitte kontaktieren Sie den Gast manuell:</p>
+                       <ul>
+                           <li>E-Mail: ${validatedData.email}</li>
+                           <li>Telefon: ${validatedData.phone}</li>
+                       </ul>`,
+            });
+        }
+
+        return NextResponse.json({ success: true, warning: !guestResult.success ? 'guest_email_failed' : undefined }, { status: 200 });
     } catch (error) {
         console.error('[Reservation] Fehler:', error);
         
