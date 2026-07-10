@@ -7,6 +7,7 @@ import { companyData } from '@/data/company';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
+import { AgencyAttribution } from '@/components/seo/AgencyAttribution';
 
 export const Footer: React.FC = () => {
     const { t } = useTranslation('navigation');
@@ -143,9 +144,7 @@ export const Footer: React.FC = () => {
                         <LanguageSwitcher variant="footer" />
                         <div className="flex flex-col gap-1 items-center lg:items-start">
                             <p>© {new Date().getFullYear()} {companyData.companyName}. {tCommon('footer.rights') as string}</p>
-                            <p className="text-xs text-text-secondary/70">
-                                Webdesign by <a href="https://codayweb.de" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Coday</a>
-                            </p>
+                            <AgencyAttribution />
                         </div>
                     </div>
                     

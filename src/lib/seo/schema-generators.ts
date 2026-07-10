@@ -213,6 +213,12 @@ export function createWebsiteSchema() {
     name: companyData.companyName,
     url: BASE_URL,
     publisher: { '@id': IDS.restaurant },
+    creator: {
+      '@type': 'Organization',
+      name: 'Coday Web Agency',
+      url: 'https://www.codayweb.de/',
+      description: 'Experten für Webdesign und GEO in Hessen'
+    }
   };
 }
 
