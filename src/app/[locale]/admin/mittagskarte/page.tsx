@@ -4,7 +4,7 @@ import React, { useState, useCallback, useRef } from 'react';
 
 interface MittagskarteResponse {
   active?: boolean;
-  html?: string;
+  fileUrl?: string;
   uploadDate?: string;
   fileName?: string;
   success?: boolean;
@@ -22,7 +22,7 @@ export default function MittagskarteAdminPage() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentMenu, setCurrentMenu] = useState<MittagskarteResponse | null>(null);
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-  const [previewHtml, setPreviewHtml] = useState<string | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [loginError, setLoginError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -79,8 +79,8 @@ export default function MittagskarteAdminPage() {
       const res = await fetch('/api/mittagskarte');
       const data: MittagskarteResponse = await res.json();
       setCurrentMenu(data);
-      if (data.active && data.html) {
-        setPreviewHtml(data.html);
+      if (data.active && data.fileUrl) {
+        setPreviewUrl(data.fileUrl);
       }
     } catch {
       console.error('Fehler beim Laden der aktuellen Mittagskarte');
@@ -89,8 +89,8 @@ export default function MittagskarteAdminPage() {
 
   // ═══ Datei hochladen ═══
   const uploadFile = async (file: File) => {
-    if (!file.name.toLowerCase().endsWith('.docx')) {
-      setStatusMessage({ type: 'error', text: 'Nur .docx-Dateien sind erlaubt!' });
+    if (!file.name.toLowerCase().endsWith('.pdf')) {
+      setStatusMessage({ type: 'error', text: 'Nur .pdf-Dateien sind erlaubt!' });
       return;
     }
 
@@ -111,7 +111,7 @@ export default function MittagskarteAdminPage() {
 
       if (res.ok && data.success) {
         setStatusMessage({ type: 'success', text: data.message || 'Mittagskarte erfolgreich hochgeladen!' });
-        setPreviewHtml(data.html || null);
+        setPreviewUrl(data.fileUrl || null);
         await loadCurrentMenu();
       } else {
         setStatusMessage({ type: 'error', text: data.error || 'Upload fehlgeschlagen.' });
@@ -138,7 +138,7 @@ export default function MittagskarteAdminPage() {
 
       if (res.ok && data.success) {
         setStatusMessage({ type: 'success', text: 'Mittagskarte wurde entfernt.' });
-        setPreviewHtml(null);
+        setPreviewUrl(null);
         setCurrentMenu(null);
       } else {
         setStatusMessage({ type: 'error', text: data.error || 'Löschen fehlgeschlagen.' });
@@ -232,7 +232,7 @@ export default function MittagskarteAdminPage() {
           <div style={styles.logo}>🍽️</div>
           <h1 style={styles.title}>Mittagskarte verwalten</h1>
           <p style={styles.subtitle}>
-            Laden Sie hier die tägliche Mittagskarte als Word-Dokument (.docx) hoch.
+            Laden Sie hier die tägliche Mittagskarte als PDF-Dokument (.pdf) hoch.
             <br />Die aktuelle Karte wird automatisch ersetzt.
           </p>
         </header>
@@ -276,7 +276,7 @@ export default function MittagskarteAdminPage() {
           <input
             ref={fileInputRef}
             type="file"
-            accept=".docx"
+            accept=".pdf"
             onChange={handleFileSelect}
             style={{ display: 'none' }}
           />
@@ -289,10 +289,10 @@ export default function MittagskarteAdminPage() {
             <>
               <div style={styles.uploadIcon}>📄</div>
               <p style={styles.dropText}>
-                Word-Datei hierher ziehen
+                PDF-Datei hierher ziehen
               </p>
               <p style={styles.dropSubtext}>
-                oder klicken zum Auswählen (.docx, max. 5 MB)
+                oder klicken zum Auswählen (.pdf, max. 5 MB)
               </p>
             </>
           )}
@@ -315,13 +315,16 @@ export default function MittagskarteAdminPage() {
         )}
 
         {/* Preview */}
-        {previewHtml && (
+        {previewUrl && (
           <div style={styles.previewSection}>
             <h2 style={styles.previewTitle}>📋 Vorschau der aktuellen Mittagskarte</h2>
-            <div
-              style={styles.previewContent}
-              dangerouslySetInnerHTML={{ __html: previewHtml }}
-            />
+            <div style={styles.previewContent}>
+              <iframe 
+                src={`${previewUrl}#view=FitH`} 
+                style={{ width: '100%', height: '600px', border: 'none', borderRadius: '8px' }}
+                title="Mittagskarte PDF Vorschau"
+              />
+            </div>
           </div>
         )}
 

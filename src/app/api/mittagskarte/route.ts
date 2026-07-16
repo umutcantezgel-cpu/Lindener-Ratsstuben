@@ -14,7 +14,6 @@
  */
 import { NextRequest, NextResponse } from 'next/server';
 import { put, del, list } from '@vercel/blob';
-import mammoth from 'mammoth';
 import { timingSafeEqual } from 'crypto';
 
 const BLOB_KEY = 'mittagskarte/current.json';
@@ -147,7 +146,7 @@ function validateAuth(request: NextRequest): boolean {
 }
 
 interface MittagskarteData {
-  html: string;
+  fileUrl: string;
   uploadedAt: string;
   fileName: string;
   uploadDate: string;
@@ -250,21 +249,17 @@ export async function POST(request: NextRequest) {
 
     // Dateityp validieren
     const fileName = file.name.toLowerCase();
-    if (!fileName.endsWith('.docx')) {
+    if (!fileName.endsWith('.pdf')) {
       return NextResponse.json(
-        { error: 'Nur .docx-Dateien sind erlaubt.' },
+        { error: 'Nur .pdf-Dateien sind erlaubt.' },
         { status: 400 }
       );
     }
 
     // MIME-Type prüfen (zusätzliche Sicherheitsschicht)
-    const validMimeTypes = [
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-      'application/octet-stream', // Manche Browser senden diesen generischen Typ
-    ];
-    if (file.type && !validMimeTypes.includes(file.type)) {
+    if (file.type && file.type !== 'application/pdf' && file.type !== 'application/octet-stream') {
       return NextResponse.json(
-        { error: 'Ungültiger Dateityp. Nur Word-Dokumente (.docx) sind erlaubt.' },
+        { error: 'Ungültiger Dateityp. Nur PDF-Dokumente (.pdf) sind erlaubt.' },
         { status: 400 }
       );
     }
@@ -276,30 +271,6 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-
-    // .docx → HTML konvertieren
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    
-    const result = await mammoth.convertToHtml(
-      { buffer },
-      {
-        styleMap: [
-          "p[style-name='Heading 1'] => h2.mittagskarte-heading:fresh",
-          "p[style-name='Heading 2'] => h3.mittagskarte-subheading:fresh",
-          "b => strong",
-          "i => em",
-          "u => span.underline",
-        ],
-      }
-    );
-
-    if (result.messages.length > 0) {
-      console.warn('[Mittagskarte] Konvertierungs-Warnungen:', result.messages);
-    }
-
-    // Mammoth erzeugt nur sicheres HTML anhand unserer styleMap.
-    const sanitizedHtml = result.value;
 
     // Vorherige Version löschen
     try {
@@ -315,10 +286,17 @@ export async function POST(request: NextRequest) {
       // Ignorieren wenn keine vorherige Version existiert
     }
 
-    // Neue Version speichern
+    // Neue PDF in den Blob hochladen (Public, damit das Iframe darauf zugreifen kann)
+    const pdfBlob = await put('mittagskarte/current.pdf', file, {
+      access: 'public',
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+      addRandomSuffix: true, // Sicherer gegen Caching-Probleme bei PDFs
+    });
+
+    // Metadaten-JSON speichern
     const now = new Date();
     const mittagskarteData: MittagskarteData = {
-      html: sanitizedHtml,
+      fileUrl: pdfBlob.url,
       uploadedAt: now.toISOString(),
       fileName: file.name,
       uploadDate: now.toLocaleDateString('de-DE', {
@@ -342,7 +320,7 @@ export async function POST(request: NextRequest) {
       success: true,
       message: 'Mittagskarte erfolgreich aktualisiert!',
       uploadDate: mittagskarteData.uploadDate,
-      html: sanitizedHtml,
+      fileUrl: mittagskarteData.fileUrl,
     });
   } catch (error) {
     console.error('[Mittagskarte] Upload-Fehler:', error);

@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ExternalLink } from 'lucide-react';
 import { clsx } from 'clsx';
 
 interface MittagskarteDisplayProps {
-  html: string;
+  fileUrl: string;
   uploadDate: string;
 }
 
@@ -13,7 +13,7 @@ interface MittagskarteDisplayProps {
  * Collapsible display component for the daily lunch menu.
  * Shown above the regular menu categories when a Mittagskarte is available.
  */
-export function MittagskarteDisplay({ html, uploadDate }: MittagskarteDisplayProps) {
+export function MittagskarteDisplay({ fileUrl, uploadDate }: MittagskarteDisplayProps) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -39,10 +39,24 @@ export function MittagskarteDisplay({ html, uploadDate }: MittagskarteDisplayPro
 
       {/* Content */}
       <div className={clsx('mittagskarte-body', isOpen && 'mittagskarte-body-open')}>
-        <div 
-          className="mittagskarte-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <div className="mittagskarte-content">
+          <div className="pdf-actions">
+            <a 
+              href={fileUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="pdf-download-btn"
+            >
+              PDF öffnen / herunterladen <ExternalLink size={16} />
+            </a>
+          </div>
+          
+          <iframe 
+            src={`${fileUrl}#view=FitH`} 
+            className="pdf-iframe"
+            title="Mittagskarte PDF"
+          />
+        </div>
       </div>
 
       {/* Inline Styles */}
@@ -118,63 +132,42 @@ export function MittagskarteDisplay({ html, uploadDate }: MittagskarteDisplayPro
 
         .mittagskarte-content {
           padding: 24px 28px;
-          font-size: 15px;
-          line-height: 1.8;
-          color: #2c1810;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
-        /* ─── Word Document Content Styling ─── */
-        .mittagskarte-content :global(h2) {
-          font-size: 20px;
-          font-weight: 700;
-          color: #8b6914;
-          margin: 24px 0 12px;
-          padding-bottom: 8px;
-          border-bottom: 1px solid #e8dcc6;
-        }
-
-        .mittagskarte-content :global(h2:first-child) {
-          margin-top: 0;
-        }
-
-        .mittagskarte-content :global(h3) {
-          font-size: 17px;
-          font-weight: 600;
-          color: #5a3e1b;
-          margin: 16px 0 8px;
-        }
-
-        .mittagskarte-content :global(p) {
-          margin: 6px 0;
-          color: #3d2b1a;
-        }
-
-        .mittagskarte-content :global(strong) {
-          color: #2c1810;
-          font-weight: 700;
-        }
-
-        .mittagskarte-content :global(ul),
-        .mittagskarte-content :global(ol) {
-          padding-left: 20px;
-          margin: 8px 0;
-        }
-
-        .mittagskarte-content :global(li) {
-          margin: 4px 0;
-        }
-
-        .mittagskarte-content :global(table) {
+        .pdf-actions {
           width: 100%;
-          border-collapse: collapse;
-          margin: 12px 0;
+          display: flex;
+          justify-content: flex-end;
+          margin-bottom: 16px;
         }
 
-        .mittagskarte-content :global(td),
-        .mittagskarte-content :global(th) {
-          padding: 8px 12px;
-          border-bottom: 1px solid #e8dcc6;
-          text-align: left;
+        .pdf-download-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 10px 16px;
+          background-color: #8b6914;
+          color: white;
+          text-decoration: none;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 600;
+          transition: background-color 0.2s;
+        }
+
+        .pdf-download-btn:hover {
+          background-color: #7a5c12;
+        }
+
+        .pdf-iframe {
+          width: 100%;
+          height: 800px;
+          border: 1px solid #d4b96a;
+          border-radius: 8px;
+          background-color: white;
         }
 
         @media (max-width: 640px) {
@@ -187,12 +180,19 @@ export function MittagskarteDisplay({ html, uploadDate }: MittagskarteDisplayPro
           }
 
           .mittagskarte-content {
-            padding: 18px 16px;
-            font-size: 14px;
+            padding: 16px;
           }
 
           .mittagskarte-icon {
             font-size: 24px;
+          }
+
+          .pdf-iframe {
+            height: 600px; /* Kleinere Höhe auf mobilen Geräten */
+          }
+          
+          .pdf-actions {
+            justify-content: center;
           }
         }
       `}</style>
