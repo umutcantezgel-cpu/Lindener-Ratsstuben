@@ -24,7 +24,7 @@ const parseContent = (html: string) => {
     return { sections };
 };
 
-export function SeoContentBlock({ locale, pageKey }: { locale: string, pageKey: string }) {
+export function SeoContentBlock({ pageKey }: { locale: string, pageKey: string }) {
     const { t } = useTranslation('seo');
     const content = t(pageKey) as string;
     
