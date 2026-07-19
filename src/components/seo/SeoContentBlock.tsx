@@ -4,6 +4,26 @@ import React from 'react';
 import { useTranslation } from '@/lib/i18n/use-translation';
 import { motion } from 'framer-motion';
 
+const parseContent = (html: string) => {
+    const sections: { title: string; level: number; content: string }[] = [];
+    const regex = /<(h[23])>(.*?)<\/\1>([\s\S]*?)(?=<h[23]>|$)/gi;
+    
+    let match;
+    while ((match = regex.exec(html)) !== null) {
+        sections.push({
+            level: match[1].toLowerCase() === 'h2' ? 2 : 3,
+            title: match[2],
+            content: match[3].trim()
+        });
+    }
+    
+    if (sections.length === 0) {
+        return { fallback: html };
+    }
+    
+    return { sections };
+};
+
 export function SeoContentBlock({ locale, pageKey }: { locale: string, pageKey: string }) {
     const { t } = useTranslation('seo');
     const content = t(pageKey) as string;
@@ -11,6 +31,8 @@ export function SeoContentBlock({ locale, pageKey }: { locale: string, pageKey: 
     if (content === pageKey || !content) {
         return null;
     }
+    
+    const parsed = parseContent(content);
     
     return (
         <section className="relative w-full py-24 lg:py-32 bg-bg-primary overflow-hidden">
@@ -26,43 +48,61 @@ export function SeoContentBlock({ locale, pageKey }: { locale: string, pageKey: 
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="max-w-4xl mx-auto"
+                    className="max-w-6xl mx-auto"
                 >
-                    {/* Glassmorphic Container */}
-                    <div className="relative p-8 md:p-12 lg:p-16 rounded-3xl bg-surface/40 backdrop-blur-xl border border-border/40 shadow-2xl hover:shadow-primary/5 transition-shadow duration-700">
-                        
-                        {/* Decorative Accent Line */}
-                        <div className="absolute top-12 left-0 w-1 h-24 bg-gradient-to-b from-primary to-accent rounded-r-full" />
-                        
-                        <div 
-                            className="
-                                /* Typography Base */
-                                text-text-secondary
-                                
-                                /* H2 Styling - Massive Editorial Headline */
-                                [&>h2]:font-display [&>h2]:text-3xl [&>h2]:md:text-5xl [&>h2]:font-bold [&>h2]:text-text-main [&>h2]:tracking-tight [&>h2]:mb-8 [&>h2]:leading-tight
-                                [&>h2]:bg-clip-text [&>h2]:text-transparent [&>h2]:bg-gradient-to-r [&>h2]:from-text-main [&>h2]:to-text-secondary
-                                
-                                /* H3 Styling - Elegant Subheading */
-                                [&>h3]:font-display [&>h3]:text-2xl [&>h3]:md:text-3xl [&>h3]:text-primary [&>h3]:mt-16 [&>h3]:mb-6 [&>h3]:font-semibold [&>h3]:tracking-wide
-                                
-                                /* Paragraph Styling - Rich Reading Experience */
-                                [&>p]:text-lg [&>p]:md:text-xl [&>p]:leading-relaxed [&>p]:mb-8 [&>p]:font-light
-                                
-                                /* First Paragraph Lead Styling */
-                                [&>p:first-of-type]:text-xl [&>p:first-of-type]:md:text-2xl [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:text-text-main [&>p:first-of-type]:font-normal
-                                
-                                /* Strong text accentuation */
-                                [&>strong]:font-semibold [&>strong]:text-text-main [&>strong]:border-b [&>strong]:border-primary/20
-                                
-                                /* Final paragraph cleanup */
-                                [&>p:last-child]:mb-0
-                            "
-                            dangerouslySetInnerHTML={{ __html: content }}
-                        />
-                    </div>
+                    {parsed.fallback ? (
+                        /* Fallback if no h2/h3 tags are found */
+                        <div className="relative p-8 md:p-12 lg:p-16 rounded-3xl bg-surface/40 backdrop-blur-xl border border-border/40 shadow-2xl">
+                            <div className="absolute top-12 left-0 w-1 h-24 bg-gradient-to-b from-primary to-accent rounded-r-full" />
+                            <div 
+                                className="text-text-secondary [&>p]:text-lg [&>p]:md:text-xl [&>p]:leading-relaxed [&>p]:mb-8 [&>p]:font-light"
+                                dangerouslySetInnerHTML={{ __html: parsed.fallback }}
+                            />
+                        </div>
+                    ) : (
+                        <div className="flex flex-col gap-16 md:gap-24">
+                            {/* H2 Introduction Sections */}
+                            {parsed.sections?.filter(s => s.level === 2).map((section, idx) => (
+                                <div key={`h2-${idx}`} className="relative p-8 md:p-12 lg:p-16 rounded-3xl bg-surface/60 backdrop-blur-2xl border border-border/40 shadow-2xl">
+                                    <div className="absolute top-12 left-0 w-1 h-24 bg-gradient-to-b from-primary to-accent rounded-r-full" />
+                                    <h2 className="font-display text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-8 leading-tight">
+                                        {section.title}
+                                    </h2>
+                                    <div 
+                                        className="text-xl md:text-2xl leading-relaxed text-text-secondary font-light [&>p]:mb-6 last:[&>p]:mb-0 [&>strong]:font-semibold [&>strong]:text-text-primary [&>strong]:border-b [&>strong]:border-primary/20" 
+                                        dangerouslySetInnerHTML={{ __html: section.content }} 
+                                    />
+                                </div>
+                            ))}
+
+                            {/* H3 Feature Grid (Bento Style) */}
+                            {parsed.sections && parsed.sections.filter(s => s.level === 3).length > 0 && (
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                                    {parsed.sections.filter(s => s.level === 3).map((section, idx) => (
+                                        <motion.div 
+                                            key={`h3-${idx}`}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.6, delay: idx * 0.1 }}
+                                            className="p-8 md:p-10 rounded-3xl bg-surface/40 backdrop-blur-lg border border-border/50 hover:shadow-xl hover:border-accent/40 transition-all duration-500 group"
+                                        >
+                                            <h3 className="font-display text-2xl md:text-3xl text-primary font-semibold tracking-wide mb-6 group-hover:text-primary-hover transition-colors">
+                                                {section.title}
+                                            </h3>
+                                            <div 
+                                                className="text-lg leading-relaxed text-text-secondary font-light [&>p]:mb-4 last:[&>p]:mb-0" 
+                                                dangerouslySetInnerHTML={{ __html: section.content }} 
+                                            />
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </motion.div>
             </div>
         </section>
     );
 }
+
