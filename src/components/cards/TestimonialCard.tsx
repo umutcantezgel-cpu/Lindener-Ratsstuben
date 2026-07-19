@@ -1,5 +1,4 @@
 import React from 'react';
-import { AdaptiveImage as Image } from '@/components/ui/AdaptiveImage';
 import { Testimonial } from '@/data/testimonials';
 
 const StarRating = ({ rating }: { rating: number }) => {

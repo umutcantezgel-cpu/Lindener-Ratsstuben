@@ -28,7 +28,7 @@ export const ExitIntentOverlay = () => {
     return () => {
       document.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [hasTriggered]);
+  }, [hasTriggered, t]);
 
   return (
     <AnimatePresence>
