@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations(locale as LocaleType, 'pages');
   const tMeta = await getTranslations(locale as LocaleType, 'meta');
   const titleText = tMeta('contact.title', 'Kontakt | Lindener Ratsstuben');
-  const description = t('contact.description', 'Kontaktieren Sie uns. Wir freuen uns auf Ihre Nachricht, Reservierungen oder Feedback.').replace(/<[^>]*>?/gm, '');
+  const description = tMeta('contact.description', 'Kontaktieren Sie uns. Wir freuen uns auf Ihre Nachricht, Reservierungen oder Feedback.');
 
   return {
     title: titleText,

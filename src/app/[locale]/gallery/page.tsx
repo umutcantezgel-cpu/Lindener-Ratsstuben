@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations(locale as LocaleType, 'pages');
   const tMeta = await getTranslations(locale as LocaleType, 'meta');
   const titleText = tMeta('gallery.title', 'Galerie | Lindener Ratsstuben');
-  const description = t('gallery.description', 'Werfen Sie einen Blick auf unser gemütliches Ambiente und unsere frisch zubereiteten Gerichte in Linden.').replace(/<[^>]*>?/gm, '');
+  const description = tMeta('gallery.description', 'Werfen Sie einen Blick auf unser gemütliches Ambiente und unsere frisch zubereiteten Gerichte in Linden.');
 
   return {
     title: titleText,

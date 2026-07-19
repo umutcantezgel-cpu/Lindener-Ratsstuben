@@ -75,23 +75,23 @@ export function SeoContentBlock({ pageKey }: { locale: string, pageKey: string }
                                 </div>
                             ))}
 
-                            {/* H3 Feature Grid (Bento Style) */}
+                            {/* H3 Feature Grid (Vertical Stack) */}
                             {parsed.sections && parsed.sections.filter(s => s.level === 3).length > 0 && (
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                                <div className="flex flex-col gap-8 md:gap-12">
                                     {parsed.sections.filter(s => s.level === 3).map((section, idx) => (
                                         <motion.div 
                                             key={`h3-${idx}`}
                                             initial={{ opacity: 0, y: 20 }}
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true }}
-                                            transition={{ duration: 0.6, delay: idx * 0.1 }}
-                                            className="p-8 md:p-10 rounded-3xl bg-surface/40 backdrop-blur-lg border border-border/50 hover:shadow-xl hover:border-accent/40 transition-all duration-500 group"
+                                            transition={{ duration: 0.6, delay: Math.min(idx * 0.1, 0.5) }}
+                                            className="p-8 md:p-10 lg:p-12 rounded-3xl bg-surface/40 backdrop-blur-lg border border-border/50 hover:shadow-xl hover:border-accent/40 transition-all duration-500 group"
                                         >
-                                            <h3 className="font-display text-2xl md:text-3xl text-primary font-semibold tracking-wide mb-6 group-hover:text-primary-hover transition-colors">
+                                            <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-primary font-semibold tracking-wide mb-6 group-hover:text-primary-hover transition-colors">
                                                 {section.title}
                                             </h3>
                                             <div 
-                                                className="text-lg leading-relaxed text-text-secondary font-light [&>p]:mb-4 last:[&>p]:mb-0" 
+                                                className="text-lg md:text-xl leading-relaxed text-text-secondary font-light [&>p]:mb-4 last:[&>p]:mb-0" 
                                                 dangerouslySetInnerHTML={{ __html: section.content }} 
                                             />
                                         </motion.div>

@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations(locale as LocaleType, 'pages');
   const tMeta = await getTranslations(locale as LocaleType, 'meta');
   const titleText = tMeta('kegelbahn.hero.title', 'Kegelbahn | Lindener Ratsstuben');
-  const description = t('kegelbahn.hero.subtitle', 'Reservieren Sie unsere hauseigene Kegelbahn für unvergessliche Abende mit Freunden, Familie oder Kollegen.').replace(/<[^>]*>?/gm, '');
+  const description = tMeta('kegelbahn.hero.description', 'Reservieren Sie unsere hauseigene Kegelbahn für unvergessliche Abende mit Freunden, Familie oder Kollegen.');
 
   return {
     title: titleText,

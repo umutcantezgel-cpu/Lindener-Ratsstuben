@@ -1,10 +1,16 @@
 {
-  "home.title": "Startseite | Lindener Ratsstuben",
-  "home.description": "Willkommen in den Lindener Ratsstuben. Genießen Sie italienische und mediterrane Spezialitäten, frisch zubereitet mit Leidenschaft.",
-  "menu.title": "Speisekarte | Lindener Ratsstuben",
-  "contact.title": "Kontakt | Lindener Ratsstuben",
-  "reservation.title": "Reservierung | Lindener Ratsstuben",
-  "gallery.title": "Galerie | Lindener Ratsstuben",
-  "about.title": "Über Uns | Lindener Ratsstuben",
-  "kegelbahn.hero.title": "Kegelbahn | Lindener Ratsstuben"
+  "home.title": "Deutsch-Italienisches Restaurant Linden | Lindener Ratsstuben",
+  "home.description": "Herzlich willkommen in den Lindener Ratsstuben! Erleben Sie authentische deutsch-italienische Spezialitäten, eine gemütliche Atmosphäre und unsere Kegelbahn.",
+  "menu.title": "Speisekarte & Gerichte | Restaurant Lindener Ratsstuben Linden",
+  "menu.description": "Entdecken Sie unsere vielfältige Speisekarte: Von klassischer deutscher Hausmannskost über frische Pizza aus dem Steinofen bis hin zu leckeren Pasta-Kreationen.",
+  "contact.title": "Kontakt & Anfahrt | Lindener Ratsstuben Restaurant in Linden",
+  "contact.description": "Nehmen Sie Kontakt mit den Lindener Ratsstuben auf. Finden Sie hier unsere Öffnungszeiten, Telefonnummer, Adresse und den direkten Weg zu unserem Restaurant.",
+  "reservation.title": "Tisch reservieren & Eventlocation | Lindener Ratsstuben",
+  "reservation.description": "Reservieren Sie Ihren Tisch in den Lindener Ratsstuben. Ideal für romantische Dinner, Firmenfeiern, Familienfeste oder einen gemütlichen Abend mit Freunden.",
+  "gallery.title": "Bildergalerie & Ambiente | Lindener Ratsstuben in Linden",
+  "gallery.description": "Werfen Sie einen Blick in unsere Bildergalerie! Entdecken Sie das gemütliche Ambiente, unsere hauseigene Kegelbahn und leckere deutsch-italienische Gerichte.",
+  "about.title": "Über uns & Philosophie | Lindener Ratsstuben Tradition",
+  "about.description": "Erfahren Sie mehr über die Geschichte und Philosophie der Lindener Ratsstuben. Wir bieten frische regionale Zutaten und große Leidenschaft für exzellente Gastronomie.",
+  "kegelbahn.hero.title": "Kegelbahn mieten in Linden | Lindener Ratsstuben",
+  "kegelbahn.hero.description": "Mieten Sie unsere hauseigene Kegelbahn für Ihren Geburtstag, eine Firmenfeier oder einen Ausflug! Inklusive Catering mit leckerem Essen und kühlen Getränken."
 }
