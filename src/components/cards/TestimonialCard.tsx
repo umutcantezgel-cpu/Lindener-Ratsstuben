@@ -37,21 +37,9 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial })
             </blockquote>
             <div className="mt-auto border-t border-border pt-5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    {testimonial.avatar ? (
-                        <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-border">
-                            <Image 
-                                src={testimonial.avatar} 
-                                alt={testimonial.name} 
-                                fill 
-                                sizes="48px"
-                                className="object-cover"
-                            />
-                        </div>
-                    ) : (
-                        <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-primary/10 flex items-center justify-center text-primary font-bold">
-                            {testimonial.name.charAt(0)}
-                        </div>
-                    )}
+                    <div className="w-12 h-12 rounded-full flex-shrink-0 bg-primary/10 flex items-center justify-center text-primary font-bold shadow-sm">
+                        {testimonial.name.charAt(0)}
+                    </div>
                     <span className="font-bold text-text-primary">{testimonial.name}</span>
                 </div>
                 <span className="text-sm text-text-secondary">{testimonial.date}</span>
