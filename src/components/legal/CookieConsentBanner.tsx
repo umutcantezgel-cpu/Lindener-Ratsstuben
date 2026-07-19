@@ -34,7 +34,7 @@ export const CookieConsentBanner = () => {
                 className="fixed bottom-0 inset-x-0 z-[9999] p-4 md:p-6 pb-safe-bottom"
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
             >
-                <div className="max-w-5xl mx-auto bg-surface/95 backdrop-blur-3xl border border-border shadow-2xl rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 flex flex-col md:flex-row gap-5 md:gap-8 items-start md:items-center max-h-[85vh] overflow-y-auto custom-scrollbar">
+                <div className="max-w-5xl mx-auto bg-white backdrop-blur-3xl border border-border shadow-2xl rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 flex flex-col md:flex-row gap-5 md:gap-8 items-start md:items-center max-h-[85vh] overflow-y-auto custom-scrollbar">
                     
                     {!showPreferences ? (
                         <>
