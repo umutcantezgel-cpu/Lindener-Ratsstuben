@@ -34,7 +34,7 @@ export const CookieConsentBanner = () => {
                 className="fixed bottom-0 inset-x-0 z-[9999] p-4 md:p-6 pb-safe-bottom"
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
             >
-                <div className="max-w-5xl mx-auto bg-white backdrop-blur-3xl border border-border shadow-2xl rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 flex flex-col md:flex-row gap-5 md:gap-8 items-start md:items-center max-h-[85vh] overflow-y-auto custom-scrollbar">
+                <div className="max-w-5xl mx-auto bg-bg-primary/98 backdrop-blur-3xl border border-border shadow-2xl rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 flex flex-col md:flex-row gap-5 md:gap-8 items-start md:items-center max-h-[85vh] overflow-y-auto custom-scrollbar">
                     
                     {!showPreferences ? (
                         <>
@@ -46,26 +46,9 @@ export const CookieConsentBanner = () => {
                                     </h2>
                                 </div>
                                 <div className="text-sm text-text-secondary leading-relaxed space-y-3">
-                                    {((t('cookie.description') as string) || '').split('. ').map((sentence: string, sIndex: number, sArray: string[]) => {
-                                        const text = sentence + (sIndex < sArray.length - 1 ? '.' : '');
-                                        return (
-                                            <span key={sIndex} className="block">
-                                                {text.split('"Alle Akzeptieren"').map((part: string, index: number, array: string[]) => (
-                                                  <React.Fragment key={index}>
-                                                    {part}
-                                                    {index < array.length - 1 && <strong>&quot;{t('cookie.accept')}&quot;</strong>}
-                                                  </React.Fragment>
-                                                )).reduce((prev: React.ReactNode[], curr: React.ReactNode) => [prev, curr].flat().flatMap((x, i) => 
-                                                  typeof x === 'string' ? x.split('"Anpassen"').map((p, pIndex, pArr) => (
-                                                    <React.Fragment key={`${i}-${pIndex}`}>
-                                                      {p}
-                                                      {pIndex < pArr.length - 1 && <strong>&quot;{t('cookie.customize')}&quot;</strong>}
-                                                    </React.Fragment>
-                                                  )) : x
-                                                ) as React.ReactNode[], [])}
-                                            </span>
-                                        );
-                                    })}
+                                    <p className="block">
+                                        {t('cookie.description')}
+                                    </p>
                                     <span className="flex gap-4 mt-1">
                                         <Link href={`/${locale}/datenschutz`} className="text-accent hover:underline decoration-accent/30 underline-offset-4">{t('cookie.privacy_link')}</Link>
                                         <Link href={`/${locale}/impressum`} className="text-accent hover:underline decoration-accent/30 underline-offset-4">{t('cookie.imprint_link')}</Link>
