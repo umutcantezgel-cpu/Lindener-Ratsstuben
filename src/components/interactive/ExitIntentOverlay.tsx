@@ -15,8 +15,11 @@ export const ExitIntentOverlay = () => {
       // If the mouse leaves from the top of the window (indicating they are going for tabs/url bar)
       // and we haven't triggered it yet in this session
       if (e.clientY <= 5 && !hasTriggered) {
-        setIsVisible(true);
-        setHasTriggered(true); // Ensure it only fires once
+        const title = t('exit_intent.title');
+        if (title) {
+          setIsVisible(true);
+          setHasTriggered(true); // Ensure it only fires once
+        }
       }
     };
 
