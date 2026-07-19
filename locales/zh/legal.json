@@ -1,11 +1,12 @@
 {
+  "imprint.title": "法律声明",
+  "privacy.title": "隐私政策",
+  "terms.title": "条款和条件",
   "accessibility.title": "无障碍",
   "cookies.title": "Cookie 政策",
-  "imprint.title": "法律信息",
-  "legal.binding_notice": "仅本文件的德语版本具有法律约束力。",
+  "legal.binding_notice_p1": "请注意，出于法律原因，仅我们法律文本的德文原版具有法律约束力。",
+  "legal.binding_notice_p2": "其他语言的翻译仅作为非约束性服务提供，以增进理解。若有差异，始终以德文版本为准。",
+  "legal.binding_notice_p3": "这是为了双方的法律确定性，因为司法管辖地和履行地均在德国。",
   "legal.last_updated": "最后更新",
-  "legal.only_german": "出于法律原因，此内容仅以德语提供。",
-  "legal.original_below": "德语原文显示如下。",
-  "privacy.title": "隐私政策",
-  "terms.title": "条款和条件"
+  "legal.only_german": "出于法律原因，此内容仅以德语提供。"
 }

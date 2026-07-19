@@ -1,11 +1,12 @@
 {
+  "imprint.title": "Informații legale",
+  "privacy.title": "Politica de confidențialitate",
+  "terms.title": "Termeni și Condiții",
   "accessibility.title": "Accesibilitate",
   "cookies.title": "Politica cookie-uri",
-  "imprint.title": "Informații legale",
-  "legal.binding_notice": "Doar versiunea în limba germană a acestui document este obligatorie din punct de vedere juridic.",
-  "legal.last_updated": "Ultima actualizare",
   "legal.only_german": "Acest conținut este disponibil doar în limba germană din motive legale.",
-  "legal.original_below": "Textul original în limba germană este afișat mai jos.",
-  "privacy.title": "Politica de confidențialitate",
-  "terms.title": "Termeni și Condiții"
+  "legal.binding_notice_p1": "Vă rugăm să rețineți că, din motive legale, doar versiunea originală în limba germană a textelor noastre juridice are forță juridică obligatorie.",
+  "legal.binding_notice_p2": "Traducerile în alte limbi sunt oferite exclusiv ca un serviciu fără caracter obligatoriu, pentru o mai bună înțelegere. În caz de discrepanțe, versiunea în limba germană prevalează întotdeauna.",
+  "legal.binding_notice_p3": "Acest lucru servește la securitatea juridică a ambelor părți, deoarece locul de jurisdicție și locul de executare sunt în Germania.",
+  "legal.last_updated": "Ultima actualizare"
 }

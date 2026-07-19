@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const { locale } = await params;
   const t = await getTranslations(locale as LocaleType, 'meta');
   return {
-    title: t('barrierefreiheit.title'),
+    title: t('barrierefreiheit.title', 'Barrierefreiheit | Lindener Ratsstuben'),
     description: t('barrierefreiheit.description'),
     alternates: getAlternates(locale, 'barrierefreiheit'),
     robots: {
@@ -26,7 +26,7 @@ const Barrierefreiheit = async ({ params }: { params: Promise<{ locale: LocaleTy
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
     const tLegal = await getTranslations(locale as LocaleType, 'legal');
-    const title = t('barrierefreiheit.title').split('|')[0].trim();
+    const title = t('barrierefreiheit.title', 'Barrierefreiheit | Lindener Ratsstuben').split('|')[0].trim();
     const isNonGerman = locale !== 'de';
     const bindingNotice = isNonGerman ? tLegal('legal.binding_notice') : '';
 

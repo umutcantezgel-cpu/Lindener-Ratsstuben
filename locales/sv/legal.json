@@ -1,11 +1,12 @@
 {
+  "imprint.title": "Impressum",
+  "privacy.title": "Integritetspolicy",
+  "terms.title": "Allmänna Villkor",
   "accessibility.title": "Tillgänglighet",
   "cookies.title": "Cookie-policy",
-  "imprint.title": "Impressum",
-  "legal.binding_notice": "Endast den tyska versionen av detta dokument är juridiskt bindande.",
-  "legal.last_updated": "Senast uppdaterad",
   "legal.only_german": "Detta innehåll är av juridiska skäl endast tillgängligt på tyska.",
-  "legal.original_below": "Den ursprungliga tyska texten visas nedan.",
-  "privacy.title": "Integritetspolicy",
-  "terms.title": "Allmänna Villkor"
+  "legal.binding_notice_p1": "Observera att av juridiska skäl är endast den tyska originalversionen av våra juridiska texter juridiskt bindande.",
+  "legal.binding_notice_p2": "Översättningar till andra språk erbjuds uteslutande som en icke-bindande tjänst för bättre förståelse. Vid eventuella avvikelser har den tyska versionen alltid företräde.",
+  "legal.binding_notice_p3": "Detta är för att garantera rättssäkerhet för båda parter, eftersom jurisdiktion och uppfyllelseort ligger i Tyskland.",
+  "legal.last_updated": "Senast uppdaterad"
 }

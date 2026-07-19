@@ -1,11 +1,12 @@
 {
+  "imprint.title": "Mentions Légales",
+  "privacy.title": "Politique de Confidentialité",
+  "terms.title": "Conditions Générales",
   "accessibility.title": "Accessibilité",
   "cookies.title": "Politique de Cookies",
-  "imprint.title": "Mentions légales",
-  "legal.binding_notice": "Seule la version allemande de ce document fait foi.",
-  "legal.last_updated": "Mise à jour",
   "legal.only_german": "Ce contenu n'est disponible qu'en allemand pour des raisons légales.",
-  "legal.original_below": "Le texte original en allemand est affiché ci-dessous.",
-  "privacy.title": "Politique de Confidentialité",
-  "terms.title": "Conditions Générales"
+  "legal.binding_notice_p1": "Veuillez noter que pour des raisons légales, seule la version originale allemande de nos textes juridiques est juridiquement contraignante.",
+  "legal.binding_notice_p2": "Les traductions dans d'autres langues sont fournies exclusivement à titre de service non contraignant pour une meilleure compréhension. En cas de divergences, la version allemande prévaut toujours.",
+  "legal.binding_notice_p3": "Ceci sert de sécurité juridique pour les deux parties, car la juridiction et le lieu d'exécution sont en Allemagne.",
+  "legal.last_updated": "Dernière mise à jour"
 }

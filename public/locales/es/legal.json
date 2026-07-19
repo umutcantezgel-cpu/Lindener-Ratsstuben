@@ -4,5 +4,9 @@
   "terms.title": "Términos y Condiciones",
   "accessibility.title": "Accesibilidad",
   "cookies.title": "Política de Cookies",
-  "legal.only_german": "Este contenido solo está disponible en alemán por razones legales."
+  "legal.only_german": "Este contenido solo está disponible en alemán por razones legales.",
+  "legal.binding_notice_p1": "Tenga en cuenta que, por razones legales, solo la versión original en alemán de nuestros textos legales es jurídicamente vinculante.",
+  "legal.binding_notice_p2": "Las traducciones a otros idiomas se proporcionan exclusivamente como un servicio no vinculante para facilitar la comprensión. En caso de discrepancias, prevalecerá siempre la versión en alemán.",
+  "legal.binding_notice_p3": "Esto sirve para proporcionar seguridad jurídica a ambas partes, ya que el lugar de jurisdicción y el lugar de cumplimiento se encuentran en Alemania.",
+  "legal.last_updated": "Última actualización"
 }

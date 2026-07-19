@@ -1,11 +1,12 @@
 {
+  "imprint.title": "法的通知",
+  "privacy.title": "プライバシーポリシー",
+  "terms.title": "利用規約",
   "accessibility.title": "アクセシビリティ",
   "cookies.title": "Cookieポリシー",
-  "imprint.title": "法的情報",
-  "legal.binding_notice": "本文書のドイツ語版のみが法的拘束力を有します。",
-  "legal.last_updated": "最終更新",
   "legal.only_german": "このコンテンツは法的理由によりドイツ語のみで提供されています。",
-  "legal.original_below": "ドイツ語の原文は以下に表示されています。",
-  "privacy.title": "プライバシーポリシー",
-  "terms.title": "利用規約"
+  "legal.binding_notice_p1": "法的な理由により、当社の法的文書のドイツ語のオリジナル版のみが法的拘束力を持つことにご注意ください。",
+  "legal.binding_notice_p2": "他の言語への翻訳は、理解を深めるための法的拘束力のないサービスとしてのみ提供されています。相違がある場合は、常にドイツ語版が優先されます。",
+  "legal.binding_notice_p3": "管轄裁判所および履行地がドイツにあるため、これは双方の法的確実性に寄与します。",
+  "legal.last_updated": "最終更新日"
 }

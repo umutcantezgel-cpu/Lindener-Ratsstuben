@@ -49,9 +49,10 @@ export const Menu = async ({ categories, menuItems, locale, mittagskarte }: Page
                 <header className="text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
                     <span className="text-accent-text font-bold uppercase tracking-wider text-sm" aria-hidden="true">{t('menu.subtitle') as string}</span>
                     <h1 className="text-5xl font-display font-bold text-text-primary mt-2 mb-6">{t('menu.title') as string}</h1>
-                    <p className="text-text-secondary max-w-2xl mx-auto text-lg leading-relaxed mb-6">
-                        {t('menu.description') as string}
-                    </p>
+                    <div 
+                        className="text-text-secondary max-w-2xl mx-auto text-lg leading-relaxed mb-6 space-y-4 [&>p]:leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: t('menu.description') as string }}
+                    />
                 </header>
 
                 {/* Tägliche Mittagskarte */}

@@ -1,11 +1,12 @@
 {
   "hero.headline_1": "Excellence Culinaire",
   "hero.headline_2": "rencontre la Tradition",
-  "hero.description": "Bienvenue au Lindener Ratsstuben dans le beau Linden.",
+  "hero.description": "<p>Bienvenue aux Lindener Ratsstuben dans le magnifique quartier de Linden. Depuis de nombreuses années, nous vous offrons une expérience culinaire authentique et chaleureuse, où la tradition et la modernité se rencontrent.</p><p>Notre restaurant est bien plus qu'un simple endroit pour manger ; c'est un véritable lieu de rencontre pour les familles, les amis et les collègues. Nous mettons un point d'honneur à créer une atmosphère où chaque invité se sent comme chez lui dès qu'il franchit nos portes.</p><p>Venez découvrir notre hospitalité exceptionnelle et nos plats savoureux préparés avec soin. Que ce soit pour un déjeuner d'affaires rapide ou un dîner relaxant, nous nous réjouissons de vous offrir des moments inoubliables.</p>",
   "hero.cta_reservation": "Réserver",
   "hero.cta_menu": "Découvrir le Menu",
   "philosophy.label": "Notre Philosophie",
   "philosophy.title": "Plus qu'un repas – une expérience.",
+  "philosophy.description": "<p>Aux Lindener Ratsstuben, notre philosophie repose sur l'amour inconditionnel de la bonne cuisine et de l'hospitalité sincère. Nous croyons fermement que chaque repas doit être une célébration des sens et un moment de partage précieux.</p><p>Nous sélectionnons rigoureusement nos ingrédients, en privilégiant les produits frais, locaux et de saison. Nos chefs talentueux transforment ces ingrédients de qualité avec créativité et respect, pour vous offrir des plats qui racontent une histoire à chaque bouchée.</p><p>Au-delà de la nourriture, nous nous efforçons de créer un environnement accueillant et un service attentif. Notre équipe dévouée travaille chaque jour avec passion pour faire en sorte que votre visite soit non seulement délicieuse, mais véritablement mémorable.</p>",
   "philosophy.master_chefs": "Chefs Maîtres",
   "philosophy.fresh_ingredients": "Ingrédients Frais",
   "highlights.title": "Points Forts Culinaires",

@@ -1,11 +1,12 @@
 {
+  "imprint.title": "Impresszum",
+  "privacy.title": "Adatvédelmi irányelvek",
+  "terms.title": "Általános Szerződési Feltételek",
   "accessibility.title": "Akadálymentesség",
   "cookies.title": "Cookie szabályzat",
-  "imprint.title": "Impresszum",
-  "legal.binding_notice": "Csak a dokumentum német nyelvű változata jogilag kötelező érvényű.",
-  "legal.last_updated": "Utolsó frissítés",
   "legal.only_german": "Ez a tartalom jogi okokból csak német nyelven érhető el.",
-  "legal.original_below": "Az eredeti német szöveg alább látható.",
-  "privacy.title": "Adatvédelmi irányelvek",
-  "terms.title": "Általános Szerződési Feltételek"
+  "legal.binding_notice_p1": "Kérjük, vegye figyelembe, hogy jogi okokból csak jogi szövegeink eredeti német nyelvű változata kötelező érvényű.",
+  "legal.binding_notice_p2": "Más nyelvekre történő fordítások kizárólag nem kötelező erejű szolgáltatásként állnak rendelkezésre a jobb megértés érdekében. Eltérések esetén mindig a német változat az irányadó.",
+  "legal.binding_notice_p3": "Ez mindkét fél jogbiztonságát szolgálja, mivel a joghatóság és a teljesítés helye Németország.",
+  "legal.last_updated": "Utolsó frissítés"
 }

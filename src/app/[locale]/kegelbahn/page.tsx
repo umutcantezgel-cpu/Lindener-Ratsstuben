@@ -3,25 +3,25 @@ import { Metadata } from 'next';
 import KegelClient from './KegelClient';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
-import { companyData } from '@/data/company';
+
 import { JsonLd } from '@/components/seo/JsonLd';
 import { createKegelbahnPageSchema } from '@/lib/seo/schema-generators';
 import { getAlternates } from '@/lib/seo/metadata';
+import { SeoContentBlock } from '@/components/seo/SeoContentBlock';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations(locale as LocaleType, 'pages');
   const tMeta = await getTranslations(locale as LocaleType, 'meta');
-  const titleText = tMeta('kegelbahn.hero.title');
-  const description = t('kegelbahn.hero.subtitle');
-  const fullTitle = `${titleText} | ${companyData.companyName}`;
+  const titleText = tMeta('kegelbahn.hero.title', 'Kegelbahn | Lindener Ratsstuben');
+  const description = t('kegelbahn.hero.subtitle', 'Reservieren Sie unsere hauseigene Kegelbahn für unvergessliche Abende mit Freunden, Familie oder Kollegen.').replace(/<[^>]*>?/gm, '');
 
   return {
     title: titleText,
     description,
     alternates: getAlternates(locale, 'kegelbahn'),
     openGraph: {
-      title: fullTitle,
+      title: titleText,
       description,
       url: `/${locale}/kegelbahn`,
     }
@@ -36,6 +36,7 @@ export default async function KegelbahnPage({ params }: { params: Promise<{ loca
       <>
         <JsonLd data={createKegelbahnPageSchema(t)} />
         <KegelClient locale={locale} />
+        <SeoContentBlock locale={locale} pageKey="kegelbahn" />
       </>
     );
 }

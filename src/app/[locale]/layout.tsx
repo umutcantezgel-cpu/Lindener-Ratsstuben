@@ -67,19 +67,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   return {
     metadataBase: new URL('https://www.lindener-ratsstuben.de'),
-    title: {
-      template: `%s | ${companyData.companyName}`,
-      default: defaultTitle,
-    },
+    title: defaultTitle,
     description,
     keywords: ['Italienisch', 'Mediterran', 'Restaurant', 'Linden', 'Lindener Ratsstuben', 'Pizza', 'Pasta', 'Vegetarisch', 'Biergarten'],
     publisher: companyData.companyName,
     robots: {
-      index: true,
-      follow: true,
+      index: ['de', 'en'].includes(locale),
+      follow: ['de', 'en'].includes(locale),
       googleBot: {
-        index: true,
-        follow: true,
+        index: ['de', 'en'].includes(locale),
+        follow: ['de', 'en'].includes(locale),
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,

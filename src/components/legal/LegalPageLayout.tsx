@@ -3,24 +3,30 @@ import { PageTransition } from '@/components/effects/PageTransition';
 import { Scale, Info } from 'lucide-react';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
+import { SeoContentBlock } from '@/components/seo/SeoContentBlock';
 
 interface LegalPageLayoutProps {
     title: string;
     lastUpdated: string;
     locale?: string;
+    pageKey: string;
     children: ReactNode;
 }
 
-export const LegalPageLayout = async ({ title, lastUpdated, locale, children }: LegalPageLayoutProps) => {
+export const LegalPageLayout = async ({ title, lastUpdated, locale, pageKey, children }: LegalPageLayoutProps) => {
     const currentLocale = (locale || 'de') as LocaleType;
     const isNonGerman = currentLocale !== 'de';
     
-    let bindingNotice = '';
+    let bindingNoticeP1 = '';
+    let bindingNoticeP2 = '';
+    let bindingNoticeP3 = '';
     let lastUpdatedLabel = 'Stand';
     
     if (isNonGerman) {
         const tLegal = await getTranslations(currentLocale, 'legal');
-        bindingNotice = tLegal('legal.binding_notice');
+        bindingNoticeP1 = tLegal('legal.binding_notice_p1');
+        bindingNoticeP2 = tLegal('legal.binding_notice_p2');
+        bindingNoticeP3 = tLegal('legal.binding_notice_p3');
         lastUpdatedLabel = tLegal('legal.last_updated');
     }
 
@@ -44,12 +50,14 @@ export const LegalPageLayout = async ({ title, lastUpdated, locale, children }: 
                     </header>
 
                     {/* Binding notice for non-German locales */}
-                    {isNonGerman && bindingNotice && (
-                        <div className="mb-8 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl flex items-start gap-3">
-                            <Info className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" aria-hidden="true" />
-                            <p className="text-sm text-amber-800 dark:text-amber-200 font-medium">
-                                {bindingNotice}
-                            </p>
+                    {isNonGerman && (bindingNoticeP1 || bindingNoticeP2 || bindingNoticeP3) && (
+                        <div className="mb-8 p-6 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl flex items-start gap-4">
+                            <Info className="w-6 h-6 text-amber-600 dark:text-amber-400 shrink-0 mt-1" aria-hidden="true" />
+                            <div className="space-y-4">
+                                {bindingNoticeP1 && <p className="text-sm text-amber-800 dark:text-amber-200 font-medium leading-relaxed">{bindingNoticeP1}</p>}
+                                {bindingNoticeP2 && <p className="text-sm text-amber-800 dark:text-amber-200 font-medium leading-relaxed">{bindingNoticeP2}</p>}
+                                {bindingNoticeP3 && <p className="text-sm text-amber-800 dark:text-amber-200 font-medium leading-relaxed">{bindingNoticeP3}</p>}
+                            </div>
                         </div>
                     )}
 
@@ -60,6 +68,7 @@ export const LegalPageLayout = async ({ title, lastUpdated, locale, children }: 
                         {children}
                     </div>
 
+                    <SeoContentBlock locale={currentLocale} pageKey={pageKey} />
                 </main>
             </article>
         </PageTransition>

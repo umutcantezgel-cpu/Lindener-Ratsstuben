@@ -1,11 +1,12 @@
 {
+  "imprint.title": "Impressum",
+  "privacy.title": "Datenschutz",
+  "terms.title": "AGB",
   "accessibility.title": "Barrierefreiheit",
   "cookies.title": "Cookie-Richtlinie",
-  "imprint.title": "Impressum",
-  "legal.binding_notice": "Rechtsverbindlich ist ausschließlich die deutsche Fassung dieses Dokuments.",
-  "legal.last_updated": "Stand",
   "legal.only_german": "Dieser Inhalt ist aus rechtlichen Gründen nur in Deutsch verfügbar.",
-  "legal.original_below": "Der deutsche Originaltext wird nachfolgend angezeigt.",
-  "privacy.title": "Datenschutz",
-  "terms.title": "AGB"
+  "legal.binding_notice_p1": "Bitte beachten Sie, dass aus rechtlichen Gründen nur die deutsche Originalversion unserer Rechtstexte rechtlich bindend ist.",
+  "legal.binding_notice_p2": "Übersetzungen in andere Sprachen werden ausschließlich als unverbindliche Serviceleistung zur besseren Verständlichkeit angeboten. Im Falle von Abweichungen hat stets die deutsche Fassung Vorrang.",
+  "legal.binding_notice_p3": "Dies dient der Rechtssicherheit für beide Seiten, da der Gerichtsstand und der Erfüllungsort in Deutschland liegen.",
+  "legal.last_updated": "Stand"
 }

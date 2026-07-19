@@ -9,22 +9,23 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
     return {
-        title: t('impressum.title'),
+        title: t('impressum.title', 'Impressum | Lindener Ratsstuben'),
         description: t('impressum.description'),
         alternates: getAlternates(locale, 'impressum'),
+        robots: ['de', 'en'].includes(locale) ? 'index, follow' : 'noindex, follow',
     };
 }
 
 export default async function ImpressumPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
-    const title = t('impressum.title').split(' |')[0];
+    const title = t('impressum.title', 'Impressum | Lindener Ratsstuben').split(' |')[0];
 
     // We hardcode the language check to provide multi-lang support or keep it universally German since it's a legal DACH requirement
     // Usually Impressum is kept in German, but we can do a localized intro if needed.
 
     return (
-        <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale}>
+        <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale} pageKey="impressum">
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
                 {companyData.companyName}<br />

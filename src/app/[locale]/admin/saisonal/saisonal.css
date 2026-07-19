@@ -1,5 +1,9 @@
 /* === Premium Seasonal Card Design System === */
 
+/* Hide global website UI since this is a pure admin print utility */
+header, footer, [class*="fixed"][class*="bottom-"], [class*="cookie"] {
+  display: none !important;
+}
 .seasonal-root {
   min-height: 100vh;
   padding: 40px 20px;
@@ -12,6 +16,23 @@
 
 .seasonal-page {
   width: 297mm;
+  height: 210mm;
+  background-color: var(--paper, #fdfbf7);
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, rgba(253, 251, 247, 0.95), rgba(248, 245, 238, 0.95)),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A880' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  margin: 0 auto;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+}
+
+.seasonal-page-a5-portrait {
+  width: 148.5mm;
   height: 210mm;
   background-color: var(--paper, #fdfbf7);
   background-image:
@@ -332,7 +353,7 @@
 }
 
 /* ── Responsive View (Mobile adjustment) ── */
-@media (max-width: 215mm) {
+@media screen and (max-width: 1024px) {
   .seasonal-root {
     padding: 20px 10px;
   }
@@ -366,7 +387,7 @@
 }
 
 @page {
-  size: landscape;
+  size: A4 landscape;
   margin: 0;
 }
 
@@ -400,7 +421,7 @@
     overflow: visible !important;
     display: block !important;
   }
-  
+
   .seasonal-page {
     width: 297mm !important;
     height: 210mm !important;
@@ -409,7 +430,15 @@
     border-radius: 0 !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
+    page-break-after: always !important;
+    break-after: always !important;
     position: relative !important;
+    background: none !important;
+  }
+
+  .seasonal-page:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
   }
   
   .landscape-layout {
@@ -417,18 +446,32 @@
     gap: 12mm !important;
   }
   
+  .landscape-column {
+    flex: 1 !important;
+    padding-bottom: 5mm !important;
+  }
+  
   .border-right {
     border-right: 1px dashed rgba(197, 168, 128, 0.4) !important;
     padding-right: 12mm !important;
   }
   
-  .border-right::after {
-    display: block !important;
+  /* Slightly tighten spacing to prevent overflow if text is long */
+  .seasonal-content {
+    padding: 8mm 12mm 8mm 12mm !important;
   }
-  
-  .landscape-column {
-    flex: 1 !important;
-    padding-bottom: 18mm !important;
+  .seasonal-item {
+    margin-bottom: 2px !important;
+  }
+  .seasonal-item-desc {
+    font-size: 9.5pt !important;
+    line-height: 1.2 !important;
+  }
+  .seasonal-header {
+    margin-bottom: 0 !important;
+  }
+  .seasonal-divider {
+    margin: 1mm 0 !important;
   }
 }
 

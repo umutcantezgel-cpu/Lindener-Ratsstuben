@@ -4,5 +4,9 @@
   "terms.title": "Termos e Condições",
   "accessibility.title": "Acessibilidade",
   "cookies.title": "Política de Cookies",
-  "legal.only_german": "Este conteúdo está disponível apenas em alemão por razões legais."
+  "legal.only_german": "Este conteúdo está disponível apenas em alemão por razões legais.",
+  "legal.binding_notice_p1": "Por favor, note que, por razões legais, apenas a versão original em alemão dos nossos textos legais é juridicamente vinculativa.",
+  "legal.binding_notice_p2": "As traduções para outros idiomas são oferecidas exclusivamente como um serviço não vinculativo para facilitar a compreensão. Em caso de divergências, a versão em alemão sempre prevalecerá.",
+  "legal.binding_notice_p3": "Isso serve para garantir a segurança jurídica de ambas as partes, uma vez que o foro e o local de cumprimento estão localizados na Alemanha.",
+  "legal.last_updated": "Última atualização"
 }

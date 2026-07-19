@@ -9,20 +9,21 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
     return {
-        title: t('cookies.title'),
+        title: t('cookies.title', 'Cookies | Lindener Ratsstuben'),
         description: t('cookies.description'),
         alternates: getAlternates(locale, 'cookies'),
+        robots: ['de', 'en'].includes(locale) ? 'index, follow' : 'noindex, follow',
     };
 }
 
 export default async function CookiesPage({ params }: { params: Promise<{ locale: LocaleType }> }) {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
-    const title = t('cookies.title').split('|')[0].trim() + " (Cookie Policy)";
+    const title = t('cookies.title', 'Cookies | Lindener Ratsstuben').split('|')[0].trim() + " (Cookie Policy)";
 
     return (
-        <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale}>
-            <h2>Transparenz & 20X Scale Zero-Script Architektur</h2>
+        <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale} pageKey="cookies">
+            <h2>Präambel zur &quot;Strict Opt-In&quot; Richtlinie</h2>
             <p>
                 Diese Cookie-Richtlinie informiert Sie detailliert über die Art, den Umfang und die Zwecke der Verarbeitung von Cookies und lokal gespeicherten Daten (Local Storage) auf der Webseite der {companyData.companyName}.
             </p>

@@ -53,9 +53,10 @@ export const Gallery = () => {
                 <div className="container mx-auto px-4">
                     <header className="text-center mb-12">
                         <h1 className="text-3xl md:text-4xl font-display font-bold text-text-primary bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-4 shadow-warm inline-block w-full max-w-3xl">{t('gallery.title') as string}</h1>
-                        <p className="text-text-secondary max-w-2xl mx-auto">
-                            {t('gallery.description') as string}
-                        </p>
+                        <div 
+                            className="text-text-secondary max-w-2xl mx-auto space-y-4 [&>p]:leading-relaxed"
+                            dangerouslySetInnerHTML={{ __html: t('gallery.description') as string }}
+                        />
                     </header>
 
                     {/* Masonry Grid */}

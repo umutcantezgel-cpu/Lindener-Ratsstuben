@@ -3,18 +3,19 @@ import { Metadata } from 'next';
 import PageClient from './PageClient';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
-import { companyData } from '@/data/company';
+
 import { JsonLd } from '@/components/seo/JsonLd';
 import { createHomeFaqSchema } from '@/lib/seo/schema-generators';
+import { SeoContentBlock } from '@/components/seo/SeoContentBlock';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations(locale as LocaleType, 'meta');
-  const title = `${t('home.title', 'Restaurant & Eventlocation Linden')} | ${companyData.companyName}`;
+  const title = t('home.title', 'Restaurant & Eventlocation Linden | Lindener Ratsstuben');
   const description = t('home.description', 'Authentisch deutsch-italienische Küche, Eventlocation und hauseigene Kegelbahn.');
   
   return {
-    title: t('home.title', 'Restaurant & Eventlocation Linden'),
+    title: t('home.title', 'Restaurant & Eventlocation Linden | Lindener Ratsstuben'),
     description,
     alternates: getAlternates(locale, ''),
     openGraph: {
@@ -32,6 +33,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     <>
       <JsonLd data={createHomeFaqSchema()} />
       <PageClient locale={locale} />
+      <SeoContentBlock locale={locale} pageKey="home" />
     </>
   );
 }

@@ -9,20 +9,21 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
     return {
-        title: t('agb.title'),
+        title: t('agb.title', 'AGB | Lindener Ratsstuben'),
         description: t('agb.description'),
         alternates: getAlternates(locale, 'agb'),
+        robots: ['de', 'en'].includes(locale) ? 'index, follow' : 'noindex, follow',
     };
 }
 
 export default async function AGBPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
-    const title = t('agb.title').split(' |')[0];
+    const title = t('agb.title', 'AGB | Lindener Ratsstuben').split(' |')[0];
 
     return (
-        <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale}>
-            <h2>1. Geltungsbereich und Vertragspartner</h2>
+        <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale} pageKey="agb">
+            <h2>§ 1 Geltungsbereich und Vertragspartner</h2>
             <p>
                 1.1 Diese Allgemeinen Geschäftsbedingungen (im Folgenden „AGB“ genannt) gelten für sämtliche Verträge, Leistungen und Lieferungen, die zwischen den {companyData.companyName} (im Folgenden „Restaurant“ oder „wir“) und ihren Gästen, Kunden sowie Veranstaltern (im Folgenden gemeinsam „Gast“ genannt) geschlossen bzw. erbracht werden.
             </p>

@@ -4,5 +4,9 @@
   "terms.title": "Regulamin",
   "accessibility.title": "Dostępność",
   "cookies.title": "Polityka cookies",
-  "legal.only_german": "Ta treść jest dostępna tylko w języku niemieckim z przyczyn prawnych."
+  "legal.only_german": "Ta treść jest dostępna tylko w języku niemieckim z przyczyn prawnych.",
+  "legal.binding_notice_p1": "Należy pamiętać, że ze względów prawnych tylko oryginalna niemiecka wersja naszych tekstów prawnych jest prawnie wiążąca.",
+  "legal.binding_notice_p2": "Tłumaczenia na inne języki są oferowane wyłącznie jako niewiążąca usługa ułatwiająca zrozumienie. W przypadku rozbieżności, zawsze decydująca jest wersja niemiecka.",
+  "legal.binding_notice_p3": "Służy to pewności prawnej obu stron, ponieważ miejscem jurysdykcji i miejscem wykonania są Niemcy.",
+  "legal.last_updated": "Ostatnia aktualizacja"
 }

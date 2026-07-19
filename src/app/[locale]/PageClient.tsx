@@ -50,7 +50,7 @@ export const Home = async ({ locale }: HomeProps) => {
 
     return (
         <article itemProp="mainContentOfPage" itemScope itemType="https://schema.org/AboutPage">
-            <h1 className="sr-only">Restaurant, Eventlocation & Catering in Linden</h1>
+            <h1 className="sr-only">{t('h1_title') || 'Restaurant, Eventlocation & Catering in Linden'}</h1>
 
             {/* Modular Epic Cinematic Hero Section - 10x Redesign */}
             <HeroRoot />
@@ -65,9 +65,10 @@ export const Home = async ({ locale }: HomeProps) => {
                                 <h2 id="philosophy-title" className="text-4xl md:text-5xl font-display font-bold text-stone-600 leading-tight text-balance">
                                     {t('philosophy.title') as string}
                                 </h2>
-                                <p className="text-stone-700 text-lg leading-relaxed max-w-prose">
-                                    {(t('philosophy.description') as string).replace('{name}', companyData.companyName) || `Bei ${companyData.companyName} glauben wir, dass jedes Gericht eine Geschichte erzählt.`}
-                                </p>
+                                <div 
+                                    className="text-stone-700 text-lg leading-relaxed max-w-prose space-y-4 [&>p]:leading-relaxed"
+                                    dangerouslySetInnerHTML={{ __html: ((t('philosophy.description') as string).replace('{name}', companyData.companyName) || `Bei ${companyData.companyName} glauben wir, dass jedes Gericht eine Geschichte erzählt.`) as string }}
+                                />
                                 <div className="grid grid-cols-2 gap-8 pt-4">
                                     <section className="flex flex-col gap-2">
                                         <ChefHat className="w-8 h-8 text-accent-text" aria-hidden="true" />

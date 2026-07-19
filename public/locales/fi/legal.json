@@ -4,5 +4,9 @@
   "terms.title": "Käyttöehdot",
   "accessibility.title": "Esteettömyys",
   "cookies.title": "Evästekäytäntö",
-  "legal.only_german": "Tämä sisältö on saatavilla vain saksaksi oikeudellisista syistä."
+  "legal.only_german": "Tämä sisältö on saatavilla vain saksaksi oikeudellisista syistä.",
+  "legal.binding_notice_p1": "Huomaa, että oikeudellisista syistä vain oikeudellisten tekstemme alkuperäinen saksankielinen versio on oikeudellisesti sitova.",
+  "legal.binding_notice_p2": "Käännökset muille kielille tarjotaan yksinomaan ei-sitovana palveluna ymmärrettävyyden parantamiseksi. Poikkeavuustapauksissa saksankielinen versio on aina etusijalla.",
+  "legal.binding_notice_p3": "Tämä palvelee oikeusvarmuutta molemmille osapuolille, koska oikeuspaikka ja suorituspaikka ovat Saksassa.",
+  "legal.last_updated": "Päivitetty"
 }

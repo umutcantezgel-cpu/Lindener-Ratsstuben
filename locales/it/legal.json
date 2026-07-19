@@ -1,11 +1,12 @@
 {
+  "imprint.title": "Note Legali",
+  "privacy.title": "Privacy",
+  "terms.title": "Termini e Condizioni",
   "accessibility.title": "Accessibilità",
   "cookies.title": "Politica Cookie",
-  "imprint.title": "Note legali",
-  "legal.binding_notice": "Solo la versione tedesca di questo documento è giuridicamente vincolante.",
-  "legal.last_updated": "Aggiornato al",
   "legal.only_german": "Questo contenuto è disponibile solo in tedesco per motivi legali.",
-  "legal.original_below": "Il testo originale in tedesco è mostrato di seguito.",
-  "privacy.title": "Privacy",
-  "terms.title": "Termini e Condizioni"
+  "legal.binding_notice_p1": "Si prega di notare che, per motivi legali, solo la versione originale tedesca dei nostri testi legali è giuridicamente vincolante.",
+  "legal.binding_notice_p2": "Le traduzioni in altre lingue sono fornite esclusivamente come servizio non vincolante per una migliore comprensione. In caso di discrepanze, prevale sempre la versione tedesca.",
+  "legal.binding_notice_p3": "Ciò serve alla certezza del diritto per entrambe le parti, poiché il foro competente e il luogo di adempimento si trovano in Germania.",
+  "legal.last_updated": "Ultimo aggiornamento"
 }

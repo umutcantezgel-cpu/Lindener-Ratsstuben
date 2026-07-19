@@ -1,11 +1,12 @@
 {
   "hero.headline_1": "Mutfak Mükemmelliği",
   "hero.headline_2": "Gelenekle Buluşuyor",
-  "hero.description": "Güzel Linden'deki Lindener Ratsstuben'e hoş geldiniz. Sizi misafirimiz olarak ağırlamaktan mutluluk duyuyoruz!",
+  "hero.description": "<p>Güzel Linden'in kalbinde yer alan Lindener Ratsstuben'e hoş geldiniz. Şehrin dokusunu yansıtan sıcak ortamımızda, size hem gözünüze hem de damağınıza hitap edecek benzersiz bir yemek deneyimi sunmaktan büyük mutluluk duyuyoruz.</p><p>Uzun yıllara dayanan tecrübemiz ve mutfağa olan tutkumuzla, geleneksel tarifleri modern dokunuşlarla harmanlıyor; her bir misafirimizi kendi evinde hissettirecek samimi bir hizmet anlayışıyla ağırlıyoruz.</p><p>İster keyifli bir öğle yemeği arası, ister sevdiklerinizle uzun bir akşam yemeği olsun, kapımızdan içeri adım attığınız andan itibaren lezzet ve huzur dolu anlar sizi bekliyor. Bizimle bir araya gelmek için hemen masanızı ayırtın.</p>",
   "hero.cta_reservation": "Masa Ayırt",
   "hero.cta_menu": "Menüyü Keşfet",
   "philosophy.label": "Felsefemiz",
   "philosophy.title": "Sadece yemekten fazlası – bir deneyim.",
+  "philosophy.description": "<p>Felsefemizin temelinde, sadece karın doyuran yemekler değil, tüm duyulara hitap eden unutulmaz bir deneyim sunmak yatıyor. Mutfağımızda her malzemenin en tazesi ve en doğalı özenle seçilerek tabağınıza ulaşıyor.</p><p>Misafirperverliği bir iş olarak değil, bir yaşam tarzı olarak benimsiyoruz. Kapımızdan giren her misafirimizi ailemizin bir parçası olarak görüyor, sevgi ve özenle hazırladığımız tarifleri güler yüzlü bir hizmetle birleştiriyoruz.</p><p>Yemek pişirmenin sanata, sofranın ise birlikteliğin merkezine dönüştüğü bu mekânda, lezzetlerimizin anılarınıza eşlik etmesini diliyoruz. Gelenek ve yeniliği aynı tabakta buluşturan mutfak yolculuğumuza siz de dâhil olun.</p>",
   "philosophy.master_chefs": "Usta Aşçılar",
   "philosophy.fresh_ingredients": "Taze Malzemeler",
   "philosophy.quote": "Yemek pişirmek, tadabileceğiniz bir sevgidir.",

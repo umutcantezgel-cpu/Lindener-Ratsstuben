@@ -1,11 +1,12 @@
 {
+  "imprint.title": "Juridisk meddelelse",
+  "privacy.title": "Privatlivspolitik",
+  "terms.title": "Vilkår og Betingelser",
   "accessibility.title": "Tilgængelighed",
   "cookies.title": "Cookiepolitik",
-  "imprint.title": "Impressum",
-  "legal.binding_notice": "Kun den tyske version af dette dokument er juridisk bindende.",
-  "legal.last_updated": "Sidst opdateret",
   "legal.only_german": "Dette indhold er af juridiske årsager kun tilgængeligt på tysk.",
-  "legal.original_below": "Den originale tyske tekst vises nedenfor.",
-  "privacy.title": "Privatlivspolitik",
-  "terms.title": "Vilkår og Betingelser"
+  "legal.binding_notice_p1": "Bemærk venligst, at af juridiske årsager er kun den originale tyske version af vores juridiske tekster juridisk bindende.",
+  "legal.binding_notice_p2": "Oversættelser til andre sprog tilbydes udelukkende som en uforpligtende service for at gøre det lettere at forstå. I tilfælde af uoverensstemmelser har den tyske version altid forrang.",
+  "legal.binding_notice_p3": "Dette tjener til retssikkerhed for begge parter, da værnetinget og opfyldelsesstedet er i Tyskland.",
+  "legal.last_updated": "Sidst opdateret"
 }

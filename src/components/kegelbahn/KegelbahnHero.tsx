@@ -43,7 +43,7 @@ export const KegelbahnHero: React.FC = () => {
                     </span>
                     
                     <h1 className="text-[clamp(3rem,8vw,6rem)] font-display font-extralight tracking-tight leading-[1.05]">
-                        Unsere <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary via-muted-gold-light to-primary drop-shadow-[0_0_15px_rgba(var(--color-primary),0.3)]">Kegelbahn</span>
+                        Unsere <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary via-muted-gold-light to-primary drop-shadow-[0_0_15px_rgba(var(--color-primary),0.3)]">Kegelbahn</span> in Linden
                     </h1>
                     
                     <p className="text-lg md:text-2xl font-light text-gray-300 max-w-3xl mx-auto leading-relaxed">

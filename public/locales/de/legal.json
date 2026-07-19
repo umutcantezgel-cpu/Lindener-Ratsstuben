@@ -4,5 +4,9 @@
   "terms.title": "AGB",
   "accessibility.title": "Barrierefreiheit",
   "cookies.title": "Cookie-Richtlinie",
-  "legal.only_german": "Dieser Inhalt ist aus rechtlichen Gründen nur in Deutsch verfügbar."
+  "legal.only_german": "Dieser Inhalt ist aus rechtlichen Gründen nur in Deutsch verfügbar.",
+  "legal.binding_notice_p1": "Bitte beachten Sie, dass aus rechtlichen Gründen nur die deutsche Originalversion unserer Rechtstexte rechtlich bindend ist.",
+  "legal.binding_notice_p2": "Übersetzungen in andere Sprachen werden ausschließlich als unverbindliche Serviceleistung zur besseren Verständlichkeit angeboten. Im Falle von Abweichungen hat stets die deutsche Fassung Vorrang.",
+  "legal.binding_notice_p3": "Dies dient der Rechtssicherheit für beide Seiten, da der Gerichtsstand und der Erfüllungsort in Deutschland liegen.",
+  "legal.last_updated": "Stand"
 }

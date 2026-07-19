@@ -4,5 +4,9 @@
   "terms.title": "Vilkår og Betingelser",
   "accessibility.title": "Tilgjengelighet",
   "cookies.title": "Informasjonskapsel­policy",
-  "legal.only_german": "Dette innholdet er av juridiske grunner kun tilgjengelig på tysk."
+  "legal.only_german": "Dette innholdet er av juridiske grunner kun tilgjengelig på tysk.",
+  "legal.binding_notice_p1": "Vær oppmerksom på at av juridiske årsaker er kun den originale tyske versjonen av våre juridiske tekster juridisk bindende.",
+  "legal.binding_notice_p2": "Oversettelser til andre språk tilbys utelukkende som en uforpliktende tjeneste for bedre forståelse. Ved avvik har alltid den tyske versjonen forrang.",
+  "legal.binding_notice_p3": "Dette tjener til rettssikkerhet for begge parter, da verneting og oppfyllelsessted er i Tyskland.",
+  "legal.last_updated": "Sist oppdatert"
 }

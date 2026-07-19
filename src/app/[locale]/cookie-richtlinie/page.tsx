@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const { locale } = await params;
   const t = await getTranslations(locale as LocaleType, 'meta');
   return {
-    title: t('cookie_richtlinie.title'),
+    title: t('cookie_richtlinie.title', 'Cookie-Richtlinie | Lindener Ratsstuben'),
     description: t('cookie_richtlinie.description'),
     alternates: getAlternates(locale, 'cookie-richtlinie'),
     robots: {
@@ -25,7 +25,7 @@ const CookieRichtlinie = async ({ params }: { params: Promise<{ locale: LocaleTy
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
     const tLegal = await getTranslations(locale as LocaleType, 'legal');
-    const title = t('cookie_richtlinie.title').split('|')[0].trim();
+    const title = t('cookie_richtlinie.title', 'Cookie-Richtlinie | Lindener Ratsstuben').split('|')[0].trim();
     const isNonGerman = locale !== 'de';
     const bindingNotice = isNonGerman ? tLegal('legal.binding_notice') : '';
 

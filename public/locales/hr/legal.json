@@ -4,5 +4,9 @@
   "terms.title": "Uvjeti korištenja",
   "accessibility.title": "Pristupačnost",
   "cookies.title": "Politika kolačića",
-  "legal.only_german": "Ovaj sadržaj je iz pravnih razloga dostupan samo na njemačkom jeziku."
+  "legal.only_german": "Ovaj sadržaj je iz pravnih razloga dostupan samo na njemačkom jeziku.",
+  "legal.binding_notice_p1": "Imajte na umu da je iz pravnih razloga samo njemačka originalna verzija naših pravnih tekstova pravno obvezujuća.",
+  "legal.binding_notice_p2": "Prijevodi na druge jezike nude se isključivo kao neobvezujuća usluga radi boljeg razumijevanja. U slučaju odstupanja, njemačka verzija uvijek ima prednost.",
+  "legal.binding_notice_p3": "To služi pravnoj sigurnosti za obje strane, budući da su nadležnost suda i mjesto ispunjenja u Njemačkoj.",
+  "legal.last_updated": "Zadnje ažurirano"
 }

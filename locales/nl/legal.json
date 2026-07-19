@@ -1,11 +1,12 @@
 {
+  "imprint.title": "Colofon",
+  "privacy.title": "Privacybeleid",
+  "terms.title": "Algemene Voorwaarden",
   "accessibility.title": "Toegankelijkheid",
   "cookies.title": "Cookiebeleid",
-  "imprint.title": "Colofon",
-  "legal.binding_notice": "Alleen de Duitse versie van dit document is juridisch bindend.",
-  "legal.last_updated": "Laatst bijgewerkt",
   "legal.only_german": "Deze inhoud is om juridische redenen alleen in het Duits beschikbaar.",
-  "legal.original_below": "De originele Duitse tekst wordt hieronder weergegeven.",
-  "privacy.title": "Privacybeleid",
-  "terms.title": "Algemene Voorwaarden"
+  "legal.binding_notice_p1": "Houd er rekening mee dat om juridische redenen alleen de originele Duitse versie van onze juridische teksten bindend is.",
+  "legal.binding_notice_p2": "Vertalingen in andere talen worden uitsluitend als vrijblijvende service voor een beter begrip aangeboden. Bij afwijkingen heeft de Duitse versie altijd voorrang.",
+  "legal.binding_notice_p3": "Dit dient de rechtszekerheid voor beide partijen, aangezien de bevoegde rechtbank en de plaats van uitvoering zich in Duitsland bevinden.",
+  "legal.last_updated": "Laatst bijgewerkt"
 }

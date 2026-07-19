@@ -45,7 +45,7 @@ export default function SaisonalClient() {
       <div className="print-action-bar">
         <p style={{ margin: 0, padding: 0 }}>
           <strong style={{ fontSize: '14px', color: 'var(--gold)' }}>Saisonkarte – Vorschau & Druck</strong><br />
-          <span style={{ fontSize: '11px', opacity: 0.7 }}>A4 Querformat (zwei A5-Seiten nebeneinander)</span>
+          <span style={{ fontSize: '11px', opacity: 0.7 }}>DIN A4 Querformat (2x DIN A5 nebeneinander)</span>
         </p>
         <button 
           onClick={handlePrint} 
@@ -94,7 +94,7 @@ export default function SaisonalClient() {
             marginTop: '8px',
             textTransform: 'uppercase'
           }}>
-            Bitte wählen Sie im Browser &quot;Als PDF speichern&quot; oder einen A4-Drucker (Querformat).
+            Bitte wählen Sie im Browser &quot;Als PDF speichern&quot;, Papierformat A4 und Ausrichtung Querformat aus.
           </p>
           <style dangerouslySetInnerHTML={{__html: `
             @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }

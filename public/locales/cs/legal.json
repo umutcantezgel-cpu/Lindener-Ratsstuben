@@ -4,5 +4,9 @@
   "terms.title": "Obchodní podmínky",
   "accessibility.title": "Přístupnost",
   "cookies.title": "Zásady cookies",
-  "legal.only_german": "Tento obsah je z právních důvodů k dispozici pouze v němčině."
+  "legal.only_german": "Tento obsah je z právních důvodů k dispozici pouze v němčině.",
+  "legal.binding_notice_p1": "Upozorňujeme, že z právních důvodů je právně závazná pouze původní německá verze našich právních textů.",
+  "legal.binding_notice_p2": "Překlady do jiných jazyků jsou poskytovány výhradně jako nezávazná služba pro lepší srozumitelnost. V případě nesrovnalostí má vždy přednost německá verze.",
+  "legal.binding_notice_p3": "To slouží k právní jistotě pro obě strany, protože místo soudu a místo plnění se nacházejí v Německu.",
+  "legal.last_updated": "Poslední aktualizace"
 }

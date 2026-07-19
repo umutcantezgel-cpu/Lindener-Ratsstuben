@@ -4,13 +4,14 @@ import { Metadata } from 'next';
 import PageClient from './PageClient';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
-import { companyData } from '@/data/company';
+
 import { Suspense } from 'react';
 import { MenuSkeleton } from '@/components/ui/MenuSkeleton';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { createMenuPageSchema, createMenuFaqSchema } from '@/lib/seo/schema-generators';
 import { sanityFetch } from '@/lib/sanity/client';
 import { menuCategoriesQuery, dishesQuery } from '@/lib/sanity/queries';
+import { SeoContentBlock } from '@/components/seo/SeoContentBlock';
 
 
 // ═══ SANITY TYPE INTERFACES ═══
@@ -22,15 +23,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations(locale as LocaleType, 'pages');
   const tMeta = await getTranslations(locale as LocaleType, 'meta');
-  const titleText = tMeta('menu.title', 'Speisekarte');
-  const description = t('menu.description', 'Entdecken Sie unsere vielfältige Speisekarte mit authentischen italienischen und mediterranen Gerichten in den Lindener Ratsstuben.');
-  const fullTitle = `${titleText} | ${companyData.companyName}`;
+  const titleText = tMeta('menu.title', 'Speisekarte | Lindener Ratsstuben');
+  const description = t('menu.description', 'Entdecken Sie unsere vielfältige Speisekarte mit authentischen italienischen und mediterranen Gerichten in den Lindener Ratsstuben.').replace(/<[^>]*>?/gm, '');
 
   return {
     title: titleText,
     description,
     alternates: getAlternates(locale, 'menu'),
-    openGraph: { title: fullTitle, description, url: `/${locale}/menu` }
+    openGraph: { title: titleText, description, url: `/${locale}/menu` }
   };
 }
 
@@ -184,6 +184,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <Suspense fallback={<MenuSkeleton />}>
         <PageClient categories={finalCategories} menuItems={finalMenuItems} locale={locale} />
       </Suspense>
+      <SeoContentBlock locale={locale} pageKey="menu" />
     </>
   );
 }
