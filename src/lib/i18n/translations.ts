@@ -77,6 +77,44 @@ export async function loadTranslations(
     }
   }
 
+  // --- GLOBALES SEO & BRANDING INTERCEPT (Dynamic Sanitization) ---
+  for (const key in mergedDict) {
+    if (typeof mergedDict[key] === 'string') {
+        let val = mergedDict[key];
+        
+        // 1. Branding: "Deutsch-Italienisch" -> "Internationale" (in various forms)
+        val = val.replace(/deutsch-italienisch(e|er|es|en)?/gi, 'international$1');
+        val = val.replace(/italo-tedesc(a|o|he|hi)?/gi, 'internazional$1');
+        val = val.replace(/german-italian/gi, 'international');
+        val = val.replace(/italienisch-deutsch(e|er|es|en)?/gi, 'international$1');
+        
+        // 2. Remove all hyphens in visible text, but preserve HTML tags (e.g. <span class="abc-def">)
+        val = val.split(/(<[^>]*>)/).map(part => {
+            if (part.startsWith('<')) return part;
+            return part.replace(/-/g, ' ');
+        }).join('');
+        
+        // 3. Optimize Meta Title/Description length strictly
+        if (namespace === 'meta') {
+            if (key.endsWith('.title')) {
+                if (val.length < 30) val = val + " | Lindener Ratsstuben";
+                if (val.length > 60) val = val.substring(0, 57) + "...";
+            }
+            if (key.endsWith('.description')) {
+                if (val.length < 120) val = val + " Besuchen Sie unser Restaurant in Hannover Linden für internationale Spezialitäten und erstklassigen Service in gemütlichem Ambiente.";
+                if (val.length > 160) val = val.substring(0, 157) + "...";
+            }
+        }
+
+        // 4. Optimize H-Tags in SEO JSON (Ensuring strict SEO keyword density)
+        if (namespace === 'seo' && val.includes('<h2>')) {
+             val = val.replace(/<h2>/g, '<h2>Restaurant Lindener Ratsstuben: ');
+        }
+        
+        mergedDict[key] = val;
+    }
+  }
+
   namespaceCache.set(cacheKey, mergedDict);
   return mergedDict;
 }

@@ -14,7 +14,7 @@ export const HeroRoot: React.FC = () => {
         <section 
             ref={containerRef} 
             aria-labelledby="hero-title" 
-            className="relative w-full min-h-[100svh] bg-neutral-950 flex flex-col items-center justify-center pt-32 pb-32 lg:pt-48 lg:pb-40 overflow-hidden"
+            className="relative w-full min-h-[100svh] bg-neutral-950 flex flex-col items-center justify-center pt-[140px] pb-32 lg:pt-[180px] lg:pb-40 overflow-hidden"
         >
             {/* Layer 0: Cinematic Background & Vignette */}
             <div className="absolute inset-0 z-0 overflow-hidden">
