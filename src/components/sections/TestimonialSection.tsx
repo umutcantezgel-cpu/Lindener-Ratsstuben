@@ -1,7 +1,6 @@
 import React from 'react';
 import { getAllTestimonials } from '@/data/testimonials';
-import { TestimonialCard } from '@/components/cards/TestimonialCard';
-
+import { ReviewCarousel } from '@/components/interactive/ReviewCarousel';
 interface TestimonialSectionProps {
   /** Section heading override */
   heading?: string;
@@ -43,14 +42,9 @@ export function TestimonialSection({
           </p>
         </div>
 
-        {/* Testimonial Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {testimonials.map((testimonial) => (
-            <TestimonialCard
-              key={testimonial.id as unknown as string}
-              testimonial={testimonial}
-            />
-          ))}
+        {/* Testimonial Carousel */}
+        <div className="w-full">
+          <ReviewCarousel testimonials={testimonials} />
         </div>
       </div>
     </section>
