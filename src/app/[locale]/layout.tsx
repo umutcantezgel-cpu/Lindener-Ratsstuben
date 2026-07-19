@@ -8,7 +8,7 @@ const Footer = dynamic(() => import('@/components/layout/Footer').then(mod => mo
 import { SkipNav } from '@/components/layout/SkipNav';
 const ScrollProgress = dynamic(() => import('@/components/ui/ScrollProgress').then(mod => mod.ScrollProgress), { ssr: false });
 const BackToTop = dynamic(() => import('@/components/ui/BackToTop').then(mod => mod.BackToTop), { ssr: false });
-import { PageSkeleton } from '@/components/ui/PageSkeleton';
+
 import { JsonLd } from '@/components/seo/JsonLd';
 import { companyData } from '@/data/company';
 import { createGlobalSchemaGraph } from '@/lib/seo/schema-generators';
@@ -146,9 +146,7 @@ export default async function RootLayout({
                       <ScrollProgress />
                       <Header />
                       <main id="main-content" role="main" className="flex-grow">
-                        <Suspense fallback={<PageSkeleton />}>
-                          {children}
-                        </Suspense>
+                        {children}
                       </main>
                       <Footer />
                       <IdleRender delay={1500}>
