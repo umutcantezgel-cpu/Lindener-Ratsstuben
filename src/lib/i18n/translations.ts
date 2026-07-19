@@ -95,16 +95,7 @@ export async function loadTranslations(
         }).join('');
         
         // 3. Optimize Meta Title/Description length strictly
-        if (namespace === 'meta') {
-            if (key.endsWith('.title')) {
-                if (val.length < 30) val = val + " | Lindener Ratsstuben";
-                if (val.length > 60) val = val.substring(0, 57) + "...";
-            }
-            if (key.endsWith('.description')) {
-                if (val.length < 120) val = val + " Besuchen Sie unser Restaurant in Hannover Linden für internationale Spezialitäten und erstklassigen Service in gemütlichem Ambiente.";
-                if (val.length > 160) val = val.substring(0, 157) + "...";
-            }
-        }
+        // NOTE: Dynamic SEO padding has been removed per user request for manual optimization.
 
         // 4. Optimize H-Tags in SEO JSON (Ensuring strict SEO keyword density)
         if (namespace === 'seo' && val.includes('<h2>')) {

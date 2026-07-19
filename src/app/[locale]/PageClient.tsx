@@ -26,6 +26,7 @@ export interface HomeProps {
 export const Home = async ({ locale }: HomeProps) => {
     const t = await getTranslations(locale as LocaleType, 'home');
     const tCommon = await getTranslations(locale as LocaleType, 'common');
+    const tMeta = await getTranslations(locale as LocaleType, 'meta');
     const companyData = getCompanyData();
 
     const formatTime = (timeRange: { start: string, end: string }) => {
@@ -50,7 +51,7 @@ export const Home = async ({ locale }: HomeProps) => {
 
     return (
         <article itemProp="mainContentOfPage" itemScope itemType="https://schema.org/AboutPage">
-            <h1 className="sr-only">{t('h1_title') || 'Restaurant, Eventlocation & Catering in Linden'}</h1>
+            <h1 className="sr-only">{tMeta('home.title') as string}</h1>
 
             {/* Modular Epic Cinematic Hero Section - 10x Redesign */}
             <HeroRoot />
