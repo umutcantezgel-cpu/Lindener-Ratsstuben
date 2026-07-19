@@ -21,7 +21,6 @@ interface SanityDish { _id: string; nr?: string; title_de?: string; title_en?: s
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations(locale as LocaleType, 'pages');
   const tMeta = await getTranslations(locale as LocaleType, 'meta');
   const titleText = tMeta('menu.title', 'Speisekarte | Lindener Ratsstuben');
   const description = tMeta('menu.description', 'Entdecken Sie unsere vielfältige Speisekarte mit authentischen italienischen und mediterranen Gerichten in den Lindener Ratsstuben.');

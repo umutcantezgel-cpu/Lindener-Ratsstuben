@@ -10,7 +10,6 @@ import { SeoContentBlock } from '@/components/seo/SeoContentBlock';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations(locale as LocaleType, 'pages');
   const tMeta = await getTranslations(locale as LocaleType, 'meta');
   const titleText = tMeta('reservation.title', 'Reservierung | Lindener Ratsstuben');
   const description = tMeta('reservation.description', 'Reservieren Sie Ihren Tisch in den Lindener Ratsstuben bequem online. Wir freuen uns auf Ihren Besuch!');

@@ -11,7 +11,6 @@ import { SeoContentBlock } from '@/components/seo/SeoContentBlock';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations(locale as LocaleType, 'pages');
   const tMeta = await getTranslations(locale as LocaleType, 'meta');
   const titleText = tMeta('kegelbahn.hero.title', 'Kegelbahn | Lindener Ratsstuben');
   const description = tMeta('kegelbahn.hero.description', 'Reservieren Sie unsere hauseigene Kegelbahn für unvergessliche Abende mit Freunden, Familie oder Kollegen.');

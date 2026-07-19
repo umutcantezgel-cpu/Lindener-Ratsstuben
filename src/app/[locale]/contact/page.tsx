@@ -10,7 +10,6 @@ import { SeoContentBlock } from '@/components/seo/SeoContentBlock';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations(locale as LocaleType, 'pages');
   const tMeta = await getTranslations(locale as LocaleType, 'meta');
   const titleText = tMeta('contact.title', 'Kontakt | Lindener Ratsstuben');
   const description = tMeta('contact.description', 'Kontaktieren Sie uns. Wir freuen uns auf Ihre Nachricht, Reservierungen oder Feedback.');

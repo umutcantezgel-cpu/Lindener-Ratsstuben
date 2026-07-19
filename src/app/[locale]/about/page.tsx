@@ -11,7 +11,6 @@ import { SeoContentBlock } from '@/components/seo/SeoContentBlock';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations(locale as LocaleType, 'pages');
   const tMeta = await getTranslations(locale as LocaleType, 'meta');
   const titleText = tMeta('about.title', 'Über Uns | Lindener Ratsstuben');
   const description = tMeta('about.description', 'Erfahren Sie mehr über die Geschichte und Philosophie der Lindener Ratsstuben. Tradition trifft auf moderne italienische Küchenkunst.');
