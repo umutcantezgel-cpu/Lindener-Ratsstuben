@@ -85,8 +85,8 @@ export function createRestaurantSchema() {
     hasMap: companyData.mapLink,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '4.6',
-      reviewCount: '87',
+      ratingValue: '4.7',
+      reviewCount: '930',
       bestRating: '5',
       worstRating: '1',
     },
@@ -242,7 +242,6 @@ export async function createGlobalSchemaGraph(locale: LocaleType = 'de') {
       createOrganizationSchema(),
       restaurantSchema,
       createWebsiteSchema(),
-      generateMenuSchema(),
     ],
   };
 }

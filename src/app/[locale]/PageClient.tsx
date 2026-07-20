@@ -16,9 +16,7 @@ const CtaBand = dynamic(() => import('@/components/layout/CtaBand').then(mod => 
 import { TranslationKey } from '@/lib/i18n/types';
 import { HeroRoot } from '@/components/hero/HeroRoot';
 import { LazyViewport } from '@/components/ui/LazyViewport';
-
-const ClientTestimonials = dynamic(() => import('@/components/interactive/ClientTestimonials').then(mod => mod.ClientTestimonials), { ssr: false });
-// MapFacade removed per user request
+const ClientTestimonials = dynamic(() => import('@/components/interactive/ClientTestimonials').then(mod => mod.ClientTestimonials));
 export interface HomeProps {
     locale: string;
 }
