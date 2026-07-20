@@ -333,6 +333,456 @@ export const testimonials: Testimonial[] = [
         source: "Google Reviews",
         date: "Vor 27 Wochen",
         segment: 'general'
+    },
+    {
+        id: createId("t36"),
+        name: "Eva",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Gestern",
+        segment: 'general'
+    },
+    {
+        id: createId("t37"),
+        name: "Oliver Burk",
+        rating: 5,
+        quote: "Ein klasse Lokal mit top Service und klasse Speisen. Immer wieder gerne.",
+        source: "Google Reviews",
+        date: "Vor 6 Tagen",
+        segment: 'general'
+    },
+    {
+        id: createId("t38"),
+        name: "Burkhard Müll",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 1 Woche",
+        segment: 'general'
+    },
+    {
+        id: createId("t39"),
+        name: "Andreas Bruns",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 2 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t40"),
+        name: "Susanne Abbel",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t41"),
+        name: "Tine Weber",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t42"),
+        name: "ma baker",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t43"),
+        name: "Claudia de Gennaro",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t44"),
+        name: "Silke AckSu",
+        rating: 5,
+        quote: "Wir gehen in der Regel nur dort essen, wo auf natürliche Art gekocht wird, das Ambiente und die Atmosphäre sowie die...",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t45"),
+        name: "Ines Terzikyan",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t46"),
+        name: "Finja Weber",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t47"),
+        name: "Alexander Heinrich",
+        rating: 5,
+        quote: "Das essen schmeckt und das personal ist richtig nett. Das restaurant selber ist schick und toll und die der kegel...",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t48"),
+        name: "Han Lou",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t49"),
+        name: "Володимир Верна",
+        rating: 5,
+        quote: "Es war wirklich toll.!",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t50"),
+        name: "Kai Laudenbach",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t51"),
+        name: "Alim Kovalov",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t52"),
+        name: "Hamidah Abdoul",
+        rating: 5,
+        quote: "Essen und Service ist perfekt.Die Umgebung ist ziemlich schick 😍",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t53"),
+        name: "KSH Real",
+        rating: 5,
+        quote: "Es ist really chillig.",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t54"),
+        name: "JKR81",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 3 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t55"),
+        name: "tami reinemer",
+        rating: 5,
+        quote: "Super liebes Team. Haben mit 25 Personen spontan noch einen Tisch bekommen. Essen war total lecker! Gerne wieder :)",
+        source: "Google Reviews",
+        date: "Vor 4 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t56"),
+        name: "kilian matthäs",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 4 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t57"),
+        name: "Dimitri Gross",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 4 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t58"),
+        name: "Sophie Möller",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 4 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t59"),
+        name: "Wolfgang Frey.",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 4 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t60"),
+        name: "Bodo Poser",
+        rating: 5,
+        quote: "Ich war nur dort um jemanden mit Rollator abzuholen. Aber was ich gesehen habe hat mich optisch total angesprochen....",
+        source: "Google Reviews",
+        date: "Vor 4 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t61"),
+        name: "Tayfun Aslan",
+        rating: 5,
+        quote: "Ich hatte einen sehr schönen Besuch in diesem Restaurant und kann es nur weiterempfehlen....",
+        source: "Google Reviews",
+        date: "Vor 4 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t62"),
+        name: "Jürgen Frey",
+        rating: 5,
+        quote: "Sehr aufmerksamer und netter Service bei schönem Ambiente. Gerade im Sommer im Biergarten kann man es hier wunderbar aushalten. Sehr gutes Essen.",
+        source: "Google Reviews",
+        date: "Vor 6 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t63"),
+        name: "Carsten Donner",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 6 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t64"),
+        name: "Ružica Ladof Rašić",
+        rating: 5,
+        quote: "Wenn es 10 Sterne gäbe, würde ich 10 vergeben! Sie haben sie in jeder Hinsicht...",
+        source: "Google Reviews",
+        date: "Vor 7 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t65"),
+        name: "Reno Lehnhausen",
+        rating: 5,
+        quote: "Mittagessen",
+        source: "Google Reviews",
+        date: "Vor 7 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t66"),
+        name: "Moin Army",
+        rating: 5,
+        quote: "Habe gestern eine Originale Cabonara zum Abholen bestellt. Als ich diese dann...",
+        source: "Google Reviews",
+        date: "Vor 7 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t67"),
+        name: "Eva und Markus Brucklacher",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 7 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t68"),
+        name: "Natalie Weighardt",
+        rating: 5,
+        quote: "Die Bedienung ist sehr nett und lustig es ist auch wirklich angenehm zu sitzen und einfach zu reden. Wirklich schön und das Essen ist super :)",
+        source: "Google Reviews",
+        date: "Vor 7 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t69"),
+        name: "M W",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 7 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t70"),
+        name: "Mike Moor",
+        rating: 5,
+        quote: "Ein fantastisches Restaurant mit einer großartigen Auswahl. Man schmeckt die absolute Frische und die Liebe zum Detail...",
+        source: "Google Reviews",
+        date: "Vor 7 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t71"),
+        name: "Gabriel Alves",
+        rating: 5,
+        quote: "Top Essen! Und Top Kellnerin 😘",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t72"),
+        name: "Carolin Iwanyk",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t73"),
+        name: "Iris Brückmann-weller",
+        rating: 5,
+        quote: "Gutes Essen, sehr nettes Personal .. wir sind schon einge Jahre dort Gäste.. Absolute empfehlenswert !",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t74"),
+        name: "Mark De Blick",
+        rating: 5,
+        quote: "Wie immer, super lecker-Dankeschön 🙏😉",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t75"),
+        name: "Leif ME",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t76"),
+        name: "Michael Müller-Erichsen",
+        rating: 5,
+        quote: "Super lecker. 5 von 5 ehrlich verdient. Deswegen kommen wir immer wieder gerne.",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t77"),
+        name: "Benjamin Nlai",
+        rating: 5,
+        quote: "Mittagessen Das essen war sehr sehr lecker die Bedienung ist soo nett auch die Toiletten sind sehr sauber man kann drin und draußen...",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t78"),
+        name: "Oliver Stein",
+        rating: 5,
+        quote: "Mittagessen",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t79"),
+        name: "Sabrina Rösgen",
+        rating: 5,
+        quote: "Mittagessen Wunderschöne Lokation Super leckeres Essen... Super nette Bedienung",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t80"),
+        name: "Jacqueline Konir",
+        rating: 5,
+        quote: "Mittagessen Sehr schönes Ambiente und wunderbarer Service. Kann man nur weiterempfehlen Wirklich Top",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t81"),
+        name: "Ronja Rösgen",
+        rating: 5,
+        quote: "Sehr leckeres Essen und schöne Portionen",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t82"),
+        name: "Thomas Laumer",
+        rating: 5,
+        quote: "Alles bestens, sehr zu empfehlen!",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t83"),
+        name: "Thomas Seibert",
+        rating: 5,
+        quote: "Das Essen war wie immer sehr lecker und der Service ausgesprochen freundlich",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t84"),
+        name: "Joachim Faber",
+        rating: 5,
+        quote: "Leckeres Essen. Super Service von Maria",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
+    },
+    {
+        id: createId("t85"),
+        name: "HAGUE ULMER",
+        rating: 5,
+        quote: "Heute waren wir mal wieder in den Ratsstuben in Linden. Eins der Highlights war Maria, die Für uns am Tisch zuständig...",
+        source: "Google Reviews",
+        date: "Vor 8 Wochen",
+        segment: 'general'
     }
 ];
 
@@ -342,7 +792,7 @@ export function getAllTestimonials(): Testimonial[] {
 }
 
 export function getTestimonialsBySegment(segment: PrimaryInterest | 'general'): Testimonial[] {
-    if (segment === 'general') return getAllTestimonials().slice(0, 3);
+    if (segment === 'general') return getAllTestimonials().slice(0, 50);
     
     // Sort array so the target segment comes first
     const sorted = [...testimonials].sort((a, b) => {
@@ -351,7 +801,7 @@ export function getTestimonialsBySegment(segment: PrimaryInterest | 'general'): 
         return 0;
     });
     
-    return sorted.slice(0, 3);
+    return sorted.slice(0, 50);
 }
 
 export function getTestimonialById(id: Id | string): Testimonial | undefined {
