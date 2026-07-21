@@ -23,14 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const route of indexableRoutes) {
     const routePath = route.path === '/' ? '' : route.path;
 
-    // Default (non-locale-prefixed) HTML route
-    sitemapEntries.push({
-      url: `${baseUrl}${routePath || '/'}`,
-      lastModified: new Date(),
-      changeFrequency: route.changeFrequency,
-      priority: route.priority,
-    });
-
     // Locale-prefixed HTML routes (only ACTIVE locales)
     for (const locale of ACTIVE_LOCALES) {
       sitemapEntries.push({
@@ -51,14 +43,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const regionalArticles = getAllRegionalArticles();
     for (const article of regionalArticles) {
       const articlePath = `/${article.category}/${article.slug}`;
-
-      // Default route
-      sitemapEntries.push({
-        url: `${baseUrl}${articlePath}`,
-        lastModified: article.lastUpdated ? new Date(article.lastUpdated) : new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.6,
-      });
 
       // Locale-prefixed routes
       for (const locale of ACTIVE_LOCALES) {
