@@ -49,12 +49,16 @@ export const Home = async ({ locale }: HomeProps) => {
 
     return (
         <article itemProp="mainContentOfPage" itemScope itemType="https://schema.org/AboutPage">
-            <h1 className="sr-only">{tMeta('home.title') as string}</h1>
 
             {/* Modular Epic Cinematic Hero Section - 10x Redesign */}
             <HeroRoot />
 
-            {/* Welcome / Philosophy Section */}
+            {/* SEO H1 - visible to crawlers and users */}
+            <div className="bg-bg-primary pt-16 pb-0">
+                <div className="container mx-auto px-4 max-w-7xl">
+                    <h1 className="text-2xl md:text-3xl font-display font-medium text-text-primary/80 text-center tracking-tight">{tMeta('home.title') as string}</h1>
+                </div>
+            </div>
             <section aria-labelledby="philosophy-title" className="py-24 md:py-32 lg:py-48 bg-bg-primary">
                 <div className="container mx-auto px-4 max-w-7xl bg-bg-primary">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center bg-bg-primary">

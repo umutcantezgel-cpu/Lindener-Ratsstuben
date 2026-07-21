@@ -29,11 +29,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations(locale as LocaleType, 'pages');
+  const tMeta = await getTranslations(locale as LocaleType, 'meta');
 
   return (
     <>
       <JsonLd data={createReservationPageSchema(t)} />
       <JsonLd data={createReservationFaqSchema()} />
+      {/* Server-rendered H1 for crawlers — the interactive form loads via dynamic() */}
+      <h1 className="sr-only">{tMeta('reservation.title', 'Tisch reservieren & Eventlocation | Lindener Ratsstuben').split(' |')[0]}</h1>
       <PageClient />
       <SeoContentBlock locale={locale} pageKey="reservation" />
     </>

@@ -60,7 +60,7 @@ export const Gallery = () => {
                     </header>
 
                     {/* Masonry Grid */}
-                    <h2 className="sr-only">{t('gallery.title') as string}</h2>
+                    <h2 className="sr-only">{t('gallery.grid_label')}</h2>
                     <ul className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 m-0 p-0 list-none">
                         {images.map((img, index) => (
                             <li
