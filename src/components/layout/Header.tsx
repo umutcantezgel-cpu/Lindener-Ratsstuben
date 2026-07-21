@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { clsx } from 'clsx';
@@ -68,7 +68,7 @@ export const Header: React.FC = () => {
             <div className="w-full max-w-[1920px] mx-auto px-4 lg:px-8 xl:px-8 2xl:px-16 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex-1 flex justify-start">
-                    <Link href="/" className="flex items-center group relative z-10" aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
+                    <LocaleLink href="/" className="flex items-center group relative z-10" aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
                         <Image
                             src="/images/logo.svg"
                             alt={companyData.companyName}
@@ -80,7 +80,7 @@ export const Header: React.FC = () => {
                                 isScrolled ? "h-8" : "h-10"
                             )}
                         />
-                    </Link>
+                    </LocaleLink>
                 </div>
 
                 {/* Desktop Nav */}
@@ -90,7 +90,7 @@ export const Header: React.FC = () => {
                             const isActive = pathname === link.path || pathname === `/[locale]${link.path}`;
                             return (
                                 <li key={link.name} className="relative">
-                                    <Link href={link.path}
+                                    <LocaleLink href={link.path}
                                         prefetch={true}
                                         aria-current={isActive ? "page" : undefined}
                                         className={clsx(
@@ -103,7 +103,7 @@ export const Header: React.FC = () => {
                                         )}
                                     >
                                         {link.name}
-                                    </Link>
+                                    </LocaleLink>
                                     {isActive && (
                                         <div
                                             className="absolute inset-0 bg-primary rounded-full shadow-[0_0_15px_rgba(var(--color-primary),0.4)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
@@ -122,7 +122,7 @@ export const Header: React.FC = () => {
                     )}>
                         <LanguageSwitcher variant="header" />
                     </div>
-                    <Link href="/reservation"
+                    <LocaleLink href="/reservation"
                         prefetch={true}
                         className="group relative px-6 py-2 bg-primary text-surface font-medium rounded-full overflow-hidden transition-all shadow-[0_4px_20px_rgba(var(--color-primary),0.3)] hover:shadow-[0_6px_25px_rgba(var(--color-primary),0.5)] transform hover:-translate-y-0.5 whitespace-nowrap text-[14px] 2xl:text-[15px]"
                     >
@@ -130,7 +130,7 @@ export const Header: React.FC = () => {
                             {variant === 'general' ? t('nav.reservation') : navCta}
                         </span>
                         <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-surface/20 to-transparent -translate-x-[150%] skew-x-[-30deg] group-hover:translate-x-[150%] transition-transform duration-700 ease-out" />
-                    </Link>
+                    </LocaleLink>
                 </div>
 
                 {/* Mobile Toggle */}

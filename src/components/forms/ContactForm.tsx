@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { AlertCircle } from 'lucide-react';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 import { SuccessCelebration } from '../ui/SuccessCelebration';
 import { TrustSignals } from '../ui/TrustSignals';
 import { useFormProgress } from '@/hooks/useFormProgress';
@@ -321,9 +321,9 @@ export function ContactForm() {
                     <div>
                         <label htmlFor="privacy" className="text-[15px] leading-relaxed text-text-secondary cursor-pointer block min-h-[44px] py-1">
                             {(t('form.privacy_consent') as string).split('{link}')[0]}
-                            <Link href="/datenschutz" className="text-primary hover:text-primary-hover underline underline-offset-2">
+                            <LocaleLink href="/datenschutz" className="text-primary hover:text-primary-hover underline underline-offset-2">
                                 {t('form.privacy_link_text') as string}
-                            </Link>
+                            </LocaleLink>
                             {(t('form.privacy_consent') as string).includes('{link}') ? (t('form.privacy_consent') as string).split('{link}')[1] || '' : ''}
                         </label>
                         {errors.privacy && (

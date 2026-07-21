@@ -6,6 +6,7 @@ import { useConversionDistance } from '@/hooks/useConversionDistance';
 import { Phone, X, CalendarCheck } from 'lucide-react';
 import { m as motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from '@/lib/i18n/use-translation';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 
 interface StickyCtaBarProps {
     ctaText?: string;
@@ -58,13 +59,13 @@ export function StickyCtaBar({
                     <div className="bg-surface shadow-warm border border-border rounded-2xl p-4 flex flex-col md:flex-row items-center gap-4 max-w-lg mx-auto pointer-events-auto">
                         
                         <div className="flex-1 flex items-center justify-between gap-6">
-                            <a 
+                            <LocaleLink 
                                 href={ctaLink}
                                 className="flex-1 interaction-bounce bg-primary text-surface font-bold py-3 px-6 rounded-xl text-center shadow-sm flex items-center justify-center gap-2"
                             >
                                 <CalendarCheck className="w-5 h-5" />
                                 {displayText}
-                            </a>
+                            </LocaleLink>
                             
                             {phone && (
                                 <a 

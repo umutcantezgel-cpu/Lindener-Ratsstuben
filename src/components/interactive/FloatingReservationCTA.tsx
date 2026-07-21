@@ -7,6 +7,9 @@ import { useAdaptiveMessaging } from '@/hooks/useAdaptiveMessaging';
 import { usePathname } from 'next/navigation';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 import { useTranslation } from '@/lib/i18n/use-translation';
+import { LocaleLink } from '@/components/ui/LocaleLink';
+
+const MotionLocaleLink = motion.create(LocaleLink);
 
 export function FloatingReservationCTA() {
   const { navCta, variant } = useAdaptiveMessaging();
@@ -110,7 +113,7 @@ export function FloatingReservationCTA() {
           </AnimatePresence>
 
           {/* Floating CTA Button */}
-          <motion.a
+          <MotionLocaleLink
             href="/reservation"
             className="pointer-events-auto group relative flex items-center gap-3 px-5 py-3.5 bg-accent text-neutral-950 rounded-full shadow-warm hover:bg-accent-hover transition-colors overflow-hidden"
             onMouseEnter={() => setIsHovered(true)}
@@ -141,7 +144,7 @@ export function FloatingReservationCTA() {
             </span>
 
             <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
-          </motion.a>
+          </MotionLocaleLink>
         </motion.div>
       )}
     </AnimatePresence>

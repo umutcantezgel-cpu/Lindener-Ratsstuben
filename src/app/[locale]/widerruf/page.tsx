@@ -47,7 +47,7 @@ export default async function WiderrufPage({ params }: { params: Promise<{ local
 
             <h2>3. Freiwillige Kulanz-Stornierungsregelungen (Ersatz für den vertraglichen Widerruf)</h2>
             <p>
-                Obwohl ein gesetzlicher Anspruch auf Widerruf rechtlich nicht existiert, verstehen wir, dass unvorhergesehene Umstände (Krankheit, Notfälle) eine Planänderung erzwingen können. Daher gewähren wir unseren Gästen aus reiner Kulanz weitreichende vertragliche Rücktrittsrechte (Stornierungsmöglichkeiten), welche in unseren <a href="/agb" className="text-secondary hover:text-accent underline">Allgemeinen Geschäftsbedingungen (AGB)</a> detailliert dargelegt sind.
+                Obwohl ein gesetzlicher Anspruch auf Widerruf rechtlich nicht existiert, verstehen wir, dass unvorhergesehene Umstände (Krankheit, Notfälle) eine Planänderung erzwingen können. Daher gewähren wir unseren Gästen aus reiner Kulanz weitreichende vertragliche Rücktrittsrechte (Stornierungsmöglichkeiten), welche in unseren <a href={`/${locale}/agb`} className="text-secondary hover:text-accent underline">Allgemeinen Geschäftsbedingungen (AGB)</a> detailliert dargelegt sind.
             </p>
             <p><strong>Die wesentlichen Kulanz-Stornierungsfristen lauten wie folgt:</strong></p>
             <ul>

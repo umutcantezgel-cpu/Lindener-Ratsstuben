@@ -138,7 +138,7 @@ export default async function AGBPage({ params }: { params: Promise<{ locale: st
 
             <h2>9. Datenschutz</h2>
             <p>
-                Personenbezogene Daten des Gastes (z.B. Name, Telefonnummer, E-Mail-Adresse im Rahmen einer Reservierung) werden streng nach den Vorgaben der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG) erhoben, verarbeitet und genutzt. Vollumfängliche Details entnehmen Sie bitte unserer <a href="/datenschutz" className="text-secondary hover:text-accent underline">Datenschutzerklärung</a>.
+                Personenbezogene Daten des Gastes (z.B. Name, Telefonnummer, E-Mail-Adresse im Rahmen einer Reservierung) werden streng nach den Vorgaben der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG) erhoben, verarbeitet und genutzt. Vollumfängliche Details entnehmen Sie bitte unserer <a href={`/${locale}/datenschutz`} className="text-secondary hover:text-accent underline">Datenschutzerklärung</a>.
             </p>
 
             <h2>10. Schlussbestimmungen, Erfüllungsort und Gerichtsstand</h2>

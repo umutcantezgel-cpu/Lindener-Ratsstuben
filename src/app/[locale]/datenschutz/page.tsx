@@ -121,7 +121,7 @@ export default async function DatenschutzPage({ params }: { params: Promise<{ lo
                 <li><strong>Zustimmungspflichtige Cookies:</strong> Alle externen Marketing-Scripts, Analyse-Tracker von Drittherstellern, externe Webfonts (Google Fonts sofern nicht lokal gehostet) und sonstige Drittanbieter-Elemente, die Ihr Verhalten studieren könnten, sind standardmäßig physikalisch aus dem Quellcode <strong>blockiert</strong>. Sie werden erst nach Ihrer ausdrücklichen Bestätigung im Consent Banner (Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TTDSG) freigegeben und geladen.</li>
             </ul>
             <p>
-                Sie können Ihre Cookie-Einstellungen jederzeit über unser Datenschutz-Einstellungsmenü anpassen. Detailinformationen zu jedem potentiell eingesetzten Cookie entnehmen Sie bitte unserer <a href="/de/cookies" className="text-secondary hover:text-accent underline">separaten Cookie-Richtlinie</a>.
+                Sie können Ihre Cookie-Einstellungen jederzeit über unser Datenschutz-Einstellungsmenü anpassen. Detailinformationen zu jedem potentiell eingesetzten Cookie entnehmen Sie bitte unserer <a href={`/${locale}/cookies`} className="text-secondary hover:text-accent underline">separaten Cookie-Richtlinie</a>.
             </p>
 
             <h3>Verarbeitung von Reservierungsdaten (API, Resend & Backend)</h3>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from 'react';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 import { usePathname } from 'next/navigation';
 import { clsx } from 'clsx';
 import { AnimatePresence, m as motion } from "framer-motion";
@@ -101,7 +101,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
                         >
-                            <Link href="/" onClick={onClose} aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
+                            <LocaleLink href="/" onClick={onClose} aria-label={`${companyData.companyName} – ${tCommon('accessibility.back_to_home') as string}`}>
                                 <Image
                                     src="/images/logo.svg"
                                     alt={companyData.companyName}
@@ -110,7 +110,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                                     priority
                                     className="w-auto h-12 opacity-100 brightness-0 invert drop-shadow-md"
                                 />
-                            </Link>
+                            </LocaleLink>
                         </motion.div>
 
                         <nav aria-label={tCommon('accessibility.mobile_navigation') as string}>
@@ -137,7 +137,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                                             }}
                                             transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
                                         >
-                                            <Link href={link.path}
+                                            <LocaleLink href={link.path}
                                                 prefetch={true}
                                                 onClick={onClose}
                                                 aria-current={isActive ? "page" : undefined}
@@ -165,7 +165,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                                                         />
                                                     )}
                                                 </span>
-                                            </Link>
+                                            </LocaleLink>
                                         </motion.li>
                                     );
                                 })}
@@ -186,13 +186,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                                 <a href={`mailto:${companyData.email}`} className="hover:text-white transition-colors">{companyData.email}</a>
                             </div>
 
-                            <Link href="/reservation"
+                            <LocaleLink href="/reservation"
                                 prefetch={true}
                                 onClick={onClose}
                                 className="w-full py-4 bg-white text-primary text-lg font-medium rounded-2xl text-center hover:bg-white/90 shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300"
                             >
                                 {variant === 'general' ? t('nav.reservation') : navCta}
-                            </Link>
+                            </LocaleLink>
 
                             <div className="p-4 bg-black/10 backdrop-blur-md rounded-2xl border border-white/10 flex justify-center">
                                 <LanguageSwitcher variant="mobile" />

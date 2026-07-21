@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 import { Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
 import Image from 'next/image';
 import { companyData } from '@/data/company';
@@ -64,10 +64,10 @@ export const Footer: React.FC = () => {
                                 { name: t('nav.contact') as string, path: '/contact' }
                             ].map((item) => (
                                 <li key={item.path}>
-                                    <Link href={item.path} className="text-text-secondary hover:text-primary transition-colors flex items-center gap-2 group">
+                                    <LocaleLink href={item.path} className="text-text-secondary hover:text-primary transition-colors flex items-center gap-2 group">
                                         <span className="w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
                                         {item.name as React.ReactNode}
-                                    </Link>
+                                    </LocaleLink>
                                 </li>
                             ))}
                         </ul>
@@ -91,12 +91,12 @@ export const Footer: React.FC = () => {
                             </li>
                         </ul>
                         <div className="mt-8 flex flex-col gap-3">
-                            <Link href="/reservation" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-surface text-sm font-bold uppercase tracking-wider rounded-md hover:bg-primary-hover transition-colors w-full sm:w-auto shadow-sm">
+                            <LocaleLink href="/reservation" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-surface text-sm font-bold uppercase tracking-wider rounded-md hover:bg-primary-hover transition-colors w-full sm:w-auto shadow-sm">
                                 {variant === 'general' ? t('nav.reservation') as string : navCta}
-                            </Link>
-                            <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-border text-text-primary text-sm font-medium rounded-md hover:bg-bg-secondary transition-colors w-full sm:w-auto shadow-sm">
+                            </LocaleLink>
+                            <LocaleLink href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-border text-text-primary text-sm font-medium rounded-md hover:bg-bg-secondary transition-colors w-full sm:w-auto shadow-sm">
                                 {t('nav.contact') as string}
-                            </Link>
+                            </LocaleLink>
                         </div>
                     </address>
 
@@ -150,11 +150,11 @@ export const Footer: React.FC = () => {
                     
                     <nav aria-label={t('footer.legal_links') as string} className="w-full lg:w-auto">
                         <ul className="flex flex-wrap justify-center lg:justify-end gap-x-6 gap-y-4 m-0 p-0 list-none">
-                            <li><Link href="/impressum" className="hover:text-primary transition-colors">{t('footer.imprint') as string}</Link></li>
-                            <li><Link href="/datenschutz" className="hover:text-primary transition-colors">{t('footer.privacy') as string}</Link></li>
-                            <li><Link href="/agb" className="hover:text-primary transition-colors">{t('footer.terms') as string}</Link></li>
-                            <li><Link href="/widerruf" className="hover:text-primary transition-colors">{t('footer.revocation') as string}</Link></li>
-                            <li><Link href="/cookies" className="hover:text-primary transition-colors">{(t('footer.cookies') || t('footer.cookie_policy') || 'Cookie-Richtlinie') as string}</Link></li>
+                            <li><LocaleLink href="/impressum" className="hover:text-primary transition-colors">{t('footer.imprint') as string}</LocaleLink></li>
+                            <li><LocaleLink href="/datenschutz" className="hover:text-primary transition-colors">{t('footer.privacy') as string}</LocaleLink></li>
+                            <li><LocaleLink href="/agb" className="hover:text-primary transition-colors">{t('footer.terms') as string}</LocaleLink></li>
+                            <li><LocaleLink href="/widerruf" className="hover:text-primary transition-colors">{t('footer.revocation') as string}</LocaleLink></li>
+                            <li><LocaleLink href="/cookies" className="hover:text-primary transition-colors">{(t('footer.cookies') || t('footer.cookie_policy') || 'Cookie-Richtlinie') as string}</LocaleLink></li>
                             <li>
                                 <button 
                                     onClick={() => window.dispatchEvent(new Event('open-cookie-preferences'))}

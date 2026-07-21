@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 import { Home, UtensilsCrossed, Phone } from 'lucide-react';
 import { useTranslation } from '@/lib/i18n/use-translation';
 
@@ -26,20 +27,20 @@ export default function NotFound() {
               <Home className="w-5 h-5" aria-hidden="true" />
               {t('notfound.to_home') as string}
             </Link>
-            <Link
+            <LocaleLink
               href="/menu"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-bg-secondary text-text-primary rounded-xl font-medium hover:bg-border transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30"
             >
               <UtensilsCrossed className="w-5 h-5" aria-hidden="true" />
               {t('notfound.to_menu') as string}
-            </Link>
-            <Link
+            </LocaleLink>
+            <LocaleLink
               href="/contact"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-bg-secondary text-text-primary rounded-xl font-medium hover:bg-border transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30"
             >
               <Phone className="w-5 h-5" aria-hidden="true" />
               {t('notfound.to_contact') as string}
-            </Link>
+            </LocaleLink>
           </nav>
         </div>
       </div>

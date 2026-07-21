@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { AdaptiveImage as Image } from '@/components/ui/AdaptiveImage';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 import { PageTransition } from '@/components/effects/PageTransition';
 import { Flame, Heart, Leaf } from 'lucide-react';
 import { companyData } from '@/data/company';
@@ -64,9 +64,9 @@ const AboutClient = ({ faqData }: AboutClientProps) => {
                                     </div>
                                 </div>
                                 <div className="pt-8">
-                                    <Link href="/reservation" className="interaction-bounce px-8 py-3 bg-accent text-neutral-950 font-bold rounded-lg hover:bg-accent-hover shadow-warm inline-flex items-center gap-2 uppercase tracking-wider">
+                                    <LocaleLink href="/reservation" className="interaction-bounce px-8 py-3 bg-accent text-neutral-950 font-bold rounded-lg hover:bg-accent-hover shadow-warm inline-flex items-center gap-2 uppercase tracking-wider">
                                         {t('reservation.title') || 'Tisch reservieren'}
-                                    </Link>
+                                    </LocaleLink>
                                 </div>
                             </div>
                         </div>

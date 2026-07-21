@@ -1,8 +1,6 @@
-'use client';
-
 import React from 'react';
-import { useTranslation } from '@/lib/i18n/use-translation';
-import { motion } from 'framer-motion';
+import { getTranslations } from '@/lib/i18n/get-translations';
+import { LocaleType } from '@/lib/locales';
 
 const parseContent = (html: string) => {
     const sections: { title: string; level: number; content: string }[] = [];
@@ -24,8 +22,8 @@ const parseContent = (html: string) => {
     return { sections };
 };
 
-export function SeoContentBlock({ pageKey }: { locale: string, pageKey: string }) {
-    const { t } = useTranslation('seo');
+export async function SeoContentBlock({ locale, pageKey }: { locale: string, pageKey: string }) {
+    const t = await getTranslations(locale as LocaleType, 'seo');
     const content = t(pageKey) as string;
     
     if (content === pageKey || !content) {
@@ -43,13 +41,7 @@ export function SeoContentBlock({ pageKey }: { locale: string, pageKey: string }
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <motion.div 
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="max-w-6xl mx-auto"
-                >
+                <div className="max-w-6xl mx-auto">
                     {parsed.fallback ? (
                         /* Fallback if no h2/h3 tags are found */
                         <div className="relative p-8 md:p-12 lg:p-16 rounded-3xl bg-surface/40 backdrop-blur-xl border border-border/40 shadow-2xl">
@@ -79,12 +71,8 @@ export function SeoContentBlock({ pageKey }: { locale: string, pageKey: string }
                             {parsed.sections && parsed.sections.filter(s => s.level === 3).length > 0 && (
                                 <div className="flex flex-col gap-8 md:gap-12">
                                     {parsed.sections.filter(s => s.level === 3).map((section, idx) => (
-                                        <motion.div 
+                                        <div 
                                             key={`h3-${idx}`}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ duration: 0.6, delay: Math.min(idx * 0.1, 0.5) }}
                                             className="p-8 md:p-10 lg:p-12 rounded-3xl bg-surface/40 backdrop-blur-lg border border-border/50 hover:shadow-xl hover:border-accent/40 transition-all duration-500 group"
                                         >
                                             <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-primary font-semibold tracking-wide mb-6 group-hover:text-primary-hover transition-colors">
@@ -94,15 +82,14 @@ export function SeoContentBlock({ pageKey }: { locale: string, pageKey: string }
                                                 className="text-lg md:text-xl leading-relaxed text-text-secondary font-light [&>p]:mb-4 last:[&>p]:mb-0" 
                                                 dangerouslySetInnerHTML={{ __html: section.content }} 
                                             />
-                                        </motion.div>
+                                        </div>
                                     ))}
                                 </div>
                             )}
                         </div>
                     )}
-                </motion.div>
+                </div>
             </div>
         </section>
     );
 }
-

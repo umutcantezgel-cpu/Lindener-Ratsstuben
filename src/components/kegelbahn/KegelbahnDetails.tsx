@@ -2,7 +2,7 @@
 import React, { useRef } from 'react';
 import { m as motion, useInView } from "framer-motion";
 import { CheckCircle2, Users, Calendar, Trophy, Utensils, Music, ChevronRight } from 'lucide-react';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 
 const features = [
     {
@@ -121,14 +121,14 @@ export const KegelbahnDetails: React.FC = () => {
                                 </li>
                             </ul>
 
-                            <Link href="/reservation" className="group flex items-center justify-between w-full p-5 bg-text-primary text-surface rounded-2xl hover:bg-primary transition-colors duration-300">
+                            <LocaleLink href="/reservation" className="group flex items-center justify-between w-full p-5 bg-text-primary text-surface rounded-2xl hover:bg-primary transition-colors duration-300">
                                 <div className="flex flex-col">
                                     <span className="text-lg font-medium">Reservierung Anfragen</span>
                                 </div>
                                 <div className="w-10 h-10 rounded-full bg-surface/20 flex items-center justify-center group-hover:bg-surface group-hover:text-primary transition-colors">
                                     <ChevronRight className="w-5 h-5" />
                                 </div>
-                            </Link>
+                            </LocaleLink>
 
                             <div className="mt-6 flex items-center justify-center gap-2 text-sm text-text-tertiary">
                                 <Calendar className="w-4 h-4" />

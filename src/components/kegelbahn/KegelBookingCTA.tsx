@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 import { m as motion } from "framer-motion";
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from '@/lib/i18n/use-translation';
@@ -18,7 +18,7 @@ export const KegelBookingCTA: React.FC = () => {
                 transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
                 className="flex justify-center"
             >
-                <Link 
+                <LocaleLink 
                     href="/reservation"
                     className="group relative text-text-primary hover:text-muted-gold font-medium uppercase tracking-[0.2em] text-sm flex items-center gap-4 transition-colors duration-500 pb-2"
                 >
@@ -26,7 +26,7 @@ export const KegelBookingCTA: React.FC = () => {
                     <ArrowRight className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-3 rtl:group-hover:-translate-x-3 rtl-mirror" />
                     {/* 1px Underline hover effect */}
                     <div className="absolute bottom-0 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 w-0 h-[1px] bg-muted-gold group-hover:w-full transition-all duration-500 ease-out" />
-                </Link>
+                </LocaleLink>
             </motion.div>
         </section>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 import { PageTransition } from '@/components/effects/PageTransition';
 import { Metadata } from 'next';
 import { getTranslations } from '@/lib/i18n/get-translations';
@@ -110,9 +110,9 @@ const CookieRichtlinie = async ({ params }: { params: Promise<{ locale: LocaleTy
                                 Beim Laden von eingebetteten Inhalten Dritter (z.B. Google Maps) können diese Anbieter
                                 eigene Cookies setzen. Dies geschieht außerhalb unserer Kontrolle. Für Details zu den
                                 eingesetzten Drittanbieter-Diensten verweisen wir auf unsere{' '}
-                                <Link href="/datenschutz" className="text-primary hover:text-primary-hover underline">
+                                <LocaleLink href="/datenschutz" className="text-primary hover:text-primary-hover underline">
                                     Datenschutzerklärung
-                                </Link>.
+                                </LocaleLink>.
                             </p>
                             <p>
                                 <strong>Hinweis:</strong> Google Maps kann folgende Cookies setzen:
@@ -181,7 +181,7 @@ const CookieRichtlinie = async ({ params }: { params: Promise<{ locale: LocaleTy
                         </section>
 
                         <p className="text-sm text-text-tertiary mt-12 pt-6 border-t border-border">
-                            Stand: April 2026 | <Link href="/datenschutz" className="text-primary hover:text-primary-hover underline">Datenschutz</Link> | <Link href="/impressum" className="text-primary hover:text-primary-hover underline">Impressum</Link>
+                            Stand: April 2026 | <LocaleLink href="/datenschutz" className="text-primary hover:text-primary-hover underline">Datenschutz</LocaleLink> | <LocaleLink href="/impressum" className="text-primary hover:text-primary-hover underline">Impressum</LocaleLink>
                         </p>
                     </div>
                 </div>

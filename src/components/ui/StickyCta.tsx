@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 import { useTranslation } from '@/lib/i18n/use-translation';
 
 export function StickyCta() {
@@ -44,9 +44,9 @@ export function StickyCta() {
         <p className="text-xs text-text-secondary">Reservieren Sie ein kostenfreies Strategiegespräch.</p>
       </div>
       <div className="flex gap-4 items-center">
-        <Link href="/reservation" className="bg-primary hover:bg-primary-hover text-surface text-sm font-medium px-4 py-2 rounded-md transition">
+        <LocaleLink href="/reservation" className="bg-primary hover:bg-primary-hover text-surface text-sm font-medium px-4 py-2 rounded-md transition">
           Termin buchen
-        </Link>
+        </LocaleLink>
         <button 
           onClick={() => {
             sessionStorage.setItem('sticky_cta_dismissed', 'true');

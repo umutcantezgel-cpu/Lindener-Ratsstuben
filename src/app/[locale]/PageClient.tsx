@@ -1,6 +1,6 @@
 import React from 'react';
 import { AdaptiveImage as Image } from '@/components/ui/AdaptiveImage';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 import { ArrowRight, Clock, Phone, Mail, Leaf, Star, ChefHat, MapPin } from 'lucide-react';
 import { getCompanyData } from '@/data/company';
 import dynamic from 'next/dynamic';
@@ -81,15 +81,15 @@ export const Home = async ({ locale }: HomeProps) => {
                                     </section>
                                 </div>
                                 <div className="pt-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-                                    <Link 
+                                    <LocaleLink 
                                         href="/menu" 
                                         className="interaction-bounce px-8 py-4 bg-accent text-text-primary font-bold rounded-lg shadow-[0_0_20px_rgba(var(--color-accent),0.3)] hover:shadow-[0_0_30px_rgba(var(--color-accent),0.5)] transition-all flex items-center gap-2"
                                     >
                                         {t('hero.cta_menu') as string} <ArrowRight className="w-5 h-5" />
-                                    </Link>
-                                    <Link href="/about" className="text-accent-text font-bold hover:text-text-primary flex items-center gap-2 group transition-colors inline-flex">
+                                    </LocaleLink>
+                                    <LocaleLink href="/about" className="text-accent-text font-bold hover:text-text-primary flex items-center gap-2 group transition-colors inline-flex">
                                         {t('philosophy.learn_more') || 'Mehr über die Ratsstuben erfahren'} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                    </Link>
+                                    </LocaleLink>
                                 </div>
                             </div>
                         </AnimateIn>
@@ -144,24 +144,24 @@ export const Home = async ({ locale }: HomeProps) => {
                                     </div>
                                     <h3 itemProp="name" className="text-xl font-bold text-text-primary mb-2 group-hover:text-accent-text transition-colors">{dish.name}</h3>
                                     <p itemProp="description" className="text-text-secondary text-sm mb-6 line-clamp-2">{dish.desc}</p>
-                                    <Link
+                                    <LocaleLink
                                         href="/menu"
                                         className="text-accent-text font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all duration-500 ease-liquid inline-block mt-2"
                                     >
                                         {t('highlights.details') as string} <ArrowRight className="w-4 h-4 inline" />
-                                    </Link>
+                                    </LocaleLink>
                                 </div>
                             </div>
                         ))}
                     </StaggerContainer>
 
                     <AnimateIn className="text-center mt-16" delay={300}>
-                        <Link
+                        <LocaleLink
                             href="/menu"
                             className="interaction-bounce inline-block px-10 py-4 border border-border text-text-primary font-bold rounded-lg hover:bg-white hover:text-text-primary uppercase tracking-wider transition-colors"
                         >
                             {t('highlights.view_menu') as string}
-                        </Link>
+                        </LocaleLink>
                     </AnimateIn>
                 </div>
             </section>

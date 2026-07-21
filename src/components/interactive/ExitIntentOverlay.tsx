@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { m as motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from '@/lib/i18n/use-translation';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 
 
 export const ExitIntentOverlay = () => {
@@ -57,12 +58,12 @@ export const ExitIntentOverlay = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <LocaleLink 
                 href="/reservation"
                 className="px-6 py-3 bg-accent text-neutral-950 rounded-full font-medium hover:bg-accent-hover transition-colors shadow-warm"
               >
                 {t('exit_intent.cta_reserve') as string}
-              </a>
+              </LocaleLink>
               <button 
                 onClick={() => setIsVisible(false)}
                 className="px-6 py-3 bg-surface text-text-primary border border-border rounded-full font-medium hover:bg-bg-secondary transition-colors"

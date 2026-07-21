@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
 import { CTATexts, CTATrustKey, CTAPrimaryKey, CTASecondaryKey } from '@/lib/cta-texts';
 import { useTranslation } from '@/lib/i18n/use-translation';
@@ -63,9 +63,9 @@ export function CtaWithTrust({
                     {renderButtonContent()}
                 </button>
             ) : (
-                <Link href={href || '#'} className={buttonClass} onClick={onClick}>
+                <LocaleLink href={href || '#'} className={buttonClass} onClick={onClick}>
                     {renderButtonContent()}
-                </Link>
+                </LocaleLink>
             )}
             <div className="flex items-center gap-1.5 text-xs text-text-tertiary">
                 <ShieldCheck className="w-3.5 h-3.5 text-status-success" aria-hidden="true" />
