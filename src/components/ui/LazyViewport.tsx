@@ -20,9 +20,11 @@ export const LazyViewport: React.FC<LazyViewportProps> = ({
     margin = '200px'
 }) => {
     const ref = useRef<HTMLDivElement>(null);
-    const [isInView, setIsInView] = useState(false);
+    // Default to true during SSR so crawlers get full content in static HTML
+    const [isInView, setIsInView] = useState(typeof window === 'undefined');
 
     useEffect(() => {
+        setIsInView(true);
         const el = ref.current;
         if (!el) return;
         const observer = new IntersectionObserver(

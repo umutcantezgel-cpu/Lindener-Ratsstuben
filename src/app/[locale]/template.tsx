@@ -15,12 +15,12 @@ export default function Template({ children }: { children: React.ReactNode }) {
     requestAnimationFrame(() => setMounted(true));
   }, []);
 
-  const style: React.CSSProperties = prefersReducedMotion
+  const style: React.CSSProperties = (prefersReducedMotion || !mounted)
     ? {}
     : {
-        opacity: mounted ? 1 : 0,
-        transform: mounted ? 'translateY(0)' : 'translateY(25px)',
-        filter: mounted ? 'blur(0px)' : 'blur(10px)',
+        opacity: 1,
+        transform: 'translateY(0)',
+        filter: 'blur(0px)',
         transition: 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
       };
 
