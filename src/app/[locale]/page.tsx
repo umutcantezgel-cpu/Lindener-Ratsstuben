@@ -29,8 +29,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  const tMeta = await getTranslations(locale as LocaleType, 'meta');
   return (
     <>
+      <h1 className="sr-only">{tMeta('home.title', 'Restaurant Lindener Ratsstuben').split(' |')[0]}</h1>
       <JsonLd data={createHomeFaqSchema()} />
       <PageClient locale={locale} />
       <SeoContentBlock locale={locale} pageKey="home" />

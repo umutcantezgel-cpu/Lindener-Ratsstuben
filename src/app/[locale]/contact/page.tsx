@@ -29,9 +29,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations(locale as LocaleType, 'pages');
+  const tMeta = await getTranslations(locale as LocaleType, 'meta');
 
   return (
     <>
+      <h1 className="sr-only">{tMeta('contact.title', 'Kontakt').split(' |')[0]}</h1>
       <JsonLd data={createContactPageSchema(t)} />
       <JsonLd data={createContactFaqSchema()} />
       <PageClient />

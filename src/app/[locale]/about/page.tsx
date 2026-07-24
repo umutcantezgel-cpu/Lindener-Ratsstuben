@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'pages');
+    const tMeta = await getTranslations(locale as LocaleType, 'meta');
     let faqData = null;
     try {
         faqData = (await import(`../../../../locales/${locale}/faq.json`)).default;
@@ -39,6 +40,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
     return (
       <>
+        <h1 className="sr-only">{tMeta('about.title', 'Über Uns').split(' |')[0]}</h1>
         <JsonLd data={createAboutPageSchema(t)} />
         <AboutClient faqData={faqData} />
         <SeoContentBlock locale={locale} pageKey="about" />

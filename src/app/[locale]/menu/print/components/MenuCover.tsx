@@ -36,7 +36,7 @@ export default function MenuCover() {
         <div className="cv-tag" style={{ marginBottom: '10px' }}><span>◆</span>RISTORANTE PIZZERIA<span>◆</span></div>
         <div className="cv-tag">Kegelzentrum</div>
         <div className="cv-trad">— Internationale Küche —</div>
-        <h1 className="cv-title">LINDENER<span style={{ display: 'inline-block', width: '0.6em' }}></span>RATSSTUBEN</h1>
+        <h2 className="cv-title">LINDENER<span style={{ display: 'inline-block', width: '0.6em' }}></span>RATSSTUBEN</h2>
         <OrnateDivider />
         <div className="cv-sub">Kulinarische Meisterwerke<br/>mit Leidenschaft kreiert</div>
       </div>

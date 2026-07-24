@@ -31,7 +31,7 @@ export const Contact = () => {
             <article className="pt-24 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
-                        <h1 className="text-3xl md:text-4xl font-display font-bold text-white bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-4 shadow-warm inline-block w-full max-w-3xl">{t('contact.title') as string}</h1>
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-white bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-4 shadow-warm inline-block w-full max-w-3xl">{t('contact.title') as string}</h2>
                         <div 
                             className="text-text-secondary max-w-2xl mx-auto space-y-4 [&>p]:leading-relaxed"
                             dangerouslySetInnerHTML={{ __html: t('contact.description') as string }}

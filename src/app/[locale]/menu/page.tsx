@@ -176,8 +176,11 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   // ═══ MITTAGSKARTE (Tägliches Lunch-Menü) ═══
   // Temporarily removed to fix ESLint unused-var errors while hidden
 
+  const tMeta = await getTranslations(locale as LocaleType, 'meta');
+
   return (
     <>
+      <h1 className="sr-only">{tMeta('menu.title', 'Speisekarte').split(' |')[0]}</h1>
       <JsonLd data={createMenuPageSchema()} />
       <JsonLd data={createMenuFaqSchema()} />
       <Suspense fallback={<MenuSkeleton />}>

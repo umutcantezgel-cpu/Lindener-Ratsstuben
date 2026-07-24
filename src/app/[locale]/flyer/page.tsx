@@ -275,9 +275,9 @@ export default function Flyer8Page() {
               <div className="cover-cuisine-line">— Internationale Küche —</div>
 
               {/* LINDENER RATSSTUBEN */}
-              <h1 className="cover-title-main">
+              <h2 className="cover-title-main">
                 LINDENER<span style={{ display: 'inline-block', width: '0.4em' }}></span>RATSSTUBEN
-              </h1>
+              </h2>
 
               <div className="cover-divider" />
 

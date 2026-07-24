@@ -32,6 +32,7 @@ export const LegalPageLayout = async ({ title, lastUpdated, locale, pageKey, chi
 
     return (
         <PageTransition>
+            <h1 className="sr-only">{title}</h1>
             <article className="pt-32 pb-20 min-h-screen bg-bg-primary" itemScope itemType="https://schema.org/WebPage">
                 <main className="container mx-auto px-4 max-w-4xl" itemProp="mainContentOfPage">
                     
@@ -40,9 +41,9 @@ export const LegalPageLayout = async ({ title, lastUpdated, locale, pageKey, chi
                             <span className="w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center shrink-0">
                                 <Scale className="w-5 h-5" aria-hidden="true" />
                             </span>
-                            <h1 className="text-3xl md:text-5xl font-display font-medium text-text-primary tracking-tight" itemProp="name">
+                            <h2 className="text-3xl md:text-5xl font-display font-medium text-text-primary tracking-tight" itemProp="name">
                                 {title}
-                            </h1>
+                            </h2>
                         </div>
                         <p className="text-sm font-medium text-text-muted uppercase tracking-wider flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-green-500"></span> {isNonGerman ? lastUpdatedLabel : 'Stand'}: {lastUpdated}

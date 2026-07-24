@@ -188,9 +188,9 @@ export const ReservationInteractive = () => {
     return (
         <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-5xl font-display font-medium text-text-primary mb-4 tracking-tight">
+                <h2 className="text-4xl md:text-5xl font-display font-medium text-text-primary mb-4 tracking-tight">
                     {t('reservation.title', 'Tisch reservieren')}
-                </h1>
+                </h2>
                 <div 
                     className="text-text-muted text-lg max-w-xl mx-auto space-y-4 [&>p]:leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: (tPages('reservation.description', tPages('reservation.subtitle', 'Sichern Sie sich Ihren Tisch für ein unvergessliches Erlebnis.'))) as string }}

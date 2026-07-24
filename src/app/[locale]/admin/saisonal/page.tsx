@@ -192,9 +192,9 @@ export default async function SaisonalMenuPage({ params }: { params: Promise<{ l
         <span className="seasonal-badge">
           ◆ {isDe ? 'Saisonkarte' : 'Seasonal Specials'} ◆
         </span>
-        <h1 className="seasonal-title">
+        <h2 className="seasonal-title">
           {isDe ? leftCategory.categoryTitle_de : (leftCategory.categoryTitle_en || leftCategory.categoryTitle_de)}
-        </h1>
+        </h2>
         <p className="seasonal-subtitle">
           {pageTitle || (isDe ? 'Saftig. Frisch. Genussvoll.' : 'Juicy. Fresh. Delightful.')}
         </p>
@@ -269,9 +269,9 @@ export default async function SaisonalMenuPage({ params }: { params: Promise<{ l
         <span className="seasonal-badge">
           ◆ {isDe ? 'Erfrischung' : 'Refreshment'} ◆
         </span>
-        <h1 className="seasonal-title">
+        <h2 className="seasonal-title">
           {isDe ? rightCategory.categoryTitle_de : (rightCategory.categoryTitle_en || rightCategory.categoryTitle_de)}
-        </h1>
+        </h2>
         <p className="seasonal-subtitle">
           {isDe ? 'Frisch. Fein. Erfrischend.' : 'Fresh. Pure. Refreshing.'}
         </p>

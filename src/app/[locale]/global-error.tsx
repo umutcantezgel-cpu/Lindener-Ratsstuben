@@ -17,6 +17,7 @@ export default function GlobalError({
   return (
     <html lang="de">
       <body>
+        <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>Kritischer Systemfehler</h1>
         <div style={{
           display: 'flex',
           flexDirection: 'column',
@@ -29,7 +30,7 @@ export default function GlobalError({
           backgroundColor: '#FCFAF8',
           color: '#1a1a1a'
         }}>
-          <h1 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#8B0000' }}>Kritischer Systemfehler</h1>
+          <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#8B0000' }}>Kritischer Systemfehler</h2>
           <p style={{ maxWidth: '600px', lineHeight: '1.5', marginBottom: '2rem' }}>
             Die Applikation konnte nicht korrekt gestartet werden. Das Problem wurde protokolliert und wir arbeiten an einer Lösung.
           </p>

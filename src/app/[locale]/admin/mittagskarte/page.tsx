@@ -182,7 +182,7 @@ export default function MittagskarteAdminPage() {
       <div style={styles.page}>
         <div style={styles.loginCard}>
           <div style={styles.logo}>🍽️</div>
-          <h1 style={styles.title}>Mittagskarte verwalten</h1>
+          <h2 style={styles.title}>Mittagskarte verwalten</h2>
           <p style={styles.subtitle}>Lindener Ratsstuben – Admin-Bereich</p>
           <form onSubmit={handleLogin} style={styles.form}>
             {loginError && (
@@ -230,7 +230,7 @@ export default function MittagskarteAdminPage() {
         {/* Header */}
         <header style={styles.header}>
           <div style={styles.logo}>🍽️</div>
-          <h1 style={styles.title}>Mittagskarte verwalten</h1>
+          <h2 style={styles.title}>Mittagskarte verwalten</h2>
           <p style={styles.subtitle}>
             Laden Sie hier die tägliche Mittagskarte als PDF-Dokument (.pdf) hoch.
             <br />Die aktuelle Karte wird automatisch ersetzt.

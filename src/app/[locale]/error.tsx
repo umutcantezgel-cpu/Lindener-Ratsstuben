@@ -21,12 +21,13 @@ export default function Error({
 
   return (
     <div className="pt-24 pb-20 min-h-screen bg-bg-beige flex items-center justify-center">
+      <h1 className="sr-only">{t('error.generic_title') as string}</h1>
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-6xl font-display font-bold text-primary mb-4" aria-hidden="true">Oops</p>
-          <h1 className="text-3xl md:text-4xl font-display font-bold text-text-main mb-6">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-text-main mb-6">
             {t('error.generic_title') as string}
-          </h1>
+          </h2>
           <p className="text-lg text-text-secondary mb-10 leading-relaxed">
             {t('error.generic_description') as string}
           </p>

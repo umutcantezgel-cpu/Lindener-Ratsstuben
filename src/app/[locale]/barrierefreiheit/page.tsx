@@ -32,11 +32,12 @@ const Barrierefreiheit = async ({ params }: { params: Promise<{ locale: LocaleTy
 
     return (
         <PageTransition>
+            <h1 className="sr-only">{title}</h1>
             <article className="pt-24 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
                 <div className="container mx-auto px-4 max-w-3xl">
-                    <h1 className="text-3xl md:text-4xl font-display font-bold text-surface bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-10 shadow-warm inline-block w-full max-w-3xl text-center">
+                    <h2 className="text-3xl md:text-4xl font-display font-bold text-surface bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-10 shadow-warm inline-block w-full max-w-3xl text-center">
                         {title}
-                    </h1>
+                    </h2>
 
                     {isNonGerman && bindingNotice && (
                         <div className="mb-8 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl flex items-start gap-3">

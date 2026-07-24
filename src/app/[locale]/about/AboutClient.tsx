@@ -29,7 +29,7 @@ const AboutClient = ({ faqData }: AboutClientProps) => {
                 {/* Hero / Intro */}
                 <header className="container mx-auto px-4 mb-20">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-5xl font-display font-bold text-text-main mb-6">{t('about.headline') as string}</h1>
+                        <h2 className="text-5xl font-display font-bold text-text-main mb-6">{t('about.headline') as string}</h2>
                         <p className="text-xl text-text-secondary leading-relaxed">
                             {t('about.subtitle') as string}
                         </p>

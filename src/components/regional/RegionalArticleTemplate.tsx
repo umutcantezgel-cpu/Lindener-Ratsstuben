@@ -14,6 +14,7 @@ export function RegionalArticleTemplate({ article, locale }: RegionalArticleTemp
 
   return (
     <article className="bg-surface min-h-screen pt-24 pb-20" itemProp="mainContentOfPage">
+      <h1 className="sr-only">{article.title}</h1>
       {/* Schema.org Injection */}
       <script
         type="application/ld+json"
@@ -64,9 +65,9 @@ export function RegionalArticleTemplate({ article, locale }: RegionalArticleTemp
             )}
           </div>
           
-          <h1 className="font-display text-4xl md:text-5xl lg:text-5xl text-text-primary mb-6 leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-5xl text-text-primary mb-6 leading-tight">
             {article.title}
-          </h1>
+          </h2>
           
           {article.heroSubtitle && (
             <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto font-light">

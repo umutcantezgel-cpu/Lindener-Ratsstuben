@@ -22,9 +22,9 @@ export const KegelHero: React.FC<KegelHeroProps> = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
                 >
-                    <h1 className="text-4xl md:text-6xl font-display text-text-primary mb-6 uppercase tracking-[0.05em] leading-tight">
+                    <h2 className="text-4xl md:text-6xl font-display text-text-primary mb-6 uppercase tracking-[0.05em] leading-tight">
                         {t('kegelbahn.hero.title') as string}
-                    </h1>
+                    </h2>
                 </motion.div>
                 
                 <motion.div

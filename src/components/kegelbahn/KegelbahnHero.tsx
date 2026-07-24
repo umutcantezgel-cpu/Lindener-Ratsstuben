@@ -42,9 +42,9 @@ export const KegelbahnHero: React.FC = () => {
                         Legendäre Atmosphäre
                     </span>
                     
-                    <h1 className="text-[clamp(3rem,8vw,6rem)] font-display font-extralight tracking-tight leading-[1.05]">
+                    <h2 className="text-[clamp(3rem,8vw,6rem)] font-display font-extralight tracking-tight leading-[1.05]">
                         Unsere <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary via-muted-gold-light to-primary drop-shadow-[0_0_15px_rgba(var(--color-primary),0.3)]">Kegelbahn</span> in Linden
-                    </h1>
+                    </h2>
                     
                     <p className="text-lg md:text-2xl font-light text-gray-300 max-w-3xl mx-auto leading-relaxed">
                         Drei hochmoderne Profi-Bahnen gepaart mit drei exklusiven Essbereichen. Das ultimative Erlebnis für Teams, Familien und Firmenfeiern.

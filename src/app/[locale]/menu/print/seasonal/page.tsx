@@ -92,15 +92,15 @@ export default async function PrintSeasonalMenuPage() {
       <PrintPageA5>
         {!seasonalMenu || !seasonalMenu.isActive ? (
           <div style={{ textAlign: 'center', marginTop: '60px' }}>
-            <h1 style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--brand-red)' }}>Aktuell keine Saisonkarte</h1>
+            <h2 style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--brand-red)' }}>Aktuell keine Saisonkarte</h2>
           </div>
         ) : (
           <>
             <div className="welcome-block" style={{ margin: '0 auto 15px', padding: '15px', maxWidth: '90%' }}>
               <div className="welcome-ornament">✦ ✦ ✦</div>
-              <h1 style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--brand-red)', textAlign: 'center', fontSize: '20px', margin: '5px 0' }}>
+              <h2 style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--brand-red)', textAlign: 'center', fontSize: '20px', margin: '5px 0' }}>
                 {seasonalMenu.title_de}
-              </h1>
+              </h2>
               {seasonalMenu.description_de && (
                 <p className="welcome-text" style={{ fontStyle: 'italic', textAlign: 'center', fontSize: '13px' }}>
                   {seasonalMenu.description_de}

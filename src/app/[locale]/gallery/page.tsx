@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  const tMeta = await getTranslations(locale as LocaleType, 'meta');
   const gallerySchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -37,6 +38,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
+      <h1 className="sr-only">{tMeta('gallery.title', 'Galerie').split(' |')[0]}</h1>
       <JsonLd data={gallerySchema} />
       <PageClient />
       <SeoContentBlock locale={locale} pageKey="gallery" />
