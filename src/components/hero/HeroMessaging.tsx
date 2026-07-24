@@ -42,9 +42,6 @@ export const HeroMessaging: React.FC = () => {
                         <span className="block animate-hero-headline">
                             {t('hero.headline_1')}
                         </span>
-                        <span className="block text-accent font-medium mt-2 animate-hero-headline-2">
-                            {t('hero.headline_2')}
-                        </span>
                     </div>
                 ) : (
                     <div>
@@ -53,10 +50,12 @@ export const HeroMessaging: React.FC = () => {
                 )}
             </div>
 
-            <div 
-                className="text-[clamp(1.1rem,1.8vw,1.35rem)] font-light tracking-wide text-neutral-300 max-w-2xl leading-relaxed mx-auto animate-hero-subheadline space-y-4 [&>p]:leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: (heroVariant === 'general' ? t('hero.description') : hero.subheadline) as string }}
-            />
+            {heroVariant !== 'general' && (
+                <div 
+                    className="text-[clamp(1.1rem,1.8vw,1.35rem)] font-light tracking-wide text-neutral-300 max-w-2xl leading-relaxed mx-auto animate-hero-subheadline space-y-4 [&>p]:leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: hero.subheadline as string }}
+                />
+            )}
         </div>
     );
 };
