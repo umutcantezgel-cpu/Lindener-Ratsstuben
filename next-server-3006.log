@@ -1,0 +1,10 @@
+
+> red-flames@0.0.0 start
+> next start -p 3006
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3006
+
+ ✓ Starting...
+ ✓ Ready in 502ms
+[I18N Warning] Missing translation key: "philosophy.learn_more"
