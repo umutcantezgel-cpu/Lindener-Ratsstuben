@@ -18,7 +18,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 
 export default async function WiderrufPage({ params }: { params: Promise<{ locale: LocaleType }> }) {
     const { locale } = await params;
-    const t = await getTranslations(locale as LocaleType, 'meta');
     const title = locale === 'de' ? "Widerrufsbelehrung & Stornierungsbedingungen der Lindener Ratsstuben" : "Right of Withdrawal & Cancellation Policy for Lindener Ratsstuben";
 
     return (
