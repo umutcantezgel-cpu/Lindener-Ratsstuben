@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <JsonLd data={createReservationPageSchema(t)} />
       <JsonLd data={createReservationFaqSchema()} />
       {/* Server-rendered H1 for crawlers — the interactive form loads via dynamic() */}
-      <h1 className="sr-only">{tMeta('reservation.title', 'Tisch reservieren & Eventlocation | Lindener Ratsstuben').split(' |')[0]}</h1>
+      <h1 className="sr-only">{tMeta('reservation.title', 'Tisch reservieren & Eventlocation | Lindener Ratsstuben')}</h1>
       <PageClient />
       <SeoContentBlock locale={locale} pageKey="reservation" />
     </>

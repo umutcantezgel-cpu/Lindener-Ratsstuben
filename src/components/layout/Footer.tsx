@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
 
                     {/* Quick Links */}
                     <nav aria-label={t('footer.navigation') as string}>
-                        <h3 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.quick_links') as string}</h3>
+                        <div className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.quick_links') as string}</div>
                         <ul className="space-y-3 m-0 p-0 list-none">
                             {[
                                 { name: t('nav.home') as string, path: '/' },
@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
 
                     {/* Contact */}
                     <address className="not-italic">
-                        <h3 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('nav.contact') as string}</h3>
+                        <div className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('nav.contact') as string}</div>
                         <ul className="space-y-4 m-0 p-0 list-none">
                             <li className="flex items-start gap-3 text-text-secondary group">
                                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-1 group-hover:text-text-primary transition-colors" aria-hidden="true" />
@@ -102,7 +102,7 @@ export const Footer: React.FC = () => {
 
                     {/* Hours */}
                     <section aria-label={t('footer.opening_hours') as string}>
-                        <h3 className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.opening_hours') as string}</h3>
+                        <div className="text-primary font-bold mb-6 uppercase tracking-wider text-sm">{t('footer.opening_hours') as string}</div>
                         <ul className="space-y-3 text-sm m-0 p-0 list-none">
                             <li className="flex flex-col sm:flex-row sm:justify-between border-b border-border pb-3 gap-1 sm:gap-0">
                                 <span className="font-medium text-text-secondary">{t('footer.monday') as string}</span>

@@ -40,7 +40,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
     return (
       <>
-        <h1 className="sr-only">{tMeta('about.title', 'Über Uns').split(' |')[0]}</h1>
+        <h1 className="sr-only">{tMeta('about.title', 'Über Uns')}</h1>
         <JsonLd data={createAboutPageSchema(t)} />
         <AboutClient faqData={faqData} />
         <SeoContentBlock locale={locale} pageKey="about" />

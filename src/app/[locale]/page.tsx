@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const tMeta = await getTranslations(locale as LocaleType, 'meta');
   return (
     <>
-      <h1 className="sr-only">{tMeta('home.title', 'Restaurant Lindener Ratsstuben').split(' |')[0]}</h1>
+      <h1 className="sr-only">{tMeta('home.title', 'Restaurant Lindener Ratsstuben')}</h1>
       <JsonLd data={createHomeFaqSchema()} />
       <PageClient locale={locale} />
       <SeoContentBlock locale={locale} pageKey="home" />

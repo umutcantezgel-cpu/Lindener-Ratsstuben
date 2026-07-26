@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function DatenschutzPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
-    const title = t('datenschutz.title', 'Datenschutz | Lindener Ratsstuben').split(' |')[0];
+    const title = t('datenschutz.title', 'Datenschutz | Lindener Ratsstuben');
     
     return (
         <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale} pageKey="datenschutz">

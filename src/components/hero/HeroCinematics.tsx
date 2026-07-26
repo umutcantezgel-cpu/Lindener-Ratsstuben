@@ -51,7 +51,7 @@ export const HeroCinematics: React.FC<HeroCinematicsProps> = ({ imageUrl }) => {
                 >
                     <Image 
                         src={imageUrl} 
-                        alt=""
+                        alt="Restaurant Lindener Ratsstuben"
                         priority={true}
                         fill
                         sizes="100vw"

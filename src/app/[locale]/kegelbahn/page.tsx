@@ -34,7 +34,7 @@ export default async function KegelbahnPage({ params }: { params: Promise<{ loca
 
     return (
       <>
-        <h1 className="sr-only">{tMeta('kegelbahn.hero.title', 'Kegelbahn').split(' |')[0]}</h1>
+        <h1 className="sr-only">{tMeta('kegelbahn.hero.title', 'Kegelbahn')}</h1>
         <JsonLd data={createKegelbahnPageSchema(t)} />
         <KegelClient locale={locale} />
         <SeoContentBlock locale={locale} pageKey="kegelbahn" />

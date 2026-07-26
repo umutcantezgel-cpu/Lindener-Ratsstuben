@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function AGBPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
-    const title = t('agb.title', 'AGB | Lindener Ratsstuben').split(' |')[0];
+    const title = t('agb.title', 'AGB | Lindener Ratsstuben');
 
     return (
         <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale} pageKey="agb">
