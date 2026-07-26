@@ -10,7 +10,7 @@ export function getAlternates(locale: string, path: string = '') {
   }, {} as Record<string, string>);
 
   // Add x-default pointing to the default language (or root if it handles redirection)
-  languages['x-default'] = `/${cleanPath}`;
+  languages['x-default'] = `/de${cleanPath ? `/${cleanPath}` : ''}`;
 
   return {
     canonical: `/${locale}${cleanPath ? `/${cleanPath}` : ''}`,

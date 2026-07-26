@@ -19,7 +19,9 @@ export function TestimonialSection({
   heading = 'Was unsere Gäste sagen',
   className,
 }: TestimonialSectionProps) {
-  const testimonials = getAllTestimonials();
+  // We slice to 15 testimonials to avoid massive HTML bloat
+  // Rendering 241 testimonials generates thousands of SVG stars and crashes SEO crawlers (Seobility)
+  const testimonials = getAllTestimonials().slice(0, 15);
 
   if (testimonials.length === 0) return null;
 

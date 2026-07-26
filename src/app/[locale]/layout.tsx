@@ -115,7 +115,7 @@ export default async function RootLayout({
   const initialDeviceType = (headersList.get('x-device-type') as 'mobile' | 'tablet' | 'desktop') || 'desktop';
   
   // Preload all critical namespaces for Client Components synchronously
-  const namespaces = ['common', 'navigation', 'pages', 'home', 'forms', 'menu', 'meta', 'seo'];
+  const namespaces = ['common', 'navigation', 'pages', 'home', 'forms', 'menu'];
   const dictionaries = await Promise.all(
     namespaces.map(ns => loadTranslations(locale as LocaleType, ns))
   );
