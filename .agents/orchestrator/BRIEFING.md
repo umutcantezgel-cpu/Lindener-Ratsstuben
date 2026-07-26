@@ -42,15 +42,15 @@ Orchestrate technical & meta SEO fixes and duplicate content resolution for Lind
 | Explorer 2 | teamwork_preview_explorer | Heading & Meta SEO Explorer (M1) | completed | d6b655f5-415b-4b20-a6e1-7e18a0e246e4 |
 | Explorer 3 | teamwork_preview_explorer | Tag & Link Explorer (M1) | completed | 2ec220cd-bc02-461b-a482-8f43181e3d36 |
 | Worker 1 | teamwork_preview_worker | SEO & i18n Implementer (M2 & M3) | completed | e6d6fe23-8aee-4068-a2aa-7c114d24a7a7 |
-| Reviewer 1 | teamwork_preview_reviewer | SEO & Code Reviewer 1 (M4) | in-progress | a61e063e-f3bd-4312-973a-840ac90b5854 |
-| Reviewer 2 | teamwork_preview_reviewer | SEO & Code Reviewer 2 (M4) | in-progress | d38be379-3b0d-45db-911d-ff8975967c9e |
-| Challenger 1 | teamwork_preview_challenger | Empirical Challenger (M4) | in-progress | 9068318d-a290-4d0d-a10d-9ac63b554da3 |
-| Auditor 1 | teamwork_preview_auditor | Forensic Integrity Auditor (M4) | in-progress | 388e6c36-f243-4f5d-bb9b-79afdb87d965 |
+| Reviewer 1 | teamwork_preview_reviewer | SEO & Code Reviewer 1 (M4) | completed | a61e063e-f3bd-4312-973a-840ac90b5854 |
+| Reviewer 2 | teamwork_preview_reviewer | SEO & Code Reviewer 2 (M4) | completed | d38be379-3b0d-45db-911d-ff8975967c9e |
+| Challenger 1 | teamwork_preview_challenger | Empirical Challenger (M4) | completed | 9068318d-a290-4d0d-a10d-9ac63b554da3 |
+| Auditor 1 | teamwork_preview_auditor | Forensic Integrity Auditor (M4) | completed | 388e6c36-f243-4f5d-bb9b-79afdb87d965 |
 
 ## Succession Status
 - Succession required: no
 - Spawn count: 8 / 16
-- Pending subagents: a61e063e-f3bd-4312-973a-840ac90b5854, d38be379-3b0d-45db-911d-ff8975967c9e, 9068318d-a290-4d0d-a10d-9ac63b554da3, 388e6c36-f243-4f5d-bb9b-79afdb87d965
+- Pending subagents: none
 - Predecessor: none
 - Successor: not yet spawned
 

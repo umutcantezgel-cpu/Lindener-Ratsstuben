@@ -9,7 +9,7 @@
 | 1 | Exploration & Diagnostics | Audit codebase to map routing, identify /fr & /ar routes, legal pages, 17 heading structure issues, 6 strong/b tag issues, 2 H1 issues, 1 keyword cannibalization issue, 1 broken external link. | None | DONE |
 | 2 | R1 Duplicate Content & Noindex | Add noindex metadata to all /fr and /ar pages. Resolve duplicate content between /de and /en legal pages (AGB, Impressum, Datenschutz, Cookies, Widerruf) via canonical tags or translation. | M1 | DONE |
 | 3 | R2 Technical & Meta SEO Fixes | Fix heading structure issues (17 pages), <strong>/<b> issues (6 pages), H1 issues (2 pages), keyword cannibalization (1 page), broken external link (1 page). | M1 | DONE |
-| 4 | Verification & Build | Run build verification (`npm run build`), Reviewer, Challenger, and Forensic Audit verification. | M2, M3 | IN_PROGRESS |
+| 4 | Verification & Build | Run build verification (`npm run build`), Reviewer, Challenger, and Forensic Audit verification. | M2, M3 | DONE |
 
 ## Interface & Quality Contracts
 - No script execution for modifying/generating code.

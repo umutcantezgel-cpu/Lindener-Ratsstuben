@@ -3,7 +3,7 @@
 ## Executive Summary
 - **Verdict**: **APPROVE**
 - **Scope**: Verification of Milestone 2 & Milestone 3 implementation by Worker 1 against R1 and R2 technical & meta SEO requirements, script restriction compliance, and production build execution.
-- **Build Result**: `npm run build` completed successfully with **0 errors**. All 58 routes compiled, linted, and type-checked cleanly.
+- **Build Result**: `rm -rf .next && npm run build` completed successfully with **0 errors**. All 58 routes compiled, linted, and type-checked cleanly.
 
 ---
 
@@ -97,13 +97,8 @@
    - Visual header elements that do not act as semantic section headers were converted to `<p>` tags to preserve visual design while enforcing valid `H1 -> H2 -> H3` document outlines.
    - Stripping `<strong>` tags from inside `<h2>` strings in `seo.json` prevents HTML parsing errors in `SeoContentBlock.tsx` and aligns with HTML5 semantic standards.
 3. **Build & Integrity Verification Logic**:
-   - Running `npm run build` directly tests TypeScript type checking, Next.js static page generation, and JSX syntax. The successful build confirms zero breaking changes or syntax errors.
+   - Running `rm -rf .next && npm run build` directly tests TypeScript type checking, Next.js static page generation, and JSX syntax on a clean build directory. The build completed with 0 errors across 58 routes.
    - Review of git status and diff confirmed all edits were performed directly without illegal script generators or facades.
-
----
-
-## 3. Caveats
-- No caveats. All requirements have been directly verified against source files and verified via `npm run build`.
 
 ---
 
@@ -114,7 +109,7 @@ Worker 1's changes for Milestone 2 and Milestone 3 completely meet all acceptanc
 
 ## 5. Verification Method
 To independently verify this report:
-1. Run `npm run build` in `/Users/umurey/Downloads/Lindener-Ratsstuben-main` and verify `✓ Compiled successfully`.
+1. Run `rm -rf .next && npm run build` in `/Users/umurey/Downloads/Lindener-Ratsstuben-main` and verify `✓ Compiled successfully`.
 2. Inspect `git status` to verify file changes.
 3. Inspect `src/app/[locale]/layout.tsx` lines 74–84 for robots config.
 4. Inspect `src/app/[locale]/impressum/page.tsx` line 63 for the EU ODR link.
