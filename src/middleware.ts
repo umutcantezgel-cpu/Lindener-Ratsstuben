@@ -121,6 +121,16 @@ export function middleware(request: NextRequest) {
   // ───────────────────────────────────────────────────────────
   // GUARD 3: VISITOR TRACKING & SEGMENTATION LOGIC
   // ───────────────────────────────────────────────────────────
+  const isBot = uaString ? /bot|crawler|spider|crawling|seobility|lighthouse|slurp/i.test(uaString) : false;
+
+  if (isBot) {
+      // Fast path for bots: set locale header and return immediately
+      const requestHeaders = new Headers(request.headers);
+      const locale = pathnameHasLocale ? firstSegment : DEFAULT_LOCALE;
+      requestHeaders.set('x-locale', locale);
+      return NextResponse.next({ request: { headers: requestHeaders } });
+  }
+
   const { device } = userAgent(request);
   const isMobile = device.type === 'mobile';
   const isTablet = device.type === 'tablet';
