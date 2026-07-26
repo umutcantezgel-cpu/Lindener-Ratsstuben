@@ -28,15 +28,15 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
                 Diese Cookie-Richtlinie informiert Sie detailliert über die Art, den Umfang und die Zwecke der Verarbeitung von Cookies und lokal gespeicherten Daten (Local Storage) auf der Webseite der {companyData.companyName}.
             </p>
             <p>
-                Wir verwenden eine <strong>&quot;Strict Opt-In Zero-Script Policy&quot;</strong>. Das bedeutet: Mit Ausnahme von rein technisch notwendigen (essenziellen) System-Cookies werden absolut <strong>keine Drittanbieter-Scripte, keine externen Tracker und keine Marketing-Cookies</strong> in Ihren Browser geladen, bevor Sie nicht explizit in unserem Consent-Banner auf &quot;Alle Akzeptieren&quot; oder &quot;Auswahl Speichern&quot; geklickt haben.
+                Wir verwenden eine <span className="font-bold">&quot;Strict Opt-In Zero-Script Policy&quot;</span>. Das bedeutet: Mit Ausnahme von rein technisch notwendigen (essenziellen) System-Cookies werden absolut <span className="font-bold">keine Drittanbieter-Scripte, keine externen Tracker und keine Marketing-Cookies</span> in Ihren Browser geladen, bevor Sie nicht explizit in unserem Consent-Banner auf &quot;Alle Akzeptieren&quot; oder &quot;Auswahl Speichern&quot; geklickt haben.
             </p>
 
             <h2>1. Was sind Cookies und Local Storage?</h2>
             <p>
-                <strong>Cookies</strong> sind kleine Textdateien, die durch den Internetbrowser auf dem Endgerät des Nutzers gespeichert werden. Sie dienen dazu, das Angebot nutzerfreundlicher, effektiver und sicherer zu machen. Einige Cookies (&quot;Session-Cookies&quot;) werden nach Ende der Browser-Sitzung automatisch gelöscht, andere bleiben auf dem Endgerät gespeichert, bis sie manuell gelöscht werden (&quot;Persistente Cookies&quot;).
+                <span className="font-bold">Cookies</span> sind kleine Textdateien, die durch den Internetbrowser auf dem Endgerät des Nutzers gespeichert werden. Sie dienen dazu, das Angebot nutzerfreundlicher, effektiver und sicherer zu machen. Einige Cookies (&quot;Session-Cookies&quot;) werden nach Ende der Browser-Sitzung automatisch gelöscht, andere bleiben auf dem Endgerät gespeichert, bis sie manuell gelöscht werden (&quot;Persistente Cookies&quot;).
             </p>
             <p>
-                <strong>Local Storage</strong> ist eine moderne Web-Technologie, die es ermöglicht, kleine Datenmengen im Cache Ihres Browsers zu speichern. Im Gegensatz zu Cookies werden Daten im Local Storage nur lokal auf Ihrem Gerät gespeichert und nicht automatisch bei jeder Server-Anfrage mitgeschickt. Wir nutzen diese Methode primär für UI-Präferenzen (z. B. Sprachwahl).
+                <span className="font-bold">Local Storage</span> ist eine moderne Web-Technologie, die es ermöglicht, kleine Datenmengen im Cache Ihres Browsers zu speichern. Im Gegensatz zu Cookies werden Daten im Local Storage nur lokal auf Ihrem Gerät gespeichert und nicht automatisch bei jeder Server-Anfrage mitgeschickt. Wir nutzen diese Methode primär für UI-Präferenzen (z. B. Sprachwahl).
             </p>
 
             <h2>2. Kategorien der verwendeten Cookies & Daten</h2>

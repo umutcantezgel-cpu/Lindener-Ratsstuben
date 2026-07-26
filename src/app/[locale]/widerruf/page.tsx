@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 export default async function WiderrufPage({ params }: { params: Promise<{ locale: LocaleType }> }) {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
-    const title = t('widerruf.title', 'Widerruf | Lindener Ratsstuben').split('|')[0].trim();
+    const title = locale === 'de' ? "Widerrufsbelehrung & Stornierungsbedingungen" : "Right of Withdrawal & Cancellation Policy";
 
     return (
         <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale} pageKey="widerruf">
@@ -30,13 +30,13 @@ export default async function WiderrufPage({ params }: { params: Promise<{ local
 
             <h2>1. Ausschluss des Widerrufsrechts gemäß § 312g Abs. 2 Nr. 9 BGB</h2>
             <p>
-                Ein gesetzliches Widerrufsrecht für Verbraucher besteht gemäß § 312g Abs. 2 Nr. 9 BGB ausdrücklich <strong>nicht</strong> bei Verträgen zur Erbringung von Dienstleistungen in den Bereichen Beherbergung zu anderen Zwecken als zu Wohnzwecken, Beförderung von Waren, Kraftfahrzeugvermietung, Lieferung von Speisen und Getränken sowie zur Erbringung weiterer Dienstleistungen im Zusammenhang mit Freizeitbetätigungen, <strong>wenn der Vertrag für die Erbringung einen spezifischen Termin oder Zeitraum vorsieht.</strong>
+                Ein gesetzliches Widerrufsrecht für Verbraucher besteht gemäß § 312g Abs. 2 Nr. 9 BGB ausdrücklich <span className="font-bold">nicht</span> bei Verträgen zur Erbringung von Dienstleistungen in den Bereichen Beherbergung zu anderen Zwecken als zu Wohnzwecken, Beförderung von Waren, Kraftfahrzeugvermietung, Lieferung von Speisen und Getränken sowie zur Erbringung weiterer Dienstleistungen im Zusammenhang mit Freizeitbetätigungen, <span className="font-bold">wenn der Vertrag für die Erbringung einen spezifischen Termin oder Zeitraum vorsieht.</span>
             </p>
             <p>
-                <strong>Bedeutung für Ihre Buchungen:</strong>
+                <span className="font-bold">Bedeutung für Ihre Buchungen:</span>
                 <ul>
-                    <li><strong>Tischreservierungen:</strong> Wenn Sie bei uns – egal ob telefonisch, per E-Mail oder über unser Online-Buchungsformular – einen Tisch zu einem konkreten Datum und einer konkreten Uhrzeit reservieren, schließen Sie ein Termingeschäft ab. Es gibt hierfür kein vierzehntägiges Widerrufsrecht.</li>
-                    <li><strong>Veranstaltungen (Hochzeiten, Geburtstage, Firmenfeiern):</strong> Auch bei der verbindlichen Buchung unserer Räumlichkeiten und Catering-Leistungen (Speisen und Getränke) für ein festgelegtes Datum greift § 312g Abs. 2 Nr. 9 BGB. Ein Widerruf nach Vertragsabschluss ist ausgeschlossen.</li>
+                    <li><span className="font-bold">Tischreservierungen:</span> Wenn Sie bei uns – egal ob telefonisch, per E-Mail oder über unser Online-Buchungsformular – einen Tisch zu einem konkreten Datum und einer konkreten Uhrzeit reservieren, schließen Sie ein Termingeschäft ab. Es gibt hierfür kein vierzehntägiges Widerrufsrecht.</li>
+                    <li><span className="font-bold">Veranstaltungen (Hochzeiten, Geburtstage, Firmenfeiern):</span> Auch bei der verbindlichen Buchung unserer Räumlichkeiten und Catering-Leistungen (Speisen und Getränke) für ein festgelegtes Datum greift § 312g Abs. 2 Nr. 9 BGB. Ein Widerruf nach Vertragsabschluss ist ausgeschlossen.</li>
                 </ul>
             </p>
 
@@ -49,20 +49,20 @@ export default async function WiderrufPage({ params }: { params: Promise<{ local
             <p>
                 Obwohl ein gesetzlicher Anspruch auf Widerruf rechtlich nicht existiert, verstehen wir, dass unvorhergesehene Umstände (Krankheit, Notfälle) eine Planänderung erzwingen können. Daher gewähren wir unseren Gästen aus reiner Kulanz weitreichende vertragliche Rücktrittsrechte (Stornierungsmöglichkeiten), welche in unseren <a href={`/${locale}/agb`} className="text-secondary hover:text-accent underline">Allgemeinen Geschäftsbedingungen (AGB)</a> detailliert dargelegt sind.
             </p>
-            <p><strong>Die wesentlichen Kulanz-Stornierungsfristen lauten wie folgt:</strong></p>
+            <p><span className="font-bold">Die wesentlichen Kulanz-Stornierungsfristen lauten wie folgt:</span></p>
             <ul>
-                <li><strong>Reguläre Reservierungen (bis zu 7 Personen):</strong> Kostenfrei stornierbar, jedoch bitten wir um eine faire Absage so früh wie möglich, im Idealfall mindestens 12 bis 24 Stunden vor dem Termin.</li>
-                <li><strong>Gruppen ab 8 Personen:</strong> Eine vollumfänglich kostenfreie Stornierung der Gruppe ist bis exakt 48 Stunden vor dem Termin möglich. Bei späteren Absagen behalten wir uns gemäß AGB eine No-Show-Gebühr in Höhe von 35,00 € pro nicht erschiener Person vor, um vorbereitete Speisen und geblocktes Personal zu kompensieren.</li>
-                <li><strong>Bankett und Großveranstaltungen:</strong> Es gelten gestaffelte Stornierungsgebühren je nach Zeitraum des Einreichens der Rücktrittserklärung (z.B. bis 60 Tage vorab kostenfrei). Details hierzu entnehmen Sie bitte § 3.3 unserer AGB.</li>
+                <li><span className="font-bold">Reguläre Reservierungen (bis zu 7 Personen):</span> Kostenfrei stornierbar, jedoch bitten wir um eine faire Absage so früh wie möglich, im Idealfall mindestens 12 bis 24 Stunden vor dem Termin.</li>
+                <li><span className="font-bold">Gruppen ab 8 Personen:</span> Eine vollumfänglich kostenfreie Stornierung der Gruppe ist bis exakt 48 Stunden vor dem Termin möglich. Bei späteren Absagen behalten wir uns gemäß AGB eine No-Show-Gebühr in Höhe von 35,00 € pro nicht erschiener Person vor, um vorbereitete Speisen und geblocktes Personal zu kompensieren.</li>
+                <li><span className="font-bold">Bankett und Großveranstaltungen:</span> Es gelten gestaffelte Stornierungsgebühren je nach Zeitraum des Einreichens der Rücktrittserklärung (z.B. bis 60 Tage vorab kostenfrei). Details hierzu entnehmen Sie bitte § 3.3 unserer AGB.</li>
             </ul>
 
             <h2>4. Ausnahmeregelung: Terminumgebundene Gutscheine</h2>
             <p>
-                Eine rechtliche Ausnahme bilden <strong>Gutscheine, die keinen fest fixierten Termin tragen (Wertgutscheine)</strong>, sofern diese ausschließlich im Fernabsatz (z.B. über einen Webshop) vom Verbraucher erworben werden. Für solche Online-Wertgutscheinkäufe würde zwingend ein 14-tägiges Verbraucher-Widerrufsrecht gelten.
+                Eine rechtliche Ausnahme bilden <span className="font-bold">Gutscheine, die keinen fest fixierten Termin tragen (Wertgutscheine)</span>, sofern diese ausschließlich im Fernabsatz (z.B. über einen Webshop) vom Verbraucher erworben werden. Für solche Online-Wertgutscheinkäufe würde zwingend ein 14-tägiges Verbraucher-Widerrufsrecht gelten.
             </p>
             <p>
-                <strong>Hinweis zur Gutschein-Situation der Lindener Ratsstuben:</strong><br/>
-                Wir bieten zum aktuellen Zeitpunkt <strong>keinen</strong> postialischen oder elektronischen Fernabsatz von Gutscheinen über unsere Internetseite an. Weder über einen eigenen Webshop noch über Drittanbieter. Wertgutscheine sind ausnahmslos nur über den direkten physischen Kauf in unseren Geschäftsräumen (Lokal vor Ort) erwerblich. Für derartige <i>klassische Ladenkäufe (Face-to-Face)</i> existiert im deutschen Recht grundsätzlich kein 14-tägiges gesetzliches Widerrufs- oder Rückgaberecht. Rücknahme und Barauszahlung von vor Ort erworbenen Gutscheinen sind entsprechend ausgeschlossen.
+                <span className="font-bold">Hinweis zur Gutschein-Situation der Lindener Ratsstuben:</span><br/>
+                Wir bieten zum aktuellen Zeitpunkt <span className="font-bold">keinen</span> postialischen oder elektronischen Fernabsatz von Gutscheinen über unsere Internetseite an. Weder über einen eigenen Webshop noch über Drittanbieter. Wertgutscheine sind ausnahmslos nur über den direkten physischen Kauf in unseren Geschäftsräumen (Lokal vor Ort) erwerblich. Für derartige <i>klassische Ladenkäufe (Face-to-Face)</i> existiert im deutschen Recht grundsätzlich kein 14-tägiges gesetzliches Widerrufs- oder Rückgaberecht. Rücknahme und Barauszahlung von vor Ort erworbenen Gutscheinen sind entsprechend ausgeschlossen.
             </p>
 
             <h2>5. Verfahren bei Kulanz-Stornierungen</h2>
@@ -70,7 +70,7 @@ export default async function WiderrufPage({ params }: { params: Promise<{ local
                 Wenn Sie von unseren Kulanz-Rücktrittsrechten (AGB) Gebrauch machen möchten, so richten Sie Ihre Absage in Form einer eindeutigen Erklärung (ideal telefonisch, optional per E-Mail) bitte direkt an:
             </p>
             <div className="bg-surface p-6 rounded-lg border border-border mt-4">
-                <strong>{companyData.companyName}</strong><br />
+                <span className="font-bold">{companyData.companyName}</span><br />
                 {companyData.address.street}<br />
                 {companyData.address.zip} {companyData.address.city}<br />
                 Telefon: {companyData.phone}<br />
