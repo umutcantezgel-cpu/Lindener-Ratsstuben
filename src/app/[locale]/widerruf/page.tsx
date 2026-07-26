@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { getTranslations } from '@/lib/i18n/get-translations';
 import { LocaleType } from '@/lib/locales';
 import { getAlternates } from '@/lib/seo/metadata';
+import { LocaleLink } from '@/components/ui/LocaleLink';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: LocaleType }> }): Promise<Metadata> {
     const { locale } = await params;
