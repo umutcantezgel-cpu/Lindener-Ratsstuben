@@ -25,7 +25,7 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
         <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale} pageKey="cookies">
             <h2>Präambel zur &quot;Strict Opt-In&quot; Richtlinie</h2>
             <p>
-                Diese Cookie-Richtlinie informiert Sie detailliert über die Art, den Umfang und die Zwecke der Verarbeitung von Cookies und lokal gespeicherten Daten (Local Storage) auf der Webseite der {companyData.companyName} (auch bekannt als Lindener Ratsstube).
+                Diese Cookie-Richtlinie informiert Sie detailliert über die Art, den Umfang und die Zwecke der Verarbeitung von Cookies und lokal gespeicherten Daten (Local Storage) auf der Webseite der {companyData.companyName} (auch bekannt als Lindener Ratsstube). <span className="sr-only">lindener Ratsstube</span>
             </p>
             <p>
                 Wir verwenden eine <span className="font-bold">&quot;Strict Opt-In Zero-Script Policy&quot;</span>. Das bedeutet: Mit Ausnahme von rein technisch notwendigen (essenziellen) System-Cookies werden absolut <span>keine Drittanbieter-Scripte, keine externen Tracker und keine Marketing-Cookies</span> in Ihren Browser geladen, bevor Sie nicht explizit in unserem Consent-Banner auf &quot;Alle Akzeptieren&quot; oder &quot;Auswahl Speichern&quot; geklickt haben.

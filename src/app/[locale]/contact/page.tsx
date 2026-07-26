@@ -37,6 +37,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <JsonLd data={createContactPageSchema(t)} />
       <JsonLd data={createContactFaqSchema()} />
       <PageClient />
+      <span className="sr-only">Internationales Restaurant</span>
       <SeoContentBlock locale={locale} pageKey="contact" />
     </>
   );
