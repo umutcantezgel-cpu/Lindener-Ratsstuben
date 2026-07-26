@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 export default async function WiderrufPage({ params }: { params: Promise<{ locale: LocaleType }> }) {
     const { locale } = await params;
     const t = await getTranslations(locale as LocaleType, 'meta');
-    const title = locale === 'de' ? "Widerrufsbelehrung & Stornierungsbedingungen" : "Right of Withdrawal & Cancellation Policy";
+    const title = locale === 'de' ? "Widerrufsbelehrung & Stornierungsbedingungen der Lindener Ratsstuben" : "Right of Withdrawal & Cancellation Policy for Lindener Ratsstuben";
 
     return (
         <LegalPageLayout title={title} lastUpdated="April 2026" locale={locale} pageKey="widerruf">
@@ -30,7 +30,7 @@ export default async function WiderrufPage({ params }: { params: Promise<{ local
 
             <h2>1. Ausschluss des Widerrufsrechts gemäß § 312g Abs. 2 Nr. 9 BGB</h2>
             <p>
-                Ein gesetzliches Widerrufsrecht für Verbraucher besteht gemäß § 312g Abs. 2 Nr. 9 BGB ausdrücklich <span className="font-bold">nicht</span> bei Verträgen zur Erbringung von Dienstleistungen in den Bereichen Beherbergung zu anderen Zwecken als zu Wohnzwecken, Beförderung von Waren, Kraftfahrzeugvermietung, Lieferung von Speisen und Getränken sowie zur Erbringung weiterer Dienstleistungen im Zusammenhang mit Freizeitbetätigungen, <span className="font-bold">wenn der Vertrag für die Erbringung einen spezifischen Termin oder Zeitraum vorsieht.</span>
+                Ein gesetzliches Widerrufsrecht für Verbraucher besteht gemäß § 312g Abs. 2 Nr. 9 BGB ausdrücklich <span className="font-bold">nicht</span> bei Verträgen zur Erbringung von Dienstleistungen in den Bereichen Beherbergung zu anderen Zwecken als zu Wohnzwecken, Beförderung von Waren, Kraftfahrzeugvermietung, Lieferung von Speisen und Getränken sowie zur Erbringung weiterer Dienstleistungen im Zusammenhang mit Freizeitbetätigungen, <span>wenn der Vertrag für die Erbringung einen spezifischen Termin oder Zeitraum vorsieht.</span>
             </p>
             <p>
                 <span className="font-bold">Bedeutung für Ihre Buchungen:</span>
@@ -58,7 +58,7 @@ export default async function WiderrufPage({ params }: { params: Promise<{ local
 
             <h2>4. Ausnahmeregelung: Terminumgebundene Gutscheine</h2>
             <p>
-                Eine rechtliche Ausnahme bilden <span className="font-bold">Gutscheine, die keinen fest fixierten Termin tragen (Wertgutscheine)</span>, sofern diese ausschließlich im Fernabsatz (z.B. über einen Webshop) vom Verbraucher erworben werden. Für solche Online-Wertgutscheinkäufe würde zwingend ein 14-tägiges Verbraucher-Widerrufsrecht gelten.
+                Eine rechtliche Ausnahme bilden <span>Gutscheine, die keinen fest fixierten Termin tragen (Wertgutscheine)</span>, sofern diese ausschließlich im Fernabsatz (z.B. über einen Webshop) vom Verbraucher erworben werden. Für solche Online-Wertgutscheinkäufe würde zwingend ein 14-tägiges Verbraucher-Widerrufsrecht gelten.
             </p>
             <p>
                 <span className="font-bold">Hinweis zur Gutschein-Situation der Lindener Ratsstuben:</span><br/>
