@@ -207,7 +207,7 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
             )}
 
             {/* Category Header Image */}
-            {categoryImageMap[activeCategory] && (
+            {categoryImageMap[activeCategory] && currentCategoryObj?.label && (
                 <div className="mb-12 relative w-full h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-sm border border-border">
                     <AdaptiveImage 
                         src={categoryImageMap[activeCategory]}
@@ -288,7 +288,7 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
             </div>
 
             {/* Menu Grid */}
-            <h2 className="sr-only">{translations.dishesHeading}</h2>
+            {translations.dishesHeading && <h2 className="sr-only">{translations.dishesHeading}</h2>}
             <StaggerContainer as="ul" role="list" key={activeCategory} className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 xl:gap-x-16 gap-y-6 m-0 p-0 list-none">
                 {filteredItems.length > 0 ? (
                     filteredItems.map((item, idx) => {
@@ -355,7 +355,7 @@ export const MenuInteractive = ({ categories, menuItems, translations }: MenuInt
 
             {/* Allergen & Additive Legend */}
             <div className="mt-16 max-w-4xl mx-auto">
-                <h2 className="sr-only">{translations.legendHeading}</h2>
+                {translations.legendHeading && <h2 className="sr-only">{translations.legendHeading}</h2>}
                 <button
                     onClick={() => setShowLegend(!showLegend)}
                     aria-expanded={showLegend}

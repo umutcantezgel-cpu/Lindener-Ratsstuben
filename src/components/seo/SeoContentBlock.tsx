@@ -41,9 +41,7 @@ export async function SeoContentBlock({ locale, pageKey }: { locale: string, pag
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <details className="group">
-                    <summary className="cursor-pointer text-center text-accent/80 hover:text-accent font-medium mb-4 list-none flex flex-col items-center gap-2"><span>Mehr über unser Restaurant lesen ⌄</span></summary>
-                    <div className="max-w-6xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     {parsed.fallback ? (
                         /* Fallback if no h2/h3 tags are found */
                         <div className="relative p-8 md:p-12 lg:p-16 rounded-3xl bg-surface/40 backdrop-blur-xl border border-border/40 shadow-2xl">
@@ -90,8 +88,7 @@ export async function SeoContentBlock({ locale, pageKey }: { locale: string, pag
                             )}
                         </div>
                     )}
-                    </div>
-                </details>
+                </div>
             </div>
         </section>
     );
