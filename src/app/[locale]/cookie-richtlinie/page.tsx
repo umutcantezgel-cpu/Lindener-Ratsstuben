@@ -55,7 +55,7 @@ const CookieRichtlinie = async ({ params }: { params: Promise<{ locale: LocaleTy
                                 für spätere Besuche zu speichern.
                             </p>
                             <p>
-                                Neben klassischen Cookies verwendet diese Website auch den <strong>localStorage</strong> —
+                                Neben klassischen Cookies verwendet diese Website auch den localStorage —
                                 eine moderne Browser-Speichertechnologie, die ähnlich wie Cookies funktioniert, aber Daten
                                 ausschließlich lokal auf Ihrem Gerät speichert und nicht automatisch an Server übertragen wird.
                             </p>
@@ -65,7 +65,7 @@ const CookieRichtlinie = async ({ params }: { params: Promise<{ locale: LocaleTy
                         <section>
                             <h2 className="text-2xl font-bold text-text-main mt-8 mb-4">Eingesetzte Speichertechnologien</h2>
                             <p>
-                                Diese Website setzt <strong>ausschließlich technisch notwendige Speichertechnologien</strong> ein.
+                                Diese Website setzt ausschließlich technisch notwendige Speichertechnologien ein.
                                 Wir verwenden <strong>keine</strong> Marketing-, Analyse-, Tracking- oder Werbe-Cookies.
                             </p>
 

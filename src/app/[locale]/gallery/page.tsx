@@ -39,6 +39,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   return (
     <>
       <h1 className="sr-only">{tMeta('gallery.title', 'Galerie')}</h1>
+      <span className="sr-only">{tMeta('gallery.title', 'Galerie')}</span>
       <JsonLd data={gallerySchema} />
       <PageClient />
       <SeoContentBlock locale={locale} pageKey="gallery" />

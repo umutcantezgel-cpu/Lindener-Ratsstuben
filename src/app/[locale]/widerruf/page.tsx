@@ -29,14 +29,21 @@ export default async function WiderrufPage({ params }: { params: Promise<{ local
 
             <h2>1. Ausschluss des Widerrufsrechts gemäß § 312g Abs. 2 Nr. 9 BGB</h2>
             <p>
-                Ein gesetzliches Widerrufsrecht für Verbraucher besteht gemäß § 312g Abs. 2 Nr. 9 BGB ausdrücklich <span className="font-bold">nicht</span> bei Verträgen zur Erbringung von Dienstleistungen in den Bereichen Beherbergung zu anderen Zwecken als zu Wohnzwecken, Beförderung von Waren, Kraftfahrzeugvermietung, Lieferung von Speisen und Getränken sowie zur Erbringung weiterer Dienstleistungen im Zusammenhang mit Freizeitbetätigungen, <span>wenn der Vertrag für die Erbringung einen spezifischen Termin oder Zeitraum vorsieht.</span>
+                Ein gesetzliches Widerrufsrecht für Verbraucher besteht gemäß § 312g Abs. 2 Nr. 9 BGB ausdrücklich nicht bei Verträgen zur Erbringung von Dienstleistungen in den Bereichen Beherbergung zu anderen Zwecken als zu Wohnzwecken, Beförderung von Waren, Kraftfahrzeugvermietung, Lieferung von Speisen und Getränken sowie zur Erbringung weiterer Dienstleistungen im Zusammenhang mit Freizeitbetätigungen, wenn der Vertrag für die Erbringung einen spezifischen Termin oder Zeitraum vorsieht.
+            </p>
+
+            <h3>Tischreservierungen à la carte (Normale Reservierungen):</h3>
+            <p>
+                Tischreservierungen können grundsätzlich jederzeit kostenfrei telefonisch oder per E-Mail storniert werden. Wir bitten jedoch aus Fairnessgründen um eine Absage spätestens 24 Stunden vor dem reservierten Termin. Bei Nichterscheinen (No-Show) ohne vorherige Absage behalten wir uns vor, für künftige Reservierungen eine Vorauszahlung zu verlangen. 
+                Bitte beachten Sie hierzu auch unsere <LocaleLink href="/agb" className="text-primary hover:text-primary-hover underline">AGB</LocaleLink> bezüglich möglicher Ausfallgebühren bei größeren Gruppen.
+            </p>
+
+            <h3>Veranstaltungen (Hochzeiten, Geburtstage, Firmenfeiern):</h3>
+            <p>
+                Für die Ausrichtung von Veranstaltungen mit vorbestellten Speisen, Buffets oder Menüs gelten gesonderte Stornierungsbedingungen, da hierfür im Vorfeld Wareneinkäufe und Personalplanungen getätigt werden. 
             </p>
             <p>
-                <span className="font-bold">Bedeutung für Ihre Buchungen:</span>
-                <ul>
-                    <li><span className="font-bold">Tischreservierungen:</span> Wenn Sie bei uns – egal ob telefonisch, per E-Mail oder über unser Online-Buchungsformular – einen Tisch zu einem konkreten Datum und einer konkreten Uhrzeit reservieren, schließen Sie ein Termingeschäft ab. Es gibt hierfür kein vierzehntägiges Widerrufsrecht.</li>
-                    <li><span className="font-bold">Veranstaltungen (Hochzeiten, Geburtstage, Firmenfeiern):</span> Auch bei der verbindlichen Buchung unserer Räumlichkeiten und Catering-Leistungen (Speisen und Getränke) für ein festgelegtes Datum greift § 312g Abs. 2 Nr. 9 BGB. Ein Widerruf nach Vertragsabschluss ist ausgeschlossen.</li>
-                </ul>
+                Die wesentlichen Kulanz-Stornierungsfristen lauten wie folgt:
             </p>
 
             <h2>2. Keine Anwendung des Fernabsatzgesetzes auf reguläre Reservierungen</h2>

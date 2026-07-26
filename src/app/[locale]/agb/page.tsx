@@ -36,16 +36,14 @@ export default async function AGBPage({ params }: { params: Promise<{ locale: st
 
             <h2>2. Tischreservierungen und Stornierungsbedingungen</h2>
             <p>
-                2.1 <span className="font-bold">Vertragsschluss:</span> Eine Tischreservierung stellt rechtlich ein bindendes Angebot des Gastes auf Abschluss eines Bewirtungsvertrages dar. Der Vertrag kommt mit der verbindlichen Zusage (Bestätigung durch das Restaurant, sei es mündlich, telefonisch, schriftlich oder in elektronischer Form über das Online-Reservierungssystem) zustande.
+                Reservierungen über unsere Website (Formular) sind unverbindliche Anfragen. Ein verbindlicher Vertrag (Tischreservierung) kommt erst durch unsere ausdrückliche, schriftliche oder telefonische Bestätigung zustande. Bei der Reservierung für größere Gruppen behalten wir uns vor, eine Vorab-Menüabsprache oder eine Anzahlung zu verlangen.
             </p>
+            <h3>No-Show-Gebühr und Stornierung bei Kleingruppen (bis zu 7 Personen):</h3>
             <p>
-                2.2 <span className="font-bold">Pünktlichkeit und Freigabe:</span> Der Gast ist verpflichtet, pünktlich zur reservierten Uhrzeit zu erscheinen. Bei einer Verspätung von mehr als 15 Minuten ohne vorherige telefonische Benachrichtigung behält sich das Restaurant ausdrücklich das Recht vor, den Tisch anderweitig zu vergeben, ohne dass dem Gast hieraus Ersatzansprüche erwachsen.
+                Wir bitten Sie, Reservierungen, die Sie nicht wahrnehmen können, mindestens 24 Stunden im Voraus abzusagen. Erfolgt keine Absage und die Gesellschaft erscheint nicht (No-Show), behalten wir uns das Recht vor, pro nicht erschienener Person eine Ausfallgebühr in Höhe von 20,00 € in Rechnung zu stellen, sofern der Tisch nicht anderweitig vergeben werden konnte.
             </p>
-            <p>
-                2.3 <span className="font-bold">No-Show-Gebühr und Stornierung bei Kleingruppen (bis zu 7 Personen):</span> Bei Reservierungen von bis zu 7 Personen bitten wir um eine faire Absage, falls der Termin nicht wahrgenommen werden kann. Eine Stornierung ist in diesen Fällen kostenfrei.
-            </p>
-            <p>
-                2.4 <span className="font-bold">No-Show-Gebühr und Stornierung bei Gruppen (ab 8 Personen):</span> Für Gesellschaften ab 8 Personen gilt verbindlich:
+            <h3>No-Show-Gebühr und Stornierung bei Gruppen (ab 8 Personen):</h3>
+            <p>Für Gesellschaften ab 8 Personen gilt verbindlich:
                 <ul>
                     <li>Eine kostenfreie Stornierung der gesamten Reservierung ist bis zu 48 Stunden vor dem vereinbarten Reservierungszeitpunkt möglich.</li>
                     <li>Änderungen der genauen Personenanzahl (Reduzierung) müssen spätestens 24 Stunden vor dem Termin mitgeteilt werden.</li>

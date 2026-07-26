@@ -181,6 +181,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   return (
     <>
       <h1 className="sr-only">{tMeta('menu.title', 'Speisekarte')}</h1>
+      <span className="sr-only">{tMeta('menu.title', 'Speisekarte')}</span>
       <JsonLd data={createMenuPageSchema()} />
       <JsonLd data={createMenuFaqSchema()} />
       <Suspense fallback={<MenuSkeleton />}>
