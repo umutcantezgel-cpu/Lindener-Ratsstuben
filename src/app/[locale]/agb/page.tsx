@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     return {
         title: t('agb.title', 'AGB | Lindener Ratsstuben'),
         description: t('agb.description'),
-        alternates: getAlternates(locale, 'agb'),
-        robots: ['de', 'en'].includes(locale) ? 'index, follow' : 'noindex, follow',
+        alternates: getAlternates('de', 'agb'),
+        robots: locale === 'de' ? 'index, follow' : 'noindex, follow',
     };
 }
 

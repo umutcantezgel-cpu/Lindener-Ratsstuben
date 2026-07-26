@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     return {
         title: t('impressum.title', 'Impressum | Lindener Ratsstuben'),
         description: t('impressum.description'),
-        alternates: getAlternates(locale, 'impressum'),
-        robots: ['de', 'en'].includes(locale) ? 'index, follow' : 'noindex, follow',
+        alternates: getAlternates('de', 'impressum'),
+        robots: locale === 'de' ? 'index, follow' : 'noindex, follow',
     };
 }
 
@@ -60,7 +60,7 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
 
             <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
             <p>
-                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie unter folgendem Link finden: <a href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=DE" target="_blank" rel="noopener noreferrer">Online-Streitbeilegungsplattform der EU</a>.<br />
+                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie unter folgendem Link finden: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">Online-Streitbeilegungsplattform der EU</a>.<br />
                 Unsere E-Mail-Adresse lautet: {companyData.email}
             </p>
             <p>

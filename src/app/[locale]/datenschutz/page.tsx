@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     return {
         title: t('datenschutz.title', 'Datenschutz | Lindener Ratsstuben'),
         description: t('datenschutz.description'),
-        alternates: getAlternates(locale, 'datenschutz'),
-        robots: ['de', 'en'].includes(locale) ? 'index, follow' : 'noindex, follow',
+        alternates: getAlternates('de', 'datenschutz'),
+        robots: locale === 'de' ? 'index, follow' : 'noindex, follow',
     };
 }
 
@@ -29,19 +29,19 @@ export default async function DatenschutzPage({ params }: { params: Promise<{ lo
                 Die folgenden Hinweise geben einen detaillierten Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen, mit uns kommunizieren oder unsere Dienste als Restaurantgast in Anspruch nehmen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Wir behandeln Ihre Daten stets vertraulich und nach den aktuellsten Vorschriften der europäischen Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG).
             </p>
             <h3>Datenerfassung auf dieser Website</h3>
-            <h4>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</h4>
+            <h3 className="text-xl font-bold text-text-main mt-6 mb-3">Wer ist verantwortlich für die Datenerfassung auf dieser Website?</h3>
             <p>
                 Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle“ in dieser Datenschutzerklärung entnehmen.
             </p>
-            <h4>Wie erfassen wir Ihre Daten?</h4>
+            <h3 className="text-xl font-bold text-text-main mt-6 mb-3">Wie erfassen wir Ihre Daten?</h3>
             <p>
                 Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese aktiv mitteilen. Hierbei kann es sich z.B. um Daten handeln, die Sie in unser Online-Reservierungssystem oder in ein Kontaktformular eingeben. Zum anderen werden Daten automatisch oder nach Ihrer expliziten Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. IP-Adresse, genutzter Internetbrowser, Betriebssystem, Referrer-URL oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser technischen Daten erfolgt automatisch, sobald Sie diese Website betreten.
             </p>
-            <h4>Wofür nutzen wir Ihre Daten?</h4>
+            <h3 className="text-xl font-bold text-text-main mt-6 mb-3">Wofür nutzen wir Ihre Daten?</h3>
             <p>
                 Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten (Technisch notwendige Verarbeitung). Andere Daten werden verwendet, um unsere Reservierungen softwarebasiert rechtssicher dokumentieren zu können. Wenn Sie uns eine explizite Einwilligung erteilt haben (Cookie Consent), können zudem pseudonymisierte Nutzungsdaten zu Statistikzwecken verwendet werden, um unser digitales Angebot für Sie zu optimieren.
             </p>
-            <h4>Welche Rechte haben Sie bezüglich Ihrer Daten?</h4>
+            <h3 className="text-xl font-bold text-text-main mt-6 mb-3">Welche Rechte haben Sie bezüglich Ihrer Daten?</h3>
             <p>
                 Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.
             </p>

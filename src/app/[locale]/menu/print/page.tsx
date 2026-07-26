@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 export default function PrintMenuPage() {
   return (
     <div className="print-root">
+      <h1 className="sr-only">Speisekarte Druckversion | Lindener Ratsstuben</h1>
       <PrintLayoutClient />
       
       <MenuCover />

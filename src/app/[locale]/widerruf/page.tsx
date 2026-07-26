@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     return {
         title: t('widerruf.title', 'Widerruf | Lindener Ratsstuben'),
         description: t('widerruf.description'),
-        alternates: getAlternates(locale, 'widerruf'),
-        robots: ['de', 'en'].includes(locale) ? 'index, follow' : 'noindex, follow',
+        alternates: getAlternates('de', 'widerruf'),
+        robots: locale === 'de' ? 'index, follow' : 'noindex, follow',
     };
 }
 

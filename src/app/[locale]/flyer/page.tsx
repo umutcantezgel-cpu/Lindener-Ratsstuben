@@ -106,6 +106,7 @@ function FlyerCategory({ id, isDrink = false, shortTitle, excludeIds = [], itemI
 export default function Flyer8Page() {
   return (
     <div className="flyer-root">
+      <h1 className="sr-only">Flyer & Speisekarte | Lindener Ratsstuben</h1>
       <FlyerLayoutClient />
       
       {/* =========================================

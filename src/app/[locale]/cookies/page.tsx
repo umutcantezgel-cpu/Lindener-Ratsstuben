@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     return {
         title: t('cookies.title', 'Cookies | Lindener Ratsstuben'),
         description: t('cookies.description'),
-        alternates: getAlternates(locale, 'cookies'),
-        robots: ['de', 'en'].includes(locale) ? 'index, follow' : 'noindex, follow',
+        alternates: getAlternates('de', 'cookies'),
+        robots: locale === 'de' ? 'index, follow' : 'noindex, follow',
     };
 }
 
