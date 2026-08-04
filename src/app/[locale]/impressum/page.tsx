@@ -90,9 +90,11 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
             <p>
                 Darstellung dieser Website in fremden Frames ist nur mit schriftlicher Erlaubnis zulässig. Soweit die Inhalte auf dieser Seite nicht vom Betreiber selbst erstellt wurden, werden die Urheberrechte Dritter konsequent beachtet und in der Regel auch als solche gekennzeichnet (z.B. Stock-Fotografien oder fremde Bibliotheken). Sollten Sie trotzdem auf eine vermeintliche Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden formlosen Hinweis zur raschen Klärung. Bei Bekanntwerden von Rechtsverletzungen werden wir betroffene Inhalte umgehend entfernen.
             </p>
-            
             <p className="mt-8 text-sm text-text-muted">
                 Quelle: Rechtsgrundlagen auf Basis von <a href="https://www.e-recht24.de" target="_blank" rel="noopener noreferrer">e-recht24.de</a> sowie individuellen gastronomischen Anforderungen.
+            </p>
+            <p className="mt-4 text-sm text-text-muted">
+                Technische Konzeption durch <a href="https://codayweb.de" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline underline-offset-2">Coday Webdesign Wetzlar</a>.
             </p>
         </LegalPageLayout>
     );

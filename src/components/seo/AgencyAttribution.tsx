@@ -21,13 +21,8 @@ export const AgencyAttribution: React.FC = () => {
         setAnchorText(ANCHOR_TEXTS[index]);
     }, [pathname]);
 
-    // Dofollow only for Startseite (/, /de, /en) and Impressum (/impressum, /de/impressum)
-    const isHome = pathname === '/' || pathname === '/de' || pathname === '/en';
-    const isImpressum = pathname.includes('/impressum');
-    
-    const isDofollow = isHome || isImpressum;
-    // When rel does not contain "nofollow", it's naturally dofollow. We always include noopener noreferrer for external links.
-    const relProps = isDofollow ? "noopener noreferrer" : "noopener noreferrer nofollow";
+    // Universal Ultra Think Master Protokoll: Global Dofollow
+    const relProps = "noopener noreferrer";
 
     return (
         <p className="text-xs text-text-secondary/70 inline-flex flex-wrap items-center gap-1 justify-center lg:justify-start">
@@ -36,7 +31,7 @@ export const AgencyAttribution: React.FC = () => {
             </span>
             <span aria-hidden="true">Webdesign by</span>
             <a 
-                href="https://www.codayweb.de/" 
+                href="https://codayweb.de" 
                 target="_blank" 
                 rel={relProps} 
                 title="Zur Coday Web Agency - Premium Webdesign"
