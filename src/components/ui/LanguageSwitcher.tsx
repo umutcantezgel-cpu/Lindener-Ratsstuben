@@ -136,15 +136,15 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
               ? 'bottom-full mb-3 w-[calc(100vw-2rem)] max-w-[320px] left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-0 bg-primary-800 border border-primary-700/50'
               : isMobile
                 ? 'inset-x-0 mt-2 bg-black/20 border border-white/10 w-full text-white backdrop-blur-xl'
-                : 'top-full mt-2 bg-surface/98 border border-border backdrop-blur-xl w-80 end-0',
+                : 'top-full mt-2 bg-primary-800 border border-primary-700/50 w-80 end-0',
           )}
           role="listbox"
           aria-label={t('aria.available_languages') as string}
         >
           {/* Search */}
-          <div className={clsx("p-3 border-b", isFooter ? "border-white/15" : isMobile ? "border-white/10" : "border-border")}>
+          <div className={clsx("p-3 border-b", isMobile ? "border-white/10" : "border-white/15")}>
             <div className="relative">
-              <Search className={clsx("absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4", isFooter ? "text-white/50" : isMobile ? "text-white/50" : "text-text-tertiary")} />
+              <Search className={clsx("absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4", isMobile ? "text-white/50" : "text-white/50")} />
               <input
                 ref={searchRef}
                 type="text"
@@ -153,11 +153,7 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
                 placeholder={t('aria.search_placeholder') as string || 'Search...'}
                 className={clsx(
                   "w-full ps-9 pe-3 py-2.5 text-sm rounded-xl outline-none transition-colors",
-                  isFooter
-                    ? "bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-white/30 focus:bg-white/15"
-                    : isMobile 
-                      ? "bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-white/30 focus:bg-white/20"
-                      : "bg-bg-secondary text-text-primary placeholder-text-tertiary focus:ring-2 focus:ring-primary/30 focus:bg-surface"
+                  "bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-white/30 focus:bg-white/15"
                 )}
               />
             </div>
@@ -166,7 +162,7 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
           {/* Language List */}
           <div className="max-h-72 overflow-y-auto py-1 scrollbar-thin">
             {filteredLocales.length === 0 ? (
-              <div className={clsx("px-4 py-8 text-center text-sm", isFooter ? "text-white/50" : isMobile ? "text-white/50" : "text-text-tertiary")}>
+              <div className="px-4 py-8 text-center text-sm text-white/50">
                 {t('aria.no_results') as string || 'No results'}
               </div>
             ) : (
@@ -178,13 +174,9 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
                   onClick={() => switchLocale(locale)}
                   className={clsx(
                     'w-full text-start px-4 py-3 text-sm flex items-center gap-3 transition-colors group/item',
-                    isFooter
-                      ? (locale === currentLocale
-                          ? 'bg-white/20 text-white font-semibold'
-                          : 'text-white/80 hover:bg-white/10 hover:text-white')
-                      : locale === currentLocale
-                        ? (isMobile ? 'bg-white/20 text-white' : 'bg-primary/8 text-primary')
-                        : (isMobile ? 'text-white/80 hover:bg-white/10 hover:text-white' : 'text-text-secondary hover:bg-bg-secondary hover:text-primary')
+                    locale === currentLocale
+                      ? 'bg-white/20 text-white font-semibold'
+                      : 'text-white/80 hover:bg-white/10 hover:text-white'
                   )}
                 >
                   {/* Flag */}
@@ -195,18 +187,18 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
                   {/* Name */}
                   <div className="flex-1 min-w-0">
                     <div className="font-medium truncate">{LOCALE_NATIVE_NAMES[locale]}</div>
-                    <div className={clsx("text-xs truncate", isFooter ? "text-white/50" : isMobile ? "text-white/50" : "text-text-tertiary")}>
+                    <div className="text-xs truncate text-white/50">
                       {LOCALE_DISPLAY_NAMES[locale]}
                     </div>
                   </div>
 
                   {/* Active check + ISO code */}
                   <div className="flex items-center gap-2 flex-shrink-0">
-                    <span className={clsx("text-xs font-mono uppercase", isFooter ? "text-white/30" : isMobile ? "text-white/30" : "text-border")}>
+                    <span className="text-xs font-mono uppercase text-white/30">
                       {locale}
                     </span>
                     {locale === currentLocale && (
-                      <Check className={clsx("w-4 h-4", isFooter ? "text-white" : isMobile ? "text-white" : "text-primary")} />
+                      <Check className="w-4 h-4 text-white" />
                     )}
                   </div>
                 </button>
