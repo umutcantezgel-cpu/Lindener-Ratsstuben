@@ -135,16 +135,16 @@ export const LanguageSwitcher: React.FC<{ variant?: 'header' | 'footer' | 'mobil
             isFooter
               ? 'bottom-full mb-3 w-[calc(100vw-2rem)] max-w-[320px] left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-0 bg-primary-800 border border-primary-700/50'
               : isMobile
-                ? 'inset-x-0 mt-2 bg-black/20 border border-white/10 w-full text-white backdrop-blur-xl'
+                ? 'inset-x-0 mt-2 bg-primary-800 border border-primary-700/50 w-full'
                 : 'top-full mt-2 bg-primary-800 border border-primary-700/50 w-80 end-0',
           )}
           role="listbox"
           aria-label={t('aria.available_languages') as string}
         >
           {/* Search */}
-          <div className={clsx("p-3 border-b", isMobile ? "border-white/10" : "border-white/15")}>
+          <div className="p-3 border-b border-white/15">
             <div className="relative">
-              <Search className={clsx("absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4", isMobile ? "text-white/50" : "text-white/50")} />
+              <Search className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
               <input
                 ref={searchRef}
                 type="text"
