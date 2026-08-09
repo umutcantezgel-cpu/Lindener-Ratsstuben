@@ -25,7 +25,7 @@ const AboutClient = ({ faqData }: AboutClientProps) => {
 
     return (
         <PageTransition>
-            <article className="pt-24 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
+            <article className="pt-32 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
                 {/* Hero / Intro */}
                 <header className="container mx-auto px-4 mb-20">
                     <div className="max-w-4xl mx-auto text-center">

@@ -28,7 +28,7 @@ export const Contact = () => {
     return (
         <PageTransition>
             
-            <article className="pt-24 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
+            <article className="pt-32 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <p className="text-3xl md:text-4xl font-display font-bold text-white bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-4 shadow-warm inline-block w-full max-w-3xl">{t('contact.title') as string}</p>

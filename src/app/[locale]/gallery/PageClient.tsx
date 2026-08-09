@@ -49,7 +49,7 @@ export const Gallery = () => {
     return (
         <PageTransition>
             
-            <article className="pt-24 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
+            <article className="pt-32 pb-20 min-h-screen bg-bg-beige" itemProp="mainContentOfPage">
                 <div className="container mx-auto px-4">
                     <header className="text-center mb-12">
                         <p className="text-3xl md:text-4xl font-display font-bold text-text-primary bg-brand-header px-8 py-5 rounded-2xl uppercase tracking-widest mb-4 shadow-warm inline-block w-full max-w-3xl">{t('gallery.title') as string}</p>

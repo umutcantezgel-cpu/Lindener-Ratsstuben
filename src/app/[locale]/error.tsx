@@ -20,7 +20,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-bg-beige flex items-center justify-center">
+    <div className="pt-32 pb-20 min-h-screen bg-bg-beige flex items-center justify-center">
       <h1 className="sr-only">{t('error.generic_title') as string}</h1>
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">

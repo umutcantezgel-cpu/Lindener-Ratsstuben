@@ -8,7 +8,7 @@ import { useTranslation } from '@/lib/i18n/use-translation';
 export default function NotFound() {
   const { t } = useTranslation('pages');
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-bg-beige flex items-center justify-center">
+    <div className="pt-32 pb-20 min-h-screen bg-bg-beige flex items-center justify-center">
       <h1 className="sr-only">{t('notfound.title') as string}</h1>
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
